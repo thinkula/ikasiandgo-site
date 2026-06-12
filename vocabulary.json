@@ -62,8 +62,8 @@
       "pronunciation": "es-KER-ik AS-ko",
       "notes": "Eskerrik asko = many thanks. Esker = thanks + -rik (partitive suffix) + asko = much/many. The partitive -rik expresses an indefinite quantity of thanks. A beautiful construction: indefinitely many thanks.",
       "example": {
-        "basque": "Eskerrik asko!",
-        "english": "Thank you!"
+        "basque": "Eskerrik asko laguntzeagatik.",
+        "english": "Thank you for helping."
       }
     },
     {
@@ -127,8 +127,8 @@
       "pronunciation": "EH-goon ON",
       "notes": "Egun on literally means good day. Egun = day (same root as eguna). Used until around noon.",
       "example": {
-        "basque": "Egun on!",
-        "english": "Good morning!"
+        "basque": "Egun on, zer moduz zaude?",
+        "english": "Good morning, how are you?"
       }
     },
     {
@@ -151,7 +151,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "GAU ON",
-      "notes": "Gau on = good evening (used as a greeting when arriving somewhere in the evening). Different from Gabon which is said when parting at night. Gau ona = good night (wishing someone a good night's sleep).",
+      "notes": "Good evening. Gau (night) + on (good). Used when meeting someone in the evening, before the night begins. Gabon means good night (when parting for sleep) and also Christmas. Gau on is unambiguous for good evening.",
       "example": {
         "basque": "Gau on denoi.",
         "english": "Good evening everyone."
@@ -397,7 +397,7 @@
       "english": "Seven",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "THATH-pee",
+      "pronunciation": "ZAZ-pee",
       "notes": "Zazpi - the double z is pronounced like English th (voiced). Practice: THATH-pee.",
       "example": {
         "basque": "Zazpi egun.",
@@ -722,7 +722,7 @@
       "english": "Orange",
       "cefr": "A1",
       "topic": "colors",
-      "pronunciation": "lah-RAN-hah",
+      "pronunciation": "lah-RAN-yah",
       "notes": "Same word as the fruit. Laranja comes from Arabic naranj via Spanish naranja.",
       "example": {
         "basque": "Laranjak fruta goxoak dira.",
@@ -935,19 +935,6 @@
       "example": {
         "basque": "Oina min dut.",
         "english": "My foot hurts."
-      }
-    },
-    {
-      "id": "begiak",
-      "basque": "Begiak",
-      "english": "Eyes",
-      "cefr": "A1",
-      "topic": "body",
-      "pronunciation": "BEH-ghee-ak",
-      "notes": "Begiak = eyes (plural). Begi = eye (root). Begiratu = to look/watch. Begi onez ikusi = to look favourably on. Begikoa = attractive.",
-      "example": {
-        "basque": "Begiak urdinak dira.",
-        "english": "The eyes are blue."
       }
     },
     {
@@ -1293,7 +1280,7 @@
       "basque": "Eskola",
       "english": "School",
       "cefr": "A1",
-      "topic": "work",
+      "topic": "society",
       "pronunciation": "es-KOH-lah",
       "notes": "Eskola comes from Greek via Latin schola. Ikastola is the Basque-language school - a key institution in language revival.",
       "example": {
@@ -1306,7 +1293,7 @@
       "basque": "Liburua",
       "english": "Book",
       "cefr": "A1",
-      "topic": "work",
+      "topic": "culture",
       "pronunciation": "lee-BOO-roo-ah",
       "notes": "Liburua comes from Latin liber. Liburutegia = library (literally book-place). Books are central to Basque cultural identity.",
       "example": {
@@ -1319,7 +1306,7 @@
       "basque": "Unibertsitatea",
       "english": "University",
       "cefr": "A1",
-      "topic": "work",
+      "topic": "society",
       "pronunciation": "oo-nee-ber-tsee-TAH-teh-ah",
       "notes": "Unibertsitatea = university. The University of the Basque Country (UPV/EHU) has over 45,000 students and teaches in both Basque and Spanish.",
       "example": {
@@ -2331,32 +2318,6 @@
       }
     },
     {
-      "id": "marroina",
-      "basque": "Marroina",
-      "english": "Brown",
-      "cefr": "A2",
-      "topic": "colors",
-      "pronunciation": "mar-ROY-nah",
-      "notes": "Marroina = brown. From Spanish marrón. The traditional Basque word is kastainu (chestnut-colored). Used for hair, earth, and wood.",
-      "example": {
-        "basque": "Lurra marroina da.",
-        "english": "The earth is brown."
-      }
-    },
-    {
-      "id": "grisa",
-      "basque": "Grisa",
-      "english": "Grey",
-      "cefr": "A2",
-      "topic": "colors",
-      "pronunciation": "GREE-sah",
-      "notes": "Grisa = grey. From French gris. Basque Country skies are often grisa - the region averages 150+ rainy days per year!",
-      "example": {
-        "basque": "Zerua grisa da.",
-        "english": "The sky is grey."
-      }
-    },
-    {
       "id": "zakurra",
       "basque": "Zakurra",
       "english": "Dog",
@@ -3076,14 +3037,14 @@
     {
       "id": "epea",
       "basque": "Epea",
-      "english": "Deadline / Period",
+      "english": "Period / Timeframe",
       "cefr": "B2",
       "topic": "time",
       "pronunciation": "EH-peh-ah",
-      "notes": "Epea = deadline or period. Epe = period (root). Epemuga = deadline (period-limit). Epe laburrean = in the short term. Very common in work contexts.",
+      "notes": "Period or timeframe. Epe = period (root). Epe laburrean = in the short term. Epe luzera = long-term. Epe batean = within a period. Broader than muga-epea which is a specific deadline.",
       "example": {
-        "basque": "Epea luzea da.",
-        "english": "The deadline is long."
+        "basque": "Epe laburrean konponduko da.",
+        "english": "It will be resolved in the short term."
       }
     },
     {
@@ -3117,7 +3078,7 @@
       "basque": "Mintzatu",
       "english": "To speak / To talk",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "min-TSAH-too",
       "notes": "Mintzatu and hitz egin both mean to speak, but mintzatu is more formal/literary. Hitz egin is everyday speech.",
       "example": {
@@ -3130,7 +3091,7 @@
       "basque": "Ulertu",
       "english": "To understand",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "oo-LER-too",
       "notes": "Ulertu = to understand. Ulertzen dut = I understand. Ulertu al duzu? = Did you understand? Ulertzeko erraza = easy to understand. Ulerterraz = comprehensible. Ulertezina = incomprehensible.",
       "example": {
@@ -3143,7 +3104,7 @@
       "basque": "Ikasi",
       "english": "To learn / To study",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "culture",
       "pronunciation": "ee-KAH-see",
       "notes": "Ikasi = to learn or study. Ikasten ari naiz = I am studying. Ikasle = student (one who learns). Ikasketa = study/studies. Ikasgela = classroom (study room). Ikastola = Basque-medium school. This app is named Ikasi & Go!",
       "example": {
@@ -3156,7 +3117,7 @@
       "basque": "Lagundu",
       "english": "To help",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "lah-GOON-doo",
       "notes": "Lagundu = to help or accompany. Laguna = friend (root). So to befriend someone is to help them. Lagunduko dizut = I will help you.",
       "example": {
@@ -3169,7 +3130,7 @@
       "basque": "Aukeratu",
       "english": "To choose / To select",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "society",
       "pronunciation": "au-keh-RAH-too",
       "notes": "Aukeratu = to choose. Aukera = option/opportunity (root). Aukeratze = choosing. Zein aukeratzen duzu? = Which do you choose?",
       "example": {
@@ -3182,7 +3143,7 @@
       "basque": "Aldatu",
       "english": "To change",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "adjectives",
       "pronunciation": "al-DAH-too",
       "notes": "Aldatu = to change. Aldaketa = change (noun). Aldakorra = changeable. Dena aldatu da = everything has changed. Very common verb.",
       "example": {
@@ -3195,7 +3156,7 @@
       "basque": "Jarraitu",
       "english": "To continue / To follow",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "travel",
       "pronunciation": "yar-RAI-too",
       "notes": "Jarraitu = to continue or follow. Jarraipen = continuation. Jarraikia = follower. Jarraitu ezazu = please continue. Also used for following someone.",
       "example": {
@@ -3221,7 +3182,7 @@
       "basque": "Pentsatu",
       "english": "To think",
       "cefr": "B1",
-      "topic": "emotions",
+      "topic": "greetings",
       "pronunciation": "pen-TSAH-too",
       "notes": "Pentsatu = to think. Pentsamendu = thought/idea. Pentsalari = thinker/philosopher. Zer pentsatzen duzu? = What do you think?",
       "example": {
@@ -3247,7 +3208,7 @@
       "basque": "Lortu",
       "english": "To achieve / To get",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "society",
       "pronunciation": "LOR-too",
       "notes": "Lortu = to achieve or get. Lortu dut! = I did it! / I got it! Lortu ezin = cannot be achieved. Lorpen = achievement. Very satisfying word to use.",
       "example": {
@@ -3260,7 +3221,7 @@
       "basque": "Eman",
       "english": "To give",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "EH-man",
       "notes": "Eman = to give. Eman iezadazu = give it to me. Esku eman = to shake hands (give hand). Adore eman = to encourage (give courage). Beldurra eman = to frighten (give fear). One of the most idiomatic Basque verbs.",
       "example": {
@@ -3273,7 +3234,7 @@
       "basque": "Hartu",
       "english": "To take / To receive",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "HAR-too",
       "notes": "Hartu = to take or receive. Hartzaile = receiver. Harrera = reception/welcome. Hartu-eman = give and take. One of the most common Basque verbs.",
       "example": {
@@ -3325,7 +3286,7 @@
       "basque": "Esan",
       "english": "To say / To tell",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "EH-san",
       "notes": "Esan vs mintzatu: esan = to say something specific (esan dit = he told me), mintzatu = to speak in general.",
       "example": {
@@ -3338,7 +3299,7 @@
       "basque": "Jakin",
       "english": "To know",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "YAH-keen",
       "notes": "Jakin = to know. Jakintsu = wise/knowledgeable. Jakinduria = wisdom/knowledge. Ez dakit = I do not know. Jakinarazi = to inform/notify.",
       "example": {
@@ -3364,7 +3325,7 @@
       "basque": "Behar",
       "english": "To need / Must",
       "cefr": "B1",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "BEH-har",
       "notes": "Behar = need/must. Behar dut = I need/I must. Zer behar duzu? = What do you need? Beharrezkoa = necessary. One of the most used words in Basque.",
       "example": {
@@ -3650,7 +3611,7 @@
       "basque": "Egin",
       "english": "To do / To make",
       "cefr": "A2",
-      "topic": "work",
+      "topic": "greetings",
       "pronunciation": "EH-gheen",
       "notes": "Egin = to do or make. One of the most versatile Basque verbs - used in hundreds of compounds. Lan egin = to work. Hitz egin = to speak. Barre egin = to laugh. Negar egin = to cry. Egin dezagun = let's do it!",
       "example": {
@@ -3984,19 +3945,6 @@
       }
     },
     {
-      "id": "hankak",
-      "basque": "Hankak",
-      "english": "Legs",
-      "cefr": "A1",
-      "topic": "body",
-      "pronunciation": "HAN-kak",
-      "notes": "Legs (plural). Singular: hanka. Hanka min dut = my leg hurts.",
-      "example": {
-        "basque": "Hankak nekatuta daude.",
-        "english": "My legs are tired."
-      }
-    },
-    {
       "id": "bizkarra",
       "basque": "Bizkarra",
       "english": "Back",
@@ -4135,8 +4083,8 @@
       "pronunciation": "POZ-ten NAU soo eh-zah-GOO-tsee-ak",
       "notes": "A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorising whole as an essential social expression.",
       "example": {
-        "basque": "Pozten nau zu ezagutzeak.",
-        "english": "Nice to meet you."
+        "basque": "Pozten nau zurekin hitz egiteak.",
+        "english": "Talking with you makes me happy."
       },
       "mcOnly": true
     },
@@ -4162,8 +4110,8 @@
       "pronunciation": "ZEN-bat OOR-teh dee-TOO-zoo",
       "notes": "Literally how many years do you have? Basque uses have not be for age - Hogei urte ditut = I am twenty.",
       "example": {
-        "basque": "Zenbat urte dituzu?",
-        "english": "How old are you?"
+        "basque": "Zenbat urte dituzu orain?",
+        "english": "How old are you now?"
       },
       "mcOnly": true
     },
@@ -4372,7 +4320,7 @@
       "pronunciation": "in-geh-LEH-sez HITS eh-GEE-ten DOO-zoo",
       "notes": "Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? The -z suffix means in that language.",
       "example": {
-        "basque": "Ingelesez hitz egiten duzu?",
+        "basque": "Ingelesez hitz egiten al duzu?",
         "english": "Do you speak English?"
       },
       "mcOnly": true
@@ -4714,19 +4662,6 @@
       "example": {
         "basque": "Ondo ibili lagun!",
         "english": "Take care friend!"
-      }
-    },
-    {
-      "id": "eskerrik_dena",
-      "basque": "Mila esker denagatik",
-      "english": "Thank you for everything",
-      "cefr": "B1",
-      "topic": "greetings",
-      "pronunciation": "MEE-lah ES-ker DEH-nah-gah-teek",
-      "notes": "Thank you for everything. Dena = everything + -gatik = for/because of. Used at the end of a visit or celebration. A warm, complete expression of deep gratitude.",
-      "example": {
-        "basque": "Mila esker denagatik, oso ondo pasa dugu.",
-        "english": "Thank you for everything, we had a great time."
       }
     },
     {
@@ -5216,7 +5151,7 @@
       "english": "Seventeen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-THATH-pee",
+      "pronunciation": "hah-mah-ZAZ-pee",
       "notes": "Hamar (10) + zazpi (7) = 17. Note the zz = th sound (like English 'this'). Hamazazpi is one of the harder teen numbers to pronounce.",
       "example": {
         "basque": "Hamazazpi egun barru.",
@@ -6008,7 +5943,7 @@
       "basque": "Bortxa",
       "english": "Violence / Force",
       "cefr": "B2",
-      "topic": "family",
+      "topic": "society",
       "pronunciation": "BOR-chah",
       "notes": "Bortxa = violence or force. Bortxakeria = violence (repeated). Etxeko bortxa = domestic violence. Bortxatu = to force/violate. An important word in social contexts, especially domestic abuse awareness campaigns.",
       "example": {
@@ -6278,15 +6213,15 @@
     },
     {
       "id": "nagikeria",
-      "basque": "Nagikeria",
-      "english": "Laziness",
+      "basque": "Nagi",
+      "english": "Lazy",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "nah-ghee-KEH-ree-ah",
-      "notes": "Nagikeria = laziness. Nagi = lazy (adjective). Nagitu = to become lazy. Nagikeriak jota = struck by laziness. Nagi egon = to laze around. The suffix -keria makes nouns for vices or bad habits.",
+      "pronunciation": "NAH-ghee",
+      "notes": "Lazy. Nagi = lazy (adjective). Nagikeria = laziness (noun). Nagi egon = to be lazy. Nagi da = he/she is lazy. The adjective form is more useful in everyday speech.",
       "example": {
-        "basque": "Nagikeria ez da ona.",
-        "english": "Laziness is not good."
+        "basque": "Ez izan nagi, lan egin!",
+        "english": "Do not be lazy, get to work!"
       }
     },
     {
@@ -6410,7 +6345,7 @@
       "id": "herrialdea",
       "basque": "Herrialdea",
       "english": "Country / Nation",
-      "cefr": "A1",
+      "cefr": "A2",
       "topic": "society",
       "pronunciation": "her-ree-AL-deh-ah",
       "notes": "Herrialdea = country or nation-state. Different from herria (town/people/nation in a cultural sense). Herrialde batua = united country. Herrialde independentea = independent country. Herria is more emotional; herrialdea is more political/geographic.",
@@ -7032,15 +6967,15 @@
     },
     {
       "id": "nekatua",
-      "basque": "Nekatua",
-      "english": "Tired",
+      "basque": "Lasai",
+      "english": "Calm / Relaxed (state)",
       "cefr": "A1",
       "topic": "emotions",
-      "pronunciation": "neh-kah-TOO-ah",
-      "notes": "Nekatua = tired. Nekatu = to tire/get tired (verb). Neka = fatigue (root). Nekatuta nago = I am tired. Nekagarria = tiring. Oso nekatua nago = I am very tired. One of the most-used feeling words in daily Basque.",
+      "pronunciation": "lah-SAI",
+      "notes": "Calm or relaxed as a state. Lasai egon = to be calm. Lasai ibili = take it easy. Lasai! = Calm down! / Relax! Very common in everyday speech. Lasaia is the adjective form.",
       "example": {
-        "basque": "Oso nekatua nago.",
-        "english": "I am very tired."
+        "basque": "Lasai, dena ondo dago.",
+        "english": "Calm down, everything is fine."
       }
     },
     {
@@ -7624,8 +7559,8 @@
       "pronunciation": "zer-BEET-soo OR-doo-ah",
       "notes": "Zerbitzu ordua = service time or opening hours. Zerbitzu = service + ordua = time/hour. Harrera = check-in (hotel reception). Sarrera ordua = check-in time. Irteera ordua = check-out time. Zerbitzu ordutegia = service schedule.",
       "example": {
-        "basque": "Sarrera ordua arratsaldeko hirurak dira.",
-        "english": "Check-in time is three in the afternoon."
+        "basque": "Zerbitzu ordua goizeko bederatzietatik arratsaldeko seietara da.",
+        "english": "The service hours are from nine in the morning to six in the afternoon."
       }
     },
     {
@@ -7650,8 +7585,8 @@
       "pronunciation": "bee-DAI-ah eh-GHEE-teh-ah",
       "notes": "Bidaia egitea = to travel (the activity). Bidaia = journey + egin = to do. Bidaiatzen dut = I travel. Bidaiak egitea = to go on trips. Maiz bidaiatzen duzu? = Do you travel often? Bidaiari = traveller.",
       "example": {
-        "basque": "Bidaiatzen gustatzen zait.",
-        "english": "I like travelling."
+        "basque": "Bidaia egitea gustatzen zait oso.",
+        "english": "I like travelling very much."
       }
     },
     {
@@ -7715,8 +7650,8 @@
       "pronunciation": "zee-OOR ez NAH-go",
       "notes": "Ziur ez nago = I am not sure. Ziur = sure/certain. Ez nago ziur ere = I am not sure either. Agian = perhaps (related expression). Seguruenik = probably. Ziurtasuna = certainty. Very commonly used to soften statements.",
       "example": {
-        "basque": "Ziur ez nago.",
-        "english": "I am not sure."
+        "basque": "Ziur ez nago erantzunaz.",
+        "english": "I am not sure about the answer."
       }
     },
     {
@@ -7769,6 +7704,2931 @@
       "example": {
         "basque": "Lepoa zurruna daukat.",
         "english": "I have a stiff neck."
+      }
+    },
+    {
+      "id": "urtarrila",
+      "basque": "Urtarrila",
+      "english": "January",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "oor-TAR-ree-lah",
+      "notes": "January. Urte (year) + arril - the month that starts the year. The coldest month in the Basque Country.",
+      "example": {
+        "basque": "Urtarrilan jaio nintzen.",
+        "english": "I was born in January."
+      }
+    },
+    {
+      "id": "otsaila",
+      "basque": "Otsaila",
+      "english": "February",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ot-SAI-lah",
+      "notes": "February. Otso (wolf) is in the root - the wolf month, when wolves were hungriest in winter.",
+      "example": {
+        "basque": "Otsailean hotz egiten du.",
+        "english": "It is cold in February."
+      }
+    },
+    {
+      "id": "martxoa",
+      "basque": "Martxoa",
+      "english": "March",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "mar-CHOH-ah",
+      "notes": "March. From Latin Martius. Spring begins in the Basque Country with wildflowers blooming.",
+      "example": {
+        "basque": "Martxoan udaberria hasten da.",
+        "english": "Spring begins in March."
+      }
+    },
+    {
+      "id": "apirila",
+      "basque": "Apirila",
+      "english": "April",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ah-pee-REE-lah",
+      "notes": "April. From Latin Aprilis. Famous Basque festivals like Aberri Eguna (Basque Homeland Day) fall in April.",
+      "example": {
+        "basque": "Apirilan euria egiten du.",
+        "english": "It rains in April."
+      }
+    },
+    {
+      "id": "maiatza",
+      "basque": "Maiatza",
+      "english": "May",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "mai-ATS-ah",
+      "notes": "May. From Latin Maius. The Basque countryside is at its most beautiful in May - green hills and mild weather.",
+      "example": {
+        "basque": "Maiatzean eguzkia egiten du.",
+        "english": "It is sunny in May."
+      }
+    },
+    {
+      "id": "ekaina",
+      "basque": "Ekaina",
+      "english": "June",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "eh-KAI-nah",
+      "notes": "June. Eki (sun) is in the root - the sunny month. The famous San Fermin festival begins in nearby Pamplona in July.",
+      "example": {
+        "basque": "Ekainean uda hasten da.",
+        "english": "Summer begins in June."
+      }
+    },
+    {
+      "id": "uztaila",
+      "basque": "Uztaila",
+      "english": "July",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ooz-TAI-lah",
+      "notes": "July. Uzta (harvest) is in the root. The hottest month. Aste Nagusia (Great Week) in Bilbo is in August.",
+      "example": {
+        "basque": "Uztailean bero handia dago.",
+        "english": "It is very hot in July."
+      }
+    },
+    {
+      "id": "abuztua",
+      "basque": "Abuztua",
+      "english": "August",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ah-BOOS-too-ah",
+      "notes": "August. From Latin Augustus. Aste Nagusia in Bilbao and La Semana Grande in Donostia are in August - the biggest festivals.",
+      "example": {
+        "basque": "Abuztuan Aste Nagusia da.",
+        "english": "The Great Week is in August."
+      }
+    },
+    {
+      "id": "iraila",
+      "basque": "Iraila",
+      "english": "September",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ee-RAI-lah",
+      "notes": "September. Irail possibly from ira (fern) - when ferns turn golden. The sagardotegi (cider houses) season begins.",
+      "example": {
+        "basque": "Irailean eskola hasten da.",
+        "english": "School starts in September."
+      }
+    },
+    {
+      "id": "urria",
+      "basque": "Urria",
+      "english": "October",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "OOR-ree-ah",
+      "notes": "October. Urri means scarce - the month when summer abundance ends. Autumn colours in the Basque hills are spectacular.",
+      "example": {
+        "basque": "Urrian hostoak erortzen dira.",
+        "english": "Leaves fall in October."
+      }
+    },
+    {
+      "id": "azaroa",
+      "basque": "Azaroa",
+      "english": "November",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ah-zah-ROH-ah",
+      "notes": "November. Aza (cabbage) is in the root - the cabbage month, when winter vegetables were harvested. Cider season is in full swing.",
+      "example": {
+        "basque": "Azaroan sagardoa edaten dugu.",
+        "english": "We drink cider in November."
+      }
+    },
+    {
+      "id": "abendua",
+      "basque": "Abendua",
+      "english": "December",
+      "cefr": "A1",
+      "topic": "time",
+      "pronunciation": "ah-BEN-doo-ah",
+      "notes": "December. Aben possibly from Latin adventus. Also called Gabon-hilabetea (Christmas month). Gabon (Christmas) is a major celebration.",
+      "example": {
+        "basque": "Abenduan Gabonak ospatzen ditugu.",
+        "english": "We celebrate Christmas in December."
+      }
+    },
+    {
+      "id": "burujabetza",
+      "basque": "Burujabetza",
+      "english": "Sovereignty",
+      "cefr": "B2",
+      "topic": "society",
+      "pronunciation": "boo-roo-yah-BET-sah",
+      "notes": "Sovereignty or self-rule. Buru (head) + jabetza (ownership). Central concept in Basque political discourse.",
+      "example": {
+        "basque": "Burujabetzaren aldeko mugimendua indartsua da.",
+        "english": "The movement for sovereignty is strong."
+      }
+    },
+    {
+      "id": "gutxiengoa",
+      "basque": "Gutxiengoa",
+      "english": "Minority",
+      "cefr": "B2",
+      "topic": "society",
+      "pronunciation": "goo-chee-EN-goh-ah",
+      "notes": "Minority. Gutxi (few) + -engoa (suffix). Gutxiengo hizkuntzak = minority languages. Important in the context of language rights.",
+      "example": {
+        "basque": "Gutxiengoen eskubideak babestu behar dira.",
+        "english": "The rights of minorities must be protected."
+      }
+    },
+    {
+      "id": "abertzaletasuna",
+      "basque": "Abertzaletasuna",
+      "english": "Basque patriotism",
+      "cefr": "B2",
+      "topic": "society",
+      "pronunciation": "ah-ber-tsah-leh-tah-SOO-nah",
+      "notes": "Basque patriotism or nationalism. Aberri (homeland) + -zaletasuna (love of). A defining concept in Basque political identity.",
+      "example": {
+        "basque": "Abertzaletasuna kultura eta hizkuntzarekin lotuta dago.",
+        "english": "Basque patriotism is linked to culture and language."
+      }
+    },
+    {
+      "id": "eztabaida",
+      "basque": "Eztabaida",
+      "english": "Debate / Argument",
+      "cefr": "B2",
+      "topic": "society",
+      "pronunciation": "ez-tah-BAI-dah",
+      "notes": "Debate or argument. Eztabaidatu = to debate. Used for both political debate and personal argument. Eztabaida publikoa = public debate.",
+      "example": {
+        "basque": "Eztabaida politikoa bizia da.",
+        "english": "The political debate is lively."
+      }
+    },
+    {
+      "id": "negoziaketa",
+      "basque": "Negoziaketa",
+      "english": "Negotiation",
+      "cefr": "B2",
+      "topic": "work",
+      "pronunciation": "neh-go-tsee-ah-KEH-tah",
+      "notes": "Negotiation. From Spanish negociación. Negoziatu = to negotiate. Essential in business and labour relations.",
+      "example": {
+        "basque": "Negoziaketa luzea izan zen.",
+        "english": "The negotiation was long."
+      }
+    },
+    {
+      "id": "estrategia",
+      "basque": "Estrategia",
+      "english": "Strategy",
+      "cefr": "B2",
+      "topic": "work",
+      "pronunciation": "es-trah-TEH-ghee-ah",
+      "notes": "Strategy. Borrowed from Spanish/Greek. Estrategia komertzial = commercial strategy. Used in business, politics and sport.",
+      "example": {
+        "basque": "Estrategia berri bat behar dugu.",
+        "english": "We need a new strategy."
+      }
+    },
+    {
+      "id": "lehiakortasuna",
+      "basque": "Lehiakortasuna",
+      "english": "Competitiveness",
+      "cefr": "B2",
+      "topic": "work",
+      "pronunciation": "leh-ee-ah-kor-tah-SOO-nah",
+      "notes": "Competitiveness. Lehia (competition) + -kortasuna. Important in Basque industrial and business culture. The Basque economy is known for its cooperatives.",
+      "example": {
+        "basque": "Lehiakortasuna hobetzeko inbertitu behar dugu.",
+        "english": "We need to invest to improve competitiveness."
+      }
+    },
+    {
+      "id": "sindikalismoa",
+      "basque": "Sindikalismoa",
+      "english": "Trade unionism",
+      "cefr": "B2",
+      "topic": "work",
+      "pronunciation": "seen-dee-kah-lees-MOH-ah",
+      "notes": "Trade unionism. ELA and LAB are the main Basque trade unions. Strong tradition of worker solidarity in the Basque Country.",
+      "example": {
+        "basque": "Sindikalismoa indartsua da Euskal Herrian.",
+        "english": "Trade unionism is strong in the Basque Country."
+      }
+    },
+    {
+      "id": "kooperatiba",
+      "basque": "Kooperatiba",
+      "english": "Cooperative",
+      "cefr": "B2",
+      "topic": "work",
+      "pronunciation": "koh-oh-peh-rah-TEE-bah",
+      "notes": "Cooperative. The Mondragon Corporation is the world's largest worker cooperative, founded in the Basque Country in 1956.",
+      "example": {
+        "basque": "Mondragon kooperatiba handiena da munduan.",
+        "english": "Mondragon is the largest cooperative in the world."
+      }
+    },
+    {
+      "id": "lauburu",
+      "basque": "Lauburu",
+      "english": "Basque cross / symbol",
+      "cefr": "B2",
+      "topic": "culture",
+      "pronunciation": "LAU-boo-roo",
+      "notes": "The Basque cross - a swastika-like symbol with curved arms. Lau (four) + buru (heads). Ancient symbol of the Basque people representing the four provinces or the four elements.",
+      "example": {
+        "basque": "Lauburua Euskal Herriko sinboloa da.",
+        "english": "The lauburu is a symbol of the Basque Country."
+      }
+    },
+    {
+      "id": "aste_nagusia",
+      "basque": "Aste Nagusia",
+      "english": "Great Week (Bilbao festival)",
+      "cefr": "B2",
+      "topic": "culture",
+      "pronunciation": "AS-teh nah-GOO-see-ah",
+      "notes": "The Great Week - Bilbao's biggest annual festival in August. Nine days of concerts, street parties, and events. Attracts over a million visitors.",
+      "example": {
+        "basque": "Aste Nagusia abuztuan ospatzen da Bilbon.",
+        "english": "The Great Week is celebrated in Bilbao in August."
+      }
+    },
+    {
+      "id": "nostalgia",
+      "basque": "Nostalgia",
+      "english": "Nostalgia",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "nos-TAL-ghee-ah",
+      "notes": "Nostalgia. Same as English/Spanish. Nostalgikoa = nostalgic. Often felt by the Basque diaspora - a strong community exists in the Americas.",
+      "example": {
+        "basque": "Nostalgia sentitzen dut herriaren berri entzutean.",
+        "english": "I feel nostalgia when I hear news of the village."
+      }
+    },
+    {
+      "id": "mina",
+      "basque": "Bihotz-mina",
+      "english": "Heartache / Heartbreak",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "bee-HOTS MEE-nah",
+      "notes": "Heartache or heartbreak. Bihotz (heart) + mina (pain). Bihotz-mina daukat = I have heartache. A poetic and very Basque way of expressing emotional pain. Appears frequently in Basque song and literature.",
+      "example": {
+        "basque": "Bihotz-mina sentitzen dut zu gabe.",
+        "english": "I feel heartache without you."
+      }
+    },
+    {
+      "id": "konplexua",
+      "basque": "Konplexua",
+      "english": "Complex",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "kon-PLEH-shoo-ah",
+      "notes": "Complex or complicated. From Spanish/Latin. Konplexutasuna = complexity. Egoera konplexua = complex situation. Used in academic and professional contexts.",
+      "example": {
+        "basque": "Egoera politikoa oso konplexua da.",
+        "english": "The political situation is very complex."
+      }
+    },
+    {
+      "id": "eztabaidagarria",
+      "basque": "Eztabaidagarria",
+      "english": "Controversial / Debatable",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "ez-tah-bai-dah-GAR-ree-ah",
+      "notes": "Controversial or debatable. Eztabaida (debate) + -garria (worthy of). Used for topics that spark debate. Gai eztabaidagarria = controversial topic.",
+      "example": {
+        "basque": "Gai hori oso eztabaidagarria da.",
+        "english": "That topic is very controversial."
+      }
+    },
+    {
+      "id": "iraunkorra",
+      "basque": "Iraunkorra",
+      "english": "Sustainable / Lasting",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "ee-raun-KOR-rah",
+      "notes": "Sustainable or lasting. Iraunkor = lasting/durable. Garapen iraunkorra = sustainable development. Key term in environmental and economic policy.",
+      "example": {
+        "basque": "Ekonomia iraunkorra behar dugu.",
+        "english": "We need a sustainable economy."
+      }
+    },
+    {
+      "id": "ahula",
+      "basque": "Ahula",
+      "english": "Weak / Fragile",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "ah-HOO-lah",
+      "notes": "Weak or fragile. Ahultasuna = weakness. Ahuldu = to weaken. Opposite: sendoa (strong). Used for physical and abstract weakness.",
+      "example": {
+        "basque": "Posizioa ahula da negoziaketan.",
+        "english": "The position is weak in the negotiation."
+      }
+    },
+    {
+      "id": "sendoa",
+      "basque": "Sendoa",
+      "english": "Strong / Robust",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "SEN-doh-ah",
+      "notes": "Strong or robust. Sendotu = to strengthen. Osasun sendoa = robust health. Opposite: ahula (weak). Also means healthy/solid.",
+      "example": {
+        "basque": "Ekonomia sendoa daukagu.",
+        "english": "We have a strong economy."
+      }
+    },
+    {
+      "id": "zehatza",
+      "basque": "Zehatza",
+      "english": "Precise / Exact",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "zeh-HAT-sah",
+      "notes": "Precise or exact. Zehatz-mehatz = precisely/exactly. Zehaztu = to specify. Important in academic, legal and scientific discourse.",
+      "example": {
+        "basque": "Datu zehatzak behar ditugu.",
+        "english": "We need precise data."
+      }
+    },
+    {
+      "id": "kontraesankorra",
+      "basque": "Kontraesankorra",
+      "english": "Contradictory",
+      "cefr": "B2",
+      "topic": "adjectives",
+      "pronunciation": "kon-trah-eh-san-KOR-rah",
+      "notes": "Contradictory. Kontraesan (contradiction) + -korra. Mezua kontraesankorra da = the message is contradictory. Used in logical and political debate.",
+      "example": {
+        "basque": "Bere argudioak kontraesankorrak dira.",
+        "english": "His arguments are contradictory."
+      }
+    },
+    {
+      "id": "immunitate_sistema",
+      "basque": "Immunitate sistema",
+      "english": "Immune system",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "ee-moo-nee-TAH-teh sees-TEH-mah",
+      "notes": "Immune system. International terms adopted into Basque. Immunitatea = immunity. Increasingly important vocabulary for health discussions.",
+      "example": {
+        "basque": "Immunitate sistemak gorputza babesten du.",
+        "english": "The immune system protects the body."
+      }
+    },
+    {
+      "id": "odol_presioa",
+      "basque": "Odol-presioa",
+      "english": "Blood pressure",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "OH-dol preh-SYOH-ah",
+      "notes": "Blood pressure. Odol (blood) + presioa (pressure). Odol-presio altua = high blood pressure. Odol-presio baxua = low blood pressure. Common medical term.",
+      "example": {
+        "basque": "Odol-presioa neurtu behar dut.",
+        "english": "I need to measure my blood pressure."
+      }
+    },
+    {
+      "id": "bisa",
+      "basque": "Bisa",
+      "english": "Visa",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "BEE-sah",
+      "notes": "Visa. International term. Bisa eskatu = to apply for a visa. Schengen area means EU travel is visa-free for most Europeans.",
+      "example": {
+        "basque": "Bisa behar dut herrialde horretara joateko.",
+        "english": "I need a visa to travel to that country."
+      }
+    },
+    {
+      "id": "aduana",
+      "basque": "Aduana",
+      "english": "Customs",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "ah-doo-AH-nah",
+      "notes": "Customs. From Spanish aduana. Aduana kontrola = customs control. The Franco-Spanish border through the Basque Country was historically significant.",
+      "example": {
+        "basque": "Aduanan gelditu ninduten.",
+        "english": "They stopped me at customs."
+      }
+    },
+    {
+      "id": "ondorengoa",
+      "basque": "Ondorengoa",
+      "english": "Descendant / Heir",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "on-doh-REN-goh-ah",
+      "notes": "Descendant or heir. Ondoren (after/following) + -goa. Ondorengo = successor. The Basque diaspora maintains strong connections to their ondorengoak worldwide.",
+      "example": {
+        "basque": "Euskal diasporaren ondorengoak mundu osoan daude.",
+        "english": "The descendants of the Basque diaspora are all over the world."
+      }
+    },
+    {
+      "id": "arbola",
+      "basque": "Arbola",
+      "english": "Family tree / Lineage",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "ar-BOH-lah",
+      "notes": "Tree, but also used for family tree. Familiaren arbola = family tree. Gernikako Arbola (Tree of Gernika) is the sacred oak symbol of Basque democracy and rights.",
+      "example": {
+        "basque": "Gure familiaren arbola luzea da.",
+        "english": "Our family tree is long."
+      }
+    },
+    {
+      "id": "nekea",
+      "basque": "Nekea",
+      "english": "Tiredness / Fatigue",
+      "cefr": "A1",
+      "topic": "emotions",
+      "pronunciation": "NEH-keh-ah",
+      "notes": "Tiredness or fatigue. Neke = tiredness (root). Nekatuta nago = I am tired. Nekagarria = tiring. Very common in everyday conversation.",
+      "example": {
+        "basque": "Nekea sentitzen dut gauero lanaren ondoren.",
+        "english": "I feel tiredness every evening after work."
+      }
+    },
+    {
+      "id": "lantegia",
+      "basque": "Lantegia",
+      "english": "Workplace / Factory",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "lan-TEH-ghee-ah",
+      "notes": "Workplace or factory. Lan (work) + tegi (place). The Basque Country has a strong industrial tradition - steel, shipbuilding and machine tools.",
+      "example": {
+        "basque": "Lantegian lan egiten dut.",
+        "english": "I work in the factory."
+      }
+    },
+    {
+      "id": "nagusia",
+      "basque": "Nagusia",
+      "english": "Boss / Manager",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "nah-GOO-see-ah",
+      "notes": "Boss or manager. Nagusi = main/chief (root). Also means the main one or the important one. Aste Nagusia = Great Week (main week).",
+      "example": {
+        "basque": "Nire nagusia ona da.",
+        "english": "My boss is good."
+      }
+    },
+    {
+      "id": "lobak",
+      "basque": "Lobak",
+      "english": "Nieces and nephews",
+      "cefr": "A2",
+      "topic": "family",
+      "pronunciation": "LOH-bak",
+      "notes": "Nieces and nephews (plural). Loba = niece/nephew (singular). Basque uses the same word for both - no gender distinction. Lobatxoa = little niece/nephew.",
+      "example": {
+        "basque": "Nire lobak maitatzen ditut.",
+        "english": "I love my nieces and nephews."
+      }
+    },
+    {
+      "id": "bikotekidea",
+      "basque": "Bikotekidea",
+      "english": "Partner / Significant other",
+      "cefr": "A2",
+      "topic": "family",
+      "pronunciation": "bee-koh-teh-KEE-deh-ah",
+      "notes": "Partner or significant other. Bikote (couple) + kidea (member). Gender-neutral term for a romantic partner. More neutral than senarra (husband) or emaztea (wife).",
+      "example": {
+        "basque": "Nire bikotekidearekin bizi naiz.",
+        "english": "I live with my partner."
+      }
+    },
+    {
+      "id": "ehun_mila",
+      "basque": "Ehun mila",
+      "english": "One hundred thousand",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "EH-hoon MEE-lah",
+      "notes": "One hundred thousand. Ehun (100) + mila (1000) = 100,000. Bi ehun mila = 200,000. The Basque Country has a population of about bi milioi (two million).",
+      "example": {
+        "basque": "Ehun mila lagun bizi dira hemen.",
+        "english": "One hundred thousand people live here."
+      }
+    },
+    {
+      "id": "milioia",
+      "basque": "Milioia",
+      "english": "Million",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "mee-LEE-oh-ee-ah",
+      "notes": "Million. From Spanish millón. Bi milioi = two million. Milioika = millions of. Used in economic and demographic contexts.",
+      "example": {
+        "basque": "Bi milioi lagun bizi dira Euskal Herrian.",
+        "english": "Two million people live in the Basque Country."
+      }
+    },
+    {
+      "id": "ezkongabea",
+      "basque": "Ezkongabea",
+      "english": "Single / Unmarried",
+      "cefr": "B1",
+      "topic": "family",
+      "pronunciation": "ez-kon-GAH-beh-ah",
+      "notes": "Single or unmarried. Ez (not) + kontu (married) + gabea (without). Ezkongabe bizi = to live single. Increasingly common as marriage rates change.",
+      "example": {
+        "basque": "Oraindik ezkongabea naiz.",
+        "english": "I am still single."
+      }
+    },
+    {
+      "id": "dibortziatua",
+      "basque": "Dibortziatua",
+      "english": "Divorced",
+      "cefr": "B1",
+      "topic": "family",
+      "pronunciation": "dee-bor-tsee-ah-TOO-ah",
+      "notes": "Divorced. From Spanish divorciado. Dibortziatu = to divorce. Dibortzioa = divorce. Family structures in the Basque Country have changed significantly.",
+      "example": {
+        "basque": "Nire gurasoak dibortziatu ziren.",
+        "english": "My parents got divorced."
+      }
+    },
+    {
+      "id": "familia_zabala",
+      "basque": "Familia zabala",
+      "english": "Extended family",
+      "cefr": "B1",
+      "topic": "family",
+      "pronunciation": "fah-MEE-lee-ah zah-BAH-lah",
+      "notes": "Extended family. Familia (family) + zabala (wide/broad). Traditional Basque culture placed great importance on the extended family unit - the etxea (house/family).",
+      "example": {
+        "basque": "Familia zabalarekin biltzen gara Gabonak.",
+        "english": "We gather with the extended family at Christmas."
+      }
+    },
+    {
+      "id": "haurtzaroa",
+      "basque": "Haurtzaroa",
+      "english": "Childhood",
+      "cefr": "B1",
+      "topic": "family",
+      "pronunciation": "haur-TSAH-roh-ah",
+      "notes": "Childhood. Haur (child) + -tzaroa (period of). Haurtzaroko oroimenak = childhood memories. Haurtzaro zoriontsu = happy childhood.",
+      "example": {
+        "basque": "Haurtzaroan mendian jolasten nuen.",
+        "english": "In childhood I played in the mountains."
+      }
+    },
+    {
+      "id": "marroia",
+      "basque": "Marroia",
+      "english": "Brown",
+      "cefr": "A2",
+      "topic": "colors",
+      "pronunciation": "mar-ROH-ee-ah",
+      "notes": "Brown. From Spanish marrón. Marroi iluna = dark brown. The color of Basque wooden furniture and traditional farmhouses (baserri).",
+      "example": {
+        "basque": "Aulkia marroia da.",
+        "english": "The chair is brown."
+      }
+    },
+    {
+      "id": "gris",
+      "basque": "Gris",
+      "english": "Grey",
+      "cefr": "A2",
+      "topic": "colors",
+      "pronunciation": "GREES",
+      "notes": "Grey. From Spanish gris. Gris argia = light grey. Gris iluna = dark grey. The color of the famous Basque pintxo bar counters and the winter sky.",
+      "example": {
+        "basque": "Zerua grisa dago gaur.",
+        "english": "The sky is grey today."
+      }
+    },
+    {
+      "id": "iraganeko",
+      "basque": "Iraganeko",
+      "english": "Past (adjective)",
+      "cefr": "B1",
+      "topic": "time",
+      "pronunciation": "ee-rah-GAH-neh-koh",
+      "notes": "Past (as adjective). Iragana = the past (noun). Iraganeko gertaerak = past events. Understanding past/present/future is essential for intermediate speakers.",
+      "example": {
+        "basque": "Iraganeko akatsak ez ditut ahaztu.",
+        "english": "I have not forgotten the mistakes of the past."
+      }
+    },
+    {
+      "id": "aldi_berean",
+      "basque": "Aldi berean",
+      "english": "At the same time / Meanwhile",
+      "cefr": "B1",
+      "topic": "time",
+      "pronunciation": "AL-dee beh-REH-an",
+      "notes": "At the same time or meanwhile. Aldi (time/period) + berean (in the same). Useful for describing simultaneous events. Bitartean is a common synonym.",
+      "example": {
+        "basque": "Aldi berean bi gauza egin ditzaket.",
+        "english": "I can do two things at the same time."
+      }
+    },
+    {
+      "id": "noizbehinka",
+      "basque": "Noizbehinka",
+      "english": "Occasionally / From time to time",
+      "cefr": "B1",
+      "topic": "time",
+      "pronunciation": "noiz-beh-HIN-kah",
+      "notes": "Occasionally or from time to time. Noiz (when) + behinka (sometimes). Noizbehinka joaten naiz = I go occasionally. Very useful adverb of frequency.",
+      "example": {
+        "basque": "Noizbehinka mendira joaten gara.",
+        "english": "We occasionally go to the mountains."
+      }
+    },
+    {
+      "id": "harrera_ona",
+      "basque": "Harrera ona egin",
+      "english": "To welcome / To give a warm reception",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "har-REH-rah OH-nah eh-GHEEN",
+      "notes": "To welcome or give a warm reception. Harrera = reception. Harrera ona egin zioten = they gave him a warm welcome. Used in formal and informal contexts.",
+      "example": {
+        "basque": "Harrera ona egin ziguten etxean.",
+        "english": "They gave us a warm welcome at home."
+      }
+    },
+    {
+      "id": "agurra",
+      "basque": "Agurra",
+      "english": "Greeting / Farewell (formal)",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "ah-GOOR-rah",
+      "notes": "Formal greeting or farewell. Agur is the basic word but agurra (with article) is used in more formal contexts. Agurrak bidali = to send greetings. Agur eta ohore = farewell and honor (formal closing).",
+      "example": {
+        "basque": "Agur bero bat bidaltzen dizuet denei.",
+        "english": "I send warm greetings to everyone."
+      }
+    },
+    {
+      "id": "adeitasuna",
+      "basque": "Adeitasuna",
+      "english": "Courtesy / Politeness",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "ah-day-tah-SOO-nah",
+      "notes": "Courtesy or politeness. Adeitsua = courteous. Adeitasunez = politely. Important in formal Basque communication. Adeitasun handiz = with great courtesy.",
+      "example": {
+        "basque": "Adeitasunez hitz egin behar dugu.",
+        "english": "We must speak with courtesy."
+      }
+    },
+    {
+      "id": "gastronomia",
+      "basque": "Gastronomia",
+      "english": "Gastronomy",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "gas-troh-noh-MEE-ah",
+      "notes": "Gastronomy. The Basque Country has more Michelin stars per capita than anywhere on earth. San Sebastián is considered the world capital of gastronomy.",
+      "example": {
+        "basque": "Euskal gastronomia munduan ospetsua da.",
+        "english": "Basque gastronomy is famous in the world."
+      }
+    },
+    {
+      "id": "txoko",
+      "basque": "Txokoa",
+      "english": "Gastronomic society",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "CHOH-koh-ah",
+      "notes": "A txoko is a private gastronomic society where members cook and eat together. A uniquely Basque institution - historically male-only but now more inclusive. Hundreds exist across the Basque Country.",
+      "example": {
+        "basque": "Txokoan bazkaltzen dugu larunbatetan.",
+        "english": "We have lunch in the gastronomic society on Saturdays."
+      }
+    },
+    {
+      "id": "errezeta",
+      "basque": "Errezeta",
+      "english": "Recipe",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "er-reh-ZEH-tah",
+      "notes": "Recipe. From Spanish receta. Errezeta jarraitu = to follow a recipe. Traditional Basque recipes are passed down through generations.",
+      "example": {
+        "basque": "Amaren errezeta jarraituko dut.",
+        "english": "I will follow my mother's recipe."
+      }
+    },
+    {
+      "id": "zenbakia",
+      "basque": "Zenbakia",
+      "english": "Number (mathematical)",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "zen-BAH-kee-ah",
+      "notes": "Number (mathematical). Zenb (how many) root. Zenbaki bikoitiak = even numbers. Zenbaki bakoitiak = odd numbers. Zenbaki lehenak = prime numbers.",
+      "example": {
+        "basque": "Zenbaki lehenak ikertzen ditut.",
+        "english": "I study prime numbers."
+      }
+    },
+    {
+      "id": "kolorea_galdu",
+      "basque": "Kolorea galdu",
+      "english": "To fade (color)",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "koh-LOH-reh-ah GAL-doo",
+      "notes": "To fade (of color). Kolorea (color) + galdu (to lose). Arropak kolorea galdu du = the clothes have faded. Used in both literal and figurative senses.",
+      "example": {
+        "basque": "Eguzkiaren ondorioz kolorea galdu du.",
+        "english": "It has faded due to the sun."
+      }
+    },
+    {
+      "id": "ñabardura",
+      "basque": "Ñabardura",
+      "english": "Nuance / Shade (of color)",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "nyah-bar-DOO-rah",
+      "notes": "Nuance or shade of color. From Spanish ñabardura. Kolore ñabardura = shade of color. Also used figuratively for subtle differences in meaning or opinion.",
+      "example": {
+        "basque": "Kolore horren ñabardura polita da.",
+        "english": "The shade of that color is beautiful."
+      }
+    },
+    {
+      "id": "garaian",
+      "basque": "Garaian",
+      "english": "On time / In due time",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "gah-RAI-an",
+      "notes": "On time or in due time. Garai (era/time) + -an (in). Garaian iritsi = to arrive on time. Garaiz = in time/on time. Garaipen = victory (from the same root).",
+      "example": {
+        "basque": "Garaian iritsi naiz bilera.",
+        "english": "I have arrived on time for the meeting."
+      }
+    },
+    {
+      "id": "iraupena",
+      "basque": "Iraupena",
+      "english": "Duration / Lifespan",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "ee-rau-PEH-nah",
+      "notes": "Duration or lifespan. Iraun (to last) + -pena. Iraupen luzea = long duration. Hizkuntzaren iraupena = the survival/duration of the language. Important in linguistic and historical contexts.",
+      "example": {
+        "basque": "Proiektuaren iraupena bi urte da.",
+        "english": "The duration of the project is two years."
+      }
+    },
+    {
+      "id": "digestioa",
+      "basque": "Digestioa",
+      "english": "Digestion",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "dee-ges-TYOH-ah",
+      "notes": "Digestion. International term. Digestio ona = good digestion. Digestio arazoak = digestive problems. The rich Basque diet makes this a common topic.",
+      "example": {
+        "basque": "Digestio ona izateko ondo jan behar duzu.",
+        "english": "You need to eat well to have good digestion."
+      }
+    },
+    {
+      "id": "arnasaketa",
+      "basque": "Arnasaketa",
+      "english": "Breathing / Respiration",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "ar-nah-sah-KEH-tah",
+      "notes": "Breathing or respiration. Arnasa (breath) + -keta. Arnasa hartu = to breathe in. Arnasa bota = to breathe out. Arnasaren erritmoa = breathing rhythm.",
+      "example": {
+        "basque": "Arnasaketa sakon bat hartu.",
+        "english": "Take a deep breath."
+      }
+    },
+    {
+      "id": "kultura_aniztasuna",
+      "basque": "Kultura aniztasuna",
+      "english": "Cultural diversity",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "kool-TOO-rah ah-nees-tah-SOO-nah",
+      "notes": "Cultural diversity. Kultura (culture) + aniztasuna (diversity). Important concept when discussing the Basque Country's unique position within Spain and France.",
+      "example": {
+        "basque": "Kultura aniztasuna aberastasuna da.",
+        "english": "Cultural diversity is a richness."
+      }
+    },
+    {
+      "id": "medikua",
+      "basque": "Medikua",
+      "english": "Doctor / Physician",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "meh-DEE-koo-ah",
+      "notes": "Doctor or physician. From Latin medicus. Medikuarengana joan = to go to the doctor. Medikua naiz = I am a doctor. Essential vocabulary for introductions.",
+      "example": {
+        "basque": "Medikua naiz eta ospitalean lan egiten dut.",
+        "english": "I am a doctor and I work in the hospital."
+      }
+    },
+    {
+      "id": "erizaina",
+      "basque": "Erizaina",
+      "english": "Nurse",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "eh-ree-ZAI-nah",
+      "notes": "Nurse. Erizain = nurse (root). One of the most common professions. Erizain ona = good nurse. The Basque health system (Osakidetza) is well regarded.",
+      "example": {
+        "basque": "Erizaina ospitalean lan egiten du.",
+        "english": "The nurse works in the hospital."
+      }
+    },
+    {
+      "id": "sukaldaria",
+      "basque": "Sukaldaria",
+      "english": "Cook / Chef",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "soo-kal-DAH-ree-ah",
+      "notes": "Cook or chef. Sukalde (kitchen) + -aria (person who does). The Basque Country is world famous for its chefs - Arzak, Berasategui, Aduriz. Sukaldari handia = great chef.",
+      "example": {
+        "basque": "Sukaldaria jatetxean lan egiten du.",
+        "english": "The chef works in the restaurant."
+      }
+    },
+    {
+      "id": "abokatu",
+      "basque": "Abokatu",
+      "english": "Lawyer",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "ah-boh-KAH-too",
+      "notes": "Lawyer. From Spanish abogado. Abokatu ona = good lawyer. Abokatuarengana joan = to go to a lawyer. Common profession word needed for introductions.",
+      "example": {
+        "basque": "Nire laguna abokatu da.",
+        "english": "My friend is a lawyer."
+      }
+    },
+    {
+      "id": "idazkaria",
+      "basque": "Idazkaria",
+      "english": "Secretary / Administrator",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "ee-daz-KAH-ree-ah",
+      "notes": "Secretary or administrator. Idatz (write) + -karia. Idazkari nagusia = head secretary. Common in office and government contexts.",
+      "example": {
+        "basque": "Idazkaria bulegoan dago.",
+        "english": "The secretary is in the office."
+      }
+    },
+    {
+      "id": "nekazaria",
+      "basque": "Nekazaria",
+      "english": "Farmer",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "neh-kah-ZAH-ree-ah",
+      "notes": "Farmer. Neka (toil) + -zaria. The baserri (farmhouse) and its farmer are central to Basque rural identity. Many Basque surnames come from farmhouse names.",
+      "example": {
+        "basque": "Nekazariak baserrian lan egiten du.",
+        "english": "The farmer works on the farmhouse."
+      }
+    },
+    {
+      "id": "auzapeza",
+      "basque": "Auzapeza",
+      "english": "Mayor",
+      "cefr": "A1",
+      "topic": "society",
+      "pronunciation": "au-zah-PEH-sah",
+      "notes": "Mayor. Auzo (neighbourhood) + peza. The local mayor (alkatea in Spanish Basque) is a key figure in Basque civic life. Auzapeza da = he/she is the mayor.",
+      "example": {
+        "basque": "Auzapeza herriko bileran dago.",
+        "english": "The mayor is at the town meeting."
+      }
+    },
+    {
+      "id": "alkatea",
+      "basque": "Alkatea",
+      "english": "Mayor (alternate)",
+      "cefr": "A2",
+      "topic": "society",
+      "pronunciation": "al-KAH-teh-ah",
+      "notes": "Mayor - the more commonly used term in everyday Basque. From Spanish alcalde. Alkate berria = new mayor. Used in both formal and informal contexts alongside auzapeza.",
+      "example": {
+        "basque": "Alkate berria hautatu dute.",
+        "english": "They have elected a new mayor."
+      }
+    },
+    {
+      "id": "bilioia",
+      "basque": "Bilioia",
+      "english": "Billion",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "bee-LEE-oh-ee-ah",
+      "notes": "Billion (10^9). From Spanish billón. Note: in some European countries billón = trillion - context matters. Bilioi bat euro = one billion euros. Used in macroeconomic contexts.",
+      "example": {
+        "basque": "Estatuaren aurrekontua bilioi bat eurokoa da.",
+        "english": "The state budget is one billion euros."
+      }
+    },
+    {
+      "id": "zerozero",
+      "basque": "Zero",
+      "english": "Zero",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "ZEH-roh",
+      "notes": "Zero. International term. Zerora iritsi = to reach zero. Zero tolerantzia = zero tolerance. Also written zerotan (in zeros). Essential for mathematics and statistics.",
+      "example": {
+        "basque": "Tenperatura zeroan dago.",
+        "english": "The temperature is at zero."
+      }
+    },
+    {
+      "id": "zenbaki_osoa",
+      "basque": "Zenbaki osoa",
+      "english": "Whole number / Integer",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "zen-BAH-kee oh-SOH-ah",
+      "notes": "Whole number or integer. Zenbaki (number) + osoa (whole). Zenbaki positiboak = positive numbers. Zenbaki negatiboak = negative numbers. Used in mathematics and science.",
+      "example": {
+        "basque": "Zenbaki osoak dira 1, 2, 3 eta abar.",
+        "english": "Whole numbers are 1, 2, 3 and so on."
+      }
+    },
+    {
+      "id": "kalkulua",
+      "basque": "Kalkulua",
+      "english": "Calculation / Calculus",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "kal-KOO-loo-ah",
+      "notes": "Calculation or calculus. Kalkulu egin = to calculate. Kalkulagailua = calculator. Used in academic, financial and scientific contexts.",
+      "example": {
+        "basque": "Kalkulu hori egiteko denbora behar dut.",
+        "english": "I need time to make that calculation."
+      }
+    },
+    {
+      "id": "formula",
+      "basque": "Formula",
+      "english": "Formula",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "for-MOO-lah",
+      "notes": "Formula. International term used in mathematics and science. Formula matematikoa = mathematical formula. Formularen arabera = according to the formula.",
+      "example": {
+        "basque": "Formula hau ezagutu behar duzu azterketan.",
+        "english": "You need to know this formula for the exam."
+      }
+    },
+    {
+      "id": "proportzioa",
+      "basque": "Proportzioa",
+      "english": "Proportion / Ratio",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "pro-por-TSEE-oh-ah",
+      "notes": "Proportion or ratio. From Spanish proporción. Proportzioan = in proportion. Proportzio handian = in large proportion. Important in statistics and social science.",
+      "example": {
+        "basque": "Euskaldun proportzioa gora doa.",
+        "english": "The proportion of Basque speakers is rising."
+      }
+    },
+    {
+      "id": "gutxi_gora_behera",
+      "basque": "Gutxi gora-behera",
+      "english": "Approximately / Roughly",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "GOO-chee GOH-rah beh-HEH-rah",
+      "notes": "Approximately or roughly. Gutxi (little) + gora-behera (up-down). Gutxi gora-behera ehun = approximately one hundred. Very common in spoken Basque for estimates.",
+      "example": {
+        "basque": "Gutxi gora-behera berrehun lagun zeuden.",
+        "english": "There were approximately two hundred people."
+      }
+    },
+    {
+      "id": "indigo",
+      "basque": "Indigo",
+      "english": "Indigo",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "IN-dee-goh",
+      "notes": "Indigo. International term. The deep blue-purple color. Indigo kolorea = indigo color. Used in art, fashion and design contexts.",
+      "example": {
+        "basque": "Indigo kolorea zeruko izarren artean bezala da.",
+        "english": "Indigo color is like among the stars in the sky."
+      }
+    },
+    {
+      "id": "turkoisa",
+      "basque": "Turkoisa",
+      "english": "Turquoise",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "toor-KOI-sah",
+      "notes": "Turquoise. From French turquoise. The color of the Bay of Biscay on a clear day. Turkoisa kolorea = turquoise color. Used in art, jewelry and design.",
+      "example": {
+        "basque": "Itsasoa turkoisa dago udaran.",
+        "english": "The sea is turquoise in summer."
+      }
+    },
+    {
+      "id": "granatea",
+      "basque": "Granatea",
+      "english": "Garnet / Dark red",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "grah-NAH-teh-ah",
+      "notes": "Garnet or dark red. From Spanish granate. The deep red of Athletic Bilbao's home kit. Used in fashion, art and wine description.",
+      "example": {
+        "basque": "Ardoa granate kolorekoa da.",
+        "english": "The wine is garnet colored."
+      }
+    },
+    {
+      "id": "oliba_berdea",
+      "basque": "Oliba berdea",
+      "english": "Olive green",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "oh-LEE-bah BER-deh-ah",
+      "notes": "Olive green. Oliba (olive) + berdea (green). The color of Basque hills in autumn and of traditional military uniforms. Common in nature and fashion descriptions.",
+      "example": {
+        "basque": "Mendia oliba berdea da udazkenean.",
+        "english": "The mountain is olive green in autumn."
+      }
+    },
+    {
+      "id": "beixa",
+      "basque": "Beixa",
+      "english": "Beige",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "BEI-shah",
+      "notes": "Beige. From French beige via Spanish. Used in interior design and fashion. Beixa kolorekoa = beige colored. Common in describing stone buildings and natural materials.",
+      "example": {
+        "basque": "Horma beixa kolorekoa da.",
+        "english": "The wall is beige colored."
+      }
+    },
+    {
+      "id": "kolore_biziak",
+      "basque": "Kolore biziak",
+      "english": "Bright / Vivid colors",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "koh-LOH-reh BEE-tsee-ak",
+      "notes": "Bright or vivid colors. Kolore (color) + biziak (lively/vivid). Kolore bizia = a vivid color. Used in art criticism and description. Bizia also means alive - vivid colors are living colors.",
+      "example": {
+        "basque": "Kolore biziak erabiltzen ditu margolanak egiteko.",
+        "english": "He uses vivid colors to make paintings."
+      }
+    },
+    {
+      "id": "koloregabea",
+      "basque": "Koloregabea",
+      "english": "Colorless / Pale",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "koh-loh-reh-GAH-beh-ah",
+      "notes": "Colorless or pale. Kolore (color) + gabea (without). Koloregabetu = to become pale/colorless. Used both literally and figuratively - a koloregabea description can mean bland or characterless.",
+      "example": {
+        "basque": "Gaixorik dagoenean aurpegia koloregabea egoten zaio.",
+        "english": "When he is ill his face becomes pale."
+      }
+    },
+    {
+      "id": "distiratsua",
+      "basque": "Distiratsua",
+      "english": "Shiny / Glossy",
+      "cefr": "B2",
+      "topic": "colors",
+      "pronunciation": "dees-tee-RAT-soo-ah",
+      "notes": "Shiny or glossy. Distira (shine/gloss) + -tsua. Distiratsua da = it is shiny. Distira eman = to make shine. Used in art, design and describing materials.",
+      "example": {
+        "basque": "Pintura distiratsua erabili dut hormarako.",
+        "english": "I used glossy paint for the wall."
+      }
+    },
+    {
+      "id": "habitat",
+      "basque": "Habitata",
+      "english": "Habitat",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "hah-bee-TAH-tah",
+      "notes": "Habitat. International term. Habitata galdu = to lose habitat. Habitataren suntsipena = habitat destruction. Key term in conservation biology and environmental policy.",
+      "example": {
+        "basque": "Animalien habitata babesten dugu.",
+        "english": "We protect the habitat of animals."
+      }
+    },
+    {
+      "id": "espazio_naturala",
+      "basque": "Espazio naturala",
+      "english": "Nature reserve / Natural space",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "es-PAH-tsee-oh nah-too-RAH-lah",
+      "notes": "Nature reserve or natural space. Urdaibai is the Basque Country's most important biosphere reserve - a UNESCO site protecting the Oka river estuary and surrounding wetlands.",
+      "example": {
+        "basque": "Urdaibai espazio natural garrantzitsua da.",
+        "english": "Urdaibai is an important natural space."
+      }
+    },
+    {
+      "id": "basabizitza",
+      "basque": "Basabizitza",
+      "english": "Wildlife",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "bah-sah-bee-TSETS-ah",
+      "notes": "Wildlife. Basa (wild) + bizitza (life). Basabizitzaren babesa = wildlife protection. The Pyrenean brown bear (hartza) has been reintroduced to the Basque mountains.",
+      "example": {
+        "basque": "Basabizitza aberatsa dago Pirinio inguruan.",
+        "english": "There is rich wildlife around the Pyrenees."
+      }
+    },
+    {
+      "id": "lurrikara",
+      "basque": "Lurrikara",
+      "english": "Earthquake",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "loor-ree-KAH-rah",
+      "notes": "Earthquake. Lurra (earth) + ikara (trembling). Lurrikara txikiak = small earthquakes. The Pyrenees experience occasional seismic activity. Lurrikararen ondorioak = earthquake consequences.",
+      "example": {
+        "basque": "Lurrikara txiki bat sentitu genuen atzo.",
+        "english": "We felt a small earthquake yesterday."
+      }
+    },
+    {
+      "id": "uholdeak",
+      "basque": "Uholdeak",
+      "english": "Floods",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "oo-hol-DEH-ak",
+      "notes": "Floods (plural). Uholde = flood (singular). The Basque rivers (Oka, Nerbioi, Urola) have historically caused flooding. Climate change is increasing flood risk. Uholdeen arriskua = flood risk.",
+      "example": {
+        "basque": "Uholdeak eragin handia izan du herrian.",
+        "english": "The floods have had a big impact on the town."
+      }
+    },
+    {
+      "id": "lehortea",
+      "basque": "Lehortea",
+      "english": "Drought",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "leh-HOR-teh-ah",
+      "notes": "Drought. Lehor (dry) + -tea. Lehortearen ondorioak = drought consequences. Although the Basque Country is generally wet, droughts are increasing with climate change. Lehorte larria = severe drought.",
+      "example": {
+        "basque": "Lehortea dela eta urak murriztu dira.",
+        "english": "Due to the drought the water levels have decreased."
+      }
+    },
+    {
+      "id": "klima_epela",
+      "basque": "Klima epela",
+      "english": "Temperate climate",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "KLEE-mah eh-PEH-lah",
+      "notes": "Temperate climate. Klima (climate) + epela (warm/temperate). The Basque Country has an oceanic climate - mild winters, cool summers, frequent rain. Klima epela eta hezea = temperate and humid climate.",
+      "example": {
+        "basque": "Klima epelak landareen hazkundea errazten du.",
+        "english": "The temperate climate facilitates plant growth."
+      }
+    },
+    {
+      "id": "itsas_maila",
+      "basque": "Itsas maila",
+      "english": "Sea level",
+      "cefr": "B2",
+      "topic": "nature",
+      "pronunciation": "IT-sas MAI-lah",
+      "notes": "Sea level. Itsas (sea) + maila (level). Itsas mailaren igoera = sea level rise. Critical concept in climate change discussions. Itsas mailatik gorago = above sea level.",
+      "example": {
+        "basque": "Itsas mailak gora egin du azken hamarkadetan.",
+        "english": "Sea level has risen in recent decades."
+      }
+    },
+    {
+      "id": "pil_pil",
+      "basque": "Pil-pil saltsa",
+      "english": "Pil-pil sauce",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "PEEL PEEL SAL-tsah",
+      "notes": "Pil-pil is the iconic Basque emulsified sauce made by slowly swirling salted cod in olive oil and garlic until it emulsifies. The name comes from the sound of the gentle bubbling. A masterpiece of Basque technique.",
+      "example": {
+        "basque": "Bakailaoa pil-pil saltsan prestatzen jakitea garrantzitsua da.",
+        "english": "Knowing how to prepare cod in pil-pil sauce is important."
+      }
+    },
+    {
+      "id": "mahaia_erreserbatu",
+      "basque": "Mahaia erreserbatu",
+      "english": "To reserve a table",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "mah-HAI-ah er-reh-ser-BAH-too",
+      "notes": "To reserve a table. Mahai (table) + erreserbatu (to reserve). Essential phrase for Basque restaurant culture. Txoko reservations and Michelin-starred restaurants require advance booking.",
+      "example": {
+        "basque": "Gaueko zortzietarako mahaia erreserbatu dut.",
+        "english": "I have reserved a table for eight in the evening."
+      }
+    },
+    {
+      "id": "dastaketa",
+      "basque": "Dastaketa",
+      "english": "Tasting / Degustation",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "das-tah-KEH-tah",
+      "notes": "Tasting or degustation. Dastatu (to taste) + -keta. Dastaketa menua = tasting menu. San Sebastián's world-famous restaurants are known for their elaborate tasting menus. Ardo dastaketa = wine tasting.",
+      "example": {
+        "basque": "Dastaketa menua hartu genuen jatetxe horretan.",
+        "english": "We had the tasting menu at that restaurant."
+      }
+    },
+    {
+      "id": "osagai",
+      "basque": "Osagaia",
+      "english": "Ingredient",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "oh-sah-GAI-ah",
+      "notes": "Ingredient. Osa (compose) + -gaia. Osagai freskoak = fresh ingredients. Osagaien kalitatea funtsezkoa da sukaldaritzan = ingredient quality is essential in cooking. Key vocabulary for recipes and cooking.",
+      "example": {
+        "basque": "Osagai freskoak erabiltzea garrantzitsua da.",
+        "english": "Using fresh ingredients is important."
+      }
+    },
+    {
+      "id": "sukalde_teknika",
+      "basque": "Sukalde teknika",
+      "english": "Cooking technique",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "soo-KAL-deh tek-NEE-kah",
+      "notes": "Cooking technique. Sukalde (kitchen) + teknika. Basque nouvelle cuisine revolutionized European cooking in the 1970s with new techniques. Teknika berriak = new techniques. Key term in culinary education.",
+      "example": {
+        "basque": "Sukalde teknika berriak ikasten ari naiz.",
+        "english": "I am learning new cooking techniques."
+      }
+    },
+    {
+      "id": "bertako_produktua",
+      "basque": "Bertako produktua",
+      "english": "Local product",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "ber-TAH-koh pro-DOOK-too-ah",
+      "notes": "Local product. Bertako (local/from here) + produktua (product). The Basque food movement strongly values bertako produktuak - local ingredients from Basque farms and waters. Slow food philosophy.",
+      "example": {
+        "basque": "Bertako produktuak erabiltzen ditugu beti.",
+        "english": "We always use local products."
+      }
+    },
+    {
+      "id": "ardandegi",
+      "basque": "Ardandegi",
+      "english": "Wine cellar / Winery",
+      "cefr": "B2",
+      "topic": "food",
+      "pronunciation": "ar-dan-DEH-ghee",
+      "notes": "Wine cellar or winery. Ardo (wine) + -tegi (place). The Rioja Alavesa wine region in the Basque Country produces world-class wines. Famous wineries include Marqués de Riscal and Bodegas Ysios.",
+      "example": {
+        "basque": "Ardandegian Rioja Arabako ardoak ikusten ditugu.",
+        "english": "We see Rioja Alavesa wines in the winery."
+      }
+    },
+    {
+      "id": "agur_eta_ohore",
+      "basque": "Agur eta ohore",
+      "english": "Farewell and honor (formal closing)",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "ah-GOOR EH-tah oh-HOH-reh",
+      "notes": "A traditional formal closing phrase meaning farewell and honor. Used to close formal speeches, letters and official communications. Reflects the Basque tradition of honor and respect in formal discourse.",
+      "example": {
+        "basque": "Agur eta ohore esanez amaitu zuen bere hitzaldia.",
+        "english": "He ended his speech saying farewell and honor."
+      }
+    },
+    {
+      "id": "ongi_etorri",
+      "basque": "Ongi etorri",
+      "english": "Welcome",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "ON-ghee eh-TOR-ree",
+      "notes": "Welcome. Ongi (well) + etorri (come) = come well. The standard welcome greeting. Ongi etorri Euskal Herrira = welcome to the Basque Country. Seen on signs and used at events and gatherings.",
+      "example": {
+        "basque": "Ongi etorri gure etxera!",
+        "english": "Welcome to our house!"
+      }
+    },
+    {
+      "id": "zorte_on",
+      "basque": "Zorte on",
+      "english": "Good luck",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "ZOR-teh ON",
+      "notes": "Good luck. Zorte (luck/fate) + on (good). Zorte oneko = lucky. Zorte txarra = bad luck. Used before exams, competitions, journeys. Zorte on denoi = good luck to everyone.",
+      "example": {
+        "basque": "Zorte on azterketan!",
+        "english": "Good luck in the exam!"
+      }
+    },
+    {
+      "id": "osasun",
+      "basque": "Osasun!",
+      "english": "Cheers! / To your health!",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "oh-sah-SOON",
+      "notes": "Cheers or to your health - the Basque toast. Osasun = health. Said when raising a glass. Topa! is also used. Osasunaren alde = for health. Athletic Bilbao fans shout Osasun! as a battle cry.",
+      "example": {
+        "basque": "Osasun! Gure osasunaren alde.",
+        "english": "Cheers! For our health."
+      }
+    },
+    {
+      "id": "barkamen_eske",
+      "basque": "Barkamen eske",
+      "english": "Asking for forgiveness / Apologizing formally",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "bar-KAH-men ES-keh",
+      "notes": "Asking for forgiveness or formal apology. Barkamen (forgiveness) + eske (asking for). More formal and serious than barkatu (excuse me). Used in written apologies and formal contexts.",
+      "example": {
+        "basque": "Barkamen eske nator nire portaeragatik.",
+        "english": "I come asking for forgiveness for my behavior."
+      }
+    },
+    {
+      "id": "atsegin_dut",
+      "basque": "Atsegin dut",
+      "english": "I like it / I enjoy it",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "at-SEH-gheen doot",
+      "notes": "I like it or I enjoy it. Atsegin (pleasure) + dut (I have). More formal and literary than gustatu. Atsegin dut zure laguntza = I appreciate your help. Used in polite and formal expressions of appreciation.",
+      "example": {
+        "basque": "Oso atsegin dut zurekin hitz egitea.",
+        "english": "I very much enjoy talking with you."
+      }
+    },
+    {
+      "id": "errukia",
+      "basque": "Errukia",
+      "english": "Compassion / Pity",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "er-ROO-kee-ah",
+      "notes": "Compassion or pity. Erruki = compassion (root). Errukia sentitu = to feel compassion. Errukizkoa = compassionate. Erruki gabea = merciless. A deep human quality celebrated in Basque culture.",
+      "example": {
+        "basque": "Errukia sentitzen dut bere egoera ikusten dudanean.",
+        "english": "I feel compassion when I see his situation."
+      }
+    },
+    {
+      "id": "gorrotoa",
+      "basque": "Gorrotoa",
+      "english": "Hatred / Hate",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "gor-ROH-toh-ah",
+      "notes": "Hatred or hate. Gorroto = hate (root). Gorroto dut = I hate it. Gorrotoz betea = full of hate. Important for discussing conflict, discrimination and reconciliation in Basque political history.",
+      "example": {
+        "basque": "Gorrotoa ez da konponbidea.",
+        "english": "Hatred is not the solution."
+      }
+    },
+    {
+      "id": "etsipena",
+      "basque": "Etsipena",
+      "english": "Despair / Hopelessness",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "et-see-PEH-nah",
+      "notes": "Despair or hopelessness. Etsi (to give up hope) + -pena. Etsita egon = to be in despair. Etsipen handian dago = he is in great despair. The opposite of esperantza (hope).",
+      "example": {
+        "basque": "Etsipenak ez du lagundu behar.",
+        "english": "Despair should not hinder us."
+      }
+    },
+    {
+      "id": "jelosia",
+      "basque": "Jelosia",
+      "english": "Jealousy",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "yeh-loh-SEE-ah",
+      "notes": "Jealousy. From Spanish celos via jelosia. Jeloskorra = jealous person. Jeloskor egon = to be jealous. Used in both romantic and competitive contexts.",
+      "example": {
+        "basque": "Jelosia ez da sentimendu ona.",
+        "english": "Jealousy is not a good feeling."
+      }
+    },
+    {
+      "id": "haserrealdi",
+      "basque": "Haserrealdi",
+      "english": "Fit of anger / Tantrum",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "hah-ser-reh-AL-dee",
+      "notes": "Fit of anger or tantrum. Haserre (anger) + aldi (period/episode). Haserrealdi batean = in a fit of anger. Haserrealdi handia = big tantrum. Used for uncontrolled emotional outbursts.",
+      "example": {
+        "basque": "Haserrealdi batean esan zuen hori.",
+        "english": "He said that in a fit of anger."
+      }
+    },
+    {
+      "id": "melankoliia",
+      "basque": "Melankolia",
+      "english": "Melancholy",
+      "cefr": "B2",
+      "topic": "emotions",
+      "pronunciation": "meh-lan-koh-LEE-ah",
+      "notes": "Melancholy. From Greek via Spanish. Melankoliko = melancholic. A reflective sadness distinct from active grief. The Basque landscape and its mists inspire a particular kind of melancholy in literature.",
+      "example": {
+        "basque": "Melankolia sentitzen dut neguan.",
+        "english": "I feel melancholy in winter."
+      }
+    },
+    {
+      "id": "garaia",
+      "basque": "Garaia",
+      "english": "Era / Age / Period",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "gah-RAI-ah",
+      "notes": "Era, age or period. Garai (time/era) + -a. Industrializazio garaia = industrialization era. Garai batean = in a certain era. The Basque Country's industrial transformation from rural to urban in the 19th-20th century was a defining era.",
+      "example": {
+        "basque": "Garai hartan Bilbo hiri industrial handia zen.",
+        "english": "In that era Bilbao was a great industrial city."
+      }
+    },
+    {
+      "id": "mendea",
+      "basque": "Mendea",
+      "english": "Century",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "men-DEH-ah",
+      "notes": "Century. Mende = century (root). Hogeita batgarren mendea = the 21st century. Ehun urte. Mendearen hasieran = at the start of the century. The 20th century was defining for Basque political identity.",
+      "example": {
+        "basque": "Hogeita batgarren mendean bizi gara.",
+        "english": "We live in the 21st century."
+      }
+    },
+    {
+      "id": "hamarkada",
+      "basque": "Hamarkada",
+      "english": "Decade",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "hah-mar-KAH-dah",
+      "notes": "Decade. Hamar (ten) + -kada. Azken hamarkadan = in the last decade. Hamarkada batean = in a decade. Used in journalism, history and social analysis. Key for discussing Basque political and social evolution.",
+      "example": {
+        "basque": "Azken hamarkadan asko aldatu da gizartea.",
+        "english": "Society has changed a lot in the last decade."
+      }
+    },
+    {
+      "id": "ordutegia",
+      "basque": "Ordutegia",
+      "english": "Timetable / Schedule",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "or-doo-TEH-ghee-ah",
+      "notes": "Timetable or schedule. Ordu (hour) + -tegia. Ordutegi estua = tight schedule. Ordutegi malgu = flexible schedule. Garraio publikoaren ordutegia = public transport timetable. Essential for professional contexts.",
+      "example": {
+        "basque": "Ordutegia aldatu behar dugu bilera egiteko.",
+        "english": "We need to change the schedule to have the meeting."
+      }
+    },
+    {
+      "id": "muga_epea",
+      "basque": "Muga-epea",
+      "english": "Deadline",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "MOO-gah EH-peh-ah",
+      "notes": "Deadline. Muga (limit/border) + epea (period). Muga-epera iritsi = to reach the deadline. Muga-epea gainditu = to miss the deadline. Essential in professional and academic contexts.",
+      "example": {
+        "basque": "Muga-epea bihar da eta ez nago prest.",
+        "english": "The deadline is tomorrow and I am not ready."
+      }
+    },
+    {
+      "id": "kronologia",
+      "basque": "Kronologia",
+      "english": "Chronology",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "kroh-noh-loh-GHEE-ah",
+      "notes": "Chronology. International term. Kronologikoki = chronologically. Gertaeren kronologia = chronology of events. Used in historical, scientific and journalistic contexts.",
+      "example": {
+        "basque": "Gertaeren kronologia ezagutzea garrantzitsua da.",
+        "english": "It is important to know the chronology of events."
+      }
+    },
+    {
+      "id": "iraganeko_geroa",
+      "basque": "Iraganeko geroa",
+      "english": "Historical future / What was to come",
+      "cefr": "B2",
+      "topic": "time",
+      "pronunciation": "ee-rah-GAH-neh-koh GEH-roh-ah",
+      "notes": "The future as seen from the past - what was to come. Iragana (past) + geroa (future). A philosophical time concept used in literature and historical analysis. Rare but useful for advanced discourse.",
+      "example": {
+        "basque": "Iraganeko geroa ezin zuten aurreikusi.",
+        "english": "They could not foresee what was to come."
+      }
+    },
+    {
+      "id": "diaspora",
+      "basque": "Diaspora",
+      "english": "Diaspora",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "dee-AS-poh-rah",
+      "notes": "Diaspora. International term. The Basque diaspora is one of the most cohesive in the world - significant communities exist in Argentina, USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",
+      "example": {
+        "basque": "Euskal diaspora mundu osoan sakabanatuta dago.",
+        "english": "The Basque diaspora is scattered all over the world."
+      }
+    },
+    {
+      "id": "mugitzea",
+      "basque": "Mugitzea",
+      "english": "To move / Migration",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "moo-GHEE-tseh-ah",
+      "notes": "To move or migration. Mugitu (to move) + -tzea (verbal noun). Mugitzeko askatasuna = freedom of movement. Biztanleriaren mugitzea = population movement. Key in discussions of mobility and migration.",
+      "example": {
+        "basque": "Mugitzeko askatasuna eskubide bat da.",
+        "english": "Freedom of movement is a right."
+      }
+    },
+    {
+      "id": "erbesteratua",
+      "basque": "Erbesteratua",
+      "english": "Exile / Exiled person",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "er-bes-teh-RAH-too-ah",
+      "notes": "Exile or exiled person. Erbestea = exile. Erbesteratu = to go into exile. During the Franco dictatorship many Basques were erbesteratua in France, Mexico and elsewhere. A historically charged word.",
+      "example": {
+        "basque": "Frankismo garaian euskaldun asko erbesteratu ziren.",
+        "english": "During the Franco era many Basques went into exile."
+      }
+    },
+    {
+      "id": "mugarik_gabe",
+      "basque": "Mugarik gabe",
+      "english": "Without borders / Borderless",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "moo-GAH-reek GAH-beh",
+      "notes": "Without borders or borderless. Muga (border) + -rik gabe (without). Mugarik gabeko mundua = a borderless world. Schengen area made the French-Spanish Basque border invisible. Politically significant phrase.",
+      "example": {
+        "basque": "Mugarik gabeko Europa batean bizi gara.",
+        "english": "We live in a borderless Europe."
+      }
+    },
+    {
+      "id": "aberriratze",
+      "basque": "Aberriratze",
+      "english": "Repatriation / Return to homeland",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "ah-ber-ree-RAH-tseh",
+      "notes": "Repatriation or return to the homeland. Aberri (homeland) + -ratze (return). Aberriratzeko gogoa = desire to return to the homeland. Important for the Basque diaspora. Aberri Eguna celebrates the homeland.",
+      "example": {
+        "basque": "Aberriratze programak laguntzen die emigranteei.",
+        "english": "Repatriation programs help emigrants."
+      }
+    },
+    {
+      "id": "bide_luzea",
+      "basque": "Bide luzea",
+      "english": "Long road / Long journey",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "BEE-deh LOO-zeh-ah",
+      "notes": "Long road or long journey. Bide (road/path) + luzea (long). Both literal and metaphorical. Bide luzea dago oraindik = there is still a long road ahead. Used in discussions of political, social and personal journeys.",
+      "example": {
+        "basque": "Bide luzea dago helmugaraino.",
+        "english": "There is a long road to the destination."
+      }
+    },
+    {
+      "id": "bidezidor",
+      "basque": "Bidezidorra",
+      "english": "Path / Trail / Shortcut",
+      "cefr": "B2",
+      "topic": "travel",
+      "pronunciation": "bee-deh-SEE-dor-rah",
+      "notes": "Path, trail or shortcut. Bide (road) + zidor (narrow path). The Basque mountains are crossed by ancient bidezidorrak used by shepherds and pilgrims. The Camino de Santiago passes through the Basque Country.",
+      "example": {
+        "basque": "Bidezidor zahar bat hartu genuen mendira igotzeko.",
+        "english": "We took an old path to climb the mountain."
+      }
+    },
+    {
+      "id": "nerbio_sistema",
+      "basque": "Nerbio sistema",
+      "english": "Nervous system",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "ner-BEE-oh sees-TEH-mah",
+      "notes": "Nervous system. Nerbio (nerve) + sistema. Nerbio sistema zentrala = central nervous system. Nerbio sistema periferikoa = peripheral nervous system. Essential medical vocabulary.",
+      "example": {
+        "basque": "Nerbio sistemak gorputzaren mugimenduak kontrolatzen ditu.",
+        "english": "The nervous system controls the body's movements."
+      }
+    },
+    {
+      "id": "minbizia",
+      "basque": "Minbizia",
+      "english": "Cancer",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "min-BEE-tsee-ah",
+      "notes": "Cancer. Min (pain) + bizia (life). Minbizi mota asko daude = there are many types of cancer. Minbiziaren aurkako borroka = the fight against cancer. A sadly common and important medical term.",
+      "example": {
+        "basque": "Minbiziaren aurkako ikerketa garrantzitsua da.",
+        "english": "Research against cancer is important."
+      }
+    },
+    {
+      "id": "diabetesa",
+      "basque": "Diabetesa",
+      "english": "Diabetes",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "dee-ah-beh-TEH-sah",
+      "notes": "Diabetes. International term. Diabetesa daukagu = we have diabetes. Diabetesa kontrolatu = to control diabetes. Type 1 and Type 2. Common chronic condition requiring vocabulary for medical contexts.",
+      "example": {
+        "basque": "Diabetesa daukanak elikadura kontrolatu behar du.",
+        "english": "Someone who has diabetes must control their diet."
+      }
+    },
+    {
+      "id": "erietxea",
+      "basque": "Erietxea",
+      "english": "Clinic / Medical center",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "eh-ree-ET-cheh-ah",
+      "notes": "Clinic or medical center. Eri (sick person) + etxea (house). Literally sick-house. More specific than ospitalea - a smaller medical facility. Osakidetza (Basque health service) runs many erietxeak.",
+      "example": {
+        "basque": "Erietxean hitzordua hartu dut.",
+        "english": "I have made an appointment at the clinic."
+      }
+    },
+    {
+      "id": "etxea_ondarea",
+      "basque": "Etxe-ondarea",
+      "english": "Family homestead / Ancestral home",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "ET-cheh on-DAH-reh-ah",
+      "notes": "Family homestead or ancestral property. Etxe (house) + ondarea (heritage/legacy). In Basque culture the family home has its own name and is passed down through generations. Surnames like Etxeberria, Etxebarria come from homestead names.",
+      "example": {
+        "basque": "Gure etxeak mendeetan iraun du.",
+        "english": "Our family homestead has lasted for centuries."
+      }
+    },
+    {
+      "id": "belaunaldia",
+      "basque": "Belaunaldia",
+      "english": "Generation",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "beh-lau-NAL-dee-ah",
+      "notes": "Generation. Belaun (knee/generation) + -aldia. Belaunaldi berriak = new generations. Belaunaldiz belaunaldi = from generation to generation. The transmission of Basque language across belaunaldiak is a central cultural concern.",
+      "example": {
+        "basque": "Belaunaldiz belaunaldi transmititu da euskara.",
+        "english": "Basque has been transmitted from generation to generation."
+      }
+    },
+    {
+      "id": "ahaidetasuna",
+      "basque": "Ahaidetasuna",
+      "english": "Kinship / Family relationship",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "ah-hai-deh-tah-SOO-nah",
+      "notes": "Kinship or family relationship. Ahaide (relative/kin) + -tasuna. Ahaide hurbilak = close relatives. Ahaidetasun loturak = kinship ties. In traditional Basque society ahaidetasuna extended to the whole community.",
+      "example": {
+        "basque": "Ahaidetasun lotura estua daukagu familia guztiarekin.",
+        "english": "We have close kinship ties with the whole family."
+      }
+    },
+    {
+      "id": "heredentzia",
+      "basque": "Heredentzia",
+      "english": "Inheritance",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "heh-reh-DEN-tsee-ah",
+      "notes": "Inheritance. From Spanish herencia. Heredentzia jaso = to receive an inheritance. Testamentua = will/testament. In traditional Basque law the baserri was passed down to one heir to keep the farmstead intact.",
+      "example": {
+        "basque": "Heredentzia jaso zuen aitaren etxetik.",
+        "english": "He received an inheritance from his father's house."
+      }
+    },
+    {
+      "id": "more_iluna",
+      "basque": "More iluna",
+      "english": "Dark purple / Violet",
+      "cefr": "B1",
+      "topic": "colors",
+      "pronunciation": "moh-REH ee-LOO-nah",
+      "notes": "Dark purple or violet. More (purple) + iluna (dark). The color of Gernika's jacaranda trees in spring. Morea is already A1 - this teaches color modification with iluna/argia.",
+      "example": {
+        "basque": "More iluneko arropa darama.",
+        "english": "She wears dark purple clothing."
+      }
+    },
+    {
+      "id": "hori_argia",
+      "basque": "Hori argia",
+      "english": "Light yellow / Pale yellow",
+      "cefr": "B1",
+      "topic": "colors",
+      "pronunciation": "HOR-ee AR-ghee-ah",
+      "notes": "Light yellow or pale yellow. Hori (yellow) + argia (light/bright). Learning color modification - adding argia (light) or iluna (dark) to any basic color creates new shades. A pattern worth learning once.",
+      "example": {
+        "basque": "Hori argia gustuko dut eguzki koloreagatik.",
+        "english": "I like light yellow because of the sun color."
+      }
+    },
+    {
+      "id": "berde_iluna",
+      "basque": "Berde iluna",
+      "english": "Dark green / Forest green",
+      "cefr": "B1",
+      "topic": "colors",
+      "pronunciation": "BER-deh ee-LOO-nah",
+      "notes": "Dark green or forest green. Berde (green) + iluna (dark). The color of the Basque forests (basoak) and the ikurriña. Berde ilun kolorea = dark green color. Pinua berde iluna da = the pine is dark green.",
+      "example": {
+        "basque": "Basoa berde iluna da udazken hasieran.",
+        "english": "The forest is dark green at the start of autumn."
+      }
+    },
+    {
+      "id": "zilarra_kolorea",
+      "basque": "Zilar kolorea",
+      "english": "Silver color",
+      "cefr": "B1",
+      "topic": "colors",
+      "pronunciation": "SEE-lar koh-LOH-reh-ah",
+      "notes": "Silver color. Zilar (silver) + kolorea. Zilarrezko = made of silver. The color of the Bay of Biscay in winter and of traditional Basque silverware. Zilar kolorekoa = silver colored.",
+      "example": {
+        "basque": "Itsasoa zilar kolorekoa da gauean.",
+        "english": "The sea is silver colored at night."
+      }
+    },
+    {
+      "id": "neurria",
+      "basque": "Neurria",
+      "english": "Measure / Measurement",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "neu-REE-ah",
+      "notes": "Measure or measurement. Neurtu = to measure. Neurria hartu = to take a measure. Neurri batean = to some extent. Also used figuratively: neurria gainditu = to exceed the limit/measure.",
+      "example": {
+        "basque": "Neurri zehatzak hartu behar ditugu.",
+        "english": "We need to take precise measurements."
+      }
+    },
+    {
+      "id": "kopurua",
+      "basque": "Kopurua",
+      "english": "Amount / Quantity",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "koh-POO-roo-ah",
+      "notes": "Amount or quantity. Kopuru handian = in large quantities. Kopurua handitu = to increase the amount. Zenbat kopuru? = What amount? Very useful in commercial and everyday contexts.",
+      "example": {
+        "basque": "Kopuru nahikoa badaukagu.",
+        "english": "We have enough quantity."
+      }
+    },
+    {
+      "id": "maite_izatea",
+      "basque": "Maite izatea",
+      "english": "Being loved / Love (feeling)",
+      "cefr": "A1",
+      "topic": "emotions",
+      "pronunciation": "MAI-teh ee-ZAH-teh-ah",
+      "notes": "The feeling of being loved or loving someone. Maite = dear/beloved. Maite zaitut = I love you. One of the most important emotional expressions in any language.",
+      "example": {
+        "basque": "Maite izatea zoragarria da.",
+        "english": "Being loved is wonderful."
+      }
+    },
+    {
+      "id": "alaitasun",
+      "basque": "Atsegin",
+      "english": "Pleasure / Liking",
+      "cefr": "A1",
+      "topic": "emotions",
+      "pronunciation": "at-SEH-gheen",
+      "notes": "Pleasure or liking. Atsegin dut = I like it. Atsegin handiz = with great pleasure. More formal than gustatu. Atsegingarria = pleasant. Essential A1 emotion vocabulary.",
+      "example": {
+        "basque": "Atsegin dut euskara ikastea.",
+        "english": "I like learning Basque."
+      }
+    },
+    {
+      "id": "arkitektoa",
+      "basque": "Arkitektoa",
+      "english": "Architect",
+      "cefr": "A1",
+      "topic": "work",
+      "pronunciation": "ar-kee-TEK-toh-ah",
+      "notes": "Architect. From Greek via Spanish arquitecto. The Basque Country has world-famous architects - Frank Gehry designed the Guggenheim Bilbao. Arkitektura = architecture.",
+      "example": {
+        "basque": "Arkitektoa etxeak diseinatzen ditu.",
+        "english": "The architect designs houses."
+      }
+    },
+    {
+      "id": "gizadia",
+      "basque": "Gizadia",
+      "english": "Humanity / Mankind",
+      "cefr": "A1",
+      "topic": "society",
+      "pronunciation": "ghee-ZAH-dee-ah",
+      "notes": "Humanity or mankind. Giza (human) + -dia. Gizadiaren historia = the history of humanity. Gizadiari lagundu = to help humanity. A fundamental concept in society.",
+      "example": {
+        "basque": "Gizadia planeta honetan bizi da.",
+        "english": "Humanity lives on this planet."
+      }
+    },
+    {
+      "id": "biztanle",
+      "basque": "Komunitatea",
+      "english": "Community",
+      "cefr": "A1",
+      "topic": "society",
+      "pronunciation": "koh-moo-nee-TAH-teh-ah",
+      "notes": "Community. From Spanish comunidad. Komunitate txikia = small community. Euskal komunitatea = the Basque community. Very relevant for discussing Basque society and diaspora.",
+      "example": {
+        "basque": "Gure komunitatea indartsua da.",
+        "english": "Our community is strong."
+      }
+    },
+    {
+      "id": "elkarbizitza",
+      "basque": "Elkarbizitza",
+      "english": "Coexistence",
+      "cefr": "A1",
+      "topic": "society",
+      "pronunciation": "el-kar-bee-TSETS-ah",
+      "notes": "Coexistence. Elkar (each other) + bizitza (life). Elkarbizitza baketsua = peaceful coexistence. A key concept in Basque society given its complex political history and diverse communities.",
+      "example": {
+        "basque": "Elkarbizitza baketsua nahi dugu.",
+        "english": "We want peaceful coexistence."
+      }
+    },
+    {
+      "id": "ezkontidea",
+      "basque": "Ezkontidea",
+      "english": "Spouse",
+      "cefr": "A2",
+      "topic": "family",
+      "pronunciation": "ez-kon-TEE-deh-ah",
+      "notes": "Spouse. Ezkon (married) + kidea (companion). Gender-neutral term for husband or wife. More formal than senarra/emaztea. Ezkontide onena = best spouse. Used in official and legal contexts.",
+      "example": {
+        "basque": "Nire ezkontidea medikua da.",
+        "english": "My spouse is a doctor."
+      }
+    },
+    {
+      "id": "kolore_argia",
+      "basque": "Kolore argia",
+      "english": "Light color / Pale color",
+      "cefr": "A2",
+      "topic": "colors",
+      "pronunciation": "koh-LOH-reh AR-ghee-ah",
+      "notes": "Light color or pale color. Kolore (color) + argia (light). Kolore argiak = light colors. Teaching the argia/iluna (light/dark) modifier system which applies to all colors. Very useful for describing things.",
+      "example": {
+        "basque": "Kolore argiak gustuko ditut udaran.",
+        "english": "I like light colors in summer."
+      }
+    },
+    {
+      "id": "kolore_iluna",
+      "basque": "Kolore iluna",
+      "english": "Dark color",
+      "cefr": "A2",
+      "topic": "colors",
+      "pronunciation": "koh-LOH-reh ee-LOO-nah",
+      "notes": "Dark color. Kolore (color) + iluna (dark). Kolore ilunak = dark colors. The paired concept with kolore argia. Knowing argia and iluna lets you describe any color's shade.",
+      "example": {
+        "basque": "Neguan kolore ilunak erabiltzen ditut.",
+        "english": "In winter I use dark colors."
+      }
+    },
+    {
+      "id": "enplegua",
+      "basque": "Enplegua",
+      "english": "Employment / Job",
+      "cefr": "A2",
+      "topic": "work",
+      "pronunciation": "en-PLEH-goo-ah",
+      "notes": "Employment or job. From Spanish empleo. Enplegu bila = job hunting. Langabezia = unemployment. Enplegu aukera = job opportunity. Key vocabulary for discussing work situations.",
+      "example": {
+        "basque": "Enplegu bila ari naiz.",
+        "english": "I am looking for employment."
+      }
+    },
+    {
+      "id": "baja",
+      "basque": "Baja",
+      "english": "Sick leave",
+      "cefr": "A2",
+      "topic": "work",
+      "pronunciation": "BAH-hah",
+      "notes": "Sick leave. From Spanish baja (medical leave). Bajatan egon = to be on sick leave. Bajara joan = to go on sick leave. Very common in Basque workplace vocabulary, used daily.",
+      "example": {
+        "basque": "Bajatan nago astebetez.",
+        "english": "I am on sick leave for a week."
+      }
+    },
+    {
+      "id": "labean_egina",
+      "basque": "Labean egina",
+      "english": "Baked / Oven-cooked",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "LAH-beh-an EH-ghee-nah",
+      "notes": "Baked or oven-cooked. Labe (oven) + -an egina (made in). Labean egindako ogia = oven-baked bread. Essential cooking vocabulary. Labea = oven. The wood-fired oven is traditional in Basque cooking.",
+      "example": {
+        "basque": "Labean egindako arraina oso goxoa da.",
+        "english": "Oven-baked fish is very delicious."
+      }
+    },
+    {
+      "id": "gatz_gutxiko",
+      "basque": "Gatz gutxiko",
+      "english": "Low-salt / Low-sodium",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "GATS GOO-chee-koh",
+      "notes": "Low-salt or low-sodium. Gatz (salt) + gutxi (little) + -ko. Health-conscious food vocabulary. Gatz gutxiko dieta = low-salt diet. Increasingly relevant given Basque cuisine's richness.",
+      "example": {
+        "basque": "Gatz gutxiko elikadura gomendatzen dut.",
+        "english": "I recommend a low-salt diet."
+      }
+    },
+    {
+      "id": "zenbakiketa",
+      "basque": "Zenbakiketa",
+      "english": "Counting / Arithmetic",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "zen-bah-kee-KEH-tah",
+      "notes": "Counting or arithmetic. Zenbaki (number) + -keta. Zenbakiketa sinplea = simple arithmetic. Used in education and mathematics. Oinarrizko zenbakiketa = basic arithmetic.",
+      "example": {
+        "basque": "Zenbakiketa ikasi behar dute haurrek.",
+        "english": "Children need to learn arithmetic."
+      }
+    },
+    {
+      "id": "batuketak",
+      "basque": "Batuketak",
+      "english": "Addition (maths)",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "bah-too-KEH-tak",
+      "notes": "Addition in mathematics. Batu (to add/join) + -keta. Batuketa egin = to do addition. Ken = subtraction. Biderketa = multiplication. Zatiketa = division. Key mathematical operations vocabulary.",
+      "example": {
+        "basque": "Batuketa sinplea da matematikan.",
+        "english": "Addition is simple in mathematics."
+      }
+    },
+    {
+      "id": "guraso_bakarra",
+      "basque": "Guraso bakarra",
+      "english": "Single parent",
+      "cefr": "B1",
+      "topic": "family",
+      "pronunciation": "goo-RAH-soh bah-KAR-rah",
+      "notes": "Single parent. Guraso (parent) + bakarra (alone/single). Guraso bakarreko familia = single-parent family. Increasingly common family structure discussed in modern Basque society.",
+      "example": {
+        "basque": "Guraso bakarreko familiak asko daude.",
+        "english": "There are many single-parent families."
+      }
+    },
+    {
+      "id": "seme_alaba_adoptatu",
+      "basque": "Seme-alaba adoptatu",
+      "english": "Adopted child",
+      "cefr": "B1",
+      "topic": "family",
+      "pronunciation": "SEH-meh ah-LAH-bah ah-dop-TAH-too",
+      "notes": "Adopted child. Seme-alaba (son/daughter) + adoptatu (adopted). Adopzioa = adoption. Seme-alaba adoptatu bat daukagu = we have an adopted child. Important vocabulary for modern family discussions.",
+      "example": {
+        "basque": "Seme-alaba adoptatu bat daukate.",
+        "english": "They have an adopted child."
+      }
+    },
+    {
+      "id": "krema_kolorea",
+      "basque": "Krema kolorea",
+      "english": "Cream color",
+      "cefr": "B1",
+      "topic": "colors",
+      "pronunciation": "KREH-mah koh-LOH-reh-ah",
+      "notes": "Cream color. Krema (cream) + kolorea (color). The color of Basque farmhouse walls and fresh sheep's cheese. Krema kolorekoa = cream colored. Used in interior design and fashion.",
+      "example": {
+        "basque": "Hormak krema kolorekoak dira.",
+        "english": "The walls are cream colored."
+      }
+    },
+    {
+      "id": "muskulu",
+      "basque": "Muskulua",
+      "english": "Muscle",
+      "cefr": "B1",
+      "topic": "body",
+      "pronunciation": "moos-KOO-loo-ah",
+      "notes": "Muscle. From Spanish músculo. Muskulu-mina = muscle pain. Muskuluak landu = to work the muscles. Muskulu-lesio = muscle injury. Essential for sports, health and fitness vocabulary.",
+      "example": {
+        "basque": "Muskuluak entrenatu behar ditut.",
+        "english": "I need to train my muscles."
+      }
+    },
+    {
+      "id": "tendoia",
+      "basque": "Tendoia",
+      "english": "Tendon",
+      "cefr": "B1",
+      "topic": "body",
+      "pronunciation": "ten-DOH-ee-ah",
+      "notes": "Tendon. From Spanish tendón. Tendoi-lesio = tendon injury. Akilesen tendoia = Achilles tendon. Common sports injury vocabulary. Basque mountain sports make tendon injuries frequent.",
+      "example": {
+        "basque": "Tendoi-lesio bat daukat belaunean.",
+        "english": "I have a tendon injury in my knee."
+      }
+    },
+    {
+      "id": "ordu_erdia",
+      "basque": "Ordu erdia",
+      "english": "Half an hour",
+      "cefr": "B1",
+      "topic": "time",
+      "pronunciation": "OR-doo ER-dee-ah",
+      "notes": "Half an hour. Ordu (hour) + erdia (half). Ordu erdi barru = in half an hour. Ordu erdian = in half an hour. Essential for making appointments and time expressions.",
+      "example": {
+        "basque": "Ordu erdi barru iritsiko naiz.",
+        "english": "I will arrive in half an hour."
+      }
+    },
+    {
+      "id": "hilabete_bat_barru",
+      "basque": "Hilabete bat barru",
+      "english": "In one month / Within a month",
+      "cefr": "B1",
+      "topic": "time",
+      "pronunciation": "hee-lah-BEH-teh bat BAR-roo",
+      "notes": "In one month or within a month. Hilabete (month) + bat (one) + barru (within/inside). Barru = within/inside. This pattern works with any time: aste bat barru = in a week, urte bat barru = in a year.",
+      "example": {
+        "basque": "Hilabete bat barru itzuliko naiz.",
+        "english": "I will return within a month."
+      }
+    },
+    {
+      "id": "lan_eskaintza",
+      "basque": "Lan eskaintza",
+      "english": "Job offer",
+      "cefr": "B1",
+      "topic": "work",
+      "pronunciation": "LAN es-KAIN-tsah",
+      "notes": "Job offer. Lan (work) + eskaintza (offer). Lan eskaintza bat jaso = to receive a job offer. Lan eskaintzak bilatu = to look for job offers. Common in professional and career discussions.",
+      "example": {
+        "basque": "Lan eskaintza on bat jaso dut.",
+        "english": "I have received a good job offer."
+      }
+    },
+    {
+      "id": "curriculum",
+      "basque": "Curriculum",
+      "english": "CV / Resume",
+      "cefr": "B1",
+      "topic": "work",
+      "pronunciation": "koo-ree-KOO-loom",
+      "notes": "CV or resume. International term also written as curriculum vitae. Curriculuma bidali = to send a CV. Curriculuma eguneratu = to update the CV. Essential professional vocabulary.",
+      "example": {
+        "basque": "Nire curriculuma bidali dut.",
+        "english": "I have sent my CV."
+      }
+    },
+    {
+      "id": "mila_esker_denagatik",
+      "basque": "Mila esker denagatik",
+      "english": "Thank you for everything",
+      "cefr": "B2",
+      "topic": "greetings",
+      "pronunciation": "MEE-lah ES-ker DEH-nah-gah-teek",
+      "notes": "Thank you for everything. Mila esker (a thousand thanks) + denagatik (for everything). A warm closing phrase used at the end of events, emails or when parting from someone after a long time.",
+      "example": {
+        "basque": "Mila esker denagatik lagun.",
+        "english": "Thank you for everything friend."
+      }
+    },
+    {
+      "id": "datuak",
+      "basque": "Datuak",
+      "english": "Data / Statistics",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "DAH-too-ak",
+      "notes": "Data or statistics (plural). Datu = datum/data point (singular). Datuen arabera = according to the data. Datuak bildu = to collect data. Essential for academic, journalistic and scientific discourse.",
+      "example": {
+        "basque": "Datuek erakusten dute euskaldunak gehiagotzen ari direla.",
+        "english": "The data show that Basque speakers are increasing."
+      }
+    },
+    {
+      "id": "indizea",
+      "basque": "Indizea",
+      "english": "Index / Rate",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "in-DEE-zeh-ah",
+      "notes": "Index or rate. From Spanish índice. Langabezia indizea = unemployment rate. Prezio indizea = price index. Jaiotza tasa = birth rate. Used in economic and social statistics.",
+      "example": {
+        "basque": "Langabezia indizea jaitsi da.",
+        "english": "The unemployment rate has fallen."
+      }
+    },
+    {
+      "id": "hilerriak",
+      "basque": "Arbasoak",
+      "english": "Ancestors",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "ar-BAH-soh-ak",
+      "notes": "Ancestors. Arbaso = ancestor (singular). Arbasoak = ancestors (plural). The Basque tradition of honoring ancestors is strong - the etxea (family home) connects the living to their arbasoak across generations. Arbasoen lurra = the land of our ancestors.",
+      "example": {
+        "basque": "Gure arbasoek euskara hitz egiten zuten.",
+        "english": "Our ancestors spoke Basque."
+      }
+    },
+    {
+      "id": "jarduera_fisikoa",
+      "basque": "Jarduera fisikoa",
+      "english": "Physical activity",
+      "cefr": "B2",
+      "topic": "body",
+      "pronunciation": "yar-doo-EH-rah fee-SEE-koh-ah",
+      "notes": "Physical activity. Jarduera (activity) + fisikoa (physical). Jarduera fisiko nahikoa ez egitea = not doing enough physical activity. The Basque Country has a strong outdoor sports culture.",
+      "example": {
+        "basque": "Jarduera fisikoa egitea garrantzitsua da osasunerako.",
+        "english": "Doing physical activity is important for health."
+      }
+    },
+    {
+      "id": "euskal_literatura",
+      "basque": "Euskal literatura",
+      "english": "Basque literature",
+      "cefr": "B2",
+      "topic": "culture",
+      "pronunciation": "EUS-kal lee-teh-rah-TOO-rah",
+      "notes": "Basque literature. Bernat Etxepare wrote the first book ever printed in Basque in 1545. Modern authors include Bernardo Atxaga (Obabakoak) and Kirmen Uribe. Euskal literatura has a rich oral tradition via bertsolaritza.",
+      "example": {
+        "basque": "Euskal literatura aberatsa da.",
+        "english": "Basque literature is rich."
+      }
+    },
+    {
+      "id": "euskal_zinema",
+      "basque": "Euskal zinema",
+      "english": "Basque cinema",
+      "cefr": "B2",
+      "topic": "culture",
+      "pronunciation": "EUS-kal see-NEH-mah",
+      "notes": "Basque cinema. Directors like Julio Medem and Alex de la Iglesia have Basque roots. The San Sebastián International Film Festival (Donostiako Nazioarteko Zinema Jaialdia) is one of Europe's most prestigious.",
+      "example": {
+        "basque": "Euskal zinemak nazioarteko saria irabazi du.",
+        "english": "Basque cinema has won an international award."
+      }
+    },
+    {
+      "id": "ordu_bat",
+      "basque": "Ordu bat da",
+      "english": "It is one o'clock",
+      "cefr": "A1",
+      "topic": "numbers",
+      "pronunciation": "OR-doo BAT dah",
+      "notes": "It is one o'clock. Ordu = hour/clock. Ordu bat = one hour/one o'clock. Da = it is. Ordu biak = two o'clock. Ordu hirua = three o'clock. Telling time is essential for beginners.",
+      "example": {
+        "basque": "Ordu bat da orain.",
+        "english": "It is one o'clock now."
+      }
+    },
+    {
+      "id": "ordu_biak",
+      "basque": "Ordu biak",
+      "english": "Two o'clock",
+      "cefr": "A1",
+      "topic": "numbers",
+      "pronunciation": "OR-doo BEE-ak",
+      "notes": "Two o'clock. Ordu (hour) + biak (the twos). Basque uses the definite plural for telling time: biak = the twos = two o'clock. Ordu biak dira = it is two o'clock.",
+      "example": {
+        "basque": "Ordu biak dira.",
+        "english": "It is two o'clock."
+      }
+    },
+    {
+      "id": "laurden_gutxi",
+      "basque": "Laurden gutxi",
+      "english": "Quarter to (the hour)",
+      "cefr": "A1",
+      "topic": "numbers",
+      "pronunciation": "LAU-den GOO-chee",
+      "notes": "Quarter to the hour. Laurdena (quarter) + gutxi (less/to). Laurden gutxi hirua = quarter to three. The system: eta laurdena = quarter past, eta erdia = half past, laurden gutxi = quarter to.",
+      "example": {
+        "basque": "Hiruen laurden gutxi da.",
+        "english": "It is quarter to three."
+      }
+    },
+    {
+      "id": "eta_laurdena",
+      "basque": "Eta laurdena",
+      "english": "Quarter past (the hour)",
+      "cefr": "A1",
+      "topic": "numbers",
+      "pronunciation": "EH-tah LAU-der-nah",
+      "notes": "Quarter past the hour. Eta (and/plus) + laurdena (the quarter). Baten eta laurdena = quarter past one. Part of the essential Basque time-telling system.",
+      "example": {
+        "basque": "Baten eta laurdena da.",
+        "english": "It is quarter past one."
+      }
+    },
+    {
+      "id": "seigarrena",
+      "basque": "Seigarrena",
+      "english": "Sixth",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "say-GAR-reh-nah",
+      "notes": "Sixth. Sei (six) + -garrena (ordinal suffix). The ordinal suffix -garren/-garrena applies to all numbers. Learning the pattern: lehena=1st, bigarrena=2nd, hirugarrena=3rd, laugarrena=4th, bosgarrena=5th, seigarrena=6th.",
+      "example": {
+        "basque": "Seigarrena iritsi zen lasterketan.",
+        "english": "He arrived sixth in the race."
+      }
+    },
+    {
+      "id": "zazpigarrena",
+      "basque": "Zazpigarrena",
+      "english": "Seventh",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "zaz-pee-GAR-reh-nah",
+      "notes": "Seventh. Zazpi (seven) + -garrena. Zazpigarren zeruan = in seventh heaven. The ordinal suffix pattern is consistent and learnable once understood.",
+      "example": {
+        "basque": "Zazpigarren solairuan bizi naiz.",
+        "english": "I live on the seventh floor."
+      }
+    },
+    {
+      "id": "zortzigarrena",
+      "basque": "Zortzigarrena",
+      "english": "Eighth",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "zor-tsee-GAR-reh-nah",
+      "notes": "Eighth. Zortzi (eight) + -garrena. Zortzigarren postua = eighth place. Used for floors, positions, dates and rankings.",
+      "example": {
+        "basque": "Abuztuaren zortzigarrena da.",
+        "english": "It is the eighth of August."
+      }
+    },
+    {
+      "id": "bederatzigarrena",
+      "basque": "Bederatzigarrena",
+      "english": "Ninth",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "beh-deh-rat-see-GAR-reh-nah",
+      "notes": "Ninth. Bederatzi (nine) + -garrena. Bederatzigarren postuan = in ninth place. The longest ordinal for single digits - learning it completes the set.",
+      "example": {
+        "basque": "Bederatzigarrena naiz zerrendan.",
+        "english": "I am ninth on the list."
+      }
+    },
+    {
+      "id": "hamargarrena",
+      "basque": "Hamargarrena",
+      "english": "Tenth",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "hah-mar-GAR-reh-nah",
+      "notes": "Tenth. Hamar (ten) + -garrena. Hamargarren postuan = in tenth place. Hamargarrena = the tenth. Completes the basic ordinal number set.",
+      "example": {
+        "basque": "Hamargarren solairuan lan egiten dut.",
+        "english": "I work on the tenth floor."
+      }
+    },
+    {
+      "id": "ken",
+      "basque": "Kenketa",
+      "english": "Subtraction",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "ken-KEH-tah",
+      "notes": "Subtraction. Ken = subtract/minus. Kenketa egin = to do subtraction. Five minus three: bost ken hiru = bi. The four operations: batuketa (addition), kenketa (subtraction), biderketa (multiplication), zatiketa (division).",
+      "example": {
+        "basque": "Bost ken hiru bi da.",
+        "english": "Five minus three is two."
+      }
+    },
+    {
+      "id": "biderketa",
+      "basque": "Biderketa",
+      "english": "Multiplication",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "bee-der-KEH-tah",
+      "notes": "Multiplication. Bider = times/multiplied by. Biderketa taula = multiplication table. Bi bider hiru sei da = two times three is six. Essential school mathematics vocabulary.",
+      "example": {
+        "basque": "Biderketa taula ikasi behar duzu.",
+        "english": "You need to learn the multiplication table."
+      }
+    },
+    {
+      "id": "zatiketa",
+      "basque": "Zatiketa",
+      "english": "Division",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "zah-tee-KEH-tah",
+      "notes": "Division. Zati = part/divided by. Zatiketa egin = to do division. Hamar zati bi bost da = ten divided by two is five. Zati = fraction as well as division.",
+      "example": {
+        "basque": "Zatiketa matematikako oinarria da.",
+        "english": "Division is a foundation of mathematics."
+      }
+    },
+    {
+      "id": "herena",
+      "basque": "Herena",
+      "english": "One third",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "HEH-reh-nah",
+      "notes": "One third. Heren = third (as a fraction). Bi heren = two thirds. Hiruren heren = three thirds = a whole. Paired with erdia (half) and laurdena (quarter) to complete basic fractions.",
+      "example": {
+        "basque": "Lurren herena oihanez estalia dago.",
+        "english": "A third of the land is covered by forest."
+      }
+    },
+    {
+      "id": "ehuneko_berrogeita_hamar",
+      "basque": "Ehuneko berrogeita hamar",
+      "english": "Fifty percent",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "eh-HOO-neh-koh ber-ROH-gay-tah AH-mar",
+      "notes": "Fifty percent. Ehuneko (percentage) + berrogeita hamar (fifty). Learning to combine ehuneko with numbers gives you all percentages. Ehuneko hogei = 20%. Ehuneko ehun = 100%.",
+      "example": {
+        "basque": "Ehuneko berrogeita hamarrek euskara dakite.",
+        "english": "Fifty percent know Basque."
+      }
+    },
+    {
+      "id": "azken_urtean",
+      "basque": "Azken urtean",
+      "english": "In the last year / Year-on-year",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "AZ-ken OOR-teh-an",
+      "notes": "In the last year or year-on-year. Azken (last/final) + urtean (in the year). Azken urtean igoera = increase in the last year. Used constantly in statistics, news and reports.",
+      "example": {
+        "basque": "Azken urtean prezioek gora egin dute.",
+        "english": "Prices have risen in the last year."
+      }
+    },
+    {
+      "id": "aldaketa_ehunekoa",
+      "basque": "Aldaketa ehunekoa",
+      "english": "Percentage change",
+      "cefr": "B1",
+      "topic": "numbers",
+      "pronunciation": "al-dah-KEH-tah eh-HOO-neh-koh-ah",
+      "notes": "Percentage change. Aldaketa (change) + ehunekoa (percentage). Aldaketa ehuneko positiboa = positive percentage change. Essential for understanding economic and statistical reporting.",
+      "example": {
+        "basque": "Aldaketa ehunekoa positiboa da aurten.",
+        "english": "The percentage change is positive this year."
+      }
+    },
+    {
+      "id": "aldagai",
+      "basque": "Aldagaia",
+      "english": "Variable",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "al-dah-GAI-ah",
+      "notes": "Variable (in mathematics or statistics). Aldagai askea = independent variable. Aldagai mendekoa = dependent variable. Aldagaiak = variables. Essential in science, statistics and programming.",
+      "example": {
+        "basque": "Aldagai bat baino gehiago dago formulan.",
+        "english": "There is more than one variable in the formula."
+      }
+    },
+    {
+      "id": "batez_bestekoa",
+      "basque": "Batez bestekoa",
+      "english": "Average / Mean",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "bah-tez bes-TEH-koh-ah",
+      "notes": "Average or mean. Batez (on average) + bestekoa (the other/middle). Batez besteko soldata = average salary. Batez bestekotik gora = above average. One of the most used statistical terms.",
+      "example": {
+        "basque": "Batez besteko tenperatura igoera dago.",
+        "english": "There is an average temperature increase."
+      }
+    },
+    {
+      "id": "desbideratze_estandarra",
+      "basque": "Desbideratze estandarra",
+      "english": "Standard deviation",
+      "cefr": "B2",
+      "topic": "numbers",
+      "pronunciation": "des-bee-deh-RAT-seh es-tan-DAR-rah",
+      "notes": "Standard deviation. Desbideratu (to deviate) + estandarra (standard). Key statistical concept used in research, quality control and data science. Desbideratze txikia = small standard deviation.",
+      "example": {
+        "basque": "Desbideratze estandarra txikia da lagin honetan.",
+        "english": "The standard deviation is small in this sample."
+      }
+    },
+    {
+      "id": "mina_a2",
+      "basque": "Mina",
+      "english": "Pain",
+      "cefr": "A2",
+      "topic": "body",
+      "pronunciation": "MEE-nah",
+      "notes": "Pain (physical). Min egin = to hurt. Non mina duzu? = Where does it hurt? Buruko mina = headache. Sabeleko mina = stomachache. Hortzetako mina = toothache. The root min appears in many compounds.",
+      "example": {
+        "basque": "Mina daukat hanketan.",
+        "english": "I have pain in my legs."
+      }
+    },
+    {
+      "id": "gaixotasuna",
+      "basque": "Gaixotasuna",
+      "english": "Illness / Disease",
+      "cefr": "A2",
+      "topic": "body",
+      "pronunciation": "gai-sho-tah-SOO-nah",
+      "notes": "Illness or disease. Gaixo (sick) + -tasuna. Gaixotasun larria = serious illness. Gaixotasun kronikoa = chronic disease. Gaixotzea = to fall ill. Essential health vocabulary.",
+      "example": {
+        "basque": "Gaixotasun bat daukat eta medikuarengana joan behar dut.",
+        "english": "I have an illness and I need to go to the doctor."
+      }
+    },
+    {
+      "id": "eztula",
+      "basque": "Eztula",
+      "english": "Cough",
+      "cefr": "A2",
+      "topic": "body",
+      "pronunciation": "ez-TOO-lah",
+      "notes": "Cough. Eztul egin = to cough. Eztul lehorra = dry cough. Eztul hezea = wet cough. One of the most common symptoms vocabulary learners need when visiting a doctor or pharmacy.",
+      "example": {
+        "basque": "Eztul asko egiten dut.",
+        "english": "I cough a lot."
+      }
+    },
+    {
+      "id": "buruko_mina",
+      "basque": "Buruko mina",
+      "english": "Headache",
+      "cefr": "A2",
+      "topic": "body",
+      "pronunciation": "BOO-roo-koh MEE-nah",
+      "notes": "Headache. Buru (head) + -ko (of) + mina (pain). Buruko min handia = bad headache. Migraina = migraine. The most common pain complaint - essential vocabulary for any context.",
+      "example": {
+        "basque": "Buruko mina daukat eta etzanda egon behar dut.",
+        "english": "I have a headache and I need to lie down."
+      }
+    },
+    {
+      "id": "sumina",
+      "basque": "Sumina",
+      "english": "Itch / Irritation",
+      "cefr": "B1",
+      "topic": "body",
+      "pronunciation": "soo-MEE-nah",
+      "notes": "Itch or irritation. Sumin egin = to itch. Azala sumintsu dago = the skin is irritated. Alergia = allergy. Common medical vocabulary for skin conditions and allergies.",
+      "example": {
+        "basque": "Azalak sumina egiten dit.",
+        "english": "My skin itches."
+      }
+    },
+    {
+      "id": "hegazkina",
+      "basque": "Hegazkina",
+      "english": "Aeroplane / Flight",
+      "cefr": "A1",
+      "topic": "travel",
+      "pronunciation": "heh-gaz-KEE-nah",
+      "notes": "Aeroplane or flight. Hegaz (flying) + -kina (machine). Hegazkin txartela = plane ticket. Hegazkin konpainia = airline. Bilbao Airport (Loiu) and San Sebastián Airport serve the Basque Country.",
+      "example": {
+        "basque": "Hegazkinez joango naiz Madrilera.",
+        "english": "I will go to Madrid by plane."
+      }
+    },
+    {
+      "id": "ostatua_erreserbatu",
+      "basque": "Ostatua erreserbatu",
+      "english": "To book a hotel",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "os-TAH-too-ah er-reh-ser-BAH-too",
+      "notes": "To book a hotel. Ostatua (hotel) + erreserbatu (to reserve). Gela bat erreserbatu = to book a room. Online erreserbaketa = online booking. Essential practical travel vocabulary.",
+      "example": {
+        "basque": "Bi gauetarako ostatua erreserbatu dut.",
+        "english": "I have booked a hotel for two nights."
+      }
+    },
+    {
+      "id": "gela",
+      "basque": "Gela",
+      "english": "Room",
+      "cefr": "A1",
+      "topic": "travel",
+      "pronunciation": "GEH-lah",
+      "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Komunak = bathroom. Gela bikoitza = double room. Gela bakarreko = single room. Essential hotel vocabulary.",
+      "example": {
+        "basque": "Gela bat nahi dut bi gauetarako.",
+        "english": "I want a room for two nights."
+      }
+    },
+    {
+      "id": "hegazkin_txartela",
+      "basque": "Hegazkin txartela",
+      "english": "Plane ticket",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "heh-gaz-KEEN CHAR-teh-lah",
+      "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joateko txartela = one-way ticket. Joan-etorriko txartela = return ticket. Txartela erosi = to buy a ticket.",
+      "example": {
+        "basque": "Hegazkin txartela erosi behar dut.",
+        "english": "I need to buy a plane ticket."
+      }
+    },
+    {
+      "id": "langabezia",
+      "basque": "Langabezia",
+      "english": "Unemployment",
+      "cefr": "A2",
+      "topic": "work",
+      "pronunciation": "lan-gah-BEH-tsee-ah",
+      "notes": "Unemployment. Lan (work) + gabezia (lack of). Langabezian egon = to be unemployed. Langabezia tasa = unemployment rate. Langabeziagatiko laguntza = unemployment benefit.",
+      "example": {
+        "basque": "Langabezian nago hilabete bat baino gehiago.",
+        "english": "I have been unemployed for more than a month."
+      }
+    },
+    {
+      "id": "erretiroa",
+      "basque": "Erretiroa",
+      "english": "Retirement",
+      "cefr": "B1",
+      "topic": "work",
+      "pronunciation": "er-reh-TEE-roh-ah",
+      "notes": "Retirement. From Spanish retiro. Erretirora joan = to retire. Erretiro adina = retirement age. Erretiro pentsioa = retirement pension. The Basque Social Security system is managed separately from Spain.",
+      "example": {
+        "basque": "Erretirora joango naiz hurrengo urtean.",
+        "english": "I will retire next year."
+      }
+    },
+    {
+      "id": "sindikatu",
+      "basque": "Sindikatua",
+      "english": "Trade union",
+      "cefr": "B1",
+      "topic": "work",
+      "pronunciation": "seen-dee-KAH-too-ah",
+      "notes": "Trade union. ELA and LAB are the main Basque trade unions. Sindikatuan sartu = to join a union. Sindikatu kidea = union member. Strong tradition of trade unionism in the Basque industrial sector.",
+      "example": {
+        "basque": "Sindikatuan nago nire eskubideak babesteko.",
+        "english": "I am in the trade union to protect my rights."
+      }
+    },
+    {
+      "id": "harridura",
+      "basque": "Harridura",
+      "english": "Surprise / Astonishment",
+      "cefr": "A2",
+      "topic": "emotions",
+      "pronunciation": "har-ree-DOO-rah",
+      "notes": "Surprise or astonishment (noun). Harritu = to surprise (verb). Harridura handiz = with great surprise. Harrigarria = surprising. Zer harridura! = What a surprise! The noun form for harritu.",
+      "example": {
+        "basque": "Harridura handiz jaso zuen albistea.",
+        "english": "He received the news with great surprise."
+      }
+    },
+    {
+      "id": "pena",
+      "basque": "Pena",
+      "english": "Pity / Shame / Sorrow",
+      "cefr": "A2",
+      "topic": "emotions",
+      "pronunciation": "PEH-nah",
+      "notes": "Pity, shame or sorrow. Ze pena! = What a shame! Pena handia = great sorrow. From Spanish pena. Penazko = pitiful/sad. Very commonly used in everyday conversation.",
+      "example": {
+        "basque": "Ze pena etorri ez izana.",
+        "english": "What a shame you didn't come."
+      }
+    },
+    {
+      "id": "atsekabea",
+      "basque": "Atsekabea",
+      "english": "Grief / Sorrow",
+      "cefr": "B1",
+      "topic": "emotions",
+      "pronunciation": "at-seh-KAH-beh-ah",
+      "notes": "Grief or deep sorrow. Atsekabe = grief (root). Atsekabetu = to grieve. Atsekabea sentitu = to feel grief. More intense than tristura (sadness). Used for loss and mourning.",
+      "example": {
+        "basque": "Atsekabe handia sentitzen dut zure galera jakitean.",
+        "english": "I feel great grief on hearing of your loss."
+      }
+    },
+    {
+      "id": "gosaldu",
+      "basque": "Gosaldu",
+      "english": "To have breakfast",
+      "cefr": "A1",
+      "topic": "food",
+      "pronunciation": "goh-SAL-doo",
+      "notes": "To have breakfast. Gosal (morning meal) + -du (verb suffix). Goizean gosaltzen dut = I have breakfast in the morning. Gosaria = breakfast (noun). The three meal verbs: gosaldu, bazkaldu, afaldu.",
+      "example": {
+        "basque": "Goizean zazpietan gosaltzen dut.",
+        "english": "I have breakfast at seven in the morning."
+      }
+    },
+    {
+      "id": "bazkaldu",
+      "basque": "Bazkaldu",
+      "english": "To have lunch",
+      "cefr": "A1",
+      "topic": "food",
+      "pronunciation": "baz-KAL-doo",
+      "notes": "To have lunch. Bazkal (lunch) + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture - often a three-course menua.",
+      "example": {
+        "basque": "Jatetxean bazkaldu dugu.",
+        "english": "We had lunch at the restaurant."
+      }
+    },
+    {
+      "id": "afaldu",
+      "basque": "Afaldu",
+      "english": "To have dinner",
+      "cefr": "A1",
+      "topic": "food",
+      "pronunciation": "ah-FAL-doo",
+      "notes": "To have dinner. Afal (dinner) + -du. Gauean afaldu = to have dinner in the evening. Afaria = dinner (noun). Three essential meal verbs in one: gosaldu, bazkaldu, afaldu. Mirror the nouns gosaria, bazkaria, afaria.",
+      "example": {
+        "basque": "Gaueko zortziretan afaltzen dugu.",
+        "english": "We have dinner at eight in the evening."
+      }
+    },
+    {
+      "id": "gosea",
+      "basque": "Gosea",
+      "english": "Hungry",
+      "cefr": "A1",
+      "topic": "adjectives",
+      "pronunciation": "GOH-seh-ah",
+      "notes": "Hungry. Gose = hunger (root). Gose naiz = I am hungry. Gose handia daukat = I am very hungry. Gose-egarria = hunger and thirst. One of the most basic body state adjectives.",
+      "example": {
+        "basque": "Gose naiz, zer jan dezakegu?",
+        "english": "I am hungry, what can we eat."
+      }
+    },
+    {
+      "id": "egarria",
+      "basque": "Egarria",
+      "english": "Thirsty",
+      "cefr": "A1",
+      "topic": "adjectives",
+      "pronunciation": "eh-GAR-ree-ah",
+      "notes": "Thirsty. Egarri = thirst (root). Egarri naiz = I am thirsty. Egarri handia daukat = I am very thirsty. Gose-egarria = hunger and thirst (paired expression). Essential basic vocabulary.",
+      "example": {
+        "basque": "Egarri naiz, ur pixka bat mesedez.",
+        "english": "I am thirsty, a little water please."
+      }
+    },
+    {
+      "id": "nekatuta",
+      "basque": "Nekatuta",
+      "english": "Tired / Exhausted",
+      "cefr": "A1",
+      "topic": "adjectives",
+      "pronunciation": "neh-kah-TOO-tah",
+      "notes": "Tired or exhausted. Neka (tiredness) + -tuta (state suffix). Oso nekatuta nago = I am very tired. Nekatuta egon = to be tired. One of the most used everyday adjectives.",
+      "example": {
+        "basque": "Oso nekatuta nago gaur.",
+        "english": "I am very tired today."
+      }
+    },
+    {
+      "id": "beterik",
+      "basque": "Beterik",
+      "english": "Full (after eating)",
+      "cefr": "A2",
+      "topic": "adjectives",
+      "pronunciation": "beh-TEH-reek",
+      "notes": "Full after eating. Bete (full) + -rik (state). Beterik nago = I am full. Jan ondoren beterik nago = I am full after eating. The natural companion to gosea (hungry). Essential for meals.",
+      "example": {
+        "basque": "Beterik nago, ezin dut gehiago jan.",
+        "english": "I am full, I cannot eat any more."
+      }
+    },
+    {
+      "id": "eguraldi",
+      "basque": "Eguraldi",
+      "english": "Weather",
+      "cefr": "A1",
+      "topic": "nature",
+      "pronunciation": "eh-goo-RAL-dee",
+      "notes": "Weather. Egur (wood/fuel) + aldi (period/time). The Basque Country is famous for its unpredictable weather - four seasons in one day is common. Eguraldia txarra da = the weather is bad. Eguraldiaren iragarpena = weather forecast.",
+      "example": {
+        "basque": "Eguraldia ona da gaur.",
+        "english": "The weather is good today."
+      }
+    },
+    {
+      "id": "hodeitsu",
+      "basque": "Hodeitsu",
+      "english": "Cloudy",
+      "cefr": "A2",
+      "topic": "nature",
+      "pronunciation": "hoh-day-TOO",
+      "notes": "Cloudy. Hodei (cloud) + -tsu (full of). Hodeitsu dago = it is cloudy. The Basque Country has an oceanic climate - clouds and rain are frequent. Hodei iluna = dark cloud.",
+      "example": {
+        "basque": "Hodeitsu dago gaur, beharbada euria egingo du.",
+        "english": "It is cloudy today, maybe it will rain."
+      }
+    },
+    {
+      "id": "tenperatura",
+      "basque": "Tenperatura",
+      "english": "Temperature",
+      "cefr": "A2",
+      "topic": "nature",
+      "pronunciation": "ten-peh-rah-TOO-rah",
+      "notes": "Temperature. From Spanish temperatura. Tenperatura altua = high temperature. Tenperatura baxua = low temperature. Zenbat gradu daude? = How many degrees is it? Essential for weather and science.",
+      "example": {
+        "basque": "Gaur tenperatura altua dago.",
+        "english": "Today the temperature is high."
+      }
+    },
+    {
+      "id": "eguzkitsua",
+      "basque": "Eguzkitsua",
+      "english": "Sunny",
+      "cefr": "A1",
+      "topic": "nature",
+      "pronunciation": "eh-goos-KEET-soo-ah",
+      "notes": "Sunny. Eguzki (sun) + -tsua (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine. A welcome sight in the often-cloudy Basque Country. The sun features in many Basque symbols.",
+      "example": {
+        "basque": "Eguzkitsua dago gaur eta parkera joango gara.",
+        "english": "It is sunny today and we will go to the park."
+      }
+    },
+    {
+      "id": "kiroldegi",
+      "basque": "Kiroldegi",
+      "english": "Sports centre / Gym",
+      "cefr": "A2",
+      "topic": "culture",
+      "pronunciation": "kee-rol-DEH-ghee",
+      "notes": "Sports centre or gym. Kirol (sport) + -tegi (place). The Basque Country has excellent public sports facilities. Kiroldegian joan = to go to the sports centre. Igerileku = swimming pool.",
+      "example": {
+        "basque": "Astelehen eta asteazkenetan kiroldegira joaten naiz.",
+        "english": "I go to the sports centre on Mondays and Wednesdays."
+      }
+    },
+    {
+      "id": "literatura",
+      "basque": "Literatura",
+      "english": "Literature",
+      "cefr": "A2",
+      "topic": "culture",
+      "pronunciation": "lee-teh-rah-TOO-rah",
+      "notes": "Literature. International term. Euskal literatura = Basque literature. Literatur saria = literary prize. Bernardo Atxagaren Obabakoak is the most internationally known work of Basque literature.",
+      "example": {
+        "basque": "Literatura irakurtzea gustuko dut.",
+        "english": "I like reading literature."
+      }
+    },
+    {
+      "id": "senide_hurbilak",
+      "basque": "Senide hurbilak",
+      "english": "Close relatives / Next of kin",
+      "cefr": "B2",
+      "topic": "family",
+      "pronunciation": "SEH-nee-deh hoor-BEE-lak",
+      "notes": "Close relatives or next of kin. Senide (relative/family member) + hurbilak (close ones). Legal and medical contexts require identifying senide hurbilak. Nire senide hurbilena = my closest relative.",
+      "example": {
+        "basque": "Senide hurbilei jakinarazi behar diegu.",
+        "english": "We need to inform the close relatives."
       }
     }
   ],
