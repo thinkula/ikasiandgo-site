@@ -69,11 +69,38 @@ function sfx(name){
     else if(name==="start"){_tone(440,0.08,"sine",0.13,0);_tone(587,0.14,"sine",0.14,0.08);}
   }catch(e){}
 }
-function setSfxOn(on){_SFX_ON=!!on;try{window.storage.set("sfx_on",on?"1":"0").catch(function(){});}catch(e){}}
+function setSfxOn(on){_SFX_ON=!!on;try{STORE.set("sfx_on",on?"1":"0").catch(function(){});}catch(e){}}
 function getSfxOn(){return _SFX_ON;}
-if(!window.storage){window.storage={get:function(k){return Promise.resolve(localStorage.getItem(k)?{key:k,value:localStorage.getItem(k)}:null);},set:function(k,v){try{localStorage.setItem(k,v);return Promise.resolve({key:k,value:v});}catch(e){return Promise.resolve(null);}},delete:function(k){localStorage.removeItem(k);return Promise.resolve({key:k,deleted:true});},list:function(prefix){var keys=Object.keys(localStorage).filter(function(k){return !prefix||k.startsWith(prefix);});return Promise.resolve({keys:keys});}};}
+// Storage: always use localStorage as the reliable backing store. Some native
+// bridges inject a window.storage that fails to persist across app restarts, so
+// we install our own localStorage-backed implementation unconditionally.
+(function(){
+  function lsGet(k){try{var v=window.localStorage.getItem(k);return Promise.resolve(v!==null?{key:k,value:v}:null);}catch(e){return Promise.resolve(null);}}
+  function lsSet(k,v){try{window.localStorage.setItem(k,v);return Promise.resolve({key:k,value:v});}catch(e){return Promise.resolve(null);}}
+  function lsDel(k){try{window.localStorage.removeItem(k);}catch(e){}return Promise.resolve({key:k,deleted:true});}
+  function lsList(prefix){try{var keys=Object.keys(window.localStorage).filter(function(k){return !prefix||k.indexOf(prefix)===0;});return Promise.resolve({keys:keys});}catch(e){return Promise.resolve({keys:[]});}}
+  try{
+    if(window.localStorage){
+      window.storage={get:lsGet,set:lsSet,"delete":lsDel,list:lsList};
+    }else if(!window.storage){
+      var mem={};
+      window.storage={get:function(k){return Promise.resolve(mem[k]!==undefined?{key:k,value:mem[k]}:null);},set:function(k,v){mem[k]=v;return Promise.resolve({key:k,value:v});},"delete":function(k){delete mem[k];return Promise.resolve({key:k,deleted:true});},list:function(p){return Promise.resolve({keys:Object.keys(mem).filter(function(k){return !p||k.indexOf(p)===0;})});}};
+    }
+  }catch(e){}
+})();
+// Reliable storage handle the app uses everywhere. Points at localStorage directly so a
+// late-loading native bridge that overwrites window.storage cannot break persistence.
+var STORE=(function(){
+  function g(k){try{var v=window.localStorage.getItem(k);return Promise.resolve(v!==null?{key:k,value:v}:null);}catch(e){return Promise.resolve(null);}}
+  function s(k,v){try{window.localStorage.setItem(k,v);return Promise.resolve({key:k,value:v});}catch(e){return Promise.resolve(null);}}
+  function d(k){try{window.localStorage.removeItem(k);}catch(e){}return Promise.resolve({key:k,deleted:true});}
+  function l(prefix){try{var keys=Object.keys(window.localStorage).filter(function(k){return !prefix||k.indexOf(prefix)===0;});return Promise.resolve({keys:keys});}catch(e){return Promise.resolve({keys:[]});}}
+  if(window.localStorage)return{get:g,set:s,"delete":d,list:l};
+  var mem={};
+  return{get:function(k){return Promise.resolve(mem[k]!==undefined?{key:k,value:mem[k]}:null);},set:function(k,v){mem[k]=v;return Promise.resolve({key:k,value:v});},"delete":function(k){delete mem[k];return Promise.resolve({key:k,deleted:true});},list:function(p){return Promise.resolve({keys:Object.keys(mem).filter(function(k){return !p||k.indexOf(p)===0;})});}};
+})();
 // Load mute preference at startup (after storage polyfill is guaranteed)
-try{window.storage.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
+try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
 const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
 const VERSION="1.0.0";
 const CORRECT_MSGS=["Correct!","Nice one!","Well done!","Nailed it!","Excellent!","Perfect!","Spot on!","Great!"];
@@ -91,7 +118,7 @@ const VOCAB_URL="https://ikasiandgo.com/vocabulary.json";
 const SEED_VOCAB=[
   {id:"kaixo",basque:"Kaixo",english:"Hello",cefr:"A1",topic:"greetings",pronunciation:"KAI-sho",notes:"Kaixo is universal - used with friends, strangers, shopkeepers, anyone. More casual than egun on. Often followed by Zer moduz? (How are you?)",example:{basque:"Kaixo! Zer moduz?",english:"Hello! How are you?"}},
   {id:"agur",basque:"Agur",english:"Goodbye",cefr:"A1",topic:"greetings",pronunciation:"AH-goor",notes:"Agur sounds like the French bonjour but means goodbye. Do not confuse with the French greeting!",example:{basque:"Agur lagun!",english:"Goodbye friend!"}},
-  {id:"bai",basque:"Bai",english:"Yes",cefr:"A1",topic:"greetings",pronunciation:"BYE",notes:"Bai is one of the first words visitors learn. Unlike Spanish si, it sounds like English bye!",example:{basque:"Bai ondo dago.",english:"Yes that is fine."}},
+  {id:"bai",basque:"Bai",english:"Yes",cefr:"A1",topic:"greetings",pronunciation:"BAH-ee",notes:"Bai is one of the first words visitors learn. It is pronounced like the English word eye with a b in front.",example:{basque:"Bai ondo dago.",english:"Yes that is fine."}},
   {id:"ez",basque:"Ez",english:"No",cefr:"A1",topic:"greetings",pronunciation:"EZ",notes:"Ez is also used as a prefix meaning not/un-: ezagutu=to know, ezezagun=unknown.",example:{basque:"Ez eskerrik asko.",english:"No thank you."}},
   {id:"eskerrik_asko",basque:"Eskerrik asko",english:"Thank you",cefr:"A1",topic:"greetings",pronunciation:"es-KER-ik AS-ko",notes:"Eskerrik asko = many thanks. Esker = thanks + -rik (partitive suffix) + asko = much/many. The partitive -rik expresses an indefinite quantity of thanks. A beautiful construction: indefinitely many thanks.",example:{basque:"Eskerrik asko laguntzeagatik.",english:"Thank you for helping."}},
   {id:"mesedez",basque:"Mesedez",english:"Please",cefr:"A1",topic:"greetings",pronunciation:"meh-SEH-dez",notes:"Mesedez comes from Spanish por favor. Common in both formal requests and everyday politeness.",example:{basque:"Mesedez ekarri ura.",english:"Please bring water."}},
@@ -128,8 +155,10 @@ const SEED_VOCAB=[
   {id:"mila",basque:"Mila",english:"One thousand",cefr:"A1",topic:"numbers",pronunciation:"MEE-lah",notes:"Mila = one thousand. Mila esker = a thousand thanks. Mila bider = a thousand times. Milioika = millions (of). Mila is also used as an intensifier: mila aldiz = countless times. Bi mila = 2000.",example:{basque:"Mila esker.",english:"A thousand thanks."}},
   {id:"ama",basque:"Ama",english:"Mother",cefr:"A1",topic:"family",pronunciation:"AH-mah",notes:"Ama is also used as a suffix: Euskal Ama = Mother Basque. Very commonly used in songs and poetry.",example:{basque:"Nire ama medikua da.",english:"My mother is a doctor."}},
   {id:"aita",basque:"Aita",english:"Father",cefr:"A1",topic:"family",pronunciation:"AI-tah",notes:"Aita is also used in religious contexts. Aita Gurea = Our Father (the Lords Prayer in Basque).",example:{basque:"Nire aita Bilbon bizi da.",english:"My father lives in Bilbo."}},
-  {id:"anaia",basque:"Anaia",english:"Brother",cefr:"A1",topic:"family",pronunciation:"ah-NAI-ah",notes:"Anaia = brother (used by both men and women). Note: in some dialects women use neba for brother and anaia only for a female speaker's male sibling. Basque has distinct sibling terms by speaker gender.",example:{basque:"Anaia gaztea da.",english:"The brother is young."}},
-  {id:"ahizpa",basque:"Ahizpa",english:"Sister",cefr:"A1",topic:"family",pronunciation:"ah-EETH-pah",notes:"Ahizpa = sister as used by a female speaker. A male speaker uses arreba for his sister. Basque uniquely distinguishes sibling terms by the gender of the speaker, not the sibling.",example:{basque:"Nire ahizpa eta anaia Donostian bizi dira.",english:"My sister and brother live in Donostia."}},
+  {id:"anaia",basque:"Anaia",english:"Brother (male speaker)",cefr:"A1",topic:"family",pronunciation:"ah-NAI-ah",notes:"Anaia = brother as said by a male speaker (a man's brother). Basque uniquely picks the sibling word by the speaker's gender: a woman says neba for her brother. The collective term for siblings is anai-arrebak.",example:{basque:"Anaia gaztea da.",english:"The brother is young."}},
+  {id:"ahizpa",basque:"Ahizpa",english:"Sister (female speaker)",cefr:"A1",topic:"family",pronunciation:"ah-EETH-pah",notes:"Ahizpa = sister as said by a female speaker (a woman's sister). A male speaker says arreba for his sister. Basque distinguishes sibling terms by the speaker's gender, not the sibling's.",example:{basque:"Nire ahizpa eta anaia Donostian bizi dira.",english:"My sister and brother live in Donostia."}},
+  {id:"arreba",basque:"Arreba",english:"Sister (male speaker)",cefr:"A1",topic:"family",pronunciation:"ah-RREH-bah",notes:"Arreba = sister as said by a male speaker (a man's sister). A female speaker says ahizpa for her sister. Basque picks the sibling word by the speaker's gender.",example:{basque:"Nire arreba gaztea da.",english:"My sister is young."}},
+  {id:"neba",basque:"Neba",english:"Brother (female speaker)",cefr:"A1",topic:"family",pronunciation:"NEH-bah",notes:"Neba = brother as said by a female speaker (a woman's brother). Mainly Bizkaian; many speakers use anaia instead. A male speaker says anaia for his brother.",example:{basque:"Nire neba Bilbon bizi da.",english:"My brother lives in Bilbo."}},
   {id:"semea",basque:"Semea",english:"Son",cefr:"A1",topic:"family",pronunciation:"SEH-meh-ah",notes:"The -a at the end is the definite article. Seme = son (indefinite), semea = the son.",example:{basque:"Semea eskolan dago.",english:"The son is at school."}},
   {id:"alaba",basque:"Alaba",english:"Daughter",cefr:"A1",topic:"family",pronunciation:"ah-LAH-bah",notes:"Alaba is also a province in the Basque Country (spelled Araba in Basque).",example:{basque:"Alaba etxean dago.",english:"The daughter is at home."}},
   {id:"amona",basque:"Amona",english:"Grandmother",cefr:"A1",topic:"family",pronunciation:"ah-MOH-nah",notes:"Amona combines ama (mother) + ona (good). Literally good mother - a lovely construction.",example:{basque:"Amona zaharra da.",english:"The grandmother is old."}},
@@ -229,7 +258,7 @@ const SEED_VOCAB=[
   {id:"kotxea",basque:"Kotxea",english:"Car",cefr:"A2",topic:"travel",pronunciation:"KOT-cheh-ah",notes:"Kotxea comes from Spanish coche. Kotxea aparkatu = to park the car. Garaje = garage. Auto is also used in informal speech.",example:{basque:"Kotxea parkatu dut.",english:"I parked the car."}},
   {id:"itsasontzia",basque:"Itsasontzia",english:"Ship / Boat",cefr:"A2",topic:"travel",pronunciation:"it-sah-SON-tsee-ah",notes:"Itsasontzia = ship (itsaso=sea + ontzia=vessel). Basque sailors were among the first to fish Newfoundland cod before Columbus reached America.",example:{basque:"Itsasontzia handia da.",english:"The ship is large."}},
   {id:"bidaia",basque:"Bidaia",english:"Journey / Trip",cefr:"A2",topic:"travel",pronunciation:"bee-DAI-ah",notes:"Bidaia = journey or trip. Bidaiari = traveller. Bidaiatu = to travel. Bide = road/way - so bidaia is literally a going on the road.",example:{basque:"Bidaia luzea da baina merezi du.",english:"The journey is long but it is worth it."}},
-  {id:"osasuna",basque:"Osasuna",english:"Health",cefr:"A2",topic:"body",pronunciation:"oh-sah-SOO-nah",notes:"Osasuna = health. Also the name of the Iruña (Pamplona) football club - a healthy team! Osasun ona = good health. Osasuntsu = healthy.",example:{basque:"Osasuna zaindu behar duzu.",english:"You need to take care of your health."}},
+  {id:"osasuna",basque:"Osasuna",english:"Health",cefr:"A2",topic:"body",pronunciation:"oh-sah-SOO-nah",notes:"Osasuna = health. Also the name of the Iruña (Pamplona) football club - a healthy team! Osasun ona = good health. Osasuntsu = healthy.",mcOnly:true,example:{basque:"Osasuna zaindu behar duzu.",english:"You need to take care of your health."}},
   {id:"sendagilea",basque:"Sendagilea",english:"Doctor",cefr:"A2",topic:"body",pronunciation:"sen-dah-ghee-LEH-ah",notes:"Sendagilea = doctor. Sendatu = to heal. Sendabidea = remedy/cure (healing-path). Sendagile is a beautiful word: the one who heals.",example:{basque:"Sendagilea etorri da.",english:"The doctor has come."}},
   {id:"ospitalea",basque:"Ospitalea",english:"Hospital",cefr:"A2",topic:"body",pronunciation:"os-pee-TAH-leh-ah",notes:"Ospitalea = hospital. From Latin hospitale. Basque public healthcare (Osakidetza) is among the best in Europe.",example:{basque:"Ospitalea hurbil dago.",english:"The hospital is nearby."}},
   {id:"arnasa",basque:"Arnasa",english:"Breath",cefr:"A2",topic:"body",pronunciation:"ar-NAH-sah",notes:"Arnasa = breath. Arnasa hartu = to take a breath/breathe in. Arnasgune = breathing space. Arnastu = to breathe. Used in meditation.",example:{basque:"Arnasa hartu.",english:"Take a breath."}},
@@ -256,7 +285,7 @@ const SEED_VOCAB=[
   {id:"kultura",basque:"Kultura",english:"Culture",cefr:"A2",topic:"society",pronunciation:"kool-TOO-rah",notes:"Kultura = culture. Kulturala = cultural. Kultura etxea = cultural center. Basque culture (euskal kultura) is distinct and ancient.",example:{basque:"Kultura bizirik dago.",english:"Culture is alive."}},
   {id:"historia",basque:"Historia",english:"History",cefr:"A2",topic:"society",pronunciation:"hees-TOH-ree-ah",notes:"Historia = history. Historikoa = historic. Historiagilea = historian. Basque history stretches back thousands of years.",example:{basque:"Historia luzea da.",english:"The history is long."}},
   {id:"askatasuna",basque:"Askatasuna",english:"Freedom / Liberty",cefr:"A2",topic:"society",pronunciation:"as-kah-tah-SOO-nah",notes:"Askatasuna = freedom or liberty. Aske = free (root). Askatu = to free/liberate. Askatasunez = freely. Askatasunaren aldeko = in favour of freedom. A central concept in Basque political and cultural life.",example:{basque:"Askatasuna nahi dugu.",english:"We want freedom."}},
-  {id:"elkartasuna",basque:"Elkartasuna",english:"Solidarity",cefr:"A2",topic:"society",pronunciation:"el-kar-tah-SOO-nah",notes:"Elkartasuna = solidarity. Elkartu = to unite/join together. Elkar = each other. Elkartasunez = with solidarity. Key Basque labor movement word.",example:{basque:"Elkartasuna garrantzitsua da.",english:"Solidarity is important."}},
+  {id:"elkartasuna",basque:"Elkartasuna",english:"Solidarity",cefr:"A2",topic:"society",pronunciation:"el-kar-tah-SOO-nah",notes:"Elkartasuna = solidarity. Elkartu = to unite/join together. Elkar = each other. Elkartasunez = with solidarity. Key Basque labor movement word.",mcOnly:true,example:{basque:"Elkartasuna garrantzitsua da.",english:"Solidarity is important."}},
   {id:"argia",basque:"Argia",english:"Light / Bright",cefr:"A2",topic:"adjectives",pronunciation:"AR-ghee-ah",notes:"Argia = light or bright. Also means clever/smart! Oso argia = very clever. Argi = light (root). Argitu = to enlighten. Argipen = explanation.",example:{basque:"Gela argia da.",english:"The room is bright."}},
   {id:"iluna",basque:"Iluna",english:"Dark",cefr:"A2",topic:"adjectives",pronunciation:"ee-LOON-ah",notes:"Iluna = dark. Ilundu = to get dark. Ilunabar = dusk/twilight (dark-edge). Iluntasun = darkness. Ilunpean = in the dark/in secret.",example:{basque:"Gaua iluna da.",english:"The night is dark."}},
   {id:"azkarra",basque:"Azkarra",english:"Fast / Sharp",cefr:"A2",topic:"adjectives",pronunciation:"az-KAR-rah",notes:"Azkarra = fast or sharp. Azkar ibili = to move fast. Oso azkarra = very sharp/clever. Also means quick-witted. A compliment in Basque culture.",example:{basque:"Ikaslea azkarra da.",english:"The student is sharp."}},
@@ -276,7 +305,7 @@ const SEED_VOCAB=[
   {id:"mugaldea",basque:"Mugaldea",english:"Border area",cefr:"B1",topic:"travel",pronunciation:"moo-GAHL-deh-ah",notes:"Border area or frontier zone. Muga = border + aldea = side/area. The French-Spanish border runs through the Basque Country - the Basque people straddle it. Mugakide = border neighbor. A politically sensitive concept.",example:{basque:"Mugaldea interesgarria da.",english:"The border area is interesting."}},
   {id:"ibilbidea",basque:"Ibilbidea",english:"Route / Itinerary",cefr:"B1",topic:"travel",pronunciation:"ee-beel-BEE-deh-ah",notes:"Route or itinerary. Ibil = walk/travel + bidea = path. Literally the traveling-path. The Camino de Santiago (Santiago Bidea) passes through the Basque Country via Donostia. GR11 and GR10 are famous Basque hiking routes.",example:{basque:"Ibilbidea luzea da.",english:"The route is long."}},
   {id:"natura",basque:"Natura",english:"Nature",cefr:"B1",topic:"nature",pronunciation:"nah-TOO-rah",notes:"Natura = nature. Natural = natural. Naturatik = from nature. Basques have a deep connection to natura - mountains, sea, and forests are central to identity.",example:{basque:"Natura ederra da.",english:"Nature is beautiful."}},
-  {id:"ingurumena",basque:"Ingurumena",english:"Environment",cefr:"B1",topic:"nature",pronunciation:"in-goo-ROO-meh-nah",notes:"Ingurumena = environment. Inguru = surroundings (root). Ingurumen politika = environmental policy. Ingurugiroa = natural environment (more specific).",example:{basque:"Ingurumena babestu behar dugu.",english:"We must protect the environment."}},
+  {id:"ingurumena",basque:"Ingurumena",english:"Environment",cefr:"B1",topic:"nature",pronunciation:"in-goo-ROO-meh-nah",notes:"Ingurumena = environment. Inguru = surroundings (root). Ingurumen politika = environmental policy. Ingurugiroa = natural environment (more specific).",mcOnly:true,example:{basque:"Ingurumena babestu behar dugu.",english:"We must protect the environment."}},
   {id:"lanbidea",basque:"Lanbidea",english:"Profession",cefr:"B1",topic:"work",pronunciation:"lan-BEE-deh-ah",notes:"Lanbidea = profession. Lan = work + bide = path. Literally the work-path. What is your profession? = Zein da zure lanbidea?",example:{basque:"Lanbidea ona da.",english:"The profession is good."}},
   {id:"soldata",basque:"Soldata",english:"Salary",cefr:"B1",topic:"work",pronunciation:"sol-DAH-tah",notes:"Soldata = salary or wage. From Spanish sueldo. Soldata igokera = pay rise. Gutxieneko soldata = minimum wage.",example:{basque:"Soldata txikia da.",english:"The salary is small."}},
   {id:"enpresa",basque:"Enpresa",english:"Company",cefr:"B1",topic:"work",pronunciation:"en-PREH-sah",notes:"Enpresa = company. Enpresaria = entrepreneur. Enpresa txikia = small business. Basque Country has a strong tradition of cooperatives (Mondragon).",example:{basque:"Enpresa txikia da.",english:"The company is small."}},
@@ -299,30 +328,30 @@ const SEED_VOCAB=[
   {id:"osoa",basque:"Osoa",english:"Whole / Complete",cefr:"B1",topic:"adjectives",pronunciation:"OH-soh-ah",notes:"Osoa = whole or complete. Osotasuna = wholeness/completeness. Osotu = to complete. Oro = all + -soa. Oso = very (adverb from same root).",example:{basque:"Astea osoa.",english:"The whole week."}},
   {id:"normala",basque:"Normala",english:"Normal",cefr:"A2",topic:"adjectives",pronunciation:"nor-MAH-lah",notes:"Normala = normal. Normalean = normally/usually. Normalizazioa = normalization (of Basque language use). Key political term.",example:{basque:"Egoera normala da.",english:"The situation is normal."}},
   {id:"indartsu",basque:"Indartsu",english:"Strong",cefr:"B1",topic:"adjectives",pronunciation:"in-DART-soo",notes:"Indartsu = strong. Indar = strength/force (root). Indarra = the force. Indartu = to strengthen. Indar handia = great strength.",example:{basque:"Gizona indartsu da.",english:"The man is strong."}},
-  {id:"hizkuntza_politika",basque:"Hizkuntza politika",english:"Language policy",cefr:"B1",topic:"society",pronunciation:"heez-KOON-tsah poh-LEE-tee-kah",notes:"Hizkuntza politika = language policy - central to Basque politics. Official language status, education medium, and public signage are all debated.",example:{basque:"Hizkuntza politika ezinbestekoa da.",english:"Language policy is essential."}},
-  {id:"normalizazioa",basque:"Normalizazioa",english:"Normalization",cefr:"B1",topic:"society",pronunciation:"nor-mah-lee-sah-TSEE-oh-ah",notes:"Normalizazioa = normalization - specifically the process of making Basque normal in daily life. A key political and cultural concept.",example:{basque:"Normalizazioa prozesua da.",english:"Normalization is a process."}},
-  {id:"gizarte_mugimendua",basque:"Gizarte mugimendua",english:"Social movement",cefr:"B1",topic:"society",pronunciation:"ghee-ZAR-teh moo-ghee-MEN-doo-ah",notes:"Gizarte mugimendua = social movement. Gizarte = society + mugimendua = movement. Basque Country has a rich history of social movements.",example:{basque:"Gizarte mugimendua indartsua da.",english:"The social movement is strong."}},
+  {id:"hizkuntza_politika",basque:"Hizkuntza politika",english:"Language policy",cefr:"B1",topic:"society",pronunciation:"heez-KOON-tsah poh-LEE-tee-kah",notes:"Hizkuntza politika = language policy - central to Basque politics. Official language status, education medium, and public signage are all debated.",mcOnly:true,example:{basque:"Hizkuntza politika ezinbestekoa da.",english:"Language policy is essential."}},
+  {id:"normalizazioa",basque:"Normalizazioa",english:"Normalization",cefr:"B1",topic:"society",pronunciation:"nor-mah-lee-sah-TSEE-oh-ah",notes:"Normalizazioa = normalization - specifically the process of making Basque normal in daily life. A key political and cultural concept.",mcOnly:true,example:{basque:"Normalizazioa prozesua da.",english:"Normalization is a process."}},
+  {id:"gizarte_mugimendua",basque:"Gizarte mugimendua",english:"Social movement",cefr:"B1",topic:"society",pronunciation:"ghee-ZAR-teh moo-ghee-MEN-doo-ah",notes:"Gizarte mugimendua = social movement. Gizarte = society + mugimendua = movement. Basque Country has a rich history of social movements.",mcOnly:true,example:{basque:"Gizarte mugimendua indartsua da.",english:"The social movement is strong."}},
   {id:"gizartea",basque:"Gizartea",english:"Society",cefr:"B2",topic:"society",pronunciation:"ghee-ZAR-teh-ah",notes:"Gizartea = society. Gizon = man/human + -arte = between. Literally between-humans. Gizarteratu = to socialize. Gizarte zerbitzuak = social services.",example:{basque:"Gizartea aldatzen da.",english:"Society is changing."}},
   {id:"ekonomia",basque:"Ekonomia",english:"Economy",cefr:"B2",topic:"society",pronunciation:"eh-koh-NOH-mee-ah",notes:"Ekonomia = economy. Ekonomikoa = economic. The Basque Country has one of the highest GDPs per capita in Spain - a strong industrial economy.",example:{basque:"Ekonomia hazten da.",english:"The economy is growing."}},
-  {id:"boterea",basque:"Boterea",english:"Power / Authority",cefr:"B2",topic:"society",pronunciation:"boh-TEH-reh-ah",notes:"Boterea = power or authority. Boteretsu = powerful. Boteredun = powerful person. Botere = power (root). Central to Basque political vocabulary.",example:{basque:"Boterea arduraz erabili behar da.",english:"Power must be used responsibly."}},
-  {id:"justizia",basque:"Justizia",english:"Justice",cefr:"B2",topic:"society",pronunciation:"yoos-TEET-see-ah",notes:"Justizia = justice. Justiziazkoa = just/fair. Injustizia = injustice. From Latin justitia. Basque legal system (foral law) has ancient roots.",example:{basque:"Justizia lortu behar dugu.",english:"We must achieve justice."}},
+  {id:"boterea",basque:"Boterea",english:"Power / Authority",cefr:"B2",topic:"society",pronunciation:"boh-TEH-reh-ah",notes:"Boterea = power or authority. Boteretsu = powerful. Boteredun = powerful person. Botere = power (root). Central to Basque political vocabulary.",mcOnly:true,example:{basque:"Boterea arduraz erabili behar da.",english:"Power must be used responsibly."}},
+  {id:"justizia",basque:"Justizia",english:"Justice",cefr:"B2",topic:"society",pronunciation:"yoos-TEET-see-ah",notes:"Justizia = justice. Justiziazkoa = just/fair. Injustizia = injustice. From Latin justitia. Basque legal system (foral law) has ancient roots.",mcOnly:true,example:{basque:"Justizia lortu behar dugu.",english:"We must achieve justice."}},
   {id:"abertzalea",basque:"Abertzalea",english:"Patriot",cefr:"B2",topic:"society",pronunciation:"ah-ber-TSAH-leh-ah",notes:"Abertzalea = patriot (from aberri=homeland + -zalea=lover of). Aberri Eguna = Basque Homeland Day. Can be political - use contextually.",example:{basque:"Abertzalea da.",english:"He/she is a patriot."}},
-  {id:"herritartasuna",basque:"Herritartasuna",english:"Citizenship",cefr:"B2",topic:"society",pronunciation:"her-ree-tar-tah-SOO-nah",notes:"Herritartasuna = citizenship. Herritar = citizen/townsperson. Herri = town/people. Herritartasun agiria = citizenship document.",example:{basque:"Herritartasuna eskuratu dut.",english:"I obtained citizenship."}},
-  {id:"nazionalismoa",basque:"Nazionalismoa",english:"Nationalism",cefr:"B2",topic:"society",pronunciation:"nah-tsee-oh-nah-lees-MOH-ah",notes:"Nazionalismoa = nationalism. A central concept in Basque politics. Abertzaletasuna is the specifically Basque nationalist term. Nazionalismo euskalduna = Basque nationalism. Ranges from cultural to independence-seeking.",example:{basque:"Nazionalismoa indartsua da.",english:"Nationalism is strong."}},
-  {id:"autodeterminazioa",basque:"Autodeterminazioa",english:"Self-determination",cefr:"B2",topic:"society",pronunciation:"ow-toh-deh-ter-mee-nah-TSEE-oh-ah",notes:"Autodeterminazioa = self-determination. A core concept in Basque politics. The right of Basques to decide their own political future.",example:{basque:"Autodeterminazioa oinarrizko eskubidea da.",english:"Self-determination is a basic right."}},
-  {id:"giza_eskubideak",basque:"Giza eskubideak",english:"Human rights",cefr:"B2",topic:"society",pronunciation:"GHEE-sah es-koo-BEE-deh-ak",notes:"Giza eskubideak = human rights. Giza = human + eskubideak = rights (literally hand-paths). Giza eskubideen adierazpena = Declaration of Human Rights.",example:{basque:"Giza eskubideak babestu behar dira.",english:"Human rights must be protected."}},
-  {id:"ondarea",basque:"Ondarea",english:"Heritage / Legacy",cefr:"B2",topic:"culture",pronunciation:"on-DAH-reh-ah",notes:"Ondarea = heritage or legacy. Ondare = inheritance (root). Kultura ondarea = cultural heritage. Basque heritage includes language, sport, music and food.",example:{basque:"Ondarea babestu behar dugu.",english:"We must protect our heritage."}},
-  {id:"identitatea",basque:"Identitatea",english:"Identity",cefr:"B2",topic:"culture",pronunciation:"ee-den-tee-TAH-teh-ah",notes:"Identity - central to Basque cultural and political life. Euskal identitatea = Basque identity. The question of who is Basque (language-based vs blood-based) is actively debated. Basque identity is largely defined through language use.",example:{basque:"Identitatea garrantzitsua da.",english:"Identity is important."}},
+  {id:"herritartasuna",basque:"Herritartasuna",english:"Citizenship",cefr:"B2",topic:"society",pronunciation:"her-ree-tar-tah-SOO-nah",notes:"Herritartasuna = citizenship. Herritar = citizen/townsperson. Herri = town/people. Herritartasun agiria = citizenship document.",mcOnly:true,example:{basque:"Herritartasuna eskuratu dut.",english:"I obtained citizenship."}},
+  {id:"nazionalismoa",basque:"Nazionalismoa",english:"Nationalism",cefr:"B2",topic:"society",pronunciation:"nah-tsee-oh-nah-lees-MOH-ah",notes:"Nazionalismoa = nationalism. A central concept in Basque politics. Abertzaletasuna is the specifically Basque nationalist term. Nazionalismo euskalduna = Basque nationalism. Ranges from cultural to independence-seeking.",mcOnly:true,example:{basque:"Nazionalismoa indartsua da.",english:"Nationalism is strong."}},
+  {id:"autodeterminazioa",basque:"Autodeterminazioa",english:"Self-determination",cefr:"B2",topic:"society",pronunciation:"ow-toh-deh-ter-mee-nah-TSEE-oh-ah",notes:"Autodeterminazioa = self-determination. A core concept in Basque politics. The right of Basques to decide their own political future.",mcOnly:true,example:{basque:"Autodeterminazioa oinarrizko eskubidea da.",english:"Self-determination is a basic right."}},
+  {id:"giza_eskubideak",basque:"Giza eskubideak",english:"Human rights",cefr:"B2",topic:"society",pronunciation:"GHEE-sah es-koo-BEE-deh-ak",notes:"Giza eskubideak = human rights. Giza = human + eskubideak = rights (literally hand-paths). Giza eskubideen adierazpena = Declaration of Human Rights.",mcOnly:true,example:{basque:"Giza eskubideak babestu behar dira.",english:"Human rights must be protected."}},
+  {id:"ondarea",basque:"Ondarea",english:"Heritage / Legacy",cefr:"B2",topic:"culture",pronunciation:"on-DAH-reh-ah",notes:"Ondarea = heritage or legacy. Ondare = inheritance (root). Kultura ondarea = cultural heritage. Basque heritage includes language, sport, music and food.",mcOnly:true,example:{basque:"Ondarea babestu behar dugu.",english:"We must protect our heritage."}},
+  {id:"identitatea",basque:"Identitatea",english:"Identity",cefr:"B2",topic:"culture",pronunciation:"ee-den-tee-TAH-teh-ah",notes:"Identity - central to Basque cultural and political life. Euskal identitatea = Basque identity. The question of who is Basque (language-based vs blood-based) is actively debated. Basque identity is largely defined through language use.",mcOnly:true,example:{basque:"Identitatea garrantzitsua da.",english:"Identity is important."}},
   {id:"tradizioa",basque:"Tradizioa",english:"Tradition",cefr:"B2",topic:"culture",pronunciation:"trah-dee-TSEE-oh-ah",notes:"Tradizioa = tradition. Tradizional = traditional. Tradizioak gorde = to preserve traditions. Basque traditions are unusually well-preserved.",example:{basque:"Gure tradizioak bizirik daude belaunaldiz belaunaldi.",english:"Our traditions are alive from generation to generation."}},
-  {id:"modernitatea",basque:"Modernitatea",english:"Modernity",cefr:"B2",topic:"culture",pronunciation:"moh-der-nee-TAH-teh-ah",notes:"Modernitatea = modernity. Moderno = modern. The tension between modernitatea and tradizioa is a constant theme in Basque cultural debate.",example:{basque:"Modernitatea eta tradizioa.",english:"Modernity and tradition."}},
+  {id:"modernitatea",basque:"Modernitatea",english:"Modernity",cefr:"B2",topic:"culture",pronunciation:"moh-der-nee-TAH-teh-ah",notes:"Modernitatea = modernity. Moderno = modern. The tension between modernitatea and tradizioa is a constant theme in Basque cultural debate.",mcOnly:true,example:{basque:"Modernitatea eta tradizioa.",english:"Modernity and tradition."}},
   {id:"euskara_batua",basque:"Euskara Batua",english:"Unified Basque",cefr:"B2",topic:"culture",pronunciation:"eus-KAH-rah bah-TOO-ah",notes:"Euskara Batua = Unified Basque. Standardised form created by the Academy (Euskaltzaindia) in 1968 at Arantzazu. Before this, Basque had no standard written form. Batua = unified (from batu = to unite). Now taught in all schools.",example:{basque:"Euskara Batua ikasi dut.",english:"I learned Unified Basque."}},
   {id:"euskalkia",basque:"Euskalkia",english:"Basque dialect",cefr:"B2",topic:"culture",pronunciation:"eus-KAL-kee-ah",notes:"Euskalkia = dialect. Basque has 5-7 main dialects: Bizkaiera, Gipuzkera, Lapurtera, Zuberera, Nafarrera. Unified Basque (Euskara Batua) was standardised in 1968.",example:{basque:"Euskalkia ederra da.",english:"The dialect is beautiful."}},
-  {id:"klima_aldaketa",basque:"Klima aldaketa",english:"Climate change",cefr:"B2",topic:"nature",pronunciation:"KLEE-mah ahl-dah-KEH-tah",notes:"Klima aldaketa = climate change. Klima = climate + aldaketa = change. Aldatu = to change. Urgent issue given Basque Country's coastal geography.",example:{basque:"Klima aldaketa arazo larria da.",english:"Climate change is a serious problem."}},
+  {id:"klima_aldaketa",basque:"Klima aldaketa",english:"Climate change",cefr:"B2",topic:"nature",pronunciation:"KLEE-mah ahl-dah-KEH-tah",notes:"Klima aldaketa = climate change. Klima = climate + aldaketa = change. Aldatu = to change. Urgent issue given Basque Country's coastal geography.",mcOnly:true,example:{basque:"Klima aldaketa arazo larria da.",english:"Climate change is a serious problem."}},
   {id:"enpresaria",basque:"Enpresaria",english:"Entrepreneur",cefr:"B2",topic:"work",pronunciation:"en-preh-SAH-ree-ah",notes:"Enpresaria = entrepreneur. Basque Country has the Mondragon Cooperative Corporation - one of the world's largest worker-owned cooperatives. Entrepreneurship is valued.",example:{basque:"Enpresaria da.",english:"He/she is an entrepreneur."}},
   {id:"greba",basque:"Greba",english:"Strike (labor)",cefr:"B2",topic:"work",pronunciation:"GREH-bah",notes:"Greba = labor strike. Grebara joan = to go on strike. Greba orokorra = general strike. The Basque Country has a strong union tradition - the metalworkers of Bilbo (Bilbao) were historically militant.",example:{basque:"Greba dago.",english:"There is a strike."}},
-  {id:"produktibitatea",basque:"Produktibitatea",english:"Productivity",cefr:"B2",topic:"work",pronunciation:"pro-dook-tee-bee-TAH-teh-ah",notes:"Produktibitatea = productivity. Produktibo = productive. The Basque economy is known for high productivity, especially in manufacturing and industry.",example:{basque:"Produktibitatea handitzen da.",english:"Productivity is increasing."}},
+  {id:"produktibitatea",basque:"Produktibitatea",english:"Productivity",cefr:"B2",topic:"work",pronunciation:"pro-dook-tee-bee-TAH-teh-ah",notes:"Produktibitatea = productivity. Produktibo = productive. The Basque economy is known for high productivity, especially in manufacturing and industry.",mcOnly:true,example:{basque:"Produktibitatea handitzen da.",english:"Productivity is increasing."}},
   {id:"epea",basque:"Epea",english:"Period / Timeframe",cefr:"B2",topic:"time",pronunciation:"EH-peh-ah",notes:"Period or timeframe. Epe = period (root). Epe laburrean = in the short term. Epe luzera = long-term. Epe batean = within a period. Broader than muga-epea which is a specific deadline.",example:{basque:"Epe laburrean konponduko da.",english:"It will be resolved in the short term."}},
-  {id:"iraungitzea",basque:"Iraungitzea",english:"Expiry",cefr:"B2",topic:"time",pronunciation:"ee-row-NGEE-tseh-ah",notes:"Iraungitzea = expiry or expiration. Iraungitu = to expire. Iraungitze data = expiry date. Used for passports, contracts, food, medicine. Iraungi da = it has expired. Iraungitu gabe = not yet expired. From iraun (to last) + -gitu.",example:{basque:"Iraungitzea hurbil dago.",english:"The expiry is near."}},
+  {id:"iraungitzea",basque:"Iraungitzea",english:"Expiry",cefr:"B2",topic:"time",pronunciation:"ee-rah-oon-GEE-tseh-ah",notes:"Iraungitzea = expiry or expiration. Iraungitu = to expire. Iraungitze data = expiry date. Used for passports, contracts, food, medicine. Iraungi da = it has expired. Iraungitu gabe = not yet expired. From iraun (to last) + -gitu.",example:{basque:"Iraungitzea hurbil dago.",english:"The expiry is near."}},
   {id:"estatistika",basque:"Estatistika",english:"Statistics",cefr:"B2",topic:"work",pronunciation:"es-tah-TEES-tee-kah",notes:"Estatistika = statistics. Estatistikoa = statistical. Eustat is the official Basque statistics agency. Data-driven governance is common in the region.",example:{basque:"Estatistika interesgarria da.",english:"Statistics are interesting."}},
   {id:"mintzatu",basque:"Mintzatu",english:"To speak / To talk",cefr:"B1",topic:"greetings",pronunciation:"min-TSAH-too",notes:"Mintzatu and hitz egin both mean to speak, but mintzatu is more formal/literary. Hitz egin is everyday speech.",example:{basque:"Euskaraz mintzatzen naiz.",english:"I speak in Basque."}},
   {id:"ulertu",basque:"Ulertu",english:"To understand",cefr:"B1",topic:"greetings",pronunciation:"oo-LER-too",notes:"Ulertu = to understand. Ulertzen dut = I understand. Ulertu al duzu? = Did you understand? Ulertzeko erraza = easy to understand. Ulerterraz = comprehensible. Ulertezina = incomprehensible.",example:{basque:"Ulertzen duzu?",english:"Do you understand?"}},
@@ -377,7 +406,7 @@ const SEED_VOCAB=[
   {id:"han",basque:"Han",english:"There",cefr:"A1",topic:"travel",pronunciation:"HAN",notes:"Han is used for things far from both speakers. Hango = from there. Haraino = up to there. The root appears in many place names.",example:{basque:"Han dago.",english:"It is there."}},
   {id:"hor",basque:"Hor",english:"There (nearby)",cefr:"A1",topic:"travel",pronunciation:"HOR",notes:"Basque has 3 heres/theres based on distance: hemen (near me), hor (near you), han (away from both). Like Japanese ko/so/a!",example:{basque:"Hor dago.",english:"It is there (near you)."}},
   {id:"beti",basque:"Beti",english:"Always",cefr:"A2",topic:"time",pronunciation:"BEH-tee",notes:"Beti = always. Betiere = always/forever. Betiko = eternal/permanent. Beti bezala = as always. Beti maite = always beloved.",example:{basque:"Beti pozik dago.",english:"He is always happy."}},
-  {id:"inoiz",basque:"Inoiz",english:"Ever / Never",cefr:"A2",topic:"time",pronunciation:"ee-NOYTS",notes:"Inoiz = ever (questions/conditionals) or never (with ez). Inoiz joan zara? = Have you ever gone? Inoiz ez = never. Also used before superlatives: inoiz egin den film onena = the best film ever made. Do not confuse with sekula (never, emphatic).",example:{basque:"Inoiz joan zara Bilbora?",english:"Have you ever been to Bilbo?"}},
+  {id:"inoiz",basque:"Inoiz",english:"Ever (never, with ez)",cefr:"A2",topic:"time",pronunciation:"ee-NOYTS",notes:"Inoiz = ever (questions/conditionals) or never (with ez). Inoiz joan zara? = Have you ever gone? Inoiz ez = never. Also used before superlatives: inoiz egin den film onena = the best film ever made. Do not confuse with sekula (never, emphatic).",example:{basque:"Inoiz joan zara Bilbora?",english:"Have you ever been to Bilbo?"}},
   {id:"sekula",basque:"Sekula",english:"Never",cefr:"A2",topic:"time",pronunciation:"SEH-koo-lah",notes:"Sekula = never (emphatic). Sekula ez dut ikusi = I have never ever seen it. More emphatic than inoiz ez. From Latin saecula (ages/forever).",example:{basque:"Sekula ez dut ikusi.",english:"I have never seen it."}},
   {id:"komunak",basque:"Komunak",english:"Toilet / Bathroom",cefr:"A1",topic:"travel",pronunciation:"koh-MOO-nak",notes:"Essential word for any traveller. Komunak non daude? = Where are the toilets?",example:{basque:"Komunak non daude?",english:"Where are the toilets?"}},
   {id:"taxia",basque:"Taxia",english:"Taxi",cefr:"A1",topic:"travel",pronunciation:"TAH-shee-ah",notes:"Taxi. In Basque x = sh sound, so taxia sounds like TAH-shee-ah not \"taxi\". Taxi bat nahi dut = I want a taxi. Taxis are widely available in Basque cities.",example:{basque:"Taxi bat nahi dut.",english:"I want a taxi."}},
@@ -401,9 +430,9 @@ const SEED_VOCAB=[
   {id:"lehena",basque:"Lehena",english:"First",cefr:"A2",topic:"numbers",pronunciation:"LEH-heh-nah",notes:"Lehena = first. Bigarrena = second. Hirugarrena = third. Ordinals use -garren suffix after 1st.",example:{basque:"Lehena naiz.",english:"I am first."}},
   {id:"ordu_batean",basque:"Ordu batean",english:"At one o'clock",cefr:"A2",topic:"time",pronunciation:"OR-doo bah-TEH-an",notes:"One o'clock. Ordu bietan = at two o'clock. Zer ordu da? = What time is it? Ordu also means appointment: ordu bat hartu = to make an appointment. Ordu erdia = half past. Ordutegia = timetable/schedule.",example:{basque:"Ordu batean elkartuko gara.",english:"We will meet at one o'clock."}},
   {id:"eta_erdia",basque:"Eta erdia",english:"Half past",cefr:"A2",topic:"time",pronunciation:"EH-tah ER-dee-ah",notes:"Erdia = half. Ordu bata eta erdia = half past one (literally one and a half). Ordu biak eta erdia = half past two. Eta = and links the hour and erdia (half).",example:{basque:"Ordu bata eta erdia da.",english:"It is half past one."}},
-  {id:"pozten_nau",basque:"Pozten nau zu ezagutzeak",english:"Nice to meet you",cefr:"A1",topic:"greetings",pronunciation:"POZ-ten NOW soo eh-zah-GOO-tsee-ak",notes:"A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorising whole as an essential social expression.",example:{basque:"Pozten nau zurekin hitz egiteak.",english:"Talking with you makes me happy."}},
+  {id:"pozten_nau",basque:"Pozten nau zu ezagutzeak",english:"Nice to meet you",cefr:"A1",topic:"greetings",pronunciation:"POZ-ten NOW soo eh-zah-GOO-tsee-ak",notes:"A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorising whole as an essential social expression.",mcOnly:true,example:{basque:"Pozten nau zurekin hitz egiteak.",english:"Talking with you makes me happy."}},
   {id:"nongoa",basque:"Nongoa zara?",english:"Where are you from?",cefr:"A1",topic:"greetings",pronunciation:"NON-goh-ah ZAH-rah",notes:"Nongo = of where + -a (article) = where-from-person. Nongoa naiz = I am from...",example:{basque:"Nongoa zara zu?",english:"Where are you from?"}},
-  {id:"zenbat_urte",basque:"Zenbat urte dituzu?",english:"How old are you?",cefr:"A1",topic:"greetings",pronunciation:"ZEN-bat OOR-teh dee-TOO-zoo",notes:"Literally how many years do you have? Basque uses have not be for age - Hogei urte ditut = I am twenty.",example:{basque:"Zenbat urte dituzu orain?",english:"How old are you now?"}},
+  {id:"zenbat_urte",basque:"Zenbat urte dituzu?",english:"How old are you?",cefr:"A1",topic:"greetings",pronunciation:"ZEN-bat OOR-teh dee-TOO-zoo",notes:"Literally how many years do you have? Basque uses have not be for age - Hogei urte ditut = I am twenty.",mcOnly:true,example:{basque:"Zenbat urte dituzu orain?",english:"How old are you now?"}},
   {id:"negozioa",basque:"Negozioa",english:"Business / Deal",cefr:"B1",topic:"work",pronunciation:"neh-goh-TSEE-oh-ah",notes:"Business or a deal. Negozio ona = good business. Negozioak egin = to do business. From Spanish negocio.",example:{basque:"Negozioa ona da.",english:"It is good business."}},
   {id:"konpetentzia",basque:"Konpetentzia",english:"Competition / Competence",cefr:"B2",topic:"work",pronunciation:"kon-peh-TEN-tsee-ah",notes:"Competition (between businesses) or competence (skill). Context determines meaning.",example:{basque:"Konpetentzia gogorra da.",english:"The competition is tough."}},
   {id:"aurrekontua",basque:"Aurrekontua",english:"Budget",cefr:"B2",topic:"work",pronunciation:"ow-reh-KON-too-ah",notes:"Budget or budget allocation. Aurrekontu mugatua = limited budget. Key in business and government.",example:{basque:"Aurrekontua txikia da.",english:"The budget is small."}},
@@ -418,9 +447,9 @@ const SEED_VOCAB=[
   {id:"hanka",basque:"Hanka",english:"Leg",cefr:"A1",topic:"body",pronunciation:"HAN-kah",notes:"Leg or foot. Hanka = leg/foot (root). Hankak = legs. Do not confuse with oina (foot specifically). Hanka sartu = to put your foot in it (to blunder).",example:{basque:"Hanka min dut.",english:"My leg hurts."}},
   {id:"sorbalda",basque:"Sorbalda",english:"Shoulder",cefr:"A2",topic:"body",pronunciation:"sor-BAL-dah",notes:"Shoulder. Sorbaldak = shoulders. Sorbalda zabal = broad-shouldered. Used in expressions about responsibility.",example:{basque:"Sorbaldak min ditut.",english:"My shoulders hurt."}},
   {id:"hamaika",basque:"Hamaika",english:"Eleven",cefr:"A1",topic:"numbers",pronunciation:"hah-MAI-kah",notes:"Hamar (10) + ika. Hamaika also means countless/many in colloquial Basque: hamaika aldiz = countless times!",example:{basque:"Hamaika ordu da.",english:"It is eleven o'clock."}},
-  {id:"ez_dut_ulertzen",basque:"Ez dut ulertzen",english:"I don't understand",cefr:"A1",topic:"greetings",pronunciation:"EZ doot oo-LER-tzen",notes:"The single most useful phrase for a language learner. Mesedez errepikatu = please repeat. Poliki esaidazu = say it slowly.",example:{basque:"Ez dut ulertzen. Mesedez errepikatu.",english:"I don't understand. Please repeat."}},
-  {id:"ingelesez",basque:"Ingelesez hitz egiten duzu?",english:"Do you speak English?",cefr:"A1",topic:"greetings",pronunciation:"in-geh-LEH-sez HITS eh-GEE-ten DOO-zoo",notes:"Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? The -z suffix means in that language.",example:{basque:"Ingelesez hitz egiten al duzu?",english:"Do you speak English?"}},
-  {id:"non_dago",basque:"Non dago...?",english:"Where is...?",cefr:"A1",topic:"travel",pronunciation:"NON DAH-go",notes:"The most useful tourist phrase. Non dago geltokia? = Where is the station? Non daude komunak? = Where are the toilets?",example:{basque:"Non dago jatetxea?",english:"Where is the restaurant?"}},
+  {id:"ez_dut_ulertzen",basque:"Ez dut ulertzen",english:"I don't understand",cefr:"A1",topic:"greetings",pronunciation:"EZ doot oo-LER-tzen",notes:"The single most useful phrase for a language learner. Mesedez errepikatu = please repeat. Poliki esaidazu = say it slowly.",mcOnly:true,example:{basque:"Ez dut ulertzen. Mesedez errepikatu.",english:"I don't understand. Please repeat."}},
+  {id:"ingelesez",basque:"Ingelesez hitz egiten duzu?",english:"Do you speak English?",cefr:"A1",topic:"greetings",pronunciation:"in-geh-LEH-sez HITS eh-GEE-ten DOO-zoo",notes:"Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? The -z suffix means in that language.",mcOnly:true,example:{basque:"Ingelesez hitz egiten al duzu?",english:"Do you speak English?"}},
+  {id:"non_dago",basque:"Non dago...?",english:"Where is...?",cefr:"A1",topic:"travel",pronunciation:"NON DAH-go",notes:"The most useful tourist phrase. Non dago geltokia? = Where is the station? Non daude komunak? = Where are the toilets?",mcOnly:true,example:{basque:"Non dago jatetxea?",english:"Where is the restaurant?"}},
   {id:"urdina_iluna",basque:"Urdina iluna",english:"Dark blue",cefr:"A2",topic:"colors",pronunciation:"oor-DEE-nah ee-LOO-nah",notes:"Dark blue. Itsas urdina = sea blue. The Basque flag (ikurrina) uses a vivid green cross on white diagonal bands on red - no dark blue, but urdina iluna appears in Basque clothing.",example:{basque:"Alkandora urdina iluna daramat.",english:"I am wearing a dark blue shirt."}},
   {id:"urdin_argia",basque:"Urdin argia",english:"Light blue / Sky blue",cefr:"A2",topic:"colors",pronunciation:"oor-DIN AR-ghee-ah",notes:"Sky blue. Argi = light as a modifier. Basque builds color shades with argia (light) or iluna (dark). Zeruko urdina = sky blue (literally sky's blue).",example:{basque:"Zerua urdin argia da gaur.",english:"The sky is light blue today."}},
   {id:"hori_iluna",basque:"Hori iluna",english:"Golden / Dark yellow",cefr:"A2",topic:"colors",pronunciation:"HOR-ee ee-LOO-nah",notes:"Dark yellow or gold. Urre kolorea = gold color (from urre = gold). Used for describing autumn leaves in the Basque mountains in October.",example:{basque:"Hostoak hori iluna dira udazkenean.",english:"The leaves are golden in autumn."}},
@@ -438,7 +467,8 @@ const SEED_VOCAB=[
   {id:"bigarrena",basque:"Bigarrena",english:"Second",cefr:"A2",topic:"numbers",pronunciation:"bee-GAR-reh-nah",notes:"Second (ordinal). The -garren suffix makes ordinals: bigarrena=2nd, hirugarrena=3rd, laurgarrena=4th. Exception: lehena (not batgarrena) for first. Bigarren postua = second place.",example:{basque:"Bigarrena naiz.",english:"I am second."}},
   {id:"hirugarrena",basque:"Hirugarrena",english:"Third",cefr:"A2",topic:"numbers",pronunciation:"hee-roo-GAR-reh-nah",notes:"Third (ordinal). Hirugarren aldiz = for the third time. Hirugarren mailan = at the third level. The -garren suffix is very regular making Basque ordinals easy once you know the cardinals.",example:{basque:"Hirugarrena da.",english:"It is third."}},
   {id:"iloba",basque:"Iloba",english:"Nephew / Niece",cefr:"A2",topic:"family",pronunciation:"ee-LOH-bah",notes:"Nephew or niece - same word for both genders in Basque. Context clarifies. Ilobak = nephews/nieces. Another example of Basque gender-neutrality in family terms.",example:{basque:"Nire iloba oso polita da.",english:"My niece is very sweet."}},
-  {id:"lehengusua",basque:"Lehengusua",english:"Cousin",cefr:"A2",topic:"family",pronunciation:"leh-en-GOO-soo-ah",notes:"Cousin. Lehen = first. A common word in extended Basque families. Lehengusina = female cousin in some dialects. Basque family networks (senitartea) are traditionally very close.",example:{basque:"Nire lehengusua Bilbon bizi da.",english:"My cousin lives in Bilbo."}},
+  {id:"lehengusua",basque:"Lehengusua",english:"Cousin (male)",cefr:"A2",topic:"family",pronunciation:"leh-en-GOO-soo-ah",notes:"Lehengusua = male cousin. Lehen = first. The female cousin is lehengusina. A common word in extended Basque families (senitartea), which are traditionally very close.",example:{basque:"Nire lehengusua Bilbon bizi da.",english:"My cousin lives in Bilbo."}},
+  {id:"lehengusina",basque:"Lehengusina",english:"Cousin (female)",cefr:"A2",topic:"family",pronunciation:"leh-en-goo-SEE-nah",notes:"Lehengusina = female cousin. The male cousin is lehengusua. One of the few Basque words with a distinct masculine and feminine form, like errege/erregina (king/queen).",example:{basque:"Nire lehengusina Donostian bizi da.",english:"My cousin lives in Donostia."}},
   {id:"senitartea",basque:"Senitartea",english:"Relatives / Extended family",cefr:"A2",topic:"family",pronunciation:"seh-nee-TAR-teh-ah",notes:"Relatives or extended family. Senide = relative/sibling. Basque families (etxeak) traditionally had strong clan identities tied to the family house. Senitartekoak = family members.",example:{basque:"Senitartea bildu da gaur.",english:"The family has gathered today."}},
   {id:"alargun",basque:"Alargun",english:"Widow / Widower",cefr:"B1",topic:"family",pronunciation:"ah-LAR-goon",notes:"Widow or widower - same word for both genders. Alarguna geratu = to be widowed. Another example of Basque gender-neutral vocabulary. Alarguntasuna = widowhood.",example:{basque:"Alarguna da aspaldidanik.",english:"She has been a widow for a long time."}},
   {id:"adopzioa",basque:"Adopzioa",english:"Adoption",cefr:"B1",topic:"family",pronunciation:"ah-dop-TSEE-oh-ah",notes:"Adoption. Adoptatu = to adopt. Seme-alaba adoptatu = adopted child. Basque law has progressive adoption rules. The concept of chosen family (aukeratutako familia) is valued.",example:{basque:"Adopzioa aukera ederra da.",english:"Adoption is a wonderful option."}},
@@ -743,8 +773,8 @@ const SEED_VOCAB=[
   {id:"zenbakia",basque:"Zenbakia",english:"Number (mathematical)",cefr:"B2",topic:"numbers",pronunciation:"zen-BAH-kee-ah",notes:"Number (mathematical). Zenb (how many) root. Zenbaki bikoitiak = even numbers. Zenbaki bakoitiak = odd numbers. Zenbaki lehenak = prime numbers.",example:{basque:"Zenbaki lehenak ikertzen ditut.",english:"I study prime numbers."}},
   {id:"kolorea_galdu",basque:"Kolorea galdu",english:"To fade (color)",cefr:"B2",topic:"colors",pronunciation:"koh-LOH-reh-ah GAL-doo",notes:"To fade (of color). Kolorea (color) + galdu (to lose). Arropak kolorea galdu du = the clothes have faded. Used in both literal and figurative senses.",example:{basque:"Eguzkiaren ondorioz kolorea galdu du.",english:"It has faded due to the sun."}},
   {id:"ñabardura",basque:"Ñabardura",english:"Nuance / Shade (of color)",cefr:"B2",topic:"colors",pronunciation:"nyah-bar-DOO-rah",notes:"Nuance or shade of color. From Spanish ñabardura. Kolore ñabardura = shade of color. Also used figuratively for subtle differences in meaning or opinion.",example:{basque:"Kolore horren ñabardura polita da.",english:"The shade of that color is beautiful."}},
-  {id:"garaian",basque:"Garaian",english:"On time / In due time",cefr:"B2",topic:"time",pronunciation:"gah-RAI-an",notes:"On time or in due time. Garai (era/time) + -an (in). Garaian iritsi = to arrive on time. Garaiz = in time/on time. Garaipen = victory (from the same root).",example:{basque:"Garaian iritsi naiz bilera.",english:"I have arrived on time for the meeting."}},
-  {id:"iraupena",basque:"Iraupena",english:"Duration / Lifespan",cefr:"B2",topic:"time",pronunciation:"ee-row-PEH-nah",notes:"Duration or lifespan. Iraun (to last) + -pena. Iraupen luzea = long duration. Hizkuntzaren iraupena = the survival/duration of the language. Important in linguistic and historical contexts.",example:{basque:"Proiektuaren iraupena bi urte da.",english:"The duration of the project is two years."}},
+  {id:"garaian",basque:"Garaian",english:"At the time / In due time",cefr:"B2",topic:"time",pronunciation:"gah-RAI-an",notes:"At the time or in due time. Garai (era/period) + -an (in). For 'on time' the more common word is garaiz (e.g. garaiz iritsi = to arrive on time). Garaipen = victory, from the same root.",example:{basque:"Garai hartan dena ezberdina zen.",english:"At that time everything was different."}},
+  {id:"iraupena",basque:"Iraupena",english:"Duration / Lifespan",cefr:"B2",topic:"time",pronunciation:"ee-rah-oo-PEH-nah",notes:"Duration or lifespan. Iraun (to last) + -pena. Iraupen luzea = long duration. Hizkuntzaren iraupena = the survival/duration of the language. Important in linguistic and historical contexts.",example:{basque:"Proiektuaren iraupena bi urte da.",english:"The duration of the project is two years."}},
   {id:"digestioa",basque:"Digestioa",english:"Digestion",cefr:"B2",topic:"body",pronunciation:"dee-ges-TYOH-ah",notes:"Digestion. International term. Digestio ona = good digestion. Digestio arazoak = digestive problems. The rich Basque diet makes this a common topic.",example:{basque:"Digestio ona izateko ondo jan behar duzu.",english:"You need to eat well to have good digestion."}},
   {id:"arnasaketa",basque:"Arnasaketa",english:"Breathing / Respiration",cefr:"B2",topic:"body",pronunciation:"ar-nah-sah-KEH-tah",notes:"Breathing or respiration. Arnasa (breath) + -keta. Arnasa hartu = to breathe in. Arnasa bota = to breathe out. Arnasaren erritmoa = breathing rhythm.",example:{basque:"Arnasaketa sakon bat hartu.",english:"Take a deep breath."}},
   {id:"kultura_aniztasuna",basque:"Kultura aniztasuna",english:"Cultural diversity",cefr:"B2",topic:"travel",pronunciation:"kool-TOO-rah ah-nees-tah-SOO-nah",notes:"Cultural diversity. Kultura (culture) + aniztasuna (diversity). Important concept when discussing the Basque Country's unique position within Spain and France.",example:{basque:"Kultura aniztasuna aberastasuna da.",english:"Cultural diversity is a richness."}},
@@ -786,10 +816,9 @@ const SEED_VOCAB=[
   {id:"sukalde_teknika",basque:"Sukalde teknika",english:"Cooking technique",cefr:"B2",topic:"food",pronunciation:"soo-KAL-deh tek-NEE-kah",notes:"Cooking technique. Sukalde (kitchen) + teknika. Basque nouvelle cuisine revolutionized European cooking in the 1970s with new techniques. Teknika berriak = new techniques. Key term in culinary education.",example:{basque:"Sukalde teknika berriak ikasten ari naiz.",english:"I am learning new cooking techniques."}},
   {id:"bertako_produktua",basque:"Bertako produktua",english:"Local product",cefr:"B2",topic:"food",pronunciation:"ber-TAH-koh pro-DOOK-too-ah",notes:"Local product. Bertako (local/from here) + produktua (product). The Basque food movement strongly values bertako produktuak - local ingredients from Basque farms and waters. Slow food philosophy.",example:{basque:"Bertako produktuak erabiltzen ditugu beti.",english:"We always use local products."}},
   {id:"ardandegi",basque:"Ardandegi",english:"Wine cellar / Winery",cefr:"B2",topic:"food",pronunciation:"ar-dan-DEH-ghee",notes:"Wine cellar or winery. Ardo (wine) + -tegi (place). The Rioja Alavesa wine region in the Basque Country produces world-class wines. Famous wineries include Marqués de Riscal and Bodegas Ysios.",example:{basque:"Ardandegian Rioja Arabako ardoak ikusten ditugu.",english:"We see Rioja Alavesa wines in the winery."}},
-  {id:"agur_eta_ohore",basque:"Agur eta ohore",english:"Farewell and honor (formal closing)",cefr:"B2",topic:"greetings",pronunciation:"ah-GOOR EH-tah oh-HOH-reh",notes:"A traditional formal closing phrase meaning farewell and honor. Used to close formal speeches, letters and official communications. Reflects the Basque tradition of honor and respect in formal discourse.",example:{basque:"Agur eta ohore esanez amaitu zuen bere hitzaldia.",english:"He ended his speech saying farewell and honor."}},
-  {id:"ongi_etorri",basque:"Ongi etorri",english:"Welcome",cefr:"B2",topic:"greetings",pronunciation:"ON-ghee eh-TOR-ree",notes:"Welcome. Ongi (well) + etorri (come) = come well. The standard welcome greeting. Ongi etorri Euskal Herrira = welcome to the Basque Country. Seen on signs and used at events and gatherings.",example:{basque:"Ongi etorri gure etxera!",english:"Welcome to our house!"}},
+    {id:"ongi_etorri",basque:"Ongi etorri",english:"Welcome",cefr:"B2",topic:"greetings",pronunciation:"ON-ghee eh-TOR-ree",notes:"Welcome. Ongi (well) + etorri (come) = come well. The standard welcome greeting. Ongi etorri Euskal Herrira = welcome to the Basque Country. Seen on signs and used at events and gatherings.",example:{basque:"Ongi etorri gure etxera!",english:"Welcome to our house!"}},
   {id:"zorte_on",basque:"Zorte on",english:"Good luck",cefr:"B2",topic:"greetings",pronunciation:"ZOR-teh ON",notes:"Good luck. Zorte (luck/fate) + on (good). Zorte oneko = lucky. Zorte txarra = bad luck. Used before exams, competitions, journeys. Zorte on denoi = good luck to everyone.",example:{basque:"Zorte on azterketan!",english:"Good luck in the exam!"}},
-  {id:"osasun",basque:"Osasun!",english:"Cheers! / To your health!",cefr:"B2",topic:"greetings",pronunciation:"oh-sah-SOON",notes:"Cheers or to your health - the Basque toast. Osasun = health. Said when raising a glass. Topa! is also used. Osasunaren alde = for health. Athletic Bilbao fans shout Osasun! as a battle cry.",example:{basque:"Osasun! Gure osasunaren alde.",english:"Cheers! For our health."}},
+  {id:"osasun",basque:"Osasuna!",english:"Cheers! / To your health!",cefr:"B2",topic:"greetings",pronunciation:"oh-sah-SOO-nah",notes:"Cheers or to your health, the Basque toast. Osasuna = health. Said when raising a glass. Topa! is the other common toast. Osasunaren alde = for health.",example:{basque:"Osasuna! Topa egin dezagun.",english:"Cheers! Let us make a toast."}},
   {id:"barkamen_eske",basque:"Barkamen eske",english:"Asking for forgiveness / Apologizing formally",cefr:"B2",topic:"greetings",pronunciation:"bar-KAH-men ES-keh",notes:"Asking for forgiveness or formal apology. Barkamen (forgiveness) + eske (asking for). More formal and serious than barkatu (excuse me). Used in written apologies and formal contexts.",example:{basque:"Barkamen eske nator nire portaeragatik.",english:"I come asking for forgiveness for my behavior."}},
   {id:"atsegin_dut",basque:"Atsegin dut",english:"I like it / I enjoy it",cefr:"B2",topic:"greetings",pronunciation:"at-SEH-gheen doot",notes:"I like it or I enjoy it. Atsegin (pleasure) + dut (I have). More formal and literary than gustatu. Atsegin dut zure laguntza = I appreciate your help. Used in polite and formal expressions of appreciation.",example:{basque:"Oso atsegin dut zurekin hitz egitea.",english:"I very much enjoy talking with you."}},
   {id:"errukia",basque:"Errukia",english:"Compassion / Pity",cefr:"B2",topic:"emotions",pronunciation:"er-ROO-kee-ah",notes:"Compassion or pity. Erruki = compassion (root). Errukia sentitu = to feel compassion. Errukizkoa = compassionate. Erruki gabea = merciless. A deep human quality celebrated in Basque culture.",example:{basque:"Errukia sentitzen dut bere egoera ikusten dudanean.",english:"I feel compassion when I see his situation."}},
@@ -804,8 +833,7 @@ const SEED_VOCAB=[
   {id:"ordutegia",basque:"Ordutegia",english:"Timetable / Schedule",cefr:"B2",topic:"time",pronunciation:"or-doo-TEH-ghee-ah",notes:"Timetable or schedule. Ordu (hour) + -tegia. Ordutegi estua = tight schedule. Ordutegi malgu = flexible schedule. Garraio publikoaren ordutegia = public transport timetable. Essential for professional contexts.",example:{basque:"Ordutegia aldatu behar dugu bilera egiteko.",english:"We need to change the schedule to have the meeting."}},
   {id:"muga_epea",basque:"Muga-epea",english:"Deadline",cefr:"B2",topic:"time",pronunciation:"MOO-gah EH-peh-ah",notes:"Deadline. Muga (limit/border) + epea (period). Muga-epera iritsi = to reach the deadline. Muga-epea gainditu = to miss the deadline. Essential in professional and academic contexts.",example:{basque:"Muga-epea bihar da eta ez nago prest.",english:"The deadline is tomorrow and I am not ready."}},
   {id:"kronologia",basque:"Kronologia",english:"Chronology",cefr:"B2",topic:"time",pronunciation:"kroh-noh-loh-GHEE-ah",notes:"Chronology. International term. Kronologikoki = chronologically. Gertaeren kronologia = chronology of events. Used in historical, scientific and journalistic contexts.",example:{basque:"Gertaeren kronologia ezagutzea garrantzitsua da.",english:"It is important to know the chronology of events."}},
-  {id:"iraganeko_geroa",basque:"Iraganeko geroa",english:"Historical future / What was to come",cefr:"B2",topic:"time",pronunciation:"ee-rah-GAH-neh-koh GEH-roh-ah",notes:"The future as seen from the past - what was to come. Iragana (past) + geroa (future). A philosophical time concept used in literature and historical analysis. Rare but useful for advanced discourse.",example:{basque:"Iraganeko geroa ezin zuten aurreikusi.",english:"They could not foresee what was to come."}},
-  {id:"diaspora",basque:"Diaspora",english:"Diaspora",cefr:"B2",topic:"travel",pronunciation:"dee-AS-poh-rah",notes:"Diaspora. International term. The Basque diaspora is one of the most cohesive in the world - significant communities exist in Argentina, USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",example:{basque:"Euskal diaspora mundu osoan sakabanatuta dago.",english:"The Basque diaspora is scattered all over the world."}},
+    {id:"diaspora",basque:"Diaspora",english:"Diaspora",cefr:"B2",topic:"travel",pronunciation:"dee-AS-poh-rah",notes:"Diaspora. International term. The Basque diaspora is one of the most cohesive in the world - significant communities exist in Argentina, USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",example:{basque:"Euskal diaspora mundu osoan sakabanatuta dago.",english:"The Basque diaspora is scattered all over the world."}},
   {id:"mugitzea",basque:"Mugitzea",english:"To move / Migration",cefr:"B2",topic:"travel",pronunciation:"moo-GHEE-tseh-ah",notes:"To move or migration. Mugitu (to move) + -tzea (verbal noun). Mugitzeko askatasuna = freedom of movement. Biztanleriaren mugitzea = population movement. Key in discussions of mobility and migration.",example:{basque:"Mugitzeko askatasuna eskubide bat da.",english:"Freedom of movement is a right."}},
   {id:"erbesteratua",basque:"Erbesteratua",english:"Exile / Exiled person",cefr:"B2",topic:"travel",pronunciation:"er-bes-teh-RAH-too-ah",notes:"Exile or exiled person. Erbestea = exile. Erbesteratu = to go into exile. During the Franco dictatorship many Basques were erbesteratua in France, Mexico and elsewhere. A historically charged word.",example:{basque:"Frankismo garaian euskaldun asko erbesteratu ziren.",english:"During the Franco era many Basques went into exile."}},
   {id:"mugarik_gabe",basque:"Mugarik gabe",english:"Without borders / Borderless",cefr:"B2",topic:"travel",pronunciation:"moo-GAH-reek GAH-beh",notes:"Without borders or borderless. Muga (border) + -rik gabe (without). Mugarik gabeko mundua = a borderless world. Schengen area made the French-Spanish Basque border invisible. Politically significant phrase.",example:{basque:"Mugarik gabeko Europa batean bizi gara.",english:"We live in a borderless Europe."}},
@@ -913,8 +941,14 @@ var _WC=getWC();
 const ANT={gorria:"beltza",beltza:"gorria",handia:"txikia",txikia:"handia",zaharra:"berria",berria:"zaharra",ona:"txarra",txarra:"ona",argia:"iluna",iluna:"argia",beroa:"hotza",hotza:"beroa",garestia:"merkea",merkea:"garestia",erraza:"zaila",zaila:"erraza",ama:"aita",aita:"ama",amona:"aitona",aitona:"amona",semea:"alaba",alaba:"semea",anaia:"ahizpa",ahizpa:"anaia",senarra:"emaztea",emaztea:"senarra",mintzatu:"esan",esan:"mintzatu",belarria:"urtea",urtea:"belarria",ahoa:"hilabetea",hilabetea:"ahoa",ezkerra:"eskuina",eskuina:"ezkerra",irekia:"itxia",itxia:"irekia",burua:"eskua",eskua:"burua",iragana:"etorkizuna",etorkizuna:"iragana",ardoa:"esnea",esnea:"ardoa",kafea:"tea",tea:"kafea",gaua:"eguna",eguna:"gaua"};
 function getPool(vocab,cefr,topic,cumul,isPro){var pro=isPro===true;var idx=CEFR_ORDER.indexOf(cefr);var lvls=cumul?CEFR_ORDER.slice(0,idx+1):[cefr];return vocab.filter(function(w){if(lvls.indexOf(w.cefr)===-1)return false;if(topic!=="all"&&w.topic!==topic)return false;if(!pro&&w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)===-1)return false;if(!pro&&w.cefr!=="A1")return false;return true;});}
 function shuffled(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+// Returns the core meaning of an English label, stripping any "(...)" qualifier.
+// e.g. "Brother (male speaker)" -> "brother". Used to avoid near-duplicate quiz options.
+function baseMeaning(s){if(!s)return"";return s.replace(/\([^)]*\)/g,"").replace(/\s+/g," ").trim().toLowerCase();}
+// Filter a distractor pool so no option shares the correct answer's base meaning
+// (prevents e.g. "Brother (male speaker)" appearing against "Brother (female speaker)").
+function noMeaningClash(pool,word){var base=baseMeaning(word.english);return pool.filter(function(w2){return baseMeaning(w2.english)!==base;});}
 function spaced(base,n){if(!base.length)return[];var gap=Math.min(3,base.length-1);var out=[],last={};while(out.length<n){var added=false;for(var i=0;i<base.length;i++){var w=base[i],li=last[w.id]!=null?last[w.id]:-99;if(out.length-li>gap||out.length<=gap){out.push(w);last[w.id]=out.length-1;added=true;if(out.length>=n)break;}}if(!added)break;}return out;}
-function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var due=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)<=new Date(now.getTime()+12*3600000)&&(srs[w.id].score||0)<4;});var unseen=f(function(w){return missedIds.indexOf(w.id)===-1&&!srs[w.id];});var learning=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)>now&&(srs[w.id].score||0)<4;});var mastered=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&(srs[w.id].score||0)>=4;});var active=due.concat(missed).concat(learning).concat(unseen);var base=active.length>=n?active:active.concat(mastered);var words=spaced(base,n);var sid=Math.random().toString(36).slice(2,8);var canFB=function(w){if(!w.example||!w.example.basque)return false;var ex=w.example.basque.toLowerCase(),root=w.basque.toLowerCase().replace(/[?!]$/,"").trim();var stems=[root];if(root.endsWith("tu")||root.endsWith("du")){var stem=root.slice(0,-2);stems.push(stem+"tzen",stem+"ten",stem+"dakit",stem+"t");}if(root.endsWith("i")&&root.length>=5){stems.push(root.slice(0,-1),root.slice(0,-1)+"tzen",root.slice(0,-1)+"ten");}if(root.length>=6&&root.endsWith("a"))stems.push(root.slice(0,-1));if(root.indexOf(" ")!==-1){var parts=root.split(" ");parts.forEach(function(p){if(p.length>=3)stems.push(p);});}return stems.some(function(s){return s.length>=3&&ex.indexOf(s)!==-1;});};var modes=shuffled(Array(Math.ceil(words.length/2)).fill("multipleChoice").concat(Array(Math.floor(words.length/2)).fill("typing"))).slice(0,words.length);return words.map(function(word,i){var mode=modes[i];if(word.mcOnly&&mode==="typing")mode="multipleChoice";if(!word.mcOnly&&mode==="typing"&&canFB(word)&&i%3===0)mode="fillBlank";var dp=vocab.filter(function(w2){return w2.id!==word.id&&w2.id!==ANT[word.id];});var sl=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});var slLevel=dp.filter(function(w2){return w2.cefr===word.cefr;});var dist=shuffled(sl.length>=3?sl:slLevel.length>=3?slLevel:dp).slice(0,3);if(mode==="fillBlank"){var wb=word.basque.replace(/[?!]$/,"");var escaped=wb.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");var blanked=word.example.basque.replace(new RegExp("\\b"+escaped+"\\w*","i"),"___").replace(new RegExp(escaped,"i"),"___").trim();if(blanked.indexOf("___")===-1){mode="multipleChoice";var opts2b=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2b,correct:word.english};}var opts=shuffled([word.basque].concat(dist.map(function(w2){return w2.basque;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:blanked,promptLabel:"Fill in the blank",options:opts,correct:word.basque};}if(mode==="multipleChoice"){var opts2=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2,correct:word.english};}return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.english,promptLabel:"Translate to Basque",options:null,correct:word.basque};});}
+function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var due=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)<=new Date(now.getTime()+12*3600000)&&(srs[w.id].score||0)<4;});var unseen=f(function(w){return missedIds.indexOf(w.id)===-1&&!srs[w.id];});var learning=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)>now&&(srs[w.id].score||0)<4;});var mastered=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&(srs[w.id].score||0)>=4;});var active=due.concat(missed).concat(learning).concat(unseen);var base=active.length>=n?active:active.concat(mastered);var words=spaced(base,n);var sid=Math.random().toString(36).slice(2,8);var canFB=function(w){if(!w.example||!w.example.basque)return false;if(w.topic==="numbers")return false;var ex=w.example.basque.toLowerCase(),root=w.basque.toLowerCase().replace(/[?!]$/,"").trim();var stems=[root];if(root.endsWith("tu")||root.endsWith("du")){var stem=root.slice(0,-2);stems.push(stem+"tzen",stem+"ten",stem+"dakit",stem+"t");}if(root.endsWith("i")&&root.length>=5){stems.push(root.slice(0,-1),root.slice(0,-1)+"tzen",root.slice(0,-1)+"ten");}if(root.length>=6&&root.endsWith("a"))stems.push(root.slice(0,-1));if(root.indexOf(" ")!==-1){var parts=root.split(" ");parts.forEach(function(p){if(p.length>=3)stems.push(p);});}return stems.some(function(s){return s.length>=3&&ex.indexOf(s)!==-1;});};var modes=shuffled(Array(Math.ceil(words.length/2)).fill("multipleChoice").concat(Array(Math.floor(words.length/2)).fill("typing"))).slice(0,words.length);return words.map(function(word,i){var mode=modes[i];if(word.mcOnly&&mode==="typing")mode="multipleChoice";if(!word.mcOnly&&mode==="typing"&&canFB(word)&&i%3===0)mode="fillBlank";var dp=vocab.filter(function(w2){return w2.id!==word.id&&w2.id!==ANT[word.id];});dp=noMeaningClash(dp,word);var sl=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});var slLevel=dp.filter(function(w2){return w2.cefr===word.cefr;});var dist=shuffled(sl.length>=3?sl:slLevel.length>=3?slLevel:dp).slice(0,3);if(mode==="fillBlank"){var wb=word.basque.replace(/[?!]$/,"");var escaped=wb.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");var blanked=word.example.basque.replace(new RegExp("\\b"+escaped+"\\w*","i"),"___").replace(new RegExp(escaped,"i"),"___").trim();if(blanked.indexOf("___")===-1){mode="multipleChoice";var opts2b=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2b,correct:word.english};}var opts=shuffled([word.basque].concat(dist.map(function(w2){return w2.basque;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:blanked,promptLabel:"Fill in the blank",options:opts,correct:word.basque};}if(mode==="multipleChoice"){var opts2=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2,correct:word.english};}return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.english,promptLabel:"Translate to Basque",options:null,correct:word.basque};});}
 function norm(s){
   s=s.trim().toLowerCase();
   var suffixes=["ak","an","ra","ko","ren","ri","rekin","tik","rako","ean"];
@@ -953,12 +987,31 @@ function Confetti(){
   }
   return React.createElement("div",{style:{position:"fixed",inset:0,pointerEvents:"none",overflow:"hidden",zIndex:998}},pieces);
 }
+// ── Error boundary: catches any render crash and shows a recovery screen instead of a white page ──
+class ErrorBoundary extends React.Component{
+  constructor(props){super(props);this.state={hasError:false};}
+  static getDerivedStateFromError(){return {hasError:true};}
+  componentDidCatch(error,info){try{console.error("App crash caught by ErrorBoundary:",error,info);}catch(e){}}
+  render(){
+    if(this.state.hasError){
+      return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5",fontFamily:"Nunito,system-ui,sans-serif",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"24px",textAlign:"center"}},
+        React.createElement("div",{style:{fontSize:52,marginBottom:18}},"\uD83D\uDE15"),
+        React.createElement("h1",{style:{margin:"0 0 10px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.4}},"Something went wrong"),
+        React.createElement("p",{style:{margin:"0 0 28px",fontSize:15,color:"#8E8E93",fontWeight:500,lineHeight:1.5,maxWidth:300}},"The app hit an unexpected error. Your progress is saved. Tap below to reload and continue."),
+        React.createElement("button",{onClick:function(){try{window.location.reload();}catch(e){}},style:{border:"none",borderRadius:16,padding:"15px 32px",fontSize:16,fontWeight:900,cursor:"pointer",background:"linear-gradient(135deg,#0E7A40,#19A85A)",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 #0B5C30",letterSpacing:-0.2}},"Reload app")
+      );
+    }
+    return this.props.children;
+  }
+}
 function App(){
   useEffect(function(){document.title="Ikasi & Go™";},[]);
   var _s0=useState("home");var screen=_s0[0];var setScreen=_s0[1];
   var _s1=useState(null);var cfg=_s1[0];var setCfg=_s1[1];
   var _s2=useState([]);var questions=_s2[0];var setQs=_s2[1];
   var _s3=useState([]);var results=_s3[0];var setResults=_s3[1];
+  var _sQO=useState(null);var quizOrigin=_sQO[0];var setQuizOrigin=_sQO[1];
+  var _sCW=useState(null);var customQuizWords=_sCW[0];var setCustomQuizWords=_sCW[1];
   var _s4=useState(false);var isPro=_s4[0];var setIsPro=_s4[1];
   var _s5=useState(false);var showOnb=_s5[0];var setShowOnb=_s5[1];
   var _s6=useState(0);var streak=_s6[0];var setStreak=_s6[1];
@@ -980,21 +1033,21 @@ function App(){
   var isTrialActive=trialUntil&&new Date()<trialUntil;
   var isProOrTrial=isPro||isTrialActive;
   var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(function(w){return w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;});var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil]);
-  useEffect(function(){async function load(){try{var rs=await Promise.all([window.storage.get("streak_data"),window.storage.get("srs_data")]);if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();setStreak((d.lastDay===today||d.lastDay===yest)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
-        try{var ph=await window.storage.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
-        try{var pr=await window.storage.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
-        try{var dg=await window.storage.get("daily_goal");if(dg&&dg.value)setDailyGoal(parseInt(dg.value)||10);}catch(e){}
-        try{var sf=await window.storage.get("streak_freeze");if(sf&&sf.value){var sfv=JSON.parse(sf.value);if(sfv.until&&new Date(sfv.until)>new Date()){setStreakFrozen(true);}else{window.storage.set("streak_freeze","").catch(function(){});}}}catch(e){}
-        try{var lo=await window.storage.get("last_opened");var today2=new Date().toISOString().slice(0,10);setLastOpened(lo&&lo.value?lo.value:null);window.storage.set("last_opened",today2).catch(function(){});}catch(e){}
-        try{var tc=await window.storage.get("today_count_"+new Date().toISOString().slice(0,10));if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
-        try{var tr=await window.storage.get("trial_until");if(tr&&tr.value){var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await window.storage.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
+  useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data")]);if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();setStreak((d.lastDay===today||d.lastDay===yest)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
+        try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
+        try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
+        try{var dg=await STORE.get("daily_goal");if(dg&&dg.value)setDailyGoal(parseInt(dg.value)||10);}catch(e){}
+        try{var sf=await STORE.get("streak_freeze");if(sf&&sf.value){var sfv=JSON.parse(sf.value);if(sfv.until&&new Date(sfv.until)>new Date()){setStreakFrozen(true);}else{STORE.set("streak_freeze","").catch(function(){});}}}catch(e){}
+        try{var lo=await STORE.get("last_opened");var today2=new Date().toISOString().slice(0,10);setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
+        try{var tc=await STORE.get("today_count_"+new Date().toISOString().slice(0,10));if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
+        try{var tr=await STORE.get("trial_until");if(tr&&tr.value){var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
         // Fetch vocabulary
         (async function(){
           try{
-            var cached=await window.storage.get("vocab_cache");
+            var cached=await STORE.get("vocab_cache");
             if(cached&&cached.value){try{var cv=JSON.parse(cached.value);if(cv&&cv.vocabulary){_VOCAB=cv.vocabulary;_WC=getWC();setVocabVersion(function(v){return v+1;});}}catch(e){}}
             var res=await fetch(VOCAB_URL);
-            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary){var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}window.storage.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
+            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary){var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
           }catch(e){setToast("offline");setTimeout(function(){setToast(null);},3000);}
         })();
       }load();},[]);
@@ -1010,20 +1063,39 @@ function App(){
   for(var ci=0;ci<changed.length;ci++){var id2=changed[ci];var r2=bestByWord[id2];var cur=nd[id2]||{score:0};var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.wasClose?1:SRS_I[ns];nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
   // Mark every fresh result as applied so later checkpoints skip them.
   for(var fi=0;fi<fresh.length;fi++){fresh[fi]._srsApplied=true;}
-  setSrsData(function(){return nd;});try{await window.storage.set("srs_data",JSON.stringify(nd)).catch(function(){});}catch(e){}return nd;}
+  setSrsData(function(){return nd;});try{await STORE.set("srs_data",JSON.stringify(nd)).catch(function(){});}catch(e){}return nd;}
   async function saveSessionHistory(accuracy,level,topic){
   try{
-    var r=await window.storage.get("session_history");
+    var r=await STORE.get("session_history");
     var hist=r&&r.value?JSON.parse(r.value):[];
     hist.push({date:new Date().toISOString().slice(0,10),acc:accuracy,lvl:level,topic:topic});
     if(hist.length>90)hist=hist.slice(-90);
-    await window.storage.set("session_history",JSON.stringify(hist)).catch(function(){});
+    await STORE.set("session_history",JSON.stringify(hist)).catch(function(){});
     setSessionHistory(hist);
   }catch(e){}
 }
-async function recordSession(){var today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString(),ns=streak;try{var r=await window.storage.get("streak_data");var d=r&&r.value?JSON.parse(r.value):{};if(d.lastDay===today)ns=d.streak||0;else if(d.lastDay===yest)ns=(d.streak||0)+1;else ns=streakFrozen?(d.streak||0):1;var nl=Math.max(ns,d.longest||0);var newTotal=(d.totalSessions||0)+1;await window.storage.set("streak_data",JSON.stringify({streak:ns,longest:nl,lastDay:today,totalSessions:newTotal})).catch(function(){});setStreak(ns);setLongest(nl);setTotalSess(newTotal);}catch(e){setStreak(streak+1);}return ns;}
-  function startQuiz(config,missedIds){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);if(!qs.length)return;setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
-  async function finishQuiz(res){if(!res||res.length===0){setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);window.storage.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");}
+async function recordSession(){var today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString(),ns=streak;try{var r=await STORE.get("streak_data");var d=r&&r.value?JSON.parse(r.value):{};if(d.lastDay===today)ns=d.streak||0;else if(d.lastDay===yest)ns=(d.streak||0)+1;else ns=streakFrozen?(d.streak||0):1;var nl=Math.max(ns,d.longest||0);var newTotal=(d.totalSessions||0)+1;await STORE.set("streak_data",JSON.stringify({streak:ns,longest:nl,lastDay:today,totalSessions:newTotal})).catch(function(){});setStreak(ns);setLongest(nl);setTotalSess(newTotal);}catch(e){setStreak(streak+1);}return ns;}
+  function buildMCSession(words){
+    var sid=Math.random().toString(36).slice(2,8);
+    var pool=shuffled(words).slice(0,20);
+    return pool.map(function(word,i){
+      var dp=VOCABULARY.filter(function(w2){return w2.id!==word.id;});dp=noMeaningClash(dp,word);
+      var sameBoth2=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});
+      var sameLevel2=dp.filter(function(w2){return w2.cefr===word.cefr;});
+      var distPool2=sameBoth2.length>=3?sameBoth2:sameLevel2.length>=3?sameLevel2:dp;
+      var dist=shuffled(distPool2).slice(0,3);
+      var opts=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));
+      return{id:"q_"+sid+"_"+i,mode:"multipleChoice",word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts,correct:word.english};
+    });
+  }
+  function startCustomQuiz(words,origin){
+    if(!words||!words.length)return;
+    var sess=buildMCSession(words);
+    if(!sess.length)return;
+    setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
+  }
+  function startQuiz(config,missedIds){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(null);setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
@@ -1068,17 +1140,17 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);window.storage.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();window.storage.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(){setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
-    {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} onRetry={function(ids){if(cfg)startQuiz(cfg,ids||[]);else setScreen("home");}} onHome={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();window.storage.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(){setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+    {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(cfg)startQuiz(cfg,ids||[]);else if(customQuizWords&&customQuizWords.length){var rw=customQuizWords;if(ids&&ids.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)rw=filt;}startCustomQuiz(rw,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUntil&&!isPro}
     trialDays={7}
     vocabCount={VOCABULARY.length}
-    onTrial={function(){var until=new Date(Date.now()+7*86400000);setTrialUntil(until);window.storage.set("trial_until",until.toISOString()).catch(function(){});setScreen("home");}}
-    onSubscribe={function(){setIsPro(true);window.storage.set("pro_status","1").catch(function(){});setScreen("home");}}
+    onTrial={function(){var until=new Date(Date.now()+7*86400000);setTrialUntil(until);STORE.set("trial_until",until.toISOString()).catch(function(){});setScreen("home");}}
+    onSubscribe={function(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});setScreen("home");}}
     onContinueFree={function(){setScreen("home");}}
-    onStart={function(){setIsPro(true);window.storage.set("pro_status","1").catch(function(){});if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");}}
+    onStart={function(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");}}
   />}
     {screen==="games"&&<GamesScreen onBack={function(){setScreen("home");}} onPairs={function(){setScreen("pairs");}} onTap={function(){setScreen("tap");}} onTxoko={function(){setScreen("txoko");}} onOrdutegi={function(){setScreen("ordutegi");}} onKoloreak={function(){setScreen("koloreak");}} onArbola={function(){setScreen("arbola");}} isPro={isProOrTrial}/>}
     {screen==="pairs"&&<PairsScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
@@ -1087,39 +1159,31 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="ordutegi"&&<OrduegiScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="koloreak"&&<KoloreakScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="arbola"&&<ArbolaScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
-    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){
-      var sid=Math.random().toString(36).slice(2,8);
-      var pool=shuffled(words).slice(0,20);
-      var sessData=srsData;
-      var sess=pool.map(function(word,i){
-        var dp=VOCABULARY.filter(function(w2){return w2.id!==word.id;});
-        var sameBoth2=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});
-        var sameLevel2=dp.filter(function(w2){return w2.cefr===word.cefr;});
-        var distPool2=sameBoth2.length>=3?sameBoth2:sameLevel2.length>=3?sameLevel2:dp;
-        var dist=shuffled(distPool2).slice(0,3);
-        var opts=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));
-        return{id:"q_"+sid+"_"+i,mode:"multipleChoice",word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts,correct:word.english};
-      });
-      if(sess.length){setQs(sess);setResults([]);setScreen("quiz");}
-    }}/>}
+    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
-    {showOnb&&<OnboardingScreen onDone={function(){window.storage.set("onboarding_done","1").catch(function(){});setShowOnb(false);}} onUpgrade={function(){window.storage.set("onboarding_done","1").catch(function(){});setShowOnb(false);setScreen("paywall");}}/>}
+    {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
+    {screen==="learn"&&<LearnScreen onBack={function(){setScreen("home");}} onPractice={function(wordIds){
+      var words=wordIds.map(function(id){return VOCABULARY.filter(function(w){return w.id===id;})[0];}).filter(Boolean);
+      if(!words.length){setScreen("home");return;}
+      startCustomQuiz(words,"learn");
+    }}/>}
+    {showOnb&&<OnboardingScreen onDone={function(){STORE.set("onboarding_done","1").catch(function(){});setShowOnb(false);}} onUpgrade={function(){STORE.set("onboarding_done","1").catch(function(){});setShowOnb(false);setScreen("paywall");}}/>}
   </div>);}
 function HomeScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
-  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
+  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
   var _s0=useState("A1");var lvl=_s0[0];var setLvlRaw=_s0[1];
   var _s1=useState("all");var topic=_s1[0];var setTopicRaw=_s1[1];
   var _s2=useState(false);var cumul=_s2[0];var setCumulRaw=_s2[1];
   var _s3=useState(null);var modal=_s3[0];var setModal=_s3[1];
   var _s4=useState(20);var sessionLen=_s4[0];var setSessionLen=_s4[1];
   var _sfx=useState(getSfxOn());var sfxOn=_sfx[0];var setSfxOnState=_sfx[1];
-  useEffect(function(){try{window.storage.get("sfx_on").then(function(r){if(r&&r.value==="0"){setSfxOnState(false);}else{setSfxOnState(true);}}).catch(function(){});}catch(e){}},[]);
-  function setLvl(v){setLvlRaw(v);setTopicRaw(function(t){setCumulRaw(function(c){window.storage.set("last_config",JSON.stringify({lvl:v,topic:t,cumul:c})).catch(function(){});return c;});return t;});}
-  function setTopic(v){setTopicRaw(v);setLvlRaw(function(l){setCumulRaw(function(c){window.storage.set("last_config",JSON.stringify({lvl:l,topic:v,cumul:c})).catch(function(){});return c;});return l;});}
-  function setCumul(fn){var nv=typeof fn==="function"?fn(cumul):fn;setCumulRaw(nv);setLvlRaw(function(l){setTopicRaw(function(t){window.storage.set("last_config",JSON.stringify({lvl:l,topic:t,cumul:nv})).catch(function(){});return t;});return l;});}
-  useEffect(function(){window.storage.get("last_config").then(function(r){if(r&&r.value){try{var d=JSON.parse(r.value);if(d.lvl)setLvlRaw(d.lvl);if(d.topic){var safeTopic=(isPro||FREE_TOPICS.indexOf(d.topic)!==-1||d.topic==="all")?d.topic:"all";setTopicRaw(safeTopic);}if(d.cumul)setCumulRaw(d.cumul);}catch(e){}}}).catch(function(){});},[]);
+  useEffect(function(){try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0"){setSfxOnState(false);}else{setSfxOnState(true);}}).catch(function(){});}catch(e){}},[]);
+  function setLvl(v){setLvlRaw(v);setTopicRaw(function(t){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:v,topic:t,cumul:c})).catch(function(){});return c;});return t;});}
+  function setTopic(v){setTopicRaw(v);setLvlRaw(function(l){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:l,topic:v,cumul:c})).catch(function(){});return c;});return l;});}
+  function setCumul(fn){var nv=typeof fn==="function"?fn(cumul):fn;setCumulRaw(nv);setLvlRaw(function(l){setTopicRaw(function(t){STORE.set("last_config",JSON.stringify({lvl:l,topic:t,cumul:nv})).catch(function(){});return t;});return l;});}
+  useEffect(function(){STORE.get("last_config").then(function(r){if(r&&r.value){try{var d=JSON.parse(r.value);if(d.lvl)setLvlRaw(d.lvl);if(d.topic){var safeTopic=(isPro||FREE_TOPICS.indexOf(d.topic)!==-1||d.topic==="all")?d.topic:"all";setTopicRaw(safeTopic);}if(d.cumul)setCumulRaw(d.cumul);}catch(e){}}}).catch(function(){});},[]);
   var L=CL[lvl];
   var topicCounts=useMemo(function(){var o={};var allPool=getPool(VOCABULARY,lvl,"all",cumul,isPro);o.all=allPool.length;for(var i=0;i<TOPICS.length;i++){var t=TOPICS[i];if(t.key==="all")continue;var p=getPool(VOCABULARY,lvl,t.key,cumul,isPro);o[t.key]=p.length;}return o;},[lvl,cumul,isPro,_VOCAB.length]);
   var poolSize=topic==="all"?topicCounts.all:(topicCounts[topic]||0);
@@ -1171,7 +1235,7 @@ function HomeScreen(props){
   var wotd=freeWords.length>0?freeWords[dayNum%freeWords.length]:null;
   var _ml=modal&&CL[modal]?CL[modal]:null;
   function onClose(){setModal(null);}
-  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:14,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 4px 0 "+_ml.dark,fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
+  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:14,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 4px 0 "+_ml.dark,fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
   return(<div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
 
     {/* ── Header ── */}
@@ -1273,6 +1337,17 @@ function HomeScreen(props){
         </div>
       )}
 
+      {/* ── Featured: Learn path ── */}
+      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:20,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",marginBottom:12,display:"flex",alignItems:"center",gap:14}}>
+        <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
+        <div style={{fontSize:38,flexShrink:0,position:"relative"}}>🎓</div>
+        <div style={{flex:1,position:"relative"}}>
+          <p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Start learning</p>
+          <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>Follow the step-by-step Basque path</p>
+        </div>
+        <span style={{fontSize:20,color:"rgba(255,255,255,0.7)",position:"relative",flexShrink:0}}>→</span>
+      </button>
+
       {/* ── Quick actions ── */}
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
         <button onClick={onBrowse} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
@@ -1329,6 +1404,15 @@ function HomeScreen(props){
 
       {/* ── SRS / Word memory ── */}
       {srsCard}
+      {srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)&&(
+        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:14,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
+          <span style={{display:"flex",alignItems:"center",gap:9}}>
+            <span style={{fontSize:17}}>📊</span>
+            <span style={{fontSize:14,fontWeight:800,color:"#1A1A1A"}}>View full progress</span>
+          </span>
+          <span style={{fontSize:16,color:"#C7C7CC"}}>→</span>
+        </button>
+      )}
 
       {/* ── Level cards (for info/unlock) ── */}
       {!isPro&&(
@@ -1377,6 +1461,7 @@ function QuizScreen(props){
   var _s9=useState(0);var correctStreak=_s9[0];var setCorrectStreak=_s9[1];
   var _s10=useState(null);var burst=_s10[0];var setBurst=_s10[1];
   var latest=useRef([]);
+  var inputRef=useRef(null);
   var timerRef=useRef(null);
   useEffect(function(){
     if(!snoozeUntil){clearInterval(timerRef.current);setSnoozeLeft(0);return;}
@@ -1399,7 +1484,7 @@ function QuizScreen(props){
   var isMC=effectiveType==="multipleChoice",isFB=effectiveType==="fillBlank",isType=effectiveType==="typing",isAnyMC=isMC||isFB;
   var lc=(CL[q.word.cefr]||CL.A1).color,ld=(CL[q.word.cefr]||CL.A1).dark;
   var ready=isAnyMC?!!sel:typed.trim().length>0;
-  function submit(ans){if(result)return;if(ans==="_SKIP_"){haptic("error");sfx("wrong");setResult({correct:false,wasClose:false,skipped:true});setWrongCount(function(n){return n+1;});setCorrectStreak(0);setBurst("wrong");setTimeout(function(){setBurst(null);},700);var newLatest2=latest.current.concat([{question:q,correct:false,wasClose:false,skipped:true}]);latest.current=newLatest2;return;}var qForCheck=isSnoozed&&origType==="typing"?Object.assign({},q,{correct:snoozeCorrect,mode:"multipleChoice"}):q;var r=checkAnswer(qForCheck,ans);setResult(r);if(r.correct){var ns=correctStreak+1;setCorrectStreak(ns);haptic("success");sfx(ns>0&&ns%5===0?"streak":"correct");setBurst(ns>=3?"streak":"correct");}else{setWrongCount(function(n){return n+1;});setCorrectStreak(0);haptic("error");sfx("wrong");setBurst(r.wasClose?"close":"wrong");}setTimeout(function(){setBurst(null);},900);var newLatest=latest.current.concat([Object.assign({},r,{question:q})]);latest.current=newLatest;}
+  function submit(ans){if(result)return;if(ans==="_SKIP_"){haptic("error");sfx("wrong");setResult({correct:false,wasClose:false,skipped:true});setWrongCount(function(n){return n+1;});setCorrectStreak(0);setBurst("wrong");setTimeout(function(){setBurst(null);},700);var newLatest2=latest.current.concat([{question:q,correct:false,wasClose:false,skipped:true}]);latest.current=newLatest2;return;}var qForCheck=isSnoozed&&origType==="typing"?Object.assign({},q,{correct:snoozeCorrect,mode:"multipleChoice"}):q;var r=checkAnswer(qForCheck,ans);setResult(r);if(r.correct){var ns=correctStreak+1;setCorrectStreak(ns);haptic("success");sfx(ns>0&&ns%5===0?"streak":"correct");setBurst(ns>0&&ns%5===0?"streak":"correct");}else{setWrongCount(function(n){return n+1;});setCorrectStreak(0);haptic("error");sfx("wrong");setBurst(r.wasClose?"close":"wrong");}setTimeout(function(){setBurst(null);},900);var newLatest=latest.current.concat([Object.assign({},r,{question:q})]);latest.current=newLatest;}
   var advancing=React.useRef(false);function advance(){if(advancing.current)return;advancing.current=true;setTimeout(function(){advancing.current=false;},2000);var delay=result&&result.correct?180:0;var currentLatest=latest.current;var nextIdx=idx+1;if(nextIdx>=questions.length){advancing.current=false;onFinish(currentLatest);}else{setTimeout(function(){setIdx(function(i){return i+1;});setSel(null);setTyped("");setResult(null);setShowNote(false);setWrongCount(0);advancing.current=false;if(nextIdx%5===0&&nextIdx<questions.length){try{if(props.onAutoSave)props.onAutoSave(currentLatest);}catch(e){}}},delay);}}
   var snoozeMin=Math.floor(snoozeLeft/60);
   var snoozeSec=("0"+(snoozeLeft%60)).slice(-2);
@@ -1415,7 +1500,7 @@ function QuizScreen(props){
   var snoozeCorrect=isSnoozed&&origType==="typing"?q.word.english:q.correct;
   
   var correctMsg=result&&result.correct?CORRECT_MSGS[idx%CORRECT_MSGS.length]:"Correct!";
-  var resLabel=result?(result.correct?correctMsg:result.wasClose?"Almost - "+snoozeCorrect:"Wrong - "+snoozeCorrect):null;
+  var resLabel=result?(result.correct?correctMsg:result.wasClose?"So close!":"Not quite"):null;
   var isNewWord=!srsData[q.word.id];
   var doneCount=latest.current.length;
   var correctCount=latest.current.filter(function(r){return r.correct;}).length;
@@ -1426,7 +1511,7 @@ function QuizScreen(props){
     <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",flexShrink:0}}>
       <button style={{background:"#F2F2F7",border:"none",color:"#555",fontSize:14,cursor:"pointer",padding:0,fontFamily:"inherit",width:32,height:32,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}} onClick={function(){if(idx>0)setConfirmExit(true);else onExit();}}>✕</button>
       <div style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
-        <div style={{height:6,backgroundColor:"#E8E8EE",borderRadius:3,overflow:"hidden"}}>
+        <div role="progressbar" aria-label="Quiz progress" aria-valuenow={idx+1} aria-valuemin={1} aria-valuemax={questions.length} aria-valuetext={"Question "+(idx+1)+" of "+questions.length} style={{height:6,backgroundColor:"#E8E8EE",borderRadius:3,overflow:"hidden"}}>
           <div style={{height:"100%",borderRadius:3,background:"linear-gradient(90deg,"+ld+","+lc+")",width:(((idx+(result?1:0))/questions.length)*100)+"%",transition:"width 0.5s cubic-bezier(0.34,1.56,0.64,1)"}}/>
         </div>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
@@ -1459,21 +1544,22 @@ function QuizScreen(props){
       </div>
 
       {/* ── Question card ── */}
-      <div key={"card-"+idx} style={{backgroundColor:"#fff",borderRadius:22,overflow:"hidden",boxShadow:result?"none":"0 2px 16px rgba(0,0,0,0.07)",border:"2px solid "+(result?(result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444"):"transparent"),transition:"border-color 0.2s, box-shadow 0.2s",animation:burst==="wrong"?"shake 0.4s ease":"slideUp 0.2s ease"}}>
+      <div key={"card-"+idx} style={{backgroundColor:"#FEFEFC",borderRadius:26,overflow:"hidden",boxShadow:result?"none":"0 6px 28px rgba(0,0,0,0.05)",border:"2px solid "+(result?(result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444"):"transparent"),transition:"border-color 0.25s, box-shadow 0.25s",animation:burst==="wrong"?"shake 0.4s ease":"slideUp 0.2s ease"}}>
 
-        {/* Coloured accent strip at top */}
-        <div style={{height:4,background:"linear-gradient(90deg,"+ld+","+lc+")"}}/>
+        {/* Soft tinted accent band at top */}
+        <div style={{height:5,background:"linear-gradient(90deg,"+lc+","+ld+")",opacity:0.5}}/>
 
-        <div style={{padding:"18px 18px 16px"}}>
+        <div style={{padding:"30px 26px 26px"}}>
 
           {/* MC / Typing question */}
           {(isMC||isType||result)&&!isFB&&(
             <div style={{textAlign:"center"}}>
-              <h2 style={{margin:"0 0 6px",fontSize:isMC?(q.word.basque.length>14?24:q.word.basque.length>10?30:38):28,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5,wordBreak:"break-word",lineHeight:1.15}}>{isMC?q.word.basque:q.prompt}</h2>
-              {isMC&&!result&&<p style={{margin:0,fontSize:12,color:"#C7C7CC",fontWeight:600}}>What does this mean in English?</p>}
+              <h2 style={{margin:"0 0 10px",fontSize:isMC?(q.word.basque.length>14?26:q.word.basque.length>10?32:40):30,fontWeight:800,color:"#2A2A28",letterSpacing:-0.3,wordBreak:"break-word",lineHeight:1.2}}>{isMC?q.word.basque:q.prompt}</h2>
+              {isMC&&!result&&<p style={{margin:0,fontSize:12,color:"#B8B8C0",fontWeight:600,letterSpacing:0.2}}>What does this mean in English?</p>}
               {isType&&!result&&<p style={{margin:"4px 0 0",fontSize:11,color:lc,fontWeight:800,letterSpacing:0.5,textTransform:"uppercase"}}>→ type in Basque</p>}
               {result&&isMC&&<p style={{margin:"4px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600,fontStyle:"italic"}}>{q.word.pronunciation}</p>}
-              {result&&isType&&<p style={{margin:"6px 0 0",fontSize:24,fontWeight:900,color:lc,letterSpacing:-0.3}}>{q.word.basque}</p>}
+              {result&&isType&&!result.correct&&<p style={{margin:"6px 0 0",fontSize:11,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.5}}>Answer</p>}
+              {result&&isType&&<p style={{margin:result&&isType&&!result.correct?"1px 0 0":"6px 0 0",fontSize:24,fontWeight:900,color:lc,letterSpacing:-0.3}}>{q.word.basque}</p>}
             </div>
           )}
 
@@ -1489,7 +1575,11 @@ function QuizScreen(props){
           {/* Typing input */}
           {isType&&!result&&(
             <div style={{marginTop:12}}>
-              <input style={{width:"100%",border:"2px solid #E8E8E8",borderRadius:16,padding:"15px 18px",fontSize:18,fontWeight:600,color:"#1A1A1A",outline:"none",boxSizing:"border-box",fontFamily:"inherit",backgroundColor:"#F9F9F9"}} placeholder="Type in Basque…" value={typed} onChange={function(e){if(!result)setTyped(e.target.value);}} onKeyDown={function(e){if(e.key==="Enter"&&typed.trim()&&!result)submit(typed);}} autoFocus autoComplete="off" spellCheck={false}/>
+              <input ref={inputRef} aria-label="Type your answer in Basque" style={{width:"100%",border:"2px solid #E8E8E8",borderRadius:16,padding:"15px 18px",fontSize:18,fontWeight:600,color:"#1A1A1A",outline:"none",boxSizing:"border-box",fontFamily:"inherit",backgroundColor:"#F9F9F9"}} placeholder="Type in Basque…" value={typed} onChange={function(e){if(!result)setTyped(e.target.value);}} onKeyDown={function(e){if(e.key==="Enter"&&typed.trim()&&!result)submit(typed);}} autoFocus autoComplete="off" autoCapitalize="off" autoCorrect="off" enterKeyHint="go" spellCheck={false}/>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginTop:8}}>
+                <span style={{fontSize:11,fontWeight:700,color:"#C7C7CC"}}>Insert:</span>
+                <button aria-label="Insert ñ" onClick={function(){if(result)return;var el=inputRef.current;if(el&&typeof el.selectionStart==="number"){var s=el.selectionStart,e2=el.selectionEnd;var nv=typed.slice(0,s)+"ñ"+typed.slice(e2);setTyped(nv);setTimeout(function(){try{el.focus();el.setSelectionRange(s+1,s+1);}catch(err){}},0);}else{setTyped(typed+"ñ");}}} style={{border:"1.5px solid #E8E8E8",borderRadius:10,padding:"6px 16px",fontSize:17,fontWeight:700,color:"#1A1A1A",background:"#fff",cursor:"pointer",fontFamily:"inherit",lineHeight:1}}>ñ</button>
+              </div>
               {wrongCount>0&&!isSnoozed&&snoozeCorrect&&snoozeCorrect.length>0&&(
                 <p style={{margin:"8px 0 0",fontSize:12,color:"#C7C7CC",textAlign:"center"}}>
                   Hint: starts with <strong style={{color:"#888",fontSize:14}}>{snoozeCorrect[0].toUpperCase()}</strong>
@@ -1505,7 +1595,7 @@ function QuizScreen(props){
 
           {/* Result feedback */}
           {result&&(
-            <div style={{marginTop:14}}>
+            <div role="status" aria-live="polite" style={{marginTop:14}}>
               {/* Result banner with animated icon */}
               <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FFF1F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, risePop 0.35s cubic-bezier(0.34,1.56,0.64,1)"}}>
                 <div style={{width:38,height:38,borderRadius:"50%",backgroundColor:result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.05s both"}}>
@@ -1513,7 +1603,8 @@ function QuizScreen(props){
                 </div>
                 <div style={{flex:1}}>
                   <p style={{margin:0,fontSize:16,fontWeight:900,color:result.correct?"#19A85A":result.wasClose?"#D97706":"#EF4444",letterSpacing:-0.2}}>{resLabel}</p>
-                  {isType&&result.userAnswer&&<p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93"}}>You typed: "{result.userAnswer}"</p>}
+                  {!result.correct&&!isType&&snoozeCorrect&&<p style={{margin:"2px 0 0",fontSize:13,color:"#1A1A1A",fontWeight:700}}>Answer: <span style={{color:result.wasClose?"#D97706":"#EF4444",fontWeight:900}}>{snoozeCorrect}</span></p>}
+                  {isType&&!result.correct&&result.userAnswer&&<p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93"}}>You typed: "{result.userAnswer}"</p>}
                 </div>
                 {result.correct&&correctStreak>=3&&(
                   <div style={{flexShrink:0,backgroundColor:"#19A85A",borderRadius:14,padding:"4px 10px",animation:"streakPop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.15s both"}}>
@@ -1541,7 +1632,7 @@ function QuizScreen(props){
 
       {/* ── MC options (before answer) ── */}
       {isAnyMC&&!result&&opts.map(function(opt,i){var s=sel===opt;return(
-        <button key={i} style={{display:"flex",alignItems:"center",gap:12,border:"2px solid "+(s?lc:"#E8E8E8"),borderRadius:16,padding:"15px 16px",cursor:"pointer",backgroundColor:s?"#fff":"#fff",width:"100%",textAlign:"left",fontFamily:"inherit",boxShadow:s?"0 3px 0 "+ld:"0 2px 0 #E0E0E0",transition:"all 0.12s",transform:s?"translateY(-1px)":"none"}} onClick={function(){if(!result){haptic("light");setSel(opt);submit(opt);}}}>
+        <button key={i} style={{display:"flex",alignItems:"center",gap:12,border:"2px solid "+(s?lc:"#E8E8E8"),borderRadius:16,padding:"15px 16px",cursor:"pointer",backgroundColor:"#fff",width:"100%",textAlign:"left",fontFamily:"inherit",boxShadow:s?"0 3px 0 "+ld:"0 2px 0 #E0E0E0",transition:"all 0.12s",transform:s?"translateY(-1px)":"none"}} onClick={function(){if(!result){haptic("light");setSel(opt);submit(opt);}}}>
           <span style={{fontSize:12,fontWeight:900,color:s?"#fff":"#C7C7CC",width:28,height:28,borderRadius:"50%",backgroundColor:s?lc:"#F2F2F7",display:"inline-flex",alignItems:"center",justifyContent:"center",flexShrink:0,transition:"all 0.12s"}}>{String.fromCharCode(65+i)}</span>
           <span style={{flex:1,fontSize:15,fontWeight:s?800:500,color:"#1A1A1A",wordBreak:"break-word",lineHeight:1.3}}>{opt}</span>
         </button>
@@ -1549,7 +1640,7 @@ function QuizScreen(props){
 
       {/* ── MC options (after answer) ── */}
       {isAnyMC&&result&&opts.map(function(opt,i){var isC=opt===snoozeCorrect,isW=opt===sel&&!result.correct;return(
-        <div key={i} style={{display:"flex",alignItems:"center",gap:12,border:"2px solid "+(isC?"#19A85A":isW?"#EF4444":"#E8E8E8"),borderRadius:14,padding:"13px 16px",backgroundColor:isC?"#EDFAF3":isW?"#FFF1F2":"#F9FAFB",transition:"all 0.2s",transform:isC?"scale(1.015)":"scale(1)"}}>
+        <div key={i} style={{display:"flex",alignItems:"center",gap:12,border:"2px solid "+(isC?"#19A85A":isW?"#EF4444":"#E8E8E8"),borderRadius:16,padding:"15px 16px",backgroundColor:isC?"#EDFAF3":isW?"#FFF1F2":"#F9FAFB",transition:"all 0.2s",transform:isC?"scale(1.015)":"scale(1)"}}>
           <span style={{fontSize:12,fontWeight:900,color:isC?"#fff":isW?"#EF4444":"#D1D1D6",width:28,height:28,borderRadius:"50%",backgroundColor:isC?"#19A85A":"transparent",display:"inline-flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{String.fromCharCode(65+i)}</span>
           <span style={{flex:1,fontSize:15,color:isC?"#19A85A":isW?"#EF4444":"#C7C7CC",fontWeight:isC||isW?800:400}}>{opt}</span>
           {isC&&<span style={{color:"#19A85A",fontWeight:900,fontSize:20,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) both"}}>✓</span>}
@@ -1613,7 +1704,7 @@ function MCard(props){var word=props.word,result=props.result;var _s0=useState(f
 function ResultsScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
-  var results=props.results,streak=props.streak,longest=props.longest,totalSessions=props.totalSessions,srsStats=props.srsStats,isPro=props.isPro,sessionHistory=props.sessionHistory||[],onRetry=props.onRetry,onHome=props.onHome,onUpgrade=props.onUpgrade;
+  var results=props.results,streak=props.streak,longest=props.longest,totalSessions=props.totalSessions,srsStats=props.srsStats,isPro=props.isPro,sessionHistory=props.sessionHistory||[],onRetry=props.onRetry,onHome=props.onHome,onUpgrade=props.onUpgrade,isLesson=props.isLesson,onBackToLessons=props.onBackToLessons;
   var _s0=useState("summary");var tab=_s0[0];var setTab=_s0[1];
   var score=scoreSession(results);
   var acc=score.accuracy;
@@ -1744,7 +1835,7 @@ function ResultsScreen(props){
           <button style={{flex:1,backgroundColor:"#fff",color:"#333",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:15,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #CCC"}} onClick={function(){onUpgrade&&onUpgrade();}}>Upgrade</button>
         ):null}
         <button style={{flex:1,backgroundColor:"#fff",color:"#555",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}} onClick={function(){onHome();}}>Home</button>
-        <button style={{flex:2,backgroundColor:"#19A85A",color:"#fff",border:"none",borderRadius:16,padding:"14px",fontSize:16,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40",letterSpacing:-0.3}} onClick={function(){onRetry([]);}}>New session →</button>
+        <button style={{flex:2,backgroundColor:"#19A85A",color:"#fff",border:"none",borderRadius:16,padding:"14px",fontSize:16,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40",letterSpacing:-0.3}} onClick={function(){if(isLesson){onBackToLessons&&onBackToLessons();}else{onRetry([]);}}}>{isLesson?"Back to lessons \u2192":"New session \u2192"}</button>
       </div>
     </div>
   </div>);}
@@ -1816,15 +1907,15 @@ function relDate(iso){
 function ResetButton(){
   var _s0=useState(false);var confirm=_s0[0];var setConfirm=_s0[1];
   function doReset(){
-    window.storage.set("srs_data","{}").catch(function(){});
-    window.storage.set("streak_data","{}").catch(function(){});
-    window.storage.set("pro_status","").catch(function(){});
-    window.storage.set("session_history","[]").catch(function(){});
-    window.storage.set("last_config","{}").catch(function(){});
-    window.storage.set("vocab_cache","").catch(function(){});
-    window.storage.set("trial_until","").catch(function(){});
-    window.storage.set("today_count_"+new Date().toISOString().slice(0,10),"0").catch(function(){});
-    window.storage.set("streak_freeze","").catch(function(){});
+    STORE.set("srs_data","{}").catch(function(){});
+    STORE.set("streak_data","{}").catch(function(){});
+    STORE.set("pro_status","").catch(function(){});
+    STORE.set("session_history","[]").catch(function(){});
+    STORE.set("last_config","{}").catch(function(){});
+    STORE.set("vocab_cache","").catch(function(){});
+    STORE.set("trial_until","").catch(function(){});
+    STORE.set("today_count_"+new Date().toISOString().slice(0,10),"0").catch(function(){});
+    STORE.set("streak_freeze","").catch(function(){});
     setConfirm(false);
     window.location.reload();
   }
@@ -2118,7 +2209,7 @@ function PairsScreen(props){
 
   React.useEffect(function(){
     var key='pairs_best_'+topic+'_'+size+(isTimed?'_timed':'');
-    try{window.storage.get(key).then(function(r){
+    try{STORE.get(key).then(function(r){
       if(r&&r.value){var d=JSON.parse(r.value);setBestMoves(d.moves||0);setBestTime(d.time||0);}
       else{setBestMoves(0);setBestTime(0);}
     }).catch(function(){});}catch(e){}
@@ -2213,7 +2304,7 @@ function PairsScreen(props){
                       var newBm=betterMoves?mv:(bm||mv);
                       var newBt=betterTime?elapsed:(bt||elapsed);
                       var key='pairs_best_'+topic+'_'+size+(isTimed?'_timed':'');
-                      try{window.storage.set(key,JSON.stringify({moves:newBm,time:newBt})).catch(function(){});}catch(e){}
+                      try{STORE.set(key,JSON.stringify({moves:newBm,time:newBt})).catch(function(){});}catch(e){}
                       setBestMoves(newBm);setNewBest(true);return newBt;
                     }
                     return bt;
@@ -2264,7 +2355,7 @@ function PairsScreen(props){
 
       {/* ── Header ── */}
       <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:10,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0"),}}>
-        <button onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+        <button aria-label="Close" onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
         <div style={{flex:1}}>
           <p style={{margin:0,fontSize:15,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}}>🃏 Memory Pairs</p>
           <p style={{margin:0,fontSize:10,color:"#AAA",fontWeight:600,textTransform:"capitalize"}}>
@@ -2280,7 +2371,7 @@ function PairsScreen(props){
             <p style={{margin:0,fontSize:15,fontWeight:900,color:timerDanger?"#EF4444":started?"#19A85A":"#CCC",lineHeight:1,animation:timerDanger?"waitingDot 0.5s ease-in-out infinite":"none"}}>{started?timeStr:(isTimed?sizeCfg.timedSecs+"s":"--")}</p>
             <p style={{margin:0,fontSize:8,color:"#AAA",fontWeight:700}}>{isTimed?"LEFT":"TIME"}</p>
           </div>
-          <button onClick={function(){setShowSettings(true);}} style={{background:"#F2F2F7",border:"none",color:"#888",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>⚙️</button>
+          <button aria-label="Settings" onClick={function(){setShowSettings(true);}} style={{background:"#F2F2F7",border:"none",color:"#888",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>⚙️</button>
         </div>
       </div>
 
@@ -2501,12 +2592,12 @@ function GamesScreen(props){
   var _arbolaBest=useState(null);var arbolaBest=_arbolaBest[0];var setArbolaBest=_arbolaBest[1];
 
   React.useEffect(function(){
-    try{window.storage.get('pairs_best_greetings_medium').then(function(r){if(r&&r.value){var d=JSON.parse(r.value);setPairsBest(d.moves+"mv · "+d.time+"s");}}).catch(function(){});}catch(e){}
-    try{window.storage.get('tap_best_greetings_easy').then(function(r){if(r&&r.value)setTapBest(r.value+" pts");}).catch(function(){});}catch(e){}
-    try{window.storage.get('kitchen_best').then(function(r){if(r&&r.value)setTxokoBest(r.value+" pts");}).catch(function(){});}catch(e){}
-    try{window.storage.get('ordutegi_best').then(function(r){if(r&&r.value)setOrdBest(r.value+" pts");}).catch(function(){});}catch(e){}
-    try{window.storage.get('koloreak_best').then(function(r){if(r&&r.value)setKolBest(r.value+" pts");}).catch(function(){});}catch(e){}
-    try{window.storage.get('arbola_best').then(function(r){if(r&&r.value)setArbolaBest(r.value+" pts");}).catch(function(){});}catch(e){}
+    try{STORE.get('pairs_best_greetings_medium').then(function(r){if(r&&r.value){var d=JSON.parse(r.value);setPairsBest(d.moves+"mv · "+d.time+"s");}}).catch(function(){});}catch(e){}
+    try{STORE.get('tap_best_greetings_easy').then(function(r){if(r&&r.value)setTapBest(r.value+" pts");}).catch(function(){});}catch(e){}
+    try{STORE.get('kitchen_best').then(function(r){if(r&&r.value)setTxokoBest(r.value+" pts");}).catch(function(){});}catch(e){}
+    try{STORE.get('ordutegi_best').then(function(r){if(r&&r.value)setOrdBest(r.value+" pts");}).catch(function(){});}catch(e){}
+    try{STORE.get('koloreak_best').then(function(r){if(r&&r.value)setKolBest(r.value+" pts");}).catch(function(){});}catch(e){}
+    try{STORE.get('arbola_best').then(function(r){if(r&&r.value)setArbolaBest(r.value+" pts");}).catch(function(){});}catch(e){}
   },[]);
 
   var games=[
@@ -2524,7 +2615,7 @@ function GamesScreen(props){
       {/* Header */}
       <div style={{background:"linear-gradient(160deg,#1A1A2E,#16213E,#0F3460)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
-          <button onClick={onBack} style={{background:"rgba(255,255,255,0.12)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.12)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>Games</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque through play</p>
@@ -2619,7 +2710,7 @@ function TapScreen(props){
 
   // Load best score from storage
   React.useEffect(function(){
-    try{window.storage.get('tap_best_'+topic+'_'+diff).then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    try{STORE.get('tap_best_'+topic+'_'+diff).then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
   },[topic,diff]);
 
   function getPool(){
@@ -2646,14 +2737,14 @@ function TapScreen(props){
       setActive(false);setWon(true);
       setBest(function(b){
         var newBest=Math.max(b,currentScore);
-        try{window.storage.set('tap_best_'+topic+'_'+diff,String(newBest)).catch(function(){});}catch(e){}
+        try{STORE.set('tap_best_'+topic+'_'+diff,String(newBest)).catch(function(){});}catch(e){}
         return newBest;
       });      setQuestion(null);return;
     }
     var pool=getPool();
     if(pool.length<4){setWon(true);setQuestion(null);return;}
     var word=shuffled(pool)[0];
-    var distractors=shuffled(pool.filter(function(w){return w.id!==word.id;})).slice(0,3);
+    var distractors=shuffled(noMeaningClash(pool.filter(function(w){return w.id!==word.id;}),word)).slice(0,3);
     var options=shuffled([word].concat(distractors));
     // Direction is user-controlled toggle, not random
     var t=getTimerSecs(currentTotal);
@@ -2713,7 +2804,7 @@ function TapScreen(props){
 
       {/* ── Header ── */}
       <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0")}}>
-        <button onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+        <button aria-label="Close" onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
         <div style={{flex:1}}>
           <p style={{margin:0,fontSize:15,fontWeight:900,color:active?"#fff":"#1A1A1A",letterSpacing:-0.3}}>⚡ Tap the Word</p>
           <p style={{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.4)":"#AAA",fontWeight:600,textTransform:"capitalize"}}>{topic} · {diffCfg.label}</p>
@@ -3086,7 +3177,7 @@ function BasqueKitchenScreen(props){
   var scoreRef=React.useRef(0);
 
   React.useEffect(function(){
-    try{window.storage.get('kitchen_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    try{STORE.get('kitchen_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
   },[]);
 
   function findWord(keyword){
@@ -3101,8 +3192,8 @@ function BasqueKitchenScreen(props){
     var correctWord=findWord(correct.keyword);
     if(!correctWord)return [];
     // Mix distractors: mostly food A1 but some from other topics for variety
-    var foodPool=VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id&&w.cefr==="A1";});
-    var otherPool=VOCABULARY.filter(function(w){return w.topic!=="food"&&w.id!==correctWord.id&&w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;});
+    var foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id&&w.cefr==="A1";}),correctWord);
+    var otherPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic!=="food"&&w.id!==correctWord.id&&w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;}),correctWord);
     var distractors=shuffled(foodPool).slice(0,2).concat(shuffled(otherPool).slice(0,1));
     if(distractors.length<3)distractors=shuffled(foodPool).slice(0,3);
     return shuffled([correctWord].concat(distractors.slice(0,3)));
@@ -3141,7 +3232,7 @@ function BasqueKitchenScreen(props){
           });
           setBest(function(b){
             var nb=Math.max(b,scoreRef.current);
-            try{window.storage.set('kitchen_best',String(nb)).catch(function(){});}catch(e){}
+            try{STORE.set('kitchen_best',String(nb)).catch(function(){});}catch(e){}
             return nb;
           });
           setDone(true);
@@ -3344,7 +3435,7 @@ function BasqueKitchenScreen(props){
       {/* Warm kitchen header */}
       <div style={{background:"linear-gradient(160deg,#92400E,#C2510E,#F97316)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
-          <button onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>Basque Kitchen</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.7)",fontWeight:600}}>Cook classic Basque dishes</p>
@@ -3418,7 +3509,7 @@ function BasqueKitchenScreen(props){
         <div style={{position:"absolute",inset:0,opacity:0.06,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         {/* Nav row */}
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:16,position:"relative"}}>
-          <button onClick={function(){setDish(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={function(){setDish(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:16,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{dish.emoji} {dish.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontWeight:600,fontStyle:"italic"}}>{dish.desc}</p>
@@ -3674,7 +3765,7 @@ function OrduegiScreen(props){
   };
 
   React.useEffect(function(){
-    try{window.storage.get('ordutegi_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    try{STORE.get('ordutegi_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
     return function(){clearInterval(timerRef.current);};
   },[]);
 
@@ -3759,7 +3850,7 @@ function OrduegiScreen(props){
           setCompleted(function(prev){return prev.indexOf(scenario.name)===-1?prev.concat([scenario.name]):prev;});
           setBest(function(b){
             var nb=Math.max(b,scoreRef.current);
-            try{window.storage.set('ordutegi_best',String(nb)).catch(function(){});}catch(e){}
+            try{STORE.set('ordutegi_best',String(nb)).catch(function(){});}catch(e){}
             return nb;
           });
           setDone(true);
@@ -3802,7 +3893,7 @@ function OrduegiScreen(props){
     <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
       <div style={{background:"linear-gradient(160deg,#0C4A6E,#0369A1,#0EA5E9)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
-          <button onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>🕐 Ordutegi</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:600}}>Numbers & time in real life</p>
@@ -3864,7 +3955,7 @@ function OrduegiScreen(props){
       <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.05,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
-          <button onClick={function(){setScenario(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={function(){setScenario(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{scenario.emoji} {scenario.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontStyle:"italic"}}>{scenario.desc}</p>
@@ -4056,7 +4147,7 @@ function KoloreakScreen(props){
   var lastQuestionId=React.useRef(null);
 
   React.useEffect(function(){
-    try{window.storage.get('koloreak_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    try{STORE.get('koloreak_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
   },[]);
 
   function getPool(){
@@ -4081,7 +4172,7 @@ function KoloreakScreen(props){
       var final=scoreRef.current;
       setBest(function(b){
         var nb=Math.max(b,final);
-        try{window.storage.set('koloreak_best',String(nb)).catch(function(){});}catch(e){}
+        try{STORE.set('koloreak_best',String(nb)).catch(function(){});}catch(e){}
         return nb;
       });
       setWon(true);setActive(false);return;
@@ -4092,9 +4183,9 @@ function KoloreakScreen(props){
     var q=available[Math.floor(Math.random()*available.length)];
     lastQuestionId.current=q.id;
     var similarGroup=getSimilarGroup(q.id);
-    var safePool=pool.filter(function(w){
+    var safePool=noMeaningClash(pool.filter(function(w){
       return w.id!==q.id&&similarGroup.indexOf(w.id)===-1;
-    });
+    }),q);
     var distractors=shuffled(safePool).slice(0,3);
     setQuestion(q);
     setOpts(shuffled([q].concat(distractors)));
@@ -4146,7 +4237,7 @@ function KoloreakScreen(props){
       <div>
       <div style={{background:"linear-gradient(160deg,#4C1D95,#6D28D9,#7C3AED)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:0}}>
         <div style={{display:"flex",alignItems:"center",gap:10,paddingBottom:16}}>
-          <button onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+          <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>Koloreak</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.6)",fontWeight:600}}>Colors in Basque</p>
@@ -4246,7 +4337,7 @@ function KoloreakScreen(props){
       <div>
       <div style={{background:"linear-gradient(135deg,#4C1D95,#7C3AED)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
-          <button onClick={function(){setActive(false);setWon(false);}} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+          <button aria-label="Close" onClick={function(){setActive(false);setWon(false);}} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:14,fontWeight:900,color:"#fff"}}>🎨 Koloreak</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)"}}>{isSwatchMode?"See color, tap the word":"See word, tap the color"} · {level}</p>
@@ -4452,7 +4543,7 @@ function ArbolaScreen(props){
   var scoreRef=React.useRef(0);
 
   React.useEffect(function(){
-    try{window.storage.get('arbola_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    try{STORE.get('arbola_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
   },[]);
 
   function findWord(keyword){
@@ -4503,7 +4594,7 @@ function ArbolaScreen(props){
           setCompleted(function(prev){return prev.indexOf(family.name)===-1?prev.concat([family.name]):prev;});
           setBest(function(b){
             var nb=Math.max(b,scoreRef.current);
-            try{window.storage.set('arbola_best',String(nb)).catch(function(){});}catch(e){}
+            try{STORE.set('arbola_best',String(nb)).catch(function(){});}catch(e){}
             return nb;
           });
           setDone(true);
@@ -4534,7 +4625,7 @@ function ArbolaScreen(props){
     <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
       <div style={{background:"linear-gradient(160deg,#134E4A,#0D9488,#14B8A6)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
-          <button onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>🌳 Arbola Familiarra</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:600}}>Build your Basque family tree</p>
@@ -4599,7 +4690,7 @@ function ArbolaScreen(props){
       <div style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
-          <button onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{family.emoji} Familia {family.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontStyle:"italic"}}>{family.desc}</p>
@@ -4736,6 +4827,650 @@ function ArbolaScreen(props){
   );
 }
 
+
+
+// ════════════════════════════════════════════
+//  A1 LEARNING PATH (Ikasbidea)
+//  Lessons sequence existing A1 vocabulary with light connective teaching.
+//  word ids reference entries in the vocabulary; practice reuses the quiz engine.
+// ════════════════════════════════════════════
+var LESSONS=[
+  {
+    id:"l1_greetings",
+    num:1,
+    title:"First Words",
+    titleEu:"Lehen hitzak",
+    emoji:"\uD83D\uDC4B",
+    blurb:"Say hello, thank you, and be polite.",
+    intro:"Every conversation in Euskara starts here. Basque greetings are warm and used with everyone, from close friends to shopkeepers. One word does a lot of work: on means good, and you will meet it again and again (egun on, gau on).",
+    grammar:{title:"The little word 'on'",body:"on means \"good\". Basque builds greetings by adding it after a time word: egun (day) + on = egun on (good morning). You will see this pattern throughout the language."},
+    wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on"],
+  },
+  {
+    id:"l2_numbers",
+    num:2,
+    title:"Counting to Ten",
+    titleEu:"Bat, bi, hiru",
+    emoji:"\uD83D\uDD22",
+    blurb:"The numbers one through ten.",
+    intro:"Numbers are some of the most useful words to know early, for prices, ages, times, and quantities. Basque numbers are not related to Spanish or French, so they will feel new, but they are short and rhythmic. Try counting out loud.",
+    grammar:{title:"A base-twenty system",body:"Basque traditionally counts in twenties (like old French). hogei is twenty, and larger numbers build from it. For now, ten (hamar) is your milestone."},
+    wordIds:["bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar"],
+  },
+  {
+    id:"l3_family",
+    num:3,
+    title:"Family",
+    titleEu:"Familia",
+    emoji:"\uD83D\uDC6A",
+    blurb:"The people closest to you.",
+    intro:"Family (familia) is central to Basque culture. These words let you talk about the people in your life. Notice that many end in -a, which is the Basque way of saying \"the\": ama means \"the mother\", aita means \"the father\".",
+    grammar:{title:"The ending -a means 'the'",body:"Basque has no separate word for \"the\". Instead it attaches -a to the end of the noun. So ama is really \"the mother\" and semea is \"the son\". This ending is everywhere in Basque."},
+    wordIds:["ama","aita","anaia","ahizpa","semea","alaba","amona","aitona","familia","haurra"],
+  },
+  {
+    id:"l4_colors",
+    num:4,
+    title:"Colors",
+    titleEu:"Koloreak",
+    emoji:"\uD83C\uDFA8",
+    blurb:"Name the colors around you.",
+    intro:"Colors (koloreak) bring your descriptions to life. The Basque flag, the ikurrina, is red, green, and white, three colors you will learn right here. Like family words, color words end in -a, the \"the\" ending.",
+    grammar:{title:"Colors describe nouns",body:"In Basque, the color usually comes after the thing it describes: etxe gorria = \"red house\" (literally \"house red\"). The describing word follows the noun, the opposite of English."},
+    wordIds:["gorria","urdina","berdea","zuria","beltza","horia","laranja","morea","arrosa","kolore"],
+  },
+  {
+    id:"l5_food",
+    num:5,
+    title:"Food and Drink",
+    titleEu:"Janari eta edaria",
+    emoji:"\uD83C\uDF7D\uFE0F",
+    blurb:"Order food and name what is on the table.",
+    intro:"Basque food culture is famous, from pintxos on the bar to cider houses in the hills. These words cover the basics you need to order and enjoy a meal. Many foods end in -a, the \"the\" ending you have already met, so ogia is really \"the bread\".",
+    grammar:{title:"Naming meals",body:"Basque has a clear word for each meal: gosaria (breakfast), bazkaria (lunch), afaria (dinner). Each has a matching verb that means \"to have that meal\": gosaldu, bazkaldu, afaldu. Notice how the meal name and its verb share the same root."},
+    wordIds:["ura","ogia","kafea","janaria","arraina","haragia","fruta","gazta","jan","edan"],
+  },
+  {
+    id:"l6_time",
+    num:6,
+    title:"Days and Time",
+    titleEu:"Egunak eta ordua",
+    emoji:"\uD83D\uDD53",
+    blurb:"Talk about today, tomorrow, and when.",
+    intro:"Telling time and talking about days lets you make plans and arrange to meet. These words anchor a conversation in the present, past, or future. Start with the everyday trio: gaur (today), bihar (tomorrow), atzo (yesterday).",
+    grammar:{title:"When is it?",body:"To ask \"when\", use noiz. The answer is often one of these time words: gaur (today), orain (now), gero (later). Learn this small set first and you can place almost any sentence in time."},
+    wordIds:["gaur","bihar","atzo","orain","gero","eguna","gaua","astea","asteburua","noiz"],
+  },
+  {
+    id:"l7_travel",
+    num:7,
+    title:"Getting Around",
+    titleEu:"Hara eta hona",
+    emoji:"\uD83D\uDDFA\uFE0F",
+    blurb:"Find your way around town.",
+    intro:"Whether you are catching a train or finding a restaurant, these words help you navigate a Basque town. Direction words like ezkerra (left) and eskuina (right) are essential, and so is knowing how to ask non dago (where is it).",
+    grammar:{title:"Asking where",body:"To ask \"where\", use non. To say \"where is...?\" use non dago...? The answers are often hemen (here) or han (there). These pointing words are the backbone of getting directions."},
+    wordIds:["etxea","kalea","hiria","trena","autobusa","jatetxea","non","hemen","ezkerra","eskuina"],
+  },
+  {
+    id:"l8_body",
+    num:8,
+    title:"The Body",
+    titleEu:"Gorputza",
+    emoji:"\uD83D\uDC4B",
+    blurb:"Name the parts of the body.",
+    intro:"Knowing body parts helps at the doctor, at the gym, or just describing how you feel. Like most Basque nouns, these end in -a, so begia is \"the eye\" and eskua is \"the hand\". Notice how many are short and easy to say.",
+    grammar:{title:"The -a ending again",body:"You have seen that -a means \"the\" on a Basque noun. Body parts follow the same rule: buru is the bare root \"head\", and burua is \"the head\". When you learn a new noun, the dictionary form already includes this -a."},
+    wordIds:["burua","begia","ahoa","sudurra","belarria","eskua","besoa","hanka","oina","bihotza"],
+  },
+  {
+    id:"l9_nature",
+    num:9,
+    title:"The Natural World",
+    titleEu:"Natura",
+    emoji:"\uD83C\uDFD4\uFE0F",
+    blurb:"Mountains, sea, sun, and rain.",
+    intro:"The Basque Country is green and mountainous, with the sea on one side and peaks on the other. These words let you talk about the landscape and the weather. Eguzkia (sun) and euria (rain) come up in conversation often given the Atlantic climate.",
+    grammar:{title:"Talking about weather",body:"To say what the weather is doing, Basque often pairs a nature word with a verb. Euria ari du means \"it is raining\" (literally \"it is doing rain\"). For now, just learning the nouns like euria, elurra, and haizea gives you the building blocks."},
+    wordIds:["mendia","itsasoa","ibaia","eguzkia","euria","elurra","haizea","zuhaitza","lorea","txoria"],
+  },
+  {
+    id:"l10_emotions",
+    num:10,
+    title:"Feelings",
+    titleEu:"Sentimenduak",
+    emoji:"\u2764\uFE0F",
+    blurb:"Say how you feel.",
+    intro:"Being able to express emotion makes any conversation more human. These words cover the core feelings: poza (joy), tristura (sadness), beldurra (fear), haserrea (anger). You can pair them with the verbs you already know to talk about your own state.",
+    grammar:{title:"Nouns and states",body:"Basque often has a noun for the feeling and a separate word for being in that state. Poza is \"joy\" (the thing), while pozik means \"happy\" (how you are). Learning both gives you more ways to express yourself."},
+    wordIds:["poza","tristura","beldurra","haserrea","pozik","triste","gosea","egarria","nekatuta","lasaia"],
+  },
+  {
+    id:"l11_describing",
+    num:11,
+    title:"Describing Things",
+    titleEu:"Nolakoa da?",
+    emoji:"\uD83D\uDD0D",
+    blurb:"Big, small, good, bad, and more.",
+    intro:"Adjectives bring your sentences to life. With words like handia (big), txikia (small), ona (good), and txarra (bad), you can describe almost anything around you. These are some of the most useful words in the whole language.",
+    grammar:{title:"Adjectives come after",body:"Remember from the colors lesson: in Basque the adjective follows the noun. So \"a big house\" is etxe handia, and \"a good book\" is liburu ona. The describing word comes second, the opposite order from English."},
+    wordIds:["handia","txikia","ona","txarra","zaharra","berria","ederra","gaztea","gehiago","zuzen"],
+  },
+  {
+    id:"l12_months",
+    num:12,
+    title:"Months of the Year",
+    titleEu:"Urteko hilabeteak",
+    emoji:"\uD83D\uDCC5",
+    blurb:"January through December.",
+    intro:"Naming the months lets you talk about birthdays, seasons, and plans. Basque month names are distinct and worth memorizing as a set. Many connect to old seasonal or agricultural roots, like uztaila (July) from uzta, the harvest.",
+    grammar:{title:"Months as a set",body:"The twelve months each have their own name and, like other nouns, end in -a: urtarrila (January), otsaila (February), and so on. To say \"in [month]\", Basque adds a case ending, but for now learning the names themselves is the goal."},
+    wordIds:["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","azaroa"],
+  },
+  {
+    id:"l13_jobs",
+    num:13,
+    title:"Jobs and Work",
+    titleEu:"Lanbideak",
+    emoji:"\uD83D\uDCBC",
+    blurb:"Talk about what people do.",
+    intro:"Asking what someone does for work is part of any introduction. These words cover common professions and the workplace itself. Notice that many job words end in -a, the article you already know, so medikua is \"the doctor\".",
+    grammar:{title:"Saying your job",body:"To say what someone is, Basque uses the verb \"to be\" with the profession: Medikua naiz means \"I am a doctor\". The job word takes the -a ending. You can pair any of these professions with naiz (I am) or da (he/she is)."},
+    wordIds:["lana","lantegia","nagusia","medikua","erizaina","sukaldaria","abokatu","idazkaria","nekazaria","arkitektoa"],
+  },
+  {
+    id:"l14_culture",
+    num:14,
+    title:"Language and Culture",
+    titleEu:"Hizkuntza eta kultura",
+    emoji:"\uD83D\uDCD6",
+    blurb:"Books, sports, and the Basque language.",
+    intro:"These words are close to the heart of why people learn Basque. Euskara (the Basque language) and Euskal Herria (the Basque Country) are central, alongside everyday culture like books, cinema, and sports. Learning them connects your vocabulary to the living culture.",
+    grammar:{title:"Euskara and euskalduna",body:"Euskara is the Basque language itself. A euskalduna is a Basque speaker, literally \"one who has Basque\". The -dun ending means \"one who has\", a useful pattern you will meet again in the language."},
+    wordIds:["euskara","euskalduna","euskal_herria","ikurrina","liburua","liburutegia","zinema","kirolak","futbola","abestia"],
+  },
+  {
+    id:"l15_morefood",
+    num:15,
+    title:"Food and Drink II",
+    titleEu:"Janaria eta edaria II",
+    emoji:"\uD83C\uDF77",
+    blurb:"Drinks, meals, and Basque specialties.",
+    intro:"Building on your first food lesson, these words add drinks and dishes you will meet in any Basque bar or kitchen. Sagardoa (cider) and pintxoa (the famous bar snack) are cornerstones of Basque food culture, worth knowing before any visit.",
+    grammar:{title:"Meals revisited",body:"You learned gosaria (breakfast) earlier. Here are the others: bazkaria (lunch) and afaria (dinner). Each pairs with its own verb, bazkaldu and afaldu, sharing the same root as the meal name, just as gosari and gosaldu do."},
+    wordIds:["ardoa","sagardoa","garagardoa","pintxoa","bazkaria","afaria","oilaskoa","arrautza","esnea","menua"],
+  },
+  {
+    id:"l16_conversation",
+    num:16,
+    title:"Making Conversation",
+    titleEu:"Solasean",
+    emoji:"\uD83D\uDCAC",
+    blurb:"Question words and useful phrases.",
+    intro:"Real conversation needs more than nouns. These question words and short phrases let you ask, clarify, and keep a chat going. Nor (who), zer (what), and nola (how) are the building blocks of almost every question you will ask.",
+    grammar:{title:"The question words",body:"Basque question words often start a sentence: nor (who), zer (what), nola (how), zenbat (how many). A handy survival phrase is ez dut ulertzen (I don't understand), and poliki (slowly) to ask someone to slow down."},
+    wordIds:["zer_moduz","ondo","nola","zer","nor","zenbat","hitz_egin","ez_dut_ulertzen","poliki","laguntza"],
+  },
+  {
+    id:"l17_tellingtime",
+    num:17,
+    title:"Telling Time",
+    titleEu:"Zer ordu da?",
+    emoji:"\u23F0",
+    blurb:"The clock and bigger numbers.",
+    intro:"Once you can count, telling time is the next step. These words cover the clock and the larger numbers you need for it. Basque builds the hour from the number, so ordu bat da is \"it is one o'clock\".",
+    grammar:{title:"Hours and quarters",body:"To tell time, Basque names the hour: ordu bat da (it is one o'clock), ordu biak (two o'clock). For the half and quarter, you add phrases like eta laurdena (quarter past) and laurden gutxi (quarter to). The numbers themselves carry the count."},
+    wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","zenbat","ordu_bat","eta_laurdena","laurden_gutxi"],
+  },
+  {
+    id:"l18_airport",
+    num:18,
+    title:"At the Airport",
+    titleEu:"Aireportuan",
+    emoji:"\u2708\uFE0F",
+    blurb:"Travel, hotels, and finding your way.",
+    intro:"Traveling brings its own vocabulary. These words help at the airport, the hotel, and when you need to find something. Pairing non dago (where is...?) with these places lets you ask for directions to almost anywhere.",
+    grammar:{title:"Here and there",body:"You learned hemen (here) and han (there). Basque has a third: hor, meaning \"there\" but nearer to the listener. So Basque points at three distances: hemen (by me), hor (by you), han (over there). This three-way system runs through the language."},
+    wordIds:["aireportua","hegazkina","ostatua","gela","taxia","komunak","irekia","itxia","han","hor"],
+  },
+  {
+    id:"l19_town",
+    num:19,
+    title:"Around Town",
+    titleEu:"Herrian",
+    emoji:"\uD83C\uDFD8\uFE0F",
+    blurb:"School, people, and the community.",
+    intro:"These words describe the places and people that make up a town and community. Auzoa (neighborhood) and jendea (people) come up whenever you talk about where you live. Many connect to the strong Basque sense of local community.",
+    grammar:{title:"Community words",body:"Basque has a rich vocabulary for community. Auzoa is the neighborhood or village, lagunartea is your circle of friends, and elkarbizitza means coexistence, living together. These reflect how central community life is in Basque culture."},
+    wordIds:["eskola","unibertsitatea","jendea","mundua","auzoa","lagunartea","auzapeza","gizadia","biztanle","elkarbizitza"],
+  },
+];
+
+
+function LearnScreen(props){
+  var onBack=props.onBack,onPractice=props.onPractice;
+  var _sel=useState(null);var selLesson=_sel[0];var setSelLesson=_sel[1];
+  var _done=useState([]);var doneLessons=_done[0];var setDoneLessons=_done[1];
+
+  useEffect(function(){
+    try{STORE.get("lessons_done").then(function(r){if(r&&r.value){try{var arr=JSON.parse(r.value);if(Array.isArray(arr))setDoneLessons(arr);}catch(e){}}}).catch(function(){});}catch(e){}
+  },[]);
+
+  function markDone(id){
+    if(doneLessons.indexOf(id)!==-1)return;
+    var next=doneLessons.concat([id]);
+    try{STORE.set("lessons_done",JSON.stringify(next)).catch(function(){});}catch(e){}
+    setDoneLessons(next);
+  }
+
+  // Resolve a lesson's word ids to full vocab entries
+  function lessonWords(lesson){
+    var V=_VOCAB,out=[];
+    for(var i=0;i<lesson.wordIds.length;i++){
+      for(var j=0;j<V.length;j++){if(V[j].id===lesson.wordIds[i]){out.push(V[j]);break;}}
+    }
+    return out;
+  }
+
+  // A lesson is unlocked if it is the first, or the previous lesson is done
+  function isUnlocked(idx){
+    if(idx===0)return true;
+    return doneLessons.indexOf(LESSONS[idx-1].id)!==-1;
+  }
+
+  // ════ LESSON DETAIL ════
+  if(selLesson){
+    var lesson=selLesson;
+    var words=lessonWords(lesson);
+    var isDone=doneLessons.indexOf(lesson.id)!==-1;
+    return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+      // Header
+      React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:22,paddingLeft:18,paddingRight:18}},
+        React.createElement("button",{"aria-label":"Back",onClick:function(){setSelLesson(null);window.scrollTo(0,0);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
+        React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:4}},
+          React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"rgba(255,255,255,0.22)",padding:"3px 10px",borderRadius:12}},"Lesson "+lesson.num),
+          isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"rgba(255,255,255,0.22)",padding:"3px 10px",borderRadius:12}},"\u2713 Done")
+        ),
+        React.createElement("div",{style:{display:"flex",alignItems:"center",gap:11}},
+          React.createElement("span",{style:{fontSize:34}},lesson.emoji),
+          React.createElement("div",null,
+            React.createElement("h1",{style:{margin:0,fontSize:25,fontWeight:900,color:"#fff",letterSpacing:-0.5}},lesson.title),
+            React.createElement("p",{style:{margin:"1px 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600,fontStyle:"italic"}},lesson.titleEu)
+          )
+        )
+      ),
+      React.createElement("div",{style:{padding:"18px 16px calc(40px + env(safe-area-inset-bottom,0px))"}},
+        // Intro teaching
+        React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:18,padding:"18px",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}},
+          React.createElement("p",{style:{margin:0,fontSize:15,color:"#1A1A1A",lineHeight:1.6,fontWeight:500}},lesson.intro)
+        ),
+        // Grammar note
+        lesson.grammar&&React.createElement("div",{style:{backgroundColor:"#F5F3FF",borderRadius:18,padding:"16px 18px",marginBottom:18,border:"1.5px solid #DDD6FE"}},
+          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:7}},
+            React.createElement("span",{style:{fontSize:16}},"\uD83D\uDCA1"),
+            React.createElement("p",{style:{margin:0,fontSize:14,fontWeight:900,color:"#6D28D9"}},lesson.grammar.title)
+          ),
+          React.createElement("p",{style:{margin:0,fontSize:14,color:"#4C1D95",lineHeight:1.6,fontWeight:500}},lesson.grammar.body)
+        ),
+        // Vocab section heading
+        React.createElement("p",{style:{margin:"0 0 10px 4px",fontSize:13,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.5}},words.length+" words to learn"),
+        // Vocab teaching cards
+        words.map(function(w,i){
+          return React.createElement("div",{key:w.id,style:{backgroundColor:"#fff",borderRadius:16,padding:"15px 16px",marginBottom:9,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}},
+            React.createElement("div",{style:{display:"flex",alignItems:"baseline",justifyContent:"space-between",gap:10}},
+              React.createElement("p",{style:{margin:0,fontSize:20,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}},w.basque),
+              React.createElement("p",{style:{margin:0,fontSize:15,color:"#7C3AED",fontWeight:700,textAlign:"right",flexShrink:0}},w.english)
+            ),
+            w.pronunciation&&React.createElement("p",{style:{margin:"3px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}},w.pronunciation),
+            w.example&&w.example.basque&&React.createElement("div",{style:{marginTop:9,paddingTop:9,borderTop:"1px solid #F0F0F2"}},
+              React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:700,color:"#1A1A1A"}},w.example.basque),
+              React.createElement("p",{style:{margin:"2px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}},w.example.english)
+            )
+          );
+        }),
+        // Practice button
+        React.createElement("button",{onClick:function(){markDone(lesson.id);sfx("start");haptic("medium");onPractice(lesson.wordIds);},style:{width:"100%",marginTop:14,border:"none",borderRadius:18,padding:"17px",fontSize:16,fontWeight:900,cursor:"pointer",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 #4C1D95",letterSpacing:-0.2}},"Practice these words \u2192"),
+        isDone&&React.createElement("p",{style:{margin:"12px 0 0",textAlign:"center",fontSize:12,color:"#8E8E93",fontWeight:600}},"You have completed this lesson. Practice again anytime.")
+      )
+    );
+  }
+
+  // ════ LESSON PATH ════
+  var completedCount=LESSONS.filter(function(l){return doneLessons.indexOf(l.id)!==-1;}).length;
+  return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+    React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
+      React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
+      React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Ikasbidea"),
+      React.createElement("p",{style:{margin:"4px 0 14px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Your step-by-step path into Basque. Start at lesson one."),
+      // Overall progress
+      React.createElement("div",{style:{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:12,padding:"10px 14px"}},
+        React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6}},
+          React.createElement("span",{style:{fontSize:12,fontWeight:700,color:"#fff"}},"Progress"),
+          React.createElement("span",{style:{fontSize:12,fontWeight:900,color:"#fff"}},completedCount+" / "+LESSONS.length)
+        ),
+        React.createElement("div",{style:{height:6,backgroundColor:"rgba(255,255,255,0.25)",borderRadius:3,overflow:"hidden"}},
+          React.createElement("div",{style:{height:"100%",width:(LESSONS.length>0?Math.round(completedCount/LESSONS.length*100):0)+"%",backgroundColor:"#fff",borderRadius:3,transition:"width 0.5s ease"}})
+        )
+      )
+    ),
+    React.createElement("div",{style:{padding:"18px 16px calc(40px + env(safe-area-inset-bottom,0px))"}},
+      LESSONS.map(function(lesson,idx){
+        var unlocked=isUnlocked(idx);
+        var isDone=doneLessons.indexOf(lesson.id)!==-1;
+        return React.createElement("button",{key:lesson.id,onClick:function(){if(unlocked){setSelLesson(lesson);window.scrollTo(0,0);}},disabled:!unlocked,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"none",borderRadius:18,padding:"16px",marginBottom:11,cursor:unlocked?"pointer":"default",fontFamily:"inherit",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",opacity:unlocked?1:0.55,position:"relative",overflow:"hidden"}},
+          React.createElement("div",{style:{position:"absolute",top:0,left:0,bottom:0,width:4,backgroundColor:isDone?"#19A85A":unlocked?"#7C3AED":"#C7C7CC"}}),
+          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:13}},
+            React.createElement("div",{style:{width:48,height:48,borderRadius:14,backgroundColor:isDone?"#EDFAF3":unlocked?"#F5F3FF":"#ECECEF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:unlocked?24:18,fontWeight:unlocked?400:900,color:unlocked?"inherit":"#A0A0A8"}},unlocked?lesson.emoji:String(lesson.num)),
+            React.createElement("div",{style:{flex:1,minWidth:0}},
+              React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
+                React.createElement("span",{style:{fontSize:11,fontWeight:800,color:"#8E8E93"}},"LESSON "+lesson.num),
+                isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#19A85A"}},"\u2713")
+              ),
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:unlocked?"#1A1A1A":"#9A9AA2"}},lesson.title),
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},unlocked?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
+            ),
+            unlocked?React.createElement("span",{style:{fontSize:18,color:"#D1D1D6",flexShrink:0}},"\u2192"):React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#B0B0B8",flexShrink:0,letterSpacing:0.3}},"LOCKED")
+          )
+        );
+      }),
+      React.createElement("p",{style:{margin:"8px 4px 0",fontSize:12,color:"#C7C7CC",textAlign:"center",fontWeight:600}},"More lessons coming soon.")
+    )
+  );
+}
+
+
+// ════════════════════════════════════════════
+//  PROGRESS SCREEN (Aurrerapena)
+// ════════════════════════════════════════════
+function ProgressScreen(props){
+  var onBack=props.onBack,srsData=props.srsData||{},srsStats=props.srsStats||{},
+      streak=props.streak||0,longest=props.longest||0,totalSessions=props.totalSessions||0,
+      isPro=props.isPro,vocabVersion=props.vocabVersion;
+  var _storiesDone=useState([]);var storiesDone=_storiesDone[0];var setStoriesDone=_storiesDone[1];
+  var _hist=useState([]);var hist=_hist[0];var setHist=_hist[1];
+  var _share=useState(false);var showShare=_share[0];var setShowShare=_share[1];
+  var _shareMsg=useState("");var shareMsg=_shareMsg[0];var setShareMsg=_shareMsg[1];
+
+  useEffect(function(){
+    try{STORE.get("stories_done").then(function(r){if(r&&r.value){try{setStoriesDone(JSON.parse(r.value));}catch(e){}}}).catch(function(){});}catch(e){}
+    try{STORE.get("session_history").then(function(r){if(r&&r.value){try{setHist(JSON.parse(r.value));}catch(e){}}}).catch(function(){});}catch(e){}
+  },[]);
+
+  // Per-level mastery breakdown computed from srsData + VOCABULARY
+  var perLevel=useMemo(function(){
+    var V=_VOCAB;
+    var now=new Date();
+    var levels={A1:{m:0,t:0},A2:{m:0,t:0},B1:{m:0,t:0},B2:{m:0,t:0}};
+    for(var i=0;i<V.length;i++){
+      var w=V[i];if(!levels[w.cefr])continue;
+      // Free users only count A1 free topics toward totals
+      if(!isPro&&!(w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1))continue;
+      levels[w.cefr].t++;
+      var d=srsData[w.id];
+      if(d&&(d.score||0)>=4)levels[w.cefr].m++;
+    }
+    return levels;
+  },[srsData,isPro,vocabVersion]);
+
+  // Last 7 days activity from session history
+  var week=useMemo(function(){
+    var days=[];
+    for(var k=6;k>=0;k--){
+      var dt=new Date(Date.now()-k*86400000);
+      var key=dt.toISOString().slice(0,10);
+      var count=0,accSum=0,accN=0;
+      for(var i=0;i<hist.length;i++){
+        if(hist[i].date===key){count++;if(typeof hist[i].acc==="number"){accSum+=hist[i].acc;accN++;}}
+      }
+      days.push({label:["S","M","T","W","T","F","S"][dt.getDay()],count:count,acc:accN>0?Math.round(accSum/accN):null,isToday:k===0});
+    }
+    return days;
+  },[hist]);
+
+  var maxCount=Math.max(1,week.reduce(function(a,d){return Math.max(a,d.count);},0));
+  var pct=srsStats.total>0?Math.round((srsStats.mastered||0)/srsStats.total*100):0;
+  var LEVEL_C={A1:"#F97316",A2:"#0891B2",B1:"#9B5DE5",B2:"#F72585"};
+
+  // Ring geometry for mastery overview
+  var R=52,C=2*Math.PI*R,dash=C*pct/100;
+
+  function statCard(emoji,value,label,color){
+    return React.createElement("div",{style:{flex:1,backgroundColor:"#fff",borderRadius:18,padding:"16px 10px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}},
+      React.createElement("div",{style:{fontSize:22,marginBottom:4}},emoji),
+      React.createElement("p",{style:{margin:0,fontSize:24,fontWeight:900,color:color,letterSpacing:-0.5,lineHeight:1}},value),
+      React.createElement("p",{style:{margin:"3px 0 0",fontSize:11,fontWeight:700,color:"#8E8E93"}},label)
+    );
+  }
+
+  // Build the share text (used for native share + clipboard fallback)
+  function shareText(){
+    var lines=["I'm learning Basque (Euskara) with Ikasi & Go! 🇪🇺"];
+    if(streak>0)lines.push("🔥 "+streak+" day streak");
+    lines.push("📚 "+(srsStats.mastered||0)+" words mastered ("+pct+"%)");
+    if(storiesDone.length>0)lines.push("📖 "+storiesDone.length+" "+(storiesDone.length===1?"story":"stories")+" read");
+    lines.push("");
+    lines.push("Ikasi eta ikasi! #Euskara #Basque");
+    return lines.join("\n");
+  }
+
+  // Draw the share card onto a canvas and return it
+  function drawCard(){
+    var cv=document.createElement("canvas");
+    var W=1080,H=1080;cv.width=W;cv.height=H;
+    var x=cv.getContext("2d");
+    // Background gradient
+    var g=x.createLinearGradient(0,0,W,H);
+    g.addColorStop(0,"#0E7A40");g.addColorStop(1,"#19A85A");
+    x.fillStyle=g;x.fillRect(0,0,W,H);
+    // Subtle texture dots
+    x.fillStyle="rgba(255,255,255,0.05)";
+    for(var dy=0;dy<H;dy+=54){for(var dx=0;dx<W;dx+=54){x.beginPath();x.arc(dx,dy,3,0,2*Math.PI);x.fill();}}
+    // White rounded card
+    function rr(cx,cy,cw,ch,r){x.beginPath();x.moveTo(cx+r,cy);x.arcTo(cx+cw,cy,cx+cw,cy+ch,r);x.arcTo(cx+cw,cy+ch,cx,cy+ch,r);x.arcTo(cx,cy+ch,cx,cy,r);x.arcTo(cx,cy,cx+cw,cy,r);x.closePath();}
+    x.fillStyle="rgba(255,255,255,0.97)";rr(90,150,900,780,44);x.fill();
+    // Title
+    x.fillStyle="#0E7A40";x.textAlign="center";
+    x.font="900 64px Nunito, sans-serif";
+    x.fillText("Ikasi & Go",W/2,290);
+    x.fillStyle="#8E8E93";x.font="700 30px Nunito, sans-serif";
+    x.fillText("My Basque learning progress",W/2,345);
+    // Big streak number
+    x.fillStyle="#F97316";x.font="900 180px Nunito, sans-serif";
+    x.fillText(String(streak),W/2,560);
+    x.fillStyle="#1A1A1A";x.font="800 38px Nunito, sans-serif";
+    x.fillText(streak===1?"day streak 🔥":"day streak 🔥",W/2,620);
+    // Divider
+    x.strokeStyle="#EEE";x.lineWidth=2;x.beginPath();x.moveTo(200,680);x.lineTo(880,680);x.stroke();
+    // Two stats row
+    x.textAlign="center";
+    x.fillStyle="#19A85A";x.font="900 76px Nunito, sans-serif";
+    x.fillText(String(srsStats.mastered||0),330,800);
+    x.fillStyle="#8E8E93";x.font="700 28px Nunito, sans-serif";
+    x.fillText("words mastered",330,845);
+    x.fillStyle="#9B5DE5";x.font="900 76px Nunito, sans-serif";
+    x.fillText(String(longest),750,800);
+    x.fillStyle="#8E8E93";x.font="700 28px Nunito, sans-serif";
+    x.fillText("longest streak",750,845);
+    // Footer tagline
+    x.fillStyle="#0E7A40";x.font="800 34px Nunito, sans-serif";
+    x.fillText("Ikasi eta ikasi!",W/2,895);
+    return cv;
+  }
+
+  function doShare(){
+    setShareMsg("");
+    var txt=shareText();
+    // Try to generate image and share it
+    try{
+      var cv=drawCard();
+      cv.toBlob(function(blob){
+        if(blob&&navigator.canShare){
+          var file=new File([blob],"ikasi-progress.png",{type:"image/png"});
+          if(navigator.canShare({files:[file]})){
+            navigator.share({files:[file],text:txt}).then(function(){}).catch(function(){fallbackShare(txt);});
+            return;
+          }
+        }
+        fallbackShare(txt);
+      },"image/png");
+    }catch(e){fallbackShare(txt);}
+  }
+
+  function fallbackShare(txt){
+    // Try native text share, else copy to clipboard
+    try{
+      if(navigator.share){navigator.share({text:txt}).then(function(){}).catch(function(){copyText(txt);});return;}
+    }catch(e){}
+    copyText(txt);
+  }
+
+  function copyText(txt){
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){setShareMsg("Copied to clipboard!");}).catch(function(){setShareMsg("Could not copy automatically.");});
+        return;
+      }
+    }catch(e){}
+    setShareMsg("Could not copy automatically.");
+  }
+
+  function downloadCard(){
+    try{
+      var cv=drawCard();
+      var url=cv.toDataURL("image/png");
+      var a=document.createElement("a");
+      a.href=url;a.download="ikasi-progress.png";
+      document.body.appendChild(a);a.click();document.body.removeChild(a);
+      setShareMsg("Image saved!");
+    }catch(e){setShareMsg("Could not save image.");}
+  }
+
+  // Share card preview overlay
+  var shareOverlay=showShare?React.createElement("div",{onClick:function(){setShowShare(false);},style:{position:"fixed",inset:0,zIndex:200,backgroundColor:"rgba(0,0,0,0.55)",display:"flex",alignItems:"center",justifyContent:"center",padding:"24px"}},
+    React.createElement("div",{onClick:function(e){e.stopPropagation();},style:{maxWidth:340,width:"100%",animation:"risePop 0.3s cubic-bezier(0.34,1.56,0.64,1)"}},
+      // Visual preview of the card (DOM version, mirrors the canvas)
+      React.createElement("div",{style:{background:"linear-gradient(135deg,#0E7A40,#19A85A)",borderRadius:24,padding:"22px",marginBottom:14,boxShadow:"0 16px 50px rgba(0,0,0,0.4)"}},
+        React.createElement("div",{style:{backgroundColor:"rgba(255,255,255,0.97)",borderRadius:18,padding:"24px 20px",textAlign:"center"}},
+          React.createElement("p",{style:{margin:0,fontSize:24,fontWeight:900,color:"#0E7A40",letterSpacing:-0.5}},"Ikasi & Go"),
+          React.createElement("p",{style:{margin:"2px 0 16px",fontSize:12,fontWeight:700,color:"#8E8E93"}},"My Basque learning progress"),
+          React.createElement("p",{style:{margin:0,fontSize:64,fontWeight:900,color:"#F97316",letterSpacing:-2,lineHeight:1}},String(streak)),
+          React.createElement("p",{style:{margin:"2px 0 14px",fontSize:15,fontWeight:800,color:"#1A1A1A"}},"day streak \uD83D\uDD25"),
+          React.createElement("div",{style:{height:1,backgroundColor:"#EEE",margin:"0 0 14px"}}),
+          React.createElement("div",{style:{display:"flex",justifyContent:"space-around"}},
+            React.createElement("div",null,
+              React.createElement("p",{style:{margin:0,fontSize:26,fontWeight:900,color:"#19A85A",lineHeight:1}},String(srsStats.mastered||0)),
+              React.createElement("p",{style:{margin:"2px 0 0",fontSize:11,fontWeight:700,color:"#8E8E93"}},"words mastered")
+            ),
+            React.createElement("div",null,
+              React.createElement("p",{style:{margin:0,fontSize:26,fontWeight:900,color:"#9B5DE5",lineHeight:1}},String(longest)),
+              React.createElement("p",{style:{margin:"2px 0 0",fontSize:11,fontWeight:700,color:"#8E8E93"}},"longest streak")
+            )
+          ),
+          React.createElement("p",{style:{margin:"14px 0 0",fontSize:15,fontWeight:800,color:"#0E7A40"}},"Ikasi eta ikasi!")
+        )
+      ),
+      // Action buttons
+      React.createElement("button",{onClick:doShare,style:{width:"100%",border:"none",borderRadius:16,padding:"15px",fontSize:16,fontWeight:900,cursor:"pointer",background:"#fff",color:"#0E7A40",fontFamily:"inherit",marginBottom:8}},"\uD83D\uDCE4 Share"),
+      React.createElement("button",{onClick:downloadCard,style:{width:"100%",border:"none",borderRadius:16,padding:"14px",fontSize:15,fontWeight:800,cursor:"pointer",background:"rgba(255,255,255,0.18)",color:"#fff",fontFamily:"inherit",marginBottom:shareMsg?10:0}},"\uD83D\uDCBE Save image"),
+      shareMsg?React.createElement("p",{style:{margin:0,textAlign:"center",fontSize:13,fontWeight:700,color:"#fff"}},shareMsg):null
+    )
+  ):null;
+
+  return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+    shareOverlay,
+    React.createElement("div",{style:{background:"linear-gradient(135deg,#0E7A40,#19A85A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
+      React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
+      React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Aurrerapena"),
+      React.createElement("p",{style:{margin:"4px 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Your learning progress")
+    ),
+    React.createElement("div",{style:{padding:"18px 16px calc(40px + env(safe-area-inset-bottom,0px))"}},
+      // Hero stat row
+      React.createElement("div",{style:{display:"flex",gap:10,marginBottom:18}},
+        statCard("\uD83D\uDD25",String(streak),streak===1?"day streak":"day streak","#F97316"),
+        statCard("\uD83C\uDFC6",String(longest),"longest","#9B5DE5"),
+        statCard("\u2705",String(totalSessions),totalSessions===1?"session":"sessions","#0891B2")
+      ),
+
+      // Mastery overview with ring
+      React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:20,padding:"20px",marginBottom:18,boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}},
+        React.createElement("p",{style:{margin:"0 0 16px",fontSize:15,fontWeight:900,color:"#1A1A1A"}},"Vocabulary mastery"),
+        React.createElement("div",{style:{display:"flex",alignItems:"center",gap:20}},
+          // SVG ring
+          React.createElement("div",{style:{position:"relative",width:120,height:120,flexShrink:0}},
+            React.createElement("svg",{width:120,height:120,viewBox:"0 0 120 120",style:{transform:"rotate(-90deg)"}},
+              React.createElement("circle",{cx:60,cy:60,r:R,fill:"none",stroke:"#EEE",strokeWidth:11}),
+              React.createElement("circle",{cx:60,cy:60,r:R,fill:"none",stroke:"#19A85A",strokeWidth:11,strokeLinecap:"round",strokeDasharray:C,strokeDashoffset:C-dash,style:{transition:"stroke-dashoffset 0.6s ease"}})
+            ),
+            React.createElement("div",{style:{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}},
+              React.createElement("p",{style:{margin:0,fontSize:28,fontWeight:900,color:"#1A1A1A",letterSpacing:-1,lineHeight:1}},pct+"%"),
+              React.createElement("p",{style:{margin:"2px 0 0",fontSize:10,fontWeight:700,color:"#8E8E93"}},"mastered")
+            )
+          ),
+          // Legend
+          React.createElement("div",{style:{flex:1}},
+            [["#19A85A","Mastered",srsStats.mastered||0],["#0891B2","Learning",srsStats.learning||0],["#D97706","Due",srsStats.due||0],["#D1D1D6","Not started",srsStats.unseen||0]].map(function(row,i){
+              return React.createElement("div",{key:i,style:{display:"flex",alignItems:"center",gap:8,marginBottom:i<3?9:0}},
+                React.createElement("div",{style:{width:11,height:11,borderRadius:3,backgroundColor:row[0],flexShrink:0}}),
+                React.createElement("span",{style:{flex:1,fontSize:13,color:"#555",fontWeight:600}},row[1]),
+                React.createElement("span",{style:{fontSize:14,fontWeight:900,color:"#1A1A1A"}},row[2])
+              );
+            })
+          )
+        )
+      ),
+
+      // Per-level breakdown
+      React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:20,padding:"20px",marginBottom:18,boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}},
+        React.createElement("p",{style:{margin:"0 0 16px",fontSize:15,fontWeight:900,color:"#1A1A1A"}},"Progress by level"),
+        ["A1","A2","B1","B2"].map(function(lvl,i){
+          var lv=perLevel[lvl],p=lv.t>0?Math.round(lv.m/lv.t*100):0;
+          return React.createElement("div",{key:lvl,style:{marginBottom:i<3?14:0}},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:5}},
+              React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8}},
+                React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:LEVEL_C[lvl],padding:"2px 9px",borderRadius:10}},lvl),
+                React.createElement("span",{style:{fontSize:13,fontWeight:700,color:"#8E8E93"}},(CL[lvl]||{}).title||"")
+              ),
+              React.createElement("span",{style:{fontSize:13,fontWeight:800,color:"#1A1A1A"}},lv.m+" / "+lv.t)
+            ),
+            React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F2",borderRadius:4,overflow:"hidden"}},
+              React.createElement("div",{style:{height:"100%",width:p+"%",backgroundColor:LEVEL_C[lvl],borderRadius:4,transition:"width 0.6s ease"}})
+            )
+          );
+        })
+      ),
+
+      // Weekly activity
+      React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:20,padding:"20px",marginBottom:18,boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}},
+        React.createElement("p",{style:{margin:"0 0 16px",fontSize:15,fontWeight:900,color:"#1A1A1A"}},"This week"),
+        React.createElement("div",{style:{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:6,height:90}},
+          week.map(function(d,i){
+            var h=d.count>0?Math.max(14,Math.round(d.count/maxCount*70)):4;
+            return React.createElement("div",{key:i,style:{flex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:6}},
+              React.createElement("div",{style:{width:"100%",display:"flex",alignItems:"flex-end",justifyContent:"center",height:70}},
+                React.createElement("div",{style:{width:"72%",height:h,borderRadius:6,backgroundColor:d.count>0?(d.isToday?"#19A85A":"#A7E8C5"):"#EEE",transition:"height 0.5s ease"}})
+              ),
+              React.createElement("span",{style:{fontSize:11,fontWeight:d.isToday?900:600,color:d.isToday?"#19A85A":"#C7C7CC"}},d.label)
+            );
+          })
+        )
+      ),
+
+      // Stories read
+      React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:20,padding:"18px 20px",display:"flex",alignItems:"center",gap:14,boxShadow:"0 1px 3px rgba(0,0,0,0.06)"}},
+        React.createElement("div",{style:{fontSize:30}},"\uD83D\uDCDA"),
+        React.createElement("div",{style:{flex:1}},
+          React.createElement("p",{style:{margin:0,fontSize:15,fontWeight:900,color:"#1A1A1A"}},"Stories read"),
+          React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},"Keep reading to build comprehension")
+        ),
+        React.createElement("span",{style:{fontSize:26,fontWeight:900,color:"#0D9488",letterSpacing:-0.5}},String(storiesDone.length))
+      ),
+
+      // Share progress button
+      React.createElement("button",{onClick:function(){setShareMsg("");setShowShare(true);haptic("light");},style:{width:"100%",marginTop:18,border:"none",borderRadius:18,padding:"16px",fontSize:16,fontWeight:900,cursor:"pointer",background:"linear-gradient(135deg,#0E7A40,#19A85A)",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 #0B5C30",letterSpacing:-0.2}},"\uD83D\uDCE4 Share my progress")
+    )
+  );
+}
+
 // ════════════════════════════════════════════
 //  STORY READING SECTION (Irakurri)
 // ════════════════════════════════════════════
@@ -4825,14 +5560,14 @@ function StoryScreen(props){
   var _done=useState([]);var doneStories=_done[0];var setDoneStories=_done[1];
 
   React.useEffect(function(){
-    try{window.storage.get("stories_done").then(function(r){if(r&&r.value){try{setDoneStories(JSON.parse(r.value));}catch(e){}}}).catch(function(){});}catch(e){}
+    try{STORE.get("stories_done").then(function(r){if(r&&r.value){try{setDoneStories(JSON.parse(r.value));}catch(e){}}}).catch(function(){});}catch(e){}
   },[]);
 
   function markDone(id){
     setDoneStories(function(prev){
       if(prev.indexOf(id)!==-1)return prev;
       var next=prev.concat([id]);
-      try{window.storage.set("stories_done",JSON.stringify(next)).catch(function(){});}catch(e){}
+      try{STORE.set("stories_done",JSON.stringify(next)).catch(function(){});}catch(e){}
       return next;
     });
   }
@@ -4855,7 +5590,7 @@ function StoryScreen(props){
     return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
       // Header
       React.createElement("div",{style:{background:"linear-gradient(135deg,#0D9488,#134E4A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18,position:"relative"}},
-        React.createElement("button",{onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
+        React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
         React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Irakurri"),
         React.createElement("p",{style:{margin:"4px 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Read short stories in Basque. Tap any word for its meaning.")
       ),
@@ -4906,7 +5641,7 @@ function StoryScreen(props){
     // Reader header
     React.createElement("div",{style:{background:"linear-gradient(135deg,"+cat.color+","+(cat.color==="#0D9488"?"#134E4A":cat.color==="#9B5DE5"?"#5B21B6":"#C2510E")+")",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:20,paddingLeft:18,paddingRight:18}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}},
-        React.createElement("button",{onClick:function(){setSelStory(null);setTappedWord(null);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center"}},"\u2190"),
+        React.createElement("button",{"aria-label":"Back",onClick:function(){setSelStory(null);setTappedWord(null);window.scrollTo(0,0);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center"}},"\u2190"),
         React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"rgba(255,255,255,0.22)",padding:"4px 11px",borderRadius:12}},st.level+" \u00B7 "+cat.label)
       ),
       React.createElement("div",{style:{display:"flex",alignItems:"center",gap:11}},
@@ -4922,7 +5657,7 @@ function StoryScreen(props){
       React.createElement("p",{style:{margin:"0 0 14px",fontSize:13,color:"#8E8E93",fontWeight:600,lineHeight:1.5,fontStyle:"italic"}},st.intro),
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",backgroundColor:"#F2F2F7",borderRadius:14,padding:"10px 14px",marginBottom:18}},
         React.createElement("span",{style:{fontSize:13,fontWeight:700,color:"#1A1A1A"}},"\uD83D\uDCAC Show English translation"),
-        React.createElement("button",{onClick:function(){setShowTr(function(v){return !v;});haptic("light");},style:{position:"relative",width:48,height:28,borderRadius:14,border:"none",cursor:"pointer",backgroundColor:showTr?cat.color:"#D1D1D6",transition:"background-color 0.2s",flexShrink:0}},
+        React.createElement("button",{"aria-label":"Toggle English translation",onClick:function(){setShowTr(function(v){return !v;});haptic("light");},style:{position:"relative",width:48,height:28,borderRadius:14,border:"none",cursor:"pointer",backgroundColor:showTr?cat.color:"#D1D1D6",transition:"background-color 0.2s",flexShrink:0}},
           React.createElement("div",{style:{position:"absolute",top:3,left:showTr?23:3,width:22,height:22,borderRadius:"50%",backgroundColor:"#fff",transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)"}})
         )
       )
@@ -4942,12 +5677,13 @@ function StoryScreen(props){
     ),
     // Finish button
     React.createElement("div",{style:{padding:"20px 18px calc(40px + env(safe-area-inset-bottom,0px))"}},
-      React.createElement("button",{onClick:function(){markDone(st.id);sfx("complete");haptic("success");setSelStory(null);setTappedWord(null);},style:{width:"100%",border:"none",borderRadius:18,padding:"16px",fontSize:16,fontWeight:900,cursor:"pointer",background:"linear-gradient(135deg,"+cat.color+","+(cat.color==="#0D9488"?"#134E4A":cat.color==="#9B5DE5"?"#5B21B6":"#C2510E")+")",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 "+(cat.color==="#0D9488"?"#0B3D38":cat.color==="#9B5DE5"?"#4C1D95":"#92400E"),letterSpacing:-0.2}},
+      React.createElement("button",{onClick:function(){markDone(st.id);sfx("complete");haptic("success");setSelStory(null);setTappedWord(null);window.scrollTo(0,0);},style:{width:"100%",border:"none",borderRadius:18,padding:"16px",fontSize:16,fontWeight:900,cursor:"pointer",background:"linear-gradient(135deg,"+cat.color+","+(cat.color==="#0D9488"?"#134E4A":cat.color==="#9B5DE5"?"#5B21B6":"#C2510E")+")",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 "+(cat.color==="#0D9488"?"#0B3D38":cat.color==="#9B5DE5"?"#4C1D95":"#92400E"),letterSpacing:-0.2}},
         (doneStories.indexOf(st.id)!==-1?"\u2713 Read again":"Mark as read")+" \u2192"
       )
     )
   );
 }
 
-export default App;
+function AppWithBoundary(){return React.createElement(ErrorBoundary,null,React.createElement(App,null));}
+export default AppWithBoundary;
 
