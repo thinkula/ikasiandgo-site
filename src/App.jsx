@@ -3426,7 +3426,7 @@ function BasqueKitchenScreen(props){
     "urdaia":"🥓",         // bacon
     "piperrada":"🌶️",      // piperade
   };
-  function getEmoji(word){return WORD_EMOJI[word.id]||WORD_EMOJI[word.basque.toLowerCase()]||"🥘";}
+  function getEmoji(word){if(!word)return"🥘";return WORD_EMOJI[word.id]||(word.basque?WORD_EMOJI[word.basque.toLowerCase()]:null)||"🥘";}
 
   // ── Menu screen ──
   if(!dish){return(
@@ -3596,7 +3596,7 @@ function BasqueKitchenScreen(props){
 
         {/* ── Ingredient options ── */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-          {opts.map(function(word,wi){
+          {opts.filter(function(word){return word&&word.basque;}).map(function(word,wi){
             var isCorrectOpt=correctWord&&word.id===correctWord.id;
             var isPicked=sel===word.id;
             var showResult=sel!==null;
@@ -3612,8 +3612,8 @@ function BasqueKitchenScreen(props){
                 {/* Subtle tint strip at bottom on result */}
                 {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                 {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
-                <span style={{fontSize:28,lineHeight:1}}>{getNumEmoji(word)}</span>
-                <p style={{margin:"6px 0 0",fontSize:word.basque.length>10?12:15,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2,padding:"0 4px"}}>{word.basque}</p>
+                <span style={{fontSize:28,lineHeight:1}}>{getEmoji(word)}</span>
+                <p style={{margin:"6px 0 0",fontSize:(word.basque&&word.basque.length>10)?12:15,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2,padding:"0 4px"}}>{word.basque}</p>
                 <p style={{margin:"2px 0 0",fontSize:11,color:subC,fontWeight:600}}>{word.english}</p>
                 {pron&&<p style={{margin:"3px 0 0",fontSize:9,fontWeight:700,color:"#19A85A",fontStyle:"italic",opacity:0.8}}>{correctWord.pronunciation}</p>}
                 {isPicked&&!isCorrectOpt&&showResult&&<span style={{fontSize:16,marginTop:2}}>✗</span>}
@@ -4454,25 +4454,26 @@ function ArbolaScreen(props){
       {instruction:"The children's father comes home just before dinner",keyword:"aita",emoji:"👨",hint:"Aita: father"},
       {instruction:"Their baby is the last through the door",keyword:"haurra",emoji:"👶",hint:"Haurra: child or baby"},
       {instruction:"Who sits at the head of the Basque table? The grandmother",keyword:"amona",emoji:"👵",hint:"Amona: grandmother, the heart of every Basque home"},
-      {instruction:"Her husband has been out in the fields all day",keyword:"aitona",emoji:"👴",hint:"Aitona: grandfather"},
+      {instruction:"The grandfather has been out in the fields all day",keyword:"aitona",emoji:"👴",hint:"Aitona: grandfather"},
     ]},
     {name:"Mendizabal",emoji:"⛰️",desc:"Brothers and sisters in the mountain village",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",members:[
       {instruction:"The eldest boy plays outside, he's the son",keyword:"semea",emoji:"👦",hint:"Semea: son"},
-      {instruction:"His little sister follows him everywhere",keyword:"alaba",emoji:"👧",hint:"Alaba: daughter"},
+      {instruction:"The youngest girl is their daughter",keyword:"alaba",emoji:"👧",hint:"Alaba: daughter"},
       {instruction:"Their mother's brother visits for the weekend",keyword:"osaba",emoji:"👴",hint:"Osaba: uncle"},
       {instruction:"Her sister comes with him, the children's aunt",keyword:"izeba",emoji:"👵",hint:"Izeba: aunt"},
       {instruction:"A childhood friend completes the gathering",keyword:"laguna",emoji:"😊",hint:"Laguna: friend"},
     ]},
     {name:"Aizpurua",emoji:"🌊",desc:"Siblings growing up by the sea",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",members:[
       {instruction:"The older brother is first to arrive",keyword:"anaia",emoji:"👦",hint:"Anaia: brother"},
-      {instruction:"His younger sister is right behind him",keyword:"ahizpa",emoji:"👧",hint:"Ahizpa: sister"},
+      {instruction:"His younger sister is right behind him",keyword:"arreba",emoji:"👧",hint:"Arreba: a man's sister"},
       {instruction:"Both of them together, the parents",keyword:"gurasoak",emoji:"👫",hint:"Gurasoak: parents"},
-      {instruction:"A cousin arrives from Bilbao",keyword:"lehengusua",emoji:"🧑",hint:"Lehengusua: cousin"},
+      {instruction:"His cousin, a boy, arrives from Bilbao",keyword:"lehengusua",emoji:"🧑",hint:"Lehengusua: a male cousin"},
+      {instruction:"Her cousin, a girl, comes too",keyword:"lehengusina",emoji:"👧",hint:"Lehengusina: a female cousin"},
       {instruction:"The nephew tags along too",keyword:"iloba",emoji:"🧒",hint:"Iloba: niece or nephew"},
     ]},
     {name:"Urrutia",emoji:"🍷",desc:"A modern Basque couple and their extended family",color:"#9333EA",dark:"#6B21A8",bg:"#FAF5FF",members:[
       {instruction:"Two people building a life together, a couple",keyword:"bikotea",emoji:"💑",hint:"Bikotea: couple or partner"},
-      {instruction:"She married into the family",keyword:"emaztea",emoji:"👩",hint:"Emaztea: wife"},
+      {instruction:"She is his wife, the woman he married",keyword:"emaztea",emoji:"👩",hint:"Emaztea: wife"},
       {instruction:"He took her name when they wed",keyword:"senarra",emoji:"👨",hint:"Senarra: husband"},
       {instruction:"The wedding brought everyone together",keyword:"ezkontza",emoji:"💍",hint:"Ezkontza: wedding"},
       {instruction:"Their partner in everything, closest companion",keyword:"bikotekidea",emoji:"🤝",hint:"Bikotekidea: partner or significant other"},
@@ -4480,7 +4481,7 @@ function ArbolaScreen(props){
     {name:"Goikoetxea",emoji:"🎭",desc:"A family that has seen it all",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",members:[
       {instruction:"She raises the children on her own now",keyword:"guraso_bakarra",emoji:"💪",hint:"Guraso bakarra: single parent"},
       {instruction:"Her son is all grown up",keyword:"semea",emoji:"👦",hint:"Semea: son"},
-      {instruction:"Her sister is always there to help",keyword:"ahizpa",emoji:"👧",hint:"Ahizpa: sister"},
+      {instruction:"Her sister is always there to help",keyword:"ahizpa",emoji:"👧",hint:"Ahizpa: a woman's sister"},
       {instruction:"Her husband's family are still close relatives",keyword:"senitartea",emoji:"👨‍👩‍👧‍👦",hint:"Senitartea: relatives, extended family"},
       {instruction:"She considers herself single now, unmarried",keyword:"ezkongabea",emoji:"🙋",hint:"Ezkongabea: single or unmarried"},
     ]},
@@ -4504,17 +4505,19 @@ function ArbolaScreen(props){
     "alaba":["ahizpa","haurra","amona"],
     "anaia":["semea","osaba","aita"],
     "ahizpa":["alaba","izeba","ama"],
+  "arreba":["alaba","ahizpa","izeba"],
     "osaba":["aitona","anaia","senarra"],
     "izeba":["amona","ahizpa","emaztea"],
     "laguna":["lehengusua","iloba","anaia"],
     "lehengusua":["iloba","anaia","ahizpa"],
+  "lehengusina":["iloba","arreba","izeba"],
     "iloba":["haurra","alaba","semea"],
     "gurasoak":["familia","bikotea","senitartea"],
-    "bikotea":["gurasoak","emaztea","senarra"],
+    "bikotea":["amona","iloba","osaba"],
     "emaztea":["ama","izeba","ahizpa"],
     "senarra":["aita","osaba","anaia"],
     "ezkontza":["familia","bikotea","senitartea"],
-    "bikotekidea":["emaztea","senarra","laguna"],
+    "bikotekidea":["aitona","iloba","amona"],
     "guraso_bakarra":["gurasoak","ama","aita"],
     "senitartea":["familia","gurasoak","arbasoak"],
     "ezkongabea":["bikotekidea","bikotea","alargun"],
