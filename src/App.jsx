@@ -111,6 +111,10 @@ const TL=(function(){var o={};TOPICS.forEach(function(t){o[t.key]=t.label;});ret
 const FREE=["A1"];
 var TOPIC_COLORS={"greetings":"#19A85A","food":"#E8513A","numbers":"#0891B2","family":"#C026D3","colors":"#7C3AED","nature":"#15803D","body":"#DC2626","time":"#2563EB","travel":"#0369A1","emotions":"#DB2777","work":"#475569","culture":"#9D7437","society":"#1D4ED8","adjectives":"#7C3AED"};
 const FREE_TOPICS=["greetings","food","numbers"];
+// Depth-gate model: the free tier is the entire A1 level across ALL topics.
+// Depth (A2+, cultural notes/etymology on gated words, and SRS) is Pro.
+// FREE_TOPICS is retained only for legacy distractor-sourcing in games, not access.
+function isFreeWord(w){return !!w&&w.cefr==="A1";}
 const SRS_I=[1,3,7,21,60];
 const SRS_L=["Struggling","Learning","Practising","Solid","Mastered"];
 const SRS_C=["#FF8C94","#F59E0B","#F59E0B","#00B4D8","#19A85A"];
@@ -939,7 +943,7 @@ var _VOCAB=SEED_VOCAB;
 function getWC(){var o={};["A1","A2","B1","B2"].forEach(function(l){o[l]=_VOCAB.filter(function(w){return w.cefr===l;}).length;});return o;}
 var _WC=getWC();
 const ANT={gorria:"beltza",beltza:"gorria",handia:"txikia",txikia:"handia",zaharra:"berria",berria:"zaharra",ona:"txarra",txarra:"ona",argia:"iluna",iluna:"argia",beroa:"hotza",hotza:"beroa",garestia:"merkea",merkea:"garestia",erraza:"zaila",zaila:"erraza",ama:"aita",aita:"ama",amona:"aitona",aitona:"amona",semea:"alaba",alaba:"semea",anaia:"ahizpa",ahizpa:"anaia",senarra:"emaztea",emaztea:"senarra",mintzatu:"esan",esan:"mintzatu",belarria:"urtea",urtea:"belarria",ahoa:"hilabetea",hilabetea:"ahoa",ezkerra:"eskuina",eskuina:"ezkerra",irekia:"itxia",itxia:"irekia",burua:"eskua",eskua:"burua",iragana:"etorkizuna",etorkizuna:"iragana",ardoa:"esnea",esnea:"ardoa",kafea:"tea",tea:"kafea",gaua:"eguna",eguna:"gaua"};
-function getPool(vocab,cefr,topic,cumul,isPro){var pro=isPro===true;var idx=CEFR_ORDER.indexOf(cefr);var lvls=cumul?CEFR_ORDER.slice(0,idx+1):[cefr];return vocab.filter(function(w){if(lvls.indexOf(w.cefr)===-1)return false;if(topic!=="all"&&w.topic!==topic)return false;if(!pro&&w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)===-1)return false;if(!pro&&w.cefr!=="A1")return false;return true;});}
+function getPool(vocab,cefr,topic,cumul,isPro){var pro=isPro===true;var idx=CEFR_ORDER.indexOf(cefr);var lvls=cumul?CEFR_ORDER.slice(0,idx+1):[cefr];return vocab.filter(function(w){if(lvls.indexOf(w.cefr)===-1)return false;if(topic!=="all"&&w.topic!==topic)return false;if(!pro&&!isFreeWord(w))return false;return true;});}
 function shuffled(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 // Returns the core meaning of an English label, stripping any "(...)" qualifier.
 // e.g. "Brother (male speaker)" -> "brother". Used to avoid near-duplicate quiz options.
@@ -1032,7 +1036,7 @@ function App(){
   var WC=_WC;
   var isTrialActive=trialUntil&&new Date()<trialUntil;
   var isProOrTrial=isPro||isTrialActive;
-  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(function(w){return w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;});var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil]);
+  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil]);
   useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data")]);if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();setStreak((d.lastDay===today||d.lastDay===yest)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
@@ -1183,12 +1187,12 @@ function HomeScreen(props){
   function setLvl(v){setLvlRaw(v);setTopicRaw(function(t){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:v,topic:t,cumul:c})).catch(function(){});return c;});return t;});}
   function setTopic(v){setTopicRaw(v);setLvlRaw(function(l){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:l,topic:v,cumul:c})).catch(function(){});return c;});return l;});}
   function setCumul(fn){var nv=typeof fn==="function"?fn(cumul):fn;setCumulRaw(nv);setLvlRaw(function(l){setTopicRaw(function(t){STORE.set("last_config",JSON.stringify({lvl:l,topic:t,cumul:nv})).catch(function(){});return t;});return l;});}
-  useEffect(function(){STORE.get("last_config").then(function(r){if(r&&r.value){try{var d=JSON.parse(r.value);if(d.lvl)setLvlRaw(d.lvl);if(d.topic){var safeTopic=(isPro||FREE_TOPICS.indexOf(d.topic)!==-1||d.topic==="all")?d.topic:"all";setTopicRaw(safeTopic);}if(d.cumul)setCumulRaw(d.cumul);}catch(e){}}}).catch(function(){});},[]);
+  useEffect(function(){STORE.get("last_config").then(function(r){if(r&&r.value){try{var d=JSON.parse(r.value);if(d.lvl)setLvlRaw(d.lvl);if(d.topic)setTopicRaw(d.topic);if(d.cumul)setCumulRaw(d.cumul);}catch(e){}}}).catch(function(){});},[]);
   var L=CL[lvl];
   var topicCounts=useMemo(function(){var o={};var allPool=getPool(VOCABULARY,lvl,"all",cumul,isPro);o.all=allPool.length;for(var i=0;i<TOPICS.length;i++){var t=TOPICS[i];if(t.key==="all")continue;var p=getPool(VOCABULARY,lvl,t.key,cumul,isPro);o[t.key]=p.length;}return o;},[lvl,cumul,isPro,_VOCAB.length]);
   var poolSize=topic==="all"?topicCounts.all:(topicCounts[topic]||0);
-  var effectiveCount=Math.min(poolSize,sessionLen);var isLockedLevel=!isPro&&lvl!=="A1"&&totalSessions>=1;var isLockedTopic=!isPro&&lvl==="A1"&&topic!=="all"&&FREE_TOPICS.indexOf(topic)===-1;var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:isLockedTopic?{msg:"The "+TL[topic]+" topic requires Pro.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match - try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words - questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
-  var browseCount=useMemo(function(){return VOCABULARY.filter(function(w){return isPro||(w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1);}).length;},[isPro,_VOCAB.length]);
+  var effectiveCount=Math.min(poolSize,sessionLen);var isLockedLevel=!isPro&&lvl!=="A1"&&totalSessions>=1;var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match - try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words - questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
+  var browseCount=useMemo(function(){return VOCABULARY.filter(function(w){return isPro||isFreeWord(w);}).length;},[isPro,_VOCAB.length]);
   var srsCard=null;
   if(srsLoaded&&totalSessions===0){
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"16px",border:"1px solid #F0F0F0",textAlign:"center"}},
@@ -1201,7 +1205,7 @@ function HomeScreen(props){
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:18,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.mastered+"/"+srsStats.total)),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
-      React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.mastered+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(function(w){return w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;}).length)+" words learned"),
+      React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.mastered+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
           React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:10,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
       (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:10,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:8,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){var dueLvl=isPro?"B2":"A1";onStart({cefr:dueLvl,topic:"all",cumulative:true});},style:{width:"100%",marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:10,padding:"9px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}},srsStats.due+" words due - Review now"):null
     );
@@ -1216,7 +1220,7 @@ function HomeScreen(props){
       React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:active?"#fff":"#1A1A1A",letterSpacing:-0.2}},L2.title),
       React.createElement("div",{style:{marginTop:4}},
   React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}},
-    React.createElement("p",{style:{margin:0,fontSize:11,color:active?"rgba(255,255,255,0.75)":"#888"}},(!isPro&&key==="A1"?VOCABULARY.filter(function(w){return w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;}).length:WC[key])+" words"+((!isPro&&key==="A1")?" free":"")),
+    React.createElement("p",{style:{margin:0,fontSize:11,color:active?"rgba(255,255,255,0.75)":"#888"}},WC[key]+" words"+((!isPro&&key==="A1")?" free":"")),
     React.createElement("p",{style:{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.6)":key==="A1"&&totalSessions===0?"#19A85A":"#BBB",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" mastered":""))
   ),
   React.createElement("div",{style:{height:3,backgroundColor:active?"rgba(255,255,255,0.25)":"#F0F0F0",borderRadius:2,overflow:"hidden"}},
@@ -1231,7 +1235,7 @@ function HomeScreen(props){
   var goalPct=Math.min(Math.round(todayCount/(dailyGoal||10)*100),100);
   var goalDone=todayCount>=(dailyGoal||10);
   var dayNum=Math.floor(Date.now()/86400000);
-  var freeWords=VOCABULARY.filter(function(w){return w.cefr==="A1"&&(isPro||FREE_TOPICS.indexOf(w.topic)!==-1);});
+  var freeWords=VOCABULARY.filter(isFreeWord);
   var wotd=freeWords.length>0?freeWords[dayNum%freeWords.length]:null;
   var _ml=modal&&CL[modal]?CL[modal]:null;
   function onClose(){setModal(null);}
@@ -1292,7 +1296,7 @@ function HomeScreen(props){
       <div style={{display:"flex",gap:5,overflowX:"auto",padding:"10px 14px",WebkitOverflowScrolling:"touch",borderBottom:"1px solid #F2F2F7"}}>
         {TOPICS.map(function(t){
           var active=topic===t.key;var cnt=topicCounts[t.key]||0;var bad=t.key!=="all"&&cnt===0;var tk=t.key;
-          var locked=!isPro&&lvl==="A1"&&t.key!=="all"&&FREE_TOPICS.indexOf(t.key)===-1;
+          var locked=false;// depth-gate: all topics are free at A1; A2+ is gated by level, not topic
           return(
             <button key={t.key} onClick={function(){if(!bad){if(locked){onUpgrade();}else{setTopic(tk);}}}}
               style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"1.5px solid "+(active?L.dark:"#E8E8E8"),backgroundColor:active?L.color:"#F2F2F7",cursor:bad?"default":"pointer",fontFamily:"inherit",opacity:bad?0.4:1,transition:"all 0.12s"}}>
@@ -1844,7 +1848,7 @@ function OnboardingScreen(props){
   var WC=_WC;
   var onDone=props.onDone,onUpgrade=props.onUpgrade;
   var _s0=useState(0);var slide=_s0[0];var setSlide=_s0[1];
-  var a1=VOCABULARY.filter(function(w){return w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;}).length;
+  var a1=VOCABULARY.filter(isFreeWord).length;
   var slides=[
     {
       emoji:"🌍",
@@ -1939,6 +1943,16 @@ function ResetButton(){
     </div>
   );
 }
+// Blurred cultural-note / etymology teaser shown on gated (A2+) words to free users.
+// The real note text is rendered blurred so learners see depth exists; tapping converts.
+function LockedNote(props){
+  var text=props.text||"Cultural note and etymology available with Pro - discover the origins, usage and Basque cultural context behind this word.";
+  return React.createElement("div",{style:{position:"relative",borderRadius:10,overflow:"hidden"}},
+    React.createElement("p",{"aria-hidden":true,style:{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500,filter:"blur(4.5px)",userSelect:"none",pointerEvents:"none"}},text),
+    React.createElement("button",{onClick:function(e){e.stopPropagation();if(props.onUpgrade)props.onUpgrade();},style:{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(255,255,255,0.4)",border:"none",cursor:"pointer",fontFamily:"inherit"}},
+      React.createElement("span",{style:{backgroundColor:"#19A85A",color:"#fff",borderRadius:20,padding:"7px 16px",fontSize:12,fontWeight:800,boxShadow:"0 2px 8px rgba(0,0,0,0.18)"}},"🔒 Unlock note with Pro"))
+  );
+}
 function BrowseScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
@@ -1955,7 +1969,7 @@ function BrowseScreen(props){
     var base=VOCABULARY.filter(function(w){
       if(filterLvl!=="all"&&w.cefr!==filterLvl)return false;
       if(filterTopic!=="all"&&w.topic!==filterTopic)return false;
-      if(!isPro&&!(w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1))return false;
+      // Depth-gate: gated (A2+) words stay visible to free users as locked teasers.
       if(q)return w.basque.toLowerCase().indexOf(q)!==-1||w.english.toLowerCase().indexOf(q)!==-1;
       return true;
     });
@@ -1969,6 +1983,8 @@ function BrowseScreen(props){
     return base.slice().sort(function(a,b){return a.basque.localeCompare(b.basque);});
   },[query,filterLvl,filterTopic,isPro,sortBy,srsData,_VOCAB.length]);
   var visible=filtered.slice(0,showAll?filtered.length:60);
+  // Words the current user can actually quiz (gated words are view-only teasers).
+  var quizzable=useMemo(function(){return filtered.filter(function(w){return isPro||isFreeWord(w);});},[filtered,isPro]);
   return(
     <div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F6F6F6",animation:"fadeIn 0.2s ease"}}>
       <div style={{background:"linear-gradient(155deg,#0E7A40 0%,#19A85A 100%)",paddingTop:"calc(20px + env(safe-area-inset-top,0px))",paddingLeft:16,paddingRight:16,paddingBottom:16,flexShrink:0}}>
@@ -2013,20 +2029,20 @@ function BrowseScreen(props){
             <p style={{fontSize:15,fontWeight:600,margin:0}}>No words found</p>
           </div>
         )}
-        {filtered.length>0&&(filterLvl!=="all"||filterTopic!=="all"||query)&&(
+        {quizzable.length>0&&(filterLvl!=="all"||filterTopic!=="all"||query)&&(
           <div style={{marginBottom:8,padding:"10px 14px",backgroundColor:"#F0FBF4",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"space-between",border:"1px solid #D4EDE0"}}>
-            <span style={{fontSize:13,color:"#19A85A",fontWeight:600}}>{filtered.length} word{filtered.length!==1?"s":""} match</span>
-            <button onClick={function(){if(onQuiz)onQuiz(filtered);}} style={{backgroundColor:"#19A85A",border:"none",borderRadius:10,padding:"7px 14px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>
-              Quiz {Math.min(filtered.length,20)}
+            <span style={{fontSize:13,color:"#19A85A",fontWeight:600}}>{quizzable.length} word{quizzable.length!==1?"s":""} match</span>
+            <button onClick={function(){if(onQuiz)onQuiz(quizzable);}} style={{backgroundColor:"#19A85A",border:"none",borderRadius:10,padding:"7px 14px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>
+              Quiz {Math.min(quizzable.length,20)}
             </button>
           </div>
         )}
         {visible.map(function(word,wi){var prevTopic=wi>0?visible[wi-1].topic:null;var topicHeader=groupByTopic&&word.topic!==prevTopic?React.createElement("p",{key:"h"+word.topic,style:{margin:"14px 0 4px 2px",fontSize:11,fontWeight:800,color:"#AAA",textTransform:"uppercase",letterSpacing:0.8}},TOPICS.find(function(t){return t.key===word.topic;})?TOPICS.find(function(t){return t.key===word.topic;}).label:word.topic):null;var srs=srsData[word.id];var sc=srs&&srs.score!=null?srs.score:-1;
           var srsLabel=sc>=0?SRS_L[Math.min(sc,4)]:"Unseen";
           var srsColor=sc>=0?SRS_C[Math.min(sc,4)]:"#BBB";
-          var lvl=CL[word.cefr];var isOpen=expanded===word.id;
+          var lvl=CL[word.cefr];var isOpen=expanded===word.id;var locked=!isPro&&!isFreeWord(word);
           return React.createElement(React.Fragment,{key:word.id},topicHeader,(
-            <div key={word.id} style={{backgroundColor:"#fff",borderRadius:14,marginBottom:8,border:"1px solid #E8E8E8",overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",borderLeft:"3px solid "+srsColor}}>
+            <div key={word.id} style={{backgroundColor:"#fff",borderRadius:14,marginBottom:8,border:"1px solid #E8E8E8",overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",borderLeft:"3px solid "+(locked?"#F59E0B":srsColor)}}>
               <button style={{width:"100%",background:"none",border:"none",padding:"13px 14px",textAlign:"left",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:12}} onClick={function(){setExpanded(isOpen?null:word.id);}}>
                 <div style={{flex:1,minWidth:0}}>
                   <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:2}}>
@@ -2036,11 +2052,15 @@ function BrowseScreen(props){
                   <span style={{fontSize:13,color:"#888",fontWeight:500}}>{word.english}</span>
                 </div>
                 <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:4,flexShrink:0}}>
-                  <span style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:10,fontWeight:700,color:srsColor}}><span style={{width:6,height:6,borderRadius:"50%",backgroundColor:srsColor,display:"inline-block",flexShrink:0}}/>{srsLabel}</span>
+                  {locked?<span style={{fontSize:10,fontWeight:800,color:"#D97706",backgroundColor:"#FFF8F0",padding:"2px 8px",borderRadius:10}}>🔒 PRO</span>:<span style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:10,fontWeight:700,color:srsColor}}><span style={{width:6,height:6,borderRadius:"50%",backgroundColor:srsColor,display:"inline-block",flexShrink:0}}/>{srsLabel}</span>}
                   <span style={{fontSize:13,color:"#CCC"}}>{isOpen?"▲":"▼"}</span>
                 </div>
               </button>
-              {isOpen&&(
+              {isOpen&&(locked?(
+                <div style={{padding:"10px 14px 14px",borderTop:"1px solid #F4F4F4"}}>
+                  <LockedNote text={word.notes} onUpgrade={onUpgrade}/>
+                </div>
+              ):(
                 <div style={{padding:"10px 14px 14px",borderTop:"1px solid #F4F4F4"}}>
                   <p style={{margin:"0 0 8px",fontSize:12,color:"#888",fontWeight:600,letterSpacing:0.2}}>{word.pronunciation}</p>
                   {word.example&&(
@@ -2054,7 +2074,7 @@ function BrowseScreen(props){
                     <p style={{margin:"8px 0 0",fontSize:11,color:srsColor,fontWeight:600}}>Last seen: {relDate(srs.lastSeen)}</p>
                   )}
                 </div>
-              )}
+              ))}
             </div>
           )
           );
@@ -2226,7 +2246,7 @@ function PairsScreen(props){
     clearInterval(timerRef.current);
     var pool=VOCABULARY.filter(function(w){
       if(w.topic!==topic)return false;
-      if(!isPro&&!(w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1))return false;
+      if(!isPro&&!isFreeWord(w))return false;
       return true;
     });
     if(pool.length<4){pool=VOCABULARY.filter(function(w){return w.topic===topic&&w.cefr==="A1";});}
@@ -2390,7 +2410,7 @@ function PairsScreen(props){
       {!started&&(
         <div ref={chipRowRef} style={{display:"flex",gap:5,overflowX:"auto",padding:"8px 14px",WebkitOverflowScrolling:"touch",backgroundColor:"#fff",borderBottom:"1px solid #F0F0F0"}}>
           {TOPICS_LIST.map(function(t){
-            var active=t===topic;var isFree=isPro||(FREE_TOPICS.indexOf(t)!==-1);
+            var active=t===topic;var isFree=true;// depth-gate: games run on A1, all topics free
             return(
               <button key={t} data-active={active?"true":"false"} onClick={function(){if(!isFree){onUpgrade();return;}setTopic(t);}}
                 style={{flexShrink:0,fontSize:11,padding:"4px 11px",borderRadius:20,border:"1.5px solid "+(active?"#19A85A":"#E8E8E8"),backgroundColor:active?"#19A85A":"#fff",color:active?"#fff":isFree?"#555":"#CCC",cursor:"pointer",fontWeight:700,fontFamily:"inherit",transition:"all 0.15s"}}>
@@ -2530,7 +2550,7 @@ function PairsScreen(props){
               {bestMoves>0&&<p style={{margin:"0 0 16px",fontSize:12,color:"#C7C7CC",fontWeight:600}}>Previous best: {bestMoves} moves · {bestTime}s</p>}
               <div style={{display:"flex",gap:10}}>
                 <button onClick={function(){buildGame();}} style={{flex:1,padding:"15px",borderRadius:18,border:"none",backgroundColor:"#19A85A",color:"#fff",fontSize:15,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40"}}>Play again</button>
-                <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];var isFree=isPro||(FREE_TOPICS.indexOf(next)!==-1);if(isFree){setTopic(next);}else{onUpgrade();}}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
+                <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];setTopic(next);}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
               </div>
             </div>
           </div>
@@ -2717,7 +2737,7 @@ function TapScreen(props){
     var pool=VOCABULARY.filter(function(w){
       if(w.topic!==topic)return false;
       if(diffCfg.levels.indexOf(w.cefr)===-1)return false;
-      if(!isPro&&!(w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1))return false;
+      if(!isPro&&!isFreeWord(w))return false;
       return true;
     });
     if(pool.length<4)pool=VOCABULARY.filter(function(w){return w.topic===topic&&w.cefr==="A1";});
@@ -2827,7 +2847,7 @@ function TapScreen(props){
         <div style={{backgroundColor:"#fff",borderBottom:"1px solid #F0F0F0"}}>
           <div style={{display:"flex",gap:5,overflowX:"auto",padding:"7px 14px 4px",WebkitOverflowScrolling:"touch"}}>
             {TOPICS_LIST.map(function(t){
-              var act=t===topic;var free=isPro||(FREE_TOPICS.indexOf(t)!==-1);
+              var act=t===topic;var free=true;// depth-gate: games run on A1, all topics free
               return(<button key={t} onClick={function(){if(!free){onUpgrade();return;}setTopic(t);setWon(false);clearInterval(timerRef.current);}}
                 style={{flexShrink:0,fontSize:11,padding:"4px 11px",borderRadius:20,border:"1.5px solid "+(act?"#F97316":"#E8E8E8"),backgroundColor:act?"#F97316":"#fff",color:act?"#fff":free?"#555":"#CCC",cursor:"pointer",fontWeight:700,fontFamily:"inherit",transition:"all 0.15s"}}>
                 {!free?"🔒 ":""}{t.charAt(0).toUpperCase()+t.slice(1)}
@@ -2956,7 +2976,7 @@ function TapScreen(props){
               </div>
               <div style={{display:"flex",gap:10}}>
                 <button onClick={start} style={{flex:1,padding:"15px",borderRadius:18,border:"none",backgroundColor:"#F97316",color:"#fff",fontSize:15,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #C2510E"}}>Play again</button>
-                <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];var free=isPro||(FREE_TOPICS.indexOf(next)!==-1);if(free){setTopic(next);setWon(false);}else{onUpgrade();}}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
+                <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];setTopic(next);setWon(false);}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
               </div>
             </div>
           </div>
@@ -3184,6 +3204,7 @@ function BasqueKitchenScreen(props){
     // Exact id match first, then basque match
     var w=VOCABULARY.find(function(w){return w.id===keyword;});
     if(!w)w=VOCABULARY.find(function(w){return w.basque.toLowerCase()===keyword.toLowerCase();});
+    if(!w)w=SEED_VOCAB.find(function(w){return w.id===keyword;});
     return w||null;
   }
 
@@ -3193,7 +3214,7 @@ function BasqueKitchenScreen(props){
     if(!correctWord)return [];
     // Mix distractors: mostly food A1 but some from other topics for variety
     var foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id&&w.cefr==="A1";}),correctWord);
-    var otherPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic!=="food"&&w.id!==correctWord.id&&w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1;}),correctWord);
+    var otherPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic!=="food"&&w.id!==correctWord.id&&w.cefr==="A1";}),correctWord);
     var distractors=shuffled(foodPool).slice(0,2).concat(shuffled(otherPool).slice(0,1));
     if(distractors.length<3)distractors=shuffled(foodPool).slice(0,3);
     return shuffled([correctWord].concat(distractors.slice(0,3)));
@@ -4550,7 +4571,7 @@ function ArbolaScreen(props){
   },[]);
 
   function findWord(keyword){
-    return VOCABULARY.find(function(w){return w.id===keyword;})||null;
+    return VOCABULARY.find(function(w){return w.id===keyword;})||SEED_VOCAB.find(function(w){return w.id===keyword;})||null;
   }
 
   function buildOptions(fam,stepIdx){
@@ -5206,8 +5227,8 @@ function ProgressScreen(props){
     var levels={A1:{m:0,t:0},A2:{m:0,t:0},B1:{m:0,t:0},B2:{m:0,t:0}};
     for(var i=0;i<V.length;i++){
       var w=V[i];if(!levels[w.cefr])continue;
-      // Free users only count A1 free topics toward totals
-      if(!isPro&&!(w.cefr==="A1"&&FREE_TOPICS.indexOf(w.topic)!==-1))continue;
+      // Free users only count A1 (all topics) toward totals
+      if(!isPro&&!isFreeWord(w))continue;
       levels[w.cefr].t++;
       var d=srsData[w.id];
       if(d&&(d.score||0)>=4)levels[w.cefr].m++;
