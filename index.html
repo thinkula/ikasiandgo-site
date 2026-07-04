@@ -2,11 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Ikasi &amp; Go</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikasi &amp; Go — Learn Basque from English</title>
+<meta name="description" content="Learn Basque from English — no Spanish required. 939 hand-crafted words with pronunciation, example sentences, and the cultural story behind each one. Coming soon to the App Store.">
+<meta property="og:title" content="Ikasi &amp; Go — Learn Basque from English">
+<meta property="og:description" content="939 hand-crafted Basque words with the culture built in. No Spanish required. Coming soon to the App Store.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ikasiandgo.com/">
+<meta name="theme-color" content="#FAF7F0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23009B48'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='900' fill='%23fff' text-anchor='middle'%3EiG%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('/public/fonts/Nunito.woff2') format('woff2');}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Nunito,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FAF7F0;color:#1A1A1A;line-height:1.55;}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px;}
+header{padding:22px 0;}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;}
+.brand .dot{width:30px;height:30px;border-radius:8px;background:#009B48;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;}
+.hero{display:flex;gap:48px;align-items:center;padding:56px 0 40px;flex-wrap:wrap;}
+.hero-copy{flex:1 1 420px;min-width:300px;}
+.kaixo{font-size:17px;font-weight:800;color:#DA291C;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;}
+h1{font-size:clamp(34px,5.4vw,54px);font-weight:900;line-height:1.08;letter-spacing:-0.02em;}
+h1 .green{color:#009B48;}
+.sub{margin-top:18px;font-size:18px;color:#4A4A4A;max-width:52ch;}
+.sub b{color:#1A1A1A;}
+.cta-row{margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.cta{display:inline-block;background:#FF6B35;color:#fff;font-weight:900;font-size:16px;padding:14px 26px;border-radius:14px;box-shadow:0 4px 0 #CC5228;cursor:default;}
+.cta-note{font-size:13px;font-weight:700;color:#8A8A8A;}
+.card-side{flex:0 1 360px;min-width:300px;margin:0 auto;}
+.word-card{background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.10);padding:26px 26px 22px;position:relative;transform:rotate(1.5deg);}
+.level-chip{position:absolute;top:18px;right:18px;background:#FFF4F0;color:#FF6B35;font-size:11px;font-weight:900;padding:4px 10px;border-radius:10px;letter-spacing:0.04em;}
+.word{font-size:40px;font-weight:900;letter-spacing:-0.01em;}
+.gloss{font-size:16px;font-weight:700;color:#6B6B6B;margin-top:2px;}
+.pron{display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:#00779F;background:#EAF8FC;padding:4px 10px;border-radius:10px;}
+.note{margin-top:16px;font-size:14px;color:#4A4A4A;border-left:3px solid #009B48;padding-left:12px;}
+.example{margin-top:14px;font-size:14px;}
+.example .eu{font-weight:800;}
+.example .en{color:#8A8A8A;}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:34px 0 10px;}
+.feature{background:#fff;border-radius:16px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.feature .icon{font-size:24px;}
+.feature h3{font-size:16px;font-weight:900;margin:10px 0 6px;}
+.feature p{font-size:14px;color:#5A5A5A;}
+.stats{display:flex;gap:34px;flex-wrap:wrap;justify-content:center;padding:36px 0 8px;text-align:center;}
+.stat .n{font-size:30px;font-weight:900;color:#DA291C;}
+.stat .l{font-size:12px;font-weight:800;color:#8A8A8A;text-transform:uppercase;letter-spacing:0.07em;}
+.diaspora{margin:44px 0;background:#123B2A;color:#F2EFE7;border-radius:20px;padding:38px 34px;text-align:center;}
+.diaspora h2{font-size:clamp(22px,3.4vw,30px);font-weight:900;line-height:1.2;}
+.diaspora p{margin-top:12px;font-size:16px;color:#C8D6CC;max-width:60ch;margin-left:auto;margin-right:auto;}
+footer{padding:30px 0 46px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;color:#8A8A8A;}
+footer a{color:#6B6B6B;font-weight:700;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+</style>
 </head>
-<body style="margin:0;padding:0;background:#fff;">
-<div id="root"></div>
-<script type="module" src="/src/main.jsx"></script>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand"><span class="dot">iG</span> Ikasi &amp; Go</div>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="kaixo">Kaixo!</div>
+    <h1>Learn Basque from English.<br><span class="green">No Spanish required.</span></h1>
+    <p class="sub">Every other course makes you go through Spanish first. Ikasi &amp; Go teaches Euskara directly from English — <b>939 hand-crafted words</b> with pronunciation, real example sentences, and the cultural story behind each one.</p>
+    <div class="cta-row">
+      <span class="cta">Coming soon to the App&nbsp;Store</span>
+      <span class="cta-note">iOS first · free to start</span>
+    </div>
+  </div>
+  <div class="card-side">
+    <div class="word-card">
+      <span class="level-chip">A1 · BEGINNER</span>
+      <div class="word">Etxea</div>
+      <div class="gloss">House / Home</div>
+      <span class="pron">eh-CHEH-ah</span>
+      <p class="note">The etxe is the oldest legal institution in Basque society — families took their surnames from the house, not the other way around.</p>
+      <p class="example"><span class="eu">Nire etxea mendian dago.</span><br><span class="en">My house is on the mountain.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="n">939</div><div class="l">Hand-crafted words</div></div>
+  <div class="stat"><div class="n">17</div><div class="l">Topics</div></div>
+  <div class="stat"><div class="n">A1–B2</div><div class="l">CEFR path</div></div>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <div class="icon">🏛️</div>
+    <h3>The culture is built in</h3>
+    <p>Every word carries its story — etymology, history, the way people actually use it. You are not memorizing a list; you are meeting a culture.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">🧠</div>
+    <h3>Review that respects your life</h3>
+    <p>Spaced repetition brings words back right before you forget them. Miss a day? No shame, no broken streaks — pick up where you left off.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">🗺️</div>
+    <h3>A real path, A1 to B2</h3>
+    <p>From your first kaixo to arguing politics at the sagardotegi — quizzes, games, and stories graded to the CEFR scale.</p>
+  </div>
+</section>
+
+<section class="diaspora">
+  <h2>Built for the diaspora — and everyone else.</h2>
+  <p>Whether your grandparents spoke Euskara at the dinner table or you are starting from absolute zero, you should not need Spanish to reach the oldest language in Western Europe.</p>
+</section>
+
+<footer>
+  <span>© 2026 Ikasi &amp; Go</span>
+  <span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+</footer>
+
+</div>
 </body>
 </html>
