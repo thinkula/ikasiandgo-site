@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "vocabulary": [
     {
       "id": "kaixo",
@@ -46,7 +46,7 @@
       "english": "No",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "EZ",
+      "pronunciation": "ES",
       "notes": "Ez is also used as a prefix meaning not/un-: ezagutu=to know, ezezagun=unknown.",
       "example": {
         "basque": "Ez eskerrik asko.",
@@ -72,7 +72,7 @@
       "english": "Please",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "meh-SEH-dez",
+      "pronunciation": "meh-SEH-des",
       "notes": "Mesedez comes from Spanish por favor. Common in both formal requests and everyday politeness.",
       "example": {
         "basque": "Mesedez ekarri ura.",
@@ -98,7 +98,7 @@
       "english": "How are you?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "ZER MO-dooz",
+      "pronunciation": "SER MO-doos",
       "notes": "Zer moduz? = How are you? (literally how is the manner?). The standard everyday greeting after kaixo. Zer moduz zaude? is a slightly more emphatic form. Ondo = fine. Primeran = great. Txarto = badly.",
       "example": {
         "basque": "Kaixo! Zer moduz?",
@@ -255,7 +255,7 @@
       "english": "Lunch",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "baz-KAH-ree-ah",
+      "pronunciation": "bas-KAH-ree-ah",
       "notes": "Lunch is the main meal. Basque restaurants serve a menua (set lunch menu) - excellent value and quality.",
       "example": {
         "basque": "Bazkaria egiten dugu.",
@@ -307,7 +307,7 @@
       "english": "Cheese",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "GAZ-tah",
+      "pronunciation": "GAS-tah",
       "notes": "Gazta = cheese. Gatz = salt, so gazta literally means salted thing! Idiazabal is the famous smoked sheep's milk cheese from the Basque Country - PDO protected. Gazta freskoa = fresh cheese. Gaztagintza = cheesemaking.",
       "example": {
         "basque": "Gazta ona da.",
@@ -411,7 +411,7 @@
       "english": "Eight",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "ZOR-tsee",
+      "pronunciation": "SOR-tsee",
       "notes": "Zortzi contains the suffix -tzi which appears in 18 (hamazortzi) too. Pattern: learn it once.",
       "example": {
         "basque": "Zortzi ordu lo egin.",
@@ -658,7 +658,7 @@
       "english": "Aunt",
       "cefr": "A1",
       "topic": "family",
-      "pronunciation": "ee-ZEH-bah",
+      "pronunciation": "ee-SEH-bah",
       "notes": "Izeba = aunt (mothers or fathers sister). Do not confuse with osaba (uncle). Both are important in tight-knit Basque families.",
       "example": {
         "basque": "Izeba bizkorra da.",
@@ -710,7 +710,7 @@
       "english": "White",
       "cefr": "A1",
       "topic": "colors",
-      "pronunciation": "ZOO-ree-ah",
+      "pronunciation": "SOO-ree-ah",
       "notes": "Zuri also means clean or pure. Ardi zuria = white sheep - a common Basque image.",
       "example": {
         "basque": "Elurra zuria da.",
@@ -879,7 +879,7 @@
       "english": "Wind",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "hai-ZEH-ah",
+      "pronunciation": "hai-SEH-ah",
       "notes": "Haizea = the wind. Haize = wind (root). Haizearen = of the wind. The Basque Country coast is famous for strong Atlantic winds.",
       "example": {
         "basque": "Haizea gogorra da.",
@@ -1594,7 +1594,7 @@
       "english": "What is new?",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "ZER BER-ree",
+      "pronunciation": "SER BER-ree",
       "notes": "Zer berri? = What is new? Berri = news/new. The same word means both. Berria = the news/something new.",
       "example": {
         "basque": "Zer berri? Dena ondo?",
@@ -1998,7 +1998,7 @@
       "english": "Wednesday",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "as-teh-az-KEH-nah",
+      "pronunciation": "as-teh-as-KEH-nah",
       "notes": "Asteazkena = Wednesday. Aste = week. The second element is debated - possibly from Latin origins or aste erdi (mid-week) rather than azkena (last). Asteazkenean = on Wednesday. The hardest day name to remember.",
       "example": {
         "basque": "Asteazkena erdian dago.",
@@ -2063,7 +2063,7 @@
       "english": "In the morning",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "GOI-zeh-an",
+      "pronunciation": "GOI-seh-an",
       "notes": "Goizean = in the morning. Goiz = morning (root). Goizeko = of the morning. Goizero = every morning. Goiz jaiki = to get up early.",
       "example": {
         "basque": "Goizean jaiki naiz.",
@@ -2102,7 +2102,7 @@
       "english": "Wife",
       "cefr": "A2",
       "topic": "family",
-      "pronunciation": "eh-maz-TEH-ah",
+      "pronunciation": "eh-mas-TEH-ah",
       "notes": "Emaztea = wife. Emazte = wife (root). Emaztearen = wife's. An old word - modern Basque also uses bikotekidea (partner) more neutrally.",
       "example": {
         "basque": "Emaztea langilea da.",
@@ -2154,7 +2154,7 @@
       "english": "Language",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "heez-KOON-tsah",
+      "pronunciation": "hees-KOON-tsah",
       "notes": "Hizkuntza = language. Hizkuntzalari = linguist. Hizkuntza politika = language policy. Euskara is the hizkuntza of the Basques.",
       "example": {
         "basque": "Hizkuntza ederra da.",
@@ -2246,7 +2246,7 @@
       "english": "Fast / Sharp",
       "cefr": "A2",
       "topic": "adjectives",
-      "pronunciation": "az-KAR-rah",
+      "pronunciation": "as-KAR-rah",
       "notes": "Azkarra = fast or sharp. Azkar ibili = to move fast. Oso azkarra = very sharp/clever. Also means quick-witted. A compliment in Basque culture.",
       "example": {
         "basque": "Ikaslea azkarra da.",
@@ -2311,7 +2311,7 @@
       "english": "Difficult",
       "cefr": "A2",
       "topic": "adjectives",
-      "pronunciation": "ZAI-lah",
+      "pronunciation": "SAI-lah",
       "notes": "Zaila = difficult. Zaildu = to become harder. Zailtasuna = difficulty. Zailtasunak gainditu = to overcome difficulties.",
       "example": {
         "basque": "Euskara zaila da.",
@@ -2324,7 +2324,7 @@
       "english": "Loud",
       "cefr": "A2",
       "topic": "adjectives",
-      "pronunciation": "oh-ZEH-nah",
+      "pronunciation": "oh-SEH-nah",
       "notes": "Ozena = loud. Ozen = loudly. Ozendu = to get louder. Ozentasuna = loudness. Do not confuse with garrantzitsua (important).",
       "example": {
         "basque": "Musika ozena da.",
@@ -2376,7 +2376,7 @@
       "english": "The future",
       "cefr": "B1",
       "topic": "time",
-      "pronunciation": "eh-tor-kee-ZOO-nah",
+      "pronunciation": "eh-tor-kee-SOO-nah",
       "notes": "The future. Etorkizuneko = future (adjective). Etorkizunean = in the future. Key word in Basque language planning - etorkizuna and the survival of Euskara is a constant political discussion. From etorri (to come) + -kizun (that which will).",
       "example": {
         "basque": "Etorkizuna argitsua da.",
@@ -2585,7 +2585,7 @@
       "english": "Worried",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "kez-KAH-too",
+      "pronunciation": "kes-KAH-too",
       "notes": "Kezkatu = worried. Kezka = worry/concern (root). Kezkatzea = worrying. Kezkagarria = worrying/concerning. Kezkatu naiz = I am worried.",
       "example": {
         "basque": "Kezkatu nago.",
@@ -2689,7 +2689,7 @@
       "english": "Sweet / Delicious",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "goh-ZOH-ah",
+      "pronunciation": "goh-SOH-ah",
       "notes": "Gozoa = sweet or delicious. Gozoki = candy/sweet treat. Gozotasuna = sweetness. Gozatu = to enjoy. Gozamenak = pleasures.",
       "example": {
         "basque": "Fruta gozoa da.",
@@ -2754,7 +2754,7 @@
       "english": "Language policy",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "heez-KOON-tsah poh-LEE-tee-kah",
+      "pronunciation": "hees-KOON-tsah poh-LEE-tee-kah",
       "notes": "Hizkuntza politika = language policy - central to Basque politics. Official language status, education medium, and public signage are all debated.",
       "mcOnly": true,
       "example": {
@@ -2782,7 +2782,7 @@
       "english": "Social movement",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "ghee-ZAR-teh moo-ghee-MEN-doo-ah",
+      "pronunciation": "ghee-SAR-teh moo-ghee-MEN-doo-ah",
       "notes": "Gizarte mugimendua = social movement. Gizarte = society + mugimendua = movement. Basque Country has a rich history of social movements.",
       "mcOnly": true,
       "example": {
@@ -2796,7 +2796,7 @@
       "english": "Society",
       "cefr": "B2",
       "topic": "society",
-      "pronunciation": "ghee-ZAR-teh-ah",
+      "pronunciation": "ghee-SAR-teh-ah",
       "notes": "Gizartea = society. Gizon = man/human + -arte = between. Literally between-humans. Gizarteratu = to socialize. Gizarte zerbitzuak = social services.",
       "example": {
         "basque": "Gizartea aldatzen da.",
@@ -3067,7 +3067,7 @@
       "english": "Expiry",
       "cefr": "B2",
       "topic": "time",
-      "pronunciation": "ee-rah-oon-GEE-tseh-ah",
+      "pronunciation": "ee-rown-GEE-tseh-ah",
       "notes": "Iraungitzea = expiry or expiration. Iraungitu = to expire. Iraungitze data = expiry date. Used for passports, contracts, food, medicine. Iraungi da = it has expired. Iraungitu gabe = not yet expired. From iraun (to last) + -gitu.",
       "example": {
         "basque": "Iraungitzea hurbil dago.",
@@ -3379,7 +3379,7 @@
       "english": "Correct / Just / Direct",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "soo-ZEH-nah",
+      "pronunciation": "soo-SEH-nah",
       "notes": "Zuzena = correct, just, or straight. Zuzendu = to correct/direct. Zuzentasuna = justice/correctness. Zuzenean = directly/live (as in live broadcast).",
       "example": {
         "basque": "Erantzuna zuzena da.",
@@ -3535,7 +3535,7 @@
       "english": "When?",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "NOYZ",
+      "pronunciation": "NOYS",
       "notes": "Noiz? = When? Noiz etorriko zara? = When will you come? Noiz arte? = Until when? Noizbehinka = occasionally (sometimes-when). Noizean behin = from time to time. Noiznahi = whenever.",
       "example": {
         "basque": "Noiz etorriko zara?",
@@ -3548,7 +3548,7 @@
       "english": "What?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "ZER",
+      "pronunciation": "SER",
       "notes": "Zer? = What? The most common question word in Basque. Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (what is the manner?). Zer berri? = What's new?",
       "example": {
         "basque": "Zer nahi duzu?",
@@ -3574,7 +3574,7 @@
       "english": "Why?",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "zer-GAH-teek",
+      "pronunciation": "ser-GAH-teek",
       "notes": "Zergatik = why. Zergati = reason (root). Zergatik ez? = Why not? One of the most useful question words for understanding explanations.",
       "example": {
         "basque": "Zergatik etorri zara?",
@@ -3587,7 +3587,7 @@
       "english": "How many / How much?",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "ZEN-bat",
+      "pronunciation": "SEN-bat",
       "notes": "Zenbat? = How many? / How much? Zenbat da? = How much does it cost? Zenbat urte dituzu? = How old are you? Zenbat denbora? = How long? Zenbat eta gehiago... = The more...",
       "example": {
         "basque": "Zenbat da?",
@@ -3652,7 +3652,7 @@
       "english": "To talk / To have a conversation",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "HEETZ EH-gheen",
+      "pronunciation": "HEETS EH-gheen",
       "notes": "Hitz egin (to speak) vs mintzatu (to speak formally). Hitz literally means word - so hitz egin = to do words!",
       "example": {
         "basque": "Euskaraz hitz egiten duzu?",
@@ -3678,7 +3678,7 @@
       "english": "Joyful / Pleasing",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "poz-GAR-ree-ah",
+      "pronunciation": "pos-GAR-ree-ah",
       "notes": "Pozgarria = joyful or pleasing. Poz = joy + -garri (causing). Literally joy-causing. Similar formation: harrigarria (astonishing), nekagarria (tiring).",
       "example": {
         "basque": "Albiste pozgarria da.",
@@ -3873,7 +3873,7 @@
       "english": "Left",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "ez-KER-rah",
+      "pronunciation": "es-KER-rah",
       "notes": "Left direction. Ezkerrera = to the left. Ezkerra also means left-wing in politics.",
       "example": {
         "basque": "Ezkerrera joan.",
@@ -3899,7 +3899,7 @@
       "english": "Straight / Direct / Correct",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "SOO-zen",
+      "pronunciation": "SOO-sen",
       "notes": "Straight ahead or correct. Zuzen-zuzen = perfectly straight. Also means just/fair.",
       "example": {
         "basque": "Zuzen jarraitu.",
@@ -3964,7 +3964,7 @@
       "english": "Back",
       "cefr": "A1",
       "topic": "body",
-      "pronunciation": "beez-KAR-rah",
+      "pronunciation": "bees-KAR-rah",
       "notes": "The back. Bizkar min dut = I have back pain - a very common phrase.",
       "example": {
         "basque": "Bizkarra min dut.",
@@ -4094,7 +4094,7 @@
       "english": "Nice to meet you",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "POZ-ten NOW soo eh-zah-GOO-tsee-ak",
+      "pronunciation": "POS-ten NOW soo eh-sah-GOO-tsee-ak",
       "notes": "A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorising whole as an essential social expression.",
       "mcOnly": true,
       "example": {
@@ -4108,7 +4108,7 @@
       "english": "Where are you from?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "NON-goh-ah ZAH-rah",
+      "pronunciation": "NON-goh-ah SAH-rah",
       "notes": "Nongo = of where + -a (article) = where-from-person. Nongoa naiz = I am from...",
       "example": {
         "basque": "Nongoa zara zu?",
@@ -4121,7 +4121,7 @@
       "english": "How old are you?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "ZEN-bat OOR-teh dee-TOO-zoo",
+      "pronunciation": "SEN-bat OOR-teh dee-TOO-soo",
       "notes": "Literally how many years do you have? Basque uses have not be for age - Hogei urte ditut = I am twenty.",
       "mcOnly": true,
       "example": {
@@ -4317,7 +4317,7 @@
       "english": "I don't understand",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "EZ doot oo-LER-tzen",
+      "pronunciation": "ES doot oo-LER-tsen",
       "notes": "The single most useful phrase for a language learner. Mesedez errepikatu = please repeat. Poliki esaidazu = say it slowly.",
       "mcOnly": true,
       "example": {
@@ -4331,7 +4331,7 @@
       "english": "Do you speak English?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "in-geh-LEH-sez HITS eh-GEE-ten DOO-zoo",
+      "pronunciation": "in-geh-LEH-ses HITS eh-GEE-ten DOO-soo",
       "notes": "Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? The -z suffix means in that language.",
       "mcOnly": true,
       "example": {
@@ -4411,7 +4411,7 @@
       "english": "Cream / Off-white",
       "cefr": "A2",
       "topic": "colors",
-      "pronunciation": "ZOO-ree HOR-ee-ah",
+      "pronunciation": "SOO-ree HOR-ee-ah",
       "notes": "Cream or off-white. Compound colors in Basque are formed by combining two color words. Zuri = white + horia = yellow = cream. Very common for describing walls and fabrics.",
       "example": {
         "basque": "Pareta zuri-horia da.",
@@ -4671,7 +4671,7 @@
       "english": "Congratulations",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "zoh-ree-OH-nak",
+      "pronunciation": "soh-ree-OH-nak",
       "notes": "Congratulations or happy birthday! Zorion = happiness/felicity (a single root, not zori+on). Zorioneko = lucky/happy. Zorionez = luckily/fortunately. One of the most joyful Basque words to say and hear.",
       "example": {
         "basque": "Zorionak zure urtebetetzeagatik!",
@@ -4801,7 +4801,7 @@
       "english": "Full of joy / Overjoyed",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "POZ beh-TEH-ah",
+      "pronunciation": "POS beh-TEH-ah",
       "notes": "Overjoyed or full of joy. Poz = joy + betea = full/filled. Literally joy-filled. A more intense form of pozik (happy). Poz-betean = overjoyed. Basque can compound emotions this way.",
       "example": {
         "basque": "Poz-betea nago albiste honekin.",
@@ -4918,7 +4918,7 @@
       "english": "Autumn / Fall",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "oo-daz-KEH-nah",
+      "pronunciation": "oo-das-KEH-nah",
       "notes": "Autumn. Uda = summer + azkena = last. Literally last summer. Udazkenean = in autumn. The beech forests turn golden. Mushroom season (perretxiko garaia) begins in October.",
       "example": {
         "basque": "Udazkena ederrena da.",
@@ -5074,7 +5074,7 @@
       "english": "Tourism",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "too-REEZ-moh-ah",
+      "pronunciation": "too-REES-moh-ah",
       "notes": "Tourism. Turista = tourist. Turismo bulegoa = tourist office. The Basque Country receives millions of tourists for food culture, the Guggenheim Bilbo (Bilbao), and the Camino de Santiago.",
       "example": {
         "basque": "Turismoa oso garrantzitsua da hemen.",
@@ -5178,7 +5178,7 @@
       "english": "Seventeen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-ZAZ-pee",
+      "pronunciation": "hah-mah-SAS-pee",
       "notes": "Hamar (10) + zazpi (7) = 17. Note the zz = th sound (like English 'this'). Hamazazpi is one of the harder teen numbers to pronounce.",
       "example": {
         "basque": "Hamazazpi egun barru.",
@@ -5191,7 +5191,7 @@
       "english": "Eighteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-ZOR-tsee",
+      "pronunciation": "hah-mah-SOR-tsee",
       "notes": "Hamar (10) + zortzi (8) = 18. Hamazortzi is the longest teen number. The -zortzi ending has the same -tzi you see in zortzi (8).",
       "example": {
         "basque": "Hamazortzi urte ditut.",
@@ -5516,7 +5516,7 @@
       "english": "Bat",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "sah-goo-ZAR-rah",
+      "pronunciation": "sah-goo-SAR-rah",
       "notes": "Bat. Sagu = mouse + zar(ra) = old = old mouse! One of the most charming Basque etymologies. Saguzarrak = bats (plural). Gaueko hegaztia = night flyer. Saguzarrek intsektuak jaten dituzte = bats eat insects.",
       "example": {
         "basque": "Saguzarrak gauez hegan egiten dute.",
@@ -5581,7 +5581,7 @@
       "english": "Young / Youth",
       "cefr": "A1",
       "topic": "adjectives",
-      "pronunciation": "gaz-TEH-ah",
+      "pronunciation": "gas-TEH-ah",
       "notes": "Young or a young person. Gazte = young (root). Gazteak = young people. Gazteria = youth (collective). Gaztetxea = youth center (young-house). Gazteakuasoa = when they were young. Gaztetasuna = youth/youthfulness.",
       "example": {
         "basque": "Nire anaia gaztea da.",
@@ -5841,7 +5841,7 @@
       "english": "Walnut cream sauce",
       "cefr": "B1",
       "topic": "food",
-      "pronunciation": "een-chow-SALT-sah",
+      "pronunciation": "een-chowr-SALT-sah",
       "notes": "Intxaursaltsa = traditional Basque walnut dessert sauce. Intxaur = walnut + saltsa = sauce. Made from walnuts, milk, sugar, and cinnamon (kanela). Eaten warm at Christmas Eve dinner - over 150 years old. One of the oldest Basque desserts, from Gipuzkoa.",
       "example": {
         "basque": "Intxaursaltsa gozoa da.",
@@ -6010,7 +6010,7 @@
       "english": "Worry / Concern",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "KEZ-kah",
+      "pronunciation": "KES-kah",
       "notes": "Kezka = worry or concern (noun). Kezkatu = to worry (verb). Kezkagarria = worrying. Kezkaz = with worry. Kezka nagusia = main concern. One of the most common emotion words in everyday Basque speech.",
       "example": {
         "basque": "Kezka handia dut.",
@@ -6036,7 +6036,7 @@
       "english": "To cheer up / To make happy",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "POZ-too",
+      "pronunciation": "POS-too",
       "notes": "Poztu = to cheer up or make happy. Pozten naiz = I am glad/pleased. Pozten nau = it pleases me. Poztu naiz zure berria entzutean = I was delighted to hear your news. From poz (joy).",
       "example": {
         "basque": "Poztu naiz zu ikusita.",
@@ -6088,7 +6088,7 @@
       "english": "Horizon",
       "cefr": "B1",
       "topic": "nature",
-      "pronunciation": "zeh-roo-MOO-gah",
+      "pronunciation": "seh-roo-MOO-gah",
       "notes": "Zerumuga = horizon. Zeru = sky + muga = border/limit. Literally the sky-border. A beautiful compound. Zerumuga urrunean = on the far horizon. Common in Basque poetry and descriptions of the sea coast.",
       "example": {
         "basque": "Zerumuga ikusten da.",
@@ -6192,7 +6192,7 @@
       "english": "Fat / Thick",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "ghee-ZEH-nah",
+      "pronunciation": "ghee-SEH-nah",
       "notes": "Gizena = fat or thick. Gizen = fat (root). Gizendu = to fatten/get fat. Gizeneria = obesity. Gizen-gizena = very fat. Used for people, animals, and objects (liburu gizena = thick book). Be tactful!",
       "example": {
         "basque": "Liburua gizena da.",
@@ -6452,7 +6452,7 @@
       "english": "Human being / Person",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "ghee-ZAH-kee-ah",
+      "pronunciation": "ghee-SAH-kee-ah",
       "notes": "Gizakia = human being. Gizon = man + -aki (being). Gizaki = human (root). Giza = human (prefix). Gizakiak = humans. Giza eskubideak = human rights. Gizatasuna = humanity/humanness.",
       "example": {
         "basque": "Gizaki guztiak berdinak dira.",
@@ -6478,7 +6478,7 @@
       "english": "Pure white / Snow white",
       "cefr": "B1",
       "topic": "colors",
-      "pronunciation": "ZOO-ree ZOO-ree-ah",
+      "pronunciation": "SOO-ree SOO-ree-ah",
       "notes": "Zuri-zuria = pure white or snow white. Reduplication for intensity: zuri=white, zuri-zuria=pure white. Elurra zuri-zuria = the snow is pure white. This pattern works for all Basque colors.",
       "example": {
         "basque": "Elurra zuri-zuria da.",
@@ -6543,7 +6543,7 @@
       "english": "Theater / Play",
       "cefr": "A2",
       "topic": "culture",
-      "pronunciation": "an-TER-kee-ah",
+      "pronunciation": "an-TSER-kee-ah",
       "notes": "Antzerkia = theater or theatrical play. Antzerkigilea = playwright. Antzezlea = actor. Antzeztu = to perform/act. Basque theater has ancient roots in pastoral plays (pastorales) and mystery plays.",
       "example": {
         "basque": "Antzerkia ikustera joango naiz.",
@@ -6816,7 +6816,7 @@
       "english": "Bird (formal)",
       "cefr": "B1",
       "topic": "nature",
-      "pronunciation": "heh-GAHZ-tee-ah",
+      "pronunciation": "heh-GAHS-tee-ah",
       "notes": "Hegaztia = bird (more formal/scientific term). Hegan egin = to fly (literally to do wing). Hegazkin = aircraft (flying machine). Txoria is the everyday word for bird; hegaztia appears in nature writing, biology, and formal contexts.",
       "example": {
         "basque": "Hegaztiak hegan egiten dute.",
@@ -6946,7 +6946,7 @@
       "english": "Chestnut",
       "cefr": "A2",
       "topic": "food",
-      "pronunciation": "gaz-TAI-nah",
+      "pronunciation": "gas-TAI-nah",
       "notes": "Gaztaina = chestnut. Gaztainondo = chestnut tree. Gaztaina erreak = roasted chestnuts, sold at markets in autumn. Gaztainak batu = to gather chestnuts. Chestnuts were a staple food in the Basque mountains before potatoes arrived.",
       "example": {
         "basque": "Gaztaina erreak nahi ditut.",
@@ -6993,19 +6993,6 @@
       }
     },
     {
-      "id": "nekatua",
-      "basque": "Lasai",
-      "english": "Calm / Relaxed (state)",
-      "cefr": "A1",
-      "topic": "emotions",
-      "pronunciation": "lah-SAI",
-      "notes": "Calm or relaxed as a state. Lasai egon = to be calm. Lasai ibili = take it easy. Lasai! = Calm down! / Relax! Very common in everyday speech. Lasaia is the adjective form.",
-      "example": {
-        "basque": "Lasai, dena ondo dago.",
-        "english": "Calm down, everything is fine."
-      }
-    },
-    {
       "id": "gaixorik",
       "basque": "Gaixorik",
       "english": "Ill / Unwell",
@@ -7024,7 +7011,7 @@
       "english": "Therefore / So / Thus",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "HOR-taz",
+      "pronunciation": "HOR-tas",
       "notes": "Hortaz = therefore, so, or thus. Hortaz, joan behar dut = therefore I have to go. Beraz is a synonym also meaning therefore. Hortaz ez dakit = so I don't know. A connector linking cause and consequence.",
       "example": {
         "basque": "Hortaz, etxera joango naiz.",
@@ -7037,7 +7024,7 @@
       "english": "So / Therefore / Then",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "BEH-raz",
+      "pronunciation": "BEH-ras",
       "notes": "Beraz = so, therefore, or then. Beraz, zer egin dezakegu? = So what can we do? Very common in Basque conversation - used to draw conclusions or transitions. Synonymous with hortaz but more colloquial.",
       "example": {
         "basque": "Beraz, ados gaude.",
@@ -7310,7 +7297,7 @@
       "english": "Inhabitants / Population",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "beez-TAN-leh-ak",
+      "pronunciation": "bees-TAN-leh-ak",
       "notes": "Biztanleak = inhabitants or population (plural). Biztanle = inhabitant (singular). Biztanleria = population. Bilboko biztanleak = inhabitants of Bilbo. The Basque Country has about 3 million inhabitants across the 7 territories.",
       "example": {
         "basque": "Biztanle asko dago hirian.",
@@ -7440,7 +7427,7 @@
       "english": "Wound / Injury",
       "cefr": "B1",
       "topic": "body",
-      "pronunciation": "zow-REE-ah",
+      "pronunciation": "sow-REE-ah",
       "notes": "Zauria = wound or injury. Zauri = wound (root). Zauritua = injured/wounded. Zauria sendatu = to heal a wound. Zauritu = to injure/wound. An important word for medical and emergency contexts. Zauririk gabe = unharmed.",
       "example": {
         "basque": "Zauria sendatzen ari da.",
@@ -7479,7 +7466,7 @@
       "english": "Health center",
       "cefr": "A2",
       "topic": "body",
-      "pronunciation": "oh-SAH-soon ZEN-troh-ah",
+      "pronunciation": "oh-SAH-soon SEN-troh-ah",
       "notes": "Osasun zentroa = health center or clinic. Osasun = health + zentroa = center. The primary healthcare system in the Basque Country (Osakidetza) is highly rated. Anbulatorioa is also used. Hitzordua eskatu = to make an appointment.",
       "example": {
         "basque": "Osasun zentrora joan behar dut.",
@@ -7583,7 +7570,7 @@
       "english": "Service time / Opening hours",
       "cefr": "B1",
       "topic": "travel",
-      "pronunciation": "zer-BEET-soo OR-doo-ah",
+      "pronunciation": "ser-BEET-soo OR-doo-ah",
       "notes": "Zerbitzu ordua = service time or opening hours. Zerbitzu = service + ordua = time/hour. Harrera = check-in (hotel reception). Sarrera ordua = check-in time. Irteera ordua = check-out time. Zerbitzu ordutegia = service schedule.",
       "example": {
         "basque": "Zerbitzu ordua goizeko bederatzietatik arratsaldeko seietara da.",
@@ -7674,7 +7661,7 @@
       "english": "I am not sure",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "zee-OOR ez NAH-go",
+      "pronunciation": "see-OOR es NAH-go",
       "notes": "Ziur ez nago = I am not sure. Ziur = sure/certain. Ez nago ziur ere = I am not sure either. Agian = perhaps (related expression). Seguruenik = probably. Ziurtasuna = certainty. Very commonly used to soften statements.",
       "example": {
         "basque": "Ziur ez nago erantzunaz.",
@@ -7817,7 +7804,7 @@
       "english": "July",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "ooz-TAI-lah",
+      "pronunciation": "oos-TAI-lah",
       "notes": "July. Uzta (harvest) is in the root. The hottest month. Aste Nagusia (Great Week) in Bilbo is in August.",
       "example": {
         "basque": "Uztailean bero handia dago.",
@@ -7869,7 +7856,7 @@
       "english": "November",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "ah-zah-ROH-ah",
+      "pronunciation": "ah-sah-ROH-ah",
       "notes": "November. Aza (cabbage) is in the root - the cabbage month, when winter vegetables were harvested. Cider season is in full swing.",
       "example": {
         "basque": "Azaroan sagardoa edaten dugu.",
@@ -7934,7 +7921,7 @@
       "english": "Debate / Argument",
       "cefr": "B2",
       "topic": "society",
-      "pronunciation": "ez-tah-BAI-dah",
+      "pronunciation": "es-tah-BAI-dah",
       "notes": "Debate or argument. Eztabaidatu = to debate. Used for both political debate and personal argument. Eztabaida publikoa = public debate.",
       "example": {
         "basque": "Eztabaida politikoa bizia da.",
@@ -8077,7 +8064,7 @@
       "english": "Controversial / Debatable",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "ez-tah-bai-dah-GAR-ree-ah",
+      "pronunciation": "es-tah-bai-dah-GAR-ree-ah",
       "notes": "Controversial or debatable. Eztabaida (debate) + -garria (worthy of). Used for topics that spark debate. Gai eztabaidagarria = controversial topic.",
       "example": {
         "basque": "Gai hori oso eztabaidagarria da.",
@@ -8129,7 +8116,7 @@
       "english": "Precise / Exact",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "zeh-HAT-sah",
+      "pronunciation": "seh-HAT-sah",
       "notes": "Precise or exact. Zehatz-mehatz = precisely/exactly. Zehaztu = to specify. Important in academic, legal and scientific discourse.",
       "example": {
         "basque": "Datu zehatzak behar ditugu.",
@@ -8324,7 +8311,7 @@
       "english": "Single / Unmarried",
       "cefr": "B1",
       "topic": "family",
-      "pronunciation": "ez-kon-GAH-beh-ah",
+      "pronunciation": "es-kon-GAH-beh-ah",
       "notes": "Single or unmarried. Ez (not) + kontu (married) + gabea (without). Ezkongabe bizi = to live single. Increasingly common as marriage rates change.",
       "example": {
         "basque": "Oraindik ezkongabea naiz.",
@@ -8350,7 +8337,7 @@
       "english": "Extended family",
       "cefr": "B1",
       "topic": "family",
-      "pronunciation": "fah-MEE-lee-ah zah-BAH-lah",
+      "pronunciation": "fah-MEE-lee-ah sah-BAH-lah",
       "notes": "Extended family. Familia (family) + zabala (wide/broad). Traditional Basque culture placed great importance on the extended family unit - the etxea (house/family).",
       "example": {
         "basque": "Familia zabalarekin biltzen gara Gabonak.",
@@ -8428,7 +8415,7 @@
       "english": "Occasionally / From time to time",
       "cefr": "B1",
       "topic": "time",
-      "pronunciation": "noiz-beh-HIN-kah",
+      "pronunciation": "nois-beh-HIN-kah",
       "notes": "Occasionally or from time to time. Noiz (when) + behinka (sometimes). Noizbehinka joaten naiz = I go occasionally. Very useful adverb of frequency.",
       "example": {
         "basque": "Noizbehinka mendira joaten gara.",
@@ -8506,7 +8493,7 @@
       "english": "Recipe",
       "cefr": "B2",
       "topic": "food",
-      "pronunciation": "er-reh-ZEH-tah",
+      "pronunciation": "er-reh-SEH-tah",
       "notes": "Recipe. From Spanish receta. Errezeta jarraitu = to follow a recipe. Traditional Basque recipes are passed down through generations.",
       "example": {
         "basque": "Amaren errezeta jarraituko dut.",
@@ -8519,7 +8506,7 @@
       "english": "Number (mathematical)",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "zen-BAH-kee-ah",
+      "pronunciation": "sen-BAH-kee-ah",
       "notes": "Number (mathematical). Zenb (how many) root. Zenbaki bikoitiak = even numbers. Zenbaki bakoitiak = odd numbers. Zenbaki lehenak = prime numbers.",
       "example": {
         "basque": "Zenbaki lehenak ikertzen ditut.",
@@ -8571,7 +8558,7 @@
       "english": "Duration / Lifespan",
       "cefr": "B2",
       "topic": "time",
-      "pronunciation": "ee-rah-oo-PEH-nah",
+      "pronunciation": "ee-ROW-peh-nah",
       "notes": "Duration or lifespan. Iraun (to last) + -pena. Iraupen luzea = long duration. Hizkuntzaren iraupena = the survival/duration of the language. Important in linguistic and historical contexts.",
       "example": {
         "basque": "Proiektuaren iraupena bi urte da.",
@@ -8636,7 +8623,7 @@
       "english": "Nurse",
       "cefr": "A1",
       "topic": "work",
-      "pronunciation": "eh-ree-ZAI-nah",
+      "pronunciation": "eh-ree-SAI-nah",
       "notes": "Nurse. Erizain = nurse (root). One of the most common professions. Erizain ona = good nurse. The Basque health system (Osakidetza) is well regarded.",
       "example": {
         "basque": "Erizaina ospitalean lan egiten du.",
@@ -8675,7 +8662,7 @@
       "english": "Secretary / Administrator",
       "cefr": "A1",
       "topic": "work",
-      "pronunciation": "ee-daz-KAH-ree-ah",
+      "pronunciation": "ee-das-KAH-ree-ah",
       "notes": "Secretary or administrator. Idatz (write) + -karia. Idazkari nagusia = head secretary. Common in office and government contexts.",
       "example": {
         "basque": "Idazkaria bulegoan dago.",
@@ -8688,7 +8675,7 @@
       "english": "Farmer",
       "cefr": "A1",
       "topic": "work",
-      "pronunciation": "neh-kah-ZAH-ree-ah",
+      "pronunciation": "neh-kah-SAH-ree-ah",
       "notes": "Farmer. Neka (toil) + -zaria. The baserri (farmhouse) and its farmer are central to Basque rural identity. Many Basque surnames come from farmhouse names.",
       "example": {
         "basque": "Nekazariak baserrian lan egiten du.",
@@ -8701,7 +8688,7 @@
       "english": "Mayor",
       "cefr": "A1",
       "topic": "society",
-      "pronunciation": "ow-zah-PEH-sah",
+      "pronunciation": "ow-sah-PEH-sah",
       "notes": "Mayor. Auzo (neighborhood) + peza. The local mayor (alkatea in Spanish Basque) is a key figure in Basque civic life. Auzapeza da = he/she is the mayor.",
       "example": {
         "basque": "Auzapeza herriko bileran dago.",
@@ -8740,7 +8727,7 @@
       "english": "Zero",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "ZEH-roh",
+      "pronunciation": "SEH-roh",
       "notes": "Zero. International term. Zerora iritsi = to reach zero. Zero tolerantzia = zero tolerance. Also written zerotan (in zeros). Essential for mathematics and statistics.",
       "example": {
         "basque": "Tenperatura zeroan dago.",
@@ -8753,7 +8740,7 @@
       "english": "Whole number / Integer",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "zen-BAH-kee oh-SOH-ah",
+      "pronunciation": "sen-BAH-kee oh-SOH-ah",
       "notes": "Whole number or integer. Zenbaki (number) + osoa (whole). Zenbaki positiboak = positive numbers. Zenbaki negatiboak = negative numbers. Used in mathematics and science.",
       "example": {
         "basque": "Zenbaki osoak dira 1, 2, 3 eta abar.",
@@ -9130,7 +9117,7 @@
       "english": "Good luck",
       "cefr": "B2",
       "topic": "greetings",
-      "pronunciation": "ZOR-teh ON",
+      "pronunciation": "SOR-teh ON",
       "notes": "Good luck. Zorte (luck/fate) + on (good). Zorte oneko = lucky. Zorte txarra = bad luck. Used before exams, competitions, journeys. Zorte on denoi = good luck to everyone.",
       "example": {
         "basque": "Zorte on azterketan!",
@@ -9168,7 +9155,7 @@
       "basque": "Atsegin dut",
       "english": "I like it / I enjoy it",
       "cefr": "B2",
-      "topic": "greetings",
+      "topic": "emotions",
       "pronunciation": "at-SEH-gheen doot",
       "notes": "I like it or I enjoy it. Atsegin (pleasure) + dut (I have). More formal and literary than gustatu. Atsegin dut zure laguntza = I appreciate your help. Used in polite and formal expressions of appreciation.",
       "example": {
@@ -9403,7 +9390,7 @@
       "english": "Long road / Long journey",
       "cefr": "B2",
       "topic": "travel",
-      "pronunciation": "BEE-deh LOO-zeh-ah",
+      "pronunciation": "BEE-deh LOO-seh-ah",
       "notes": "Long road or long journey. Bide (road/path) + luzea (long). Both literal and metaphorical. Bide luzea dago oraindik = there is still a long road ahead. Used in discussions of political, social and personal journeys.",
       "example": {
         "basque": "Bide luzea dago helmugaraino.",
@@ -9611,7 +9598,7 @@
       "english": "Being loved / Love (feeling)",
       "cefr": "A1",
       "topic": "emotions",
-      "pronunciation": "MAI-teh ee-ZAH-teh-ah",
+      "pronunciation": "MAI-teh ee-SAH-teh-ah",
       "notes": "The feeling of being loved or loving someone. Maite = dear/beloved. Maite zaitut = I love you. One of the most important emotional expressions in any language.",
       "example": {
         "basque": "Maite izatea zoragarria da.",
@@ -9619,7 +9606,7 @@
       }
     },
     {
-      "id": "alaitasun",
+      "id": "atsegin",
       "basque": "Atsegin",
       "english": "Pleasure / Liking",
       "cefr": "A1",
@@ -9650,7 +9637,7 @@
       "english": "Humanity / Mankind",
       "cefr": "A1",
       "topic": "society",
-      "pronunciation": "ghee-ZAH-dee-ah",
+      "pronunciation": "ghee-SAH-dee-ah",
       "notes": "Humanity or mankind. Giza (human) + -dia. Gizadiaren historia = the history of humanity. Gizadiari lagundu = to help humanity. A fundamental concept in society.",
       "example": {
         "basque": "Gizadia planeta honetan bizi da.",
@@ -9658,7 +9645,7 @@
       }
     },
     {
-      "id": "biztanle",
+      "id": "komunitatea",
       "basque": "Komunitatea",
       "english": "Community",
       "cefr": "A1",
@@ -9689,7 +9676,7 @@
       "english": "Spouse",
       "cefr": "A2",
       "topic": "family",
-      "pronunciation": "ez-kon-TEE-deh-ah",
+      "pronunciation": "es-kon-TEE-deh-ah",
       "notes": "Spouse. Ezkon (married) + kidea (companion). Gender-neutral term for husband or wife. More formal than senarra/emaztea. Ezkontide onena = best spouse. Used in official and legal contexts.",
       "example": {
         "basque": "Nire ezkontidea medikua da.",
@@ -9780,7 +9767,7 @@
       "english": "Counting / Arithmetic",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "zen-bah-kee-KEH-tah",
+      "pronunciation": "sen-bah-kee-KEH-tah",
       "notes": "Counting or arithmetic. Zenbaki (number) + -keta. Zenbakiketa sinplea = simple arithmetic. Used in education and mathematics. Oinarrizko zenbakiketa = basic arithmetic.",
       "example": {
         "basque": "Zenbakiketa ikasi behar dute haurrek.",
@@ -9949,7 +9936,7 @@
       "english": "Index / Rate",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "in-DEE-zeh-ah",
+      "pronunciation": "in-DEE-seh-ah",
       "notes": "Index or rate. From Spanish índice. Langabezia indizea = unemployment rate. Prezio indizea = price index. Jaiotza tasa = birth rate. Used in economic and social statistics.",
       "example": {
         "basque": "Langabezia indizea jaitsi da.",
@@ -10079,7 +10066,7 @@
       "english": "Seventh",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "zaz-pee-GAR-reh-nah",
+      "pronunciation": "sas-pee-GAR-reh-nah",
       "notes": "Seventh. Zazpi (seven) + -garrena. Zazpigarren zeruan = in seventh heaven. The ordinal suffix pattern is consistent and learnable once understood.",
       "example": {
         "basque": "Zazpigarren solairuan bizi naiz.",
@@ -10092,7 +10079,7 @@
       "english": "Eighth",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "zor-tsee-GAR-reh-nah",
+      "pronunciation": "sor-tsee-GAR-reh-nah",
       "notes": "Eighth. Zortzi (eight) + -garrena. Zortzigarren postua = eighth place. Used for floors, positions, dates and rankings.",
       "example": {
         "basque": "Abuztuaren zortzigarrena da.",
@@ -10157,7 +10144,7 @@
       "english": "Division",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "zah-tee-KEH-tah",
+      "pronunciation": "sah-tee-KEH-tah",
       "notes": "Division. Zati = part/divided by. Zatiketa egin = to do division. Hamar zati bi bost da = ten divided by two is five. Zati = fraction as well as division.",
       "example": {
         "basque": "Zatiketa matematikako oinarria da.",
@@ -10196,7 +10183,7 @@
       "english": "In the last year / Year-on-year",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "AZ-ken OOR-teh-an",
+      "pronunciation": "AS-ken OOR-teh-an",
       "notes": "In the last year or year-on-year. Azken (last/final) + urtean (in the year). Azken urtean igoera = increase in the last year. Used constantly in statistics, news and reports.",
       "example": {
         "basque": "Azken urtean prezioek gora egin dute.",
@@ -10235,7 +10222,7 @@
       "english": "Average / Mean",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "bah-tez bes-TEH-koh-ah",
+      "pronunciation": "bah-tes bes-TEH-koh-ah",
       "notes": "Average or mean. Batez (on average) + bestekoa (the other/middle). Batez besteko soldata = average salary. Batez bestekotik gora = above average. One of the most used statistical terms.",
       "example": {
         "basque": "Batez besteko tenperatura igoera dago.",
@@ -10287,7 +10274,7 @@
       "english": "Cough",
       "cefr": "A2",
       "topic": "body",
-      "pronunciation": "ez-TOO-lah",
+      "pronunciation": "es-TOO-lah",
       "notes": "Cough. Eztul egin = to cough. Eztul lehorra = dry cough. Eztul hezea = wet cough. One of the most common symptoms vocabulary learners need when visiting a doctor or pharmacy.",
       "example": {
         "basque": "Eztul asko egiten dut.",
@@ -10326,7 +10313,7 @@
       "english": "Aeroplane / Flight",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "heh-gaz-KEE-nah",
+      "pronunciation": "heh-gas-KEE-nah",
       "notes": "Aeroplane or flight. Hegaz (flying) + -kina (machine). Hegazkin txartela = plane ticket. Hegazkin konpainia = airline. Bilbao Airport (Loiu) and San Sebastián Airport serve the Basque Country.",
       "example": {
         "basque": "Hegazkinez joango naiz Madrilera.",
@@ -10365,7 +10352,7 @@
       "english": "Plane ticket",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "heh-gaz-KEEN CHAR-teh-lah",
+      "pronunciation": "heh-gas-KEEN CHAR-teh-lah",
       "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joateko txartela = one-way ticket. Joan-etorriko txartela = return ticket. Txartela erosi = to buy a ticket.",
       "example": {
         "basque": "Hegazkin txartela erosi behar dut.",
@@ -10469,7 +10456,7 @@
       "english": "To have lunch",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "baz-KAL-doo",
+      "pronunciation": "bas-KAL-doo",
       "notes": "To have lunch. Bazkal (lunch) + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture - often a three-course menua.",
       "example": {
         "basque": "Jatetxean bazkaldu dugu.",
@@ -10560,7 +10547,7 @@
       "english": "Cloudy",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "hoh-day-TOO",
+      "pronunciation": "hoh-day-TSOO",
       "notes": "Cloudy. Hodei (cloud) + -tsu (full of). Hodeitsu dago = it is cloudy. The Basque Country has an oceanic climate - clouds and rain are frequent. Hodei iluna = dark cloud.",
       "example": {
         "basque": "Hodeitsu dago gaur, beharbada euria egingo du.",
@@ -12236,6 +12223,19 @@
       "example": {
         "basque": "Ekaitza dator.",
         "english": "A storm is coming."
+      }
+    },
+    {
+      "id": "biztanlea",
+      "basque": "Biztanlea",
+      "english": "Inhabitant / Resident",
+      "cefr": "B1",
+      "topic": "society",
+      "pronunciation": "bees-tan-LEH-ah",
+      "notes": "From bizi (to live): the one who lives somewhere. Biztanleria = population. News and statistics count everything in biztanleko, per inhabitant.",
+      "example": {
+        "basque": "Bilbok 350.000 biztanle inguru ditu.",
+        "english": "Bilbao has about 350,000 inhabitants."
       }
     }
   ],
