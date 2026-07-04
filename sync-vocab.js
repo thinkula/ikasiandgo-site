@@ -93,4 +93,25 @@ for (const p of COPIES) {
   }
 }
 
+// ---- 3. stamp live counts into the landing page ----
+// index.html (the ikasiandgo.com homepage) shows the vocabulary size via
+// <span data-count="words"> and <span data-count="topics"> markers, so the
+// site never quotes a stale number. Missing file/markers is not an error.
+const LANDING_PATH = path.join(ROOT, "index.html");
+if (fs.existsSync(LANDING_PATH)) {
+  const topicCount = new Set(vocab.map(function (w) { return w.topic; })).size;
+  const page = fs.readFileSync(LANDING_PATH, "utf8");
+  const stamped = page
+    .replace(/(<span data-count="words">)[^<]*(<\/span>)/g, "$1" + vocab.length + "$2")
+    .replace(/(<span data-count="topics">)[^<]*(<\/span>)/g, "$1" + topicCount + "$2");
+  if (stamped !== page) {
+    fs.writeFileSync(LANDING_PATH, stamped);
+    console.log("sync-vocab: landing page counts updated (" + vocab.length + " words, " + topicCount + " topics)");
+  } else {
+    console.log("sync-vocab: landing page counts already current");
+  }
+} else {
+  console.log("sync-vocab: skip (no landing page): index.html");
+}
+
 console.log("sync-vocab: done.");
