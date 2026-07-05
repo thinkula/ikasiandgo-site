@@ -3337,11 +3337,12 @@ function BasqueKitchenScreen(props){
     var correct=currentDish.stages[currentStageIdx];
     var correctWord=findWord(correct.keyword);
     if(!correctWord)return [];
-    // Mix distractors: mostly food A1 but some from other topics for variety
+    // Distractors: food words only. A cooking exercise must never offer
+    // non-food words as ingredient options (they read as dishes under the
+    // fallback pan emoji and are free giveaways anyway).
     var foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id&&w.cefr==="A1";}),correctWord);
-    var otherPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic!=="food"&&w.id!==correctWord.id&&w.cefr==="A1";}),correctWord);
-    var distractors=shuffled(foodPool).slice(0,2).concat(shuffled(otherPool).slice(0,1));
-    if(distractors.length<3)distractors=shuffled(foodPool).slice(0,3);
+    if(foodPool.length<3)foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id;}),correctWord);
+    var distractors=shuffled(foodPool).slice(0,3);
     return shuffled([correctWord].concat(distractors.slice(0,3)));
   }
 
@@ -3571,6 +3572,21 @@ function BasqueKitchenScreen(props){
     "frijitu":"🫕",        // to fry
     "urdaia":"🥓",         // bacon
     "piperrada":"🌶️",      // piperade
+    // v1.2 kitchen & food additions
+    "edaria":"🥤",         // drink
+    "zukua":"🧃",          // juice
+    "pasta":"🍝",          // pasta
+    "espezia":"🧂",        // spice
+    "izozkia":"🍦",        // ice cream
+    "askaria":"🥪",        // afternoon snack
+    "platera":"🍽️",        // plate
+    "edalontzia":"🥛",     // drinking glass
+    "katilua":"☕",        // cup or mug
+    "koilara":"🥄",        // spoon
+    "sardexka":"🍴",       // fork
+    "labana":"🔪",         // knife
+    "pastela":"🍰",        // cake
+    "txerrikia":"🥓",      // pork
   };
   function getEmoji(word){if(!word)return"🥘";return WORD_EMOJI[word.id]||(word.basque?WORD_EMOJI[word.basque.toLowerCase()]:null)||"🥘";}
 
