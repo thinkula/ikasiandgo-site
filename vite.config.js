@@ -11,7 +11,10 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: resolve(__dirname, 'www'),
-    emptyOutDir: false,
+    // Wipe www/ on every build: prevents dead hashed bundles accumulating.
+    // Safe because publicDir (vocabulary.json, fonts) is re-copied each build
+    // and the prebuild hook keeps public/vocabulary.json current.
+    emptyOutDir: true,
     assetsDir: 'assets',
   },
   publicDir: resolve(__dirname, 'public'),
