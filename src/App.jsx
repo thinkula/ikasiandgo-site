@@ -3520,9 +3520,9 @@ function BasqueKitchenScreen(props){
     "sagardoa":"🍶",       // cider
     "janaria":"🍱",        // food
     "pintxoa":"🥖",        // pintxo
-    "bazkaria":"☀️",       // lunch
-    "afaria":"🌙",         // dinner
-    "gosaria":"🌅",        // breakfast
+    "bazkaria":"🍛",       // lunch
+    "afaria":"🍲",         // dinner
+    "gosaria":"🥐",        // breakfast
     "oilaskoa":"🍗",       // chicken
     "gazta":"🧀",          // cheese
     "garagardoa":"🍻",     // beer
@@ -3540,7 +3540,7 @@ function BasqueKitchenScreen(props){
     "pintxoa":"🥖",        // pintxo
     "garagardoa":"🍺",     // beer
     "janaria":"🍱",        // food
-    "afaria":"🌙",         // dinner
+    "afaria":"🍲",         // dinner
     "edan":"🥤",           // to drink
     "errezeta":"📖",       // recipe
     "osagai":"🧪",         // ingredient
@@ -3551,7 +3551,7 @@ function BasqueKitchenScreen(props){
     "dastaketa":"👅",      // tasting
     "gastronomia":"🍽️",    // gastronomy
     "mahaia_erreserbatu":"📅", // reserve a table
-    "bazkaria":"☀️",       // lunch
+    "bazkaria":"🍛",       // lunch
     "bazkaldu":"🍜",       // to have lunch
     "tea":"🍵",            // tea
     "opila":"🫓",          // flatbread
@@ -3581,7 +3581,7 @@ function BasqueKitchenScreen(props){
     "menua":"📋",          // menu
     "fruta":"🍎",          // fruit
     "kafea":"☕",          // coffee
-    "gosaria":"🌅",        // breakfast
+    "gosaria":"🥐",        // breakfast
     "gosaldu":"🍳",        // to have breakfast
     "intxaursaltsa":"🥛",  // walnut cream sauce
     "opila":"🫓",          // flatbread
@@ -3609,7 +3609,7 @@ function BasqueKitchenScreen(props){
     "edaria":"🥤",         // drink
     "zukua":"🧃",          // juice
     "pasta":"🍝",          // pasta
-    "espezia":"🧂",        // spice
+    "espezia":"🌿",        // spice
     "izozkia":"🍦",        // ice cream
     "askaria":"🥪",        // afternoon snack
     "platera":"🍽️",        // plate
@@ -3620,6 +3620,14 @@ function BasqueKitchenScreen(props){
     "labana":"🔪",         // knife
     "pastela":"🍰",        // cake
     "txerrikia":"🥓",      // pork
+    // remaining food-topic coverage (audit: every food word now mapped)
+    "tipula":"🧅",         // onion
+    "oliba":"🫒",          // olive
+    "xerra":"🍖",          // steak/fillet
+    "pil_pil":"🐟",        // pil-pil sauce
+    "txoko":"🍷",          // gastronomic society
+    "labean_egina":"🥧",   // baked/oven-cooked
+    "gatz_gutxiko":"🧂",   // low-salt
   };
   function getEmoji(word){if(!word)return"🥘";return WORD_EMOJI[word.id]||(word.basque?WORD_EMOJI[word.basque.toLowerCase()]:null)||"🥘";}
 
