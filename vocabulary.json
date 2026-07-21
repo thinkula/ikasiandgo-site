@@ -1,5 +1,5 @@
 {
-  "version": "1.3.1",
+  "version": "1.3.2",
   "vocabulary": [
     {
       "id": "kaixo",
@@ -4518,8 +4518,8 @@
       "pronunciation": "hee-roo-ROH-gay",
       "notes": "60 = three twenties (hiru=3 + hogei=20). The vigesimal system: laurogei=80 (four twenties). French keeps traces of the same system: quatre-vingts (80) = four twenties, quatre-vingt-dix (90) = four twenties and ten.",
       "example": {
-        "basque": "Hirurogei minutu = ordubete.",
-        "english": "Sixty minutes equals one hour."
+        "basque": "Ordu batek hirurogei minutu ditu.",
+        "english": "An hour has sixty minutes."
       }
     },
     {
@@ -6253,14 +6253,14 @@
     },
     {
       "id": "bihotzbera",
-      "basque": "Bihotzbera",
+      "basque": "Bihozbera",
       "english": "Kind-hearted / Tender",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "bee-hots-BEH-rah",
-      "notes": "Bihotzbera = kind-hearted or tender-hearted. Bihotz = heart + bera = soft/tender. Literally soft-hearted. Bihotzbera da = he/she is kind-hearted. A lovely compound showing Basque expressiveness.",
+      "pronunciation": "bee-os-BEH-rah",
+      "notes": "Bihozbera = kind-hearted or tender-hearted. Bihotz (heart) + bera (soft/tender), with the tz softening to z in the compound: literally soft-hearted. The variant bihotzbera is also seen, but bihozbera is the standard form.",
       "example": {
-        "basque": "Oso bihotzbera da.",
+        "basque": "Oso bihozbera da.",
         "english": "She is very kind-hearted."
       }
     },
@@ -6617,14 +6617,14 @@
     },
     {
       "id": "autopista",
-      "basque": "Autopista",
+      "basque": "Autobidea",
       "english": "Motorway / Highway",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "ow-toh-PEES-tah",
-      "notes": "Autopista = motorway. From Spanish autopista. Autobidea is the Basque compound word (auto=car + bide=road). AP-8 is the main Basque motorway running along the coast. Peajea = toll.",
+      "pronunciation": "ow-toh-BEE-deh-ah",
+      "notes": "Autobidea = motorway, the standard Basque compound (auto = car + bide = road). In everyday speech many people say the Spanish loan autopista. The AP-8 runs along the Basque coast. Peajea = toll.",
       "example": {
-        "basque": "Autopistaz joan nintzen.",
+        "basque": "Autobidetik joan nintzen.",
         "english": "I went by motorway."
       }
     },
@@ -8814,14 +8814,14 @@
     },
     {
       "id": "turkoisa",
-      "basque": "Turkoisa",
+      "basque": "Turkesa",
       "english": "Turquoise",
       "cefr": "B2",
       "topic": "colors",
-      "pronunciation": "toor-KOI-sah",
-      "notes": "Turquoise. From French turquoise. The color of the Bay of Biscay on a clear day. Turkoisa kolorea = turquoise color. Used in art, jewelry and design.",
+      "pronunciation": "toor-KEH-sah",
+      "notes": "Turkesa = turquoise, both the gemstone and the light blue color. The color of the Bay of Biscay on a clear day. Turkesa kolorea = turquoise color. Used in art, jewelry and design.",
       "example": {
-        "basque": "Itsasoa turkoisa dago udaran.",
+        "basque": "Itsasoa turkesa dago udan.",
         "english": "The sea is turquoise in summer."
       }
     },
