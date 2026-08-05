@@ -106,7 +106,7 @@ const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(s
 const VERSION="1.1.0";
 // RevenueCat: paste the PUBLIC Apple API key (starts with appl_) from
 // app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
-const RC_API_KEY="appl_REPLACE_WITH_YOUR_PUBLIC_KEY";
+const RC_API_KEY="appl_gAmUbsXTredgwvqVHdxvTPdnlCW";
 const RC_ENTITLEMENT="pro";
 function isNativeApp(){try{return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform());}catch(e){return false;}}
 function rcReady(){return isNativeApp()&&RC_API_KEY.indexOf("REPLACE")===-1;}
