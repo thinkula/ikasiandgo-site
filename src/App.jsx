@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useRef,useMemo} from "react";
+import { Purchases } from "@revenuecat/purchases-capacitor";
 // Haptics helper
 function haptic(type){
   try{
@@ -102,7 +103,24 @@ var STORE=(function(){
 // Load mute preference at startup (after storage polyfill is guaranteed)
 try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
 const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
-const VERSION="1.0.0";
+const VERSION="1.1.0";
+// RevenueCat: paste the PUBLIC Apple API key (starts with appl_) from
+// app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
+const RC_API_KEY="appl_gAmUbsXTredgwvqVHdxvTPdnlCW";
+const RC_ENTITLEMENT="pro";
+const RC_PRODUCT_ID="com.ikasiandgo.app.lifetime";
+// Pro if the entitlement is active OR the lifetime product was purchased. The
+// product-id fallback covers the window right after store setup when the
+// entitlement mapping has not yet propagated to a fresh CustomerInfo.
+function rcHasPro(ci){
+  if(!ci)return false;
+  var e=ci.entitlements&&ci.entitlements.active;
+  if(e&&e[RC_ENTITLEMENT])return true;
+  var ids=ci.allPurchasedProductIdentifiers;
+  return !!(ids&&ids.indexOf&&ids.indexOf(RC_PRODUCT_ID)!==-1);
+}
+function isNativeApp(){try{return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform());}catch(e){return false;}}
+function rcReady(){return isNativeApp()&&RC_API_KEY.indexOf("REPLACE")===-1;}
 const CORRECT_MSGS=["Correct!","Nice one!","Well done!","Nailed it!","Excellent!","Perfect!","Spot on!","Great!"];
 
 const CL={A1:{title:"Beginner",color:"#F97316",bg:"#FFF4F0",dark:"#C2510E",icon:"A1",tagline:"Say hello, count to ten, introduce yourself.",canDo:["Greet people and say goodbye","Introduce yourself by name","Count from 1 to 100","Name foods, colors, and family members","Use basic time words"],tip:"Start with greetings - you will use them every single day.",studyHours:"0-125 hrs"},A2:{title:"Elementary",color:"#0891B2",bg:"#EAF8FC",dark:"#0077A0",icon:"A2",tagline:"Shop, travel, describe your daily life.",canDo:["Describe your daily routine","Shop and order food confidently","Talk about the past and future","Express how you feel","Give and follow directions"],tip:"Learn the days of the week and you can talk about almost anything.",studyHours:"125-300 hrs"},B1:{title:"Intermediate",color:"#9B5DE5",bg:"#F3EEFB",dark:"#6B3DAF",icon:"B1",tagline:"Express opinions, discuss culture and society.",canDo:["Express opinions clearly","Discuss Basque culture and traditions","Talk about work and study","Describe complex emotions","Follow conversations on familiar topics"],tip:"Try watching Basque TV with subtitles - you will be surprised how much you catch.",studyHours:"300-500 hrs"},B2:{title:"Upper-Intermediate",color:"#F72585",bg:"#FEEAF3",dark:"#B01060",icon:"B2",tagline:"Discuss politics, society, identity, and current affairs.",canDo:["Discuss politics and society fluently","Argue a position with nuance","Understand authentic Basque media","Talk about abstract concepts","Engage in real debate"],tip:"Read Basque newspapers online - EITB and Berria are great resources.",studyHours:"500-800 hrs"}};
@@ -1156,6 +1174,7 @@ function App(){
   var _s17=useState(0);var todayCount=_s17[0];var setTodayCount=_s17[1];
   var _s18=useState(false);var streakFrozen=_s18[0];var setStreakFrozen=_s18[1];
   var _s19=useState(null);var lastOpened=_s19[0];var setLastOpened=_s19[1];
+  var _s20=useState("$12.99");var rcPrice=_s20[0];var setRcPrice=_s20[1];var rcPkg=useRef(null);
   var VOCABULARY=_VOCAB;
   var WC=_WC;
   var isTrialActive=trialUntil&&new Date()<trialUntil;
@@ -1178,7 +1197,45 @@ function App(){
             if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
           }catch(e){setToast("offline");setTimeout(function(){setToast(null);},3000);}
         })();
+        // RevenueCat: sync real entitlement + localized price
+        (async function(){
+          if(!rcReady())return;
+          try{
+            await Purchases.configure({apiKey:RC_API_KEY});
+            var ci=await Purchases.getCustomerInfo();
+            if(ci&&rcHasPro(ci.customerInfo)){setIsPro(true);STORE.set("pro_status","1").catch(function(){});}
+            var offs=await Purchases.getOfferings();
+            var pkg=offs&&offs.current&&(offs.current.lifetime||(offs.current.availablePackages&&offs.current.availablePackages[0])||null);
+            if(pkg){rcPkg.current=pkg;if(pkg.product&&pkg.product.priceString)setRcPrice(pkg.product.priceString);}
+          }catch(e){}
+        })();
       }load();},[]);
+  function grantPro(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});setTrialUntil(null);STORE.set("trial_until","").catch(function(){});}
+  async function doPurchase(after){
+    if(!rcReady()){alert("Purchases are not available in this build.");return;}
+    try{
+      var pkg=rcPkg.current;
+      if(!pkg){var offs=await Purchases.getOfferings();pkg=offs&&offs.current&&(offs.current.lifetime||(offs.current.availablePackages&&offs.current.availablePackages[0])||null);rcPkg.current=pkg;}
+      if(!pkg){alert("The store is not available right now. Please try again in a moment.");return;}
+      // purchasePackage rejects on user-cancel/failure and resolves only on a
+      // completed purchase, so a resolve means success. Grant immediately rather
+      // than gating on the entitlement showing up in this response, which
+      // sandbox and just-configured entitlements can delay.
+      await Purchases.purchasePackage({aPackage:pkg});
+      haptic("success");grantPro();if(after)after();
+    }catch(e){
+      var cancelled=(e&&e.userCancelled)||String(e&&e.message||"").toLowerCase().indexOf("cancel")!==-1;
+      if(!cancelled)alert("Purchase failed. You have not been charged."+(e&&e.message?" ("+e.message+")":""));
+    }
+  }
+  async function doRestore(){
+    if(!rcReady()){alert("Restore is not available in this build.");return;}
+    try{
+      var res=await Purchases.restorePurchases();
+      if(res&&rcHasPro(res.customerInfo)){haptic("success");grantPro();setScreen("home");}
+      else alert("No previous purchase was found for this Apple ID.");
+    }catch(e){alert("Restore failed."+(e&&e.message?" ("+e.message+")":""));}
+  }
   async function updateSRS(res){var nd=Object.assign({},srsData),now=new Date();
   // Only apply results that haven't already been written to SRS.
   // Auto-save passes the cumulative results array at each checkpoint, so without
@@ -1276,9 +1333,11 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     trialDays={7}
     vocabCount={VOCABULARY.length}
     onTrial={function(){var until=new Date(Date.now()+7*86400000);setTrialUntil(until);STORE.set("trial_until",until.toISOString()).catch(function(){});setScreen("home");}}
-    onSubscribe={function(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});setScreen("home");}}
+    onSubscribe={doRestore}
     onContinueFree={function(){setScreen("home");}}
-    onStart={function(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");}}
+    price={rcPrice}
+    freeCount={VOCABULARY.filter(isFreeWord).length}
+    onStart={function(){doPurchase(function(){if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");});}}
   />}
     {screen==="games"&&<GamesScreen onBack={function(){setScreen("home");}} onPairs={function(){setScreen("pairs");}} onTap={function(){setScreen("tap");}} onTxoko={function(){setScreen("txoko");}} onOrdutegi={function(){setScreen("ordutegi");}} onKoloreak={function(){setScreen("koloreak");}} onArbola={function(){setScreen("arbola");}} isPro={isProOrTrial}/>}
     {screen==="pairs"&&<PairsScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
@@ -1391,10 +1450,15 @@ function HomeScreen(props){
               <p style={{margin:0,fontSize:8,fontWeight:600,color:"rgba(255,255,255,0.6)"}}>unlock</p>
             </button>
           )}
-          {isTrialActive&&(
-            <div style={{backgroundColor:"rgba(255,200,0,0.15)",borderRadius:20,padding:"6px 11px",border:"1px solid rgba(255,200,0,0.3)",textAlign:"center"}}>
-              <p style={{margin:0,fontSize:11,fontWeight:900,color:"#FFE066",lineHeight:1.1}}>{Math.max(0,Math.ceil((new Date(trialUntil)-new Date())/86400000))}d</p>
-              <p style={{margin:0,fontSize:8,fontWeight:600,color:"rgba(255,220,0,0.7)"}}>trial</p>
+          {!isPro&&isTrialActive&&(
+            <button onClick={onUpgrade} style={{backgroundColor:"rgba(255,200,0,0.15)",borderRadius:20,padding:"6px 11px",border:"1px solid rgba(255,200,0,0.3)",textAlign:"center",cursor:"pointer",fontFamily:"inherit"}}>
+              <p style={{margin:0,fontSize:11,fontWeight:900,color:"#FFE066",lineHeight:1.1}}>{Math.max(0,Math.ceil((new Date(trialUntil)-new Date())/86400000))}d trial</p>
+              <p style={{margin:0,fontSize:8,fontWeight:700,color:"rgba(255,220,0,0.8)"}}>unlock →</p>
+            </button>
+          )}
+          {isPro&&(
+            <div style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,padding:"6px 11px",border:"1px solid rgba(255,255,255,0.25)",textAlign:"center"}}>
+              <p style={{margin:0,fontSize:10,fontWeight:900,color:"#fff",lineHeight:1.1}}>PRO ✓</p>
             </div>
           )}
         </div>
@@ -2222,29 +2286,25 @@ function BrowseScreen(props){
   );
 }
 function PaywallScreen(props){
-  var onSubscribe=props.onSubscribe,onContinueFree=props.onContinueFree,onStart=props.onStart,onTrial=props.onTrial,trialAvailable=props.trialAvailable,trialDays=props.trialDays||7,vocabCount=props.vocabCount||816;
-  var _s0=useState("annual");var sel=_s0[0];var setSel=_s0[1];
-  var plans={
-    lifetime:{price:"$49.99",period:"one-time",perMonth:"Best value",save:"Pay once, own forever"},
-    annual:{price:"$29.99",period:"/year",perMonth:"$2.50/mo",save:"Save 50%"},
-    monthly:{price:"$4.99",period:"/month",perMonth:null,save:null}
-  };
+  var onSubscribe=props.onSubscribe,onContinueFree=props.onContinueFree,onStart=props.onStart,onTrial=props.onTrial,trialAvailable=props.trialAvailable,trialDays=props.trialDays||7,vocabCount=props.vocabCount||939;
+  var price=props.price||"$12.99";
+  var freeCount=props.freeCount||305;
   var features=[
-    {label:"Full A1 plus A2, B1 and B2 levels",sub:"500+ more words across all topics and levels"},
+    {label:"Full A1 plus A2, B1 and B2 levels",sub:"600+ more words across all topics and levels"},
     {label:"Retry Missed Words",sub:"Drill your weakest words until they stick"},
     {label:"Cumulative mode",sub:"Mix lower levels into any session"},
     {label:"All levels SRS tracking",sub:"Word memory across A2, B1 and B2 words too"},
-    {label:"Memory Pairs game, all topics",sub:"Play all 14 topic categories"},
+    {label:"Memory Pairs game, all topics",sub:"Play all 17 topic categories"},
     {label:"No ads, ever",sub:"Clean focused learning with no interruptions"},
   ];
   return(
     <div style={{maxWidth:420,margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
       <div style={{background:"linear-gradient(160deg,#064E3B 0%,#065F46 30%,#19A85A 100%)",padding:"36px 24px 0",textAlign:"center",flexShrink:0,position:"relative"}}>
-        <button onClick={onContinueFree} style={{position:"absolute",top:16,right:16,background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:16,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>x</button>
+        <button onClick={onContinueFree} aria-label="Close" style={{position:"absolute",top:"calc(env(safe-area-inset-top, 20px) + 8px)",right:16,zIndex:10,background:"rgba(255,255,255,0.25)",border:"none",color:"#fff",width:36,height:36,borderRadius:"50%",cursor:"pointer",fontSize:18,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>✕</button>
         <Logo size={44}/>
         <h1 style={{margin:"14px 0 4px",fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.8,lineHeight:1.1}}>Ikasi Pro</h1>
         <p style={{margin:"0 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:500}}>Unlock the full Basque experience</p><div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:12,flexWrap:"wrap"}}>
-          {[vocabCount+" words","14 topics","A1 to B2","Spaced repetition"].map(function(s){return(
+          {[vocabCount+" words","17 topics","A1 to B2","Spaced repetition"].map(function(s){return(
             <span key={s} style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.9)",backgroundColor:"rgba(255,255,255,0.15)",padding:"4px 10px",borderRadius:20}}>{s}</span>
           );})}
         </div>
@@ -2254,30 +2314,21 @@ function PaywallScreen(props){
       </div>
       <div style={{flex:1,padding:"4px 20px calc(40px + env(safe-area-inset-bottom, 0px))",overflowY:"auto"}}>
 
-        {/* ── Plan selector ── */}
-        <div style={{display:"flex",gap:8,marginBottom:20}}>
-          {Object.keys(plans).map(function(key){var p=plans[key];var active=sel===key;var k=key;return(
-            <button key={key} onClick={function(){setSel(k);}}
-              style={{flex:key==="monthly"?0.7:1,padding:"14px 8px",borderRadius:18,border:"2px solid",cursor:"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.15s",borderColor:active?"#19A85A":"#E8E8E8",backgroundColor:active?"#F0FBF4":"#fff",boxShadow:active?"0 0 0 3px rgba(25,168,90,0.15)":"none",position:"relative"}}>
-              {key==="lifetime"&&<span style={{position:"absolute",top:-8,left:"50%",transform:"translateX(-50%)",fontSize:9,fontWeight:900,color:"#fff",backgroundColor:"#F97316",padding:"2px 8px",borderRadius:20,whiteSpace:"nowrap",letterSpacing:0.3}}>⭐ BEST VALUE</span>}
-              {key==="annual"&&<span style={{position:"absolute",top:-8,left:"50%",transform:"translateX(-50%)",fontSize:9,fontWeight:800,color:"#fff",backgroundColor:"#19A85A",padding:"2px 8px",borderRadius:20,whiteSpace:"nowrap",letterSpacing:0.3}}>POPULAR</span>}
-              <p style={{margin:"0 0 1px",fontSize:key==="lifetime"?20:20,fontWeight:900,color:active?"#19A85A":"#1A1A1A"}}>{p.price}</p>
-              <p style={{margin:"0 0 2px",fontSize:10,color:"#888",fontWeight:600}}>{p.period}</p>
-              {p.perMonth&&<p style={{margin:0,fontSize:9,color:active?"#19A85A":"#AAA",fontWeight:700}}>{p.perMonth}</p>}
-            </button>
-          );})}
+        {/* ── Single lifetime price ── */}
+        <div style={{backgroundColor:"#fff",borderRadius:18,border:"2px solid #19A85A",boxShadow:"0 0 0 3px rgba(25,168,90,0.15)",padding:"18px 16px",marginBottom:14,textAlign:"center",position:"relative"}}>
+          <span style={{position:"absolute",top:-9,left:"50%",transform:"translateX(-50%)",fontSize:9,fontWeight:900,color:"#fff",backgroundColor:"#F97316",padding:"2px 10px",borderRadius:20,whiteSpace:"nowrap",letterSpacing:0.3}}>⭐ LIFETIME</span>
+          <p style={{margin:"4px 0 1px",fontSize:34,fontWeight:900,color:"#19A85A"}}>{price}</p>
+          <p style={{margin:0,fontSize:12,color:"#888",fontWeight:700}}>one-time purchase</p>
         </div>
 
         {/* ── Lifetime callout ── */}
-        {sel==="lifetime"&&(
-          <div style={{backgroundColor:"#FFF7ED",borderRadius:14,padding:"12px 14px",marginBottom:16,border:"1.5px solid #FED7AA",display:"flex",gap:10,alignItems:"center"}}>
-            <span style={{fontSize:20,flexShrink:0}}>⭐</span>
-            <div>
-              <p style={{margin:"0 0 2px",fontSize:13,fontWeight:800,color:"#92400E"}}>Pay once, use forever</p>
-              <p style={{margin:0,fontSize:11,color:"#B45309",fontWeight:500}}>All future vocabulary updates included. No subscription, no recurring charges.</p>
-            </div>
+        <div style={{backgroundColor:"#FFF7ED",borderRadius:14,padding:"12px 14px",marginBottom:16,border:"1.5px solid #FED7AA",display:"flex",gap:10,alignItems:"center"}}>
+          <span style={{fontSize:20,flexShrink:0}}>⭐</span>
+          <div>
+            <p style={{margin:"0 0 2px",fontSize:13,fontWeight:800,color:"#92400E"}}>Pay once, use forever</p>
+            <p style={{margin:0,fontSize:11,color:"#B45309",fontWeight:500}}>All future vocabulary updates included. No subscription, no recurring charges.</p>
           </div>
-        )}
+        </div>
 
         {/* ── Feature list ── */}
         <div style={{backgroundColor:"#fff",borderRadius:18,border:"1px solid #E8E8E8",marginBottom:20,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.05)"}}>
@@ -2293,14 +2344,13 @@ function PaywallScreen(props){
         </div>
 
         {/* ── CTA buttons ── */}
-        {trialAvailable&&sel!=="lifetime"&&(
-          <button style={{width:"100%",border:"none",borderRadius:18,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:"pointer",backgroundColor:"#19A85A",boxShadow:"0 5px 0 #0E7A40",fontFamily:"inherit",marginBottom:10}} onClick={onTrial}>
+        {trialAvailable&&(
+          <button style={{width:"100%",border:"none",borderRadius:18,padding:"15px",fontSize:15,fontWeight:900,color:"#fff",cursor:"pointer",backgroundColor:"#19A85A",boxShadow:"0 5px 0 #0E7A40",fontFamily:"inherit",marginBottom:10}} onClick={onTrial}>
             Try Pro free for {trialDays} days
           </button>
         )}
-        <button style={{width:"100%",border:"none",borderRadius:18,padding:trialAvailable&&sel!=="lifetime"?"13px":"17px",fontSize:trialAvailable&&sel!=="lifetime"?14:17,fontWeight:900,color:"#fff",cursor:"pointer",backgroundColor:sel==="lifetime"?"#F97316":trialAvailable?"#0E7A40":"#19A85A",boxShadow:sel==="lifetime"?"0 5px 0 #C2510E":trialAvailable?"0 3px 0 #0A5C30":"0 5px 0 #0E7A40",fontFamily:"inherit",marginBottom:12}} onClick={onStart}>
-          {sel==="lifetime"?"Buy Lifetime: $49.99":trialAvailable?"Then ":""}
-          {sel!=="lifetime"&&("Subscribe: "+plans[sel].price+plans[sel].period)}
+        <button style={{width:"100%",border:"none",borderRadius:18,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:"pointer",backgroundColor:"#F97316",boxShadow:"0 5px 0 #C2510E",fontFamily:"inherit",marginBottom:12}} onClick={onStart}>
+          {"Unlock Lifetime: "+price}
         </button>
         <button style={{width:"100%",backgroundColor:"transparent",border:"none",color:"#888",fontSize:13,cursor:"pointer",fontFamily:"inherit",padding:"10px",fontWeight:500}} onClick={onContinueFree}>
           Continue with free A1 words
@@ -2309,7 +2359,7 @@ function PaywallScreen(props){
           Restore purchases
         </button>
         <p style={{textAlign:"center",fontSize:11,color:"#BBB",margin:"8px 0 0",lineHeight:1.5}}>
-          {sel==="lifetime"?"One-time purchase. All future content included.":"49 words always free. Pro unlocks everything. Cancel anytime."}
+          {freeCount+" A1 words always free. One purchase unlocks everything, forever."}
         </p>
         <div style={{display:"flex",justifyContent:"center",gap:16,marginTop:16}}>
           <a href="https://ikasiandgo.com/privacy" target="_blank" style={{fontSize:11,color:"#CCC",textDecoration:"none",fontFamily:"inherit"}}>Privacy Policy</a>
