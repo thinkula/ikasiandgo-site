@@ -1,0 +1,9 @@
+# Accepted word-forms that the Xuxen spellchecker rejects but we keep on purpose.
+# One token per line, case-insensitive. Lines starting with # are comments.
+# When check-vocab reports a NEW reject that is legitimate (a real place name,
+# personal name, accepted loanword, or solid-compound spelling), add it here
+# with a short note so the gate stays green.
+
+# Solid-compound food names (Xuxen prefers the hyphenated form; we keep solid)
+esnegaina        # cream (Xuxen: esne-gaina)
+intxaursaltsa    # walnut cream sauce (Xuxen: intxaur-saltsa)
