@@ -108,6 +108,17 @@ const VERSION="1.1.0";
 // app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
 const RC_API_KEY="appl_gAmUbsXTredgwvqVHdxvTPdnlCW";
 const RC_ENTITLEMENT="pro";
+const RC_PRODUCT_ID="com.ikasiandgo.app.lifetime";
+// Pro if the entitlement is active OR the lifetime product was purchased. The
+// product-id fallback covers the window right after store setup when the
+// entitlement mapping has not yet propagated to a fresh CustomerInfo.
+function rcHasPro(ci){
+  if(!ci)return false;
+  var e=ci.entitlements&&ci.entitlements.active;
+  if(e&&e[RC_ENTITLEMENT])return true;
+  var ids=ci.allPurchasedProductIdentifiers;
+  return !!(ids&&ids.indexOf&&ids.indexOf(RC_PRODUCT_ID)!==-1);
+}
 function isNativeApp(){try{return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform());}catch(e){return false;}}
 function rcReady(){return isNativeApp()&&RC_API_KEY.indexOf("REPLACE")===-1;}
 const CORRECT_MSGS=["Correct!","Nice one!","Well done!","Nailed it!","Excellent!","Perfect!","Spot on!","Great!"];
@@ -1192,8 +1203,7 @@ function App(){
           try{
             await Purchases.configure({apiKey:RC_API_KEY});
             var ci=await Purchases.getCustomerInfo();
-            var act=ci&&ci.customerInfo&&ci.customerInfo.entitlements&&ci.customerInfo.entitlements.active;
-            if(act&&act[RC_ENTITLEMENT]){setIsPro(true);STORE.set("pro_status","1").catch(function(){});}
+            if(ci&&rcHasPro(ci.customerInfo)){setIsPro(true);STORE.set("pro_status","1").catch(function(){});}
             var offs=await Purchases.getOfferings();
             var pkg=offs&&offs.current&&(offs.current.lifetime||(offs.current.availablePackages&&offs.current.availablePackages[0])||null);
             if(pkg){rcPkg.current=pkg;if(pkg.product&&pkg.product.priceString)setRcPrice(pkg.product.priceString);}
@@ -1207,9 +1217,12 @@ function App(){
       var pkg=rcPkg.current;
       if(!pkg){var offs=await Purchases.getOfferings();pkg=offs&&offs.current&&(offs.current.lifetime||(offs.current.availablePackages&&offs.current.availablePackages[0])||null);rcPkg.current=pkg;}
       if(!pkg){alert("The store is not available right now. Please try again in a moment.");return;}
-      var res=await Purchases.purchasePackage({aPackage:pkg});
-      var act=res&&res.customerInfo&&res.customerInfo.entitlements&&res.customerInfo.entitlements.active;
-      if(act&&act[RC_ENTITLEMENT]){haptic("success");grantPro();if(after)after();}
+      // purchasePackage rejects on user-cancel/failure and resolves only on a
+      // completed purchase, so a resolve means success. Grant immediately rather
+      // than gating on the entitlement showing up in this response, which
+      // sandbox and just-configured entitlements can delay.
+      await Purchases.purchasePackage({aPackage:pkg});
+      haptic("success");grantPro();if(after)after();
     }catch(e){
       var cancelled=(e&&e.userCancelled)||String(e&&e.message||"").toLowerCase().indexOf("cancel")!==-1;
       if(!cancelled)alert("Purchase failed. You have not been charged."+(e&&e.message?" ("+e.message+")":""));
@@ -1219,8 +1232,7 @@ function App(){
     if(!rcReady()){alert("Restore is not available in this build.");return;}
     try{
       var res=await Purchases.restorePurchases();
-      var act=res&&res.customerInfo&&res.customerInfo.entitlements&&res.customerInfo.entitlements.active;
-      if(act&&act[RC_ENTITLEMENT]){haptic("success");grantPro();setScreen("home");}
+      if(res&&rcHasPro(res.customerInfo)){haptic("success");grantPro();setScreen("home");}
       else alert("No previous purchase was found for this Apple ID.");
     }catch(e){alert("Restore failed."+(e&&e.message?" ("+e.message+")":""));}
   }
@@ -2283,7 +2295,7 @@ function PaywallScreen(props){
   return(
     <div style={{maxWidth:420,margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
       <div style={{background:"linear-gradient(160deg,#064E3B 0%,#065F46 30%,#19A85A 100%)",padding:"36px 24px 0",textAlign:"center",flexShrink:0,position:"relative"}}>
-        <button onClick={onContinueFree} style={{position:"absolute",top:16,right:16,background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:16,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>x</button>
+        <button onClick={onContinueFree} aria-label="Close" style={{position:"absolute",top:"calc(env(safe-area-inset-top, 20px) + 8px)",right:16,zIndex:10,background:"rgba(255,255,255,0.25)",border:"none",color:"#fff",width:36,height:36,borderRadius:"50%",cursor:"pointer",fontSize:18,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>✕</button>
         <Logo size={44}/>
         <h1 style={{margin:"14px 0 4px",fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.8,lineHeight:1.1}}>Ikasi Pro</h1>
         <p style={{margin:"0 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:500}}>Unlock the full Basque experience</p><div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:12,flexWrap:"wrap"}}>
