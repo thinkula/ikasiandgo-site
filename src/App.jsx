@@ -1451,10 +1451,10 @@ function HomeScreen(props){
             </button>
           )}
           {isTrialActive&&(
-            <div style={{backgroundColor:"rgba(255,200,0,0.15)",borderRadius:20,padding:"6px 11px",border:"1px solid rgba(255,200,0,0.3)",textAlign:"center"}}>
-              <p style={{margin:0,fontSize:11,fontWeight:900,color:"#FFE066",lineHeight:1.1}}>{Math.max(0,Math.ceil((new Date(trialUntil)-new Date())/86400000))}d</p>
-              <p style={{margin:0,fontSize:8,fontWeight:600,color:"rgba(255,220,0,0.7)"}}>trial</p>
-            </div>
+            <button onClick={onUpgrade} style={{backgroundColor:"rgba(255,200,0,0.15)",borderRadius:20,padding:"6px 11px",border:"1px solid rgba(255,200,0,0.3)",textAlign:"center",cursor:"pointer",fontFamily:"inherit"}}>
+              <p style={{margin:0,fontSize:11,fontWeight:900,color:"#FFE066",lineHeight:1.1}}>{Math.max(0,Math.ceil((new Date(trialUntil)-new Date())/86400000))}d trial</p>
+              <p style={{margin:0,fontSize:8,fontWeight:700,color:"rgba(255,220,0,0.8)"}}>unlock →</p>
+            </button>
           )}
         </div>
       </div>
