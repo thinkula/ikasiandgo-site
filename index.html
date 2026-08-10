@@ -4,114 +4,197 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ikasi &amp; Go&trade;: Learn Basque from English</title>
-<meta name="description" content="Learn Basque directly from English. No Spanish required. Vocabulary with pronunciation, example sentences, and the cultural story behind every word. Coming soon to the App Store.">
+<meta name="description" content="Learn Basque directly from English. Vocabulary with pronunciation, example sentences, and the cultural story behind every word. Coming soon to the App Store.">
 <meta property="og:title" content="Ikasi &amp; Go&trade;: Learn Basque from English">
-<meta property="og:description" content="Basque vocabulary with the culture built in. No Spanish required. Coming soon to the App Store.">
+<meta property="og:description" content="Basque vocabulary with the culture built in. Coming soon to the App Store.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ikasiandgo.com/">
-<meta name="theme-color" content="#FAF7F0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23009B48'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='900' fill='%23fff' text-anchor='middle'%3EiG%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://ikasiandgo.com/assets/icon.png">
+<meta name="theme-color" content="#009B48">
+<link rel="icon" href="/assets/icon.png">
+<link rel="apple-touch-icon" href="/assets/icon.png">
 <style>
 @font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('/public/fonts/Nunito.woff2') format('woff2');}
+
+:root{
+  --bg:#FAF7F0; --surface:#fff; --ink:#14181A; --muted:#5C6468; --faint:#8A9296;
+  --line:rgba(0,0,0,0.08); --green:#009B48; --green-deep:#007538; --red:#DA291C;
+  --shadow:0 10px 40px rgba(0,0,0,0.10); --shadow-sm:0 2px 12px rgba(0,0,0,0.06);
+  --night:#0E2A1E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0F1213; --surface:#181C1E; --ink:#F2F4F3; --muted:#A8B2B5; --faint:#79868A;
+    --line:rgba(255,255,255,0.10); --green:#2FBF6B; --green-deep:#1B9B52;--red:#FF5A47;
+    --shadow:0 10px 40px rgba(0,0,0,0.5); --shadow-sm:0 2px 12px rgba(0,0,0,0.35);
+    --night:#0A1F16;
+  }
+}
+
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:Nunito,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FAF7F0;color:#1A1A1A;line-height:1.55;}
-.wrap{max-width:1020px;margin:0 auto;padding:0 24px;}
-header{padding:22px 0;}
-.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;}
-.brand .dot{width:30px;height:30px;border-radius:8px;background:#009B48;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;}
-.hero{display:flex;gap:48px;align-items:center;padding:56px 0 40px;flex-wrap:wrap;}
-.hero-copy{flex:1 1 420px;min-width:300px;}
-.kaixo{font-size:17px;font-weight:800;color:#DA291C;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;}
-h1{font-size:clamp(34px,5.4vw,54px);font-weight:900;line-height:1.08;letter-spacing:-0.02em;}
-h1 .green{color:#009B48;}
-.sub{margin-top:18px;font-size:18px;color:#4A4A4A;max-width:52ch;}
-.sub b{color:#1A1A1A;}
-.cta-row{margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.cta{display:inline-block;background:#FF6B35;color:#fff;font-weight:900;font-size:16px;padding:14px 26px;border-radius:14px;box-shadow:0 4px 0 #CC5228;cursor:default;}
-.cta-note{font-size:13px;font-weight:700;color:#8A8A8A;}
-.card-side{flex:0 1 360px;min-width:300px;margin:0 auto;}
-.word-card{background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.10);padding:26px 26px 22px;position:relative;transform:rotate(1.5deg);}
-.level-chip{position:absolute;top:18px;right:18px;background:#FFF4F0;color:#FF6B35;font-size:11px;font-weight:900;padding:4px 10px;border-radius:10px;letter-spacing:0.04em;}
-.word{font-size:40px;font-weight:900;letter-spacing:-0.01em;}
-.gloss{font-size:16px;font-weight:700;color:#6B6B6B;margin-top:2px;}
-.pron{display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:#00779F;background:#EAF8FC;padding:4px 10px;border-radius:10px;}
-.note{margin-top:16px;font-size:14px;color:#4A4A4A;border-left:3px solid #009B48;padding-left:12px;}
-.example{margin-top:14px;font-size:14px;}
-.example .eu{font-weight:800;}
-.example .en{color:#8A8A8A;}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:34px 0 10px;}
-.feature{background:#fff;border-radius:16px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-.feature .icon{font-size:24px;}
-.feature h3{font-size:16px;font-weight:900;margin:10px 0 6px;}
-.feature p{font-size:14px;color:#5A5A5A;}
-.stats{display:flex;gap:34px;flex-wrap:wrap;justify-content:center;padding:36px 0 8px;text-align:center;}
-.stat .n{font-size:30px;font-weight:900;color:#DA291C;}
-.stat .l{font-size:12px;font-weight:800;color:#8A8A8A;text-transform:uppercase;letter-spacing:0.07em;}
-.diaspora{margin:44px 0;background:#123B2A;color:#F2EFE7;border-radius:20px;padding:38px 34px;text-align:center;}
-.diaspora h2{font-size:clamp(22px,3.4vw,30px);font-weight:900;line-height:1.2;}
-.diaspora p{margin-top:12px;font-size:16px;color:#C8D6CC;max-width:60ch;margin-left:auto;margin-right:auto;}
-footer{padding:30px 0 46px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;color:#8A8A8A;}
-footer a{color:#6B6B6B;font-weight:700;text-decoration:none;}
-footer a:hover{text-decoration:underline;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:Nunito,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* header */
+header{padding:20px 0;position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:19px;letter-spacing:-0.02em;}
+.brand img{width:34px;height:34px;border-radius:9px;box-shadow:var(--shadow-sm);}
+.nav-links{display:flex;gap:22px;font-size:14px;font-weight:700;}
+.nav-links a{color:var(--muted);text-decoration:none;}
+.nav-links a:hover{color:var(--green);}
+@media (max-width:640px){.nav-links{display:none;}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;padding:64px 0 48px;}
+.kaixo{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:900;color:var(--red);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;}
+.kaixo::after{content:"";width:26px;height:2px;background:var(--red);opacity:.5;}
+h1{font-size:clamp(36px,5.6vw,58px);font-weight:900;line-height:1.04;letter-spacing:-0.035em;}
+h1 .green{color:var(--green);}
+.sub{margin-top:20px;font-size:18px;color:var(--muted);max-width:50ch;}
+.sub b{color:var(--ink);font-weight:800;}
+.cta-row{margin-top:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.cta{display:inline-block;background:var(--green);color:#fff;font-weight:900;font-size:15px;padding:15px 28px;border-radius:14px;box-shadow:0 5px 0 var(--green-deep);cursor:default;}
+.cta-note{font-size:13px;font-weight:700;color:var(--faint);}
+
+/* phone frame */
+.phone{position:relative;margin:0 auto;width:min(300px,80vw);border-radius:42px;padding:10px;background:linear-gradient(160deg,#2b3134,#0e1112);box-shadow:var(--shadow);}
+.phone img{border-radius:33px;width:100%;}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:40px 0 32px;text-align:center;}
+  .kaixo{justify-content:center;}
+  .sub{margin-left:auto;margin-right:auto;}
+  .cta-row{justify-content:center;}
+}
+
+/* stats */
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:10px 0 44px;}
+.stat{flex:1 1 150px;max-width:220px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 14px;text-align:center;box-shadow:var(--shadow-sm);}
+.stat .n{font-size:30px;font-weight:900;color:var(--green);letter-spacing:-0.02em;line-height:1.1;}
+.stat .l{font-size:11px;font-weight:800;color:var(--faint);text-transform:uppercase;letter-spacing:0.09em;margin-top:4px;}
+
+/* alternating feature rows */
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:52px 0;border-top:1px solid var(--line);}
+.feature-row:nth-child(even) .feature-shot{order:-1;}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:0.11em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.feature-copy h2{font-size:clamp(23px,3vw,31px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;}
+.feature-copy p{margin-top:12px;font-size:16px;color:var(--muted);}
+.feature-shot img{width:min(270px,72vw);margin:0 auto;border-radius:26px;border:1px solid var(--line);box-shadow:var(--shadow);}
+@media (max-width:860px){
+  .feature-row{grid-template-columns:1fr;gap:28px;padding:40px 0;text-align:center;}
+  .feature-row:nth-child(even) .feature-shot{order:0;}
+}
+
+/* word card */
+.note-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow-sm);max-width:420px;}
+.note-card .w{font-size:34px;font-weight:900;letter-spacing:-0.02em;}
+.note-card .g{font-size:15px;font-weight:700;color:var(--muted);}
+.note-card .p{display:inline-block;margin-top:10px;font-size:12px;font-weight:800;color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent);padding:4px 10px;border-radius:8px;}
+.note-card .n{margin-top:14px;font-size:14px;color:var(--muted);border-left:3px solid var(--green);padding-left:12px;text-align:left;}
+@media (max-width:860px){.note-card{margin:0 auto;}}
+
+/* diaspora */
+.diaspora{margin:56px 0;background:var(--night);color:#EAF3ED;border-radius:24px;padding:52px 34px;text-align:center;}
+.diaspora h2{font-size:clamp(22px,3.4vw,32px);font-weight:900;line-height:1.2;letter-spacing:-0.02em;}
+.diaspora p{margin:14px auto 0;font-size:16px;color:#A9C6B6;max-width:56ch;}
+
+footer{padding:28px 0 56px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;color:var(--faint);border-top:1px solid var(--line);}
+footer a{color:var(--muted);font-weight:700;text-decoration:none;}
+footer a:hover{color:var(--green);text-decoration:underline;}
+
+/* reveal — fails open: content is visible unless JS opts in to animating it */
+.js-reveal .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+.js-reveal .reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.js-reveal .reveal{opacity:1;transform:none;transition:none;}}
 </style>
 </head>
 <body>
-<div class="wrap">
 
 <header>
-  <div class="brand"><span class="dot">iG</span> Ikasi &amp; Go&trade;</div>
+  <div class="wrap nav">
+    <div class="brand"><img src="/assets/icon.png" alt="Ikasi &amp; Go icon"> Ikasi &amp; Go&trade;</div>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#culture">Culture</a>
+      <a href="/support.html">Support</a>
+    </nav>
+  </div>
 </header>
+
+<div class="wrap">
 
 <section class="hero">
   <div class="hero-copy">
     <div class="kaixo">Kaixo!</div>
-    <h1>Learn Basque from English.<br><span class="green">No Spanish required.</span></h1>
-    <p class="sub">Every other course makes you go through Spanish first. Ikasi &amp; Go&trade; teaches Euskara directly from English: <b><span data-count="words">939</span> Basque words and phrases</b> with pronunciation, real example sentences, and the cultural story behind each one.</p>
+    <h1>Learn Basque,<br><span class="green">straight from English.</span></h1>
+    <p class="sub">Euskara with the culture built in: <b><span data-count="words">939</span> words and phrases</b>, each with pronunciation, a real example sentence, and the story behind it.</p>
     <div class="cta-row">
       <span class="cta">Coming soon to the App&nbsp;Store</span>
-      <span class="cta-note">iOS first · free to start</span>
+      <span class="cta-note">iPhone &amp; iPad · free to start</span>
     </div>
   </div>
-  <div class="card-side">
-    <div class="word-card">
-      <span class="level-chip">A1 · BEGINNER</span>
-      <div class="word">Etxea</div>
-      <div class="gloss">House / Home</div>
-      <span class="pron">eh-CHEH-ah</span>
-      <p class="note">For centuries the etxea was the basic unit of Basque law and life. Surnames came from the house, and the house was named for the land.</p>
-      <p class="example"><span class="eu">Nire etxea mendian dago.</span><br><span class="en">My house is on the mountain.</span></p>
-    </div>
-  </div>
+  <div class="phone reveal"><img src="/assets/shots/01-home.png" alt="Ikasi &amp; Go home screen showing levels, topics, and today's word"></div>
 </section>
 
 <section class="stats">
-  <div class="stat"><div class="n"><span data-count="words">939</span></div><div class="l">Words &amp; phrases</div></div>
-  <div class="stat"><div class="n"><span data-count="topics">17</span></div><div class="l">Topics</div></div>
-  <div class="stat"><div class="n">A1-B2</div><div class="l">CEFR path</div></div>
+  <div class="stat reveal"><div class="n"><span data-count="words">939</span></div><div class="l">Words &amp; phrases</div></div>
+  <div class="stat reveal"><div class="n"><span data-count="topics">17</span></div><div class="l">Topics</div></div>
+  <div class="stat reveal"><div class="n">A1&ndash;B2</div><div class="l">CEFR path</div></div>
+  <div class="stat reveal"><div class="n">6</div><div class="l">Games</div></div>
 </section>
 
-<section class="features">
-  <div class="feature">
-    <div class="icon">🏛️</div>
-    <h3>The culture is built in</h3>
-    <p>Every word carries its story: etymology, history, the way people actually use it. You are not memorizing a list; you are meeting a culture.</p>
+<section id="features">
+
+  <div class="feature-row">
+    <div class="feature-copy reveal">
+      <div class="eyebrow">Learn</div>
+      <h2>Quizzes that actually teach.</h2>
+      <p>Multiple choice, typing, and fill-in-the-blank, mixed automatically. Every answer shows the pronunciation and a real sentence, so words arrive with context instead of alone.</p>
+    </div>
+    <div class="feature-shot reveal"><img src="/assets/shots/02-quiz.png" alt="A quiz question asking the meaning of a Basque word"></div>
   </div>
-  <div class="feature">
-    <div class="icon">🧠</div>
-    <h3>Review that respects your life</h3>
-    <p>Spaced repetition brings words back right before you forget them. Miss a day? No shame and no broken streaks. Pick up where you left off.</p>
+
+  <div class="feature-row" id="culture">
+    <div class="feature-copy reveal">
+      <div class="eyebrow">Understand</div>
+      <h2>Every word has a story.</h2>
+      <p>Etymology, history, and how people really use it. Learn <em>arreba</em> and find out that Basque picks the word for sister by the speaker's gender. Learn <em>etxea</em> and meet the house your surname may have come from.</p>
+    </div>
+    <div class="feature-shot reveal"><img src="/assets/shots/03-note.png" alt="A cultural note explaining a Basque word"></div>
   </div>
-  <div class="feature">
-    <div class="icon">🗺️</div>
-    <h3>A real path, A1 to B2</h3>
-    <p>From your first kaixo to arguing politics at the sagardotegi. Quizzes, games, and stories graded to the CEFR scale.</p>
+
+  <div class="feature-row">
+    <div class="feature-copy reveal">
+      <div class="eyebrow">Play</div>
+      <h2>Six games, one kitchen.</h2>
+      <p>Cook 28 classic Basque dishes by picking the right ingredients, build family trees, match colors, race the clock. The vocabulary sticks because you used it.</p>
+    </div>
+    <div class="feature-shot reveal"><img src="/assets/shots/04-games.png" alt="The games menu showing Koloreak, Basque Kitchen, Arbola Familiarra and more"></div>
   </div>
+
+  <div class="feature-row">
+    <div class="feature-copy reveal">
+      <div class="eyebrow">Remember</div>
+      <h2>Review that forgives.</h2>
+      <p>Spaced repetition brings each word back right before you would forget it. Miss a day and your streak survives, and a streak freeze covers the day life takes over. Your words wait for you.</p>
+    </div>
+    <div class="feature-shot reveal">
+      <div class="note-card">
+        <div class="w">Etxea</div>
+        <div class="g">House / Home</div>
+        <span class="p">eh-CHEH-ah</span>
+        <p class="n">For centuries the etxea was the basic unit of Basque law and life. Surnames came from the house, and the house was named for the land.</p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
-<section class="diaspora">
+<section class="diaspora reveal">
   <h2>Built for the diaspora, and everyone else.</h2>
-  <p>Whether your grandparents spoke Euskara at the dinner table or you are starting from absolute zero, you should not need Spanish to reach the oldest language in Western Europe.</p>
+  <p>Whether your grandparents spoke Euskara at the dinner table or you are starting from absolute zero, Basque should be within reach in the language you already speak.</p>
 </section>
 
 <footer>
@@ -120,5 +203,24 @@ footer a:hover{text-decoration:underline;}
 </footer>
 
 </div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length||!('IntersectionObserver' in window))return; // content already visible
+  var root=document.documentElement;
+  root.classList.add('js-reveal');
+  function showAll(){els.forEach(function(e){e.classList.add('in');});}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{rootMargin:'0px 0px -60px 0px'});
+  els.forEach(function(e){io.observe(e);});
+  // Safety net: if anything is still hidden shortly after load (backgrounded tab,
+  // observer never fires), show everything rather than leave the page blank.
+  setTimeout(showAll,2500);
+  window.addEventListener('load',function(){setTimeout(showAll,1200);});
+})();
+</script>
+
 </body>
 </html>
