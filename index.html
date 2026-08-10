@@ -47,7 +47,7 @@ h1 .green{color:var(--green);}
 /* alternating feature rows */
 .feature-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:52px 0;border-top:1px solid var(--line);}
 .feature-row:nth-child(even) .feature-shot{order:-1;}
-.eyebrow{font-size:12px;font-weight:900;letter-spacing:0.11em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:0.11em;text-transform:uppercase;color:var(--green-text);margin-bottom:10px;}
 .feature-copy h2{font-size:clamp(23px,3vw,31px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;}
 .feature-copy p{margin-top:12px;font-size:16px;color:var(--muted);}
 .feature-shot img{width:min(270px,72vw);margin:0 auto;border-radius:26px;border:1px solid var(--line);box-shadow:var(--shadow);}
@@ -60,7 +60,7 @@ h1 .green{color:var(--green);}
 .note-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow-sm);max-width:420px;}
 .note-card .w{font-size:34px;font-weight:900;letter-spacing:-0.02em;}
 .note-card .g{font-size:15px;font-weight:700;color:var(--muted);}
-.note-card .p{display:inline-block;margin-top:10px;font-size:12px;font-weight:800;color:var(--green);background:color-mix(in srgb,var(--green) 12%,transparent);padding:4px 10px;border-radius:8px;}
+.note-card .p{display:inline-block;margin-top:10px;font-size:12px;font-weight:800;color:var(--green-text);background:color-mix(in srgb,var(--green) 12%,transparent);padding:4px 10px;border-radius:8px;}
 .note-card .n{margin-top:14px;font-size:14px;color:var(--muted);border-left:3px solid var(--green);padding-left:12px;text-align:left;}
 @media (max-width:860px){.note-card{margin:0 auto;}}
 
@@ -70,7 +70,7 @@ h1 .green{color:var(--green);}
 .diaspora p{margin:14px auto 0;font-size:16px;color:#A9C6B6;max-width:56ch;}
 
 
-/* reveal — fails open: content is visible unless JS opts in to animating it */
+/* reveal, fails open: content is visible unless JS opts in to animating it */
 .js-reveal .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
 .js-reveal .reveal.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){.js-reveal .reveal{opacity:1;transform:none;transition:none;}}
