@@ -1,4 +1,4 @@
-/* Ikasi & Go — shared site theme.
+/* Ikasi & Go, shared site theme.
    Linked by index.html, support.html, privacy.html, terms.html.
    Page-specific layout (hero, feature rows) stays inline in index.html. */
 
@@ -6,14 +6,14 @@
 
 :root{
   --bg:#FAF7F0; --surface:#fff; --ink:#14181A; --muted:#5C6468; --faint:#8A9296;
-  --line:rgba(0,0,0,0.08); --green:#009B48; --green-deep:#007538; --red:#DA291C;
+  --line:rgba(0,0,0,0.08); --green:#009B48; --green-deep:#007538; --green-text:#007538; --red:#DA291C;
   --shadow:0 10px 40px rgba(0,0,0,0.10); --shadow-sm:0 2px 12px rgba(0,0,0,0.06);
   --night:#0E2A1E;
 }
 @media (prefers-color-scheme: dark){
   :root{
     --bg:#0F1213; --surface:#181C1E; --ink:#F2F4F3; --muted:#A8B2B5; --faint:#79868A;
-    --line:rgba(255,255,255,0.10); --green:#2FBF6B; --green-deep:#1B9B52; --red:#FF5A47;
+    --line:rgba(255,255,255,0.10); --green:#2FBF6B; --green-deep:#1B9B52; --green-text:#2FBF6B; --red:#FF5A47;
     --shadow:0 10px 40px rgba(0,0,0,0.5); --shadow-sm:0 2px 12px rgba(0,0,0,0.35);
     --night:#0A1F16;
   }
@@ -23,7 +23,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{font-family:Nunito,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
 img{max-width:100%;display:block;}
-a{color:var(--green);}
+a{color:var(--green-text);}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
 /* header */
@@ -31,7 +31,7 @@ header{padding:20px 0;position:sticky;top:0;z-index:50;background:color-mix(in s
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:19px;letter-spacing:-0.02em;color:var(--ink);text-decoration:none;}
 .brand img{width:34px;height:34px;border-radius:9px;box-shadow:var(--shadow-sm);}
-.nav-links{display:flex;gap:22px;font-size:14px;font-weight:700;}
+.nav-links{display:flex;gap:22px;font-size:14px;font-weight:700;flex-wrap:wrap;justify-content:flex-end;}
 .nav-links a{color:var(--muted);text-decoration:none;}
 .nav-links a:hover{color:var(--green);}
 @media (max-width:640px){.nav-links{gap:16px;font-size:13px;}}
@@ -39,7 +39,7 @@ header{padding:20px 0;position:sticky;top:0;z-index:50;background:color-mix(in s
 /* document pages (support, privacy, terms) */
 .doc{max-width:720px;margin:0 auto;padding:28px 24px 72px;}
 .doc-title{font-size:clamp(28px,4.6vw,40px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;}
-.doc-kicker{font-size:12px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.doc-kicker{font-size:12px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-text);margin-bottom:10px;}
 .updated{font-size:13px;color:var(--faint);margin-top:10px;}
 .doc h2{font-size:19px;font-weight:900;letter-spacing:-0.02em;margin:34px 0 10px;color:var(--ink);}
 .doc p{font-size:15px;color:var(--muted);margin-bottom:14px;}
