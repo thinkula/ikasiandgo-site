@@ -9,7 +9,11 @@
 <meta property="og:description" content="Basque vocabulary with the culture built in. Coming soon to the App Store.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ikasiandgo.com/">
-<meta property="og:image" content="https://ikasiandgo.com/assets/icon.png">
+<meta property="og:image" content="https://ikasiandgo.com/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ikasiandgo.com/assets/social-card.png">
 <meta name="theme-color" content="#009B48">
 <link rel="icon" href="/assets/icon.png">
 <link rel="apple-touch-icon" href="/assets/icon.png">
@@ -32,7 +36,7 @@ h1 .green{color:var(--green);}
 
 /* phone frame */
 .phone{position:relative;margin:0 auto;width:min(300px,80vw);border-radius:42px;padding:10px;background:linear-gradient(160deg,#2b3134,#0e1112);box-shadow:var(--shadow);}
-.phone img{border-radius:33px;width:100%;}
+.phone img{border-radius:33px;width:100%;height:auto;}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;gap:40px;padding:40px 0 32px;text-align:center;}
   .kaixo{justify-content:center;}
@@ -52,7 +56,7 @@ h1 .green{color:var(--green);}
 .eyebrow{font-size:12px;font-weight:900;letter-spacing:0.11em;text-transform:uppercase;color:var(--green-text);margin-bottom:10px;}
 .feature-copy h2{font-size:clamp(23px,3vw,31px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;}
 .feature-copy p{margin-top:12px;font-size:16px;color:var(--muted);}
-.feature-shot img{width:min(270px,72vw);margin:0 auto;border-radius:26px;border:1px solid var(--line);box-shadow:var(--shadow);}
+.feature-shot img{width:min(270px,72vw);height:auto;margin:0 auto;border-radius:26px;border:1px solid var(--line);box-shadow:var(--shadow);}
 @media (max-width:860px){
   .feature-row{grid-template-columns:1fr;gap:28px;padding:40px 0;text-align:center;}
   .feature-row:nth-child(even) .feature-shot{order:0;}
@@ -82,7 +86,7 @@ h1 .green{color:var(--green);}
 
 <header>
   <div class="wrap nav">
-    <div class="brand"><img src="/assets/icon.png" alt="Ikasi &amp; Go icon"> Ikasi &amp; Go&trade;</div>
+    <div class="brand"><img src="/assets/icon.png" alt="Ikasi &amp; Go icon" width="34" height="34"> Ikasi &amp; Go&trade;</div>
     <nav class="nav-links">
       <a href="#features">Features</a>
       <a href="/about.html">About</a>
@@ -105,7 +109,7 @@ h1 .green{color:var(--green);}
     </div>
     <p class="price-line">Free to start. <b>$12.99 unlocks everything, once</b>, including every future vocabulary update. No subscription.</p>
   </div>
-  <div class="phone reveal"><img src="/assets/shots/01-home.png" alt="Ikasi &amp; Go home screen showing levels, topics, and today's word"></div>
+  <div class="phone reveal"><img src="/assets/shots/01-home.png" width="414" height="900" fetchpriority="high" alt="Ikasi &amp; Go home screen showing levels, topics, and today's word"></div>
 </section>
 
 <section class="stats">
@@ -123,7 +127,7 @@ h1 .green{color:var(--green);}
       <h2>Quizzes that actually teach.</h2>
       <p>Multiple choice, typing, and fill-in-the-blank, mixed automatically. Every answer shows the pronunciation and a real sentence, so words arrive with context instead of alone.</p>
     </div>
-    <div class="feature-shot reveal"><img src="/assets/shots/02-quiz.png" alt="A quiz question asking the meaning of a Basque word"></div>
+    <div class="feature-shot reveal"><img src="/assets/shots/02-quiz.png" width="414" height="900" loading="lazy" decoding="async" alt="A quiz question asking the meaning of a Basque word"></div>
   </div>
 
   <div class="feature-row" id="culture">
@@ -132,7 +136,7 @@ h1 .green{color:var(--green);}
       <h2>Every word has a story.</h2>
       <p>Etymology, history, and how people really use it. Learn <em>arreba</em> and find out that Basque picks the word for sister by the speaker's gender. Learn <em>etxea</em> and meet the house your surname may have come from.</p>
     </div>
-    <div class="feature-shot reveal"><img src="/assets/shots/03-note.png" alt="A cultural note explaining a Basque word"></div>
+    <div class="feature-shot reveal"><img src="/assets/shots/03-note.png" width="414" height="900" loading="lazy" decoding="async" alt="A cultural note explaining a Basque word"></div>
   </div>
 
   <div class="feature-row">
@@ -141,7 +145,7 @@ h1 .green{color:var(--green);}
       <h2>Six games, one kitchen.</h2>
       <p>Cook 28 classic Basque dishes by picking the right ingredients, build family trees, match colors, race the clock. The vocabulary sticks because you used it.</p>
     </div>
-    <div class="feature-shot reveal"><img src="/assets/shots/04-games.png" alt="The games menu showing Koloreak, Basque Kitchen, Arbola Familiarra and more"></div>
+    <div class="feature-shot reveal"><img src="/assets/shots/04-games.png" width="414" height="900" loading="lazy" decoding="async" alt="The games menu showing Koloreak, Basque Kitchen, Arbola Familiarra and more"></div>
   </div>
 
   <div class="feature-row">
@@ -168,7 +172,7 @@ h1 .green{color:var(--green);}
 </section>
 
 <footer>
-  <span>© 2026 Ikasi &amp; Go&trade;</span>
+  <span>© 2026 Ikasi &amp; Go&trade; · <a href="mailto:hello@ikasiandgo.com">hello@ikasiandgo.com</a></span>
   <span><a href="/about.html">About</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
 </footer>
 
