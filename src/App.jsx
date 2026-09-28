@@ -1,5 +1,6 @@
 import React,{useState,useEffect,useRef,useMemo} from "react";
 import { Purchases } from "@revenuecat/purchases-capacitor";
+import { InAppReview } from "@capacitor-community/in-app-review";
 // Haptics helper
 function haptic(type){
   try{
@@ -121,6 +122,31 @@ function rcHasPro(ci){
 }
 function isNativeApp(){try{return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform());}catch(e){return false;}}
 function rcReady(){return isNativeApp()&&RC_API_KEY.indexOf("REPLACE")===-1;}
+
+// Ratings prompt. Asked only after a session that actually went well, and only
+// once the app has been used enough for the person to have an opinion. At most
+// once per app version, and never twice within 60 days. iOS decides whether the
+// sheet actually appears and caps it at three times a year, so this is a request
+// rather than a guarantee; we never learn the outcome and never ask for one.
+const RATING_KEY="rating_asked";
+async function maybeAskForRating(score){
+  try{
+    if(!isNativeApp())return;
+    if(!score||score.total<5||score.accuracy<80)return;
+    var sd=await STORE.get("streak_data");
+    var sessions=sd&&sd.value?(JSON.parse(sd.value).totalSessions||0):0;
+    if(sessions<5)return;
+    var prev=await STORE.get(RATING_KEY);
+    if(prev&&prev.value){
+      var p=JSON.parse(prev.value);
+      if(p.v===VERSION)return;
+      if(Date.now()-new Date(p.at).getTime()<60*86400000)return;
+    }
+    await STORE.set(RATING_KEY,JSON.stringify({v:VERSION,at:new Date().toISOString()}));
+    // let the results screen land first; a sheet over a transition feels like an ambush
+    setTimeout(function(){try{InAppReview.requestReview();}catch(e){}},1400);
+  }catch(e){}
+}
 const CORRECT_MSGS=["Correct!","Nice one!","Well done!","Nailed it!","Excellent!","Perfect!","Spot on!","Great!"];
 
 const CL={A1:{title:"Beginner",color:"#F97316",bg:"#FFF4F0",dark:"#C2510E",icon:"A1",tagline:"Say hello, count to ten, introduce yourself.",canDo:["Greet people and say goodbye","Introduce yourself by name","Count from 1 to 100","Name foods, colors, and family members","Use basic time words"],tip:"Start with greetings - you will use them every single day.",studyHours:"0-125 hrs"},A2:{title:"Elementary",color:"#0891B2",bg:"#EAF8FC",dark:"#0077A0",icon:"A2",tagline:"Shop, travel, describe your daily life.",canDo:["Describe your daily routine","Shop and order food confidently","Talk about the past and future","Express how you feel","Give and follow directions"],tip:"Learn the days of the week and you can talk about almost anything.",studyHours:"125-300 hrs"},B1:{title:"Intermediate",color:"#9B5DE5",bg:"#F3EEFB",dark:"#6B3DAF",icon:"B1",tagline:"Express opinions, discuss culture and society.",canDo:["Express opinions clearly","Discuss Basque culture and traditions","Talk about work and study","Describe complex emotions","Follow conversations on familiar topics"],tip:"Try watching Basque TV with subtitles - you will be surprised how much you catch.",studyHours:"300-500 hrs"},B2:{title:"Upper-Intermediate",color:"#F72585",bg:"#FEEAF3",dark:"#B01060",icon:"B2",tagline:"Discuss politics, society, identity, and current affairs.",canDo:["Discuss politics and society fluently","Argue a position with nuance","Understand authentic Basque media","Talk about abstract concepts","Engage in real debate"],tip:"Read Basque newspapers online - EITB and Berria are great resources.",studyHours:"500-800 hrs"}};
@@ -1280,7 +1306,7 @@ async function recordSession(){var today=new Date().toDateString(),yest=new Date
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
   function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(missedOnly?null:config);setQs(qs);setResults([]);setScreen("quiz");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
