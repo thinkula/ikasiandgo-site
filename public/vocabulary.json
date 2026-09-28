@@ -1,5 +1,5 @@
 {
-  "version": "1.3.2",
+  "version": "1.3.3",
   "vocabulary": [
     {
       "id": "kaixo",
@@ -1140,7 +1140,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "ET-cheh-ah",
-      "notes": "Etxea = house or home. In Basque culture the etxe (family homestead) is central to identity - Basque surnames often derive from the family house name. Etxera = home (going home). Etxean = at home. Baserria = farmhouse.",
+      "notes": "Etxea = house or home. A Basque house was more than a building: it carried the family's land, its rights, and its name, and surnames often came from the house. Etxera = home (going home). Etxean = at home. Baserria = farmhouse.",
       "example": {
         "basque": "Etxea ederra da.",
         "english": "The house is beautiful."
@@ -2442,7 +2442,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "nah-TOO-rah",
-      "notes": "Natura = nature. Natural = natural. Naturatik = from nature. Basques have a deep connection to natura - mountains, sea, and forests are central to identity.",
+      "notes": "Natura = nature. Naturala = natural. Naturatik = from nature. Landscape words fill Basque place names and surnames: mendi (mountain), ibai (river), haritz (oak), harri (stone).",
       "example": {
         "basque": "Natura ederra da.",
         "english": "Nature is beautiful."
@@ -2783,7 +2783,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "ghee-SAR-teh moo-ghee-MEN-doo-ah",
-      "notes": "Gizarte mugimendua = social movement. Gizarte = society + mugimendua = movement. Basque Country has a rich history of social movements.",
+      "notes": "Gizarte mugimendua = social movement. Gizarte = society + mugimendua = movement. One example: the worker cooperatives that began in Arrasate (Mondragon) in the 1950s and grew into one of the largest cooperative groups in the world.",
       "mcOnly": true,
       "example": {
         "basque": "Gizarte mugimendua indartsua da.",
@@ -4425,7 +4425,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "PAH-goh-ah",
-      "notes": "Beech tree - the most iconic tree of the Basque Country. Pago forests (pagadiak) cover the mountains. Many place names include Pago-: Pagasarri, Pagoeta. The autumn colors are spectacular.",
+      "notes": "Beech tree. Pagadiak (beech forests) cover the mountains, and many place names include Pago-: Pagasarri, Pagoeta. The oak carries the symbolism, but the beech is the tree you actually walk through. The autumn colors are spectacular.",
       "example": {
         "basque": "Pagoa oso ohikoa da Euskal Herrian.",
         "english": "The beech tree is very common in the Basque Country."
@@ -4724,7 +4724,7 @@
       "cefr": "A2",
       "topic": "culture",
       "pronunciation": "PEEN-cho POH-teh",
-      "notes": "The Basque tradition of going bar to bar eating pintxos and drinking. Common on Thursday and Friday evenings in many towns. Pote = drink. A cornerstone of Basque social life that brings communities together.",
+      "notes": "The Basque tradition of going bar to bar eating pintxos and drinking. Common on Thursday and Friday evenings in many towns. Pote = drink. Bars set one low price for a pintxo and a drink together, and the custom is to have one and move on to the next bar.",
       "example": {
         "basque": "Ostegun gauean pintxo-pote egingo dugu.",
         "english": "We will do pintxo-pote on Thursday evening."
@@ -4763,7 +4763,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "har-roh-TAH-soo-nah",
-      "notes": "Pride (noun). Harro = proud (adjective). Harrotasunez = with pride. Do not confuse with harrokeria (arrogance/vanity) which is negative. Healthy pride in identity is central to Basque culture.",
+      "notes": "Pride (noun). Harro = proud (adjective). Harrotasunez = with pride. Do not confuse with harrokeria (arrogance/vanity), which is negative.",
       "example": {
         "basque": "Harrotasunez bizi gara.",
         "english": "We live with pride."
@@ -8000,7 +8000,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "LOW-boo-roo (LOW rhymes with now)",
-      "notes": "The Basque cross - a swastika-like symbol with curved arms. Lau (four) + buru (heads). Ancient symbol of the Basque people representing the four provinces or the four elements.",
+      "notes": "The Basque cross: four curved arms turning around a center. Lau (four) + buru (heads). Carved on old houses and on gravestones across the Basque Country. Its original meaning is not known, and the four provinces and four elements are later explanations rather than documented ones.",
       "example": {
         "basque": "Lauburua Euskal Herriko sinboloa da.",
         "english": "The lauburu is a symbol of the Basque Country."
@@ -8390,7 +8390,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "ee-rah-GAH-neh-koh",
-      "notes": "Past (as adjective). Iragana = the past (noun). Iraganeko gertaerak = past events. Understanding past/present/future is essential for intermediate speakers.",
+      "notes": "Past (as adjective). Iragana = the past (noun). Iraganeko gertaerak = past events. The -ko ending turns a noun into a modifier, the same pattern as etxeko (of the house) and gaurko (of today).",
       "example": {
         "basque": "Iraganeko akatsak ez ditut ahaztu.",
         "english": "I have not forgotten the mistakes of the past."
@@ -10002,7 +10002,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "OR-doo BAH-tah dah",
-      "notes": "It is one o'clock. Ordu = hour/clock. Da = it is. Ordu bata = one o'clock. Ordu biak = two o'clock. Hirurak = three o'clock. Telling time is essential for beginners.",
+      "notes": "It is one o'clock. Ordu = hour/clock. Da = it is. Ordu bata = one o'clock. Ordu biak = two o'clock. Hirurak = three o'clock. Only one o'clock takes the singular da; the later hours are plural, so ordu biak dira = it is two o'clock.",
       "example": {
         "basque": "Ordu bata da orain.",
         "english": "It is one o'clock now."
@@ -12167,7 +12167,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "ar-REE-ah",
-      "notes": "Harri = stone, a word at the heart of Basque identity. Harrijasotzaileak (stone lifters) are heroes of herri kirolak, the rural sports. Harritu (to be amazed) literally means turned to stone, and place names like Arrieta mean place of stones.",
+      "notes": "Harri = stone. Harrijasotzaileak (stone lifters) compete in herri kirolak, the rural sports, lifting stone blocks onto the shoulder. Harritu (to be amazed) literally means turned to stone, and place names like Arrieta mean place of stones.",
       "example": {
         "basque": "Harria astuna da.",
         "english": "The stone is heavy."
