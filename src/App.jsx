@@ -2341,7 +2341,7 @@ function PaywallScreen(props){
       <div style={{flex:1,padding:"4px 20px calc(40px + env(safe-area-inset-bottom, 0px))",overflowY:"auto"}}>
 
         {/* ── Single lifetime price ── */}
-        <div style={{backgroundColor:"#fff",borderRadius:18,border:"2px solid #19A85A",boxShadow:"0 0 0 3px rgba(25,168,90,0.15)",padding:"18px 16px",marginBottom:14,textAlign:"center",position:"relative"}}>
+        <div style={{backgroundColor:"#fff",borderRadius:18,border:"2px solid #19A85A",boxShadow:"0 0 0 3px rgba(25,168,90,0.15)",padding:"18px 16px",margin:"12px 0 14px",textAlign:"center",position:"relative"}}>
           <span style={{position:"absolute",top:-9,left:"50%",transform:"translateX(-50%)",fontSize:9,fontWeight:900,color:"#fff",backgroundColor:"#F97316",padding:"2px 10px",borderRadius:20,whiteSpace:"nowrap",letterSpacing:0.3}}>⭐ LIFETIME</span>
           <p style={{margin:"4px 0 1px",fontSize:34,fontWeight:900,color:"#19A85A"}}>{price}</p>
           <p style={{margin:0,fontSize:12,color:"#888",fontWeight:700}}>one-time purchase</p>
