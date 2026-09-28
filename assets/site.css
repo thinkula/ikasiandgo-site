@@ -34,6 +34,9 @@ header{padding:20px 0;position:sticky;top:0;z-index:50;background:color-mix(in s
 .nav-links{display:flex;gap:22px;font-size:14px;font-weight:700;flex-wrap:wrap;justify-content:flex-end;}
 .nav-links a{color:var(--muted);text-decoration:none;white-space:nowrap;}
 .nav-links a:hover{color:var(--green);}
+/* the one nav item that is an action, not a destination */
+.nav-links a.nav-get{background:var(--green);color:#fff;padding:7px 14px;border-radius:9px;box-shadow:0 2px 0 var(--green-deep);}
+.nav-links a.nav-get:hover{color:#fff;transform:translateY(1px);box-shadow:0 1px 0 var(--green-deep);}
 /* Phone: keep the brand on one line and the links on one row. The lower-value
    links drop out first rather than letting the header wrap to 180px tall. */
 @media (max-width:640px){
@@ -41,10 +44,15 @@ header{padding:20px 0;position:sticky;top:0;z-index:50;background:color-mix(in s
   .nav{gap:10px;}
   .brand{font-size:17px;gap:9px;}
   .brand img{width:30px;height:30px;}
-  .nav-links{gap:15px;font-size:13px;flex-wrap:nowrap;}
+  .nav-links{gap:13px;font-size:13px;flex-wrap:nowrap;}
+  /* the brand is already the home link, so Home is the first thing to go */
+  .nav-links a[href="/"]{display:none;}
+  .nav-links a.nav-get{padding:6px 11px;}
 }
-@media (max-width:460px){
-  .nav-links a[href^="#"]{display:none;}
+@media (max-width:420px){
+  .brand{font-size:16px;}
+  .nav-links{gap:11px;font-size:12.5px;}
+  .nav-links a.nav-get{padding:6px 9px;}
 }
 
 /* document pages (support, privacy, terms) */
