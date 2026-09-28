@@ -101,9 +101,18 @@ const LANDING_PATH = path.join(ROOT, "index.html");
 if (fs.existsSync(LANDING_PATH)) {
   const topicCount = new Set(vocab.map(function (w) { return w.topic; })).size;
   const page = fs.readFileSync(LANDING_PATH, "utf8");
+  // per-topic counts in the Inside section carry data-topic="<key>" on the <b>,
+  // so those numbers cannot drift either as words are added.
+  const perTopic = vocab.reduce(function (acc, w) {
+    acc[w.topic] = (acc[w.topic] || 0) + 1;
+    return acc;
+  }, {});
   const stamped = page
     .replace(/(<span data-count="words">)[^<]*(<\/span>)/g, "$1" + vocab.length + "$2")
-    .replace(/(<span data-count="topics">)[^<]*(<\/span>)/g, "$1" + topicCount + "$2");
+    .replace(/(<span data-count="topics">)[^<]*(<\/span>)/g, "$1" + topicCount + "$2")
+    .replace(/(<b data-topic="([a-z_-]+)">)[^<]*(<\/b>)/g, function (m, open, key, close) {
+      return open + (perTopic[key] || 0) + close;
+    });
   if (stamped !== page) {
     fs.writeFileSync(LANDING_PATH, stamped);
     console.log("sync-vocab: landing page counts updated (" + vocab.length + " words, " + topicCount + " topics)");

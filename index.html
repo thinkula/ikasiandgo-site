@@ -18,6 +18,31 @@
 <link rel="icon" href="/assets/icon.png">
 <link rel="apple-touch-icon" href="/assets/icon.png">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Ikasi & Go",
+  "applicationCategory": "EducationalApplication",
+  "applicationSubCategory": "Language learning",
+  "operatingSystem": "iOS 15.0 or later",
+  "url": "https://ikasiandgo.com/",
+  "installUrl": "https://apps.apple.com/us/app/ikasi-go/id6779068134",
+  "image": "https://ikasiandgo.com/assets/social-card.png",
+  "inLanguage": "en",
+  "description": "Learn Basque (Euskara) directly from English. 939 words and phrases across 17 topics, each with a pronunciation guide, an example sentence, and a note on its origin or use.",
+  "author": {
+    "@type": "Person",
+    "name": "Joseph Ugalde"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free to download. The beginner level is free; a one-time $12.99 in-app purchase unlocks all levels."
+  }
+}
+</script>
 <style>
 /* index-only layout; shared theme lives in /assets/site.css */
 /* hero */
@@ -77,6 +102,15 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
 .note-card .n{margin-top:14px;font-size:14px;color:var(--muted);border-left:3px solid var(--green);padding-left:12px;text-align:left;}
 @media (max-width:860px){.note-card{margin:0 auto;}}
 
+/* topics */
+.topics{padding:54px 0 10px;border-top:1px solid var(--line);}
+.topics-head{max-width:56ch;}
+.topics-head h2{font-size:clamp(23px,3vw,31px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;}
+.topics-head p{margin-top:12px;font-size:16px;color:var(--muted);}
+.topic-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.topic{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 14px;font-size:14px;font-weight:700;color:var(--ink);box-shadow:var(--shadow-sm);}
+.topic b{color:var(--green-text);font-weight:900;margin-left:5px;}
+
 /* diaspora */
 .diaspora{margin:56px 0;background:var(--night);color:#EAF3ED;border-radius:24px;padding:52px 34px;text-align:center;}
 .diaspora h2{font-size:clamp(22px,3.4vw,32px);font-weight:900;line-height:1.2;letter-spacing:-0.02em;}
@@ -93,12 +127,12 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
 
 <header>
   <div class="wrap nav">
-    <div class="brand"><img src="/assets/icon.png" alt="Ikasi &amp; Go icon" width="34" height="34"> Ikasi &amp; Go&trade;</div>
+    <a class="brand" href="/"><img src="/assets/icon.png" alt="Ikasi &amp; Go icon" width="34" height="34"> Ikasi &amp; Go&trade;</a>
     <nav class="nav-links">
-      <a href="#features">Features</a>
+      <a href="/">Home</a>
       <a href="/about.html">About</a>
-      <a href="#culture">Culture</a>
       <a href="/support.html">Support</a>
+      <a class="nav-get" href="https://apps.apple.com/us/app/ikasi-go/id6779068134">Get the app</a>
     </nav>
   </div>
 </header>
@@ -173,6 +207,33 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
 
 </section>
 
+<section class="topics" id="topics">
+  <div class="topics-head">
+    <div class="eyebrow">Inside</div>
+    <h2>Seventeen topics, from kaixo to politics.</h2>
+    <p>Every word carries its pronunciation, an example sentence, and a note on where it comes from or how people actually use it.</p>
+  </div>
+  <div class="topic-list">
+    <span class="topic">Greetings <b data-topic="greetings">87</b></span>
+    <span class="topic">Food &amp; Drink <b data-topic="food">92</b></span>
+    <span class="topic">Numbers <b data-topic="numbers">76</b></span>
+    <span class="topic">Family <b data-topic="family">54</b></span>
+    <span class="topic">Colors <b data-topic="colors">40</b></span>
+    <span class="topic">Nature <b data-topic="nature">61</b></span>
+    <span class="topic">Body <b data-topic="body">59</b></span>
+    <span class="topic">Time <b data-topic="time">67</b></span>
+    <span class="topic">Travel <b data-topic="travel">67</b></span>
+    <span class="topic">Emotions <b data-topic="emotions">50</b></span>
+    <span class="topic">Work &amp; Study <b data-topic="work">50</b></span>
+    <span class="topic">Culture <b data-topic="culture">51</b></span>
+    <span class="topic">Society <b data-topic="society">59</b></span>
+    <span class="topic">Adjectives <b data-topic="adjectives">68</b></span>
+    <span class="topic">Home <b data-topic="home">20</b></span>
+    <span class="topic">City &amp; Town <b data-topic="city">14</b></span>
+    <span class="topic">Animals <b data-topic="animals">24</b></span>
+  </div>
+</section>
+
 <section class="diaspora reveal">
   <h2>Built for the diaspora, and everyone else.</h2>
   <p>Whether your grandparents spoke Euskara at the dinner table or you are starting from absolute zero, Basque should be within reach in the language you already speak.</p>
@@ -181,7 +242,7 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
 
 <footer>
   <span>© 2026 Ikasi &amp; Go&trade; · <a href="mailto:hello@ikasiandgo.com">hello@ikasiandgo.com</a></span>
-  <span><a href="https://apps.apple.com/us/app/ikasi-go/id6779068134">App Store</a> · <a href="/about.html">About</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
+  <span><a href="https://apps.apple.com/us/app/ikasi-go/id6779068134">App Store</a> · <a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/support.html">Support</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span>
 </footer>
 
 </div>
