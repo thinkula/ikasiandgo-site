@@ -110,6 +110,8 @@ const VERSION="1.1.0";
 const RC_API_KEY="appl_gAmUbsXTredgwvqVHdxvTPdnlCW";
 const RC_ENTITLEMENT="pro";
 const RC_PRODUCT_ID="com.ikasiandgo.app.lifetime";
+// Opens the App Store page with the review sheet already up.
+const APP_STORE_REVIEW_URL="https://apps.apple.com/app/id6779068134?action=write-review";
 // Pro if the entitlement is active OR the lifetime product was purchased. The
 // product-id fallback covers the window right after store setup when the
 // entitlement mapping has not yet propagated to a fresh CustomerInfo.
@@ -1654,11 +1656,15 @@ function HomeScreen(props){
         </div>
       )}
 
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:14}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:14,flexWrap:"wrap"}}>
         <button onClick={onReplayIntro} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",textDecoration:"underline"}}>About this app &amp; Basque</button>
         <button onClick={function(){var nv=!sfxOn;setSfxOnState(nv);setSfxOn(nv);if(nv)sfx("correct");}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
           <span style={{fontSize:13}}>{sfxOn?"🔊":"🔇"}</span>
           <span style={{textDecoration:"underline"}}>Sound {sfxOn?"on":"off"}</span>
+        </button>
+        <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
+          <span style={{fontSize:13}}>⭐</span>
+          <span style={{textDecoration:"underline"}}>Rate this app</span>
         </button>
       </div>
     </div>
