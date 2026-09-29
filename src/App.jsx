@@ -1726,6 +1726,44 @@ function QuizScreen(props){
   
   var correctMsg=result&&result.correct?CORRECT_MSGS[idx%CORRECT_MSGS.length]:"Correct!";
   var resLabel=result?(result.correct?correctMsg:result.wasClose?"So close!":"Not quite"):null;
+  // The answered-state explanation. For multiple choice it renders BELOW the
+  // options so the four choices never move when you tap one; on the smallest
+  // iPhone that keeps option D clear of the sticky Continue bar. Typing
+  // questions have no options to displace, so it stays inside the card.
+  var feedbackJSX = result ? (
+            <div role="status" aria-live="polite" style={{marginTop:14}}>
+              {/* Result banner with animated icon */}
+              <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FFF1F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, riseSoft 0.22s ease-out"}}>
+                <div style={{width:38,height:38,borderRadius:"50%",backgroundColor:result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.05s both"}}>
+                  <span style={{fontSize:20,fontWeight:900,color:"#fff",lineHeight:1}}>{result.correct?"✓":result.wasClose?"≈":"✕"}</span>
+                </div>
+                <div style={{flex:1}}>
+                  <p style={{margin:0,fontSize:16,fontWeight:900,color:result.correct?"#19A85A":result.wasClose?"#D97706":"#EF4444",letterSpacing:-0.2}}>{resLabel}</p>
+                  {!result.correct&&!isType&&snoozeCorrect&&<p style={{margin:"2px 0 0",fontSize:13,color:"#1A1A1A",fontWeight:700}}>Answer: <span style={{color:result.wasClose?"#D97706":"#EF4444",fontWeight:900}}>{snoozeCorrect}</span></p>}
+                  {isType&&!result.correct&&result.userAnswer&&<p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93"}}>You typed: "{result.userAnswer}"</p>}
+                </div>
+                {result.correct&&correctStreak>=3&&(
+                  <div style={{flexShrink:0,backgroundColor:"#19A85A",borderRadius:14,padding:"4px 10px",animation:"streakPop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.15s both"}}>
+                    <p style={{margin:0,fontSize:13,fontWeight:900,color:"#fff",lineHeight:1}}>🔥{correctStreak}</p>
+                  </div>
+                )}
+              </div>
+              {/* Pronunciation */}
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:q.word.notes||q.word.example?8:0}}>
+                <span style={{fontSize:12,fontWeight:700,color:"#8E8E93",backgroundColor:"#F2F2F7",padding:"4px 12px",borderRadius:20}}>{q.word.pronunciation}</span>
+                {q.word.notes&&<button onClick={function(){setShowNote(function(n){return !n;});}} style={{background:showNote?"#EDFAF3":"#F2F2F7",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,color:showNote?"#19A85A":"#8E8E93",padding:"4px 12px",borderRadius:20,fontFamily:"inherit"}}>ⓘ Note</button>}
+              </div>
+              {showNote&&q.word.notes&&<p style={{margin:"0 0 8px",fontSize:12,color:"#555",lineHeight:1.65,backgroundColor:"#F9F9F9",borderRadius:10,padding:"8px 12px"}}>{q.word.notes}</p>}
+              {q.word.example&&q.word.example.basque&&(
+                <div style={{backgroundColor:"#F2F2F7",borderRadius:12,padding:"10px 12px",borderLeft:"3px solid "+lc}}>
+                  <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>{q.word.example.basque}</p>
+                  <p style={{margin:"3px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}}>{q.word.example.english}</p>
+                </div>
+              )}
+              {isFB&&<p style={{margin:"8px 0 0",fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{q.word.english}</p>}
+            </div>
+  ) : null;
+
   var isNewWord=!srsData[q.word.id];
   var doneCount=latest.current.length;
   var correctCount=latest.current.filter(function(r){return r.correct;}).length;
@@ -1819,39 +1857,7 @@ function QuizScreen(props){
           )}
 
           {/* Result feedback */}
-          {result&&(
-            <div role="status" aria-live="polite" style={{marginTop:14}}>
-              {/* Result banner with animated icon */}
-              <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FFF1F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, riseSoft 0.22s ease-out"}}>
-                <div style={{width:38,height:38,borderRadius:"50%",backgroundColor:result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.05s both"}}>
-                  <span style={{fontSize:20,fontWeight:900,color:"#fff",lineHeight:1}}>{result.correct?"✓":result.wasClose?"≈":"✕"}</span>
-                </div>
-                <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:16,fontWeight:900,color:result.correct?"#19A85A":result.wasClose?"#D97706":"#EF4444",letterSpacing:-0.2}}>{resLabel}</p>
-                  {!result.correct&&!isType&&snoozeCorrect&&<p style={{margin:"2px 0 0",fontSize:13,color:"#1A1A1A",fontWeight:700}}>Answer: <span style={{color:result.wasClose?"#D97706":"#EF4444",fontWeight:900}}>{snoozeCorrect}</span></p>}
-                  {isType&&!result.correct&&result.userAnswer&&<p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93"}}>You typed: "{result.userAnswer}"</p>}
-                </div>
-                {result.correct&&correctStreak>=3&&(
-                  <div style={{flexShrink:0,backgroundColor:"#19A85A",borderRadius:14,padding:"4px 10px",animation:"streakPop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.15s both"}}>
-                    <p style={{margin:0,fontSize:13,fontWeight:900,color:"#fff",lineHeight:1}}>🔥{correctStreak}</p>
-                  </div>
-                )}
-              </div>
-              {/* Pronunciation */}
-              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:q.word.notes||q.word.example?8:0}}>
-                <span style={{fontSize:12,fontWeight:700,color:"#8E8E93",backgroundColor:"#F2F2F7",padding:"4px 12px",borderRadius:20}}>{q.word.pronunciation}</span>
-                {q.word.notes&&<button onClick={function(){setShowNote(function(n){return !n;});}} style={{background:showNote?"#EDFAF3":"#F2F2F7",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,color:showNote?"#19A85A":"#8E8E93",padding:"4px 12px",borderRadius:20,fontFamily:"inherit"}}>ⓘ Note</button>}
-              </div>
-              {showNote&&q.word.notes&&<p style={{margin:"0 0 8px",fontSize:12,color:"#555",lineHeight:1.65,backgroundColor:"#F9F9F9",borderRadius:10,padding:"8px 12px"}}>{q.word.notes}</p>}
-              {q.word.example&&q.word.example.basque&&(
-                <div style={{backgroundColor:"#F2F2F7",borderRadius:12,padding:"10px 12px",borderLeft:"3px solid "+lc}}>
-                  <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>{q.word.example.basque}</p>
-                  <p style={{margin:"3px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}}>{q.word.example.english}</p>
-                </div>
-              )}
-              {isFB&&<p style={{margin:"8px 0 0",fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{q.word.english}</p>}
-            </div>
-          )}
+          {!isAnyMC&&feedbackJSX}
         </div>
       </div>
 
@@ -1872,6 +1878,8 @@ function QuizScreen(props){
           {isW&&<span style={{color:"#EF4444",fontWeight:900,fontSize:20,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) both"}}>✗</span>}
         </div>
       );})}
+
+      {isAnyMC&&feedbackJSX}
 
       {/* Running score */}
       {!result&&isAnyMC&&doneCount>0&&(
