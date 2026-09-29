@@ -1,5 +1,6 @@
 import React,{useState,useEffect,useRef,useMemo} from "react";
 import { Purchases } from "@revenuecat/purchases-capacitor";
+import { InAppReview } from "@capacitor-community/in-app-review";
 // Haptics helper
 function haptic(type){
   try{
@@ -102,13 +103,15 @@ var STORE=(function(){
 })();
 // Load mute preference at startup (after storage polyfill is guaranteed)
 try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
-const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
+const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}@keyframes riseSoft{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
 const VERSION="1.1.0";
 // RevenueCat: paste the PUBLIC Apple API key (starts with appl_) from
 // app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
 const RC_API_KEY="appl_gAmUbsXTredgwvqVHdxvTPdnlCW";
 const RC_ENTITLEMENT="pro";
 const RC_PRODUCT_ID="com.ikasiandgo.app.lifetime";
+// Opens the App Store page with the review sheet already up.
+const APP_STORE_REVIEW_URL="https://apps.apple.com/app/id6779068134?action=write-review";
 // Pro if the entitlement is active OR the lifetime product was purchased. The
 // product-id fallback covers the window right after store setup when the
 // entitlement mapping has not yet propagated to a fresh CustomerInfo.
@@ -121,6 +124,31 @@ function rcHasPro(ci){
 }
 function isNativeApp(){try{return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform());}catch(e){return false;}}
 function rcReady(){return isNativeApp()&&RC_API_KEY.indexOf("REPLACE")===-1;}
+
+// Ratings prompt. Asked only after a session that actually went well, and only
+// once the app has been used enough for the person to have an opinion. At most
+// once per app version, and never twice within 60 days. iOS decides whether the
+// sheet actually appears and caps it at three times a year, so this is a request
+// rather than a guarantee; we never learn the outcome and never ask for one.
+const RATING_KEY="rating_asked";
+async function maybeAskForRating(score){
+  try{
+    if(!isNativeApp())return;
+    if(!score||score.total<5||score.accuracy<80)return;
+    var sd=await STORE.get("streak_data");
+    var sessions=sd&&sd.value?(JSON.parse(sd.value).totalSessions||0):0;
+    if(sessions<5)return;
+    var prev=await STORE.get(RATING_KEY);
+    if(prev&&prev.value){
+      var p=JSON.parse(prev.value);
+      if(p.v===VERSION)return;
+      if(Date.now()-new Date(p.at).getTime()<60*86400000)return;
+    }
+    await STORE.set(RATING_KEY,JSON.stringify({v:VERSION,at:new Date().toISOString()}));
+    // let the results screen land first; a sheet over a transition feels like an ambush
+    setTimeout(function(){try{InAppReview.requestReview();}catch(e){}},1400);
+  }catch(e){}
+}
 const CORRECT_MSGS=["Correct!","Nice one!","Well done!","Nailed it!","Excellent!","Perfect!","Spot on!","Great!"];
 
 const CL={A1:{title:"Beginner",color:"#F97316",bg:"#FFF4F0",dark:"#C2510E",icon:"A1",tagline:"Say hello, count to ten, introduce yourself.",canDo:["Greet people and say goodbye","Introduce yourself by name","Count from 1 to 100","Name foods, colors, and family members","Use basic time words"],tip:"Start with greetings - you will use them every single day.",studyHours:"0-125 hrs"},A2:{title:"Elementary",color:"#0891B2",bg:"#EAF8FC",dark:"#0077A0",icon:"A2",tagline:"Shop, travel, describe your daily life.",canDo:["Describe your daily routine","Shop and order food confidently","Talk about the past and future","Express how you feel","Give and follow directions"],tip:"Learn the days of the week and you can talk about almost anything.",studyHours:"125-300 hrs"},B1:{title:"Intermediate",color:"#9B5DE5",bg:"#F3EEFB",dark:"#6B3DAF",icon:"B1",tagline:"Express opinions, discuss culture and society.",canDo:["Express opinions clearly","Discuss Basque culture and traditions","Talk about work and study","Describe complex emotions","Follow conversations on familiar topics"],tip:"Try watching Basque TV with subtitles - you will be surprised how much you catch.",studyHours:"300-500 hrs"},B2:{title:"Upper-Intermediate",color:"#F72585",bg:"#FEEAF3",dark:"#B01060",icon:"B2",tagline:"Discuss politics, society, identity, and current affairs.",canDo:["Discuss politics and society fluently","Argue a position with nuance","Understand authentic Basque media","Talk about abstract concepts","Engage in real debate"],tip:"Read Basque newspapers online - EITB and Berria are great resources.",studyHours:"500-800 hrs"}};
@@ -1280,7 +1308,7 @@ async function recordSession(){var today=new Date().toDateString(),yest=new Date
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
   function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(missedOnly?null:config);setQs(qs);setResults([]);setScreen("quiz");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
@@ -1628,11 +1656,15 @@ function HomeScreen(props){
         </div>
       )}
 
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:14}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:14,flexWrap:"wrap"}}>
         <button onClick={onReplayIntro} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",textDecoration:"underline"}}>About this app &amp; Basque</button>
         <button onClick={function(){var nv=!sfxOn;setSfxOnState(nv);setSfxOn(nv);if(nv)sfx("correct");}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
           <span style={{fontSize:13}}>{sfxOn?"🔊":"🔇"}</span>
           <span style={{textDecoration:"underline"}}>Sound {sfxOn?"on":"off"}</span>
+        </button>
+        <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
+          <span style={{fontSize:13}}>⭐</span>
+          <span style={{textDecoration:"underline"}}>Rate this app</span>
         </button>
       </div>
     </div>
@@ -1694,6 +1726,44 @@ function QuizScreen(props){
   
   var correctMsg=result&&result.correct?CORRECT_MSGS[idx%CORRECT_MSGS.length]:"Correct!";
   var resLabel=result?(result.correct?correctMsg:result.wasClose?"So close!":"Not quite"):null;
+  // The answered-state explanation. For multiple choice it renders BELOW the
+  // options so the four choices never move when you tap one; on the smallest
+  // iPhone that keeps option D clear of the sticky Continue bar. Typing
+  // questions have no options to displace, so it stays inside the card.
+  var feedbackJSX = result ? (
+            <div role="status" aria-live="polite" style={{marginTop:14}}>
+              {/* Result banner with animated icon */}
+              <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FFF1F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, riseSoft 0.22s ease-out"}}>
+                <div style={{width:38,height:38,borderRadius:"50%",backgroundColor:result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.05s both"}}>
+                  <span style={{fontSize:20,fontWeight:900,color:"#fff",lineHeight:1}}>{result.correct?"✓":result.wasClose?"≈":"✕"}</span>
+                </div>
+                <div style={{flex:1}}>
+                  <p style={{margin:0,fontSize:16,fontWeight:900,color:result.correct?"#19A85A":result.wasClose?"#D97706":"#EF4444",letterSpacing:-0.2}}>{resLabel}</p>
+                  {!result.correct&&!isType&&snoozeCorrect&&<p style={{margin:"2px 0 0",fontSize:13,color:"#1A1A1A",fontWeight:700}}>Answer: <span style={{color:result.wasClose?"#D97706":"#EF4444",fontWeight:900}}>{snoozeCorrect}</span></p>}
+                  {isType&&!result.correct&&result.userAnswer&&<p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93"}}>You typed: "{result.userAnswer}"</p>}
+                </div>
+                {result.correct&&correctStreak>=3&&(
+                  <div style={{flexShrink:0,backgroundColor:"#19A85A",borderRadius:14,padding:"4px 10px",animation:"streakPop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.15s both"}}>
+                    <p style={{margin:0,fontSize:13,fontWeight:900,color:"#fff",lineHeight:1}}>🔥{correctStreak}</p>
+                  </div>
+                )}
+              </div>
+              {/* Pronunciation */}
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:q.word.notes||q.word.example?8:0}}>
+                <span style={{fontSize:12,fontWeight:700,color:"#8E8E93",backgroundColor:"#F2F2F7",padding:"4px 12px",borderRadius:20}}>{q.word.pronunciation}</span>
+                {q.word.notes&&<button onClick={function(){setShowNote(function(n){return !n;});}} style={{background:showNote?"#EDFAF3":"#F2F2F7",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,color:showNote?"#19A85A":"#8E8E93",padding:"4px 12px",borderRadius:20,fontFamily:"inherit"}}>ⓘ Note</button>}
+              </div>
+              {showNote&&q.word.notes&&<p style={{margin:"0 0 8px",fontSize:12,color:"#555",lineHeight:1.65,backgroundColor:"#F9F9F9",borderRadius:10,padding:"8px 12px"}}>{q.word.notes}</p>}
+              {q.word.example&&q.word.example.basque&&(
+                <div style={{backgroundColor:"#F2F2F7",borderRadius:12,padding:"10px 12px",borderLeft:"3px solid "+lc}}>
+                  <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>{q.word.example.basque}</p>
+                  <p style={{margin:"3px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}}>{q.word.example.english}</p>
+                </div>
+              )}
+              {isFB&&<p style={{margin:"8px 0 0",fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{q.word.english}</p>}
+            </div>
+  ) : null;
+
   var isNewWord=!srsData[q.word.id];
   var doneCount=latest.current.length;
   var correctCount=latest.current.filter(function(r){return r.correct;}).length;
@@ -1737,7 +1807,7 @@ function QuizScreen(props){
       </div>
 
       {/* ── Question card ── */}
-      <div key={"card-"+idx} style={{backgroundColor:"#FEFEFC",borderRadius:26,overflow:"hidden",boxShadow:result?"none":"0 6px 28px rgba(0,0,0,0.05)",border:"2px solid "+(result?(result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444"):"transparent"),transition:"border-color 0.25s, box-shadow 0.25s",animation:burst==="wrong"?"shake 0.4s ease":"slideUp 0.2s ease"}}>
+      <div key={"card-"+idx} style={{backgroundColor:"#FEFEFC",borderRadius:26,overflow:"hidden",boxShadow:result?"none":"0 6px 28px rgba(0,0,0,0.05)",border:"2px solid "+(result?(result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444"):"transparent"),transition:"border-color 0.25s, box-shadow 0.25s",animation:"slideUp 0.2s ease"}}>
 
         {/* Soft tinted accent band at top */}
         <div style={{height:5,background:"linear-gradient(90deg,"+lc+","+ld+")",opacity:0.5}}/>
@@ -1787,39 +1857,7 @@ function QuizScreen(props){
           )}
 
           {/* Result feedback */}
-          {result&&(
-            <div role="status" aria-live="polite" style={{marginTop:14}}>
-              {/* Result banner with animated icon */}
-              <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FFF1F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, risePop 0.35s cubic-bezier(0.34,1.56,0.64,1)"}}>
-                <div style={{width:38,height:38,borderRadius:"50%",backgroundColor:result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.05s both"}}>
-                  <span style={{fontSize:20,fontWeight:900,color:"#fff",lineHeight:1}}>{result.correct?"✓":result.wasClose?"≈":"✕"}</span>
-                </div>
-                <div style={{flex:1}}>
-                  <p style={{margin:0,fontSize:16,fontWeight:900,color:result.correct?"#19A85A":result.wasClose?"#D97706":"#EF4444",letterSpacing:-0.2}}>{resLabel}</p>
-                  {!result.correct&&!isType&&snoozeCorrect&&<p style={{margin:"2px 0 0",fontSize:13,color:"#1A1A1A",fontWeight:700}}>Answer: <span style={{color:result.wasClose?"#D97706":"#EF4444",fontWeight:900}}>{snoozeCorrect}</span></p>}
-                  {isType&&!result.correct&&result.userAnswer&&<p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93"}}>You typed: "{result.userAnswer}"</p>}
-                </div>
-                {result.correct&&correctStreak>=3&&(
-                  <div style={{flexShrink:0,backgroundColor:"#19A85A",borderRadius:14,padding:"4px 10px",animation:"streakPop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.15s both"}}>
-                    <p style={{margin:0,fontSize:13,fontWeight:900,color:"#fff",lineHeight:1}}>🔥{correctStreak}</p>
-                  </div>
-                )}
-              </div>
-              {/* Pronunciation */}
-              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:q.word.notes||q.word.example?8:0}}>
-                <span style={{fontSize:12,fontWeight:700,color:"#8E8E93",backgroundColor:"#F2F2F7",padding:"4px 12px",borderRadius:20}}>{q.word.pronunciation}</span>
-                {q.word.notes&&<button onClick={function(){setShowNote(function(n){return !n;});}} style={{background:showNote?"#EDFAF3":"#F2F2F7",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,color:showNote?"#19A85A":"#8E8E93",padding:"4px 12px",borderRadius:20,fontFamily:"inherit"}}>ⓘ Note</button>}
-              </div>
-              {showNote&&q.word.notes&&<p style={{margin:"0 0 8px",fontSize:12,color:"#555",lineHeight:1.65,backgroundColor:"#F9F9F9",borderRadius:10,padding:"8px 12px"}}>{q.word.notes}</p>}
-              {q.word.example&&q.word.example.basque&&(
-                <div style={{backgroundColor:"#F2F2F7",borderRadius:12,padding:"10px 12px",borderLeft:"3px solid "+lc}}>
-                  <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>{q.word.example.basque}</p>
-                  <p style={{margin:"3px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}}>{q.word.example.english}</p>
-                </div>
-              )}
-              {isFB&&<p style={{margin:"8px 0 0",fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{q.word.english}</p>}
-            </div>
-          )}
+          {!isAnyMC&&feedbackJSX}
         </div>
       </div>
 
@@ -1840,6 +1878,8 @@ function QuizScreen(props){
           {isW&&<span style={{color:"#EF4444",fontWeight:900,fontSize:20,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) both"}}>✗</span>}
         </div>
       );})}
+
+      {isAnyMC&&feedbackJSX}
 
       {/* Running score */}
       {!result&&isAnyMC&&doneCount>0&&(
@@ -1873,7 +1913,7 @@ function QuizScreen(props){
           <button style={{width:"100%",border:"none",borderRadius:16,padding:"16px",fontSize:16,fontWeight:900,cursor:ready?"pointer":"default",background:ready?"linear-gradient(135deg,"+ld+","+lc+")":"#F2F2F7",color:ready?"#fff":"#C7C7CC",fontFamily:"inherit",boxShadow:ready?"0 4px 0 "+ld:"none",transition:"all 0.15s",letterSpacing:-0.2}} onClick={function(){if(typed.trim())submit(typed);}}>Check</button>
         )
       ):(
-        <button style={{width:"100%",border:"none",borderRadius:16,padding:"16px",fontSize:16,fontWeight:900,cursor:"pointer",background:result.correct?"linear-gradient(135deg,#0E7A40,#19A85A)":result.wasClose?"linear-gradient(135deg,#B45309,#F59E0B)":"linear-gradient(135deg,"+ld+","+lc+")",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 "+(result.correct?"#0B5C30":result.wasClose?"#92400E":ld),letterSpacing:-0.2,animation:"risePop 0.3s cubic-bezier(0.34,1.56,0.64,1)"}} onClick={function(){advance();}}>
+        <button style={{width:"100%",border:"none",borderRadius:16,padding:"16px",fontSize:16,fontWeight:900,cursor:"pointer",background:result.correct?"linear-gradient(135deg,#0E7A40,#19A85A)":result.wasClose?"linear-gradient(135deg,#B45309,#F59E0B)":"linear-gradient(135deg,"+ld+","+lc+")",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 "+(result.correct?"#0B5C30":result.wasClose?"#92400E":ld),letterSpacing:-0.2,animation:"riseSoft 0.22s ease-out"}} onClick={function(){advance();}}>
           {idx+1>=questions.length?"See results 🎉":result.correct?"Nice! Continue →":"Continue →"}
         </button>
       )}
@@ -2042,7 +2082,7 @@ function OnboardingScreen(props){
     {
       emoji:"🌍",
       title:"Earth's Greatest Language Mystery",
-      body:"Basque has been spoken in the Pyrenees for thousands of years, yet nobody knows where it came from. Unlike every other language in Europe, it has no known relatives. Linguists call it a language isolate. Completely, utterly unique.",
+      body:"Basque has been spoken on both sides of the western Pyrenees for thousands of years, yet nobody knows where it came from. Unlike every other language in Europe, it has no known relatives. Linguists call it a language isolate. Completely, utterly unique.",
       cta:"Interesting! Tell me more →"
     },
     {
@@ -2315,7 +2355,7 @@ function PaywallScreen(props){
       <div style={{flex:1,padding:"4px 20px calc(40px + env(safe-area-inset-bottom, 0px))",overflowY:"auto"}}>
 
         {/* ── Single lifetime price ── */}
-        <div style={{backgroundColor:"#fff",borderRadius:18,border:"2px solid #19A85A",boxShadow:"0 0 0 3px rgba(25,168,90,0.15)",padding:"18px 16px",marginBottom:14,textAlign:"center",position:"relative"}}>
+        <div style={{backgroundColor:"#fff",borderRadius:18,border:"2px solid #19A85A",boxShadow:"0 0 0 3px rgba(25,168,90,0.15)",padding:"18px 16px",margin:"12px 0 14px",textAlign:"center",position:"relative"}}>
           <span style={{position:"absolute",top:-9,left:"50%",transform:"translateX(-50%)",fontSize:9,fontWeight:900,color:"#fff",backgroundColor:"#F97316",padding:"2px 10px",borderRadius:20,whiteSpace:"nowrap",letterSpacing:0.3}}>⭐ LIFETIME</span>
           <p style={{margin:"4px 0 1px",fontSize:34,fontWeight:900,color:"#19A85A"}}>{price}</p>
           <p style={{margin:0,fontSize:12,color:"#888",fontWeight:700}}>one-time purchase</p>
