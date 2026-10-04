@@ -5108,6 +5108,15 @@ function ArbolaScreen(props){
 //  Lessons sequence existing A1 vocabulary with light connective teaching.
 //  word ids reference entries in the vocabulary; practice reuses the quiz engine.
 // ════════════════════════════════════════════
+// The 19 lessons read as one long scroll, so they are grouped into four
+// chapters. Each lesson still unlocks in order; the chapters only give the
+// path a shape and a nearer milestone than "3 of 19".
+var CHAPTERS=[
+  {n:1,name:"First steps",from:1,to:5},
+  {n:2,name:"Day to day",from:6,to:10},
+  {n:3,name:"Your world",from:11,to:15},
+  {n:4,name:"Out in the world",from:16,to:19}
+];
 var LESSONS=[
   {
     id:"l1_greetings",
@@ -5352,6 +5361,42 @@ function LearnScreen(props){
     return doneLessons.indexOf(LESSONS[idx-1].id)!==-1;
   }
 
+  // Lesson cards and the chapter headings that group them. Defined at component
+  // scope so both the list below and any future view can use them.
+  function renderLesson(lesson){
+    var idx=LESSONS.indexOf(lesson);
+        var unlocked=isUnlocked(idx);
+        var isDone=doneLessons.indexOf(lesson.id)!==-1;
+        return React.createElement("button",{key:lesson.id,onClick:function(){if(unlocked){setSelLesson(lesson);window.scrollTo(0,0);}},disabled:!unlocked,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"none",borderRadius:18,padding:"16px",marginBottom:11,cursor:unlocked?"pointer":"default",fontFamily:"inherit",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",opacity:unlocked?1:0.55,position:"relative",overflow:"hidden"}},
+          React.createElement("div",{style:{position:"absolute",top:0,left:0,bottom:0,width:4,backgroundColor:isDone?"#19A85A":unlocked?"#7C3AED":"#C7C7CC"}}),
+          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:13}},
+            React.createElement("div",{style:{width:48,height:48,borderRadius:14,backgroundColor:isDone?"#EDFAF3":unlocked?"#F5F3FF":"#ECECEF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:unlocked?24:18,fontWeight:unlocked?400:900,color:unlocked?"inherit":"#A0A0A8"}},unlocked?lesson.emoji:String(lesson.num)),
+            React.createElement("div",{style:{flex:1,minWidth:0}},
+              React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
+                React.createElement("span",{style:{fontSize:11,fontWeight:800,color:"#8E8E93"}},"LESSON "+lesson.num),
+                isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#19A85A"}},"\u2713")
+              ),
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:unlocked?"#1A1A1A":"#9A9AA2"}},lesson.title),
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},unlocked?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
+            ),
+            unlocked?React.createElement("span",{style:{fontSize:18,color:"#D1D1D6",flexShrink:0}},"\u2192"):React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#B0B0B8",flexShrink:0,letterSpacing:0.3}},"LOCKED")
+          )
+        );
+        }
+  function chapterHeader(cs){
+    var pct=cs.total?Math.round(cs.done/cs.total*100):0;
+    return React.createElement("div",{key:"ch"+cs.chapter.n,style:{margin:(cs.chapter.n===1?"2px":"22px")+" 2px 10px"}},
+      React.createElement("div",{style:{display:"flex",alignItems:"baseline",justifyContent:"space-between"}},
+        React.createElement("span",{style:{fontSize:17,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}},cs.chapter.name),
+        React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#8E8E93"}},cs.done+" of "+cs.total)
+      ),
+      React.createElement("div",{style:{fontSize:10,fontWeight:900,letterSpacing:1,color:"#7C3AED",textTransform:"uppercase",marginTop:2}},"Chapter "+cs.chapter.n),
+      React.createElement("div",{style:{height:4,borderRadius:3,backgroundColor:"#E2E2E8",marginTop:8,overflow:"hidden"}},
+        React.createElement("div",{style:{height:"100%",width:pct+"%",background:"linear-gradient(90deg,#7C3AED,#A78BFA)",borderRadius:3,transition:"width 0.3s ease"}})
+      )
+    );
+  }
+
   // ════ LESSON DETAIL ════
   if(selLesson){
     var lesson=selLesson;
@@ -5411,6 +5456,12 @@ function LearnScreen(props){
 
   // ════ LESSON PATH ════
   var completedCount=LESSONS.filter(function(l){return doneLessons.indexOf(l.id)!==-1;}).length;
+  var chapterStats=CHAPTERS.map(function(c){
+    var inCh=LESSONS.filter(function(l){return l.num>=c.from&&l.num<=c.to;});
+    var done=inCh.filter(function(l){return doneLessons.indexOf(l.id)!==-1;}).length;
+    return{chapter:c,lessons:inCh,done:done,total:inCh.length};
+  });
+  var currentChapter=(chapterStats.filter(function(cs){return cs.done<cs.total;})[0]||{}).chapter||null;
   return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
     React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
       React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
@@ -5419,8 +5470,8 @@ function LearnScreen(props){
       // Overall progress
       React.createElement("div",{style:{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:12,padding:"10px 14px"}},
         React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6}},
-          React.createElement("span",{style:{fontSize:12,fontWeight:700,color:"#fff"}},"Progress"),
-          React.createElement("span",{style:{fontSize:12,fontWeight:900,color:"#fff"}},completedCount+" / "+LESSONS.length)
+          React.createElement("span",{style:{fontSize:12,fontWeight:700,color:"#fff"}},currentChapter?("Chapter "+currentChapter.n+" of "+CHAPTERS.length):"Complete"),
+          React.createElement("span",{style:{fontSize:12,fontWeight:900,color:"#fff"}},completedCount+" / "+LESSONS.length+" lessons")
         ),
         React.createElement("div",{style:{height:6,backgroundColor:"rgba(255,255,255,0.25)",borderRadius:3,overflow:"hidden"}},
           React.createElement("div",{style:{height:"100%",width:(LESSONS.length>0?Math.round(completedCount/LESSONS.length*100):0)+"%",backgroundColor:"#fff",borderRadius:3,transition:"width 0.5s ease"}})
@@ -5428,23 +5479,10 @@ function LearnScreen(props){
       )
     ),
     React.createElement("div",{style:{padding:"18px 16px calc(40px + env(safe-area-inset-bottom,0px))"}},
-      LESSONS.map(function(lesson,idx){
-        var unlocked=isUnlocked(idx);
-        var isDone=doneLessons.indexOf(lesson.id)!==-1;
-        return React.createElement("button",{key:lesson.id,onClick:function(){if(unlocked){setSelLesson(lesson);window.scrollTo(0,0);}},disabled:!unlocked,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"none",borderRadius:18,padding:"16px",marginBottom:11,cursor:unlocked?"pointer":"default",fontFamily:"inherit",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",opacity:unlocked?1:0.55,position:"relative",overflow:"hidden"}},
-          React.createElement("div",{style:{position:"absolute",top:0,left:0,bottom:0,width:4,backgroundColor:isDone?"#19A85A":unlocked?"#7C3AED":"#C7C7CC"}}),
-          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:13}},
-            React.createElement("div",{style:{width:48,height:48,borderRadius:14,backgroundColor:isDone?"#EDFAF3":unlocked?"#F5F3FF":"#ECECEF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:unlocked?24:18,fontWeight:unlocked?400:900,color:unlocked?"inherit":"#A0A0A8"}},unlocked?lesson.emoji:String(lesson.num)),
-            React.createElement("div",{style:{flex:1,minWidth:0}},
-              React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
-                React.createElement("span",{style:{fontSize:11,fontWeight:800,color:"#8E8E93"}},"LESSON "+lesson.num),
-                isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#19A85A"}},"\u2713")
-              ),
-              React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:unlocked?"#1A1A1A":"#9A9AA2"}},lesson.title),
-              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},unlocked?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
-            ),
-            unlocked?React.createElement("span",{style:{fontSize:18,color:"#D1D1D6",flexShrink:0}},"\u2192"):React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#B0B0B8",flexShrink:0,letterSpacing:0.3}},"LOCKED")
-          )
+      chapterStats.map(function(cs){
+        return React.createElement(React.Fragment,{key:"chap"+cs.chapter.n},
+          chapterHeader(cs),
+          cs.lessons.map(renderLesson)
         );
       }),
       React.createElement("p",{style:{margin:"8px 4px 0",fontSize:12,color:"#C7C7CC",textAlign:"center",fontWeight:600}},"More lessons coming soon.")
