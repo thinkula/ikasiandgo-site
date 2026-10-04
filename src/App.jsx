@@ -1387,7 +1387,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
-    {screen==="learn"&&<LearnScreen onBack={function(){setScreen("home");}} onPractice={function(wordIds){
+    {screen==="learn"&&<LearnScreen isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}} onBack={function(){setScreen("home");}} onPractice={function(wordIds){
       var words=wordIds.map(function(id){return VOCABULARY.filter(function(w){return w.id===id;})[0];}).filter(Boolean);
       if(!words.length){setScreen("home");return;}
       startCustomQuiz(words,"learn");
@@ -2346,6 +2346,7 @@ function PaywallScreen(props){
     {label:"Cumulative mode",sub:"Mix lower levels into any session"},
     {label:"All levels SRS tracking",sub:"Word memory across A2, B1 and B2 words too"},
     {label:"Memory Pairs game, all topics",sub:"Play all 17 topic categories"},
+    {label:"The full lesson path",sub:"Guided lessons beyond chapter four, and every lesson added later"},
     {label:"No ads, ever",sub:"Clean focused learning with no interruptions"},
   ];
   return(
@@ -5330,6 +5331,7 @@ var LESSONS=[
   },
   {
     id:"l20_home",
+    pro:true,
     num:20,
     title:"At Home",
     titleEu:"Etxean",
@@ -5341,6 +5343,7 @@ var LESSONS=[
   },
   {
     id:"l21_animals",
+    pro:true,
     num:21,
     title:"Animals",
     titleEu:"Animaliak",
@@ -5352,6 +5355,7 @@ var LESSONS=[
   },
   {
     id:"l22_town",
+    pro:true,
     num:22,
     title:"Places in Town",
     titleEu:"Herriko lekuak",
@@ -5365,6 +5369,7 @@ var LESSONS=[
 
 
 function LearnScreen(props){
+  var isPro=props.isPro,onUpgrade=props.onUpgrade;
   var onBack=props.onBack,onPractice=props.onPractice;
   var _sel=useState(null);var selLesson=_sel[0];var setSelLesson=_sel[1];
   var _done=useState([]);var doneLessons=_done[0];var setDoneLessons=_done[1];
@@ -5399,21 +5404,22 @@ function LearnScreen(props){
   // scope so both the list below and any future view can use them.
   function renderLesson(lesson){
     var idx=LESSONS.indexOf(lesson);
+    var needsPro=!!lesson.pro&&!isPro;
         var unlocked=isUnlocked(idx);
         var isDone=doneLessons.indexOf(lesson.id)!==-1;
-        return React.createElement("button",{key:lesson.id,onClick:function(){if(unlocked){setSelLesson(lesson);window.scrollTo(0,0);}},disabled:!unlocked,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"none",borderRadius:18,padding:"16px",marginBottom:11,cursor:unlocked?"pointer":"default",fontFamily:"inherit",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",opacity:unlocked?1:0.55,position:"relative",overflow:"hidden"}},
-          React.createElement("div",{style:{position:"absolute",top:0,left:0,bottom:0,width:4,backgroundColor:isDone?"#19A85A":unlocked?"#7C3AED":"#C7C7CC"}}),
+        return React.createElement("button",{key:lesson.id,onClick:function(){if(needsPro){if(onUpgrade)onUpgrade();return;}if(unlocked){setSelLesson(lesson);window.scrollTo(0,0);}},disabled:!unlocked&&!needsPro,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"none",borderRadius:18,padding:"16px",marginBottom:11,cursor:(unlocked||needsPro)?"pointer":"default",fontFamily:"inherit",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",opacity:(unlocked||needsPro)?1:0.55,position:"relative",overflow:"hidden"}},
+          React.createElement("div",{style:{position:"absolute",top:0,left:0,bottom:0,width:4,backgroundColor:isDone?"#19A85A":needsPro?"#F59E0B":unlocked?"#7C3AED":"#C7C7CC"}}),
           React.createElement("div",{style:{display:"flex",alignItems:"center",gap:13}},
-            React.createElement("div",{style:{width:48,height:48,borderRadius:14,backgroundColor:isDone?"#EDFAF3":unlocked?"#F5F3FF":"#ECECEF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:unlocked?24:18,fontWeight:unlocked?400:900,color:unlocked?"inherit":"#A0A0A8"}},unlocked?lesson.emoji:String(lesson.num)),
+            React.createElement("div",{style:{width:48,height:48,borderRadius:14,backgroundColor:isDone?"#EDFAF3":needsPro?"#FEF3C7":unlocked?"#F5F3FF":"#ECECEF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:(unlocked||needsPro)?24:18,fontWeight:(unlocked||needsPro)?400:900,color:(unlocked||needsPro)?"inherit":"#A0A0A8"}},(unlocked||needsPro)?lesson.emoji:String(lesson.num)),
             React.createElement("div",{style:{flex:1,minWidth:0}},
               React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
                 React.createElement("span",{style:{fontSize:11,fontWeight:800,color:"#8E8E93"}},"LESSON "+lesson.num),
                 isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#19A85A"}},"\u2713")
               ),
-              React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:unlocked?"#1A1A1A":"#9A9AA2"}},lesson.title),
-              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},unlocked?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:(unlocked||needsPro)?"#1A1A1A":"#9A9AA2"}},lesson.title),
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},(unlocked||needsPro)?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
             ),
-            unlocked?React.createElement("span",{style:{fontSize:18,color:"#D1D1D6",flexShrink:0}},"\u2192"):React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#B0B0B8",flexShrink:0,letterSpacing:0.3}},"LOCKED")
+            needsPro?React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"#F59E0B",borderRadius:20,padding:"3px 9px",flexShrink:0,letterSpacing:0.4}},"PRO"):unlocked?React.createElement("span",{style:{fontSize:18,color:"#D1D1D6",flexShrink:0}},"\u2192"):React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#B0B0B8",flexShrink:0,letterSpacing:0.3}},"LOCKED")
           )
         );
         }
@@ -5424,7 +5430,10 @@ function LearnScreen(props){
         React.createElement("span",{style:{fontSize:17,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}},cs.chapter.name),
         React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#8E8E93"}},cs.done+" of "+cs.total)
       ),
-      React.createElement("div",{style:{fontSize:10,fontWeight:900,letterSpacing:1,color:"#7C3AED",textTransform:"uppercase",marginTop:2}},"Chapter "+cs.chapter.n),
+      React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7,marginTop:2}},
+        React.createElement("span",{style:{fontSize:10,fontWeight:900,letterSpacing:1,color:"#7C3AED",textTransform:"uppercase"}},"Chapter "+cs.chapter.n),
+        (!isPro&&cs.lessons.length&&cs.lessons.every(function(l){return l.pro;}))?React.createElement("span",{style:{fontSize:9,fontWeight:900,color:"#fff",backgroundColor:"#F59E0B",borderRadius:20,padding:"2px 7px",letterSpacing:0.4}},"PRO"):null
+      ),
       React.createElement("div",{style:{height:4,borderRadius:3,backgroundColor:"#E2E2E8",marginTop:8,overflow:"hidden"}},
         React.createElement("div",{style:{height:"100%",width:pct+"%",background:"linear-gradient(90deg,#7C3AED,#A78BFA)",borderRadius:3,transition:"width 0.3s ease"}})
       )
