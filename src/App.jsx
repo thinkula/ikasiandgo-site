@@ -5117,7 +5117,8 @@ var CHAPTERS=[
   {n:2,name:"Day to day",from:6,to:10},
   {n:3,name:"Your world",from:11,to:15},
   {n:4,name:"Out in the world",from:16,to:19},
-  {n:5,name:"Close to home",from:20,to:22}
+  {n:5,name:"Close to home",from:20,to:22},
+  {n:6,name:"Going deeper",from:23,to:26}
 ];
 var LESSONS=[
   {
@@ -5364,6 +5365,54 @@ var LESSONS=[
     intro:"A Basque town is organized around a few places: the plaza where the festivals happen, the church the village grew around, the bridge that gave the town its name. These words are worth knowing twice over, because you will meet them again in surnames.",
     grammar:{title:"The town inside a surname",body:"Eliza (church) plus ondo, which in place names means \"beside\", gives Elizondo. Zubi (bridge) plus zahar (old) gives Zubizarreta, the place of the old bridges. The map and the phone book share a vocabulary."},
     wordIds:["plaza","denda","eliza","parkea","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
+  },
+  {
+    id:"l23_numbers2",
+    pro:true,
+    num:23,
+    title:"Counting Past Twenty",
+    titleEu:"Hogeitik gora",
+    emoji:"\uD83D\uDD22",
+    blurb:"Teens, tens, and the twenty that holds them together.",
+    intro:"Basque counts in twenties. You met hogei in the early numbers lesson; here is what the rest of the system does with it. Once you see that forty is two twenties, the big round numbers stop needing to be memorized one by one.",
+    grammar:{title:"Two twenties, three twenties",body:"Basque counts by twenties rather than tens. berrogei (40) is bi (two) + hogei (twenty). hirurogei (60) is hiru (three) + hogei. laurogei (80) is lau (four) + hogei. French kept a trace of the same habit: quatre-vingts, four twenties, is 80."},
+    wordIds:["hamahiru","hamalau","hamasei","hamazazpi","hamazortzi","hemeretzi","hogeitahamar","berrogei","hirurogei","laurogei"],
+  },
+  {
+    id:"l24_seasons",
+    pro:true,
+    num:24,
+    title:"The Four Seasons",
+    titleEu:"Urtaroak",
+    emoji:"\uD83C\uDF42",
+    blurb:"Spring, summer, autumn, winter, and the weather between them.",
+    intro:"Basque names the year from summer outward. Spring is the new summer and autumn is the last one, which tells you which season the calendar was built around. The weather words that go with them are the ones you will actually hear on the coast.",
+    grammar:{title:"The year revolves around summer",body:"uda means summer. udaberria (spring) is uda + berri, the new summer. udazkena (autumn) is uda + azken, the last summer. Only negua (winter) stands on its own. A calendar built by people who cared most about the warm months."},
+    wordIds:["urtaroak","udaberria","uda","udazkena","negua","hodeia","hodeitsu","lainoa","hotza","beroa"],
+  },
+  {
+    id:"l25_society",
+    pro:true,
+    num:25,
+    title:"People and Nation",
+    titleEu:"Herria",
+    emoji:"\uD83E\uDD1D",
+    blurb:"Language, culture, freedom, and the word that carries them.",
+    intro:"One word does an enormous amount of work in Basque: herri. It means the people, the town, and the nation at once, which is why Euskal Herria is hard to translate in a single phrase. The rest of this lesson is the vocabulary that gathers around it.",
+    grammar:{title:"Herri, and the words built on together",body:"herri means people, town, or nation. Euskal Herria is the Basque homeland, herritar is a citizen, herrialde is a country or territory. A second root does similar work: elkar means each other, giving elkartea (association or club) and elkartasuna (solidarity)."},
+    wordIds:["herria","herrialdea","hizkuntza","kultura","historia","askatasuna","elkartasuna","bakea","biztanleak","elkartea"],
+  },
+  {
+    id:"l26_opposites",
+    pro:true,
+    num:26,
+    title:"Opposites",
+    titleEu:"Aurkakoak",
+    emoji:"\u2696\uFE0F",
+    blurb:"Light and dark, cheap and expensive, easy and hard.",
+    intro:"Adjectives are easiest to hold onto in pairs. These five pairs cover most of what you need to describe a thing, a price, or a room, and they all follow the rule you learned earlier: the adjective comes after the noun.",
+    grammar:{title:"Adjectives still come second",body:"Basque puts the adjective after the noun: etxe handia is house-big, not big-house. These pairs work the same way. liburu erraza = easy book. gela iluna = dark room. The -a on the end is the article, so the adjective carries it rather than the noun."},
+    wordIds:["argia","iluna","azkarra","motela","garestia","merkea","erraza","zaila","ozena","isila"],
   },
 ];
 
