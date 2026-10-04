@@ -5115,7 +5115,8 @@ var CHAPTERS=[
   {n:1,name:"First steps",from:1,to:5},
   {n:2,name:"Day to day",from:6,to:10},
   {n:3,name:"Your world",from:11,to:15},
-  {n:4,name:"Out in the world",from:16,to:19}
+  {n:4,name:"Out in the world",from:16,to:19},
+  {n:5,name:"Close to home",from:20,to:22}
 ];
 var LESSONS=[
   {
@@ -5326,6 +5327,39 @@ var LESSONS=[
     intro:"These words describe the places and people that make up a town and community. Auzoa (neighborhood) and jendea (people) come up whenever you talk about where you live. Many connect to the strong Basque sense of local community.",
     grammar:{title:"Community words",body:"Basque has a rich vocabulary for community. Auzoa is the neighborhood or village, lagunartea is your circle of friends, and elkarbizitza means coexistence, living together. These reflect how central community life is in Basque culture."},
     wordIds:["eskola","unibertsitatea","jendea","mundua","auzoa","lagunartea","auzapeza","gizadia","komunitatea","elkarbizitza"],
+  },
+  {
+    id:"l20_home",
+    num:20,
+    title:"At Home",
+    titleEu:"Etxean",
+    emoji:"\uD83C\uDFE0",
+    blurb:"The rooms you live in, and what is in them.",
+    intro:"Basque names rooms plainly. Once you know that gela means room, half the house follows: the sleep room, the staying room, the bath room. The kitchen is the exception, and its name is older and warmer than the rest.",
+    grammar:{title:"Rooms are built from gela",body:"gela means \"room\", and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. egon (to stay) + gela = egongela, the living room. bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
+    wordIds:["logela","sukaldea","egongela","bainugela","mahaia","aulkia","sofa","ohea","leihoa","atea"],
+  },
+  {
+    id:"l21_animals",
+    num:21,
+    title:"Animals",
+    titleEu:"Animaliak",
+    emoji:"\uD83D\uDC15",
+    blurb:"Dogs, horses, and the animals hiding in Basque names.",
+    intro:"Animals are everywhere in Basque, and not only in the field. They turn up in surnames, in place names, and even in the word for a witches' gathering. Learn the animal and you often learn a name you have seen before.",
+    grammar:{title:"Animals inside names",body:"Otsoa (wolf) gave the surname Ochoa. Aker, the billy goat, sits inside akelarre, the word for a witches' gathering, from aker + larre (meadow). Many Basque names began as something living."},
+    wordIds:["animalia","txakurra","katua","zaldia","oiloa","sagua","eulia","otsoa","ahuntza","untxia"],
+  },
+  {
+    id:"l22_town",
+    num:22,
+    title:"Places in Town",
+    titleEu:"Herriko lekuak",
+    emoji:"\u26EA",
+    blurb:"The square, the shop, the church, the bridge.",
+    intro:"A Basque town is organized around a few places: the plaza where the festivals happen, the church the village grew around, the bridge that gave the town its name. These words are worth knowing twice over, because you will meet them again in surnames.",
+    grammar:{title:"The town inside a surname",body:"Eliza (church) plus ondo, which in place names means \"beside\", gives Elizondo. Zubi (bridge) plus zahar (old) gives Zubizarreta, the place of the old bridges. The map and the phone book share a vocabulary."},
+    wordIds:["plaza","denda","eliza","parkea","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
   },
 ];
 
