@@ -93,34 +93,77 @@ for (const p of COPIES) {
   }
 }
 
-// ---- 3. stamp live counts into the landing page ----
-// index.html (the ikasiandgo.com homepage) shows the vocabulary size via
-// <span data-count="words"> and <span data-count="topics"> markers, so the
-// site never quotes a stale number. Missing file/markers is not an error.
-const LANDING_PATH = path.join(ROOT, "index.html");
-if (fs.existsSync(LANDING_PATH)) {
-  const topicCount = new Set(vocab.map(function (w) { return w.topic; })).size;
-  const page = fs.readFileSync(LANDING_PATH, "utf8");
-  // per-topic counts in the Inside section carry data-topic="<key>" on the <b>,
-  // so those numbers cannot drift either as words are added.
-  const perTopic = vocab.reduce(function (acc, w) {
-    acc[w.topic] = (acc[w.topic] || 0) + 1;
-    return acc;
-  }, {});
+// reads the lesson path out of src/App.jsx. returns null if the file or the
+// arrays are not where we expect, so a refactor there degrades to leaving the
+// homepage numbers untouched rather than stamping a wrong one.
+function countLessons() {
+  const appPath = path.join(ROOT, "src", "App.jsx");
+  if (!fs.existsSync(appPath)) return null;
+  const src = fs.readFileSync(appPath, "utf8");
+  const start = src.indexOf("var LESSONS=[");
+  const chapStart = src.indexOf("var CHAPTERS=[");
+  if (start === -1 || chapStart === -1) return null;
+  const block = src.slice(start, chapStart > start ? chapStart : undefined);
+  // slice the array into one chunk per lesson, then ask each whether it is Pro
+  const marks = [];
+  const idRe = /\bid:\s*"l\d+_[a-z0-9]+"/g;
+  let m;
+  while ((m = idRe.exec(block)) !== null) marks.push(m.index);
+  if (!marks.length) return null;
+  let free = 0;
+  marks.forEach(function (at, i) {
+    const chunk = block.slice(at, i + 1 < marks.length ? marks[i + 1] : block.length);
+    if (!/\bpro:\s*true/.test(chunk)) free++;
+  });
+  const chapters = (src.slice(chapStart).split("];")[0].match(/\{\s*n:\s*\d+/g) || []).length;
+  if (!chapters) return null;
+  return { total: marks.length, free: free, chapters: chapters };
+}
+
+// ---- 3. stamp live counts into the site pages ----
+// the ikasiandgo.com pages quote the vocabulary size via <span data-count="words">
+// and friends, so the site never advertises a stale number. Missing file or
+// missing markers is not an error: a page simply gets nothing stamped.
+const SITE_PAGES = ["index.html", "about.html"];
+const topicCount = new Set(vocab.map(function (w) { return w.topic; })).size;
+// per-topic counts in the Inside section carry data-topic="<key>" on the <b>,
+// so those numbers cannot drift either as words are added.
+const perTopic = vocab.reduce(function (acc, w) {
+  acc[w.topic] = (acc[w.topic] || 0) + 1;
+  return acc;
+}, {});
+// the lesson path lives in src/App.jsx, not vocabulary.json, so count it there.
+// lessons are appended over time and some are Pro-gated; stamping total, free
+// and chapter counts keeps the site from quoting a number that has moved on.
+const lessons = countLessons();
+SITE_PAGES.forEach(function (name) {
+  const p = path.join(ROOT, name);
+  if (!fs.existsSync(p)) {
+    console.log("sync-vocab: skip (no page): " + name);
+    return;
+  }
+  const page = fs.readFileSync(p, "utf8");
   const stamped = page
     .replace(/(<span data-count="words">)[^<]*(<\/span>)/g, "$1" + vocab.length + "$2")
     .replace(/(<span data-count="topics">)[^<]*(<\/span>)/g, "$1" + topicCount + "$2")
+    .replace(/(<span data-count="lessons">)[^<]*(<\/span>)/g, function (m, open, close) {
+      return lessons ? open + lessons.total + close : m;
+    })
+    .replace(/(<span data-count="lessons-free">)[^<]*(<\/span>)/g, function (m, open, close) {
+      return lessons ? open + lessons.free + close : m;
+    })
+    .replace(/(<span data-count="chapters">)[^<]*(<\/span>)/g, function (m, open, close) {
+      return lessons ? open + lessons.chapters + close : m;
+    })
     .replace(/(<b data-topic="([a-z_-]+)">)[^<]*(<\/b>)/g, function (m, open, key, close) {
       return open + (perTopic[key] || 0) + close;
     });
   if (stamped !== page) {
-    fs.writeFileSync(LANDING_PATH, stamped);
-    console.log("sync-vocab: landing page counts updated (" + vocab.length + " words, " + topicCount + " topics)");
+    fs.writeFileSync(p, stamped);
+    console.log("sync-vocab: " + name + " counts updated (" + vocab.length + " words, " + topicCount + " topics)");
   } else {
-    console.log("sync-vocab: landing page counts already current");
+    console.log("sync-vocab: " + name + " counts already current");
   }
-} else {
-  console.log("sync-vocab: skip (no landing page): index.html");
-}
+});
 
 console.log("sync-vocab: done.");
