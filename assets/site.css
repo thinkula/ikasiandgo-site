@@ -1,8 +1,13 @@
 /* Ikasi & Go, shared site theme.
-   Linked by index.html, support.html, privacy.html, terms.html.
-   Page-specific layout (hero, feature rows) stays inline in index.html. */
+   Linked by index.html, about.html, support.html, privacy.html, terms.html.
+   Page-specific layout (hero, feature rows) stays inline in index.html.
 
-@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('/public/fonts/Nunito.woff2') format('woff2');}
+   The font is served from assets/, not public/. public/ is the Vite build
+   input for the app, and the app reaches its own copy by a relative URL, so
+   the website keeping its own copy here means a change to the app's build
+   layout cannot silently strip the typeface off the site. */
+
+@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('/assets/fonts/Nunito.woff2') format('woff2');}
 
 :root{
   --bg:#FAF7F0; --surface:#fff; --ink:#14181A; --muted:#5C6468; --faint:#8A9296;
