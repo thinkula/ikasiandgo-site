@@ -7,5 +7,11 @@ permalink: pretty
 # it keeps a broken duplicate homepage off the domain and out of search results.
 # Nothing links to /www/, and the app fetches the root vocabulary.json, so this
 # removes no URL anything depends on.
+#
+# public/ is the Vite build input. Its vocabulary.json is a mirror of the root
+# one, which is the file the app actually fetches at launch, so publishing the
+# mirror only offered a second URL with no freshness guarantee. The site's font
+# now lives in assets/fonts/, so excluding public/ no longer costs the typeface.
 exclude:
   - www/
+  - public/
