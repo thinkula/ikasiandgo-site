@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "vocabulary": [
     {
       "id": "kaixo",
@@ -13839,12 +13839,12 @@
         {
           "w": [
             [
-              "Baserriak",
-              "The farmhouse"
+              "Familiak",
+              "The family"
             ],
             [
-              "familiaren",
-              "the family's"
+              "baserriaren",
+              "the farmhouse's"
             ],
             [
               "izena",
@@ -13852,10 +13852,10 @@
             ],
             [
               "du.",
-              "has."
+              "carries."
             ]
           ],
-          "tr": "The farmhouse has the family's name."
+          "tr": "The family carries the farmhouse's name."
         },
         {
           "w": [
@@ -14006,7 +14006,7 @@
             ],
             [
               "gauean",
-              "on the night"
+              "Eve"
             ],
             [
               "herrira",
@@ -14021,7 +14021,7 @@
               "(he)."
             ]
           ],
-          "tr": "On Christmas night he came down to the town."
+          "tr": "On Christmas Eve he came down to the town."
         },
         {
           "w": [
@@ -14180,14 +14180,14 @@
             ],
             [
               "izan",
-              "became"
+              "were"
             ],
             [
               "ziren.",
               "(they)."
             ]
           ],
-          "tr": "Many became shepherds."
+          "tr": "Many of them were shepherds."
         },
         {
           "w": [
@@ -14510,11 +14510,11 @@
               "But"
             ],
             [
-              "bero",
+              "epela",
               "warm"
             ],
             [
-              "dago.",
+              "da.",
               "it is."
             ]
           ],
@@ -14723,6 +14723,10 @@
               "too"
             ],
             [
+              "etxera",
+              "home"
+            ],
+            [
               "itzuli",
               "returned"
             ],
@@ -14731,7 +14735,7 @@
               "have."
             ]
           ],
-          "tr": "Yes. The words have come back too."
+          "tr": "Yes. The words have come home too."
         },
         {
           "w": [
