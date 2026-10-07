@@ -5251,7 +5251,7 @@ var LESSONS=[
     blurb:"January through December.",
     intro:"Naming the months lets you talk about birthdays, seasons, and plans. Basque month names are distinct and worth memorizing as a set. Many connect to old seasonal or agricultural roots, like uztaila (July) from uzta, the harvest.",
     grammar:{title:"Months as a set",body:"The twelve months each have their own name and, like other nouns, end in -a: urtarrila (January), otsaila (February), and so on. To say \"in [month]\", Basque adds a case ending, but for now learning the names themselves is the goal."},
-    wordIds:["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","azaroa"],
+    wordIds:["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua"],
   },
   {
     id:"l13_jobs",
