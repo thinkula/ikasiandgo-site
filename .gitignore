@@ -1,3 +1,4 @@
 .scratch/
 tools/.eu-dict/
 node_modules/
+.DS_Store
