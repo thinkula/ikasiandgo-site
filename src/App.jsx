@@ -5543,7 +5543,7 @@ var LESSONS=[
     pro:true,
     num:31,
     title:"Leaving and Returning",
-    titleEu:"Joan eta itzuli",
+    titleEu:"Joatea eta itzultzea",
     emoji:"✈️",
     blurb:"The vocabulary of leaving, and of coming back.",
     intro:"For a century and a half, leaving was an ordinary part of a Basque life. These are the words for that, and for the return that some made and others never did.",
