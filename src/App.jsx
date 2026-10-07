@@ -1230,9 +1230,9 @@ function App(){
         (async function(){
           try{
             var cached=await STORE.get("vocab_cache");
-            if(cached&&cached.value){try{var cv=JSON.parse(cached.value);if(cv&&cv.vocabulary){_VOCAB=cv.vocabulary;_WC=getWC();setVocabVersion(function(v){return v+1;});}}catch(e){}}
+            if(cached&&cached.value){try{var cv=JSON.parse(cached.value);if(cv&&cv.vocabulary){_VOCAB=cv.vocabulary;_WC=getWC();if(storiesOk(cv.stories))_STORIES=cv.stories;setVocabVersion(function(v){return v+1;});}}catch(e){}}
             var res=await fetch(VOCAB_URL);
-            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
+            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();if(storiesOk(vj.stories))_STORIES=vj.stories;setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
           }catch(e){setToast("offline");setTimeout(function(){setToast(null);},3000);}
         })();
         // RevenueCat: sync real entitlement + localized price
@@ -5878,80 +5878,46 @@ function ProgressScreen(props){
 // ════════════════════════════════════════════
 //  STORY READING SECTION (Irakurri)
 // ════════════════════════════════════════════
-var STORIES=[
-  {id:"goiza",title:"Goizean",titleEn:"In the Morning",level:"A1",cat:"story",emoji:"☀️",intro:"A simple morning at home. Meet a family waking up.",lines:[
-    {w:[["Egun","Day"],["on!","good!"]],tr:"Good morning! (lit. good day)"},
-    {w:[["Eguzkia","The sun"],["hor","there"],["dago.","is."]],tr:"The sun is there."},
-    {w:[["Ama","Mother"],["eta","and"],["aita","father"],["etxean","at home"],["daude.","are."]],tr:"Mother and father are at home."},
-    {w:[["Haurra","The child"],["pozik","happy"],["dago.","is."]],tr:"The child is happy."},
-    {w:[["Gosaria","Breakfast"],["prest","ready"],["dago.","is."]],tr:"Breakfast is ready."},
-    {w:[["Ogia,","Bread,"],["gazta","cheese"],["eta","and"],["esnea.","milk."]],tr:"Bread, cheese and milk."},
-    {w:[["Kaixo,","Hello,"],["ama!","mother!"]],tr:"Hello, mother!"},
-    {w:[["Gose","Hungry"],["naiz.","I am."]],tr:"I am hungry."},
-    {w:[["Jan","Eat"],["eta","and"],["edan.","drink."]],tr:"Eat and drink."},
-    {w:[["Egun","Day"],["ona","good"],["izan!","have!"]],tr:"Have a good day!"},
-  ]},
-  {id:"azoka",title:"Azokan",titleEn:"At the Market",level:"A1",cat:"dialogue",emoji:"🧺",intro:"Buying fruit at a Basque market. Practice numbers and food words.",lines:[
-    {w:[["Kaixo!","Hello!"],["Zer","What"],["nahi","want"],["duzu?","do you?"]],tr:"Hello! What do you want?"},
-    {w:[["Sagarrak,","Apples,"],["mesedez.","please."]],tr:"Apples, please."},
-    {w:[["Zenbat","How many"],["nahi","want"],["dituzu?","do you?"]],tr:"How many do you want?"},
-    {w:[["Bost","Five"],["sagar.","apples."]],tr:"Five apples."},
-    {w:[["Hemen","Here"],["daude.","they are."]],tr:"Here they are."},
-    {w:[["Eta","And"],["tomateak?","tomatoes?"]],tr:"And tomatoes?"},
-    {w:[["Bai,","Yes,"],["hiru","three"],["tomate","tomato"],["gorri.","red."]],tr:"Yes, three red tomatoes."},
-    {w:[["Eskerrik","Thank"],["asko!","you!"]],tr:"Thank you!"},
-    {w:[["Ez","Not"],["horregatik.","at all."]],tr:"You're welcome."},
-    {w:[["Agur!","Goodbye!"]],tr:"Goodbye!"},
-  ]},
-  {id:"mendia",title:"Mendian",titleEn:"In the Mountains",level:"A2",cat:"story",emoji:"⛰️",intro:"A walk in the Basque mountains with a friend and a dog.",lines:[
-    {w:[["Gaur","Today"],["mendira","to the mountain"],["goaz.","we go."]],tr:"Today we go to the mountain."},
-    {w:[["Nire","My"],["laguna","friend"],["eta","and"],["biok","the two of us"],["goaz.","go."]],tr:"My friend and I go together."},
-    {w:[["Zakurra","The dog"],["ere","also"],["dator.","comes."]],tr:"The dog comes too."},
-    {w:[["Eguzkia","The sun"],["atera","come out"],["da","has"],["eta","and"],["beroa","hot"],["da.","it is."]],tr:"The sun is out and it is hot."},
-    {w:[["Mendia","The mountain"],["handia","big"],["eta","and"],["berdea","green"],["da.","is."]],tr:"The mountain is big and green."},
-    {w:[["Goian","At the top"],["itsasoa","the sea"],["ikusten","seeing"],["dugu.","we are."]],tr:"At the top we see the sea."},
-    {w:[["Ura","Water"],["edaten","drinking"],["dugu.","we are."]],tr:"We drink water."},
-    {w:[["Zakurra","The dog"],["nekatuta","tired"],["dago.","is."]],tr:"The dog is tired."},
-    {w:[["Oso","Very"],["egun","day"],["polita","nice"],["da.","it is."]],tr:"It is a very nice day."},
-    {w:[["Etxera","Home"],["itzultzen","returning"],["gara.","we are."]],tr:"We return home."},
-  ]},
-  {id:"jatetxe",title:"Jatetxean",titleEn:"At the Restaurant",level:"A2",cat:"dialogue",emoji:"🍽️",intro:"Ordering dinner at a Basque restaurant.",lines:[
-    {w:[["Arratsalde","Afternoon"],["on!","good!"]],tr:"Good afternoon!"},
-    {w:[["Bi","Two"],["lagunentzako","for people"],["mahaia,","table,"],["mesedez.","please."]],tr:"A table for two, please."},
-    {w:[["Hemen,","Here,"],["mesedez.","please."]],tr:"Here, please."},
-    {w:[["Zer","What"],["dago","is there"],["jateko?","to eat?"]],tr:"What is there to eat?"},
-    {w:[["Arraina,","Fish,"],["oilaskoa","chicken"],["edo","or"],["txuleta.","steak."]],tr:"Fish, chicken or steak."},
-    {w:[["Nik","I"],["arraina","fish"],["nahi","want"],["dut.","do."]],tr:"I want fish."},
-    {w:[["Eta","And"],["edateko?","to drink?"]],tr:"And to drink?"},
-    {w:[["Ardo","Wine"],["gorria","red"],["eta","and"],["ura.","water."]],tr:"Red wine and water."},
-    {w:[["Oso","Very"],["ondo.","good."]],tr:"Very good."},
-    {w:[["Eskerrik","Thank"],["asko!","you!"]],tr:"Thank you!"},
-  ]},
-  {id:"tartalo",title:"Tartalo",titleEn:"The Giant Tartalo",level:"B1",cat:"folktale",emoji:"👁️",intro:"A famous Basque legend about a one-eyed giant, retold simply. (Like the Cyclops.)",lines:[
-    {w:[["Mendian","In the mountain"],["erraldoi","giant"],["bat","a"],["bizi","lived"],["zen.","was."]],tr:"In the mountain lived a giant."},
-    {w:[["Bere","His"],["izena","name"],["Tartalo","Tartalo"],["zen.","was."]],tr:"His name was Tartalo."},
-    {w:[["Begi","Eye"],["bakarra","single"],["zuen.","he had."]],tr:"He had a single eye."},
-    {w:[["Oso","Very"],["handia","big"],["eta","and"],["indartsua","strong"],["zen.","he was."]],tr:"He was very big and strong."},
-    {w:[["Mutil","Boy"],["bat","a"],["harrapatu","caught"],["zuen.","he did."]],tr:"He caught a boy."},
-    {w:[["Baina","But"],["mutila","the boy"],["azkarra","clever"],["zen.","was."]],tr:"But the boy was clever."},
-    {w:[["Gauean,","At night,"],["Tartalo","Tartalo"],["lo","asleep"],["zegoen.","was."]],tr:"At night, Tartalo was asleep."},
-    {w:[["Mutilak","The boy"],["begia","the eye"],["erre","burned"],["zion.","did to him."]],tr:"The boy burned his eye."},
-    {w:[["Eta","And"],["ihes","escape"],["egin","did"],["zuen.","he."]],tr:"And he escaped."},
-    {w:[["Horrela","Thus"],["amaitzen","ends"],["da","is"],["ipuina.","the tale."]],tr:"And so the tale ends."},
-  ]},
-  {id:"festak",title:"Herriko Festak",titleEn:"The Town Festival",level:"B2",cat:"story",emoji:"🎉",intro:"The summer festivals that bring a Basque town to life.",lines:[
-    {w:[["Udan,","In summer,"],["herriak","the town"],["festak","festivals"],["ospatzen","celebrates"],["ditu.","does."]],tr:"In summer, the town celebrates its festivals."},
-    {w:[["Jende","People"],["asko","many"],["kalera","to the street"],["ateratzen","come out"],["da.","do."]],tr:"Many people come out to the street."},
-    {w:[["Musika,","Music,"],["dantza","dance"],["eta","and"],["barreak","laughter"],["entzuten","heard"],["dira.","are."]],tr:"Music, dancing and laughter are heard."},
-    {w:[["Txapela","The beret"],["buruan,","on the head,"],["denak","everyone"],["pozik","happy"],["daude.","are."]],tr:"Beret on head, everyone is happy."},
-    {w:[["Sagardoa","Cider"],["eta","and"],["pintxoak","pintxos"],["nonahi","everywhere"],["daude.","are."]],tr:"Cider and pintxos are everywhere."},
-    {w:[["Gazteak","The young people"],["gau","night"],["osoan","all"],["dantzatzen","dance"],["dute.","do."]],tr:"The young people dance all night."},
-    {w:[["Bertsolariak","The verse-singers"],["kantatzen","sing"],["dute.","do."]],tr:"The verse-singers sing."},
-    {w:[["Euskara","The Basque language"],["kale","street"],["guztietan","in all"],["entzuten","heard"],["da.","is."]],tr:"Basque is heard in every street."},
-    {w:[["Festa","The festival"],["egunak","days"],["laburrak","short"],["dira,","are,"],["baina","but"],["ederrak.","beautiful."]],tr:"The festival days are short, but beautiful."},
-    {w:[["Hurrengo","Next"],["urtera","to the year"],["arte!","until!"]],tr:"Until next year!"},
-  ]},
+/* SEED_STORIES:BEGIN -- GENERATED by sync-vocab.js from vocabulary.json. DO NOT EDIT BY HAND. */
+var SEED_STORIES=[
+{"id":"goiza","title":"Goizean","titleEn":"In the Morning","level":"A1","cat":"story","emoji":"☀️","intro":"A simple morning at home. Meet a family waking up.","lines":[{"w":[["Egun","Day"],["on!","good!"]],"tr":"Good morning! (lit. good day)"},{"w":[["Eguzkia","The sun"],["hor","there"],["dago.","is."]],"tr":"The sun is there."},{"w":[["Ama","Mother"],["eta","and"],["aita","father"],["etxean","at home"],["daude.","are."]],"tr":"Mother and father are at home."},{"w":[["Haurra","The child"],["pozik","happy"],["dago.","is."]],"tr":"The child is happy."},{"w":[["Gosaria","Breakfast"],["prest","ready"],["dago.","is."]],"tr":"Breakfast is ready."},{"w":[["Ogia,","Bread,"],["gazta","cheese"],["eta","and"],["esnea.","milk."]],"tr":"Bread, cheese and milk."},{"w":[["Kaixo,","Hello,"],["ama!","mother!"]],"tr":"Hello, mother!"},{"w":[["Gose","Hungry"],["naiz.","I am."]],"tr":"I am hungry."},{"w":[["Jan","Eat"],["eta","and"],["edan.","drink."]],"tr":"Eat and drink."},{"w":[["Egun","Day"],["ona","good"],["izan!","have!"]],"tr":"Have a good day!"}]},
+{"id":"azoka","title":"Azokan","titleEn":"At the Market","level":"A1","cat":"dialogue","emoji":"🧺","intro":"Buying fruit at a Basque market. Practice numbers and food words.","lines":[{"w":[["Kaixo!","Hello!"],["Zer","What"],["nahi","want"],["duzu?","do you?"]],"tr":"Hello! What do you want?"},{"w":[["Sagarrak,","Apples,"],["mesedez.","please."]],"tr":"Apples, please."},{"w":[["Zenbat","How many"],["nahi","want"],["dituzu?","do you?"]],"tr":"How many do you want?"},{"w":[["Bost","Five"],["sagar.","apples."]],"tr":"Five apples."},{"w":[["Hemen","Here"],["daude.","they are."]],"tr":"Here they are."},{"w":[["Eta","And"],["tomateak?","tomatoes?"]],"tr":"And tomatoes?"},{"w":[["Bai,","Yes,"],["hiru","three"],["tomate","tomato"],["gorri.","red."]],"tr":"Yes, three red tomatoes."},{"w":[["Eskerrik","Thank"],["asko!","you!"]],"tr":"Thank you!"},{"w":[["Ez","Not"],["horregatik.","at all."]],"tr":"You're welcome."},{"w":[["Agur!","Goodbye!"]],"tr":"Goodbye!"}]},
+{"id":"mendia","title":"Mendian","titleEn":"In the Mountains","level":"A2","cat":"story","emoji":"⛰️","intro":"A walk in the Basque mountains with a friend and a dog.","lines":[{"w":[["Gaur","Today"],["mendira","to the mountain"],["goaz.","we go."]],"tr":"Today we go to the mountain."},{"w":[["Nire","My"],["laguna","friend"],["eta","and"],["biok","the two of us"],["goaz.","go."]],"tr":"My friend and I go together."},{"w":[["Zakurra","The dog"],["ere","also"],["dator.","comes."]],"tr":"The dog comes too."},{"w":[["Eguzkia","The sun"],["atera","come out"],["da","has"],["eta","and"],["beroa","hot"],["da.","it is."]],"tr":"The sun is out and it is hot."},{"w":[["Mendia","The mountain"],["handia","big"],["eta","and"],["berdea","green"],["da.","is."]],"tr":"The mountain is big and green."},{"w":[["Goian","At the top"],["itsasoa","the sea"],["ikusten","seeing"],["dugu.","we are."]],"tr":"At the top we see the sea."},{"w":[["Ura","Water"],["edaten","drinking"],["dugu.","we are."]],"tr":"We drink water."},{"w":[["Zakurra","The dog"],["nekatuta","tired"],["dago.","is."]],"tr":"The dog is tired."},{"w":[["Oso","Very"],["egun","day"],["polita","nice"],["da.","it is."]],"tr":"It is a very nice day."},{"w":[["Etxera","Home"],["itzultzen","returning"],["gara.","we are."]],"tr":"We return home."}]},
+{"id":"jatetxe","title":"Jatetxean","titleEn":"At the Restaurant","level":"A2","cat":"dialogue","emoji":"🍽️","intro":"Ordering dinner at a Basque restaurant.","lines":[{"w":[["Arratsalde","Afternoon"],["on!","good!"]],"tr":"Good afternoon!"},{"w":[["Bi","Two"],["lagunentzako","for people"],["mahaia,","table,"],["mesedez.","please."]],"tr":"A table for two, please."},{"w":[["Hemen,","Here,"],["mesedez.","please."]],"tr":"Here, please."},{"w":[["Zer","What"],["dago","is there"],["jateko?","to eat?"]],"tr":"What is there to eat?"},{"w":[["Arraina,","Fish,"],["oilaskoa","chicken"],["edo","or"],["txuleta.","steak."]],"tr":"Fish, chicken or steak."},{"w":[["Nik","I"],["arraina","fish"],["nahi","want"],["dut.","do."]],"tr":"I want fish."},{"w":[["Eta","And"],["edateko?","to drink?"]],"tr":"And to drink?"},{"w":[["Ardo","Wine"],["gorria","red"],["eta","and"],["ura.","water."]],"tr":"Red wine and water."},{"w":[["Oso","Very"],["ondo.","good."]],"tr":"Very good."},{"w":[["Eskerrik","Thank"],["asko!","you!"]],"tr":"Thank you!"}]},
+{"id":"tartalo","title":"Tartalo","titleEn":"The Giant Tartalo","level":"B1","cat":"folktale","emoji":"👁️","intro":"A famous Basque legend about a one-eyed giant, retold simply. (Like the Cyclops.)","lines":[{"w":[["Mendian","In the mountain"],["erraldoi","giant"],["bat","a"],["bizi","lived"],["zen.","was."]],"tr":"In the mountain lived a giant."},{"w":[["Bere","His"],["izena","name"],["Tartalo","Tartalo"],["zen.","was."]],"tr":"His name was Tartalo."},{"w":[["Begi","Eye"],["bakarra","single"],["zuen.","he had."]],"tr":"He had a single eye."},{"w":[["Oso","Very"],["handia","big"],["eta","and"],["indartsua","strong"],["zen.","he was."]],"tr":"He was very big and strong."},{"w":[["Mutil","Boy"],["bat","a"],["harrapatu","caught"],["zuen.","he did."]],"tr":"He caught a boy."},{"w":[["Baina","But"],["mutila","the boy"],["azkarra","clever"],["zen.","was."]],"tr":"But the boy was clever."},{"w":[["Gauean,","At night,"],["Tartalo","Tartalo"],["lo","asleep"],["zegoen.","was."]],"tr":"At night, Tartalo was asleep."},{"w":[["Mutilak","The boy"],["begia","the eye"],["erre","burned"],["zion.","did to him."]],"tr":"The boy burned his eye."},{"w":[["Eta","And"],["ihes","escape"],["egin","did"],["zuen.","he."]],"tr":"And he escaped."},{"w":[["Horrela","Thus"],["amaitzen","ends"],["da","is"],["ipuina.","the tale."]],"tr":"And so the tale ends."}]},
+{"id":"festak","title":"Herriko Festak","titleEn":"The Town Festival","level":"B2","cat":"story","emoji":"🎉","intro":"The summer festivals that bring a Basque town to life.","lines":[{"w":[["Udan,","In summer,"],["herriak","the town"],["festak","festivals"],["ospatzen","celebrates"],["ditu.","does."]],"tr":"In summer, the town celebrates its festivals."},{"w":[["Jende","People"],["asko","many"],["kalera","to the street"],["ateratzen","come out"],["da.","do."]],"tr":"Many people come out to the street."},{"w":[["Musika,","Music,"],["dantza","dance"],["eta","and"],["barreak","laughter"],["entzuten","heard"],["dira.","are."]],"tr":"Music, dancing and laughter are heard."},{"w":[["Txapela","The beret"],["buruan,","on the head,"],["denak","everyone"],["pozik","happy"],["daude.","are."]],"tr":"Beret on head, everyone is happy."},{"w":[["Sagardoa","Cider"],["eta","and"],["pintxoak","pintxos"],["nonahi","everywhere"],["daude.","are."]],"tr":"Cider and pintxos are everywhere."},{"w":[["Gazteak","The young people"],["gau","night"],["osoan","all"],["dantzatzen","dance"],["dute.","do."]],"tr":"The young people dance all night."},{"w":[["Bertsolariak","The verse-singers"],["kantatzen","sing"],["dute.","do."]],"tr":"The verse-singers sing."},{"w":[["Euskara","The Basque language"],["kale","street"],["guztietan","in all"],["entzuten","heard"],["da.","is."]],"tr":"Basque is heard in every street."},{"w":[["Festa","The festival"],["egunak","days"],["laburrak","short"],["dira,","are,"],["baina","but"],["ederrak.","beautiful."]],"tr":"The festival days are short, but beautiful."},{"w":[["Hurrengo","Next"],["urtera","to the year"],["arte!","until!"]],"tr":"Until next year!"}]}
 ];
+/* SEED_STORIES:END */
+// Stories arrive with the vocabulary payload, so they can be added without an
+// App Store release. SEED_STORIES is the copy bundled in the binary, used on a
+// first run with no network and whenever a remote payload fails validation.
+var _STORIES=SEED_STORIES;
+
+// Decide whether a fetched payload's stories are safe to show. Remote content
+// is only ever allowed to ADD: it must still contain every bundled story, so a
+// bad or truncated payload can never take away a story someone was reading.
+// Anything that fails here is ignored silently and the bundled copy stands.
+function storiesOk(arr){
+  if(!Array.isArray(arr)||arr.length<SEED_STORIES.length)return false;
+  var lv={A1:1,A2:1,B1:1,B2:1},ids={};
+  for(var i=0;i<arr.length;i++){
+    var s=arr[i];
+    if(!s||!s.id||!s.title||!s.titleEn||!lv[s.level])return false;
+    if(ids[s.id])return false;
+    ids[s.id]=1;
+    if(!Array.isArray(s.lines)||!s.lines.length)return false;
+    for(var j=0;j<s.lines.length;j++){
+      var ln=s.lines[j];
+      if(!ln||typeof ln.tr!=="string"||!Array.isArray(ln.w)||!ln.w.length)return false;
+      for(var k=0;k<ln.w.length;k++){
+        var p=ln.w[k];
+        if(!Array.isArray(p)||p.length!==2||typeof p[0]!=="string"||typeof p[1]!=="string")return false;
+      }
+    }
+  }
+  for(var m=0;m<SEED_STORIES.length;m++){if(!ids[SEED_STORIES[m].id])return false;}
+  return true;
+}
 
 var STORY_CATS={story:{label:"Story",color:"#0D9488",emoji:"📖"},folktale:{label:"Legend",color:"#9B5DE5",emoji:"🏔️"},dialogue:{label:"Dialogue",color:"#F97316",emoji:"💬"}};
 var STORY_LEVEL_C={A1:"#F97316",A2:"#0891B2",B1:"#9B5DE5",B2:"#F72585"};
@@ -5990,7 +5956,7 @@ function StoryScreen(props){
   // ════ STORY LIST ════
   if(!selStory){
     var byLevel={A1:[],A2:[],B1:[],B2:[]};
-    STORIES.forEach(function(s){if(byLevel[s.level])byLevel[s.level].push(s);});
+    _STORIES.forEach(function(s){if(byLevel[s.level])byLevel[s.level].push(s);});
     return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
       // Header
       React.createElement("div",{style:{background:"linear-gradient(135deg,#0D9488,#134E4A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18,position:"relative"}},
