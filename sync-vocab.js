@@ -109,6 +109,66 @@ for (const s of stories) {
   }
 }
 
+// Lessons still live in src/App.jsx as hand-written data, and nothing checked
+// them: lessonWords() silently skips a wordId it cannot resolve, so a typo or
+// an omission just produces a shorter lesson. That is how "Months of the Year"
+// shipped teaching ten of the twelve months. Check them here instead.
+function validateLessons(vocabIds) {
+  const appSrc = fs.readFileSync(APP_PATH, "utf8");
+  const start = appSrc.indexOf("var LESSONS=[");
+  const chapStart = appSrc.indexOf("var CHAPTERS=[");
+  if (start === -1) {
+    console.log("sync-vocab: LESSONS array not found, skipping lesson checks");
+    return;
+  }
+  const lblock = appSrc.slice(start, chapStart > start ? chapStart : undefined);
+  const marks = [];
+  const idRe = /\bid:\s*"(l\d+_[a-z0-9]+)"/g;
+  let m;
+  while ((m = idRe.exec(lblock)) !== null) marks.push({ at: m.index, id: m[1] });
+  if (!marks.length) {
+    console.log("sync-vocab: no lessons parsed, skipping lesson checks");
+    return;
+  }
+  const lessonIds = new Set();
+  let problems = 0;
+  marks.forEach(function (mk, i) {
+    const chunk = lblock.slice(mk.at, i + 1 < marks.length ? marks[i + 1].at : lblock.length);
+    if (lessonIds.has(mk.id)) {
+      console.error("sync-vocab: duplicate lesson id: " + mk.id);
+      problems++;
+    }
+    lessonIds.add(mk.id);
+    const wm = /wordIds:\s*\[([^\]]*)\]/.exec(chunk);
+    if (!wm) {
+      console.error("sync-vocab: lesson " + mk.id + " has no wordIds.");
+      problems++;
+      return;
+    }
+    const ids = (wm[1].match(/"([^"]+)"/g) || []).map(function (s) { return s.slice(1, -1); });
+    if (!ids.length) {
+      console.error("sync-vocab: lesson " + mk.id + " has an empty wordIds list.");
+      problems++;
+    }
+    const unknown = ids.filter(function (w) { return !vocabIds.has(w); });
+    if (unknown.length) {
+      console.error("sync-vocab: lesson " + mk.id + " references word ids that do not exist: " + unknown.join(", "));
+      problems++;
+    }
+    const dupes = ids.filter(function (w, j) { return ids.indexOf(w) !== j; });
+    if (dupes.length) {
+      console.error("sync-vocab: lesson " + mk.id + " repeats word ids: " + [...new Set(dupes)].join(", "));
+      problems++;
+    }
+  });
+  if (problems) {
+    console.error("sync-vocab: " + problems + " lesson problem(s). Refusing to sync.");
+    process.exit(1);
+  }
+  console.log("sync-vocab: " + marks.length + " lessons check out");
+}
+validateLessons(seen);
+
 // ---- 1. inject into App.jsx between markers ----
 let src = fs.readFileSync(APP_PATH, "utf8");
 const b = src.indexOf(BEGIN);
