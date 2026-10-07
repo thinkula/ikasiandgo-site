@@ -1,17 +1,34 @@
 permalink: pretty
 
-# GitHub Pages publishes everything in the repo root. www/ is the Vite build
-# output, and it contains a second index.html (the app shell). That answered
-# 200 at /www/ but rendered blank, because its script tag points at
-# /assets/index-*.js while the bundle only exists under /www/assets/. Excluding
-# it keeps a broken duplicate homepage off the domain and out of search results.
-# Nothing links to /www/, and the app fetches the root vocabulary.json, so this
-# removes no URL anything depends on.
+# GitHub Pages publishes everything in the repo root, which by default put the
+# entire codebase on ikasiandgo.com: the app source, the Xcode project, the
+# build output and the tooling. None of it held secrets, and the repo is public
+# anyway, so nothing here is about hiding code. It is about what the domain
+# should answer for.
 #
-# public/ is the Vite build input. Its vocabulary.json is a mirror of the root
-# one, which is the file the app actually fetches at launch, so publishing the
-# mirror only offered a second URL with no freshness guarantee. The site's font
-# now lives in assets/fonts/, so excluding public/ no longer costs the typeface.
+# What stays published: the five pages, assets/ (css, font, screenshots), CNAME,
+# and the root vocabulary.json, which the app fetches at launch to pick up word
+# corrections without an App Store release. Do not exclude that file.
+#
+# Notes on specific entries:
+#   www/     the Vite build output. Its index.html answered 200 at /www/ as a
+#            blank second homepage, because its script tag points at
+#            /assets/index-*.js while the bundle only lives under /www/assets/.
+#   public/  the Vite build input. Its vocabulary.json is a mirror of the root
+#            file and carried no freshness guarantee. Safe to exclude only
+#            because the site font now lives in assets/fonts/ rather than here.
+#   src/     the app source, 752KB of App.jsx. The app's own font reference is
+#            relative, so excluding this does not affect the build.
 exclude:
-  - www/
+  - appshell/
+  - ios/
   - public/
+  - src/
+  - tools/
+  - www/
+  - README.md
+  - capacitor.config.json
+  - package.json
+  - package-lock.json
+  - sync-vocab.js
+  - vite.config.js
