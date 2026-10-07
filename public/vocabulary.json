@@ -1,5 +1,5 @@
 {
-  "version": "1.4.0",
+  "version": "1.5.0",
   "vocabulary": [
     {
       "id": "kaixo",
@@ -13447,6 +13447,902 @@
             ]
           ],
           "tr": "Until next year!"
+        }
+      ]
+    },
+    {
+      "id": "itsasoa",
+      "title": "Itsasoan",
+      "titleEn": "At the Sea",
+      "level": "A2",
+      "cat": "story",
+      "emoji": "🌊",
+      "intro": "A morning in a fishing port on the Bay of Biscay.",
+      "lines": [
+        {
+          "w": [
+            [
+              "Itsasoa",
+              "The sea"
+            ],
+            [
+              "handia",
+              "big"
+            ],
+            [
+              "eta",
+              "and"
+            ],
+            [
+              "urdina",
+              "blue"
+            ],
+            [
+              "da.",
+              "is."
+            ]
+          ],
+          "tr": "The sea is big and blue."
+        },
+        {
+          "w": [
+            [
+              "Arrantzaleak",
+              "The fishermen"
+            ],
+            [
+              "goiz",
+              "early"
+            ],
+            [
+              "esnatzen",
+              "wake"
+            ],
+            [
+              "dira.",
+              "up."
+            ]
+          ],
+          "tr": "The fishermen wake up early."
+        },
+        {
+          "w": [
+            [
+              "Itsasontzia",
+              "The boat"
+            ],
+            [
+              "portuan",
+              "in the port"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "The boat is in the port."
+        },
+        {
+          "w": [
+            [
+              "Gaur",
+              "Today"
+            ],
+            [
+              "haizea",
+              "the wind"
+            ],
+            [
+              "hotza",
+              "cold"
+            ],
+            [
+              "da.",
+              "is."
+            ]
+          ],
+          "tr": "Today the wind is cold."
+        },
+        {
+          "w": [
+            [
+              "Gizonek",
+              "The men"
+            ],
+            [
+              "arrainak",
+              "fish"
+            ],
+            [
+              "harrapatzen",
+              "catch"
+            ],
+            [
+              "dituzte.",
+              "(do)."
+            ]
+          ],
+          "tr": "The men catch fish."
+        },
+        {
+          "w": [
+            [
+              "Ura",
+              "The water"
+            ],
+            [
+              "gazia",
+              "salty"
+            ],
+            [
+              "da.",
+              "is."
+            ]
+          ],
+          "tr": "The water is salty."
+        },
+        {
+          "w": [
+            [
+              "Eguerdian",
+              "At midday"
+            ],
+            [
+              "etxera",
+              "home"
+            ],
+            [
+              "itzultzen",
+              "return"
+            ],
+            [
+              "dira.",
+              "they."
+            ]
+          ],
+          "tr": "At midday they return home."
+        },
+        {
+          "w": [
+            [
+              "Amak",
+              "Mother"
+            ],
+            [
+              "bakailaoa",
+              "the salted cod"
+            ],
+            [
+              "prestatzen",
+              "prepares"
+            ],
+            [
+              "du.",
+              "(does)."
+            ]
+          ],
+          "tr": "Mother prepares the salted cod."
+        },
+        {
+          "w": [
+            [
+              "Familia",
+              "The family"
+            ],
+            [
+              "mahai",
+              "table"
+            ],
+            [
+              "inguruan",
+              "around"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "The family is around the table."
+        },
+        {
+          "w": [
+            [
+              "Itsasoak",
+              "The sea"
+            ],
+            [
+              "dena",
+              "everything"
+            ],
+            [
+              "ematen",
+              "gives"
+            ],
+            [
+              "du.",
+              "(does)."
+            ]
+          ],
+          "tr": "The sea gives everything."
+        }
+      ]
+    },
+    {
+      "id": "baserria",
+      "title": "Baserrian",
+      "titleEn": "At the Farmhouse",
+      "level": "A2",
+      "cat": "story",
+      "emoji": "🏡",
+      "intro": "A day at the baserri, the farmhouse that gave many Basque families their surname.",
+      "lines": [
+        {
+          "w": [
+            [
+              "Baserria",
+              "The farmhouse"
+            ],
+            [
+              "mendian",
+              "on the mountain"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "The farmhouse is on the mountain."
+        },
+        {
+          "w": [
+            [
+              "Etxea",
+              "The house"
+            ],
+            [
+              "zaharra",
+              "old"
+            ],
+            [
+              "eta",
+              "and"
+            ],
+            [
+              "handia",
+              "big"
+            ],
+            [
+              "da.",
+              "is."
+            ]
+          ],
+          "tr": "The house is old and big."
+        },
+        {
+          "w": [
+            [
+              "Aitonak",
+              "Grandfather"
+            ],
+            [
+              "ardiak",
+              "the sheep"
+            ],
+            [
+              "zaintzen",
+              "looks after"
+            ],
+            [
+              "ditu.",
+              "(does)."
+            ]
+          ],
+          "tr": "Grandfather looks after the sheep."
+        },
+        {
+          "w": [
+            [
+              "Amonak",
+              "Grandmother"
+            ],
+            [
+              "gazta",
+              "cheese"
+            ],
+            [
+              "egiten",
+              "makes"
+            ],
+            [
+              "du.",
+              "(does)."
+            ]
+          ],
+          "tr": "Grandmother makes cheese."
+        },
+        {
+          "w": [
+            [
+              "Txakurra",
+              "The dog"
+            ],
+            [
+              "atean",
+              "at the door"
+            ],
+            [
+              "lo",
+              "asleep"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "The dog is asleep at the door."
+        },
+        {
+          "w": [
+            [
+              "Behiak",
+              "The cows"
+            ],
+            [
+              "kanpoan",
+              "outside"
+            ],
+            [
+              "daude.",
+              "are."
+            ]
+          ],
+          "tr": "The cows are outside."
+        },
+        {
+          "w": [
+            [
+              "Sagarrak",
+              "The apples"
+            ],
+            [
+              "gorriak",
+              "red"
+            ],
+            [
+              "dira.",
+              "are."
+            ]
+          ],
+          "tr": "The apples are red."
+        },
+        {
+          "w": [
+            [
+              "Arratsaldean",
+              "In the afternoon"
+            ],
+            [
+              "sagardoa",
+              "cider"
+            ],
+            [
+              "edaten",
+              "drink"
+            ],
+            [
+              "dute.",
+              "they."
+            ]
+          ],
+          "tr": "In the afternoon they drink cider."
+        },
+        {
+          "w": [
+            [
+              "Baserriak",
+              "The farmhouse"
+            ],
+            [
+              "familiaren",
+              "the family's"
+            ],
+            [
+              "izena",
+              "name"
+            ],
+            [
+              "du.",
+              "has."
+            ]
+          ],
+          "tr": "The farmhouse has the family's name."
+        },
+        {
+          "w": [
+            [
+              "Hemen",
+              "Here"
+            ],
+            [
+              "jaio",
+              "born"
+            ],
+            [
+              "zen",
+              "was"
+            ],
+            [
+              "nire",
+              "my"
+            ],
+            [
+              "ama.",
+              "mother."
+            ]
+          ],
+          "tr": "My mother was born here."
+        }
+      ]
+    },
+    {
+      "id": "olentzero",
+      "title": "Olentzero",
+      "titleEn": "Olentzero",
+      "level": "B1",
+      "cat": "folktale",
+      "emoji": "🎄",
+      "intro": "The charcoal burner who comes down from the mountains at Christmas.",
+      "lines": [
+        {
+          "w": [
+            [
+              "Mendian",
+              "In the mountain"
+            ],
+            [
+              "gizon",
+              "man"
+            ],
+            [
+              "bat",
+              "a"
+            ],
+            [
+              "bizi",
+              "lived"
+            ],
+            [
+              "zen.",
+              "(did)."
+            ]
+          ],
+          "tr": "In the mountain lived a man."
+        },
+        {
+          "w": [
+            [
+              "Bere",
+              "His"
+            ],
+            [
+              "izena",
+              "name"
+            ],
+            [
+              "Olentzero",
+              "Olentzero"
+            ],
+            [
+              "zen.",
+              "was."
+            ]
+          ],
+          "tr": "His name was Olentzero."
+        },
+        {
+          "w": [
+            [
+              "Ikazkina",
+              "A charcoal burner"
+            ],
+            [
+              "zen.",
+              "he was."
+            ]
+          ],
+          "tr": "He was a charcoal burner."
+        },
+        {
+          "w": [
+            [
+              "Basoan",
+              "In the forest"
+            ],
+            [
+              "lan",
+              "work"
+            ],
+            [
+              "egiten",
+              "did"
+            ],
+            [
+              "zuen.",
+              "(he)."
+            ]
+          ],
+          "tr": "He worked in the forest."
+        },
+        {
+          "w": [
+            [
+              "Negua",
+              "The winter"
+            ],
+            [
+              "luzea",
+              "long"
+            ],
+            [
+              "eta",
+              "and"
+            ],
+            [
+              "hotza",
+              "cold"
+            ],
+            [
+              "zen.",
+              "was."
+            ]
+          ],
+          "tr": "The winter was long and cold."
+        },
+        {
+          "w": [
+            [
+              "Gabon",
+              "Christmas"
+            ],
+            [
+              "gauean",
+              "on the night"
+            ],
+            [
+              "herrira",
+              "to the town"
+            ],
+            [
+              "jaisten",
+              "came down"
+            ],
+            [
+              "zen.",
+              "(he)."
+            ]
+          ],
+          "tr": "On Christmas night he came down to the town."
+        },
+        {
+          "w": [
+            [
+              "Zaku",
+              "Sack"
+            ],
+            [
+              "handi",
+              "big"
+            ],
+            [
+              "bat",
+              "a"
+            ],
+            [
+              "zuen.",
+              "he had."
+            ]
+          ],
+          "tr": "He had a big sack."
+        },
+        {
+          "w": [
+            [
+              "Zakuan",
+              "In the sack"
+            ],
+            [
+              "opariak",
+              "gifts"
+            ],
+            [
+              "zeuden.",
+              "there were."
+            ]
+          ],
+          "tr": "In the sack there were gifts."
+        },
+        {
+          "w": [
+            [
+              "Haurrek",
+              "The children"
+            ],
+            [
+              "leihotik",
+              "from the window"
+            ],
+            [
+              "begiratzen",
+              "watched"
+            ],
+            [
+              "zuten.",
+              "(they)."
+            ]
+          ],
+          "tr": "The children watched from the window."
+        },
+        {
+          "w": [
+            [
+              "Gaur",
+              "Today"
+            ],
+            [
+              "ere",
+              "too"
+            ],
+            [
+              "haurrek",
+              "the children"
+            ],
+            [
+              "itxaroten",
+              "wait"
+            ],
+            [
+              "dute.",
+              "(do)."
+            ]
+          ],
+          "tr": "Today too the children wait."
+        }
+      ]
+    },
+    {
+      "id": "eskutitza",
+      "title": "Eskutitza",
+      "titleEn": "The Letter",
+      "level": "B2",
+      "cat": "story",
+      "emoji": "✉️",
+      "intro": "Basque shepherds emigrated to the American West for a century. Some never came back.",
+      "lines": [
+        {
+          "w": [
+            [
+              "Duela",
+              "Ago"
+            ],
+            [
+              "ehun",
+              "hundred"
+            ],
+            [
+              "urte,",
+              "years,"
+            ],
+            [
+              "gazte",
+              "young people"
+            ],
+            [
+              "asko",
+              "many"
+            ],
+            [
+              "joan",
+              "went"
+            ],
+            [
+              "ziren.",
+              "(they)."
+            ]
+          ],
+          "tr": "A hundred years ago, many young people left."
+        },
+        {
+          "w": [
+            [
+              "Lana",
+              "Work"
+            ],
+            [
+              "bilatzen",
+              "looking for"
+            ],
+            [
+              "zuten.",
+              "they were."
+            ]
+          ],
+          "tr": "They were looking for work."
+        },
+        {
+          "w": [
+            [
+              "Asko",
+              "Many"
+            ],
+            [
+              "artzain",
+              "shepherds"
+            ],
+            [
+              "izan",
+              "became"
+            ],
+            [
+              "ziren.",
+              "(they)."
+            ]
+          ],
+          "tr": "Many became shepherds."
+        },
+        {
+          "w": [
+            [
+              "Mendi",
+              "Mountain"
+            ],
+            [
+              "urrunetan",
+              "in distant"
+            ],
+            [
+              "bizi",
+              "lived"
+            ],
+            [
+              "ziren.",
+              "(they)."
+            ]
+          ],
+          "tr": "They lived in distant mountains."
+        },
+        {
+          "w": [
+            [
+              "Etxetik",
+              "From home"
+            ],
+            [
+              "oso",
+              "very"
+            ],
+            [
+              "urrun",
+              "far"
+            ],
+            [
+              "zeuden.",
+              "they were."
+            ]
+          ],
+          "tr": "They were very far from home."
+        },
+        {
+          "w": [
+            [
+              "Gauez,",
+              "At night,"
+            ],
+            [
+              "izarrak",
+              "the stars"
+            ],
+            [
+              "berdinak",
+              "the same"
+            ],
+            [
+              "ziren.",
+              "were."
+            ]
+          ],
+          "tr": "At night, the stars were the same."
+        },
+        {
+          "w": [
+            [
+              "Urtean",
+              "In a year"
+            ],
+            [
+              "behin",
+              "once"
+            ],
+            [
+              "eskutitz",
+              "letter"
+            ],
+            [
+              "bat",
+              "a"
+            ],
+            [
+              "idazten",
+              "wrote"
+            ],
+            [
+              "zuten.",
+              "(they)."
+            ]
+          ],
+          "tr": "Once a year they wrote a letter."
+        },
+        {
+          "w": [
+            [
+              "Batzuk",
+              "Some"
+            ],
+            [
+              "itzuli",
+              "returned"
+            ],
+            [
+              "ziren.",
+              "(they)."
+            ]
+          ],
+          "tr": "Some returned."
+        },
+        {
+          "w": [
+            [
+              "Beste",
+              "Other"
+            ],
+            [
+              "batzuk",
+              "some"
+            ],
+            [
+              "ez.",
+              "not."
+            ]
+          ],
+          "tr": "Others did not."
+        },
+        {
+          "w": [
+            [
+              "Orain",
+              "Now"
+            ],
+            [
+              "haien",
+              "their"
+            ],
+            [
+              "bilobek",
+              "grandchildren"
+            ],
+            [
+              "euskara",
+              "Basque"
+            ],
+            [
+              "ikasten",
+              "learn"
+            ],
+            [
+              "dute.",
+              "(do)."
+            ]
+          ],
+          "tr": "Now their grandchildren learn Basque."
         }
       ]
     }
