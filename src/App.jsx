@@ -90,16 +90,88 @@ function getSfxOn(){return _SFX_ON;}
     }
   }catch(e){}
 })();
-// Reliable storage handle the app uses everywhere. Points at localStorage directly so a
-// late-loading native bridge that overwrites window.storage cannot break persistence.
+// Keys that deliberately stay in localStorage. vocab_cache is around half a
+// megabyte and is fully regenerable from the bundled seed or the network, so it
+// has no business in UserDefaults, which iOS reads at launch. Losing it costs
+// nothing; losing progress costs everything.
+var LOCAL_ONLY={vocab_cache:1};
+var PREFS_MIGRATED="_prefs_migrated";
+
+// Reliable storage handle the app uses everywhere.
+//
+// Progress goes through Capacitor Preferences, which on iOS is UserDefaults.
+// localStorage inside a WKWebView is website data: iOS can evict it when the
+// device is short on space, which would take streaks, spaced repetition and
+// finished lessons with it. UserDefaults is not evicted that way and is
+// included in device backups.
+//
+// On the web, and anywhere the plugin is not registered, this behaves exactly
+// as it did before: straight localStorage, no migration, no change.
 var STORE=(function(){
   function g(k){try{var v=window.localStorage.getItem(k);return Promise.resolve(v!==null?{key:k,value:v}:null);}catch(e){return Promise.resolve(null);}}
   function s(k,v){try{window.localStorage.setItem(k,v);return Promise.resolve({key:k,value:v});}catch(e){return Promise.resolve(null);}}
   function d(k){try{window.localStorage.removeItem(k);}catch(e){}return Promise.resolve({key:k,deleted:true});}
   function l(prefix){try{var keys=Object.keys(window.localStorage).filter(function(k){return !prefix||k.indexOf(prefix)===0;});return Promise.resolve({keys:keys});}catch(e){return Promise.resolve({keys:[]});}}
-  if(window.localStorage)return{get:g,set:s,"delete":d,list:l};
-  var mem={};
-  return{get:function(k){return Promise.resolve(mem[k]!==undefined?{key:k,value:mem[k]}:null);},set:function(k,v){mem[k]=v;return Promise.resolve({key:k,value:v});},"delete":function(k){delete mem[k];return Promise.resolve({key:k,deleted:true});},list:function(p){return Promise.resolve({keys:Object.keys(mem).filter(function(k){return !p||k.indexOf(p)===0;})});}};
+  var local;
+  if(window.localStorage){local={get:g,set:s,"delete":d,list:l};}
+  else{
+    var mem={};
+    local={get:function(k){return Promise.resolve(mem[k]!==undefined?{key:k,value:mem[k]}:null);},set:function(k,v){mem[k]=v;return Promise.resolve({key:k,value:v});},"delete":function(k){delete mem[k];return Promise.resolve({key:k,deleted:true});},list:function(p){return Promise.resolve({keys:Object.keys(mem).filter(function(k){return !p||k.indexOf(p)===0;})});}};
+  }
+  var P=null;
+  try{P=(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Preferences)||null;}catch(e){}
+  if(!P)return local;
+
+  // One-time copy of everything already in localStorage into Preferences. The
+  // flag is written last, so an interrupted run simply repeats next launch,
+  // writing the same values again. localStorage is NOT cleared afterwards: it
+  // costs nothing to leave and is a safety net if anything here goes wrong.
+  var ready=(function(){
+    try{
+      return P.get({key:PREFS_MIGRATED}).then(function(r){
+        if(r&&r.value)return;
+        var keys=[];
+        try{keys=Object.keys(window.localStorage);}catch(e){}
+        var chain=Promise.resolve();
+        keys.forEach(function(k){
+          if(LOCAL_ONLY[k])return;
+          var v=null;
+          try{v=window.localStorage.getItem(k);}catch(e){}
+          if(v===null||v===undefined)return;
+          chain=chain.then(function(){return P.set({key:k,value:v});}).catch(function(){});
+        });
+        return chain.then(function(){return P.set({key:PREFS_MIGRATED,value:"1"});});
+      }).catch(function(){});
+    }catch(e){return Promise.resolve();}
+  })();
+
+  function viaPrefs(k){return !LOCAL_ONLY[k];}
+  return{
+    get:function(k){
+      if(!viaPrefs(k))return local.get(k);
+      return ready.then(function(){return P.get({key:k});}).then(function(r){
+        return (r&&r.value!==null&&r.value!==undefined)?{key:k,value:r.value}:null;
+      }).catch(function(){return local.get(k);});
+    },
+    set:function(k,v){
+      if(!viaPrefs(k))return local.set(k,v);
+      return ready.then(function(){return P.set({key:k,value:v});}).then(function(){
+        return {key:k,value:v};
+      }).catch(function(){return local.set(k,v);});
+    },
+    "delete":function(k){
+      if(!viaPrefs(k))return local["delete"](k);
+      return ready.then(function(){return P.remove({key:k});}).then(function(){
+        return {key:k,deleted:true};
+      }).catch(function(){return local["delete"](k);});
+    },
+    list:function(prefix){
+      return ready.then(function(){return P.keys();}).then(function(r){
+        var ks=(r&&r.keys)||[];
+        return {keys:prefix?ks.filter(function(k){return k.indexOf(prefix)===0;}):ks};
+      }).catch(function(){return local.list(prefix);});
+    }
+  };
 })();
 // Load mute preference at startup (after storage polyfill is guaranteed)
 try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
