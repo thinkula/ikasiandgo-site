@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "vocabulary": [
     {
       "id": "kaixo",
@@ -14343,6 +14343,412 @@
             ]
           ],
           "tr": "Now their grandchildren learn Basque."
+        }
+      ]
+    },
+    {
+      "id": "familia",
+      "title": "Nire familia",
+      "titleEn": "My Family",
+      "level": "A1",
+      "cat": "story",
+      "emoji": "👨‍👩‍👧",
+      "intro": "The people in one small house. Almost every word here is one you have already learned.",
+      "lines": [
+        {
+          "w": [
+            [
+              "Nire",
+              "My"
+            ],
+            [
+              "familia",
+              "family"
+            ],
+            [
+              "txikia",
+              "small"
+            ],
+            [
+              "da.",
+              "is."
+            ]
+          ],
+          "tr": "My family is small."
+        },
+        {
+          "w": [
+            [
+              "Ama",
+              "Mother"
+            ],
+            [
+              "eta",
+              "and"
+            ],
+            [
+              "aita",
+              "father"
+            ],
+            [
+              "hemen",
+              "here"
+            ],
+            [
+              "daude.",
+              "are."
+            ]
+          ],
+          "tr": "Mother and father are here."
+        },
+        {
+          "w": [
+            [
+              "Anaia",
+              "Brother"
+            ],
+            [
+              "bat",
+              "one"
+            ],
+            [
+              "dut.",
+              "I have."
+            ]
+          ],
+          "tr": "I have one brother."
+        },
+        {
+          "w": [
+            [
+              "Ahizpa",
+              "Sister"
+            ],
+            [
+              "bi",
+              "two"
+            ],
+            [
+              "ditut.",
+              "I have."
+            ]
+          ],
+          "tr": "I have two sisters."
+        },
+        {
+          "w": [
+            [
+              "Amona",
+              "Grandmother"
+            ],
+            [
+              "sukaldean",
+              "in the kitchen"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "Grandmother is in the kitchen."
+        },
+        {
+          "w": [
+            [
+              "Aitona",
+              "Grandfather"
+            ],
+            [
+              "mahaian",
+              "at the table"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "Grandfather is at the table."
+        },
+        {
+          "w": [
+            [
+              "Haurra",
+              "The child"
+            ],
+            [
+              "pozik",
+              "happy"
+            ],
+            [
+              "dago.",
+              "is."
+            ]
+          ],
+          "tr": "The child is happy."
+        },
+        {
+          "w": [
+            [
+              "Etxea",
+              "The house"
+            ],
+            [
+              "txikia",
+              "small"
+            ],
+            [
+              "da.",
+              "is."
+            ]
+          ],
+          "tr": "The house is small."
+        },
+        {
+          "w": [
+            [
+              "Baina",
+              "But"
+            ],
+            [
+              "bero",
+              "warm"
+            ],
+            [
+              "dago.",
+              "it is."
+            ]
+          ],
+          "tr": "But it is warm."
+        },
+        {
+          "w": [
+            [
+              "Nire",
+              "My"
+            ],
+            [
+              "familia",
+              "family"
+            ],
+            [
+              "maite",
+              "love"
+            ],
+            [
+              "dut.",
+              "I."
+            ]
+          ],
+          "tr": "I love my family."
+        }
+      ]
+    },
+    {
+      "id": "nongoa",
+      "title": "Nongoa zara?",
+      "titleEn": "Where Are You From?",
+      "level": "B1",
+      "cat": "dialogue",
+      "emoji": "💬",
+      "intro": "Two people meet at a village festival. One of them has come a long way to be there.",
+      "lines": [
+        {
+          "w": [
+            [
+              "Kaixo!",
+              "Hello!"
+            ],
+            [
+              "Nongoa",
+              "From where"
+            ],
+            [
+              "zara?",
+              "are you?"
+            ]
+          ],
+          "tr": "Hello! Where are you from?"
+        },
+        {
+          "w": [
+            [
+              "Amerikatik",
+              "From America"
+            ],
+            [
+              "nator.",
+              "I come."
+            ]
+          ],
+          "tr": "I come from America."
+        },
+        {
+          "w": [
+            [
+              "Eta",
+              "And"
+            ],
+            [
+              "euskara",
+              "Basque"
+            ],
+            [
+              "non",
+              "where"
+            ],
+            [
+              "ikasi",
+              "learned"
+            ],
+            [
+              "duzu?",
+              "have you?"
+            ]
+          ],
+          "tr": "And where did you learn Basque?"
+        },
+        {
+          "w": [
+            [
+              "Etxean",
+              "At home"
+            ],
+            [
+              "ikasi",
+              "learned"
+            ],
+            [
+              "dut.",
+              "I have."
+            ]
+          ],
+          "tr": "I learned it at home."
+        },
+        {
+          "w": [
+            [
+              "Dena",
+              "Everything"
+            ],
+            [
+              "ulertzen",
+              "understand"
+            ],
+            [
+              "duzu?",
+              "do you?"
+            ]
+          ],
+          "tr": "Do you understand everything?"
+        },
+        {
+          "w": [
+            [
+              "Ez",
+              "Not"
+            ],
+            [
+              "dena.",
+              "everything."
+            ],
+            [
+              "Hala",
+              "Even"
+            ],
+            [
+              "ere,",
+              "so,"
+            ],
+            [
+              "saiatzen",
+              "trying"
+            ],
+            [
+              "naiz.",
+              "I am."
+            ]
+          ],
+          "tr": "Not everything. Even so, I keep trying."
+        },
+        {
+          "w": [
+            [
+              "Nire",
+              "My"
+            ],
+            [
+              "aitona",
+              "grandfather"
+            ],
+            [
+              "hemengoa",
+              "from here"
+            ],
+            [
+              "zen.",
+              "was."
+            ]
+          ],
+          "tr": "My grandfather was from here."
+        },
+        {
+          "w": [
+            [
+              "Beraz,",
+              "So,"
+            ],
+            [
+              "itzuli",
+              "returned"
+            ],
+            [
+              "zara.",
+              "you have."
+            ]
+          ],
+          "tr": "So you have come back."
+        },
+        {
+          "w": [
+            [
+              "Bai.",
+              "Yes."
+            ],
+            [
+              "Hitzak",
+              "The words"
+            ],
+            [
+              "ere",
+              "too"
+            ],
+            [
+              "itzuli",
+              "returned"
+            ],
+            [
+              "dira.",
+              "have."
+            ]
+          ],
+          "tr": "Yes. The words have come back too."
+        },
+        {
+          "w": [
+            [
+              "Ondo",
+              "Well"
+            ],
+            [
+              "esan",
+              "said"
+            ],
+            [
+              "duzu.",
+              "you have."
+            ]
+          ],
+          "tr": "Well said."
         }
       ]
     }
