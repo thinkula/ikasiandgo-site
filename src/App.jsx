@@ -5671,19 +5671,37 @@ function LearnScreen(props){
 
   // Lesson cards and the chapter headings that group them. Defined at component
   // scope so both the list below and any future view can use them.
+  // The first lesson not yet finished. Because lessons unlock in order, this is
+  // also the only one a learner can actually open next, which is what the
+  // Continue card points at and what gets the ring in the list below.
+  var nextLesson=null;
+  for(var ni=0;ni<LESSONS.length;ni++){
+    if(doneLessons.indexOf(LESSONS[ni].id)===-1){nextLesson=LESSONS[ni];break;}
+  }
+
+  // One place that decides what tapping a lesson does, so the card and the list
+  // can never disagree: a Pro lesson opens the paywall, an unlocked one opens.
+  function openLesson(lesson){
+    if(!lesson)return;
+    if(lesson.pro&&!isPro){if(onUpgrade)onUpgrade();return;}
+    if(isUnlocked(LESSONS.indexOf(lesson))){setSelLesson(lesson);window.scrollTo(0,0);}
+  }
+
   function renderLesson(lesson){
     var idx=LESSONS.indexOf(lesson);
     var needsPro=!!lesson.pro&&!isPro;
         var unlocked=isUnlocked(idx);
         var isDone=doneLessons.indexOf(lesson.id)!==-1;
-        return React.createElement("button",{key:lesson.id,onClick:function(){if(needsPro){if(onUpgrade)onUpgrade();return;}if(unlocked){setSelLesson(lesson);window.scrollTo(0,0);}},disabled:!unlocked&&!needsPro,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"none",borderRadius:18,padding:"16px",marginBottom:11,cursor:(unlocked||needsPro)?"pointer":"default",fontFamily:"inherit",boxShadow:"0 1px 4px rgba(0,0,0,0.06)",opacity:(unlocked||needsPro)?1:0.55,position:"relative",overflow:"hidden"}},
+        var isNext=!!nextLesson&&nextLesson.id===lesson.id;
+        return React.createElement("button",{key:lesson.id,onClick:function(){openLesson(lesson);},disabled:!unlocked&&!needsPro,style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:isNext?"2px solid #7C3AED":"none",borderRadius:18,padding:isNext?"14px":"16px",marginBottom:11,cursor:(unlocked||needsPro)?"pointer":"default",fontFamily:"inherit",boxShadow:isNext?"0 2px 12px rgba(124,58,237,0.18)":"0 1px 4px rgba(0,0,0,0.06)",opacity:(unlocked||needsPro)?1:0.55,position:"relative",overflow:"hidden"}},
           React.createElement("div",{style:{position:"absolute",top:0,left:0,bottom:0,width:4,backgroundColor:isDone?"#19A85A":needsPro?"#F59E0B":unlocked?"#7C3AED":"#C7C7CC"}}),
           React.createElement("div",{style:{display:"flex",alignItems:"center",gap:13}},
             React.createElement("div",{style:{width:48,height:48,borderRadius:14,backgroundColor:isDone?"#EDFAF3":needsPro?"#FEF3C7":unlocked?"#F5F3FF":"#ECECEF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:(unlocked||needsPro)?24:18,fontWeight:(unlocked||needsPro)?400:900,color:(unlocked||needsPro)?"inherit":"#A0A0A8"}},(unlocked||needsPro)?lesson.emoji:String(lesson.num)),
             React.createElement("div",{style:{flex:1,minWidth:0}},
               React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
                 React.createElement("span",{style:{fontSize:11,fontWeight:800,color:"#8E8E93"}},"LESSON "+lesson.num),
-                isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#19A85A"}},"\u2713")
+                isDone&&React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#19A85A"}},"\u2713"),
+                isNext&&React.createElement("span",{style:{fontSize:9.5,fontWeight:900,color:"#fff",backgroundColor:"#7C3AED",borderRadius:7,padding:"2px 7px",letterSpacing:0.5}},"NEXT")
               ),
               React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:(unlocked||needsPro)?"#1A1A1A":"#9A9AA2"}},lesson.title),
               React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},(unlocked||needsPro)?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
@@ -5791,6 +5809,27 @@ function LearnScreen(props){
       )
     ),
     React.createElement("div",{style:{padding:"18px 16px calc(40px + env(safe-area-inset-bottom,0px))"}},
+      // Resume card. With fifty lessons the list opens at chapter one every
+      // time, so without this a learner scrolls past everything they have
+      // already finished to reach the one they are actually on.
+      nextLesson?React.createElement("button",{onClick:function(){openLesson(nextLesson);},style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"2px solid #7C3AED",borderRadius:16,padding:13,marginBottom:16,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 14px rgba(124,58,237,0.18)"}},
+        React.createElement("div",{style:{fontSize:10,fontWeight:900,letterSpacing:1,color:"#7C3AED",textTransform:"uppercase"}},completedCount?"Continue where you left off":"Start here"),
+        React.createElement("div",{style:{display:"flex",alignItems:"center",gap:11,marginTop:7}},
+          React.createElement("div",{style:{width:46,height:46,borderRadius:13,backgroundColor:(nextLesson.pro&&!isPro)?"#FEF3C7":"#F5F3FF",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:23}},nextLesson.emoji),
+          React.createElement("div",{style:{flex:1,minWidth:0}},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6}},
+              React.createElement("span",{style:{fontSize:10.5,fontWeight:900,color:"#8E8E93"}},"LESSON "+nextLesson.num),
+              (nextLesson.pro&&!isPro)&&React.createElement("span",{style:{fontSize:9.5,fontWeight:900,color:"#fff",backgroundColor:"#F59E0B",borderRadius:7,padding:"2px 7px",letterSpacing:0.4}},"PRO")
+            ),
+            React.createElement("p",{style:{margin:"1px 0 0",fontSize:16,fontWeight:900,color:"#1A1A1A",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}},nextLesson.title),
+            React.createElement("p",{style:{margin:"1px 0 0",fontSize:12,color:"#8E8E93",fontWeight:600,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}},nextLesson.blurb)
+          ),
+          React.createElement("span",{style:{backgroundColor:"#7C3AED",color:"#fff",borderRadius:11,padding:"9px 13px",fontSize:12.5,fontWeight:900,flexShrink:0,whiteSpace:"nowrap"}},(nextLesson.pro&&!isPro)?"Unlock →":"Continue →")
+        )
+      ):React.createElement("div",{style:{backgroundColor:"#EDFAF3",border:"2px solid #19A85A",borderRadius:16,padding:"16px 14px",marginBottom:16,textAlign:"center"}},
+        React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:"#0E7A40"}},"🎉 Path complete"),
+        React.createElement("p",{style:{margin:"3px 0 0",fontSize:12.5,color:"#19A85A",fontWeight:600}},"You have finished every lesson. Keep the words alive with review.")
+      ),
       chapterStats.map(function(cs){
         return React.createElement(React.Fragment,{key:"chap"+cs.chapter.n},
           chapterHeader(cs),
