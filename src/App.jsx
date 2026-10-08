@@ -1285,6 +1285,11 @@ function App(){
   var _s11=useState(false);var srsLoaded=_s11[0];var setSrsLoaded=_s11[1];
   var _s12=useState([]);var sessionHistory=_s12[0];var setSessionHistory=_s12[1];
   var _s13=useState(null);var trialUntil=_s13[0];var setTrialUntil=_s13[1];
+  // trialUntil only holds a trial that is still running, because that is what
+  // gates access. Whether one was ever taken is a separate question: without
+  // it an expired trial looks like no trial at all and can be started again,
+  // for ever.
+  var _s13b=useState(false);var trialUsed=_s13b[0];var setTrialUsed=_s13b[1];
   var _s14=useState(0);var vocabVersion=_s14[0];var setVocabVersion=_s14[1];
   var _s15=useState(null);var toast=_s15[0];var setToast=_s15[1];
   var _s16=useState(10);var dailyGoal=_s16[0];var setDailyGoal=_s16[1];
@@ -1304,7 +1309,7 @@ function App(){
         try{var sf=await STORE.get("streak_freeze");if(sf&&sf.value){var sfv=JSON.parse(sf.value);if(sfv.until&&new Date(sfv.until)>new Date()){setStreakFrozen(true);}else{STORE.set("streak_freeze","").catch(function(){});}}}catch(e){}
         try{var lo=await STORE.get("last_opened");var today2=new Date().toISOString().slice(0,10);setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
         try{var tc=await STORE.get("today_count_"+new Date().toISOString().slice(0,10));if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
-        try{var tr=await STORE.get("trial_until");if(tr&&tr.value){var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
+        try{var tr=await STORE.get("trial_until");if(tr&&tr.value){setTrialUsed(true);var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
         // Fetch vocabulary
         (async function(){
           try{
@@ -1442,14 +1447,14 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(){setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(){setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
     {screen==="paywall"&&<PaywallScreen
-    trialAvailable={!trialUntil&&!isPro}
+    trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
     vocabCount={VOCABULARY.length}
-    onTrial={function(){var until=new Date(Date.now()+7*86400000);setTrialUntil(until);STORE.set("trial_until",until.toISOString()).catch(function(){});setScreen("home");}}
+    onTrial={function(){var until=new Date(Date.now()+7*86400000);setTrialUntil(until);setTrialUsed(true);STORE.set("trial_until",until.toISOString()).catch(function(){});setScreen("home");}}
     onSubscribe={doRestore}
     onContinueFree={function(){setScreen("home");}}
     price={rcPrice}
@@ -1476,6 +1481,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
 function HomeScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
+  var trialAvailable=props.trialAvailable;
   var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
   var _s0=useState("A1");var lvl=_s0[0];var setLvlRaw=_s0[1];
   var _s1=useState("all");var topic=_s1[0];var setTopicRaw=_s1[1];
@@ -1685,7 +1691,7 @@ function HomeScreen(props){
         <div style={{backgroundColor:"#fff",borderRadius:16,padding:"13px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6}}>
             <p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{goalDone?"🎯":"📅"} Today</p>
-            <p style={{margin:0,fontSize:11,color:goalDone?"#19A85A":"#8E8E93",fontWeight:700}}>{todayCount}/{dailyGoal}</p>
+            <p style={{margin:0,fontSize:11,color:goalDone?"#19A85A":"#8E8E93",fontWeight:700}}>{todayCount}/{dailyGoal} words</p>
           </div>
           <div style={{height:5,backgroundColor:"#F2F2F7",borderRadius:3,overflow:"hidden",marginBottom:7}}>
             <div style={{height:"100%",backgroundColor:goalDone?"#19A85A":"#F59E0B",borderRadius:3,width:goalPct+"%",transition:"width 0.5s ease"}}/>
@@ -1693,10 +1699,13 @@ function HomeScreen(props){
           {goalDone?(
             <p style={{margin:0,fontSize:11,color:"#19A85A",fontWeight:700}}>✓ Goal complete!</p>
           ):(
+            <div>
+            <p style={{margin:"0 0 4px",fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal</p>
             <div style={{display:"flex",gap:4}}>
               {[5,10,20].map(function(g){return(
                 <button key={g} onClick={function(){onSetDailyGoal(g);}} style={{flex:1,padding:"4px 0",borderRadius:7,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
               );})}
+            </div>
             </div>
           )}
           {daysSinceOpened>=2&&<p style={{margin:"5px 0 0",fontSize:10,color:"#8E8E93"}}>Back after {daysSinceOpened} days!</p>}
@@ -1732,8 +1741,11 @@ function HomeScreen(props){
             {levelCards}
           </div>
           <button onClick={onUpgrade} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginTop:10,width:"100%",backgroundColor:"#FFF8F0",border:"1.5px solid #FED7AA",borderRadius:12,padding:"10px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}}>
-            ✦ Unlock A2, B1 &amp; B2: 500+ more words
+            ✦ {trialAvailable?"Try Pro free for 7 days":"Unlock A2, B1 & B2: 500+ more words"}
           </button>
+          {trialAvailable&&(
+            <p style={{margin:"5px 0 0",fontSize:10,color:"#A1A1AA",fontWeight:600,textAlign:"center"}}>No card needed. It ends on its own.</p>
+          )}
         </div>
       )}
       {isPro&&(
