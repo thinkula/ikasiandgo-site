@@ -1228,7 +1228,14 @@ function normBasque(s){
 function lev(a,b){var m=a.length,n=b.length,prev=[];for(var p=0;p<=n;p++)prev.push(p);for(var i=1;i<=m;i++){var cur=[i];for(var j=1;j<=n;j++){var c=a[i-1]===b[j-1]?0:1;cur.push(Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+c));}prev=cur;}return prev[n];}
 function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return{correct:ua===q.correct,wasClose:false,userAnswer:ua};}var n1=normBasque(ua),n2=normBasque(q.correct),exact=ua.toLowerCase()===q.correct.toLowerCase();var d=lev(n1,n2);var tol=n2.length<=4?1:n2.length<=7?2:2;return{correct:exact||n1===n2,wasClose:!exact&&n1!==n2&&d<=tol&&n1.length>=3,userAnswer:ua};}
 function scoreSession(results){var total=results.length,correct=0,close=0,wrong=0;for(var i=0;i<results.length;i++){var r=results[i];if(r.correct)correct++;else if(r.wasClose)close++;else wrong++;}var acc=total>0?Math.round(correct/total*100):0;var grade=acc===100?{label:"Perfect!",sub:"Flawless!",emoji:"*"}:acc>=80?{label:"Excellent",sub:"Great work!",emoji:"*"}:acc>=60?{label:"Good",sub:"Keep going!",emoji:"!"}:{label:"Keep trying",sub:"Practice makes perfect",emoji:"~"};var mw=[],cw=[],mid={};for(var j=0;j<results.length;j++){var r2=results[j];if(!r2.correct&&r2.question&&r2.question.word){var w=r2.question.word;if(!r2.wasClose&&!mid[w.id]){mw.push(w);mid[w.id]=1;}else if(r2.wasClose&&!mid[w.id]){cw.push(w);mid[w.id]=1;}}}return{total:total,correct:correct,closeButWrong:close,genuinelyWrong:wrong,accuracy:acc,grade:grade,missedWords:mw,closeWords:cw};}
-function Logo(props){var s=props.size||32;return(<svg width={s} height={s} viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#19A85A"/><circle cx="32" cy="16" r="6" fill="white"/><rect x="26" y="26" width="12" height="32" rx="4" fill="white"/><rect x="20" y="26" width="24" height="8" rx="4" fill="white"/></svg>);}
+// The app icon, served from the bundle so it works offline. This used to be a
+// hand-drawn green glyph that predated the icon redesign, which left the header
+// showing one mark while the home screen showed another.
+function Logo(props){
+  var s=props.size||32;
+  return(<img src="icon.png" width={s} height={s} alt=""
+    style={{borderRadius:s*0.26,display:"inline-block",verticalAlign:"middle",flexShrink:0}}/>);
+}
 function Confetti(){
   var colors=["#19A85A","#FF6B35","#00B4D8","#F72585","#FFD700","#9B5DE5"];
   var pieces=[];
