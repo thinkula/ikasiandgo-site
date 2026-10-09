@@ -1202,7 +1202,21 @@ function sameShape(pool,word){
   var same=pool.filter(function(w2){return (endMark(w2.english)||endMark(w2.basque))===k;});
   return same.length>=3?same:pool;
 }
-function noMeaningClash(pool,word){var base=baseMeaning(word.english);return pool.filter(function(w2){return baseMeaning(w2.english)!==base;});}
+// Drops any distractor a learner could defend as correct. Two ways that
+// happens: the same meaning under a different word, and the same word under a
+// different meaning. The second is easy to miss, because the glosses differ, so
+// a meaning-only check lets it through: Herrialdea is both "Country / Nation"
+// and "Territory / Region", and offering one as a wrong answer to the other
+// marks a right answer wrong. Every distractor site funnels through here.
+function noMeaningClash(pool,word){
+  var base=baseMeaning(word.english);
+  var form=(word.basque||"").trim().toLowerCase();
+  return pool.filter(function(w2){
+    if(baseMeaning(w2.english)===base)return false;
+    if((w2.basque||"").trim().toLowerCase()===form)return false;
+    return true;
+  });
+}
 function spaced(base,n){if(!base.length)return[];var gap=Math.min(3,base.length-1);var out=[],last={};while(out.length<n){var added=false;for(var i=0;i<base.length;i++){var w=base[i],li=last[w.id]!=null?last[w.id]:-99;if(out.length-li>gap||out.length<=gap){out.push(w);last[w.id]=out.length-1;added=true;if(out.length>=n)break;}}if(!added)break;}return out;}
 function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var due=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)<=new Date(now.getTime()+12*3600000)&&(srs[w.id].score||0)<4;});var unseen=f(function(w){return missedIds.indexOf(w.id)===-1&&!srs[w.id];});var learning=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)>now&&(srs[w.id].score||0)<4;});var mastered=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&(srs[w.id].score||0)>=4;});var active=due.concat(missed).concat(learning).concat(unseen);var base=active.length>=n?active:active.concat(mastered);var words=spaced(base,n);var sid=Math.random().toString(36).slice(2,8);var canFB=function(w){if(!w.example||!w.example.basque)return false;var fbExclude={numbers:1,family:1,emotions:1,colors:1,adjectives:1,body:1};if(fbExclude[w.topic])return false;var ex=w.example.basque.toLowerCase(),root=w.basque.toLowerCase().replace(/[?!]$/,"").trim();var stems=[root];if(root.endsWith("tu")||root.endsWith("du")){var stem=root.slice(0,-2);stems.push(stem+"tzen",stem+"ten",stem+"dakit",stem+"t");}if(root.endsWith("i")&&root.length>=5){stems.push(root.slice(0,-1),root.slice(0,-1)+"tzen",root.slice(0,-1)+"ten");}if(root.length>=6&&root.endsWith("a"))stems.push(root.slice(0,-1));if(root.indexOf(" ")!==-1){var parts=root.split(" ");parts.forEach(function(p){if(p.length>=3)stems.push(p);});}return stems.some(function(s){return s.length>=3&&ex.indexOf(s)!==-1;});};var modes=shuffled(Array(Math.ceil(words.length/2)).fill("multipleChoice").concat(Array(Math.floor(words.length/2)).fill("typing"))).slice(0,words.length);return words.map(function(word,i){var mode=modes[i];if(word.mcOnly&&mode==="typing")mode="multipleChoice";if(!word.mcOnly&&mode==="typing"&&canFB(word)&&i%3===0)mode="fillBlank";var dp=vocab.filter(function(w2){return w2.id!==word.id&&w2.id!==ANT[word.id];});dp=noMeaningClash(dp,word);dp=sameShape(dp,word);var sl=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});var slLevel=dp.filter(function(w2){return w2.cefr===word.cefr;});var dist=shuffled(sl.length>=3?sl:slLevel.length>=3?slLevel:dp).slice(0,3);if(mode==="fillBlank"){var wb=word.basque.replace(/[?!]$/,"");var escaped=wb.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");var blanked=word.example.basque.replace(new RegExp("\\b"+escaped+"\\w*","i"),"___").replace(new RegExp(escaped,"i"),"___").trim();if(blanked.indexOf("___")===-1){mode="multipleChoice";var opts2b=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2b,correct:word.english};}var opts=shuffled([word.basque].concat(dist.map(function(w2){return w2.basque;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:blanked,promptLabel:"Fill in the blank",options:opts,correct:word.basque};}if(mode==="multipleChoice"){var opts2=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2,correct:word.english};}return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.english,promptLabel:"Translate to Basque",options:null,correct:word.basque};});}
 function norm(s){
@@ -5329,7 +5343,7 @@ var LESSONS=[
     blurb:"Say how you feel.",
     intro:"Being able to express emotion makes any conversation more human. These words cover the core feelings: poza (joy), tristura (sadness), beldurra (fear), haserrea (anger). You can pair them with the verbs you already know to talk about your own state.",
     grammar:{title:"Nouns and states",body:"Basque often has a noun for the feeling and a separate word for being in that state. Poza is \"joy\" (the thing), while pozik means \"happy\" (how you are). Learning both gives you more ways to express yourself."},
-    wordIds:["poza","tristura","beldurra","haserrea","pozik","triste","gosea","egarria","nekatuta","lasaia"],
+    wordIds:["poza","tristura","beldurra","haserrea","pozik","triste","gosea","egarria","nekatuta","gaixorik"],
   },
   {
     id:"l11_describing",
@@ -5406,7 +5420,7 @@ var LESSONS=[
     blurb:"The clock and bigger numbers.",
     intro:"Once you can count, telling time is the next step. These words cover the clock and the larger numbers you need for it. Basque builds the hour from the number, so ordu bat da is \"it is one o'clock\".",
     grammar:{title:"Hours and quarters",body:"To tell time, Basque names the hour: ordu bat da (it is one o'clock), ordu biak (two o'clock). For the half and quarter, you add phrases like eta laurdena (quarter past) and laurden gutxi (quarter to). The numbers themselves carry the count."},
-    wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","zenbat","ordu_bat","eta_laurdena","laurden_gutxi"],
+    wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","minutua","ordu_bat","eta_laurdena","laurden_gutxi"],
   },
   {
     id:"l18_airport",
@@ -5428,7 +5442,7 @@ var LESSONS=[
     blurb:"School, people, and the community.",
     intro:"These words describe the places and people that make up a town and community. Auzoa (neighborhood) and jendea (people) come up whenever you talk about where you live. Many connect to the strong Basque sense of local community.",
     grammar:{title:"Community words",body:"Basque has a rich vocabulary for community. Auzoa is the neighborhood or village, lagunartea is your circle of friends, and elkarbizitza means coexistence, living together. These reflect how central community life is in Basque culture."},
-    wordIds:["eskola","unibertsitatea","jendea","mundua","auzoa","lagunartea","auzapeza","gizadia","komunitatea","elkarbizitza"],
+    wordIds:["eskola","unibertsitatea","jendea","mundua","auzoa","lagunartea","auzapeza","laguna","komunitatea","polizia"],
   },
   {
     id:"l20_home",
