@@ -12237,6 +12237,32 @@
         "basque": "Bilbok 350.000 biztanle inguru ditu.",
         "english": "Bilbao has about 350,000 inhabitants."
       }
+    },
+    {
+      "id": "olentzero",
+      "basque": "Olentzero",
+      "english": "Olentzero (Christmas gift bringer)",
+      "cefr": "A1",
+      "topic": "culture",
+      "pronunciation": "oh-len-TSEH-roh",
+      "notes": "A charcoal burner who comes down from the mountains on Christmas Eve to leave gifts. Ikazkina means charcoal burner, which is his trade and the reason he is always shown covered in soot. Towns carry a straw figure of him through the streets that night, in a beret and farm clothes with a pipe.",
+      "example": {
+        "basque": "Olentzero mendietan bizi da.",
+        "english": "Olentzero lives in the mountains."
+      }
+    },
+    {
+      "id": "gabonak",
+      "basque": "Gabonak",
+      "english": "Christmas",
+      "cefr": "A1",
+      "topic": "culture",
+      "pronunciation": "gah-BOH-nak",
+      "notes": "Always plural, so it names the season rather than a single day. The singular gabon is the ordinary way to say good evening, from gau (night) and on (good). Gabon gaua is Christmas Eve and Eguberri is Christmas Day. Zorionak serves as the greeting throughout.",
+      "example": {
+        "basque": "Gabonak familiarekin ospatzen ditugu.",
+        "english": "We celebrate Christmas with family."
+      }
     }
   ],
   "stories": [
