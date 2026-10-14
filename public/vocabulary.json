@@ -5647,7 +5647,7 @@
       "cefr": "B1",
       "topic": "adjectives",
       "pronunciation": "bee-loo-SEE-ah",
-      "notes": "Naked or bare. Biluz = naked (root). Biluzi = to undress. Biluzirik = naked (adverb). Mendi biluzia = bare mountain. Used both literally and figuratively: egia biluzia = the naked truth.",
+      "notes": "Naked or bare. Biluz = naked (root). Biluzi = to undress. Biluzirik = naked (adverb). Mendi biluzia = bare mountain. Used both literally and figuratively. Egia biluzia = the naked truth.",
       "example": {
         "basque": "Zuhaitza biluzik dago neguan.",
         "english": "The tree is bare in winter."
@@ -5855,7 +5855,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "oo-KON-doh-ah",
-      "notes": "Ukondoa = elbow. Ukondo = elbow (root). Ukondoaz jo = to elbow/nudge. Ukondo min dut = my elbow hurts. In Basque ukondoa is also used metaphorically: ukondoka = by elbowing through.",
+      "notes": "Ukondoa = elbow. Ukondo = elbow (root). Ukondoaz jo = to elbow/nudge. Ukondo min dut = my elbow hurts. In Basque ukondoa is also used metaphorically. Ukondoka = by elbowing through.",
       "example": {
         "basque": "Ukondoa min dut.",
         "english": "My elbow hurts."
@@ -6102,7 +6102,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "it-sah-SER-tsah",
-      "notes": "Itsasertza = coastline. Itsas = sea + ertz = edge. The Basque coastline is dramatic: rocky cliffs (labarrak), sandy beaches (hondartzak), and fishing harbours (portuak). Itsasertzeko = coastal.",
+      "notes": "Itsasertza = coastline. Itsas = sea + ertz = edge. The Basque coastline is dramatic, with rocky cliffs (labarrak), sandy beaches (hondartzak), and fishing harbours (portuak). Itsasertzeko = coastal.",
       "example": {
         "basque": "Itsasertza ederra da.",
         "english": "The coastline is beautiful."
@@ -6609,7 +6609,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "bee-deh-goo-ROO-tseh-ah",
-      "notes": "Bidegurutzea = crossroads or junction. Bide = road + gurutzea = cross. Literally the road-cross. Bidegurutzean = at the crossroads. Used both literally and metaphorically: bizitzaren bidegurutzean = at life's crossroads.",
+      "notes": "Bidegurutzea = crossroads or junction. Bide = road + gurutzea = cross. Literally the road-cross. Bidegurutzean = at the crossroads. Used both literally and metaphorically. Bizitzaren bidegurutzean = at life's crossroads.",
       "example": {
         "basque": "Bidegurutzean ezkerrera joan.",
         "english": "At the crossroads go left."
@@ -7311,7 +7311,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "el-KAR-teh-ah",
-      "notes": "Elkartea = association, club, or society. Elkar = each other/together. Elkartu = to unite/join together. Basque civil society is built on elkarteak: sports clubs, cultural societies, choral groups. Gazte elkartea = youth association.",
+      "notes": "Elkartea = association, club, or society. Elkar = each other/together. Elkartu = to unite/join together. Basque civil society is built on elkarteak, among them sports clubs, cultural societies and choral groups. Gazte elkartea = youth association.",
       "example": {
         "basque": "Elkarte bateko kide naiz.",
         "english": "I am a member of an association."
@@ -7740,7 +7740,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ot-SAI-lah",
-      "notes": "February. Otso (wolf) is in the root: the wolf month, when wolves were hungriest in winter.",
+      "notes": "February. Otso (wolf) is in the root. February is the wolf month, when wolves were hungriest in winter.",
       "example": {
         "basque": "Otsailean hotz egiten du.",
         "english": "It is cold in February."
@@ -7779,7 +7779,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "mai-ATS-ah",
-      "notes": "May. From Latin Maius. The Basque countryside is at its most beautiful in May: green hills and mild weather.",
+      "notes": "May. From Latin Maius. The Basque countryside is at its most beautiful in May, with green hills and mild weather.",
       "example": {
         "basque": "Maiatzean eguzkia egiten du.",
         "english": "It is sunny in May."
@@ -7792,7 +7792,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "eh-KAI-nah",
-      "notes": "June. Eki (sun) is in the root: the sunny month. The famous San Fermin festival begins in nearby Pamplona in July.",
+      "notes": "June. Eki (sun) is in the root. June is the sunny month. The famous San Fermin festival begins in nearby Pamplona in July.",
       "example": {
         "basque": "Ekainean uda hasten da.",
         "english": "Summer begins in June."
@@ -7831,7 +7831,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ee-RAI-lah",
-      "notes": "September. Irail possibly from ira (fern): the time when ferns turn golden. The sagardotegi (cider houses) season begins.",
+      "notes": "September. Irail possibly from ira (fern), the time when ferns turn golden. The sagardotegi (cider houses) season begins.",
       "example": {
         "basque": "Irailean eskola hasten da.",
         "english": "School starts in September."
@@ -7844,7 +7844,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "OOR-ree-ah",
-      "notes": "October. Urri means scarce: the month when summer abundance ends. Autumn colors in the Basque hills are spectacular.",
+      "notes": "October. Urri means scarce. It is the month when summer abundance ends. Autumn colors in the Basque hills are spectacular.",
       "example": {
         "basque": "Urrian hostoak erortzen dira.",
         "english": "Leaves fall in October."
@@ -8234,7 +8234,7 @@
       "cefr": "A1",
       "topic": "work",
       "pronunciation": "lan-TEH-ghee-ah",
-      "notes": "Workplace or factory. Lan (work) + tegi (place). The Basque Country has a strong industrial tradition: steel, shipbuilding and machine tools.",
+      "notes": "Workplace or factory. Lan (work) + tegi (place). The Basque Country has a strong industrial tradition in steel, shipbuilding and machine tools.",
       "example": {
         "basque": "Lantegian lan egiten dut.",
         "english": "I work in the factory."
@@ -8637,7 +8637,7 @@
       "cefr": "A1",
       "topic": "work",
       "pronunciation": "soo-kal-DAH-ree-ah",
-      "notes": "Cook or chef. Sukalde (kitchen) + -aria (person who does). The Basque Country is world famous for its chefs: Arzak, Berasategui, Aduriz. Sukaldari handia = great chef.",
+      "notes": "Cook or chef. Sukalde (kitchen) + -aria (person who does). The Basque Country is world famous for its chefs, among them Arzak, Berasategui and Aduriz. Sukaldari handia = great chef.",
       "example": {
         "basque": "Sukaldariak jatetxean lan egiten du.",
         "english": "The chef works in the restaurant."
@@ -8988,7 +8988,7 @@
       "cefr": "B2",
       "topic": "nature",
       "pronunciation": "KLEE-mah eh-PEH-lah",
-      "notes": "Temperate climate. Klima (climate) + epela (warm/temperate). The Basque Country has an oceanic climate: mild winters, cool summers, frequent rain. Klima epela eta hezea = temperate and humid climate.",
+      "notes": "Temperate climate. Klima (climate) + epela (warm/temperate). The Basque Country has an oceanic climate, with mild winters, cool summers and frequent rain. Klima epela eta hezea = temperate and humid climate.",
       "example": {
         "basque": "Klima epelak landareen hazkundea errazten du.",
         "english": "The temperate climate facilitates plant growth."
@@ -11279,7 +11279,7 @@
       "cefr": "A1",
       "topic": "city",
       "pronunciation": "PLAH-sah",
-      "notes": "The herriko plaza (town square) is the heart of Basque town life: festivals, markets, and dance all happen here, and the fronton for pilota often stands right on it. From Spanish plaza. Plazan = in the square.",
+      "notes": "The herriko plaza (town square) is the heart of Basque town life. Festivals, markets, and dance all happen here, and the fronton for pilota often stands right on it. From Spanish plaza. Plazan = in the square.",
       "example": {
         "basque": "Plaza herriaren erdian dago.",
         "english": "The square is in the middle of the town."
@@ -11851,7 +11851,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "eh-dah-LON-tsee-ah",
-      "notes": "A lovely transparent formation: edan (to drink) + ontzi (vessel) = drinking vessel. Ontzi is everywhere: itsasontzia = ship (sea vessel), ontziak garbitu = to wash the dishes. Colloquially basoa (from Spanish vaso) is also common.",
+      "notes": "A lovely transparent formation: edan (to drink) + ontzi (vessel) = drinking vessel. Ontzi is everywhere. Itsasontzia = ship (sea vessel), ontziak garbitu = to wash the dishes. Colloquially basoa (from Spanish vaso) is also common.",
       "example": {
         "basque": "Edalontzia urez bete dut.",
         "english": "I filled the glass with water."
@@ -11998,7 +11998,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "OH-tsah",
-      "notes": "Hots is any sound or noise, from rain on the roof to waves on the shore. Do not confuse it with hotza (cold): hotsa has ts, hotza has tz. Hots egin means to call someone, and zarata is the stronger word for loud, unpleasant noise.",
+      "notes": "Hots is any sound or noise, from rain on the roof to waves on the shore. Do not confuse it with hotza (cold). Hotsa has ts, hotza has tz. Hots egin means to call someone, and zarata is the stronger word for loud, unpleasant noise.",
       "example": {
         "basque": "Itsasoaren hotsa entzuten dut.",
         "english": "I hear the sound of the sea."
