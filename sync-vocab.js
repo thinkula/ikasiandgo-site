@@ -265,10 +265,35 @@ const perTopic = vocab.reduce(function (acc, w) {
   acc[w.topic] = (acc[w.topic] || 0) + 1;
   return acc;
 }, {});
-// the lesson path lives in src/App.jsx, not vocabulary.json, so count it there.
-// lessons are appended over time and some are Pro-gated; stamping total, free
-// and chapter counts keeps the site from quoting a number that has moved on.
-const lessons = countLessons();
+// Lesson and chapter counts come from shipped.json, NOT from src/App.jsx.
+//
+// Words and stories travel over the air: the app fetches vocabulary.json at
+// launch, so the moment this script publishes a new word it is live for
+// everyone, and the site can quote it straight away. Lessons and chapters are
+// compiled into the binary. They exist for nobody until a release ships, which
+// under a slower release cadence is weeks after the code lands on main.
+//
+// Counting them from main is how the site came to advertise 50 lessons while
+// the App Store was still serving 38. The site now advertises what shipped,
+// and shipped.json is updated by hand when a version goes live.
+const shipped = (function () {
+  const p = path.join(ROOT, "shipped.json");
+  if (!fs.existsSync(p)) return null;
+  try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { return null; }
+})();
+const lessons = shipped ? { total: shipped.lessons, chapters: shipped.chapters, free: shipped.lessonsFree } : null;
+if (!shipped) console.log("sync-vocab: no shipped.json, leaving lesson counts on the site untouched");
+
+// Tell me when main has moved ahead of what the store is serving, so the gap is
+// visible at build time rather than discovered on the live site.
+const onMain = countLessons();
+if (shipped && onMain && (onMain.total !== shipped.lessons || onMain.chapters !== shipped.chapters || onMain.free !== shipped.lessonsFree)) {
+  console.log(
+    "sync-vocab: NOTE main has " + onMain.total + " lessons / " + onMain.chapters + " chapters / " +
+    onMain.free + " free, the site advertises the shipped " + shipped.lessons + " / " + shipped.chapters +
+    " / " + shipped.lessonsFree + " (v" + shipped.version + "). Update shipped.json when the next version goes live."
+  );
+}
 SITE_PAGES.forEach(function (name) {
   const p = path.join(ROOT, name);
   if (!fs.existsSync(p)) {
