@@ -25,6 +25,21 @@ dependencies until the install has run.
 
 `sync-vocab` also runs automatically before `dev` and `build`.
 
+## When a version goes live
+
+Update `shipped.json` and push. The website advertises the lesson and chapter
+counts recorded there, not whatever is on `main`.
+
+That split matters because the two halves of the app reach people differently.
+Words and stories travel over the air, so they are live the moment
+`vocabulary.json` is published and the site can quote them immediately. Lessons
+and chapters are compiled into the binary and exist for nobody until a release
+ships. Counting them from `main` is how the site came to promise 50 lessons
+while the App Store was still serving 38.
+
+`npm run build` prints a note whenever `main` is ahead of `shipped.json`, so the
+gap is visible while you work rather than on the live site.
+
 ## How the pieces fit
 
 The Vite root is `appshell/`, which leaves the repo root's `index.html` free to
