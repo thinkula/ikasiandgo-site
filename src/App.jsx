@@ -1545,28 +1545,28 @@ function HomeScreen(props){
     // action. The hero at the top already says what to do, and spaced
     // repetition is worth a plain sentence rather than the words "memory
     // tracker", which explain nothing.
-    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:18,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
+    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
       React.createElement("p",{style:{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),
       React.createElement("p",{style:{margin:0,fontSize:12,color:"#888",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
     );
   } else if(srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)){
     var pct=srsStats.total>0?Math.round(srsStats.mastered/srsStats.total*100):0;
     var tiles=[{n:srsStats.due,l:"Due",c:srsStats.due>0?"#D97706":"#BBB",bg:srsStats.due>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
-    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:18,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
+    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.mastered+"/"+srsStats.total)),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
       React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.mastered+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
-          React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:10,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
-      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:10,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:8,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){var dueLvl=isPro?"B2":"A1";onStart({cefr:dueLvl,topic:"all",cumulative:true});},style:{width:"100%",marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:10,padding:"9px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}},srsStats.due+" words due - Review now"):null
+          React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
+      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){var dueLvl=isPro?"B2":"A1";onStart({cefr:dueLvl,topic:"all",cumulative:true});},style:{width:"100%",marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"9px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}},srsStats.due+" words due - Review now"):null
     );
   }
   var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=4;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length]);
   var levelCards=["A1","A2","B1","B2"].map(function(key){var L2=CL[key];var active=lvl===key;var k=key;
     var actCard=function(){if(!isPro&&k!=="A1"){setModal(k);return;}setLvl(k);};
-    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 6px 0 "+L2.dark:"0 2px 8px rgba(0,0,0,0.06)",transform:active?"translateY(-2px)":"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
+    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
       React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}},
         React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.9)":L2.color,backgroundColor:active?"rgba(255,255,255,0.25)":L2.bg,padding:"2px 8px",borderRadius:12,border:"1px solid "+(active?"rgba(255,255,255,0.3)":"rgba(0,0,0,0.1)")}},key),
-        (!isPro&&key!=="A1")?React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.8)":"#F59E0B",backgroundColor:active?"rgba(255,255,255,0.2)":"#FFF8F0",padding:"2px 6px",borderRadius:10}},"PRO"):null
+        (!isPro&&key!=="A1")?React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.8)":"#F59E0B",backgroundColor:active?"rgba(255,255,255,0.2)":"#FFF8F0",padding:"2px 6px",borderRadius:12}},"PRO"):null
       ),
       React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:active?"#fff":"#1A1A1A",letterSpacing:-0.2}},L2.title),
       React.createElement("div",{style:{marginTop:4}},
@@ -1578,7 +1578,7 @@ function HomeScreen(props){
     React.createElement("div",{style:{height:"100%",borderRadius:2,backgroundColor:active?"rgba(255,255,255,0.7)":L2.color,width:(masteredByLevel[key+"_total"]>0?Math.round(masteredByLevel[key]/masteredByLevel[key+"_total"]*100):0)+"%" }})
   )
 ),
-      active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:8,padding:"2px 8px",fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
+      active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:12,padding:"2px 8px",fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
     );
   });
   var today4=new Date().toISOString().slice(0,10);
@@ -1590,7 +1590,7 @@ function HomeScreen(props){
   var wotd=freeWords.length>0?freeWords[dayNum%freeWords.length]:null;
   var _ml=modal&&CL[modal]?CL[modal]:null;
   function onClose(){setModal(null);}
-  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:14,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 4px 0 "+_ml.dark,fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
+  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 1px 3px rgba(0,0,0,0.10)",fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
   return(<div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
 
     {/* ── Header ── */}
@@ -1635,7 +1635,7 @@ function HomeScreen(props){
     {/* ── The path comes first. It is what the App Store listing leads with,
            and with 50 lessons it is the product; the quiz is the side door. ── */}
     <div style={{padding:"14px 14px 0"}}>
-      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:20,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",display:"flex",alignItems:"center",gap:14}}>
+      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:16,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",display:"flex",alignItems:"center",gap:14}}>
         <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
         <div style={{fontSize:38,flexShrink:0,position:"relative"}}>🎓</div>
         <div style={{flex:1,position:"relative"}}>
@@ -1685,20 +1685,20 @@ function HomeScreen(props){
         <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}>
           <div style={{display:"flex",gap:4,flex:1}}>
             {[10,20,30].map(function(n){var tooMany=n>poolSize;var validOpts=[10,20,30].filter(function(x){return x<=poolSize;});var effSel=sessionLen<=poolSize?sessionLen:(validOpts.length?validOpts[validOpts.length-1]:10);var active=effSel===n;var nn=n;return(
-              <button key={n} disabled={tooMany} onClick={function(){if(!tooMany)setSessionLen(nn);}} style={{flex:1,padding:"7px 4px",borderRadius:10,border:"1.5px solid "+(active?L.dark:"#E8E8E8"),backgroundColor:active?L.color:"#F2F2F7",color:active?"#fff":"#8E8E93",fontSize:12,fontWeight:active?800:500,cursor:tooMany?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.12s",opacity:tooMany?0.35:1}}>
+              <button key={n} disabled={tooMany} onClick={function(){if(!tooMany)setSessionLen(nn);}} style={{flex:1,padding:"7px 4px",borderRadius:12,border:"1.5px solid "+(active?L.dark:"#E8E8E8"),backgroundColor:active?L.color:"#F2F2F7",color:active?"#fff":"#8E8E93",fontSize:12,fontWeight:active?800:500,cursor:tooMany?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.12s",opacity:tooMany?0.35:1}}>
                 {n}<span style={{fontSize:9,opacity:0.6}}> q</span>
               </button>
             );})}
           </div>
           {lvl!=="A1"&&(
-            <button onClick={function(){setCumul(function(c){return !c;});}} style={{padding:"7px 10px",borderRadius:10,border:"1.5px solid "+(cumul?L.dark:"#E8E8E8"),backgroundColor:cumul?L.bg:"#F2F2F7",color:cumul?L.color:"#8E8E93",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>
+            <button onClick={function(){setCumul(function(c){return !c;});}} style={{padding:"7px 10px",borderRadius:12,border:"1.5px solid "+(cumul?L.dark:"#E8E8E8"),backgroundColor:cumul?L.bg:"#F2F2F7",color:cumul?L.color:"#8E8E93",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>
               {cumul?"✓":"+"} all levels
             </button>
           )}
         </div>
-        {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:8,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
+        {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
         {props.totalSessions===0&&lvl==="A1"&&topic==="all"&&<p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",textAlign:"center"}}>Tip: start with <button onClick={function(){setTopic("greetings");}} style={{background:"none",border:"none",color:"#19A85A",fontWeight:800,cursor:"pointer",fontSize:12,padding:0,fontFamily:"inherit"}}>Greetings</button>!</p>}
-        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 5px 0 "+L.dark,fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
+        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
           {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
         </button>
         {poolSize>0&&<p style={{margin:"7px 0 0",fontSize:11,color:"#8E8E93",fontWeight:600,textAlign:"center"}}>from {lvl} · {topicLabel}</p>}
@@ -1712,26 +1712,23 @@ function HomeScreen(props){
         <div style={{backgroundColor:"#fff",border:"1.5px solid #F59E0B",borderRadius:16,padding:"13px 14px"}}>
           <p style={{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#D97706"}}>Your free trial has ended</p>
           <p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93"}}>Subscribe to keep access to all words.</p>
-          <button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"10px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #0E7A40"}}>Subscribe now</button>
+          <button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"10px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}}>Subscribe now</button>
         </div>
       )}
 
       {/* ── Quick actions ── */}
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
         <button onClick={onBrowse} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#19A85A",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📖</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Browse</p>
           <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{browseCount} words</p>
         </button>
         <button onClick={onStories} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#0D9488",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📚</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Read</p>
           <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{storyCount} stories</p>
         </button>
         <button onClick={onGames} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#F97316",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>🎮</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Games</p>
           <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>6 games</p>
@@ -1755,7 +1752,7 @@ function HomeScreen(props){
             <p style={{margin:"0 0 4px",fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal</p>
             <div style={{display:"flex",gap:4}}>
               {[5,10,20].map(function(g){return(
-                <button key={g} onClick={function(){onSetDailyGoal(g);}} style={{flex:1,padding:"4px 0",borderRadius:7,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
+                <button key={g} onClick={function(){onSetDailyGoal(g);}} style={{flex:1,padding:"4px 0",borderRadius:12,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
               );})}
             </div>
             </div>
@@ -1764,7 +1761,6 @@ function HomeScreen(props){
         </div>
         {wotd&&(
           <button onClick={function(){onBrowse(wotd.id);}} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"13px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden",cursor:"pointer",fontFamily:"inherit",textAlign:"left",width:"100%"}}>
-            <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#19A85A,#22C55E)",borderRadius:"16px 16px 0 0"}}/>
             <p style={{margin:"4px 0 5px",fontSize:9,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.8}}>✨ Today's word</p>
             <p style={{margin:"0 0 2px",fontSize:18,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3,lineHeight:1.1}}>{wotd.basque}</p>
             <p style={{margin:"0 0 3px",fontSize:12,color:"#555",fontWeight:600}}>{wotd.english}</p>
@@ -1777,7 +1773,7 @@ function HomeScreen(props){
       {/* ── SRS / Word memory ── */}
       {srsCard}
       {srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)&&(
-        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:14,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
+        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:12,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
           <span style={{display:"flex",alignItems:"center",gap:9}}>
             <span style={{fontSize:17}}>📊</span>
             <span style={{fontSize:14,fontWeight:800,color:"#1A1A1A"}}>View full progress</span>
