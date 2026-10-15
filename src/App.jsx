@@ -1306,6 +1306,10 @@ function App(){
   // it an expired trial looks like no trial at all and can be started again,
   // for ever.
   var _s13b=useState(false);var trialUsed=_s13b[0];var setTrialUsed=_s13b[1];
+  // A word id to open when Browse mounts, set by Today's Word on the home
+  // screen. The Browse tile passes a click event instead, hence the type
+  // guard where this is set.
+  var _s13c=useState(null);var browseWord=_s13c[0];var setBrowseWord=_s13c[1];
   var _s14=useState(0);var vocabVersion=_s14[0];var setVocabVersion=_s14[1];
   var _s15=useState(null);var toast=_s15[0];var setToast=_s15[1];
   var _s16=useState(10);var dailyGoal=_s16[0];var setDailyGoal=_s16[1];
@@ -1463,7 +1467,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(){setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -1484,7 +1488,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="ordutegi"&&<OrduegiScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="koloreak"&&<KoloreakScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="arbola"&&<ArbolaScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
-    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
+    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} initialWord={browseWord} onBack={function(){setBrowseWord(null);setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
     {screen==="learn"&&<LearnScreen isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}} onBack={function(){setScreen("home");}} onPractice={function(wordIds){
@@ -1537,9 +1541,13 @@ function HomeScreen(props){
   var proStories=(_STORIES||[]).filter(function(st){return st.level!=="A1";}).length;
   var srsCard=null;
   if(srsLoaded&&totalSessions===0){
-    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"16px",border:"1px solid #F0F0F0",textAlign:"center"}},
-      React.createElement("p",{style:{margin:"0 0 4px",fontSize:14,fontWeight:800,color:"#1A1A1A"}},"Ready to start learning?"),
-      React.createElement("p",{style:{margin:0,fontSize:13,color:"#888"}},"Your first session will set up your personal memory tracker.")
+    // The empty state of the Word Memory card below, not a separate call to
+    // action. The hero at the top already says what to do, and spaced
+    // repetition is worth a plain sentence rather than the words "memory
+    // tracker", which explain nothing.
+    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:18,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
+      React.createElement("p",{style:{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),
+      React.createElement("p",{style:{margin:0,fontSize:12,color:"#888",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
     );
   } else if(srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)){
     var pct=srsStats.total>0?Math.round(srsStats.mastered/srsStats.total*100):0;
@@ -1755,13 +1763,14 @@ function HomeScreen(props){
           {daysSinceOpened>=2&&<p style={{margin:"5px 0 0",fontSize:10,color:"#8E8E93"}}>Back after {daysSinceOpened} days!</p>}
         </div>
         {wotd&&(
-          <div style={{backgroundColor:"#fff",borderRadius:16,padding:"13px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
+          <button onClick={function(){onBrowse(wotd.id);}} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"13px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden",cursor:"pointer",fontFamily:"inherit",textAlign:"left",width:"100%"}}>
             <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#19A85A,#22C55E)",borderRadius:"16px 16px 0 0"}}/>
             <p style={{margin:"4px 0 5px",fontSize:9,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.8}}>✨ Today's word</p>
             <p style={{margin:"0 0 2px",fontSize:18,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3,lineHeight:1.1}}>{wotd.basque}</p>
             <p style={{margin:"0 0 3px",fontSize:12,color:"#555",fontWeight:600}}>{wotd.english}</p>
-            <p style={{margin:0,fontSize:9,color:"#AAA",fontWeight:600,letterSpacing:0.2}}>{wotd.pronunciation}</p>
-          </div>
+            <p style={{margin:"0 0 4px",fontSize:9,color:"#AAA",fontWeight:600,letterSpacing:0.2}}>{wotd.pronunciation}</p>
+            <p style={{margin:0,fontSize:10,color:"#19A85A",fontWeight:800}}>Read the story →</p>
+          </button>
         )}
       </div>
 
@@ -1780,7 +1789,7 @@ function HomeScreen(props){
       {/* ── Level cards (for info/unlock) ── */}
       {!isPro&&(
         <div style={{backgroundColor:"#fff",borderRadius:16,padding:"14px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
-          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Your progress</p>
+          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Levels</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
             {levelCards}
           </div>
@@ -1795,7 +1804,7 @@ function HomeScreen(props){
       )}
       {isPro&&(
         <div style={{backgroundColor:"#fff",borderRadius:16,padding:"14px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
-          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Your progress</p>
+          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Levels</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
             {levelCards}
           </div>
@@ -2343,6 +2352,16 @@ function BrowseScreen(props){
   var _s4=useState(false);var showAll=_s4[0];var setShowAll=_s4[1];
   var _s5b=useState(false);var groupByTopic=_s5b[0];var setGroupByTopic=_s5b[1];
   var _s5=useState("az");var sortBy=_s5[0];var setSortBy=_s5[1];
+  // Arriving from Today's Word on the home screen. Searching for the word is
+  // what guarantees it is on screen: the list is capped at 60 entries, so
+  // expanding it without filtering could leave it below the cut.
+  var initialWord=props.initialWord;
+  useEffect(function(){
+    if(!initialWord)return;
+    for(var i=0;i<VOCABULARY.length;i++){
+      if(VOCABULARY[i].id===initialWord){setQuery(VOCABULARY[i].basque);setExpanded(initialWord);return;}
+    }
+  },[initialWord]);
   var filtered=useMemo(function(){
     var q=query.toLowerCase().trim();
     var base=VOCABULARY.filter(function(w){
