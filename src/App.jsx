@@ -1506,6 +1506,11 @@ function HomeScreen(props){
   var _s4=useState(20);var sessionLen=_s4[0];var setSessionLen=_s4[1];
   var _sfx=useState(getSfxOn());var sfxOn=_sfx[0];var setSfxOnState=_sfx[1];
   useEffect(function(){try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0"){setSfxOnState(false);}else{setSfxOnState(true);}}).catch(function(){});}catch(e){}},[]);
+  // Lesson progress, read the same way the Learn screen reads it, so the hero
+  // card below can name the lesson you are actually on rather than the path
+  // in the abstract.
+  var _ld=useState([]);var doneLessons=_ld[0];var setDoneLessons=_ld[1];
+  useEffect(function(){try{STORE.get("lessons_done").then(function(r){if(r&&r.value){try{var arr=JSON.parse(r.value);if(Array.isArray(arr))setDoneLessons(arr);}catch(e){}}}).catch(function(){});}catch(e){}},[]);
   function setLvl(v){setLvlRaw(v);setTopicRaw(function(t){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:v,topic:t,cumul:c})).catch(function(){});return c;});return t;});}
   function setTopic(v){setTopicRaw(v);setLvlRaw(function(l){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:l,topic:v,cumul:c})).catch(function(){});return c;});return l;});}
   function setCumul(fn){var nv=typeof fn==="function"?fn(cumul):fn;setCumulRaw(nv);setLvlRaw(function(l){setTopicRaw(function(t){STORE.set("last_config",JSON.stringify({lvl:l,topic:t,cumul:nv})).catch(function(){});return t;});return l;});}
@@ -1515,6 +1520,21 @@ function HomeScreen(props){
   var poolSize=topic==="all"?topicCounts.all:(topicCounts[topic]||0);
   var effectiveCount=Math.min(poolSize,sessionLen);var isLockedLevel=!isPro&&lvl!=="A1"&&totalSessions>=1;var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match - try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words - questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
   var browseCount=useMemo(function(){return VOCABULARY.filter(function(w){return isPro||isFreeWord(w);}).length;},[isPro,_VOCAB.length]);
+  var storyCount=(_STORIES&&_STORIES.length)||0;
+  // The hero card names the next lesson instead of describing the path, the
+  // same way the Continue card on the Learn screen does.
+  var nextLesson=firstUnfinishedLesson(doneLessons);
+  var heroTitle=nextLesson?("Lesson "+nextLesson.num+" · "+nextLesson.title):"Every lesson finished";
+  var heroSub=nextLesson?(doneLessons.length>0?"Continue where you left off":"Start the step-by-step path"):"Zorionak! Practise anything below.";
+  // What the quiz below actually draws from. Without this the level tabs and
+  // topic chips above the Start button have no stated relationship to it.
+  var topicLabel="all topics";
+  for(var tli=0;tli<TOPICS.length;tli++){if(TOPICS[tli].key===topic&&topic!=="all"){topicLabel=TOPICS[tli].label.toLowerCase();break;}}
+  // Pro is a path and a library, not a pile of words. Counted, never hardcoded,
+  // because vocabulary arrives over the air between releases.
+  var proWords=VOCABULARY.filter(function(w){return !isFreeWord(w);}).length;
+  var proLessons=LESSONS.filter(function(l){return !!l.pro;}).length;
+  var proStories=(_STORIES||[]).filter(function(st){return st.level!=="A1";}).length;
   var srsCard=null;
   if(srsLoaded&&totalSessions===0){
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"16px",border:"1px solid #F0F0F0",textAlign:"center"}},
@@ -1604,7 +1624,25 @@ function HomeScreen(props){
       </div>
     </div>
 
-    {/* ── Start card — seamlessly below header ── */}
+    {/* ── The path comes first. It is what the App Store listing leads with,
+           and with 50 lessons it is the product; the quiz is the side door. ── */}
+    <div style={{padding:"14px 14px 0"}}>
+      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:20,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",display:"flex",alignItems:"center",gap:14}}>
+        <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
+        <div style={{fontSize:38,flexShrink:0,position:"relative"}}>🎓</div>
+        <div style={{flex:1,position:"relative"}}>
+          <p style={{margin:0,fontSize:11,fontWeight:800,color:"rgba(255,255,255,0.6)",letterSpacing:0.2}}>Ikasbidea · your path</p>
+          <p style={{margin:"3px 0 0",fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>{heroTitle}</p>
+          <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>{heroSub}</p>
+        </div>
+        <span style={{fontSize:20,color:"rgba(255,255,255,0.7)",position:"relative",flexShrink:0}}>→</span>
+      </button>
+    </div>
+
+    {/* ── The quiz keeps everything it had, one section down. The heading is
+           what stops it reading as a competing version of the same thing. ── */}
+    <p style={{margin:"18px 16px 8px",fontSize:13,fontWeight:700,color:"#8E8E93"}}>Or practise words on their own.</p>
+
     <div style={{backgroundColor:"#fff",boxShadow:"0 4px 24px rgba(0,0,0,0.1)"}}>
       {/* Level selector */}
       <div style={{display:"flex",borderBottom:"1px solid #F2F2F7"}}>
@@ -1655,6 +1693,7 @@ function HomeScreen(props){
         <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 5px 0 "+L.dark,fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
           {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
         </button>
+        {poolSize>0&&<p style={{margin:"7px 0 0",fontSize:11,color:"#8E8E93",fontWeight:600,textAlign:"center"}}>from {lvl} · {topicLabel}</p>}
       </div>
     </div>
 
@@ -1669,17 +1708,6 @@ function HomeScreen(props){
         </div>
       )}
 
-      {/* ── Featured: Learn path ── */}
-      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:20,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",marginBottom:12,display:"flex",alignItems:"center",gap:14}}>
-        <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
-        <div style={{fontSize:38,flexShrink:0,position:"relative"}}>🎓</div>
-        <div style={{flex:1,position:"relative"}}>
-          <p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Start learning</p>
-          <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>Follow the step-by-step Basque path</p>
-        </div>
-        <span style={{fontSize:20,color:"rgba(255,255,255,0.7)",position:"relative",flexShrink:0}}>→</span>
-      </button>
-
       {/* ── Quick actions ── */}
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
         <button onClick={onBrowse} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
@@ -1692,7 +1720,7 @@ function HomeScreen(props){
           <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#0D9488",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📚</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Read</p>
-          <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>Stories</p>
+          <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{storyCount} stories</p>
         </button>
         <button onClick={onGames} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#F97316",borderRadius:"16px 16px 0 0"}}/>
@@ -1756,8 +1784,9 @@ function HomeScreen(props){
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
             {levelCards}
           </div>
-          <button onClick={onUpgrade} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginTop:10,width:"100%",backgroundColor:"#FFF8F0",border:"1.5px solid #FED7AA",borderRadius:12,padding:"10px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}}>
-            ✦ {trialAvailable?"Try Pro free for 7 days":"Unlock A2, B1 & B2: 500+ more words"}
+          <button onClick={onUpgrade} style={{display:"block",marginTop:10,width:"100%",backgroundColor:"#FFF8F0",border:"1.5px solid #FED7AA",borderRadius:12,padding:"10px",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
+            <p style={{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}}>✦ {trialAvailable?"Try Pro free for 7 days":"Unlock everything"}</p>
+            {!trialAvailable&&<p style={{margin:"2px 0 0",fontSize:11,fontWeight:600,color:"#E0963C"}}>{proWords} words · {proLessons} lessons · {proStories} stories</p>}
           </button>
           {trialAvailable&&(
             <p style={{margin:"5px 0 0",fontSize:10,color:"#A1A1AA",fontWeight:600,textAlign:"center"}}>No card needed. It ends on its own.</p>
@@ -1779,11 +1808,14 @@ function HomeScreen(props){
           <span style={{fontSize:13}}>{sfxOn?"🔊":"🔇"}</span>
           <span style={{textDecoration:"underline"}}>Sound {sfxOn?"on":"off"}</span>
         </button>
-        <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
-          <span style={{fontSize:13}}>⭐</span>
-          <span style={{textDecoration:"underline"}}>Rate this app</span>
-        </button>
       </div>
+
+      {/* ── Rating lifted out of the grey footer. With no ratings yet, this
+             should not look like a privacy policy link. ── */}
+      <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,width:"100%",backgroundColor:"#fff",border:"1.5px solid #E8E8E8",borderRadius:12,padding:"10px",fontSize:12,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>
+        <span style={{fontSize:14}}>⭐</span>
+        <span>Rate this app</span>
+      </button>
     </div>
     {modalJSX}
   </div>);}
@@ -5821,6 +5853,16 @@ var LESSONS=[
 ];
 
 
+// The first lesson not yet finished. Lessons unlock in order, so this is both
+// the only one a learner can open next and the one the home screen points at.
+// Shared by both screens so they can never disagree about where you are.
+function firstUnfinishedLesson(doneLessons){
+  for(var i=0;i<LESSONS.length;i++){
+    if(doneLessons.indexOf(LESSONS[i].id)===-1)return LESSONS[i];
+  }
+  return null;
+}
+
 function LearnScreen(props){
   var isPro=props.isPro,onUpgrade=props.onUpgrade;
   var onBack=props.onBack,onPractice=props.onPractice;
@@ -5855,13 +5897,10 @@ function LearnScreen(props){
 
   // Lesson cards and the chapter headings that group them. Defined at component
   // scope so both the list below and any future view can use them.
-  // The first lesson not yet finished. Because lessons unlock in order, this is
-  // also the only one a learner can actually open next, which is what the
-  // Continue card points at and what gets the ring in the list below.
-  var nextLesson=null;
-  for(var ni=0;ni<LESSONS.length;ni++){
-    if(doneLessons.indexOf(LESSONS[ni].id)===-1){nextLesson=LESSONS[ni];break;}
-  }
+  // The first lesson not yet finished: what the Continue card points at and
+  // what gets the ring in the list below. The home screen hero uses the same
+  // helper, so the two screens always name the same lesson.
+  var nextLesson=firstUnfinishedLesson(doneLessons);
 
   // One place that decides what tapping a lesson does, so the card and the list
   // can never disagree: a Pro lesson opens the paywall, an unlocked one opens.
