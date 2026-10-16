@@ -1528,6 +1528,11 @@ function HomeScreen(props){
   var _s2=useState(false);var cumul=_s2[0];var setCumulRaw=_s2[1];
   var _s3=useState(null);var modal=_s3[0];var setModal=_s3[1];
   var _s4=useState(20);var sessionLen=_s4[0];var setSessionLen=_s4[1];
+  // Both of these are set once and then never touched, so their buttons are
+  // folded behind the line that already states the current value. The line
+  // is the control; it says "change" so it reads as one.
+  var _so=useState(false);var showOpts=_so[0];var setShowOpts=_so[1];
+  var _sg=useState(false);var showGoal=_sg[0];var setShowGoal=_sg[1];
   var _sfx=useState(getSfxOn());var sfxOn=_sfx[0];var setSfxOnState=_sfx[1];
   useEffect(function(){try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0"){setSfxOnState(false);}else{setSfxOnState(true);}}).catch(function(){});}catch(e){}},[]);
   // Lesson progress, read the same way the Learn screen reads it, so the hero
@@ -1661,7 +1666,16 @@ function HomeScreen(props){
         <div style={{flex:1,position:"relative"}}>
           <p style={{margin:0,fontSize:11,fontWeight:800,color:"rgba(255,255,255,0.6)",letterSpacing:0.2}}>Ikasbidea · your path</p>
           <p style={{margin:"3px 0 0",fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>{heroTitle}</p>
-          <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>{heroSub}</p>
+          {doneLessons.length>0?(
+            <div>
+              <div style={{margin:"9px 0 0",height:5,backgroundColor:"rgba(255,255,255,0.25)",borderRadius:3,overflow:"hidden"}}>
+                <div style={{height:"100%",backgroundColor:"#fff",borderRadius:3,width:Math.round(doneLessons.length/LESSONS.length*100)+"%",transition:"width 0.5s ease"}}/>
+              </div>
+              <p style={{margin:"6px 0 0",fontSize:12,color:"rgba(255,255,255,0.88)",fontWeight:600}}>{doneLessons.length} of {LESSONS.length} lessons done</p>
+            </div>
+          ):(
+            <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>{heroSub}</p>
+          )}
         </div>
         <span style={{fontSize:20,color:"rgba(255,255,255,0.7)",position:"relative",flexShrink:0}}>→</span>
       </button>
@@ -1702,7 +1716,19 @@ function HomeScreen(props){
 
       {/* Controls + Start */}
       <div style={{padding:"12px 14px 14px"}}>
-        <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}>
+        
+        {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
+        {props.totalSessions===0&&lvl==="A1"&&topic==="all"&&<p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",textAlign:"center"}}>Tip: start with <button onClick={function(){setTopic("greetings");}} style={{background:"none",border:"none",color:"#19A85A",fontWeight:800,cursor:"pointer",fontSize:12,padding:0,fontFamily:"inherit"}}>Greetings</button>!</p>}
+        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
+          {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
+        </button>
+        {poolSize>0&&(
+          <button onClick={function(){setShowOpts(function(v){return !v;});}} style={{display:"block",width:"100%",margin:"7px 0 0",background:"none",border:"none",padding:"2px 0",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
+            <span style={{fontSize:11,color:"#8E8E93",fontWeight:600}}>{effectiveCount} questions · {lvl} · {topicLabel}</span>
+            <span style={{fontSize:11,color:"#19A85A",fontWeight:800,marginLeft:6}}>{showOpts?"close":"change"}</span>
+          </button>
+        )}
+        {showOpts&&<div style={{display:"flex",alignItems:"center",gap:6,marginTop:10}}>
           <div style={{display:"flex",gap:4,flex:1}}>
             {[10,20,30].map(function(n){var tooMany=n>poolSize;var validOpts=[10,20,30].filter(function(x){return x<=poolSize;});var effSel=sessionLen<=poolSize?sessionLen:(validOpts.length?validOpts[validOpts.length-1]:10);var active=effSel===n;var nn=n;return(
               <button key={n} disabled={tooMany} onClick={function(){if(!tooMany)setSessionLen(nn);}} style={{flex:1,padding:"7px 4px",borderRadius:12,border:"1.5px solid "+(active?L.dark:"#E8E8E8"),backgroundColor:active?L.color:"#F2F2F7",color:active?"#fff":"#8E8E93",fontSize:12,fontWeight:active?800:500,cursor:tooMany?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.12s",opacity:tooMany?0.35:1}}>
@@ -1715,13 +1741,7 @@ function HomeScreen(props){
               {cumul?"✓":"+"} all levels
             </button>
           )}
-        </div>
-        {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
-        {props.totalSessions===0&&lvl==="A1"&&topic==="all"&&<p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",textAlign:"center"}}>Tip: start with <button onClick={function(){setTopic("greetings");}} style={{background:"none",border:"none",color:"#19A85A",fontWeight:800,cursor:"pointer",fontSize:12,padding:0,fontFamily:"inherit"}}>Greetings</button>!</p>}
-        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
-          {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
-        </button>
-        {poolSize>0&&<p style={{margin:"7px 0 0",fontSize:11,color:"#8E8E93",fontWeight:600,textAlign:"center"}}>from {lvl} · {topicLabel}</p>}
+        </div>}
       </div>
     </div>
 
@@ -1769,12 +1789,19 @@ function HomeScreen(props){
             <p style={{margin:0,fontSize:11,color:"#19A85A",fontWeight:700}}>✓ Goal complete!</p>
           ):(
             <div>
-            <p style={{margin:"0 0 4px",fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal</p>
-            <div style={{display:"flex",gap:4}}>
-              {[5,10,20].map(function(g){return(
-                <button key={g} onClick={function(){onSetDailyGoal(g);}} style={{flex:1,padding:"4px 0",borderRadius:12,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
-              );})}
-            </div>
+            {/* Three permanent buttons for a number people pick once. The
+                line already states the answer, so it carries the control. */}
+            <button onClick={function(){setShowGoal(function(v){return !v;});}} style={{background:"none",border:"none",padding:0,margin:0,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:5}}>
+              <span style={{fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal · {dailyGoal}</span>
+              <span style={{fontSize:9.5,color:"#19A85A",fontWeight:800}}>{showGoal?"close":"change"}</span>
+            </button>
+            {showGoal&&(
+              <div style={{display:"flex",gap:4,marginTop:5}}>
+                {[5,10,20].map(function(g){return(
+                  <button key={g} onClick={function(){onSetDailyGoal(g);setShowGoal(false);}} style={{flex:1,padding:"4px 0",borderRadius:12,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
+                );})}
+              </div>
+            )}
             </div>
           )}
           {daysSinceOpened>=2&&<p style={{margin:"5px 0 0",fontSize:10,color:"#8E8E93"}}>Back after {daysSinceOpened} days!</p>}
