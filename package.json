@@ -10,7 +10,8 @@
     "prebuild": "node sync-vocab.js",
     "predev": "node sync-vocab.js",
     "sync-vocab": "node sync-vocab.js",
-    "check-vocab": "node tools/check-vocab.js"
+    "check-vocab": "node tools/check-vocab.js",
+    "preflight": "node tools/preflight.js"
   },
   "keywords": [],
   "author": "",
