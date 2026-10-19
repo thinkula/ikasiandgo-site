@@ -22,8 +22,23 @@ dependencies until the install has run.
 | `npx cap sync ios` | Copies `www/` into `ios/App/App/public` |
 | `npm run check-vocab` | Validates `vocabulary.json` against Xuxen |
 | `npm run sync-vocab` | Regenerates the seed vocabulary and stamps site counts |
+| `npm run preflight` | Everything that should be true before an archive goes to Apple |
 
 `sync-vocab` also runs automatically before `dev` and `build`.
+
+## Before you archive
+
+Run `npm run preflight`. It builds the app, installs it on the newest iOS
+simulator runtime you have, launches it, and checks it is still running eight
+seconds later. It also checks the scene manifest, the build number, and whether
+the staged App Store copy still quotes the right word counts.
+
+Every check in it exists because that exact thing went wrong. Versions 1.1, 1.2
+and 1.3 all shipped without a scene manifest and crashed on launch on iOS 27,
+for three releases, because nothing ever launched the app on a current iOS. The
+simulator that happened to be booted was iOS 26.2, where it ran fine.
+
+`--quick` skips the build and launch when you only want the static checks.
 
 ## When a version goes live
 
