@@ -2,3 +2,6 @@
 tools/.eu-dict/
 node_modules/
 .DS_Store
+
+# preflight screenshots, regenerated on every run
+tools/.preflight-shots/
