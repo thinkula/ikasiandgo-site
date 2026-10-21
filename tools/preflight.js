@@ -209,57 +209,101 @@ try {
 /* ------------------------------------------------------------- launch test */
 
 if (QUICK) {
-  console.log("\npreflight: simulator launch  (skipped, --quick)");
+  console.log("\npreflight: simulator launches  (skipped, --quick)");
 } else {
-  console.log("\npreflight: simulator launch on the newest installed iOS");
-  const rt = sh("xcrun", ["simctl", "list", "runtimes", "--json"]);
-  let runtime = null;
-  if (rt.ok) {
-    const all = JSON.parse(rt.out).runtimes
-      .filter(r => r.isAvailable && /iOS/.test(r.name))
-      .sort((a, b) => a.version.localeCompare(b.version, undefined, { numeric: true }));
-    runtime = all[all.length - 1] || null;
+  /*
+   * Two different failures, two axes.
+   *
+   * Across RUNTIMES catches the compatibility traps: the missing scene
+   * manifest was invisible on iOS 26.2 and fatal on 27. One runtime is not a
+   * test, it is a coin toss about which iOS you happened to have installed.
+   *
+   * Across SCREEN SIZES catches layout: the home screen is dense, and the
+   * smallest phone is where a row stops fitting.
+   *
+   * The screenshots are deliberately taken after launch on a clean install, so
+   * they catch the app that starts but paints nothing. A live process is not
+   * proof: a Capacitor app whose webview fails to load stays running and shows
+   * a white screen. What they do not show is the home screen, because a clean
+   * install opens on onboarding.
+   *
+   * One build, many installs. A simulator build with a deployment target of
+   * 15.0 runs on every runtime here, so the expensive step happens once.
+   */
+  console.log("\npreflight: building once for the launch matrix");
+
+  const rtRaw = sh("xcrun", ["simctl", "list", "runtimes", "--json"]);
+  const runtimes = rtRaw.ok
+    ? JSON.parse(rtRaw.out).runtimes
+        .filter(r => r.isAvailable && /iOS/.test(r.name))
+        .sort((a, b) => a.version.localeCompare(b.version, undefined, { numeric: true }))
+    : [];
+  const devJson = JSON.parse(sh("xcrun", ["simctl", "list", "devices", "--json"]).out);
+
+  // Smallest and largest by model name. Crude, but the alternative is booting
+  // every device just to ask its screen size.
+  function pick(list) {
+    const phones = list.filter(d => d.isAvailable && /iPhone/.test(d.name));
+    if (!phones.length) return [];
+    const small = phones.find(d => /SE|16e|17e|mini/.test(d.name));
+    const large = phones.find(d => /Pro Max|Plus/.test(d.name));
+    const out = [];
+    if (small) out.push({ d: small, why: "smallest" });
+    if (large && (!small || large.udid !== small.udid)) out.push({ d: large, why: "largest" });
+    if (!out.length) out.push({ d: phones[phones.length - 1], why: "only" });
+    return out;
   }
-  if (!runtime) {
+
+  if (!runtimes.length) {
     fail("no available iOS simulator runtime found");
   } else {
-    const dv = JSON.parse(sh("xcrun", ["simctl", "list", "devices", "--json"]).out);
-    const devices = (dv.devices[runtime.identifier] || []).filter(d => d.isAvailable);
-    const device = devices.find(d => /iPhone/.test(d.name)) || devices[0];
-    if (!device) {
-      fail("no device for " + runtime.name);
+    const newest = runtimes[runtimes.length - 1];
+    const buildDev = (devJson.devices[newest.identifier] || []).filter(d => d.isAvailable)[0];
+    const dd = path.join(os.tmpdir(), "ikasi-preflight-dd");
+    const b = sh("xcodebuild", [
+      "-project", "ios/App/App.xcodeproj", "-scheme", "App", "-configuration", "Debug",
+      "-destination", "platform=iOS Simulator,id=" + buildDev.udid,
+      "-derivedDataPath", dd, "build"
+    ], { cwd: ROOT, timeout: 900000 });
+
+    if (!b.ok) {
+      fail("xcodebuild failed", "run it by hand to see why");
     } else {
-      console.log("  using " + device.name + " on " + runtime.name);
-      sh("xcrun", ["simctl", "boot", device.udid]);
-      sh("xcrun", ["simctl", "bootstatus", device.udid, "-b"], { timeout: 180000 });
-      const dd = path.join(os.tmpdir(), "ikasi-preflight-dd");
-      const b = sh("xcodebuild", [
-        "-project", "ios/App/App.xcodeproj", "-scheme", "App", "-configuration", "Debug",
-        "-destination", "platform=iOS Simulator,id=" + device.udid,
-        "-derivedDataPath", dd, "build"
-      ], { cwd: ROOT, timeout: 900000 });
-      if (!b.ok) {
-        fail("xcodebuild failed", "run it by hand to see why");
+      const app = path.join(dd, "Build/Products/Debug-iphonesimulator/App.app");
+      if (plist("UIApplicationSceneManifest", path.join(app, "Info.plist")) === null) {
+        fail("the BUILT app has no scene manifest", "Xcode may be caching a stale Info.plist");
       } else {
-        const app = path.join(dd, "Build/Products/Debug-iphonesimulator/App.app");
-        const builtManifest = plist("UIApplicationSceneManifest", path.join(app, "Info.plist"));
-        if (builtManifest === null) {
-          fail("the BUILT app has no scene manifest", "Xcode may be caching a stale Info.plist");
-        } else {
-          pass("built app carries the scene manifest");
-        }
-        sh("xcrun", ["simctl", "uninstall", device.udid, "com.ikasiandgo.app"]);
-        sh("xcrun", ["simctl", "install", device.udid, app]);
-        sh("xcrun", ["simctl", "launch", device.udid, "com.ikasiandgo.app"]);
-        execFileSync("/bin/sleep", ["8"]);
-        const live = sh("xcrun", ["simctl", "spawn", device.udid, "launchctl", "list"]);
-        if (/ikasiandgo/i.test(live.out)) {
-          pass("still running 8s after launch on " + runtime.name);
-        } else {
-          fail("the app did not stay running on " + runtime.name,
-            "this is the iOS 27 launch crash, or a new one");
+        pass("built app carries the scene manifest");
+      }
+
+      const shotDir = path.join(ROOT, "tools/.preflight-shots");
+      fs.rmSync(shotDir, { recursive: true, force: true });
+      fs.mkdirSync(shotDir, { recursive: true });
+
+      console.log("\npreflight: launch matrix");
+      for (const rt of runtimes) {
+        for (const { d, why } of pick(devJson.devices[rt.identifier] || [])) {
+          const label = rt.name.padEnd(9) + " " + d.name.padEnd(18) + "(" + why + ")";
+          sh("xcrun", ["simctl", "boot", d.udid]);
+          const booted = sh("xcrun", ["simctl", "bootstatus", d.udid, "-b"], { timeout: 240000 });
+          if (!booted.ok) { warn(label, "could not boot, skipped"); continue; }
+          sh("xcrun", ["simctl", "uninstall", d.udid, "com.ikasiandgo.app"]);
+          const inst = sh("xcrun", ["simctl", "install", d.udid, app]);
+          if (!inst.ok) { warn(label, "install failed, skipped"); continue; }
+          sh("xcrun", ["simctl", "launch", d.udid, "com.ikasiandgo.app"]);
+          execFileSync("/bin/sleep", ["8"]);
+          const live = sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]);
+          if (/ikasiandgo/i.test(live.out)) {
+            const shot = path.join(shotDir, (rt.name + "-" + d.name).replace(/[^\w.-]+/g, "_") + ".png");
+            sh("xcrun", ["simctl", "io", d.udid, "screenshot", shot]);
+            pass(label, "running, screenshot saved");
+          } else {
+            fail(label, "the app did not stay running");
+          }
+          sh("xcrun", ["simctl", "shutdown", d.udid]);
         }
       }
+      console.log("\n  screenshots: tools/.preflight-shots/");
     }
   }
 }
