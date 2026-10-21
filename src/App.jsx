@@ -1306,6 +1306,10 @@ function App(){
   // it an expired trial looks like no trial at all and can be started again,
   // for ever.
   var _s13b=useState(false);var trialUsed=_s13b[0];var setTrialUsed=_s13b[1];
+  // A word id to open when Browse mounts, set by Today's Word on the home
+  // screen. The Browse tile passes a click event instead, hence the type
+  // guard where this is set.
+  var _s13c=useState(null);var browseWord=_s13c[0];var setBrowseWord=_s13c[1];
   var _s14=useState(0);var vocabVersion=_s14[0];var setVocabVersion=_s14[1];
   var _s15=useState(null);var toast=_s15[0];var setToast=_s15[1];
   var _s16=useState(10);var dailyGoal=_s16[0];var setDailyGoal=_s16[1];
@@ -1317,6 +1321,26 @@ function App(){
   var WC=_WC;
   var isTrialActive=trialUntil&&new Date()<trialUntil;
   var isProOrTrial=isPro||isTrialActive;
+  // The words actually ready for review, not just how many. Deliberately
+  // drawn from everything the learner has access to, never from the level and
+  // topic the quiz happens to be filtered to: those filters persist in
+  // last_config, so a topic tapped once would otherwise scope every future
+  // review for good, and the words outside it would never come back.
+  // Most overdue first, because buildMCSession caps a session at 20 and
+  // shuffles, so an unsorted list would review a random 20 of a large backlog.
+  var dueWords=useMemo(function(){
+    var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);
+    var cutoff=new Date(Date.now()+86400000);
+    var out=[];
+    for(var i=0;i<words.length;i++){
+      var d=srsData[words[i].id];
+      if(!d||(d.score||0)>=4)continue;
+      if(new Date(d.nextReview)<=cutoff)out.push(words[i]);
+    }
+    return out.sort(function(a,b){
+      return new Date(srsData[a.id].nextReview)-new Date(srsData[b.id].nextReview);
+    });
+  },[srsData,isProOrTrial,vocabVersion,trialUntil]);
   var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil]);
   useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data")]);if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();setStreak((d.lastDay===today||d.lastDay===yest)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
@@ -1463,7 +1487,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} onBrowse={function(){setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -1484,7 +1508,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="ordutegi"&&<OrduegiScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="koloreak"&&<KoloreakScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="arbola"&&<ArbolaScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
-    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
+    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} initialWord={browseWord} onBack={function(){setBrowseWord(null);setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
     {screen==="learn"&&<LearnScreen isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}} onBack={function(){setScreen("home");}} onPractice={function(wordIds){
@@ -1498,14 +1522,24 @@ function HomeScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
   var trialAvailable=props.trialAvailable;
-  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
+  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var onReview=props.onReview;var dueWords=props.dueWords||[];var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
   var _s0=useState("A1");var lvl=_s0[0];var setLvlRaw=_s0[1];
   var _s1=useState("all");var topic=_s1[0];var setTopicRaw=_s1[1];
   var _s2=useState(false);var cumul=_s2[0];var setCumulRaw=_s2[1];
   var _s3=useState(null);var modal=_s3[0];var setModal=_s3[1];
   var _s4=useState(20);var sessionLen=_s4[0];var setSessionLen=_s4[1];
+  // Both of these are set once and then never touched, so their buttons are
+  // folded behind the line that already states the current value. The line
+  // is the control; it says "change" so it reads as one.
+  var _so=useState(false);var showOpts=_so[0];var setShowOpts=_so[1];
+  var _sg=useState(false);var showGoal=_sg[0];var setShowGoal=_sg[1];
   var _sfx=useState(getSfxOn());var sfxOn=_sfx[0];var setSfxOnState=_sfx[1];
   useEffect(function(){try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0"){setSfxOnState(false);}else{setSfxOnState(true);}}).catch(function(){});}catch(e){}},[]);
+  // Lesson progress, read the same way the Learn screen reads it, so the hero
+  // card below can name the lesson you are actually on rather than the path
+  // in the abstract.
+  var _ld=useState([]);var doneLessons=_ld[0];var setDoneLessons=_ld[1];
+  useEffect(function(){try{STORE.get("lessons_done").then(function(r){if(r&&r.value){try{var arr=JSON.parse(r.value);if(Array.isArray(arr))setDoneLessons(arr);}catch(e){}}}).catch(function(){});}catch(e){}},[]);
   function setLvl(v){setLvlRaw(v);setTopicRaw(function(t){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:v,topic:t,cumul:c})).catch(function(){});return c;});return t;});}
   function setTopic(v){setTopicRaw(v);setLvlRaw(function(l){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:l,topic:v,cumul:c})).catch(function(){});return c;});return l;});}
   function setCumul(fn){var nv=typeof fn==="function"?fn(cumul):fn;setCumulRaw(nv);setLvlRaw(function(l){setTopicRaw(function(t){STORE.set("last_config",JSON.stringify({lvl:l,topic:t,cumul:nv})).catch(function(){});return t;});return l;});}
@@ -1513,32 +1547,51 @@ function HomeScreen(props){
   var L=CL[lvl];
   var topicCounts=useMemo(function(){var o={};var allPool=getPool(VOCABULARY,lvl,"all",cumul,isPro);o.all=allPool.length;for(var i=0;i<TOPICS.length;i++){var t=TOPICS[i];if(t.key==="all")continue;var p=getPool(VOCABULARY,lvl,t.key,cumul,isPro);o[t.key]=p.length;}return o;},[lvl,cumul,isPro,_VOCAB.length]);
   var poolSize=topic==="all"?topicCounts.all:(topicCounts[topic]||0);
-  var effectiveCount=Math.min(poolSize,sessionLen);var isLockedLevel=!isPro&&lvl!=="A1"&&totalSessions>=1;var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match - try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words - questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
+  var effectiveCount=Math.min(poolSize,sessionLen);var isLockedLevel=!isPro&&lvl!=="A1"&&totalSessions>=1;var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match. Try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words, so questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
   var browseCount=useMemo(function(){return VOCABULARY.filter(function(w){return isPro||isFreeWord(w);}).length;},[isPro,_VOCAB.length]);
+  var storyCount=(_STORIES&&_STORIES.length)||0;
+  // The hero card names the next lesson instead of describing the path, the
+  // same way the Continue card on the Learn screen does.
+  var nextLesson=firstUnfinishedLesson(doneLessons);
+  var heroTitle=nextLesson?("Lesson "+nextLesson.num+" · "+nextLesson.title):"Every lesson finished";
+  var heroSub=nextLesson?(doneLessons.length>0?"Continue where you left off":"Start the step-by-step path"):"Zorionak! Practise anything below.";
+  // What the quiz below actually draws from. Without this the level tabs and
+  // topic chips above the Start button have no stated relationship to it.
+  var topicLabel="all topics";
+  for(var tli=0;tli<TOPICS.length;tli++){if(TOPICS[tli].key===topic&&topic!=="all"){topicLabel=TOPICS[tli].label.toLowerCase();break;}}
+  // Pro is a path and a library, not a pile of words. Counted, never hardcoded,
+  // because vocabulary arrives over the air between releases.
+  var proWords=VOCABULARY.filter(function(w){return !isFreeWord(w);}).length;
+  var proLessons=LESSONS.filter(function(l){return !!l.pro;}).length;
+  var proStories=(_STORIES||[]).filter(function(st){return st.level!=="A1";}).length;
   var srsCard=null;
   if(srsLoaded&&totalSessions===0){
-    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"16px",border:"1px solid #F0F0F0",textAlign:"center"}},
-      React.createElement("p",{style:{margin:"0 0 4px",fontSize:14,fontWeight:800,color:"#1A1A1A"}},"Ready to start learning?"),
-      React.createElement("p",{style:{margin:0,fontSize:13,color:"#888"}},"Your first session will set up your personal memory tracker.")
+    // The empty state of the Word Memory card below, not a separate call to
+    // action. The hero at the top already says what to do, and spaced
+    // repetition is worth a plain sentence rather than the words "memory
+    // tracker", which explain nothing.
+    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
+      React.createElement("p",{style:{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),
+      React.createElement("p",{style:{margin:0,fontSize:12,color:"#888",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
     );
   } else if(srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)){
     var pct=srsStats.total>0?Math.round(srsStats.mastered/srsStats.total*100):0;
     var tiles=[{n:srsStats.due,l:"Due",c:srsStats.due>0?"#D97706":"#BBB",bg:srsStats.due>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
-    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:18,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
+    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.mastered+"/"+srsStats.total)),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
       React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.mastered+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
-          React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:10,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
-      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:10,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:8,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){var dueLvl=isPro?"B2":"A1";onStart({cefr:dueLvl,topic:"all",cumulative:true});},style:{width:"100%",marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:10,padding:"9px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}},srsStats.due+" words due - Review now"):null
+          React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
+      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(srsStats.due,20)+" word"+(Math.min(srsStats.due,20)===1?"":"s")):null
     );
   }
   var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=4;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length]);
   var levelCards=["A1","A2","B1","B2"].map(function(key){var L2=CL[key];var active=lvl===key;var k=key;
     var actCard=function(){if(!isPro&&k!=="A1"){setModal(k);return;}setLvl(k);};
-    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 6px 0 "+L2.dark:"0 2px 8px rgba(0,0,0,0.06)",transform:active?"translateY(-2px)":"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
+    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
       React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}},
         React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.9)":L2.color,backgroundColor:active?"rgba(255,255,255,0.25)":L2.bg,padding:"2px 8px",borderRadius:12,border:"1px solid "+(active?"rgba(255,255,255,0.3)":"rgba(0,0,0,0.1)")}},key),
-        (!isPro&&key!=="A1")?React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.8)":"#F59E0B",backgroundColor:active?"rgba(255,255,255,0.2)":"#FFF8F0",padding:"2px 6px",borderRadius:10}},"PRO"):null
+        (!isPro&&key!=="A1")?React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.8)":"#F59E0B",backgroundColor:active?"rgba(255,255,255,0.2)":"#FFF8F0",padding:"2px 6px",borderRadius:12}},"PRO"):null
       ),
       React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:active?"#fff":"#1A1A1A",letterSpacing:-0.2}},L2.title),
       React.createElement("div",{style:{marginTop:4}},
@@ -1550,7 +1603,7 @@ function HomeScreen(props){
     React.createElement("div",{style:{height:"100%",borderRadius:2,backgroundColor:active?"rgba(255,255,255,0.7)":L2.color,width:(masteredByLevel[key+"_total"]>0?Math.round(masteredByLevel[key]/masteredByLevel[key+"_total"]*100):0)+"%" }})
   )
 ),
-      active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:8,padding:"2px 8px",fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
+      active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:12,padding:"2px 8px",fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
     );
   });
   var today4=new Date().toISOString().slice(0,10);
@@ -1562,7 +1615,7 @@ function HomeScreen(props){
   var wotd=freeWords.length>0?freeWords[dayNum%freeWords.length]:null;
   var _ml=modal&&CL[modal]?CL[modal]:null;
   function onClose(){setModal(null);}
-  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:10,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:14,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 4px 0 "+_ml.dark,fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
+  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 1px 3px rgba(0,0,0,0.10)",fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
   return(<div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
 
     {/* ── Header ── */}
@@ -1604,7 +1657,34 @@ function HomeScreen(props){
       </div>
     </div>
 
-    {/* ── Start card — seamlessly below header ── */}
+    {/* ── The path comes first. It is what the App Store listing leads with,
+           and with 50 lessons it is the product; the quiz is the side door. ── */}
+    <div style={{padding:"14px 14px 0"}}>
+      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:16,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",display:"flex",alignItems:"center",gap:14}}>
+        <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
+        <div style={{fontSize:38,flexShrink:0,position:"relative"}}>🎓</div>
+        <div style={{flex:1,position:"relative"}}>
+          <p style={{margin:0,fontSize:11,fontWeight:800,color:"rgba(255,255,255,0.6)",letterSpacing:0.2}}>Ikasbidea · your path</p>
+          <p style={{margin:"3px 0 0",fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>{heroTitle}</p>
+          {doneLessons.length>0?(
+            <div>
+              <div style={{margin:"9px 0 0",height:5,backgroundColor:"rgba(255,255,255,0.25)",borderRadius:3,overflow:"hidden"}}>
+                <div style={{height:"100%",backgroundColor:"#fff",borderRadius:3,width:Math.round(doneLessons.length/LESSONS.length*100)+"%",transition:"width 0.5s ease"}}/>
+              </div>
+              <p style={{margin:"6px 0 0",fontSize:12,color:"rgba(255,255,255,0.88)",fontWeight:600}}>{doneLessons.length} of {LESSONS.length} lessons done</p>
+            </div>
+          ):(
+            <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>{heroSub}</p>
+          )}
+        </div>
+        <span style={{fontSize:20,color:"rgba(255,255,255,0.7)",position:"relative",flexShrink:0}}>→</span>
+      </button>
+    </div>
+
+    {/* ── The quiz keeps everything it had, one section down. The heading is
+           what stops it reading as a competing version of the same thing. ── */}
+    <p style={{margin:"18px 16px 8px",fontSize:13,fontWeight:700,color:"#8E8E93"}}>Or practise words on their own.</p>
+
     <div style={{backgroundColor:"#fff",boxShadow:"0 4px 24px rgba(0,0,0,0.1)"}}>
       {/* Level selector */}
       <div style={{display:"flex",borderBottom:"1px solid #F2F2F7"}}>
@@ -1636,25 +1716,32 @@ function HomeScreen(props){
 
       {/* Controls + Start */}
       <div style={{padding:"12px 14px 14px"}}>
-        <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}>
+        
+        {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
+        {props.totalSessions===0&&lvl==="A1"&&topic==="all"&&<p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",textAlign:"center"}}>Tip: start with <button onClick={function(){setTopic("greetings");}} style={{background:"none",border:"none",color:"#19A85A",fontWeight:800,cursor:"pointer",fontSize:12,padding:0,fontFamily:"inherit"}}>Greetings</button>!</p>}
+        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
+          {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
+        </button>
+        {poolSize>0&&(
+          <button onClick={function(){setShowOpts(function(v){return !v;});}} style={{display:"block",width:"100%",margin:"7px 0 0",background:"none",border:"none",padding:"2px 0",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
+            <span style={{fontSize:11,color:"#8E8E93",fontWeight:600}}>{effectiveCount} questions · {lvl} · {topicLabel}</span>
+            <span style={{fontSize:11,color:"#19A85A",fontWeight:800,marginLeft:6}}>{showOpts?"close":"change"}</span>
+          </button>
+        )}
+        {showOpts&&<div style={{display:"flex",alignItems:"center",gap:6,marginTop:10}}>
           <div style={{display:"flex",gap:4,flex:1}}>
             {[10,20,30].map(function(n){var tooMany=n>poolSize;var validOpts=[10,20,30].filter(function(x){return x<=poolSize;});var effSel=sessionLen<=poolSize?sessionLen:(validOpts.length?validOpts[validOpts.length-1]:10);var active=effSel===n;var nn=n;return(
-              <button key={n} disabled={tooMany} onClick={function(){if(!tooMany)setSessionLen(nn);}} style={{flex:1,padding:"7px 4px",borderRadius:10,border:"1.5px solid "+(active?L.dark:"#E8E8E8"),backgroundColor:active?L.color:"#F2F2F7",color:active?"#fff":"#8E8E93",fontSize:12,fontWeight:active?800:500,cursor:tooMany?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.12s",opacity:tooMany?0.35:1}}>
+              <button key={n} disabled={tooMany} onClick={function(){if(!tooMany)setSessionLen(nn);}} style={{flex:1,padding:"7px 4px",borderRadius:12,border:"1.5px solid "+(active?L.dark:"#E8E8E8"),backgroundColor:active?L.color:"#F2F2F7",color:active?"#fff":"#8E8E93",fontSize:12,fontWeight:active?800:500,cursor:tooMany?"not-allowed":"pointer",fontFamily:"inherit",transition:"all 0.12s",opacity:tooMany?0.35:1}}>
                 {n}<span style={{fontSize:9,opacity:0.6}}> q</span>
               </button>
             );})}
           </div>
           {lvl!=="A1"&&(
-            <button onClick={function(){setCumul(function(c){return !c;});}} style={{padding:"7px 10px",borderRadius:10,border:"1.5px solid "+(cumul?L.dark:"#E8E8E8"),backgroundColor:cumul?L.bg:"#F2F2F7",color:cumul?L.color:"#8E8E93",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>
+            <button onClick={function(){setCumul(function(c){return !c;});}} style={{padding:"7px 10px",borderRadius:12,border:"1.5px solid "+(cumul?L.dark:"#E8E8E8"),backgroundColor:cumul?L.bg:"#F2F2F7",color:cumul?L.color:"#8E8E93",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>
               {cumul?"✓":"+"} all levels
             </button>
           )}
-        </div>
-        {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:8,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
-        {props.totalSessions===0&&lvl==="A1"&&topic==="all"&&<p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",textAlign:"center"}}>Tip: start with <button onClick={function(){setTopic("greetings");}} style={{background:"none",border:"none",color:"#19A85A",fontWeight:800,cursor:"pointer",fontSize:12,padding:0,fontFamily:"inherit"}}>Greetings</button>!</p>}
-        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 5px 0 "+L.dark,fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
-          {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
-        </button>
+        </div>}
       </div>
     </div>
 
@@ -1665,37 +1752,23 @@ function HomeScreen(props){
         <div style={{backgroundColor:"#fff",border:"1.5px solid #F59E0B",borderRadius:16,padding:"13px 14px"}}>
           <p style={{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#D97706"}}>Your free trial has ended</p>
           <p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93"}}>Subscribe to keep access to all words.</p>
-          <button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"10px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #0E7A40"}}>Subscribe now</button>
+          <button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"10px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}}>Subscribe now</button>
         </div>
       )}
-
-      {/* ── Featured: Learn path ── */}
-      <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:20,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",marginBottom:12,display:"flex",alignItems:"center",gap:14}}>
-        <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
-        <div style={{fontSize:38,flexShrink:0,position:"relative"}}>🎓</div>
-        <div style={{flex:1,position:"relative"}}>
-          <p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Start learning</p>
-          <p style={{margin:"2px 0 0",fontSize:13,color:"rgba(255,255,255,0.88)",fontWeight:600}}>Follow the step-by-step Basque path</p>
-        </div>
-        <span style={{fontSize:20,color:"rgba(255,255,255,0.7)",position:"relative",flexShrink:0}}>→</span>
-      </button>
 
       {/* ── Quick actions ── */}
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
         <button onClick={onBrowse} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#19A85A",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📖</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Browse</p>
           <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{browseCount} words</p>
         </button>
         <button onClick={onStories} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#0D9488",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📚</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Read</p>
-          <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>Stories</p>
+          <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{storyCount} stories</p>
         </button>
         <button onClick={onGames} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:3,backgroundColor:"#F97316",borderRadius:"16px 16px 0 0"}}/>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>🎮</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Games</p>
           <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>6 games</p>
@@ -1716,31 +1789,38 @@ function HomeScreen(props){
             <p style={{margin:0,fontSize:11,color:"#19A85A",fontWeight:700}}>✓ Goal complete!</p>
           ):(
             <div>
-            <p style={{margin:"0 0 4px",fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal</p>
-            <div style={{display:"flex",gap:4}}>
-              {[5,10,20].map(function(g){return(
-                <button key={g} onClick={function(){onSetDailyGoal(g);}} style={{flex:1,padding:"4px 0",borderRadius:7,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
-              );})}
-            </div>
+            {/* Three permanent buttons for a number people pick once. The
+                line already states the answer, so it carries the control. */}
+            <button onClick={function(){setShowGoal(function(v){return !v;});}} style={{background:"none",border:"none",padding:0,margin:0,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:5}}>
+              <span style={{fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal · {dailyGoal}</span>
+              <span style={{fontSize:9.5,color:"#19A85A",fontWeight:800}}>{showGoal?"close":"change"}</span>
+            </button>
+            {showGoal&&(
+              <div style={{display:"flex",gap:4,marginTop:5}}>
+                {[5,10,20].map(function(g){return(
+                  <button key={g} onClick={function(){onSetDailyGoal(g);setShowGoal(false);}} style={{flex:1,padding:"4px 0",borderRadius:12,border:"1px solid "+(dailyGoal===g?"#19A85A":"#E8E8E8"),backgroundColor:dailyGoal===g?"#EDFAF3":"#F2F2F7",color:dailyGoal===g?"#19A85A":"#8E8E93",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{g}</button>
+                );})}
+              </div>
+            )}
             </div>
           )}
           {daysSinceOpened>=2&&<p style={{margin:"5px 0 0",fontSize:10,color:"#8E8E93"}}>Back after {daysSinceOpened} days!</p>}
         </div>
         {wotd&&(
-          <div style={{backgroundColor:"#fff",borderRadius:16,padding:"13px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
-            <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#19A85A,#22C55E)",borderRadius:"16px 16px 0 0"}}/>
+          <button onClick={function(){onBrowse(wotd.id);}} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"13px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden",cursor:"pointer",fontFamily:"inherit",textAlign:"left",width:"100%"}}>
             <p style={{margin:"4px 0 5px",fontSize:9,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.8}}>✨ Today's word</p>
             <p style={{margin:"0 0 2px",fontSize:18,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3,lineHeight:1.1}}>{wotd.basque}</p>
             <p style={{margin:"0 0 3px",fontSize:12,color:"#555",fontWeight:600}}>{wotd.english}</p>
-            <p style={{margin:0,fontSize:9,color:"#AAA",fontWeight:600,letterSpacing:0.2}}>{wotd.pronunciation}</p>
-          </div>
+            <p style={{margin:"0 0 4px",fontSize:9,color:"#AAA",fontWeight:600,letterSpacing:0.2}}>{wotd.pronunciation}</p>
+            <p style={{margin:0,fontSize:10,color:"#19A85A",fontWeight:800}}>Read the story →</p>
+          </button>
         )}
       </div>
 
       {/* ── SRS / Word memory ── */}
       {srsCard}
       {srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)&&(
-        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:14,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
+        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:12,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
           <span style={{display:"flex",alignItems:"center",gap:9}}>
             <span style={{fontSize:17}}>📊</span>
             <span style={{fontSize:14,fontWeight:800,color:"#1A1A1A"}}>View full progress</span>
@@ -1752,12 +1832,13 @@ function HomeScreen(props){
       {/* ── Level cards (for info/unlock) ── */}
       {!isPro&&(
         <div style={{backgroundColor:"#fff",borderRadius:16,padding:"14px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
-          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Your progress</p>
+          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Levels</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
             {levelCards}
           </div>
-          <button onClick={onUpgrade} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginTop:10,width:"100%",backgroundColor:"#FFF8F0",border:"1.5px solid #FED7AA",borderRadius:12,padding:"10px",fontSize:12,fontWeight:800,color:"#D97706",cursor:"pointer",fontFamily:"inherit"}}>
-            ✦ {trialAvailable?"Try Pro free for 7 days":"Unlock A2, B1 & B2: 500+ more words"}
+          <button onClick={onUpgrade} style={{display:"block",marginTop:10,width:"100%",backgroundColor:"#FFF8F0",border:"1.5px solid #FED7AA",borderRadius:12,padding:"10px",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
+            <p style={{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}}>✦ {trialAvailable?"Try Pro free for 7 days":"Unlock everything"}</p>
+            {!trialAvailable&&<p style={{margin:"2px 0 0",fontSize:11,fontWeight:600,color:"#E0963C"}}>{proWords} words · {proLessons} lessons · {proStories} stories</p>}
           </button>
           {trialAvailable&&(
             <p style={{margin:"5px 0 0",fontSize:10,color:"#A1A1AA",fontWeight:600,textAlign:"center"}}>No card needed. It ends on its own.</p>
@@ -1766,7 +1847,7 @@ function HomeScreen(props){
       )}
       {isPro&&(
         <div style={{backgroundColor:"#fff",borderRadius:16,padding:"14px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
-          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Your progress</p>
+          <p style={{margin:"0 0 10px",fontSize:12,fontWeight:800,color:"#1A1A1A"}}>Levels</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
             {levelCards}
           </div>
@@ -1779,11 +1860,14 @@ function HomeScreen(props){
           <span style={{fontSize:13}}>{sfxOn?"🔊":"🔇"}</span>
           <span style={{textDecoration:"underline"}}>Sound {sfxOn?"on":"off"}</span>
         </button>
-        <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
-          <span style={{fontSize:13}}>⭐</span>
-          <span style={{textDecoration:"underline"}}>Rate this app</span>
-        </button>
       </div>
+
+      {/* ── Rating lifted out of the grey footer. With no ratings yet, this
+             should not look like a privacy policy link. ── */}
+      <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,width:"100%",backgroundColor:"#fff",border:"1.5px solid #E8E8E8",borderRadius:12,padding:"10px",fontSize:12,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>
+        <span style={{fontSize:14}}>⭐</span>
+        <span>Rate this app</span>
+      </button>
     </div>
     {modalJSX}
   </div>);}
@@ -2293,7 +2377,7 @@ function ResetButton(){
 // Blurred cultural-note / etymology teaser shown on gated (A2+) words to free users.
 // The real note text is rendered blurred so learners see depth exists; tapping converts.
 function LockedNote(props){
-  var text=props.text||"Cultural note and etymology available with Pro - discover the origins, usage and Basque cultural context behind this word.";
+  var text=props.text||"Cultural note and etymology available with Pro. Discover the origins, usage and Basque cultural context behind this word.";
   return React.createElement("div",{style:{position:"relative",borderRadius:10,overflow:"hidden"}},
     React.createElement("p",{"aria-hidden":true,style:{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500,filter:"blur(4.5px)",userSelect:"none",pointerEvents:"none"}},text),
     React.createElement("button",{onClick:function(e){e.stopPropagation();if(props.onUpgrade)props.onUpgrade();},style:{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(255,255,255,0.4)",border:"none",cursor:"pointer",fontFamily:"inherit"}},
@@ -2311,6 +2395,16 @@ function BrowseScreen(props){
   var _s4=useState(false);var showAll=_s4[0];var setShowAll=_s4[1];
   var _s5b=useState(false);var groupByTopic=_s5b[0];var setGroupByTopic=_s5b[1];
   var _s5=useState("az");var sortBy=_s5[0];var setSortBy=_s5[1];
+  // Arriving from Today's Word on the home screen. Searching for the word is
+  // what guarantees it is on screen: the list is capped at 60 entries, so
+  // expanding it without filtering could leave it below the cut.
+  var initialWord=props.initialWord;
+  useEffect(function(){
+    if(!initialWord)return;
+    for(var i=0;i<VOCABULARY.length;i++){
+      if(VOCABULARY[i].id===initialWord){setQuery(VOCABULARY[i].basque);setExpanded(initialWord);return;}
+    }
+  },[initialWord]);
   var filtered=useMemo(function(){
     var q=query.toLowerCase().trim();
     var base=VOCABULARY.filter(function(w){
@@ -5821,6 +5915,16 @@ var LESSONS=[
 ];
 
 
+// The first lesson not yet finished. Lessons unlock in order, so this is both
+// the only one a learner can open next and the one the home screen points at.
+// Shared by both screens so they can never disagree about where you are.
+function firstUnfinishedLesson(doneLessons){
+  for(var i=0;i<LESSONS.length;i++){
+    if(doneLessons.indexOf(LESSONS[i].id)===-1)return LESSONS[i];
+  }
+  return null;
+}
+
 function LearnScreen(props){
   var isPro=props.isPro,onUpgrade=props.onUpgrade;
   var onBack=props.onBack,onPractice=props.onPractice;
@@ -5855,13 +5959,10 @@ function LearnScreen(props){
 
   // Lesson cards and the chapter headings that group them. Defined at component
   // scope so both the list below and any future view can use them.
-  // The first lesson not yet finished. Because lessons unlock in order, this is
-  // also the only one a learner can actually open next, which is what the
-  // Continue card points at and what gets the ring in the list below.
-  var nextLesson=null;
-  for(var ni=0;ni<LESSONS.length;ni++){
-    if(doneLessons.indexOf(LESSONS[ni].id)===-1){nextLesson=LESSONS[ni];break;}
-  }
+  // The first lesson not yet finished: what the Continue card points at and
+  // what gets the ring in the list below. The home screen hero uses the same
+  // helper, so the two screens always name the same lesson.
+  var nextLesson=firstUnfinishedLesson(doneLessons);
 
   // One place that decides what tapping a lesson does, so the card and the list
   // can never disagree: a Pro lesson opens the paywall, an unlocked one opens.
