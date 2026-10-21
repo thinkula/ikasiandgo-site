@@ -47,3 +47,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+// iOS 27 refuses to launch an app that still uses the plain
+// UIApplicationDelegate lifecycle once it is linked against the iOS 26 SDK or
+// later, and traps with EXC_BREAKPOINT in
+// _UIApplicationEvaluateRuntimeIssueForNoSceneLifecycleAdoption. Every shipped
+// build of this app, 1.1 through 1.3, was built against iphoneos27.0 with no
+// scene manifest, so every one of them dies on launch on iOS 27.
+//
+// The window and the root view controller still come from Main.storyboard, via
+// UISceneStoryboardFile in Info.plist. What does not come for free is the URL
+// and user-activity delivery: under the scene lifecycle those arrive here
+// rather than at the app delegate, so Capacitor has to be handed them or
+// custom URL schemes and universal links stop working.
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        for context in connectionOptions.urlContexts {
+            _ = ApplicationDelegateProxy.shared.application(UIApplication.shared, open: context.url, options: [:])
+        }
+        for activity in connectionOptions.userActivities {
+            _ = ApplicationDelegateProxy.shared.application(UIApplication.shared, continue: activity, restorationHandler: { _ in })
+        }
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        _ = ApplicationDelegateProxy.shared.application(UIApplication.shared, open: url, options: [:])
+    }
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        _ = ApplicationDelegateProxy.shared.application(UIApplication.shared, continue: userActivity, restorationHandler: { _ in })
+    }
+}
