@@ -1724,7 +1724,6 @@ function HomeScreen(props){
       <div style={{padding:"12px 14px 14px"}}>
         
         {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
-        {props.totalSessions===0&&lvl==="A1"&&topic==="all"&&<p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",textAlign:"center"}}>Tip: start with <button onClick={function(){setTopic("greetings");}} style={{background:"none",border:"none",color:"#19A85A",fontWeight:800,cursor:"pointer",fontSize:12,padding:0,fontFamily:"inherit"}}>Greetings</button>!</p>}
         <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
           {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
         </button>
@@ -1767,7 +1766,7 @@ function HomeScreen(props){
         <button onClick={onBrowse} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📖</span>
           <p style={{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}}>Browse</p>
-          <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{browseCount} words</p>
+          <p style={{margin:0,fontSize:11,color:"#8E8E93",fontWeight:500}}>{isPro?browseCount+" words":browseCount+" of "+VOCABULARY.length}</p>
         </button>
         <button onClick={onStories} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"14px 10px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",position:"relative",overflow:"hidden"}}>
           <span style={{fontSize:20,display:"block",marginBottom:6,marginTop:4}}>📚</span>
