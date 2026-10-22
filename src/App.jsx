@@ -1628,15 +1628,6 @@ function HomeScreen(props){
           <p style={{margin:"2px 0 0",fontSize:10,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque · Euskara{vocabVersion===0&&<span style={{fontSize:9,backgroundColor:"rgba(0,0,0,0.2)",padding:"1px 5px",borderRadius:6,marginLeft:5}}>OFFLINE</span>}</p>
         </div>
         <div style={{display:"flex",gap:5,alignItems:"center"}}>
-          {streakLoaded&&streak>0&&(
-            <div style={{display:"flex",alignItems:"center",gap:4,backgroundColor:"rgba(0,0,0,0.2)",borderRadius:20,padding:"5px 10px",border:"1px solid rgba(255,255,255,0.1)"}}>
-              <span style={{fontSize:13}}>🔥</span>
-              <div>
-                <p style={{margin:0,fontSize:14,fontWeight:900,color:"#fff",lineHeight:1}}>{streak}</p>
-                <p style={{margin:0,fontSize:8,color:"rgba(255,255,255,0.5)",fontWeight:600}}>DAY{streak!==1?"S":""}</p>
-              </div>
-            </div>
-          )}
           {!isPro&&!isTrialActive&&(
             <button onClick={onUpgrade} style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,padding:"6px 11px",border:"1px solid rgba(255,255,255,0.2)",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
               <p style={{margin:0,fontSize:10,fontWeight:900,color:"#fff",lineHeight:1.1}}>PRO</p>
@@ -1807,6 +1798,17 @@ function HomeScreen(props){
                 );})}
               </div>
             )}
+            </div>
+          )}
+          {/* The streak lived in the header, where it hid itself at zero, so
+              someone new never learned streaks existed. Here it has context,
+              a zero state that asks for the first day, and it fills a card
+              that went half empty when the goal buttons folded away. */}
+          {streakLoaded&&(
+            <div style={{marginTop:9,paddingTop:8,borderTop:"1px solid #F2F2F7",display:"flex",alignItems:"center",gap:6}}>
+              <span style={{fontSize:13}}>{streak>0?"🔥":"🌱"}</span>
+              <span style={{fontSize:11,fontWeight:700,color:streak>0?"#1A1A1A":"#8E8E93"}}>{streak>0?(streak+" day streak"):"Start a streak today"}</span>
+              {streak>1&&streak===longest&&<span style={{fontSize:9.5,fontWeight:800,color:"#F59E0B"}}>BEST</span>}
             </div>
           )}
           {daysSinceOpened>=2&&<p style={{margin:"5px 0 0",fontSize:10,color:"#8E8E93"}}>Back after {daysSinceOpened} days!</p>}
