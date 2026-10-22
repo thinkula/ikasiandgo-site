@@ -86,6 +86,26 @@ if (v.build.length !== 1) {
 const VERSION = v.marketing[0] || "?";
 const BUILD = v.build[0] || "?";
 
+// src/App.jsx carries its own VERSION string, shown on the paywall and used to
+// decide whether the rating prompt has already been asked for this release. It
+// sat at 1.1.0 through four releases: users deciding whether to pay saw a stale
+// number, and the prompt treated every release as one version and asked once
+// per install, forever.
+try {
+  const appSrc = fs.readFileSync(path.join(ROOT, "src/App.jsx"), "utf8");
+  const m = appSrc.match(/const VERSION\s*=\s*"([^"]+)"/);
+  if (!m) {
+    warn("no VERSION constant found in src/App.jsx");
+  } else if (m[1].replace(/\.0$/, "") !== VERSION) {
+    fail("src/App.jsx VERSION is " + m[1] + ", project is " + VERSION,
+      "shown on the paywall, and it gates the rating prompt");
+  } else {
+    pass("src/App.jsx VERSION agrees", m[1]);
+  }
+} catch (e) {
+  warn("could not check the in-app VERSION", e.message);
+}
+
 /* ------------------------------------------------------- build number reuse */
 
 console.log("\npreflight: build number");
