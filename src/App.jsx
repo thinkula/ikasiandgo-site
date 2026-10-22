@@ -1628,10 +1628,9 @@ function HomeScreen(props){
           <p style={{margin:"2px 0 0",fontSize:10,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque · Euskara{vocabVersion===0&&<span style={{fontSize:9,backgroundColor:"rgba(0,0,0,0.2)",padding:"1px 5px",borderRadius:6,marginLeft:5}}>OFFLINE</span>}</p>
         </div>
         <div style={{display:"flex",gap:5,alignItems:"center"}}>
-          <button onClick={onMenu} aria-label="Settings" style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,width:32,height:32,border:"1px solid rgba(255,255,255,0.2)",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",padding:0,flexShrink:0}}>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          <button onClick={onMenu} aria-label="Menu" style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,width:32,height:32,border:"1px solid rgba(255,255,255,0.2)",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",padding:0,flexShrink:0}}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
             </svg>
           </button>
           {streakLoaded&&streak>0&&(
@@ -6155,7 +6154,7 @@ function MenuScreen(props){
   <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
     <div style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
       <button onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",borderRadius:12,padding:"7px 13px",color:"#fff",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",marginBottom:10}}>← Back</button>
-      <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Settings</p>
+      <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Menu</p>
     </div>
 
     <div style={{padding:"16px 14px calc(30px + env(safe-area-inset-bottom, 0px))",display:"flex",flexDirection:"column",gap:10}}>
