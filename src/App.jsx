@@ -176,7 +176,7 @@ var STORE=(function(){
 // Load mute preference at startup (after storage polyfill is guaranteed)
 try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
 const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}.hscroll{scrollbar-width:none;-ms-overflow-style:none;}.hscroll::-webkit-scrollbar{display:none;height:0;width:0;}@keyframes riseSoft{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
-const VERSION="1.1.0";
+const VERSION="1.5.0";
 // RevenueCat: paste the PUBLIC Apple API key (starts with appl_) from
 // app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
 const RC_API_KEY="appl_gAmUbsXTredgwvqVHdxvTPdnlCW";
@@ -1487,7 +1487,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -1510,6 +1510,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="arbola"&&<ArbolaScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} initialWord={browseWord} onBack={function(){setBrowseWord(null);setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
+    {screen==="feedback"&&<FeedbackScreen onBack={function(){setScreen("home");}}/>}
     {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
     {screen==="learn"&&<LearnScreen isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}} onBack={function(){setScreen("home");}} onPractice={function(wordIds){
       var words=wordIds.map(function(id){return VOCABULARY.filter(function(w){return w.id===id;})[0];}).filter(Boolean);
@@ -1522,7 +1523,7 @@ function HomeScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
   var trialAvailable=props.trialAvailable;
-  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var onReview=props.onReview;var dueWords=props.dueWords||[];var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
+  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var onReview=props.onReview;var onFeedback=props.onFeedback;var dueWords=props.dueWords||[];var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
   var _s0=useState("A1");var lvl=_s0[0];var setLvlRaw=_s0[1];
   var _s1=useState("all");var topic=_s1[0];var setTopicRaw=_s1[1];
   var _s2=useState(false);var cumul=_s2[0];var setCumulRaw=_s2[1];
@@ -1856,6 +1857,7 @@ function HomeScreen(props){
 
       <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:14,flexWrap:"wrap"}}>
         <button onClick={onReplayIntro} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",textDecoration:"underline"}}>About this app &amp; Basque</button>
+        <button onClick={onFeedback} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",textDecoration:"underline"}}>Send feedback</button>
         <button onClick={function(){var nv=!sfxOn;setSfxOnState(nv);setSfxOn(nv);if(nv)sfx("correct");}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
           <span style={{fontSize:13}}>{sfxOn?"🔊":"🔇"}</span>
           <span style={{textDecoration:"underline"}}>Sound {sfxOn?"on":"off"}</span>
@@ -6130,6 +6132,65 @@ function LearnScreen(props){
 // ════════════════════════════════════════════
 //  PROGRESS SCREEN (Aurrerapena)
 // ════════════════════════════════════════════
+// A way to reach the author from inside the app. Everything goes through
+// mailto on purpose: the app has no server, and the privacy promise says
+// nothing leaves the device. A mail draft is the user's own, composed and sent
+// by them, so nothing is collected and the privacy label does not change.
+function FeedbackScreen(props){
+  var onBack=props.onBack;
+  function mail(subject,body){
+    var url="mailto:hello@ikasiandgo.com?subject="+encodeURIComponent(subject)+
+            "&body="+encodeURIComponent(body+"\n\n\n---\nIkasi & Go "+VERSION);
+    try{window.location.href=url;}catch(e){}
+  }
+  var options=[
+    {emoji:"\uD83D\uDCA1",title:"Suggest a word or topic",
+     sub:"Something missing you would use",
+     subject:"Ikasi & Go: a word or topic to add",
+     body:"A word, phrase or topic I would like to see:"},
+    {emoji:"\u270F\uFE0F",title:"Report a mistake",
+     sub:"A wrong gloss, a typo, an example that reads oddly",
+     subject:"Ikasi & Go: a correction",
+     body:"What I think is wrong, and what it should be:"},
+    {emoji:"\uD83D\uDCAC",title:"Anything else",
+     sub:"An idea, a question, or just to say hello",
+     subject:"Ikasi & Go: feedback",
+     body:""}
+  ];
+  return(
+  <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
+    <div style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
+      <button onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",borderRadius:12,padding:"7px 13px",color:"#fff",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",marginBottom:10}}>← Back</button>
+      <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Tell me</p>
+      <p style={{margin:"3px 0 0",fontSize:13,color:"rgba(255,255,255,0.85)",fontWeight:600}}>This app is made by one person</p>
+    </div>
+
+    <div style={{padding:"16px 14px calc(30px + env(safe-area-inset-bottom, 0px))",display:"flex",flexDirection:"column",gap:10}}>
+      <div style={{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
+        <p style={{margin:0,fontSize:14,color:"#444",lineHeight:1.55}}>
+          Euskara has real regional variation, and I will have got things wrong. If you find a mistake, tell me and the fix reaches everyone automatically, with no update to install. If there is a word you keep wanting and cannot find, tell me that too.
+        </p>
+      </div>
+
+      {options.map(function(o,i){return(
+        <button key={i} onClick={function(){mail(o.subject,o.body);}} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"15px 16px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",cursor:"pointer",fontFamily:"inherit",textAlign:"left",display:"flex",alignItems:"center",gap:13,width:"100%"}}>
+          <span style={{fontSize:24,flexShrink:0}}>{o.emoji}</span>
+          <span style={{flex:1}}>
+            <span style={{display:"block",fontSize:15,fontWeight:800,color:"#1A1A1A"}}>{o.title}</span>
+            <span style={{display:"block",fontSize:12,color:"#8E8E93",fontWeight:500,marginTop:1}}>{o.sub}</span>
+          </span>
+          <span style={{fontSize:17,color:"#C7C7CC",flexShrink:0}}>→</span>
+        </button>
+      );})}
+
+      <p style={{margin:"6px 0 0",fontSize:12,color:"#8E8E93",textAlign:"center",lineHeight:1.6}}>
+        Or write to <span style={{color:"#19A85A",fontWeight:800}}>hello@ikasiandgo.com</span><br/>
+        Nothing is sent from the app. These open a draft in your mail app.
+      </p>
+    </div>
+  </div>);
+}
+
 function ProgressScreen(props){
   var onBack=props.onBack,srsData=props.srsData||{},srsStats=props.srsStats||{},
       streak=props.streak||0,longest=props.longest||0,totalSessions=props.totalSessions||0,
