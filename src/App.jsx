@@ -1179,7 +1179,8 @@ const SEED_VOCAB=[
 {"id":"ekaitza","basque":"Ekaitza","english":"Storm","cefr":"A2","topic":"nature","pronunciation":"eh-KAI-tsah","notes":"Sailors on the Bay of Biscay (Bizkaiko Golkoa) fear the galerna, a sudden squall that turns a calm afternoon dark in minutes. Ekaitz is also a popular given name for boys.","example":{"basque":"Ekaitza dator.","english":"A storm is coming."}},
 {"id":"biztanlea","basque":"Biztanlea","english":"Inhabitant / Resident","cefr":"B1","topic":"society","pronunciation":"bees-tan-LEH-ah","notes":"From bizi (to live): the one who lives somewhere. Biztanleria = population. News and statistics count everything in biztanleko, per inhabitant.","example":{"basque":"Bilbok 350.000 biztanle inguru ditu.","english":"Bilbao has about 350,000 inhabitants."}},
 {"id":"olentzero","basque":"Olentzero","english":"Olentzero (Christmas gift bringer)","cefr":"A1","topic":"culture","pronunciation":"oh-len-TSEH-roh","notes":"A charcoal burner who comes down from the mountains on Christmas Eve to leave gifts. Ikazkina means charcoal burner, which is his trade and the reason he is always shown covered in soot. Towns carry a straw figure of him through the streets that night, in a beret and farm clothes with a pipe.","example":{"basque":"Olentzero mendietan bizi da.","english":"Olentzero lives in the mountains."}},
-{"id":"gabonak","basque":"Gabonak","english":"Christmas","cefr":"A1","topic":"culture","pronunciation":"gah-BOH-nak","notes":"Always plural, so it names the season rather than a single day. The singular gabon is the ordinary way to say good evening, from gau (night) and on (good). Gabon gaua is Christmas Eve and Eguberri is Christmas Day. Zorionak serves as the greeting throughout.","example":{"basque":"Gabonak familiarekin ospatzen ditugu.","english":"We celebrate Christmas with family."}}
+{"id":"gabonak","basque":"Gabonak","english":"Christmas","cefr":"A1","topic":"culture","pronunciation":"gah-BOH-nak","notes":"Always plural, so it names the season rather than a single day. The singular gabon is the ordinary way to say good evening, from gau (night) and on (good). Gabon gaua is Christmas Eve and Eguberri is Christmas Day. Zorionak serves as the greeting throughout.","example":{"basque":"Gabonak familiarekin ospatzen ditugu.","english":"We celebrate Christmas with family."}},
+{"id":"frontoia","basque":"Frontoia","english":"Fronton (pelota court)","cefr":"A2","topic":"city","pronunciation":"fron-TOY-ah","notes":"Nearly every Basque town has a frontoia, usually on or beside the plaza. The oldest kind is a single high wall, and in many villages that wall was the side of the church. Pilotalekua is the native word, from pilota and leku (place). From Spanish fronton.","example":{"basque":"Frontoia plazaren ondoan dago.","english":"The fronton is next to the square."}}
 ];
 /* SEED_VOCAB:END */
 const CEFR_ORDER=["A1","A2","B1","B2"];
@@ -5573,10 +5574,10 @@ var LESSONS=[
     title:"Places in Town",
     titleEu:"Herriko lekuak",
     emoji:"\u26EA",
-    blurb:"The square, the shop, the church, the bridge.",
+    blurb:"The square, the church, the fronton, the bridge.",
     intro:"A Basque town is organized around a few places: the plaza where the festivals happen, the church the village grew around, the bridge that gave the town its name. These words are worth knowing twice over, because you will meet them again in surnames.",
-    grammar:{title:"The town inside a surname",body:"Eliza (church) plus ondo, which in place names means \"beside\", gives Elizondo. Zubi (bridge) plus zahar (old) gives Zubizarreta, the place of the old bridges. The map and the phone book share a vocabulary."},
-    wordIds:["plaza","denda","eliza","parkea","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
+    grammar:{title:"The town inside a surname",body:"Place names are built from words you already know. Eliza plus ondo gives Elizondo. Ondo usually means \"well\", but in place names it means \"beside\", so Elizondo is beside the church. Zubi is bridge, zahar is old, and -eta marks a place full of something: Zubizarreta, the place of the old bridges."},
+    wordIds:["plaza","denda","eliza","parkea","frontoia","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
   },
   {
     id:"l23_numbers2",

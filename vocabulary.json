@@ -12263,6 +12263,19 @@
         "basque": "Gabonak familiarekin ospatzen ditugu.",
         "english": "We celebrate Christmas with family."
       }
+    },
+    {
+      "id": "frontoia",
+      "basque": "Frontoia",
+      "english": "Fronton (pelota court)",
+      "cefr": "A2",
+      "topic": "city",
+      "pronunciation": "fron-TOY-ah",
+      "notes": "Nearly every Basque town has a frontoia, usually on or beside the plaza. The oldest kind is a single high wall, and in many villages that wall was the side of the church. Pilotalekua is the native word, from pilota and leku (place). From Spanish fronton.",
+      "example": {
+        "basque": "Frontoia plazaren ondoan dago.",
+        "english": "The fronton is next to the square."
+      }
     }
   ],
   "stories": [
