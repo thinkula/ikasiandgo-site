@@ -1628,11 +1628,6 @@ function HomeScreen(props){
           <p style={{margin:"2px 0 0",fontSize:10,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque · Euskara{vocabVersion===0&&<span style={{fontSize:9,backgroundColor:"rgba(0,0,0,0.2)",padding:"1px 5px",borderRadius:6,marginLeft:5}}>OFFLINE</span>}</p>
         </div>
         <div style={{display:"flex",gap:5,alignItems:"center"}}>
-          <button onClick={onMenu} aria-label="Menu" style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,width:32,height:32,border:"1px solid rgba(255,255,255,0.2)",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",padding:0,flexShrink:0}}>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16"/>
-            </svg>
-          </button>
           {streakLoaded&&streak>0&&(
             <div style={{display:"flex",alignItems:"center",gap:4,backgroundColor:"rgba(0,0,0,0.2)",borderRadius:20,padding:"5px 10px",border:"1px solid rgba(255,255,255,0.1)"}}>
               <span style={{fontSize:13}}>🔥</span>
@@ -1659,6 +1654,11 @@ function HomeScreen(props){
               <p style={{margin:0,fontSize:10,fontWeight:900,color:"#fff",lineHeight:1.1}}>PRO ✓</p>
             </div>
           )}
+          <button onClick={onMenu} aria-label="Menu" style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,width:32,height:32,border:"1px solid rgba(255,255,255,0.2)",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",padding:0,flexShrink:0}}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
