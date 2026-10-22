@@ -280,14 +280,32 @@ if (QUICK) {
     const newest = runtimes[runtimes.length - 1];
     const buildDev = (devJson.devices[newest.identifier] || []).filter(d => d.isAvailable)[0];
     const dd = path.join(os.tmpdir(), "ikasi-preflight-dd");
-    const b = sh("xcodebuild", [
-      "-project", "ios/App/App.xcodeproj", "-scheme", "App", "-configuration", "Debug",
-      "-destination", "platform=iOS Simulator,id=" + buildDev.udid,
-      "-derivedDataPath", dd, "build"
-    ], { cwd: ROOT, timeout: 900000 });
+    function build() {
+      return sh("xcodebuild", [
+        "-project", "ios/App/App.xcodeproj", "-scheme", "App", "-configuration", "Debug",
+        "-destination", "platform=iOS Simulator,id=" + buildDev.udid,
+        "-derivedDataPath", dd, "build"
+      ], { cwd: ROOT, timeout: 900000, maxBuffer: 64 * 1024 * 1024 });
+    }
+    // The derived data is reused so the common run stays fast, but a stale
+    // Swift Package artifact cache there fails the build for reasons that have
+    // nothing to do with the app:
+    //   error: There is no Info.plist found at .../Cordova.xcframework/Info.plist
+    // A tool that cries wolf stops being read, so a failure gets one clean
+    // retry before it is believed.
+    let b = build();
+    if (!b.ok) {
+      console.log("  build failed, retrying once with clean derived data");
+      fs.rmSync(dd, { recursive: true, force: true });
+      b = build();
+    }
 
     if (!b.ok) {
-      fail("xcodebuild failed", "run it by hand to see why");
+      fail("xcodebuild failed");
+      const tail = b.out.trim().split("\n").filter(l => /error:/i.test(l)).slice(-4);
+      for (const l of (tail.length ? tail : b.out.trim().split("\n").slice(-4))) {
+        console.log("      " + l.trim().slice(0, 150));
+      }
     } else {
       const app = path.join(dd, "Build/Products/Debug-iphonesimulator/App.app");
       if (plist("UIApplicationSceneManifest", path.join(app, "Info.plist")) === null) {

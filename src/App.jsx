@@ -1488,7 +1488,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -1511,7 +1511,8 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="arbola"&&<ArbolaScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} initialWord={browseWord} onBack={function(){setBrowseWord(null);setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
-    {screen==="feedback"&&<FeedbackScreen onBack={function(){setScreen("home");}}/>}
+    {screen==="menu"&&<MenuScreen onBack={function(){setScreen("home");}} onFeedback={function(){setScreen("feedback");}} onReplayIntro={function(){setScreen("home");setShowOnb(true);}}/>}
+    {screen==="feedback"&&<FeedbackScreen onBack={function(){setScreen("menu");}}/>}
     {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
     {screen==="learn"&&<LearnScreen isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}} onBack={function(){setScreen("home");}} onPractice={function(wordIds){
       var words=wordIds.map(function(id){return VOCABULARY.filter(function(w){return w.id===id;})[0];}).filter(Boolean);
@@ -1524,7 +1525,7 @@ function HomeScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
   var trialAvailable=props.trialAvailable;
-  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade,onReplayIntro=props.onReplayIntro;var onReview=props.onReview;var onFeedback=props.onFeedback;var dueWords=props.dueWords||[];var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
+  var onStart=props.onStart,isPro=props.isPro,streak=props.streak,longest=props.longest||0,dailyGoal=props.dailyGoal||10,todayCount=props.todayCount||0,streakFrozen=props.streakFrozen||false,lastOpened=props.lastOpened,onSetDailyGoal=props.onSetDailyGoal,onUseStreakFreeze=props.onUseStreakFreeze,streakLoaded=props.streakLoaded,srsStats=props.srsStats,srsLoaded=props.srsLoaded,onBrowse=props.onBrowse,onGames=props.onGames,onStories=props.onStories,onProgress=props.onProgress,onLearn=props.onLearn,onUpgrade=props.onUpgrade;var onReview=props.onReview;var onFeedback=props.onFeedback;var onMenu=props.onMenu;var dueWords=props.dueWords||[];var totalSessions=props.totalSessions||0;var srsData=props.srsData||{};var isTrialActive=props.isTrialActive;var trialUntil=props.trialUntil;var vocabVersion=props.vocabVersion||0;
   var _s0=useState("A1");var lvl=_s0[0];var setLvlRaw=_s0[1];
   var _s1=useState("all");var topic=_s1[0];var setTopicRaw=_s1[1];
   var _s2=useState(false);var cumul=_s2[0];var setCumulRaw=_s2[1];
@@ -1535,8 +1536,6 @@ function HomeScreen(props){
   // is the control; it says "change" so it reads as one.
   var _so=useState(false);var showOpts=_so[0];var setShowOpts=_so[1];
   var _sg=useState(false);var showGoal=_sg[0];var setShowGoal=_sg[1];
-  var _sfx=useState(getSfxOn());var sfxOn=_sfx[0];var setSfxOnState=_sfx[1];
-  useEffect(function(){try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0"){setSfxOnState(false);}else{setSfxOnState(true);}}).catch(function(){});}catch(e){}},[]);
   // Lesson progress, read the same way the Learn screen reads it, so the hero
   // card below can name the lesson you are actually on rather than the path
   // in the abstract.
@@ -1655,6 +1654,11 @@ function HomeScreen(props){
               <p style={{margin:0,fontSize:10,fontWeight:900,color:"#fff",lineHeight:1.1}}>PRO ✓</p>
             </div>
           )}
+          <button onClick={onMenu} aria-label="Menu" style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:20,width:32,height:32,border:"1px solid rgba(255,255,255,0.2)",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",padding:0,flexShrink:0}}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1856,21 +1860,7 @@ function HomeScreen(props){
         </div>
       )}
 
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:14,flexWrap:"wrap"}}>
-        <button onClick={onReplayIntro} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",textDecoration:"underline"}}>About this app &amp; Basque</button>
-        <button onClick={onFeedback} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",textDecoration:"underline"}}>Send feedback</button>
-        <button onClick={function(){var nv=!sfxOn;setSfxOnState(nv);setSfxOn(nv);if(nv)sfx("correct");}} style={{background:"none",border:"none",color:"#C7C7CC",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px",display:"flex",alignItems:"center",gap:4}}>
-          <span style={{fontSize:13}}>{sfxOn?"🔊":"🔇"}</span>
-          <span style={{textDecoration:"underline"}}>Sound {sfxOn?"on":"off"}</span>
-        </button>
-      </div>
 
-      {/* ── Rating lifted out of the grey footer. With no ratings yet, this
-             should not look like a privacy policy link. ── */}
-      <button onClick={function(){try{window.open(APP_STORE_REVIEW_URL,"_blank");}catch(e){}}} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,width:"100%",backgroundColor:"#fff",border:"1.5px solid #E8E8E8",borderRadius:12,padding:"10px",fontSize:12,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>
-        <span style={{fontSize:14}}>⭐</span>
-        <span>Rate this app</span>
-      </button>
     </div>
     {modalJSX}
   </div>);}
@@ -6137,6 +6127,56 @@ function LearnScreen(props){
 // mailto on purpose: the app has no server, and the privacy promise says
 // nothing leaves the device. A mail draft is the user's own, composed and sent
 // by them, so nothing is collected and the privacy label does not change.
+// One door for everything that is not learning. These were four separate
+// things scattered across the bottom of the home screen: a grey underlined row
+// that looked like a privacy policy, and a rating button beside it. Settings
+// belong behind a settings icon, and the home screen gets its bottom back.
+function MenuScreen(props){
+  var onBack=props.onBack,onFeedback=props.onFeedback,onReplayIntro=props.onReplayIntro;
+  var _sfx=useState(getSfxOn());var sfxOn=_sfx[0];var setSfxOnState=_sfx[1];
+  useEffect(function(){try{STORE.get("sfx_on").then(function(r){setSfxOnState(!(r&&r.value==="0"));}).catch(function(){});}catch(e){}},[]);
+  function openUrl(u){try{window.open(u,"_blank");}catch(e){}}
+
+  function Row(p){
+    return(
+      <button onClick={p.onClick} style={{backgroundColor:"#fff",border:"none",borderRadius:16,padding:"15px 16px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)",cursor:"pointer",fontFamily:"inherit",textAlign:"left",display:"flex",alignItems:"center",gap:13,width:"100%"}}>
+        <span style={{fontSize:21,flexShrink:0,width:26,textAlign:"center"}}>{p.emoji}</span>
+        <span style={{flex:1}}>
+          <span style={{display:"block",fontSize:15,fontWeight:800,color:"#1A1A1A"}}>{p.title}</span>
+          {p.sub&&<span style={{display:"block",fontSize:12,color:"#8E8E93",fontWeight:500,marginTop:1}}>{p.sub}</span>}
+        </span>
+        <span style={{fontSize:p.badge?13:17,color:p.badge?"#19A85A":"#C7C7CC",fontWeight:p.badge?800:400,flexShrink:0}}>{p.badge||"\u2192"}</span>
+      </button>
+    );
+  }
+
+  return(
+  <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
+    <div style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
+      <button onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",borderRadius:12,padding:"7px 13px",color:"#fff",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",marginBottom:10}}>← Back</button>
+      <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Menu</p>
+    </div>
+
+    <div style={{padding:"16px 14px calc(30px + env(safe-area-inset-bottom, 0px))",display:"flex",flexDirection:"column",gap:10}}>
+      <Row emoji={"\uD83D\uDCAC"} title="Send feedback" sub="A word to add, a mistake, anything else" onClick={onFeedback}/>
+      <Row emoji={sfxOn?"\uD83D\uDD0A":"\uD83D\uDD07"} title="Sound" sub="Effects while you answer"
+           badge={sfxOn?"On":"Off"}
+           onClick={function(){var nv=!sfxOn;setSfxOnState(nv);setSfxOn(nv);if(nv)sfx("correct");}}/>
+      <Row emoji={"\u2B50"} title="Rate this app" sub="It helps more than you would think" onClick={function(){openUrl(APP_STORE_REVIEW_URL);}}/>
+
+      <p style={{margin:"8px 0 0",fontSize:11,fontWeight:800,color:"#A1A1AA",letterSpacing:0.3,paddingLeft:4}}>ABOUT</p>
+      <Row emoji={"\uD83C\uDF0D"} title="About this app and Basque" sub="The introduction, again" onClick={onReplayIntro}/>
+      <Row emoji={"\uD83C\uDF10"} title="ikasiandgo.com" sub="The website" onClick={function(){openUrl("https://ikasiandgo.com");}}/>
+
+      <div style={{display:"flex",justifyContent:"center",gap:16,marginTop:10}}>
+        <button onClick={function(){openUrl("https://ikasiandgo.com/privacy");}} style={{background:"none",border:"none",fontSize:11,color:"#A1A1AA",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>Privacy Policy</button>
+        <button onClick={function(){openUrl("https://ikasiandgo.com/terms");}} style={{background:"none",border:"none",fontSize:11,color:"#A1A1AA",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>Terms of Use</button>
+      </div>
+      <p style={{margin:"2px 0 0",fontSize:11,color:"#C7C7CC",textAlign:"center"}}>Ikasi &amp; Go™ v{VERSION}</p>
+    </div>
+  </div>);
+}
+
 function FeedbackScreen(props){
   var onBack=props.onBack;
   function mail(subject,body){
