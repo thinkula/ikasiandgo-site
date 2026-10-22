@@ -5572,10 +5572,10 @@ var LESSONS=[
     title:"Places in Town",
     titleEu:"Herriko lekuak",
     emoji:"\u26EA",
-    blurb:"The square, the shop, the church, the bridge.",
+    blurb:"The square, the church, the fronton, the bridge.",
     intro:"A Basque town is organized around a few places: the plaza where the festivals happen, the church the village grew around, the bridge that gave the town its name. These words are worth knowing twice over, because you will meet them again in surnames.",
     grammar:{title:"The town inside a surname",body:"Place names are built from words you already know. Eliza plus ondo gives Elizondo. Ondo usually means \"well\", but in place names it means \"beside\", so Elizondo is beside the church. Zubi is bridge, zahar is old, and -eta marks a place full of something: Zubizarreta, the place of the old bridges."},
-    wordIds:["plaza","denda","eliza","parkea","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
+    wordIds:["plaza","denda","eliza","parkea","frontoia","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
   },
   {
     id:"l23_numbers2",
