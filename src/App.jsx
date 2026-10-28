@@ -5335,7 +5335,7 @@ var LESSONS=[
     blurb:"Say hello, thank you, and be polite.",
     intro:"Every conversation in Euskara starts here. Basque greetings are warm and used with everyone, from close friends to shopkeepers. One word does a lot of work: on means good, and you will meet it again and again (egun on, gau on).",
     grammar:{title:"The little word 'on'",body:"on means \"good\". Basque builds greetings by adding it after a time word: egun (day) + on = egun on (good morning). You will see this pattern throughout the language."},
-    wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on"],
+    wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on","gau_on"],
   },
   {
     id:"l2_numbers",
@@ -5401,7 +5401,7 @@ var LESSONS=[
     blurb:"Find your way around town.",
     intro:"Whether you are catching a train or finding a restaurant, these words help you navigate a Basque town. Direction words like ezkerra (left) and eskuina (right) are essential, and so is knowing how to ask non dago (where is it).",
     grammar:{title:"Asking where",body:"To ask \"where\", use non. To say \"where is...?\" use non dago...? The answers are often hemen (here) or han (there). These pointing words are the backbone of getting directions."},
-    wordIds:["etxea","kalea","hiria","trena","autobusa","jatetxea","non","hemen","ezkerra","eskuina"],
+    wordIds:["etxea","kalea","hiria","trena","autobusa","jatetxea","non","non_dago","hemen","han","ezkerra","eskuina"],
   },
   {
     id:"l8_body",
@@ -5489,7 +5489,7 @@ var LESSONS=[
     blurb:"Drinks, meals, and Basque specialties.",
     intro:"Building on your first food lesson, these words add drinks and dishes you will meet in any Basque bar or kitchen. Sagardoa (cider) and pintxoa (the famous bar snack) are cornerstones of Basque food culture, worth knowing before any visit.",
     grammar:{title:"Meals revisited",body:"You learned gosaria (breakfast) earlier. Here are the others: bazkaria (lunch) and afaria (dinner). Each pairs with its own verb, bazkaldu and afaldu, sharing the same root as the meal name, just as gosari and gosaldu do."},
-    wordIds:["ardoa","sagardoa","garagardoa","pintxoa","bazkaria","afaria","oilaskoa","arrautza","esnea","menua"],
+    wordIds:["ardoa","sagardoa","garagardoa","pintxoa","gosaria","bazkaria","afaria","gosaldu","bazkaldu","afaldu","oilaskoa","arrautza","esnea","menua"],
   },
   {
     id:"l16_conversation",
@@ -5510,8 +5510,8 @@ var LESSONS=[
     emoji:"\u23F0",
     blurb:"The clock and bigger numbers.",
     intro:"Once you can count, telling time is the next step. These words cover the clock and the larger numbers you need for it. Basque builds the hour from the number, so ordu bat da is \"it is one o'clock\".",
-    grammar:{title:"Hours and quarters",body:"To tell time, Basque names the hour: ordu bat da (it is one o'clock), ordu biak (two o'clock). For the half and quarter, you add phrases like eta laurdena (quarter past) and laurden gutxi (quarter to). The numbers themselves carry the count."},
-    wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","minutua","ordu_bat","eta_laurdena","laurden_gutxi"],
+    grammar:{title:"Hours and quarters",body:"To tell time, Basque names the hour: ordu bata da (it is one o'clock), ordu biak (two o'clock). For the half and quarter, you add phrases like eta laurdena (quarter past) and laurden gutxi (quarter to). The numbers themselves carry the count."},
+    wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","minutua","ordu_bat","ordu_biak","eta_laurdena","laurden_gutxi"],
   },
   {
     id:"l18_airport",
@@ -5725,7 +5725,7 @@ var LESSONS=[
     blurb:"Worried, proud, hopeful, and brave enough to keep going.",
     intro:"Saying how you feel is where a language stops being a subject and starts being yours. These are the everyday ones, including two that matter to anyone learning the language of their family.",
     grammar:{title:"The -ta ending puts you in a state",body:"Add -ta to a participle and you get the state it leaves behind: larritu (to stress) gives larrituta (stressed), hunkitu (to move someone) gives hunkituta (moved). These go with egon rather than izan, because they describe how you are right now: larrituta nago, I am stressed."},
-    wordIds:["kezkatu","harro","esperantza","adorea","larrituta","saiatu","sentitu","harrotasuna","bakardadea","maitasuna"],
+    wordIds:["kezkatu","harro","esperantza","adorea","larrituta","hunkituta","saiatu","sentitu","harrotasuna","bakardadea","maitasuna"],
   },
   {
     id:"l36_society",
@@ -5893,7 +5893,7 @@ var LESSONS=[
     blurb:"The wider family, and the people who live next door.",
     intro:"The first family lesson covered the house you grew up in. This one covers everyone else: the spouse, the cousins, the nieces and nephews, and the neighbour who counts as family anyway.",
     grammar:{title:"-kide means the one you share it with",body:"kide is a member or companion. Add it and you get the person you share the thing with: bikotekidea is your partner (bikote, couple), lankidea is your colleague (lan, work), ezkontidea is your spouse (ezkon, marriage). It is one of the most productive endings in the language."},
-    wordIds:["senarra","emaztea","bikotea","bizilaguna","iloba","lehengusua","lehengusina","senitartea","lobak","ezkontidea"],
+    wordIds:["senarra","emaztea","bikotea","bikotekidea","bizilaguna","lankidea","iloba","lehengusua","lehengusina","senitartea","lobak","ezkontidea"],
   },
   {
     id:"l50_talk",
@@ -5905,7 +5905,7 @@ var LESSONS=[
     blurb:"Questions, answers, agreement, and how to ask for a word.",
     intro:"The most useful phrase in any language is the one that asks for the next word. These ten keep a conversation alive when your vocabulary runs out, which at this stage it will.",
     grammar:{title:"Question words come in two families",body:"Basque question words cluster. The Z family asks about things: zer (what), zergatik (why), zenbat (how many), zein (which). The N family asks about place, time, manner and people: non (where), noiz (when), nola (how), nor (who). Hearing the first letter tells you what kind of answer is wanted."},
-    wordIds:["zer_berri","mila_esker","zergatik","ados","agian","zorionak","ondo_ibili","galdera","erantzuna","nola_esaten_da"],
+    wordIds:["zer_berri","mila_esker","zergatik","zein","ados","agian","zorionak","ondo_ibili","galdera","erantzuna","nola_esaten_da"],
   },
 ];
 
