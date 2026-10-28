@@ -5947,8 +5947,14 @@ function LearnScreen(props){
   }
 
   // A lesson is unlocked if it is the first, or the previous lesson is done
+  // A lesson you have finished is always open, whatever sits before it now.
+  // Without that, reordering or inserting a lesson locks one you already
+  // completed: the card shows a green check and a LOCKED badge at once, and
+  // will not open. Progress is stored by lesson id, so the completion itself
+  // was never lost, only made unreachable.
   function isUnlocked(idx){
     if(idx===0)return true;
+    if(doneLessons.indexOf(LESSONS[idx].id)!==-1)return true;
     return doneLessons.indexOf(LESSONS[idx-1].id)!==-1;
   }
 
@@ -5984,7 +5990,7 @@ function LearnScreen(props){
                 isNext&&React.createElement("span",{style:{fontSize:9.5,fontWeight:900,color:"#fff",backgroundColor:"#7C3AED",borderRadius:7,padding:"2px 7px",letterSpacing:0.5}},"NEXT")
               ),
               React.createElement("p",{style:{margin:"1px 0 0",fontSize:17,fontWeight:900,color:(unlocked||needsPro)?"#1A1A1A":"#9A9AA2"}},lesson.title),
-              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},(unlocked||needsPro)?lesson.blurb:"Finish Lesson "+(lesson.num-1)+" to unlock")
+              React.createElement("p",{style:{margin:"1px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600}},(unlocked||needsPro)?lesson.blurb:"Finish Lesson "+LESSONS[idx-1].num+" to unlock")
             ),
             needsPro?React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"#F59E0B",borderRadius:20,padding:"3px 9px",flexShrink:0,letterSpacing:0.4}},"PRO"):unlocked?React.createElement("span",{style:{fontSize:18,color:"#D1D1D6",flexShrink:0}},"\u2192"):React.createElement("span",{style:{fontSize:12,fontWeight:800,color:"#B0B0B8",flexShrink:0,letterSpacing:0.3}},"LOCKED")
           )
