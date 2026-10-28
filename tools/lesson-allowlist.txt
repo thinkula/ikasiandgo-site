@@ -14,12 +14,8 @@
 
 l42_road:igerilekua    # illustrates the -leku suffix; a pool is not a road word
 
-# egon and berdintasuna used to sit here. The B1 lessons teach them both now,
-# which is the better answer whenever the word is worth learning: an entry here
-# should be a last resort, not the first move.
-
-# elkarbizitza is B2 and Around Town is a free lesson, so it cannot be taught
-# there without putting a locked word in the free tier. It reads as a cultural
-# aside rather than vocabulary, so the note stands. Teach it in a B2 society
-# lesson and drop this line.
-l19_town:elkarbizitza
+# egon, berdintasuna and elkarbizitza used to sit here. The B1 and B2 lessons
+# teach all three now, which is the better answer whenever the word is worth
+# learning: an entry here should be a last resort, not the first move. The
+# elkarbizitza line said to teach it in a B2 society lesson and drop the line,
+# and that is what happened.
