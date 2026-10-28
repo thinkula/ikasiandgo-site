@@ -46,13 +46,15 @@ const ok = (m, d) => console.log("  ✓ " + m + (d ? "  " + d : ""));
 const warn = (m, d) => { warns++; console.log("  ! " + m + (d ? "  " + d : "")); };
 const fail = (m, d) => { fails++; console.log("  ✗ " + m + (d ? "  " + d : "")); };
 
-// "<lesson number>:<word id>" exempts that word in that lesson; a bare
-// "<word id>" exempts it everywhere.
+// "<lesson id>:<word id>" exempts that word in that lesson; a bare "<word id>"
+// exempts it everywhere. Keyed on the lesson id, not its number, because the
+// numbers move: resequencing the path by level silently invalidated every
+// number-keyed entry the first time it was tried.
 const allow = fs.existsSync(ALLOWLIST)
   ? new Set(fs.readFileSync(ALLOWLIST, "utf8").split("\n")
       .map(l => l.replace(/#.*/, "").trim()).filter(Boolean))
   : new Set();
-const allowed = (num, wid) => allow.has(wid) || allow.has(num + ":" + wid);
+const allowed = (id, wid) => allow.has(wid) || allow.has(id + ":" + wid);
 
 /* ------------------------------------------------------------------ parsing */
 
@@ -181,7 +183,7 @@ console.log("\ncheck-lessons: what the prose promises");
       if (!re.test(left)) continue;
       left = left.replace(new RegExp(re.source, "g"), " ");
       if (l.wordIds.includes(wid)) continue;
-      if (allowed(l.num, wid)) continue;
+      if (allowed(l.id, wid)) continue;
 
       const where = taughtBy.get(wid) || [];
       if (where.some(t => t.num < l.num)) continue;   // legitimate callback
