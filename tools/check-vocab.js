@@ -2,9 +2,19 @@
 /*
  * check-vocab.js
  * --------------
- * Spellchecks every Basque headword and example sentence in vocabulary.json
- * against Xuxen, the official Basque spellchecker whose Hunspell dictionary is
- * built from Euskaltzaindia (the Basque language academy) normative morphology.
+ * Spellchecks every piece of Basque the app ships against Xuxen, the official
+ * Basque spellchecker whose Hunspell dictionary is built from Euskaltzaindia
+ * (the Basque language academy) normative morphology. That means:
+ *
+ *   - every headword and example sentence in vocabulary.json
+ *   - every line of the 12 stories, which ride in the same file under
+ *     data.stories and went unchecked while this read only data.vocabulary
+ *   - the Basque subtitle on each lesson, which lives in src/App.jsx and so
+ *     was never seen by any gate at all until it was added here
+ *
+ * What is still not covered: Basque words quoted inside the English grammar
+ * notes. There is no reliable way to tell those from English without marking
+ * them up, so they are checked by hand.
  *
  * A rejected word-form is a deterministic signal: either a genuine error
  * (a misspelling or non-standard form) or a legitimate token the dictionary
@@ -32,6 +42,7 @@ const https = require("https");
 
 const ROOT = path.resolve(__dirname, "..");
 const VOCAB = path.join(ROOT, "vocabulary.json");
+const APP = path.join(ROOT, "src/App.jsx");
 const DICT_DIR = path.join(__dirname, ".eu-dict");
 const DIC = path.join(DICT_DIR, "eu.dic");
 const AFF = path.join(DICT_DIR, "eu.aff");
@@ -83,6 +94,30 @@ function tokenize(text) {
     .filter((t) => t && !/[0-9]/.test(t));
 }
 
+// The Basque subtitle on each lesson, read straight out of src/App.jsx. These
+// are written by hand in the source rather than coming from vocabulary.json,
+// so nothing else ever sees them: 97 of them existed before this function did.
+function lessonSubtitles() {
+  if (!fs.existsSync(APP)) return [];
+  const src = fs.readFileSync(APP, "utf8");
+  const open = /\n(?:var|const) LESSONS\s*=\s*\[/.exec(src);
+  if (!open) return [];
+  let depth = 1, i = open.index + open[0].length;
+  const from = i;
+  while (depth) {
+    if (src[i] === "[") depth++;
+    else if (src[i] === "]") depth--;
+    i++;
+  }
+  const out = [];
+  for (const chunk of src.slice(from, i - 1).split(/\n\s*\{\s*\n(?=\s*id:")/)) {
+    const id = /id:"(l\d+_\w+)"/.exec(chunk);
+    const eu = /titleEu:"((?:[^"\\]|\\.)*)"/.exec(chunk);
+    if (id && eu) out.push({ id: id[1], text: eu[1] });
+  }
+  return out;
+}
+
 function loadAllowlist() {
   const set = new Set();
   if (!fs.existsSync(ALLOWLIST)) return set;
@@ -103,16 +138,34 @@ function loadAllowlist() {
   // token -> Set("field:id") for reporting provenance
   const provenance = new Map();
   const uniq = new Set();
+  const take = (field, id, text) => {
+    for (const tok of tokenize(text)) {
+      uniq.add(tok);
+      const key = tok.toLowerCase();
+      if (!provenance.has(key)) provenance.set(key, new Set());
+      provenance.get(key).add(field + ":" + id);
+    }
+  };
+
   for (const w of vocab) {
-    for (const [field, text] of [["headword", w.basque], ["example", w.example.basque]]) {
-      for (const tok of tokenize(text)) {
-        uniq.add(tok);
-        const key = tok.toLowerCase();
-        if (!provenance.has(key)) provenance.set(key, new Set());
-        provenance.get(key).add(field + ":" + w.id);
-      }
+    take("headword", w.id, w.basque);
+    take("example", w.id, w.example.basque);
+  }
+
+  // The stories ride in the same file under a different key, and for a long
+  // time this check read only data.vocabulary, so 120 lines of Basque went
+  // unspellchecked. Each line is an array of [basque, english] pairs.
+  const stories = Array.isArray(data.stories) ? data.stories : [];
+  for (const s of stories) {
+    if (s.title) take("story-title", s.id, s.title);
+    for (const line of s.lines || []) {
+      for (const pair of line.w || []) take("story", s.id, pair[0]);
     }
   }
+
+  // And the lesson subtitles, which live in src/App.jsx rather than here.
+  const subtitles = lessonSubtitles();
+  for (const l of subtitles) take("lesson", l.id, l.text);
 
   // run hunspell -l once over all unique tokens
   const res = spawnSync("hunspell", ["-d", path.join(DICT_DIR, "eu"), "-l"],
@@ -130,7 +183,10 @@ function loadAllowlist() {
   const total = uniq.size;
   const pass = total - rejects.length;
   console.log(
-    "check-vocab: " + vocab.length + " entries, " + total + " unique word-forms, " +
+    "check-vocab: " + vocab.length + " entries, " + stories.length + " stories, " +
+    subtitles.length + " lesson subtitles.");
+  console.log(
+    "check-vocab: " + total + " unique word-forms, " +
     pass + " accepted by Xuxen (" + ((pass / total) * 100).toFixed(1) + "%).");
   console.log("check-vocab: " + rejects.length + " rejected, " +
     (rejects.length - unknown.length) + " allowlisted, " + unknown.length + " to review.");
