@@ -12,10 +12,14 @@
 # word everywhere. Keyed on the lesson id because lesson numbers move, as
 # resequencing the path by level demonstrated. Add a reason.
 
-l42_road:igerilekua    # illustrates the -leku suffix; a pool is not a road word
-
-# egon, berdintasuna and elkarbizitza used to sit here. The B1 and B2 lessons
-# teach all three now, which is the better answer whenever the word is worth
-# learning: an entry here should be a last resort, not the first move. The
-# elkarbizitza line said to teach it in a B2 society lesson and drop the line,
-# and that is what happened.
+# This file is empty, and that is the point.
+#
+# It once held four entries: egon, berdintasuna, elkarbizitza and igerilekua.
+# Every one of them has since been resolved by teaching the word rather than
+# exempting it, which is almost always the better answer. The elkarbizitza
+# line said to teach it in a B2 society lesson and drop the line, and that is
+# what happened. Every word in vocabulary.json is now taught by some lesson,
+# so nothing needs an exemption at all.
+#
+# Add an entry here only when a note genuinely cites a word to explain where a
+# DIFFERENT word came from, and that cited word does not deserve teaching.
