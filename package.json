@@ -11,6 +11,7 @@
     "predev": "node sync-vocab.js",
     "sync-vocab": "node sync-vocab.js",
     "check-vocab": "node tools/check-vocab.js",
+    "check-lessons": "node tools/check-lessons.js",
     "preflight": "node tools/preflight.js"
   },
   "keywords": [],

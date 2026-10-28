@@ -21,6 +21,7 @@ dependencies until the install has run.
 | `npm run build` | Builds the web app into `www/` |
 | `npx cap sync ios` | Copies `www/` into `ios/App/App/public` |
 | `npm run check-vocab` | Validates `vocabulary.json` against Xuxen |
+| `npm run check-lessons` | Checks the lesson path against `vocabulary.json` |
 | `npm run sync-vocab` | Regenerates the seed vocabulary and stamps site counts |
 | `npm run preflight` | Everything that should be true before an archive goes to Apple |
 
@@ -39,6 +40,23 @@ for three releases, because nothing ever launched the app on a current iOS. The
 simulator that happened to be booted was iOS 26.2, where it ran fine.
 
 `--quick` skips the build and launch when you only want the static checks.
+
+## Before you change a lesson
+
+Run `npm run check-lessons`. The lessons were the one part of the app with no
+gate on them. Words go through Xuxen and builds go through preflight, but a
+lesson could promise a word it never taught and nothing noticed.
+
+It fails on a word list pointing at a word that is not in `vocabulary.json`, a
+free lesson teaching a paid word, a note that glosses a word no lesson ever
+teaches, and a note telling the learner they have already met a word that is
+taught later or not at all. A note may still point forward to a word a later
+lesson covers, which is ordinary scaffolding.
+
+The first sweep found nine words that notes explained and no quiz ever used,
+including four of the six meal words and `non dago`, which two different
+lessons glossed and neither taught. `tools/lesson-allowlist.txt` carries the
+cases where a note cites a word to derive a different one.
 
 ## When a version goes live
 
