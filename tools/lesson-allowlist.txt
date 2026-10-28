@@ -12,9 +12,11 @@
 # word everywhere. Keyed on the lesson id because lesson numbers move, as
 # resequencing the path by level demonstrated. Add a reason.
 
-l20_home:egon          # cites egon to derive egongela, the word the lesson teaches
-l30_lineage:berdintasuna  # illustrates the -tasuna suffix, alongside askatasuna
 l42_road:igerilekua    # illustrates the -leku suffix; a pool is not a road word
+
+# egon and berdintasuna used to sit here. The B1 lessons teach them both now,
+# which is the better answer whenever the word is worth learning: an entry here
+# should be a last resort, not the first move.
 
 # elkarbizitza is B2 and Around Town is a free lesson, so it cannot be taught
 # there without putting a locked word in the free tier. It reads as a cultural

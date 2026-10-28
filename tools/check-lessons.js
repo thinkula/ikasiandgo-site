@@ -188,11 +188,17 @@ console.log("\ncheck-lessons: what the prose promises");
       const where = taughtBy.get(wid) || [];
       if (where.some(t => t.num < l.num)) continue;   // legitimate callback
 
-      // Does the prose gloss it? A parenthetical or an "X is/means Y" right
-      // after the form is the lesson teaching the word, not mentioning it.
-      const at = prose.toLowerCase().indexOf(form);
-      const after = prose.slice(at + form.length, at + form.length + 40);
-      const glossed = /^\s*\(/.test(after) || /^\s+(?:is|means)\b/.test(after);
+      // Does the prose gloss it? A parenthetical, or an "X is/means Y" right
+      // after the form, is the lesson teaching the word rather than naming it.
+      // Check every mention, not just the first: a note often names the word in
+      // its heading and glosses it a sentence later. Match on word boundaries,
+      // or a longer word containing the form moves the position being read.
+      let glossed = false;
+      const scan = new RegExp("\\b" + form.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "g");
+      for (let mm; (mm = scan.exec(prose.toLowerCase())) !== null; ) {
+        const after = prose.slice(mm.index + form.length, mm.index + form.length + 40);
+        if (/^\s*\(/.test(after) || /^\s+(?:is|means)\b/.test(after)) { glossed = true; break; }
+      }
 
       if (!where.length) {
         (glossed ? unreachable : unglossed).push("L" + l.num + " " + l.title + ": " + form + " (" + wid + ")");
