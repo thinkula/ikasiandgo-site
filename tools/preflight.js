@@ -211,15 +211,36 @@ try {
   }
   for (const f of files) {
     const text = fs.readFileSync(path.join(dir, f), "utf8");
-    // Any 3-digit number near the word "words" that is not the live count.
-    const stale = [...text.matchAll(/(\d{3,4})\s+(?:words|entries)/g)]
-      .map(m => parseInt(m[1], 10))
-      .filter(n => n !== words && n !== free);
-    if (stale.length) {
-      fail(f + " quotes a stale count", [...new Set(stale)].join(", ") +
+    // A count in the copy is either a floor ("more than 900 words", "900+ words")
+    // or exact ("943 words"). A floor only has to stay true as the vocabulary
+    // grows, so the description quotes one; an exact figure is wrong the moment a
+    // word is added, and the reviewer notes quote one because Apple is told the
+    // real number. Treating both as exact failed this check on every word added.
+    const claims = [...text.matchAll(/(\d{3,4})(\+?)\s+(?:words|entries)/g)].map(m => ({
+      n: parseInt(m[1], 10),
+      floor: m[2] === "+" ||
+        /(?:more than|over|at least)\s+$/i.test(text.slice(Math.max(0, m.index - 12), m.index)),
+    }));
+    const overPromised = claims.filter(c => c.floor && words < c.n);
+    const stale = claims.filter(c => !c.floor && c.n !== words && c.n !== free);
+    const behind = claims.filter(c => c.floor && words >= c.n + 100);
+    if (overPromised.length) {
+      fail(f + " promises more words than exist",
+        "copy says at least " + [...new Set(overPromised.map(c => c.n))].join(", ") +
+        ", live: " + words);
+    } else if (stale.length) {
+      fail(f + " quotes a stale count", [...new Set(stale.map(c => c.n))].join(", ") +
         " (live: " + words + " words, " + free + " free)");
     } else {
-      pass(f + " counts agree", words + " words, " + free + " free");
+      pass(f + " counts hold", claims.length
+        ? claims.map(c => (c.floor ? "at least " : "") + c.n).join(", ") +
+          "  (live: " + words + " words, " + free + " free)"
+        : "no counts quoted");
+      if (behind.length) {
+        warn(f + " floor is well behind the vocabulary",
+          "says at least " + [...new Set(behind.map(c => c.n))].join(", ") +
+          ", live count is " + words + ". Worth raising.");
+      }
     }
   }
 } catch (e) {
