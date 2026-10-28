@@ -8,15 +8,16 @@
 # DIFFERENT word came from. "egon (to stay) + gela = egongela" teaches
 # egongela; egon is the raw material. Those belong here.
 #
-# Format: <lesson number>:<word id>, one per line. A bare <word id> exempts
-# the word everywhere. Add a reason.
+# Format: <lesson id>:<word id>, one per line. A bare <word id> exempts the
+# word everywhere. Keyed on the lesson id because lesson numbers move, as
+# resequencing the path by level demonstrated. Add a reason.
 
-20:egon            # cites egon to derive egongela, the word the lesson teaches
-30:berdintasuna    # illustrates the -tasuna suffix, alongside askatasuna
-42:igerilekua      # illustrates the -leku suffix; a pool is not a road word
+l20_home:egon          # cites egon to derive egongela, the word the lesson teaches
+l30_lineage:berdintasuna  # illustrates the -tasuna suffix, alongside askatasuna
+l42_road:igerilekua    # illustrates the -leku suffix; a pool is not a road word
 
 # elkarbizitza is B2 and Around Town is a free lesson, so it cannot be taught
 # there without putting a locked word in the free tier. It reads as a cultural
 # aside rather than vocabulary, so the note stands. Teach it in a B2 society
 # lesson and drop this line.
-19:elkarbizitza
+l19_town:elkarbizitza
