@@ -20,8 +20,8 @@ dependencies until the install has run.
 | `npm run dev` | Vite dev server at localhost:5173, with hot reload |
 | `npm run build` | Builds the web app into `www/` |
 | `npx cap sync ios` | Copies `www/` into `ios/App/App/public` |
-| `npm run check-vocab` | Validates `vocabulary.json` against Xuxen |
-| `npm run check-lessons` | Checks the lesson path against `vocabulary.json` |
+| `npm run check-vocab` | Spellchecks every piece of Basque the app ships against Xuxen |
+| `npm run check-lessons` | Checks the lesson path against `vocabulary.json`, and the house style |
 | `npm run sync-vocab` | Regenerates the seed vocabulary and stamps site counts |
 | `npm run preflight` | Everything that should be true before an archive goes to Apple |
 
@@ -40,6 +40,21 @@ for three releases, because nothing ever launched the app on a current iOS. The
 simulator that happened to be booted was iOS 26.2, where it ran fine.
 
 `--quick` skips the build and launch when you only want the static checks.
+
+## What check-vocab actually covers
+
+Three places, because for a long time it was one. Headwords and example
+sentences in `vocabulary.json`; the 12 stories, which ride in the same file
+under `data.stories` and were skipped by a single line of code; and the Basque
+subtitle on each lesson, which lives in `src/App.jsx` and so was never seen by
+any gate at all. A reject names its source, so you know whether to open the
+vocabulary, a story, or a lesson.
+
+Basque words quoted inside the English grammar notes are **not** covered.
+Separating them from the English around them is not reliable without marking
+them up, and the heuristic version throws hundreds of false flags: English
+inflections, the foreign etymology the notes quote on purpose, and bound
+suffixes like `-tsu` and `-xka`, which are not words. Check those by hand.
 
 ## Before you change a lesson
 
