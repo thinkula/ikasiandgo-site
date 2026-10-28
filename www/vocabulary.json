@@ -5134,6 +5134,19 @@
       }
     },
     {
+      "id": "berrogeitahamar",
+      "basque": "Berrogeita hamar",
+      "english": "Fifty",
+      "cefr": "A2",
+      "topic": "numbers",
+      "pronunciation": "ber-roh-GAY-tah AH-mar",
+      "notes": "50 = berrogei (40) + ta (and) + hamar (10), so two twenties and ten. The same ending builds 30 from 20 and 70 from 60.",
+      "example": {
+        "basque": "Berrogeita hamar euro balio du.",
+        "english": "It costs fifty euros."
+      }
+    },
+    {
       "id": "hirurogeita_hamar",
       "basque": "Hirurogeita hamar",
       "english": "Seventy",
