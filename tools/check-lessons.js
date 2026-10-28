@@ -227,6 +227,47 @@ console.log("\ncheck-lessons: what the prose promises");
   else ok("no lesson mentions an untaught word in passing");
 }
 
+/* ------------------------------------------------------------- house style */
+
+// The listing and the lessons are written in US English, and the copy uses no
+// em dashes. Both have been fixed by hand twice: once in the 1.5 spelling pass
+// (practise, realise, recognise) and again after 47 lessons were written in one
+// go and let through labour, theatre, grey, apologising, travelling, memorise
+// and neighbour. A rule nobody checks is a rule that drifts.
+console.log("\ncheck-lessons: house style");
+{
+  const BRITISH = [
+    [/\btravell(?:ed|ing|er)\b/i, "traveled / traveling / traveler"],
+    [/\bcancell(?:ed|ing)\b/i, "canceled / canceling"],
+    [/\bmemoris\w*\b/i, "memorize"], [/\bapologis\w*\b/i, "apologize"],
+    [/\brecognis\w*\b/i, "recognize"], [/\borganis\w*\b/i, "organize"],
+    [/\bpractis\w*\b/i, "practice"], [/\brealis\w*\b/i, "realize"],
+    [/\bneighbour\w*\b/i, "neighbor"], [/\blabour\w*\b/i, "labor"],
+    [/\bcolour\w*\b/i, "color"], [/\bfavour\w*\b/i, "favor"],
+    [/\bhonour\w*\b/i, "honor"], [/\bharbour\w*\b/i, "harbor"],
+    [/\btheatre\b/i, "theater"], [/\bcentre\b/i, "center"],
+    [/\bgrey\b/i, "gray"], [/\bwhilst\b/i, "while"], [/\bamongst\b/i, "among"],
+    [/\blearnt\b/i, "learned"], [/\bspelt\b/i, "spelled"],
+  ];
+  let style = [];
+  for (const l of lessons) {
+    for (const [field, text] of [["title", l.title], ["blurb", l.blurb],
+                                 ["intro", l.intro], ["note", l.gtitle + " " + l.gbody]]) {
+      if (!text) continue;
+      for (const [re, want] of BRITISH) {
+        const hit = re.exec(text);
+        if (hit) style.push("L" + l.num + " " + l.title + " (" + field + "): " +
+                            hit[0] + "  ->  " + want);
+      }
+      if (/—|--/.test(text)) {
+        style.push("L" + l.num + " " + l.title + " (" + field + "): em dash");
+      }
+    }
+  }
+  if (style.length) fail("not US English, or uses an em dash", "\n      " + style.join("\n      "));
+  else ok("US spelling throughout, no em dashes");
+}
+
 /* -------------------------------------------- runs the curriculum should cover */
 
 console.log("\ncheck-lessons: ordered runs");
