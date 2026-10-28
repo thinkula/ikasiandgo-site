@@ -7,3 +7,6 @@
 # Solid-compound food names (Xuxen prefers the hyphenated form; we keep solid)
 esnegaina        # cream (Xuxen: esne-gaina)
 intxaursaltsa    # walnut cream sauce (Xuxen: intxaur-saltsa)
+
+# Not a word at all
+II               # Roman numeral in the lesson subtitle "Janaria eta edaria II"
