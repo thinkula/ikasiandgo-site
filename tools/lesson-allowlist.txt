@@ -1,0 +1,22 @@
+# Words a lesson's grammar note glosses on purpose without teaching them.
+#
+# check-lessons fails when a note glosses a Basque word that no lesson ever
+# teaches, because that is how four of the six meal words, non dago and
+# ordu biak all ended up explained but never practiced.
+#
+# It cannot tell that case apart from a note citing a word to explain where a
+# DIFFERENT word came from. "egon (to stay) + gela = egongela" teaches
+# egongela; egon is the raw material. Those belong here.
+#
+# Format: <lesson number>:<word id>, one per line. A bare <word id> exempts
+# the word everywhere. Add a reason.
+
+20:egon            # cites egon to derive egongela, the word the lesson teaches
+30:berdintasuna    # illustrates the -tasuna suffix, alongside askatasuna
+42:igerilekua      # illustrates the -leku suffix; a pool is not a road word
+
+# elkarbizitza is B2 and Around Town is a free lesson, so it cannot be taught
+# there without putting a locked word in the free tier. It reads as a cultural
+# aside rather than vocabulary, so the note stands. Teach it in a B2 society
+# lesson and drop this line.
+19:elkarbizitza
