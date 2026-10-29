@@ -1,7 +1,7 @@
 {
   "_comment": "What the build on the App Store actually contains. The website must advertise this, not whatever is on main. Update it when a version goes live, not when it is merged.",
   "_why": "Vocabulary and stories travel over the air, so the site can quote those straight from vocabulary.json the moment they are published. Lessons and chapters are compiled into the binary, so they only exist for people once a release ships. Stamping those from main made the site promise 50 lessons while the App Store was still serving 38.",
-  "version": "1.4",
+  "version": "1.5",
   "lessons": 50,
   "chapters": 15,
   "lessonsFree": 19
