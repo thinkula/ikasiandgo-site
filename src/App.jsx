@@ -1502,7 +1502,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     freeCount={VOCABULARY.filter(isFreeWord).length}
     onStart={function(){doPurchase(function(){if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");});}}
   />}
-    {screen==="games"&&<GamesScreen onBack={function(){setScreen("home");}} onPairs={function(){setScreen("pairs");}} onTap={function(){setScreen("tap");}} onTxoko={function(){setScreen("txoko");}} onOrdutegi={function(){setScreen("ordutegi");}} onKoloreak={function(){setScreen("koloreak");}} onArbola={function(){setScreen("arbola");}} isPro={isProOrTrial}/>}
+    {screen==="games"&&<GamesScreen onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onPairs={function(){setScreen("pairs");}} onTap={function(){setScreen("tap");}} onTxoko={function(){setScreen("txoko");}} onOrdutegi={function(){setScreen("ordutegi");}} onKoloreak={function(){setScreen("koloreak");}} onArbola={function(){setScreen("arbola");}} isPro={isProOrTrial}/>}
     {screen==="pairs"&&<PairsScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="tap"&&<TapScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="txoko"&&<BasqueKitchenScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
@@ -3025,7 +3025,11 @@ function PairsScreen(props){
   );
 }
 function GamesScreen(props){
-  var onBack=props.onBack,onPairs=props.onPairs,onTap=props.onTap,onTxoko=props.onTxoko,onOrdutegi=props.onOrdutegi,onKoloreak=props.onKoloreak,onArbola=props.onArbola,isPro=props.isPro;
+  var onBack=props.onBack,onPairs=props.onPairs,onTap=props.onTap,onTxoko=props.onTxoko,onOrdutegi=props.onOrdutegi,onKoloreak=props.onKoloreak,onArbola=props.onArbola,isPro=props.isPro,onUpgrade=props.onUpgrade;
+  // pro:true locks a game behind the purchase. All six games that shipped
+  // before this flag existed stay free, deliberately: they were free from
+  // day one and taking them back would punish the people who already have
+  // them. New games can set it.
   var _pairsBest=useState(null);var pairsBest=_pairsBest[0];var setPairsBest=_pairsBest[1];
   var _tapBest=useState(null);var tapBest=_tapBest[0];var setTapBest=_tapBest[1];
   var _txokoBest=useState(null);var txokoBest=_txokoBest[0];var setTxokoBest=_txokoBest[1];
@@ -3043,12 +3047,12 @@ function GamesScreen(props){
   },[]);
 
   var games=[
-    {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1–B2","Two modes"]},
-    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 28 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["28 dishes","5 steps each","3 lives"]},
-    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 members each","A1–B2"]},
-    {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"]},
-    {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["12 scenarios","Numbers & time","A1–B1"]},
-    {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4–8 pairs","Timed","All topics"]},
+    {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1–B2","Two modes"],pro:false},
+    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","3 lives"],pro:false},
+    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 members each","A1–B2"],pro:false},
+    {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
+    {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["12 scenarios","Numbers & time","A1–B1"],pro:false},
+    {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4–8 pairs","Timed","All topics"],pro:false},
   ];
 
   return(
@@ -3083,14 +3087,17 @@ function GamesScreen(props){
       </div>
 
       <div style={{padding:"14px"}}>
-        {games.map(function(g){return(
-          <button key={g.id} onClick={g.fn} style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",overflow:"hidden",padding:0,boxShadow:"0 2px 12px rgba(0,0,0,0.09)",display:"block"}}>
+        {games.map(function(g){
+          var gLocked=!isPro&&!!g.pro;
+          return(
+          <button key={g.id} onClick={gLocked?onUpgrade:g.fn} style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",overflow:"hidden",padding:0,boxShadow:"0 2px 12px rgba(0,0,0,0.09)",display:"block"}}>
             {/* Gradient hero */}
             <div style={{background:"linear-gradient(135deg,"+g.dark+" 0%,"+g.color+" 100%)",padding:"18px 18px 14px",position:"relative",overflow:"hidden"}}>
               <div style={{position:"absolute",inset:0,opacity:0.05,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"16px 16px"}}/>
               <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",marginBottom:10,position:"relative"}}>
                 <span style={{fontSize:38,lineHeight:1}}>{g.emoji}</span>
                 <span style={{fontSize:10,fontWeight:800,color:"rgba(255,255,255,0.95)",backgroundColor:"rgba(255,255,255,0.18)",padding:"3px 10px",borderRadius:20,letterSpacing:0.5,marginTop:4}}>{g.tag}</span>
+                {gLocked&&<span style={{fontSize:10,fontWeight:900,color:"#fff",backgroundColor:"#F59E0B",padding:"3px 9px",borderRadius:20,letterSpacing:0.4,marginTop:4,marginLeft:6}}>PRO</span>}
               </div>
               <p style={{margin:"0 0 4px",fontSize:18,fontWeight:900,color:"#fff",letterSpacing:-0.3,position:"relative"}}>{g.title}</p>
               <p style={{margin:0,fontSize:12,color:"rgba(255,255,255,0.75)",fontWeight:500,lineHeight:1.4,position:"relative"}}>{g.desc}</p>
@@ -4637,11 +4644,11 @@ function KoloreakScreen(props){
   function nextQuestion(pool,currentTotal){
     if(currentTotal>=rounds){
       var final=scoreRef.current;
-      setBest(function(b){
-        var nb=Math.max(b,final);
-        try{STORE.set('koloreak_best',String(nb)).catch(function(){});}catch(e){}
-        return nb;
-      });
+      setBest(function(b){return Math.max(b,final);});
+      try{
+        var nb=Math.max(best,final);
+        STORE.set('koloreak_best',String(nb)).catch(function(){});
+      }catch(e){}
       setWon(true);setActive(false);return;
     }
     // Exclude last question to prevent repeats
@@ -4691,9 +4698,13 @@ function KoloreakScreen(props){
   var qColor=question&&COLOR_HEX[question.id];
   var previewColors=Object.values(COLOR_HEX).slice(0,9);
   var activeBg="#F5F3FF";
-  if(active&&qColor&&qColor!=="#FFFFFF"&&qColor!=="#E5E5E5"&&qColor!=="#F5F5F5"){
+  if(active&&qColor&&qColor!=="#FFFFFF"&&qColor!=="#E5E5E5"){
+    // 8% of the color over white. The old form was c*0.08+240, which passes 255
+    // for any channel above 187, so most of the palette was clamped and the
+    // palest colors tinted to plain white.
+    var tint=function(c){return Math.round(255-(255-c)*0.08);};
     var r2=parseInt(qColor.slice(1,3),16),g2=parseInt(qColor.slice(3,5),16),b2=parseInt(qColor.slice(5,7),16);
-    activeBg="rgb("+(Math.round(r2*0.08+240))+","+(Math.round(g2*0.08+240))+","+(Math.round(b2*0.08+240))+")";
+    activeBg="rgb("+tint(r2)+","+tint(g2)+","+tint(b2)+")";
   }
 
   return(
