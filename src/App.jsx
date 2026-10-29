@@ -3048,7 +3048,7 @@ function GamesScreen(props){
 
   var games=[
     {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1–B2","Two modes"],pro:false},
-    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","3 lives"],pro:false},
+    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 26 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["26 dishes","5 steps each","3 lives"],pro:false},
     {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 members each","A1–B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["12 scenarios","Numbers & time","A1–B1"],pro:false},
@@ -3503,13 +3503,6 @@ function BasqueKitchenScreen(props){
       {instruction:"Add the garlic",keyword:"baratxuria",hint:"Just one clove, sliced thin"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Mushrooms need more salt than you think"},
     ]},
-    {name:"Mamia",emoji:"🍮",desc:"Traditional Basque curd dessert",color:"#0F766E",dark:"#134E4A",bg:"#F0FDFA",stages:[
-      {instruction:"Warm the milk gently",keyword:"esnea",hint:"Sheep's milk if you can find it"},
-      {instruction:"Add the sugar",keyword:"azukrea",hint:"Just a little: it should be subtle"},
-      {instruction:"Pour into bowls",keyword:"jan",hint:"Traditional clay bowls work best"},
-      {instruction:"Serve with walnuts",keyword:"intxaurra",hint:"Crushed walnuts on top is traditional"},
-      {instruction:"Taste for sweetness",keyword:"goxoa",hint:"It should be delicately sweet"},
-    ]},
     {name:"Gaztaopila",emoji:"🧀",desc:"Basque cheese flatbread",color:"#CA8A04",dark:"#713F12",bg:"#FEFCE8",stages:[
       {instruction:"Mix the flour",keyword:"ogia",hint:"Use the bread dough as a base"},
       {instruction:"Grate the cheese",keyword:"gazta",hint:"Idiazabal: smoky and salty"},
@@ -3627,6 +3620,10 @@ function BasqueKitchenScreen(props){
 
   React.useEffect(function(){
     try{STORE.get('kitchen_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    // Which units are finished is part of the progress this screen shows,
+    // so it has to outlive the screen. Only the high score used to be saved,
+    // and every dot reset the moment you left.
+    try{STORE.get('kitchen_done').then(function(r){if(r&&r.value){try{var a=JSON.parse(r.value);if(Array.isArray(a))setCompletedDishes(a);}catch(e){}}}).catch(function(){});}catch(e){}
   },[]);
 
   function findWord(keyword){
@@ -3641,10 +3638,18 @@ function BasqueKitchenScreen(props){
     var correct=currentDish.stages[currentStageIdx];
     var correctWord=findWord(correct.keyword);
     if(!correctWord)return [];
-    // Distractors: food words only. A cooking exercise must never offer
-    // non-food words as ingredient options (they read as dishes under the
-    // fallback pan emoji and are free giveaways anyway).
-    var foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id&&w.cefr==="A1";}),correctWord);
+    // Distractors come from the answer's own topic. For the food stages, which
+    // is all but three of them, that is the food-only rule this always had: a
+    // cooking exercise must never offer non-food words as ingredient options,
+    // because they read as dishes under the fallback pan emoji. The three
+    // stages that teach a greeting or an adjective were the problem, since one
+    // non-food word among three foods gives the answer away without any Basque.
+    var topic=correctWord.topic||"food";
+    var byTopic=function(lvl){return noMeaningClash(VOCABULARY.filter(function(w){
+      return w.topic===topic&&w.id!==correctWord.id&&(!lvl||w.cefr===lvl);
+    }),correctWord);};
+    var foodPool=byTopic("A1");
+    if(foodPool.length<3)foodPool=byTopic(null);
     if(foodPool.length<3)foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id;}),correctWord);
     var distractors=shuffled(foodPool).slice(0,3);
     return shuffled([correctWord].concat(distractors.slice(0,3)));
@@ -3677,15 +3682,11 @@ function BasqueKitchenScreen(props){
         var nextStage=stage+1;
         if(nextStage>=dish.stages.length){
           haptic("success");sfx("complete");
-          setCompletedDishes(function(prev){
-            if(prev.indexOf(dish.name)===-1)return prev.concat([dish.name]);
-            return prev;
-          });
-          setBest(function(b){
-            var nb=Math.max(b,scoreRef.current);
-            try{STORE.set('kitchen_best',String(nb)).catch(function(){});}catch(e){}
-            return nb;
-          });
+          var doneNow=completedDishes.indexOf(dish.name)===-1?completedDishes.concat([dish.name]):completedDishes;
+          setCompletedDishes(doneNow);
+          try{STORE.set('kitchen_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
+          setBest(function(b){return Math.max(b,scoreRef.current);});
+          try{STORE.set('kitchen_best',String(Math.max(best,scoreRef.current))).catch(function(){});}catch(e){}
           setDone(true);
         }else{
           setStage(nextStage);setSel(null);setShowHint(false);
@@ -3697,11 +3698,9 @@ function BasqueKitchenScreen(props){
       setStreak(0);
       setFlash('wrong');
       setTimeout(function(){setFlash(null);},500);
-      setLives(function(l){
-        var nl=l-1;
-        if(nl<=0){setTimeout(function(){setDone(true);},700);}
-        return nl;
-      });
+      var livesLeft=lives-1;
+      setLives(livesLeft);
+      if(livesLeft<=0){setTimeout(function(){setDone(true);},700);}
       setTimeout(function(){setSel(null);setShowHint(true);},950);
     }
   }
@@ -4240,6 +4239,10 @@ function OrduegiScreen(props){
 
   React.useEffect(function(){
     try{STORE.get('ordutegi_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    // Which units are finished is part of the progress this screen shows,
+    // so it has to outlive the screen. Only the high score used to be saved,
+    // and every dot reset the moment you left.
+    try{STORE.get('ordutegi_done').then(function(r){if(r&&r.value){try{var a=JSON.parse(r.value);if(Array.isArray(a))setCompleted(a);}catch(e){}}}).catch(function(){});}catch(e){}
     return function(){clearInterval(timerRef.current);};
   },[]);
 
@@ -4321,7 +4324,9 @@ function OrduegiScreen(props){
         if(next>=scenario.stages.length){
           haptic("success");sfx("complete");
           clearInterval(timerRef.current);
-          setCompleted(function(prev){return prev.indexOf(scenario.name)===-1?prev.concat([scenario.name]):prev;});
+          var doneNow=completed.indexOf(scenario.name)===-1?completed.concat([scenario.name]):completed;
+          setCompleted(doneNow);
+          try{STORE.set('ordutegi_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
           setBest(function(b){
             var nb=Math.max(b,scoreRef.current);
             try{STORE.set('ordutegi_best',String(nb)).catch(function(){});}catch(e){}
@@ -5025,6 +5030,10 @@ function ArbolaScreen(props){
 
   React.useEffect(function(){
     try{STORE.get('arbola_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    // Which units are finished is part of the progress this screen shows,
+    // so it has to outlive the screen. Only the high score used to be saved,
+    // and every dot reset the moment you left.
+    try{STORE.get('arbola_done').then(function(r){if(r&&r.value){try{var a=JSON.parse(r.value);if(Array.isArray(a))setCompleted(a);}catch(e){}}}).catch(function(){});}catch(e){}
   },[]);
 
   function findWord(keyword){
@@ -5072,7 +5081,9 @@ function ArbolaScreen(props){
         var next=step+1;
         if(next>=family.members.length){
           haptic("success");sfx("complete");
-          setCompleted(function(prev){return prev.indexOf(family.name)===-1?prev.concat([family.name]):prev;});
+          var doneNow=completed.indexOf(family.name)===-1?completed.concat([family.name]):completed;
+          setCompleted(doneNow);
+          try{STORE.set('arbola_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
           setBest(function(b){
             var nb=Math.max(b,scoreRef.current);
             try{STORE.set('arbola_best',String(nb)).catch(function(){});}catch(e){}
