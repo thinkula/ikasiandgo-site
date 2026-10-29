@@ -4095,7 +4095,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "POS-ten NOW soo eh-sah-GOO-tseh-ak",
-      "notes": "A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorising whole as an essential social expression.",
+      "notes": "A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorizing whole as an essential social expression.",
       "mcOnly": true,
       "example": {
         "basque": "Pozten nau zurekin hitz egiteak.",
@@ -5134,19 +5134,6 @@
       }
     },
     {
-      "id": "berrogeitahamar",
-      "basque": "Berrogeita hamar",
-      "english": "Fifty",
-      "cefr": "A2",
-      "topic": "numbers",
-      "pronunciation": "ber-roh-GAY-tah AH-mar",
-      "notes": "50 = berrogei (40) + ta (and) + hamar (10), so two twenties and ten. The same ending builds 30 from 20 and 70 from 60.",
-      "example": {
-        "basque": "Berrogeita hamar euro balio du.",
-        "english": "It costs fifty euros."
-      }
-    },
-    {
       "id": "hirurogeita_hamar",
       "basque": "Hirurogeita hamar",
       "english": "Seventy",
@@ -5374,7 +5361,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "BEH-ghee-ah",
-      "notes": "Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begi on = good eye / lucky charm. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favourably on something.",
+      "notes": "Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begi on = good eye / lucky charm. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favorably on something.",
       "example": {
         "basque": "Begia min dut.",
         "english": "My eye hurts."

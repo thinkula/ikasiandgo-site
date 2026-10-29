@@ -552,7 +552,7 @@ const SEED_VOCAB=[
 {"id":"lehena","basque":"Lehena","english":"First","cefr":"A2","topic":"numbers","pronunciation":"LEH-heh-nah","notes":"Lehena = first. Bigarrena = second. Hirugarrena = third. Ordinals use -garren suffix after 1st.","example":{"basque":"Lehena naiz.","english":"I am first."}},
 {"id":"ordu_batean","basque":"Ordu batean","english":"At one o'clock","cefr":"A2","topic":"time","pronunciation":"OR-doo bah-TEH-an","notes":"One o'clock. Ordu bietan = at two o'clock. Zer ordu da? = What time is it? Ordu erdi = half an hour; half past uses eta erdiak. Ordua hartu = to make an appointment (hitzordua = appointment). Ordutegia = timetable/schedule.","example":{"basque":"Ordu batean elkartuko gara.","english":"We will meet at one o'clock."}},
 {"id":"eta_erdia","basque":"Eta erdiak","english":"Half past","cefr":"A2","topic":"time","pronunciation":"EH-tah ER-dee-ak","notes":"Erdia = half. Ordu bat eta erdiak = half past one (literally one and the halves). Ordu bi eta erdiak = half past two. Note the plural -ak and plural verb: ordu bat eta erdiak dira.","example":{"basque":"Ordu bat eta erdiak dira.","english":"It is half past one."}},
-{"id":"pozten_nau","basque":"Pozten nau zu ezagutzeak","english":"Nice to meet you","cefr":"A1","topic":"greetings","pronunciation":"POS-ten NOW soo eh-sah-GOO-tseh-ak","notes":"A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorising whole as an essential social expression.","mcOnly":true,"example":{"basque":"Pozten nau zurekin hitz egiteak.","english":"Talking with you makes me happy."}},
+{"id":"pozten_nau","basque":"Pozten nau zu ezagutzeak","english":"Nice to meet you","cefr":"A1","topic":"greetings","pronunciation":"POS-ten NOW soo eh-sah-GOO-tseh-ak","notes":"A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). This grammatically complex phrase is worth memorizing whole as an essential social expression.","mcOnly":true,"example":{"basque":"Pozten nau zurekin hitz egiteak.","english":"Talking with you makes me happy."}},
 {"id":"nongoa","basque":"Nongoa zara?","english":"Where are you from?","cefr":"A1","topic":"greetings","pronunciation":"NON-goh-ah SAH-rah","notes":"Nongo = of where + -a (article) = where-from-person. Answer with -koa: Bilbokoa naiz = I am from Bilbao.","example":{"basque":"Nongoa zara zu?","english":"Where are you from?"}},
 {"id":"zenbat_urte","basque":"Zenbat urte dituzu?","english":"How old are you?","cefr":"A1","topic":"greetings","pronunciation":"SEN-bat OOR-teh dee-TOO-soo","notes":"Literally how many years do you have? Basque uses have not be for age. Hogei urte ditut = I am twenty.","mcOnly":true,"example":{"basque":"Zenbat urte dituzu orain?","english":"How old are you now?"}},
 {"id":"negozioa","basque":"Negozioa","english":"Business / Deal","cefr":"B1","topic":"work","pronunciation":"neh-goh-SEE-oh-ah","notes":"Business or a deal. Negozio ona = good business. Negozioak egin = to do business. From Spanish negocio.","example":{"basque":"Negozio ona da.","english":"It is good business."}},
@@ -632,7 +632,6 @@ const SEED_VOCAB=[
 {"id":"hamahiru","basque":"Hamahiru","english":"Thirteen","cefr":"A2","topic":"numbers","pronunciation":"hah-mah-EE-roo","notes":"Hamar (10) + hiru (3) = 13. The teen numbers follow this pattern: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16, hamazazpi=17, hamazortzi=18; only 19 is irregular: hemeretzi.","example":{"basque":"Hamahiru urte ditu.","english":"He is thirteen years old."}},
 {"id":"hamalau","basque":"Hamalau","english":"Fourteen","cefr":"A2","topic":"numbers","pronunciation":"hah-mah-LOW (rhymes with now)","notes":"Hamar (10) + lau (4) = 14. Once you know the single digits and hamar, all Basque teen numbers follow perfectly: hamar + digit.","example":{"basque":"Hamalau egun barru.","english":"In fourteen days."}},
 {"id":"berrogei","basque":"Berrogei","english":"Forty","cefr":"A2","topic":"numbers","pronunciation":"ber-ROH-gay","notes":"40 = two twenties (bi + hogei). The vigesimal system: hogei=20, berrogei=40, hirurogei=60, laurogei=80. French also counts this way: quatre-vingts = 80.","example":{"basque":"Berrogei urte ditu.","english":"She is forty years old."}},
-{"id":"berrogeitahamar","basque":"Berrogeita hamar","english":"Fifty","cefr":"A2","topic":"numbers","pronunciation":"ber-roh-GAY-tah AH-mar","notes":"50 = berrogei (40) + ta (and) + hamar (10), so two twenties and ten. The same ending builds 30 from 20 and 70 from 60.","example":{"basque":"Berrogeita hamar euro balio du.","english":"It costs fifty euros."}},
 {"id":"hirurogeita_hamar","basque":"Hirurogeita hamar","english":"Seventy","cefr":"A2","topic":"numbers","pronunciation":"hee-roo-ROH-gay-tah hah-MAR","notes":"70 = three-twenties + ten. Hirurogei (60) + ta (and) + hamar (10) = 70. The complete round numbers in Basque vigesimal: 20,40,60,80,100.","example":{"basque":"Hirurogeita hamar euro.","english":"Seventy euros."}},
 {"id":"laurogei","basque":"Laurogei","english":"Eighty","cefr":"A2","topic":"numbers","pronunciation":"low-ROH-gay (low rhymes with now)","notes":"80 = four twenties (lau=4 + hogei=20). Compare: French quatre-vingts = 80. The Basque and Breton vigesimal systems may share ancient roots.","example":{"basque":"Laurogei kilogramo.","english":"Eighty kilograms."}},
 {"id":"hamasei","basque":"Hamasei","english":"Sixteen","cefr":"A2","topic":"numbers","pronunciation":"hah-mah-SAY","notes":"Hamar (10) + sei (6) = 16. Hamasei sounds like 'hammer-say'. The teen series: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16.","example":{"basque":"Hamasei urte ditu.","english":"She is sixteen years old."}},
@@ -650,7 +649,7 @@ const SEED_VOCAB=[
 {"id":"prestatu","basque":"Prestatu","english":"To prepare / To cook","cefr":"A2","topic":"food","pronunciation":"pres-TAH-too","notes":"Prestatu = to prepare or get ready. Afaria prestatu = to prepare dinner. Janaria prestatu = to prepare food. Also used outside cooking: bidaia prestatu = to prepare a trip. Very common verb in everyday Basque.","example":{"basque":"Afaria prestatzen ari naiz.","english":"I am preparing dinner."}},
 {"id":"jan","basque":"Jan","english":"To eat","cefr":"A1","topic":"food","pronunciation":"YAN","notes":"To eat, one of the most essential verbs. Jan = eat (also used as noun: janaria = food). Zer jan duzu? = What did you eat? Jaten ari naiz = I am eating. Jan eta edan = eat and drink. The j is a y sound.","example":{"basque":"Zer jan nahi duzu?","english":"What do you want to eat?"}},
 {"id":"edan","basque":"Edan","english":"To drink","cefr":"A1","topic":"food","pronunciation":"EH-dan","notes":"To drink. Zer edan nahi duzu? = What do you want to drink? Edaten ari naiz = I am drinking. Jan eta edan = eat and drink. Edaria = drink (noun). Edateko ura = drinking water.","example":{"basque":"Zer edan nahi duzu?","english":"What do you want to drink?"}},
-{"id":"begia","basque":"Begia","english":"Eye","cefr":"A1","topic":"body","pronunciation":"BEH-ghee-ah","notes":"Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begi on = good eye / lucky charm. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favourably on something.","example":{"basque":"Begia min dut.","english":"My eye hurts."}},
+{"id":"begia","basque":"Begia","english":"Eye","cefr":"A1","topic":"body","pronunciation":"BEH-ghee-ah","notes":"Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begi on = good eye / lucky charm. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favorably on something.","example":{"basque":"Begia min dut.","english":"My eye hurts."}},
 {"id":"lepoa","basque":"Lepoa","english":"Neck","cefr":"A1","topic":"body","pronunciation":"LEH-poh-ah","notes":"Neck. Lepo = neck (root). Lepokoa = necklace (neck-thing). Lepoa mindu = stiff neck. Lepora hartu = to put on one's shoulders (to take responsibility). Leporaino nago = I'm up to my neck (swamped/fed up).","example":{"basque":"Lepoa min dut.","english":"My neck hurts."}},
 {"id":"belaunak","basque":"Belaunak","english":"Knees","cefr":"A2","topic":"body","pronunciation":"beh-LOW-nak (LOW rhymes with now)","notes":"Knees (plural). Belaun = knee (singular). Belaunetan = on one's knees. Belaunikatu = to kneel. Belaunaldi = generation, from belaun (knee; in older Basque also a link of lineage) + aldi (period).","example":{"basque":"Belaunak min ditut.","english":"My knees hurt."}},
 {"id":"hatzak","basque":"Hatzak","english":"Fingers","cefr":"A2","topic":"body","pronunciation":"HAH-tsak","notes":"Fingers (plural). Hatz = finger (singular). Behatza (oineko hatza) = toe. Oinatza = footprint. Hatz erakuslea = index finger (pointing finger). Hatz txikia = little finger. Hatzaz erakutsi = to point at.","example":{"basque":"Hatzak garbitu behar ditut.","english":"I need to clean my fingers."}},
@@ -1656,7 +1655,7 @@ function HomeScreen(props){
     </div>
 
     {/* ── The path comes first. It is what the App Store listing leads with,
-           and with 50 lessons it is the product; the quiz is the side door. ── */}
+           and at this length it is the product; the quiz is the side door. ── */}
     <div style={{padding:"14px 14px 0"}}>
       <button onClick={onLearn} style={{width:"100%",border:"none",borderRadius:16,padding:"18px 20px",cursor:"pointer",fontFamily:"inherit",textAlign:"left",background:"linear-gradient(135deg,#5B21B6,#7C3AED)",boxShadow:"0 4px 16px rgba(124,58,237,0.3)",position:"relative",overflow:"hidden",display:"flex",alignItems:"center",gap:14}}>
         <div style={{position:"absolute",top:-20,right:-20,width:90,height:90,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.08)"}}/>
@@ -5301,13 +5300,20 @@ function ArbolaScreen(props){
 
 
 // ════════════════════════════════════════════
-//  A1 LEARNING PATH (Ikasbidea)
-//  Lessons sequence existing A1 vocabulary with light connective teaching.
-//  word ids reference entries in the vocabulary; practice reuses the quiz engine.
+//  THE LEARNING PATH (Ikasbidea)
+//  Lessons sequence the vocabulary with light connective teaching. Word ids
+//  reference entries in the vocabulary; practice reuses the quiz engine.
 // ════════════════════════════════════════════
-// The 19 lessons read as one long scroll, so they are grouped into four
-// chapters. Each lesson still unlocks in order; the chapters only give the
-// path a shape and a nearer milestone than "3 of 19".
+// The path runs A1 through B2 and teaches every word in the vocabulary. It
+// reads as one very long scroll, so it is grouped into chapters: each lesson
+// still unlocks in order, and the chapters only give it a shape and a nearer
+// milestone than "3 of 97".
+//
+// These two arrays have to agree. A lesson whose num falls in no CHAPTERS
+// range never draws a card, and one inside two ranges draws two. Lesson
+// numbers are positional and get rewritten whenever the path is resequenced;
+// lesson ids never change, because progress is stored by id.
+// npm run check-lessons enforces all of that.
 var CHAPTERS=[
   {n:1,name:"First steps",from:1,to:5},
   {n:2,name:"Counting and kin",from:6,to:9},
@@ -5506,7 +5512,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD0D",
     blurb:"Big, small, good, bad, and more.",
     intro:"Adjectives bring your sentences to life. With words like handia (big), txikia (small), ona (good), and txarra (bad), you can describe almost anything around you. These are some of the most useful words in the whole language.",
-    grammar:{title:"Adjectives come after",body:"Remember from the colors lesson: in Basque the adjective follows the noun. So \"a big house\" is etxe handia, and \"a good book\" is liburu ona. The describing word comes second, the opposite order from English."},
+    grammar:{title:"Adjectives come after",body:"As with the colors, in Basque the adjective follows the noun. So \"a big house\" is etxe handia, and \"a good book\" is liburu ona. The describing word comes second, the opposite order from English."},
     wordIds:["handia","txikia","ona","txarra","zaharra","berria","ederra","gaztea","gehiago","zuzen"],
   },
   {
@@ -5549,7 +5555,7 @@ var LESSONS=[
     titleEu:"Janaria eta edaria II",
     emoji:"\uD83C\uDF77",
     blurb:"Drinks, meals, and Basque specialties.",
-    intro:"Building on your first food lesson, these words add drinks and dishes you will meet in any Basque bar or kitchen. Sagardoa (cider) and pintxoa (the famous bar snack) are cornerstones of Basque food culture, worth knowing before any visit.",
+    intro:"Building on the food words you already have, these add the drinks and dishes you will meet in any Basque bar or kitchen. Sagardoa (cider) and pintxoa (the famous bar snack) are cornerstones of Basque food culture, worth knowing before any visit.",
     grammar:{title:"Meals revisited",body:"You learned gosaria (breakfast) earlier. Here are the others: bazkaria (lunch) and afaria (dinner). Each pairs with its own verb, bazkaldu and afaldu, sharing the same root as the meal name, just as gosari and gosaldu do."},
     wordIds:["ardoa","sagardoa","garagardoa","pintxoa","gosaria","bazkaria","afaria","gosaldu","bazkaldu","afaldu","oilaskoa","arrautza","esnea","menua"],
   },
@@ -5629,7 +5635,7 @@ var LESSONS=[
     titleEu:"Azokan",
     emoji:"\uD83E\uDD55",
     blurb:"Fruit and vegetables, by the names you would ask for them.",
-    intro:"The first food lesson covered what you eat. This is what you buy, which is a different list and the one you need standing in front of a stall.",
+    intro:"The food words so far covered what you eat. This is what you buy, which is a different list and the one you need standing in front of a stall.",
     grammar:{title:"Where the vegetables came from",body:"Many of these names arrived with the thing itself. arroza came from Arabic ar-ruzz by way of Spanish, and azukrea from as-sukkar along the same road. tipula goes back to Latin cepulla, a little onion, which makes Spanish cebolla its cousin rather than its parent. sagarra is native and old, and it is the first half of sagardoa, cider, which is apple plus wine."},
     wordIds:["tomatea","patata","tipula","azenarioa","letxuga","baratxuria","sagarra","banana"],
   },
@@ -5653,7 +5659,7 @@ var LESSONS=[
     titleEu:"Familia osoa",
     emoji:"\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67",
     blurb:"Aunts, uncles, parents, and a sibling system that depends on you.",
-    intro:"The first family lesson covered the household. This one widens it, and introduces something Basque does that very few languages bother with.",
+    intro:"The family words so far covered the household. This one widens it, and introduces something Basque does that very few languages bother with.",
     grammar:{title:"Whose sister you are",body:"Basque chooses the word for a sibling according to who is speaking. A man calls his sister arreba, while a woman calls her sister ahizpa. A woman calls her brother neba, while a man calls his brother anaia. Nothing about the sibling changes, only the person talking. gizona, man, is the root of a larger family of words, including gizakia, a human being."},
     wordIds:["arreba","neba","osaba","izeba","gurasoak","gizona","emakumea","mutila","neska","umea","pertsona"],
   },
@@ -5715,7 +5721,7 @@ var LESSONS=[
     blurb:"Teens, tens, and the twenty that holds them together.",
     intro:"Basque counts in twenties. You already know hogei, twenty, from the clock. This lesson shows the two things the language does with it. Once you see that forty is two twenties and thirty is twenty and ten, the big numbers stop needing to be memorized one at a time.",
     grammar:{title:"Twenty, doubled and extended",body:"Basque builds its big numbers on hogei, twenty, in two ways. It counts twenties, so berrogei (40) is two of them, hirurogei (60) is three, laurogei (80) is four. And it adds ten, so hogeita hamar (30) is twenty and ten, and that same ending turns forty into fifty and sixty into seventy. French kept a trace of the first habit in quatre-vingts, four twenties, for 80."},
-    wordIds:["hamahiru","hamalau","hamabost","hamasei","hamazazpi","hamazortzi","hemeretzi","hogei","hogeitahamar","berrogei","berrogeitahamar","hirurogei","laurogei"],
+    wordIds:["hamahiru","hamalau","hamabost","hamasei","hamazazpi","hamazortzi","hemeretzi","hogei","hogeitahamar","berrogei","hirurogei","laurogei"],
   },
   {
     id:"l24_seasons",
@@ -5881,7 +5887,7 @@ var LESSONS=[
     titleEu:"Senideak",
     emoji:"👪",
     blurb:"The wider family, and the people who live next door.",
-    intro:"The first family lesson covered the house you grew up in. This one covers everyone else: the spouse, the cousins, the nieces and nephews, and the neighbor who counts as family anyway.",
+    intro:"The family words so far covered the house you grew up in. This one covers everyone else: the spouse, the cousins, the nieces and nephews, and the neighbor who counts as family anyway.",
     grammar:{title:"-kide means the one you share it with",body:"kide is a member or companion. Add it and you get the person you share the thing with: bikotekidea is your partner (bikote, couple), lankidea is your colleague (lan, work), ezkontidea is your spouse (ezkon, marriage). It is one of the most productive endings in the language."},
     wordIds:["senarra","emaztea","bikotea","bikotekidea","bizilaguna","lankidea","iloba","lehengusua","lehengusina","senitartea","lobak","ezkontidea"],
   },
@@ -6366,7 +6372,7 @@ var LESSONS=[
     wordIds:["enpresaria","helburua","aukera","baldintza","aurrekontua","inbertsioa","negoziaketa","estrategia"],
   },
   {
-    id:"l65_labour",
+    id:"l65_labor",
     pro:true,
     num:88,
     title:"Organized Labor",
@@ -6445,7 +6451,7 @@ var LESSONS=[
     titleEu:"Adeitasuna",
     emoji:"\uD83E\uDD1D",
     blurb:"Welcomes, toasts, apologies, and the good that ends them.",
-    intro:"You learned kaixo and agur in the first lesson. These are the formal versions, the ones for a letter, a speech, or a raised glass.",
+    intro:"You have had kaixo and agur since the very beginning. These are the formal versions, the ones for a letter, a speech, or a raised glass.",
     grammar:{title:"On, the good that ends a wish",body:"on means good, and it closes a whole family of wishes: egun on, gau on, zorte on. Good day, good night, good luck. ongi etorri, welcome, is ongi (well) plus etorri (to come), so come well, using the etorri you met among the verbs of movement. osasuna means health, and raised over a glass it is the Basque toast."},
     wordIds:["harrera_ona","agurra","adeitasuna","ongi_etorri","zorte_on","osasun","barkamen_eske"],
   },
@@ -6673,7 +6679,7 @@ function LearnScreen(props){
       )
     ),
     React.createElement("div",{style:{padding:"18px 16px calc(40px + env(safe-area-inset-bottom,0px))"}},
-      // Resume card. With fifty lessons the list opens at chapter one every
+      // Resume card. With a path this long the list opens at chapter one every
       // time, so without this a learner scrolls past everything they have
       // already finished to reach the one they are actually on.
       nextLesson?React.createElement("button",{onClick:function(){openLesson(nextLesson);},style:{display:"block",width:"100%",textAlign:"left",backgroundColor:"#fff",border:"2px solid #7C3AED",borderRadius:16,padding:13,marginBottom:16,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 14px rgba(124,58,237,0.18)"}},

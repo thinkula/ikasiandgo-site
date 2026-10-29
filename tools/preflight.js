@@ -216,14 +216,23 @@ try {
     // grows, so the description quotes one; an exact figure is wrong the moment a
     // word is added, and the reviewer notes quote one because Apple is told the
     // real number. Treating both as exact failed this check on every word added.
-    const claims = [...text.matchAll(/(\d{3,4})(\+?)\s+(?:words|entries)/g)].map(m => ({
-      n: parseInt(m[1], 10),
+    // The number may carry a thousands separator. Without allowing for one,
+    // "more than 1,000 words" matched the bare "000" and failed as a stale
+    // count of 0, which is the same spurious failure this rewrite removed.
+    const claims = [...text.matchAll(/(?<![\d,])(\d{1,3}(?:,\d{3})+|\d{3,5})(\+?)\s+(?:words|entries)/g)].map(m => ({
+      n: parseInt(m[1].replace(/,/g, ""), 10),
       floor: m[2] === "+" ||
         /(?:more than|over|at least)\s+$/i.test(text.slice(Math.max(0, m.index - 12), m.index)),
     }));
     const overPromised = claims.filter(c => c.floor && words < c.n);
     const stale = claims.filter(c => !c.floor && c.n !== words && c.n !== free);
-    const behind = claims.filter(c => c.floor && words >= c.n + 100);
+    // Only the largest floor is the headline claim. A sentence like "added
+    // over 100 words" is also floor-shaped, and treating it as the headline
+    // warned that a correct line was far behind the vocabulary.
+    const floors = claims.filter(c => c.floor).map(c => c.n);
+    const headline = floors.length ? Math.max(...floors) : 0;
+    const behind = (headline && words >= headline + 100 && headline >= words / 2)
+      ? [{ n: headline }] : [];
     if (overPromised.length) {
       fail(f + " promises more words than exist",
         "copy says at least " + [...new Set(overPromised.map(c => c.n))].join(", ") +

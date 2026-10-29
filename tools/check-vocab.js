@@ -39,6 +39,7 @@ const fs = require("fs");
 const path = require("path");
 const { execFileSync, spawnSync } = require("child_process");
 const https = require("https");
+const { readLessons } = require("./lessons");
 
 const ROOT = path.resolve(__dirname, "..");
 const VOCAB = path.join(ROOT, "vocabulary.json");
@@ -94,30 +95,6 @@ function tokenize(text) {
     .filter((t) => t && !/[0-9]/.test(t));
 }
 
-// The Basque subtitle on each lesson, read straight out of src/App.jsx. These
-// are written by hand in the source rather than coming from vocabulary.json,
-// so nothing else ever sees them: 97 of them existed before this function did.
-function lessonSubtitles() {
-  if (!fs.existsSync(APP)) return [];
-  const src = fs.readFileSync(APP, "utf8");
-  const open = /\n(?:var|const) LESSONS\s*=\s*\[/.exec(src);
-  if (!open) return [];
-  let depth = 1, i = open.index + open[0].length;
-  const from = i;
-  while (depth) {
-    if (src[i] === "[") depth++;
-    else if (src[i] === "]") depth--;
-    i++;
-  }
-  const out = [];
-  for (const chunk of src.slice(from, i - 1).split(/\n\s*\{\s*\n(?=\s*id:")/)) {
-    const id = /id:"(l\d+_\w+)"/.exec(chunk);
-    const eu = /titleEu:"((?:[^"\\]|\\.)*)"/.exec(chunk);
-    if (id && eu) out.push({ id: id[1], text: eu[1] });
-  }
-  return out;
-}
-
 function loadAllowlist() {
   const set = new Set();
   if (!fs.existsSync(ALLOWLIST)) return set;
@@ -164,7 +141,15 @@ function loadAllowlist() {
   }
 
   // And the lesson subtitles, which live in src/App.jsx rather than here.
-  const subtitles = lessonSubtitles();
+  // Parse failures raise rather than returning nothing: a silent empty list
+  // here once meant 97 subtitles stopped being checked while the run still
+  // printed "clean".
+  let subtitles;
+  try {
+    subtitles = readLessons(APP).filter(l => l.titleEu).map(l => ({ id: l.id, text: l.titleEu }));
+  } catch (e) {
+    fail("could not read the lesson subtitles from src/App.jsx: " + e.message);
+  }
   for (const l of subtitles) take("lesson", l.id, l.text);
 
   // run hunspell -l once over all unique tokens

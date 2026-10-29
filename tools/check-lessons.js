@@ -35,6 +35,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const { readLessons, readChapters } = require("./lessons");
 
 const ROOT = path.resolve(__dirname, "..");
 const APP = path.join(ROOT, "src/App.jsx");
@@ -58,46 +59,18 @@ const allowed = (id, wid) => allow.has(wid) || allow.has(id + ":" + wid);
 
 /* ------------------------------------------------------------------ parsing */
 
-const src = fs.readFileSync(APP, "utf8");
-const vocab = JSON.parse(fs.readFileSync(VOCAB, "utf8")).vocabulary;
+const vocabData = JSON.parse(fs.readFileSync(VOCAB, "utf8"));
+const vocab = vocabData.vocabulary;
 const byId = new Map(vocab.map(w => [w.id, w]));
 
-const open = /\n(?:var|const) LESSONS\s*=\s*\[/.exec(src);
-if (!open) { console.error("check-lessons: could not find the LESSONS array"); process.exit(1); }
-let depth = 1, i = open.index + open[0].length;
-const from = i;
-while (depth) {
-  if (src[i] === "[") depth++;
-  else if (src[i] === "]") depth--;
-  i++;
+let lessons, chapters;
+try {
+  lessons = readLessons(APP);
+  chapters = readChapters(APP);
+} catch (e) {
+  console.error("check-lessons: " + e.message);
+  process.exit(1);
 }
-const block = src.slice(from, i - 1);
-
-const unesc = s => s.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
-                    .replace(/\\(.)/g, "$1");
-const field = (chunk, name) => {
-  const m = new RegExp("\\b" + name + ':"((?:[^"\\\\]|\\\\.)*)"').exec(chunk);
-  return m ? unesc(m[1]) : "";
-};
-
-const lessons = [];
-for (const chunk of block.split(/\n\s*\{\s*\n(?=\s*id:")/)) {
-  if (!/id:"l\d+_/.test(chunk)) continue;
-  const g = /grammar:\{title:"((?:[^"\\]|\\.)*)",body:"((?:[^"\\]|\\.)*)"\}/.exec(chunk);
-  const w = /wordIds:\[([^\]]*)\]/.exec(chunk);
-  lessons.push({
-    id: /id:"(l\d+_\w+)"/.exec(chunk)[1],
-    num: parseInt(/num:(\d+)/.exec(chunk)[1], 10),
-    pro: /pro:true/.test(chunk),
-    title: field(chunk, "title"),
-    blurb: field(chunk, "blurb"),
-    intro: field(chunk, "intro"),
-    gtitle: g ? unesc(g[1]) : "",
-    gbody: g ? unesc(g[2]) : "",
-    wordIds: w ? (w[1].match(/"([^"]+)"/g) || []).map(s => s.slice(1, -1)) : [],
-  });
-}
-lessons.sort((a, b) => a.num - b.num);
 
 const taughtBy = new Map();
 for (const l of lessons) for (const w of l.wordIds) {
@@ -124,6 +97,32 @@ console.log("\ncheck-lessons: the path");
   const empty = lessons.filter(l => !l.wordIds.length);
   if (empty.length) fail("lesson teaches nothing", empty.map(l => l.num + " " + l.title).join(", "));
   else ok("every lesson teaches at least one word");
+
+  // The lesson list renders chapter by chapter, so a lesson whose num falls in
+  // no CHAPTERS range draws no card at all and one in two ranges draws two.
+  // Both arrays have been rewritten by hand several times; nothing checked that
+  // they still agreed.
+  const cover = new Map();
+  for (const c of chapters) {
+    for (let n = c.from; n <= c.to; n++) {
+      if (!cover.has(n)) cover.set(n, []);
+      cover.get(n).push(c.n + " " + c.name);
+    }
+  }
+  const missing = lessons.filter(l => !cover.has(l.num));
+  const twice = lessons.filter(l => (cover.get(l.num) || []).length > 1);
+  const emptyCh = chapters.filter(c => !lessons.some(l => l.num >= c.from && l.num <= c.to));
+  if (missing.length) {
+    fail("lesson is in no chapter, so it never renders",
+      missing.map(l => l.num + " " + l.title).join(", "));
+  } else if (twice.length) {
+    fail("lesson is in two chapters, so it renders twice",
+      twice.map(l => l.num + " " + l.title + " [" + cover.get(l.num).join(" | ") + "]").join(", "));
+  } else if (emptyCh.length) {
+    fail("chapter contains no lessons", emptyCh.map(c => c.n + " " + c.name).join(", "));
+  } else {
+    ok("every lesson sits in exactly one of the " + chapters.length + " chapters");
+  }
 }
 
 /* ------------------------------------------------- word lists vs vocabulary */
@@ -214,9 +213,40 @@ console.log("\ncheck-lessons: what the prose promises");
     }
   }
 
+  // The word-level test above only fires when the word is taught later or
+  // never, so it is blind to the original bug: Counting Past Twenty said "you
+  // met hogei in the early numbers lesson" while hogei was taught by Telling
+  // Time. An earlier lesson did teach it, so the test passed, and the counting
+  // lesson it actually named stops at ten. Verified: restoring that exact
+  // sentence still reported clean.
+  //
+  // There is no way to check which lesson a sentence means. So the rule is
+  // simply that a claim about prior knowledge may not point at a lesson, by
+  // the word "lesson" or by another lesson's title. Say where the learner met
+  // the thing instead ("from the clock"), which cannot go stale when the path
+  // is resequenced, as it has been twice.
+  const titles = lessons.map(l => l.title).filter(t => t.length > 6);
+  let namedClaims = [];
+  for (const l of lessons) {
+    const prose = [l.blurb, l.intro, l.gtitle, l.gbody].filter(Boolean).join("  ");
+    for (const sentence of prose.split(/(?<=\.)\s+/)) {
+      if (!CLAIMS_PRIOR.test(sentence)) continue;
+      const other = titles.find(t => t !== l.title && sentence.includes(t));
+      if (/\blessons?\b/i.test(sentence) || other) {
+        namedClaims.push("L" + l.num + " " + l.title + ": points at " +
+          (other ? "the lesson \"" + other + "\"" : "a lesson") +
+          "\n        “" + sentence.trim() + "”");
+      }
+    }
+  }
+
   if (falseClaims.length) fail("tells the learner they have met a word they have not",
     "\n      " + falseClaims.join("\n      "));
   else ok("no lesson claims knowledge the learner cannot have");
+
+  if (namedClaims.length) fail("a claim about prior knowledge names a lesson",
+    "\n      " + namedClaims.join("\n      "));
+  else ok("no claim about prior knowledge points at another lesson");
 
   if (unreachable.length) fail("glosses a word no lesson ever teaches",
     "\n      " + unreachable.join("\n      "));
@@ -249,20 +279,32 @@ console.log("\ncheck-lessons: house style");
     [/\bgrey\b/i, "gray"], [/\bwhilst\b/i, "while"], [/\bamongst\b/i, "among"],
     [/\blearnt\b/i, "learned"], [/\bspelt\b/i, "spelled"],
   ];
-  let style = [];
+  // Every piece of English the app ships, not just the lesson prose. The word
+  // notes are by far the larger body and were carrying memorising and
+  // favourably the whole time this read only the 97 lessons.
+  const english = [];
   for (const l of lessons) {
-    for (const [field, text] of [["title", l.title], ["blurb", l.blurb],
-                                 ["intro", l.intro], ["note", l.gtitle + " " + l.gbody]]) {
-      if (!text) continue;
-      for (const [re, want] of BRITISH) {
-        const hit = re.exec(text);
-        if (hit) style.push("L" + l.num + " " + l.title + " (" + field + "): " +
-                            hit[0] + "  ->  " + want);
-      }
-      if (/—|--/.test(text)) {
-        style.push("L" + l.num + " " + l.title + " (" + field + "): em dash");
-      }
+    const w = "L" + l.num + " " + l.title;
+    english.push([w, "title", l.title], [w, "blurb", l.blurb], [w, "intro", l.intro],
+                 [w, "note", l.gtitle + " " + l.gbody]);
+  }
+  for (const v of vocab) {
+    english.push([v.id, "english", v.english], [v.id, "notes", v.notes || ""],
+                 [v.id, "example", v.example && v.example.english]);
+  }
+  for (const st of vocabData.stories || []) {
+    english.push([st.id, "story-intro", st.intro || ""], [st.id, "story-title", st.titleEn || ""]);
+    for (const line of st.lines || []) english.push([st.id, "story-line", line.tr || ""]);
+  }
+
+  let style = [];
+  for (const [where, field, text] of english) {
+    if (!text) continue;
+    for (const [re, want] of BRITISH) {
+      const hit = re.exec(text);
+      if (hit) style.push(where + " (" + field + "): " + hit[0] + "  ->  " + want);
     }
+    if (/—/.test(text)) style.push(where + " (" + field + "): em dash");
   }
   if (style.length) fail("not US English, or uses an em dash", "\n      " + style.join("\n      "));
   else ok("US spelling throughout, no em dashes");
