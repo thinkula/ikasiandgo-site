@@ -62,16 +62,31 @@ Run `npm run check-lessons`. The lessons were the one part of the app with no
 gate on them. Words go through Xuxen and builds go through preflight, but a
 lesson could promise a word it never taught and nothing noticed.
 
-It fails on a word list pointing at a word that is not in `vocabulary.json`, a
-free lesson teaching a paid word, a note that glosses a word no lesson ever
-teaches, and a note telling the learner they have already met a word that is
-taught later or not at all. A note may still point forward to a word a later
-lesson covers, which is ordinary scaffolding.
+It fails on:
+
+- a word list pointing at a word that is not in `vocabulary.json`
+- a free lesson teaching a paid word
+- a lesson that sits in no chapter, so it never renders, or in two
+- a note that glosses a word no lesson ever teaches
+- a note telling the learner they have met a word taught later or not at all
+- **a claim about prior knowledge that points at a lesson.** No check can tell
+  which lesson a sentence means, so none may name one. Say where the learner
+  met the thing instead, which does not go stale when the path is resequenced
+- **a note spelling a word differently from its card**, caught by reading the
+  parenthetical glosses: a note writing `ordu bat da (it is one o'clock)`
+  against a card reading `Ordu bata da` is the lesson teaching a form the app
+  does not use
+- British spelling or an em dash, anywhere in the shipped English, which means
+  the word notes and the stories as well as the lessons
+
+A note may still point forward to a word a later lesson covers, which is
+ordinary scaffolding.
 
 The first sweep found nine words that notes explained and no quiz ever used,
 including four of the six meal words and `non dago`, which two different
 lessons glossed and neither taught. `tools/lesson-allowlist.txt` carries the
-cases where a note cites a word to derive a different one.
+cases where a note cites a word to derive a different one, and is currently
+empty, because teaching the word has so far always been the better answer.
 
 ## When a version goes live
 

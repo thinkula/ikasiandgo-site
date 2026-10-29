@@ -257,6 +257,77 @@ console.log("\ncheck-lessons: what the prose promises");
   else ok("no lesson mentions an untaught word in passing");
 }
 
+/* --------------------------------------- a note's Basque vs the word card */
+
+// Telling Time's note wrote "ordu bat da (it is one o'clock)" while the card
+// for that phrase read "Ordu bata da". Both look right in isolation; only
+// holding them side by side shows the lesson teaching a form the app does not
+// use. Found by hand, so here it is mechanically.
+//
+// The signal is a parenthetical gloss: when a note writes "<basque> (<english>)"
+// and some card carries that English, the Basque in the note should be that
+// card's headword. Two things stop this from being noise. A note citing a bare
+// root is normal, because the card carries the article and the article can
+// double a consonant (haur -> haurra), so a card form that is the cited form
+// plus at most two letters is fine. And a gloss often fits a different word
+// entirely (a note says "ongi (well)" while the card for "well" is Ondo), so
+// only a near miss counts: one edit, or two once the phrase is long enough that
+// two unrelated words are unlikely to land that close.
+console.log("\ncheck-lessons: notes against the word cards");
+{
+  const norm = s => String(s).toLowerCase().replace(/[.!?,;:]+$/, "").replace(/\s+/g, " ").trim();
+  const byGloss = new Map();
+  for (const w of vocab) {
+    for (const part of String(w.english).split("/")) {
+      const g = norm(part);
+      if (!g) continue;
+      if (!byGloss.has(g)) byGloss.set(g, []);
+      byGloss.get(g).push(w);
+    }
+  }
+  const lev = (a, b) => {
+    let prev = [...Array(b.length + 1).keys()];
+    for (let i = 1; i <= a.length; i++) {
+      const cur = [i];
+      for (let j = 1; j <= b.length; j++) {
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      }
+      prev = cur;
+    }
+    return prev[b.length];
+  };
+  const GLOSSED = /([A-Za-zÀ-ÿñÑ][A-Za-zÀ-ÿñÑ'’-]*(?:\s+[A-Za-zÀ-ÿñÑ][A-Za-zÀ-ÿñÑ'’-]*){0,4})\s*\(([^)]{2,40})\)/g;
+
+  let wrong = [];
+  for (const l of lessons) {
+    const prose = [l.intro, l.gtitle, l.gbody].filter(Boolean).join("  ");
+    for (const m of prose.matchAll(GLOSSED)) {
+      const cards = byGloss.get(norm(m[2]));
+      if (!cards) continue;
+      const words = norm(m[1]).split(" ");
+      const suffixes = [];
+      for (let k = 1; k <= Math.min(5, words.length); k++) suffixes.push(words.slice(-k).join(" "));
+      const forms = cards.map(c => norm(c.basque));
+      if (suffixes.some(s => forms.some(f => f === s || (f.startsWith(s) && f.length - s.length <= 2)))) continue;
+      let best = null;
+      for (const s of suffixes) {
+        if (s.length < 4) continue;
+        for (const f of forms) {
+          const d = lev(s, f), limit = s.length >= 8 ? 2 : 1;
+          if (d <= limit && (best === null || d < best.d)) best = { d, s, card: cards[0] };
+        }
+      }
+      if (best) {
+        wrong.push("L" + l.num + " " + l.title + ": the note writes “" + best.s +
+          " (" + m[2] + ")” but the card " + best.card.id + " reads “" +
+          best.card.basque + "”");
+      }
+    }
+  }
+  if (wrong.length) fail("a note spells a word differently from its card", "\n      " + wrong.join("\n      "));
+  else ok("every glossed phrase matches the card it glosses");
+}
+
 /* ------------------------------------------------------------- house style */
 
 // The listing and the lessons are written in US English, and the copy uses no
