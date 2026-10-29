@@ -3049,7 +3049,7 @@ function GamesScreen(props){
   var games=[
     {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1–B2","Two modes"],pro:false},
     {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 26 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["26 dishes","5 steps each","3 lives"],pro:false},
-    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 members each","A1–B2"],pro:false},
+    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1–B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["12 scenarios","Numbers & time","A1–B1"],pro:false},
     {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4–8 pairs","Timed","All topics"],pro:false},
@@ -3184,11 +3184,8 @@ function TapScreen(props){
     clearInterval(timerRef.current);
     if(currentTotal>=ROUNDS){
       setActive(false);setWon(true);
-      setBest(function(b){
-        var newBest=Math.max(b,currentScore);
-        try{STORE.set('tap_best_'+topic+'_'+diff,String(newBest)).catch(function(){});}catch(e){}
-        return newBest;
-      });      setQuestion(null);return;
+      setBest(function(b){return Math.max(b,currentScore);});
+      try{STORE.set('tap_best_'+topic+'_'+diff,String(Math.max(best,currentScore))).catch(function(){});}catch(e){}      setQuestion(null);return;
     }
     var pool=getPool();
     if(pool.length<4){setWon(true);setQuestion(null);return;}
@@ -4285,16 +4282,14 @@ function OrduegiScreen(props){
     haptic("error");sfx("wrong");
     setStreak(0);setFlash('wrong');
     setTimeout(function(){setFlash(null);},500);
-    setLives(function(l){
-      var nl=l-1;
-      if(nl<=0){
-        sfx("fail");setTimeout(function(){setDone(true);},700);
-      }else{
-        // Restart the timer for a retry, with the hint now visible
-        setTimeout(function(){setShowHint(true);startTimer();},400);
-      }
-      return nl;
-    });
+    var livesLeft=lives-1;
+    setLives(livesLeft);
+    if(livesLeft<=0){
+      sfx("fail");setTimeout(function(){setDone(true);},700);
+    }else{
+      // Restart the timer for a retry, with the hint now visible
+      setTimeout(function(){setShowHint(true);startTimer();},400);
+    }
   }
 
   function startScenario(idx){
@@ -4327,11 +4322,8 @@ function OrduegiScreen(props){
           var doneNow=completed.indexOf(scenario.name)===-1?completed.concat([scenario.name]):completed;
           setCompleted(doneNow);
           try{STORE.set('ordutegi_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
-          setBest(function(b){
-            var nb=Math.max(b,scoreRef.current);
-            try{STORE.set('ordutegi_best',String(nb)).catch(function(){});}catch(e){}
-            return nb;
-          });
+          setBest(function(b){return Math.max(b,scoreRef.current);});
+          try{STORE.set('ordutegi_best',String(Math.max(best,scoreRef.current))).catch(function(){});}catch(e){}
           setDone(true);
         }else{
           setStage(next);setSel(null);setShowHint(false);
@@ -4344,7 +4336,9 @@ function OrduegiScreen(props){
       setStreak(0);setFlash('wrong');
       setTimeout(function(){setFlash(null);},500);
       var willDie=lives-1<=0;
-      setLives(function(l){var nl=l-1;if(nl<=0){sfx("fail");setTimeout(function(){setDone(true);},700);}return nl;});
+      var livesLeft=lives-1;
+      setLives(livesLeft);
+      if(livesLeft<=0){sfx("fail");setTimeout(function(){setDone(true);},700);}
       if(!willDie){
         setTimeout(function(){setSel(null);setShowHint(true);startTimer();},950);
       }
@@ -5067,7 +5061,12 @@ function ArbolaScreen(props){
   function pick(word){
     if(sel)return;
     var keyword=family.members[step].keyword;
-    var isCorrect=word.id===keyword;
+    // Resolve the keyword the same way buildOptions does. Comparing the pick
+    // to the raw keyword happens to work while every keyword is also an id,
+    // but findWord deliberately falls back to matching the basque form, and
+    // one keyword written that way would mark the right answer wrong.
+    var correctWord3=findWord(keyword);
+    var isCorrect=!!correctWord3&&word.id===correctWord3.id;
     setSel(word.id);
     if(isCorrect){
       haptic("light");sfx("correct");
@@ -5084,11 +5083,8 @@ function ArbolaScreen(props){
           var doneNow=completed.indexOf(family.name)===-1?completed.concat([family.name]):completed;
           setCompleted(doneNow);
           try{STORE.set('arbola_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
-          setBest(function(b){
-            var nb=Math.max(b,scoreRef.current);
-            try{STORE.set('arbola_best',String(nb)).catch(function(){});}catch(e){}
-            return nb;
-          });
+          setBest(function(b){return Math.max(b,scoreRef.current);});
+          try{STORE.set('arbola_best',String(Math.max(best,scoreRef.current))).catch(function(){});}catch(e){}
           setDone(true);
         }else{
           setStep(next);setSel(null);setShowHint(false);
@@ -5099,7 +5095,9 @@ function ArbolaScreen(props){
       haptic("error");sfx("wrong");
       setStreak(0);setFlash('wrong');
       setTimeout(function(){setFlash(null);},500);
-      setLives(function(l){var nl=l-1;if(nl<=0){sfx("fail");setTimeout(function(){setDone(true);},700);}return nl;});
+      var livesLeft=lives-1;
+      setLives(livesLeft);
+      if(livesLeft<=0){sfx("fail");setTimeout(function(){setDone(true);},700);}
       setTimeout(function(){setSel(null);setShowHint(true);},900);
     }
   }
@@ -5136,7 +5134,7 @@ function ArbolaScreen(props){
             </div>
           </div>
         ):(
-          <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.55)",fontWeight:500}}>5 members per family · 3 lives · place each member correctly</p>
+          <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.55)",fontWeight:500}}>5 or 6 members per family · 3 lives · place each member correctly</p>
         )}
       </div>
 
