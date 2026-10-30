@@ -3928,9 +3928,9 @@ function BasqueKitchenScreen(props){
         {completedDishes.length>0?(
           <div style={{backgroundColor:"rgba(255,255,255,0.15)",borderRadius:12,padding:"8px 12px",marginTop:8,display:"flex",alignItems:"center",gap:8}}>
             <span style={{fontSize:16}}>{"\u{1F37D}\uFE0F"}</span>
-            <p style={{margin:0,fontSize:12,fontWeight:700,color:"#fff"}}>Served {completedDishes.length} of {DISHES.length} dishes</p>
-            <div style={{display:"flex",gap:3,marginLeft:"auto"}}>
-              {DISHES.map(function(d,i){return <div key={i} style={{width:8,height:8,borderRadius:"50%",backgroundColor:completedDishes.indexOf(d.name)!==-1?"#fff":"rgba(255,255,255,0.3)"}}/>;  })}
+            <p style={{margin:0,fontSize:12,fontWeight:700,color:"#fff",whiteSpace:"nowrap"}}>Served {completedDishes.length} of {DISHES.length} dishes</p>
+            <div style={{flex:1,minWidth:60,height:6,backgroundColor:"rgba(255,255,255,0.25)",borderRadius:3,overflow:"hidden",marginLeft:"auto"}}>
+              <div style={{height:"100%",width:(DISHES.length?Math.round(completedDishes.length/DISHES.length*100):0)+"%",backgroundColor:"#fff",borderRadius:3,transition:"width 0.4s ease"}}/>
             </div>
           </div>
         ):(
@@ -3960,7 +3960,7 @@ function BasqueKitchenScreen(props){
                   </div>
                 </div>
                 <div style={{display:"flex",gap:4,marginTop:12,position:"relative"}}>
-                  {d.stages.map(function(_,si){return <div key={si} style={{flex:1,height:4,borderRadius:2,backgroundColor:"rgba(255,255,255,0.3)"}}/>;  })}
+                  {d.stages.map(function(_,si){return <div key={si} style={{flex:1,height:4,borderRadius:2,backgroundColor:isDone?"rgba(255,255,255,0.85)":"rgba(255,255,255,0.3)"}}/>;  })}
                 </div>
               </div>
               <div style={{backgroundColor:isDone?d.bg:"#fff",padding:"9px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
