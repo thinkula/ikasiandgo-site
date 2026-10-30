@@ -4901,10 +4901,10 @@ function KoloreakScreen(props){
                   {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                   {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
                   <div style={{display:"flex",alignItems:"center",gap:6}}>
-                    <div style={{width:12,height:12,borderRadius:"50%",backgroundColor:COLOR_HEX[word.id]||"#888",flexShrink:0,border:"1px solid rgba(0,0,0,0.1)"}}/>
+                    <div style={{width:12,height:12,borderRadius:"50%",backgroundColor:COLOR_HEX[word.id]||"#888",flexShrink:0,border:"1px solid rgba(0,0,0,0.1)",opacity:showResult?1:0,transition:"opacity 0.25s ease"}}/>
                     <p style={{margin:0,fontSize:word.basque.length>12?11:14,fontWeight:900,color:txtC,letterSpacing:-0.2}}>{word.basque}</p>
                   </div>
-                  <p style={{margin:0,fontSize:10,color:showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93",fontWeight:600}}>{word.english}</p>
+                  <p style={{margin:0,fontSize:10,color:showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93",fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 </button>
               );
             })}
