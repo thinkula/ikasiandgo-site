@@ -3976,7 +3976,16 @@ function BasqueKitchenScreen(props){
 
   // ── Game screen ──
   var correctWord=currentStage?findWord(currentStage.keyword):null;
-  var nextDishIdx=(dishIdx+1)%DISHES.length;
+  // Walk forward to the first dish not cooked yet rather than to whatever sits
+  // at the next index. Now that completion survives the screen, suggesting a
+  // dish with a tick already on it is visibly wrong.
+  var nextDishIdx=(function(){
+    for(var k=1;k<=DISHES.length;k++){
+      var idx=(dishIdx+k)%DISHES.length;
+      if(completedDishes.indexOf(DISHES[idx].name)===-1)return idx;
+    }
+    return (dishIdx+1)%DISHES.length;
+  })();
   var nextDish=DISHES[nextDishIdx];
   return(
     <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
