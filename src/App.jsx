@@ -3426,7 +3426,7 @@ function BasqueKitchenScreen(props){
   var DISHES=[
     {name:"Pintxoak",emoji:"🥖",desc:"Classic Basque bar snacks",color:"#C2510E",dark:"#92400E",bg:"#FFF7ED",stages:[
       {instruction:"Start with a base of bread",keyword:"ogia",hint:"The base of every pintxo: baked, not fried"},
-      {instruction:"Season it with salt",keyword:"gatz",hint:"Essential: just a pinch"},
+      {instruction:"Name the bar snack you have just built",keyword:"pintxoa",hint:"Bread, a topping, a toothpick through the middle"},
       {instruction:"Lay on a ripe tomato",keyword:"tomatea",hint:"Red, juicy, sliced thin"},
       {instruction:"Finish with a drizzle of oil",keyword:"olioa",hint:"Olive oil, always"},
       {instruction:"Welcome your guests",keyword:"ongi_etorri",hint:"A Basque greeting for arrivals"},
@@ -3448,7 +3448,7 @@ function BasqueKitchenScreen(props){
     {name:"Bacalao Pil Pil",emoji:"🧄",desc:"Salted cod in garlic sauce",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
       {instruction:"Soak the salted cod overnight",keyword:"bacalaoa",hint:"The Basque classic fish"},
       {instruction:"Peel and slice the garlic",keyword:"baratxuria",hint:"Pungent and aromatic"},
-      {instruction:"Pour in olive oil",keyword:"olioa",hint:"Cold-pressed is best"},
+      {instruction:"Swirl the pan low and slow until the sauce comes together, and name it",keyword:"pil_pil",hint:"Named for the sound of the gentle bubbling"},
       {instruction:"Add a splash of water",keyword:"ura",hint:"Helps emulsify the sauce"},
       {instruction:"Season to taste",keyword:"gatz",hint:"Go easy: the cod is already salty"},
     ]},
@@ -3512,13 +3512,13 @@ function BasqueKitchenScreen(props){
       {instruction:"Mix the flour",keyword:"ogia",hint:"Use the bread dough as a base"},
       {instruction:"Grate the cheese",keyword:"gazta",hint:"Idiazabal: smoky and salty"},
       {instruction:"Crack in the eggs",keyword:"arrautza",hint:"Binds the filling"},
-      {instruction:"Drizzle with oil",keyword:"olioa",hint:"Olive oil on top before baking"},
+      {instruction:"Name the sweet bread at the heart of it",keyword:"opila",hint:"A traditional Basque sweet bread, eaten at Easter"},
       {instruction:"Bake until hot",keyword:"beroa",hint:"A hot oven gives a golden crust"},
     ]},
     {name:"Txuleta a la Parrilla",emoji:"🥩",desc:"Basque grilled ribeye steak",color:"#991B1B",dark:"#450A0A",bg:"#FFF1F2",stages:[
       {instruction:"Choose a thick steak",keyword:"txuleta",hint:"Basque txuleton: aged and enormous"},
       {instruction:"Grill over hot coals",keyword:"erre",hint:"High heat, short time: never well done"},
-      {instruction:"Season with salt",keyword:"gatz",hint:"Coarse salt only, after cooking"},
+      {instruction:"Carve it into thick slices to serve",keyword:"xerra",hint:"A steak, a fillet, a slice off the bone"},
       {instruction:"Rest the meat",keyword:"haragia",hint:"Let it rest before cutting"},
       {instruction:"Serve at the table",keyword:"jan",hint:"Everyone eats together"},
     ]},
