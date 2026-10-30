@@ -1546,10 +1546,13 @@ function HomeScreen(props){
   function setCumul(fn){var nv=typeof fn==="function"?fn(cumul):fn;setCumulRaw(nv);setLvlRaw(function(l){setTopicRaw(function(t){STORE.set("last_config",JSON.stringify({lvl:l,topic:t,cumul:nv})).catch(function(){});return t;});return l;});}
   useEffect(function(){STORE.get("last_config").then(function(r){if(r&&r.value){try{var d=JSON.parse(r.value);if(d.lvl)setLvlRaw(d.lvl);if(d.topic)setTopicRaw(d.topic);if(d.cumul)setCumulRaw(d.cumul);}catch(e){}}}).catch(function(){});},[]);
   var L=CL[lvl];
-  var topicCounts=useMemo(function(){var o={};var allPool=getPool(VOCABULARY,lvl,"all",cumul,isPro);o.all=allPool.length;for(var i=0;i<TOPICS.length;i++){var t=TOPICS[i];if(t.key==="all")continue;var p=getPool(VOCABULARY,lvl,t.key,cumul,isPro);o[t.key]=p.length;}return o;},[lvl,cumul,isPro,_VOCAB.length]);
+  var topicCounts=useMemo(function(){var o={};var allPool=getPool(VOCABULARY,lvl,"all",cumul,isPro);o.all=allPool.length;for(var i=0;i<TOPICS.length;i++){var t=TOPICS[i];if(t.key==="all")continue;var p=getPool(VOCABULARY,lvl,t.key,cumul,isPro);o[t.key]=p.length;}return o;},[lvl,cumul,isPro,_VOCAB.length,vocabVersion]);
   var poolSize=topic==="all"?topicCounts.all:(topicCounts[topic]||0);
-  var effectiveCount=Math.min(poolSize,sessionLen);var isLockedLevel=!isPro&&lvl!=="A1"&&totalSessions>=1;var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match. Try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words, so questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
-  var browseCount=useMemo(function(){return VOCABULARY.filter(function(w){return isPro||isFreeWord(w);}).length;},[isPro,_VOCAB.length]);
+  var effectiveCount=Math.min(poolSize,sessionLen);// No totalSessions guard: a new user is on A1, so this is already false for
+  // them. All the guard did was tell someone whose trial lapsed on a higher
+  // level that no words matched their filter, when the words were simply locked.
+  var isLockedLevel=!isPro&&lvl!=="A1";var pw=poolSize===0?(isLockedLevel?{msg:"Upgrade to Pro to access "+lvl+" words.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B",cta:true}:{msg:"No words match. Try a different filter.",c:"#C85070",bg:"#FFFAFA",b:"#FF7B89"}):effectiveCount<5?{msg:"Only "+effectiveCount+" words, so questions will repeat.",c:"#D97706",bg:"#FFF8F0",b:"#F59E0B"}:null;
+  var browseCount=useMemo(function(){return VOCABULARY.filter(function(w){return isPro||isFreeWord(w);}).length;},[isPro,_VOCAB.length,vocabVersion]);
   var storyCount=(_STORIES&&_STORIES.length)||0;
   // The hero card names the next lesson instead of describing the path, the
   // same way the Continue card on the Learn screen does.
@@ -1566,7 +1569,12 @@ function HomeScreen(props){
   var proLessons=LESSONS.filter(function(l){return !!l.pro;}).length;
   var proStories=(_STORIES||[]).filter(function(st){return st.level!=="A1";}).length;
   var srsCard=null;
-  if(srsLoaded&&totalSessions===0){
+  // The empty state is the fallback, not the totalSessions===0 case. Keyed the
+  // other way round, a learner with sessions behind them but nothing counted in
+  // their current tier matched neither branch and the card vanished. That is
+  // reachable after a trial lapses, when the progress sits on words the free
+  // tier no longer counts.
+  if(srsLoaded&&!(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)){
     // The empty state of the Word Memory card below, not a separate call to
     // action. The hero at the top already says what to do, and spaced
     // repetition is worth a plain sentence rather than the words "memory
@@ -1575,7 +1583,7 @@ function HomeScreen(props){
       React.createElement("p",{style:{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),
       React.createElement("p",{style:{margin:0,fontSize:12,color:"#888",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
     );
-  } else if(srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)){
+  } else if(srsLoaded){
     var pct=srsStats.total>0?Math.round(srsStats.mastered/srsStats.total*100):0;
     var tiles=[{n:srsStats.due,l:"Due",c:srsStats.due>0?"#D97706":"#BBB",bg:srsStats.due>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
@@ -1586,7 +1594,7 @@ function HomeScreen(props){
       (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(srsStats.due,20)+" word"+(Math.min(srsStats.due,20)===1?"":"s")):null
     );
   }
-  var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=4;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length]);
+  var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=4;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length,vocabVersion]);
   var levelCards=["A1","A2","B1","B2"].map(function(key){var L2=CL[key];var active=lvl===key;var k=key;
     var actCard=function(){if(!isPro&&k!=="A1"){setModal(k);return;}setLvl(k);};
     return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
