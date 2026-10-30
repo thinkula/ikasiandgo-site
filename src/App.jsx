@@ -3056,7 +3056,7 @@ function GamesScreen(props){
 
   var games=[
     {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1–B2","Two modes"],pro:false},
-    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 26 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["26 dishes","5 steps each","3 lives"],pro:false},
+    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","3 lives"],pro:false},
     {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1–B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["12 scenarios","Numbers & time","A1–B1"],pro:false},
@@ -3605,6 +3605,13 @@ function BasqueKitchenScreen(props){
       {instruction:"Serve the food",keyword:"janaria",hint:"Whatever Ama has cooked"},
       {instruction:"Pour some tea",keyword:"tea",hint:"For those who don't drink wine"},
       {instruction:"Enjoy the meal",keyword:"jan",hint:"Eat well, eat slowly"},
+    ]},
+    {name:"Mahaia Prestatu",emoji:"\u{1F374}",desc:"Laying a place at the table",color:"#64748B",dark:"#334155",bg:"#F1F5F9",stages:[
+      {instruction:"Lay the plate in the middle",keyword:"platera",hint:"Round, flat, and the first thing down"},
+      {instruction:"Set the knife on the right",keyword:"labana",hint:"The one for cutting"},
+      {instruction:"Put the fork on the left",keyword:"sardexka",hint:"A little pitchfork, if you take the word apart"},
+      {instruction:"Add the spoon beside it",keyword:"koilara",hint:"For the soup course"},
+      {instruction:"Finish with the glass above the knife",keyword:"edalontzia",hint:"Literally a vessel for drinking"},
     ]},
   ];
 
