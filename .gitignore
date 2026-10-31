@@ -5,3 +5,16 @@ node_modules/
 
 # preflight screenshots, regenerated on every run
 tools/.preflight-shots/
+
+# Planning, strategy and pricing notes do not belong here. This repo is PUBLIC:
+# GitHub Pages serves ikasiandgo.com from it, and installed apps fetch
+# vocabulary.json from it at launch, so it cannot be made private either.
+# Anything committed here is on the internet. A launch strategy doc with
+# pricing in it sat at the repo root for 99 days before anyone noticed, and
+# removing it took a history rewrite plus a request to GitHub Support.
+#
+# So: every markdown file at the root is ignored except README.md. Keep notes
+# in ~/Downloads/Ikasi. If a new root document genuinely belongs in the repo,
+# add it deliberately with  git add -f <file>
+/*.md
+!/README.md
