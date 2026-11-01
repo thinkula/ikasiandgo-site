@@ -175,7 +175,7 @@ var STORE=(function(){
 })();
 // Load mute preference at startup (after storage polyfill is guaranteed)
 try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
-const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}.hscroll{scrollbar-width:none;-ms-overflow-style:none;}.hscroll::-webkit-scrollbar{display:none;height:0;width:0;}@keyframes riseSoft{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
+const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}.hscroll{scrollbar-width:none;-ms-overflow-style:none;}.hscroll::-webkit-scrollbar{display:none;height:0;width:0;}@keyframes riseSoft{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}@keyframes lauburuArm{0%{opacity:0;transform:rotate(-80deg) scale(0.45)}100%{opacity:1;transform:rotate(0deg) scale(1)}}@keyframes lauburuTurn{to{transform:rotate(360deg)}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
 const VERSION="1.5.0";
 // RevenueCat: paste the PUBLIC Apple API key (starts with appl_) from
 // app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
@@ -1253,6 +1253,34 @@ function Logo(props){
   return(<img src="icon.png" width={s} height={s} alt=""
     style={{borderRadius:s*0.26,display:"inline-block",verticalAlign:"middle",flexShrink:0}}/>);
 }
+// The lauburu, the Basque cross: four comma heads at 90 degrees, each one two
+// arcs. They rotate in one after another, which is assembly the shape already
+// implies rather than an effect laid on top of it. Set turn for a loading
+// state, leave it off and the mark assembles once and stops.
+// transformBox view-box makes transformOrigin resolve against the viewBox, so
+// 110,110 is the centre; the base rotation stays an SVG attribute on the
+// parent, and the CSS transform composes inside it.
+// prefers-reduced-motion is handled globally in STYLE: the arms land assembled.
+function Lauburu(props){
+  var s=props.size||32,color=props.color||"#19A85A",turn=props.turn===true;
+  var ARM="M110,110 A50,50 0 0,1 210,110 A25,25 0 0,1 160,110 Z";
+  var pivot={transformOrigin:"110px 110px",transformBox:"view-box"};
+  return(
+    <svg viewBox="0 0 220 220" width={s} height={s} aria-hidden="true"
+      style={{display:"inline-block",verticalAlign:"middle",flexShrink:0,overflow:"visible"}}>
+      <g style={Object.assign({},pivot,turn?{animation:"lauburuTurn 9s linear 1.1s infinite"}:null)}>
+        {[0,90,180,270].map(function(a,i){
+          return(
+            <g key={a} transform={"rotate("+a+" 110 110)"}>
+              <path d={ARM} fill={color}
+                style={Object.assign({},pivot,{animation:"lauburuArm 760ms cubic-bezier(0.22,1,0.36,1) "+(i*95)+"ms both"})}/>
+            </g>
+          );
+        })}
+      </g>
+    </svg>
+  );
+}
 function Confetti(){
   var colors=["#19A85A","#FF6B35","#00B4D8","#F72585","#FFD700","#9B5DE5"];
   var pieces=[];
@@ -1454,7 +1482,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         {/* Header skeleton */}
         <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 40%,#19A85A 100%)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:0}}>
           <div style={{display:"flex",alignItems:"center",gap:12,paddingBottom:20}}>
-            <Logo size={32}/>
+            <Lauburu size={34} color="#fff" turn={true}/>
             <div style={{flex:1}}>
               <div style={{height:22,width:120,backgroundColor:"rgba(255,255,255,0.2)",borderRadius:8,marginBottom:6,animation:"pulse 1.4s ease-in-out infinite"}}/>
               <div style={{height:12,width:80,backgroundColor:"rgba(255,255,255,0.12)",borderRadius:6,animation:"pulse 1.4s ease-in-out infinite"}}/>
@@ -2637,7 +2665,7 @@ function PaywallScreen(props){
 function PairsScreen(props){
   var VOCABULARY=_VOCAB;
   var onBack=props.onBack,isPro=props.isPro,onUpgrade=props.onUpgrade;
-  var TOPICS_LIST=['greetings','food','numbers','family','colors','nature','body','time','travel','emotions','work','culture','society','adjectives'];
+  var TOPICS_LIST=['greetings','food','numbers','family','colors','nature','body','time','travel','emotions','work','culture','society','adjectives','home','city','animals'];
   var SIZES=[{key:'small',label:'Easy',pairs:4,timedSecs:90},{key:'medium',label:'Medium',pairs:6,timedSecs:60},{key:'large',label:'Hard',pairs:8,timedSecs:45}];
   var _t=useState('greetings');var topic=_t[0];var setTopic=_t[1];
   var _sz=useState('medium');var size=_sz[0];var setSize=_sz[1];
