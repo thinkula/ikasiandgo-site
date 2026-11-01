@@ -2540,17 +2540,26 @@ function BrowseScreen(props){
   );
 }
 function PaywallScreen(props){
-  var onSubscribe=props.onSubscribe,onContinueFree=props.onContinueFree,onStart=props.onStart,onTrial=props.onTrial,trialAvailable=props.trialAvailable,trialDays=props.trialDays||7,vocabCount=props.vocabCount||939;
+  var onSubscribe=props.onSubscribe,onContinueFree=props.onContinueFree,onStart=props.onStart,onTrial=props.onTrial,trialAvailable=props.trialAvailable,trialDays=props.trialDays||7;
+  var VOCABULARY=_VOCAB;
+  var vocabCount=props.vocabCount||VOCABULARY.length;
   var price=props.price||"$12.99";
-  var freeCount=props.freeCount||305;
+  var freeCount=props.freeCount||VOCABULARY.filter(isFreeWord).length;
+  // Every number here is counted, never typed. A hardcoded word count goes stale
+  // the moment vocabulary.json arrives over the air, with no release to catch it,
+  // and naming a chapter goes stale when the path is resequenced: this list said
+  // "beyond chapter four" while the free tier had grown to the end of chapter five.
+  var proWords=VOCABULARY.filter(function(w){return !isFreeWord(w);}).length;
+  var proLessons=LESSONS.filter(function(l){return !!l.pro;}).length;
+  var proStories=(_STORIES||[]).filter(function(st){return st.level!=="A1";}).length;
   var features=[
-    {label:"Full A1 plus A2, B1 and B2 levels",sub:"600+ more words across all topics and levels"},
+    {label:proWords+" more words",sub:"All of A2, B1 and B2, on top of the "+freeCount+" free A1 words"},
+    {label:proLessons+" more lessons",sub:"The rest of the guided path, and every lesson added later"},
+    {label:proStories+" more readings",sub:"Longer Basque stories at A2, B1 and B2"},
+    {label:"Memory Pairs and Tap the Word, unlocked",sub:"Free plays them with A1 words. Pro plays all "+vocabCount+"."},
     {label:"Retry Missed Words",sub:"Drill your weakest words until they stick"},
     {label:"Cumulative mode",sub:"Mix lower levels into any session"},
     {label:"All levels SRS tracking",sub:"Word memory across A2, B1 and B2 words too"},
-    {label:"Memory Pairs game, all topics",sub:"Play all 17 topic categories"},
-    {label:"The full lesson path",sub:"Guided lessons beyond chapter four, and every lesson added later"},
-    {label:"No ads, ever",sub:"Clean focused learning with no interruptions"},
   ];
   return(
     <div style={{maxWidth:420,margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
