@@ -1482,7 +1482,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         {/* Header skeleton */}
         <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 40%,#19A85A 100%)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:0}}>
           <div style={{display:"flex",alignItems:"center",gap:12,paddingBottom:20}}>
-            <Lauburu size={34} color="#fff" turn={true}/>
+            <Logo size={32}/>
             <div style={{flex:1}}>
               <div style={{height:22,width:120,backgroundColor:"rgba(255,255,255,0.2)",borderRadius:8,marginBottom:6,animation:"pulse 1.4s ease-in-out infinite"}}/>
               <div style={{height:12,width:80,backgroundColor:"rgba(255,255,255,0.12)",borderRadius:6,animation:"pulse 1.4s ease-in-out infinite"}}/>
@@ -2194,6 +2194,9 @@ function ResultsScreen(props){
   return(<div style={{maxWidth:420,margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
     {acc===100&&<Confetti/>}
     <div style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
+      {/* Finishing a lesson is the moment worth marking. A plain practice
+          session gets the ring alone, as before. */}
+      {isLesson&&<Lauburu size={34} color="rgba(255,255,255,0.92)"/>}
       <Ring acc={acc} emoji={score.grade.emoji}/>
       <h1 style={{margin:"4px 0 3px",fontSize:26,fontWeight:900,color:"#fff",letterSpacing:-0.5,animation:acc===100?"popIn 0.5s 0.8s ease both":"none"}}>{score.grade.label}</h1>
       <p style={{margin:"0 0 20px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}}>{score.correct}/{score.total} correct - {isPersonalBest?"🌟 Personal best!":score.grade.sub}</p>
