@@ -1,5 +1,9 @@
 {
   "appId": "com.ikasiandgo.app",
   "appName": "Ikasi & Go",
-  "webDir": "www"
+  "webDir": "www",
+  "backgroundColor": "#F8F7F5",
+  "ios": {
+    "backgroundColor": "#F8F7F5"
+  }
 }
