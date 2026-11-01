@@ -2694,16 +2694,28 @@ function PairsScreen(props){
   var boardKey=React.useRef(0);
   var secsRef=React.useRef(0); // track secs without stale closure in timed mode
 
-  var sizeCfg=SIZES.find(function(s){return s.key===size;})||SIZES[1];
+  // Only offer board sizes this topic can actually fill. buildGame clamps with
+  // Math.min, so an oversized choice never broke anything, it just quietly dealt
+  // fewer pairs than the button promised: a free player picking Hard in city got
+  // four pairs, because city has four A1 words and free play is A1 only.
+  var poolCount=VOCABULARY.filter(function(w){
+    if(w.topic!==topic)return false;
+    if(!isPro&&!isFreeWord(w))return false;
+    return true;
+  }).length;
+  var availSizes=SIZES.filter(function(s){return s.pairs<=poolCount;});
+  if(!availSizes.length)availSizes=[SIZES[0]];
+  var sizeCfg=availSizes.find(function(s){return s.key===size;})||availSizes[availSizes.length-1];
+  var effSize=sizeCfg.key;
   var isTimed=mode==='timed';
 
   React.useEffect(function(){
-    var key='pairs_best_'+topic+'_'+size+(isTimed?'_timed':'');
+    var key='pairs_best_'+topic+'_'+effSize+(isTimed?'_timed':'');
     try{STORE.get(key).then(function(r){
       if(r&&r.value){var d=JSON.parse(r.value);setBestMoves(d.moves||0);setBestTime(d.time||0);}
       else{setBestMoves(0);setBestTime(0);}
     }).catch(function(){});}catch(e){}
-  },[topic,size,mode]);
+  },[topic,effSize,mode]);
 
   React.useEffect(function(){
     if(chipRowRef.current){
@@ -2736,7 +2748,7 @@ function PairsScreen(props){
   }
 
   var vocabVer=_VOCAB.length;
-  React.useEffect(function(){buildGame();},[topic,size,mode,vocabVer]);
+  React.useEffect(function(){buildGame();},[topic,effSize,mode,vocabVer]);
 
   function startTimer(){
     clearInterval(timerRef.current);
@@ -2793,7 +2805,7 @@ function PairsScreen(props){
                     if(isFirst||betterMoves||betterTime){
                       var newBm=betterMoves?mv:(bm||mv);
                       var newBt=betterTime?elapsed:(bt||elapsed);
-                      var key='pairs_best_'+topic+'_'+size+(isTimed?'_timed':'');
+                      var key='pairs_best_'+topic+'_'+effSize+(isTimed?'_timed':'');
                       try{STORE.set(key,JSON.stringify({moves:newBm,time:newBt})).catch(function(){});}catch(e){}
                       setBestMoves(newBm);setNewBest(true);return newBt;
                     }
@@ -3050,7 +3062,7 @@ function PairsScreen(props){
               </div>
               <p style={{margin:"0 0 10px",fontSize:16,fontWeight:900,color:"#1A1A1A"}}>Difficulty</p>
               <div style={{display:"flex",gap:10,marginBottom:20}}>
-                {SIZES.map(function(s){var act=s.key===size;return(
+                {availSizes.map(function(s){var act=s.key===effSize;return(
                   <button key={s.key} onClick={function(){setSize(s.key);setShowSettings(false);}}
                     style={{flex:1,padding:"14px 8px",borderRadius:16,border:"2px solid "+(act?"#19A85A":"#E8E8E8"),backgroundColor:act?"#EDFAF3":"#F2F2F7",cursor:"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.15s"}}>
                     <p style={{margin:0,fontSize:20,fontWeight:900,color:act?"#19A85A":"#1A1A1A"}}>{s.pairs}</p>
