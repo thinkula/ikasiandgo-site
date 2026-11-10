@@ -12,6 +12,11 @@
  *   launch test       the crash was invisible on the iOS 26.2 simulator that
  *                     happened to be booted. Testing the newest installed
  *                     runtime is the whole point.
+ *   blank render      1.6 (15) was reported as launching cleanly on all six
+ *                     devices while iOS 27 on an iPhone 18 Pro Max had drawn
+ *                     nothing but the status bar. The process was alive, so
+ *                     the check passed. A screenshot nobody looks at proves
+ *                     nothing, so now the screenshot is measured.
  *   build number      build 10 was archived twice and the second upload had
  *                     nowhere to go, because build 9 already held the slot.
  *   shipped.json      the website advertised 50 lessons while the App Store
@@ -277,6 +282,12 @@ if (QUICK) {
    * a white screen. What they do not show is the home screen, because a clean
    * install opens on onboarding.
    *
+   * So the shot is measured rather than filed away, and it is taken on a poll
+   * rather than at one fixed moment. A single wait only ever answers "had it
+   * drawn by then", and the honest answer varies by device: the same build on
+   * the same machine needed 8 seconds on five devices and more than 8 on the
+   * sixth. Waiting longer for everyone would be slower and still arbitrary.
+   *
    * One build, many installs. A simulator build with a deployment target of
    * 15.0 runs on every runtime here, so the expensive step happens once.
    */
@@ -348,6 +359,61 @@ if (QUICK) {
       fs.rmSync(shotDir, { recursive: true, force: true });
       fs.mkdirSync(shotDir, { recursive: true });
 
+      /*
+       * Has it drawn anything?
+       *
+       * The app paints a cream page, #F8F7F5, under a dark green header, and a
+       * clean install covers most of that page with an onboarding sheet. So a
+       * screen the app has drawn puts a large share of its pixels a long way
+       * from cream, while a blank launch leaves cream and the status bar. The
+       * status bar is far too small to reach the threshold, which is the point:
+       * the blank 1.6 shot scored 0.
+       *
+       * No image library, because the gate should not grow dependencies to
+       * check a PNG. sips ships with macOS and writes BMP, which is a header
+       * followed by raw rows, and plain Node can read that. Downsampling to a
+       * small grid first does the averaging for us and keeps the arithmetic to
+       * a few hundred pixels.
+       */
+      const CREAM = [0xF8, 0xF7, 0xF5];
+      const GRID = 16;        // downsample to GRID x GRID before measuring
+      const OFF_CREAM = 80;   // per channel, how far from cream reads as drawn
+      const DRAWN_PCT = 15;   // share of the grid that has to be that far off
+      const SETTLE = 4;       // seconds before the first look
+      const POLL = 2;         // seconds between looks after that
+      const BUDGET = 30;      // seconds before a screen is called blank
+      const bmpPath = path.join(os.tmpdir(), "ikasi-preflight-probe.bmp");
+
+      // Percent of the shot that is substantially off cream, or null if the
+      // image could not be measured at all.
+      function drawnPercent(png) {
+        fs.rmSync(bmpPath, { force: true });
+        const r = sh("sips", ["-z", String(GRID), String(GRID),
+          "--setProperty", "format", "bmp", png, "--out", bmpPath]);
+        if (!r.ok || !fs.existsSync(bmpPath)) return null;
+        const b = fs.readFileSync(bmpPath);
+        if (b.length < 54) return null;
+        const off = b.readUInt32LE(10);
+        const w = b.readInt32LE(18);
+        const h = Math.abs(b.readInt32LE(22));
+        const bpp = b.readUInt16LE(28);
+        if (!w || !h || (bpp !== 24 && bpp !== 32)) return null;
+        const stride = Math.floor((bpp * w + 31) / 32) * 4;
+        let drawn = 0, total = 0;
+        for (let y = 0; y < h; y++) {
+          for (let x = 0; x < w; x++) {
+            const i = off + y * stride + x * (bpp / 8);
+            if (i + 2 >= b.length) continue;
+            total++;
+            // BMP rows are BGR, not RGB.
+            if (Math.max(Math.abs(b[i + 2] - CREAM[0]),
+                         Math.abs(b[i + 1] - CREAM[1]),
+                         Math.abs(b[i] - CREAM[2])) > OFF_CREAM) drawn++;
+          }
+        }
+        return total ? Math.round((drawn * 100) / total) : null;
+      }
+
       console.log("\npreflight: launch matrix");
       for (const rt of runtimes) {
         for (const { d, why } of pick(devJson.devices[rt.identifier] || [])) {
@@ -359,14 +425,39 @@ if (QUICK) {
           const inst = sh("xcrun", ["simctl", "install", d.udid, app]);
           if (!inst.ok) { warn(label, "install failed, skipped"); continue; }
           sh("xcrun", ["simctl", "launch", d.udid, "com.ikasiandgo.app"]);
-          execFileSync("/bin/sleep", ["8"]);
-          const live = sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]);
-          if (/ikasiandgo/i.test(live.out)) {
-            const shot = path.join(shotDir, (rt.name + "-" + d.name).replace(/[^\w.-]+/g, "_") + ".png");
-            sh("xcrun", ["simctl", "io", d.udid, "screenshot", shot]);
-            pass(label, "running, screenshot saved");
-          } else {
+          const shot = path.join(shotDir, (rt.name + "-" + d.name).replace(/[^\w.-]+/g, "_") + ".png");
+
+          execFileSync("/bin/sleep", [String(SETTLE)]);
+          let waited = SETTLE, live = false, drawn = null;
+          for (;;) {
+            // Checked every time round, so an app that dies while we wait is
+            // reported as dying rather than as a blank screen.
+            live = /ikasiandgo/i.test(
+              sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]).out);
+            if (!live) break;
+            sh("xcrun", ["simctl", "io", d.udid, "screenshot", "--type=png", shot]);
+            drawn = drawnPercent(shot);
+            if (drawn === null || drawn >= DRAWN_PCT || waited >= BUDGET) break;
+            execFileSync("/bin/sleep", [String(POLL)]);
+            waited += POLL;
+          }
+
+          if (!live) {
             fail(label, "the app did not stay running");
+          } else if (drawn === null) {
+            warn(label, "running after " + waited + "s, but the screenshot could not be measured");
+          } else if (drawn >= DRAWN_PCT) {
+            pass(label, "drew in " + waited + "s  (" + drawn + "% of the screen)");
+            // Not a failure, but it is the 1.6 bug in slow motion, and the
+            // next device or the next runtime may be the one that runs out.
+            if (waited > BUDGET / 2) {
+              warn(label, "took " + waited + "s of the " + BUDGET + "s allowed to draw");
+            }
+          } else {
+            fail(label, "still blank after " + waited + "s  (" + drawn +
+              "% of the screen, needs " + DRAWN_PCT + "%)");
+            console.log("      The process is alive and drawing nothing. Open the shot below:");
+            console.log("      a bare cream screen is a webview that never loaded.");
           }
           sh("xcrun", ["simctl", "shutdown", d.udid]);
         }
