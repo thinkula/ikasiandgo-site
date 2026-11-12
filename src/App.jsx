@@ -4949,8 +4949,14 @@ function KoloreakScreen(props){
                   style={{padding:"14px 10px",borderRadius:18,border:"2px solid "+border,backgroundColor:bg,cursor:showResult?"default":"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.2s cubic-bezier(0.34,1.56,0.64,1)",transform:sc,boxShadow:showResult?"none":"0 2px 10px rgba(0,0,0,0.07)",minHeight:68,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2,animation:"cardIn 0.2s ease "+(wi*0.05)+"s both",position:"relative",overflow:"hidden"}}>
                   {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                   {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
-                  <div style={{display:"flex",alignItems:"center",gap:6}}>
-                    <div style={{width:12,height:12,borderRadius:"50%",backgroundColor:COLOR_HEX[word.id]||"#888",flexShrink:0,border:"1px solid rgba(0,0,0,0.1)",opacity:showResult?1:0,transition:"opacity 0.25s ease"}}/>
+                  {/* The swatch is hidden until the answer is shown, but an
+                      invisible element still takes up its space, so leaving it
+                      in the flow pushed every word 9px right of center: half of
+                      the dot plus its gap. Positioning it against the left edge
+                      of the word keeps the word centered and still parks the
+                      swatch beside it, with nothing moving on the reveal. */}
+                  <div style={{position:"relative",display:"inline-flex",alignItems:"center"}}>
+                    <div style={{position:"absolute",right:"100%",marginRight:6,top:"50%",transform:"translateY(-50%)",width:12,height:12,borderRadius:"50%",backgroundColor:COLOR_HEX[word.id]||"#888",border:"1px solid rgba(0,0,0,0.1)",opacity:showResult?1:0,transition:"opacity 0.25s ease"}}/>
                     <p style={{margin:0,fontSize:word.basque.length>12?11:14,fontWeight:900,color:txtC,letterSpacing:-0.2}}>{word.basque}</p>
                   </div>
                   <p style={{margin:0,fontSize:10,color:showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93",fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
