@@ -369,6 +369,16 @@ if (QUICK) {
        * status bar is far too small to reach the threshold, which is the point:
        * the blank 1.6 shot scored 0.
        *
+       * Far from cream is not the same as drawn, though, so the share is held
+       * between two bounds rather than above one. Black is as far from cream as
+       * a pixel can get, so a flat black frame scores 100 and a lower bound on
+       * its own would wave it through. That is not hypothetical here: the app
+       * shows nothing but black for its first seconds while it waits on its
+       * first frame, so an early look can land inside that gap and grade the
+       * launch placeholder as a perfect render. A real screen is a mixture of
+       * cream page, white sheet and dark green header, and lands between the
+       * bounds. A screen of any one flat color lands at 0 or at 100.
+       *
        * No image library, because the gate should not grow dependencies to
        * check a PNG. sips ships with macOS and writes BMP, which is a header
        * followed by raw rows, and plain Node can read that. Downsampling to a
@@ -379,6 +389,7 @@ if (QUICK) {
       const GRID = 16;        // downsample to GRID x GRID before measuring
       const OFF_CREAM = 80;   // per channel, how far from cream reads as drawn
       const DRAWN_PCT = 15;   // share of the grid that has to be that far off
+      const DRAWN_MAX = 85;   // above this it is one flat color, not the app
       const SETTLE = 4;       // seconds before the first look
       const POLL = 2;         // seconds between looks after that
       const BUDGET = 30;      // seconds before a screen is called blank
@@ -414,6 +425,10 @@ if (QUICK) {
         return total ? Math.round((drawn * 100) / total) : null;
       }
 
+      // Measured against the six shots this gate takes, a drawn screen scores
+      // between 38 and 61. Cream and white score 0, black scores 100.
+      function isDrawn(d) { return d !== null && d >= DRAWN_PCT && d <= DRAWN_MAX; }
+
       console.log("\npreflight: launch matrix");
       for (const rt of runtimes) {
         for (const { d, why } of pick(devJson.devices[rt.identifier] || [])) {
@@ -437,7 +452,10 @@ if (QUICK) {
             if (!live) break;
             sh("xcrun", ["simctl", "io", d.udid, "screenshot", "--type=png", shot]);
             drawn = drawnPercent(shot);
-            if (drawn === null || drawn >= DRAWN_PCT || waited >= BUDGET) break;
+            // Keep looking while the score is outside the bounds at either
+            // end. Both blankness and the black placeholder are states the app
+            // is expected to pass through, so neither one ends the wait early.
+            if (drawn === null || isDrawn(drawn) || waited >= BUDGET) break;
             execFileSync("/bin/sleep", [String(POLL)]);
             waited += POLL;
           }
@@ -446,13 +464,18 @@ if (QUICK) {
             fail(label, "the app did not stay running");
           } else if (drawn === null) {
             warn(label, "running after " + waited + "s, but the screenshot could not be measured");
-          } else if (drawn >= DRAWN_PCT) {
+          } else if (isDrawn(drawn)) {
             pass(label, "drew in " + waited + "s  (" + drawn + "% of the screen)");
             // Not a failure, but it is the 1.6 bug in slow motion, and the
             // next device or the next runtime may be the one that runs out.
             if (waited > BUDGET / 2) {
               warn(label, "took " + waited + "s of the " + BUDGET + "s allowed to draw");
             }
+          } else if (drawn > DRAWN_MAX) {
+            fail(label, "still one flat dark screen after " + waited + "s  (" + drawn +
+              "% of the screen, expected at most " + DRAWN_MAX + "%)");
+            console.log("      The process is alive and the screen is a single dark color.");
+            console.log("      That is the launch placeholder: no first frame ever arrived.");
           } else {
             fail(label, "still blank after " + waited + "s  (" + drawn +
               "% of the screen, needs " + DRAWN_PCT + "%)");
