@@ -5457,7 +5457,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC4B",
     blurb:"Say hello, thank you, and be polite.",
     intro:"Every conversation in Euskara starts here. Basque greetings are warm and used with everyone, from close friends to shopkeepers. One word does a lot of work: on means good, and you will meet it again and again (egun on, gau on).",
-    grammar:{title:"The little word 'on'",body:"on means \"good\". Basque builds greetings by adding it after a time word: egun (day) + on = egun on (good morning). You will see this pattern throughout the language."},
+    grammar:{title:"The little word 'on'",body:"On means \"good\". Basque builds greetings by adding it after a time word: egun (day) + on = egun on (good morning). You will see this pattern throughout the language."},
     wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on","gau_on"],
   },
   {
@@ -5467,8 +5467,8 @@ var LESSONS=[
     titleEu:"Ni, zu, gu",
     emoji:"\uD83E\uDDCD",
     blurb:"The pronouns, and why Basque so often leaves them out.",
-    intro:"Basque has pronouns and then mostly declines to use them, because the verb already says who is acting. They still matter, for emphasis and for politeness, and one of them doubles as a word for pointing at something across the room.",
-    grammar:{title:"The verb already said it",body:"naiz on its own means I am, so ni naiz is closer to I am, as opposed to somebody else. The pronoun gets left out unless it is carrying weight. zu has a history worth knowing: it was once the plural you, exactly as in English, then became the polite singular, then simply the singular. Basque needed a new plural after that and built zuek on top of it. hi is the old intimate singular that survived, for close friends and siblings. hura is both he or she and that one over there, because Basque never had a separate third person pronoun."},
+    intro:"Basque has a full set of pronouns and then mostly leaves them out, because the verb already says who is acting. You need them for emphasis and for politeness, and one of them doubles as a way to point at something across the room.",
+    grammar:{title:"The verb already said it",body:"Naiz by itself already means I am, so the pronoun in ni naiz shifts the sense to I am, rather than someone else. It stays out of the way unless it is carrying that kind of weight. Zu has a history worth knowing: it started as the plural you, exactly as English you did, then softened into a polite singular, and ended up as the ordinary one. That left Basque short a plural, so it built zuek on top of zu. Hi is the old intimate singular, still alive between close friends and siblings. Hura covers he, she and that one over there at once, because Basque never had a third person pronoun of its own."},
     wordIds:["ni","zu","hi","gu","zuek","hura","haiek"],
   },
   {
@@ -5479,7 +5479,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC49",
     blurb:"Pointing in three steps, and the small words that join a sentence.",
     intro:"Basque points in three steps where English manages two, and the three line up with the people in the conversation. The joining words are tiny and you will use them in nearly every sentence you build from here on.",
-    grammar:{title:"Three steps, and two ways to say or",body:"hau is near me, hori is near you, hura is over there, which matches ni, zu and hura exactly. The demonstrative comes after its noun rather than before it, and it carries the plural for the whole phrase, so the noun itself stays singular. Two words mean or and they do not swap: edo is the or of statements, while ala offers a real choice in a question. eta is hiding inside numbers you have not met yet, because hogeita bat is hogei eta bat run together."},
+    grammar:{title:"Three steps, and two ways to say or",body:"Hau is near me, hori is near you, hura is over there, which matches ni, zu and hura exactly. The demonstrative comes after its noun rather than before it, and it carries the plural for the whole phrase, so the noun itself stays singular. Two words mean or and they do not swap: edo is the or of statements, while ala offers a real choice in a question. The word eta is hiding inside numbers you have not met yet, because hogeita bat is hogei eta bat run together."},
     wordIds:["hau","hori","hauek","horiek","eta","edo","ala","baina"],
   },
   {
@@ -5490,7 +5490,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD17",
     blurb:"The first questions, their answers, and the rest of the day's greetings.",
     intro:"Four questions cover most first conversations, and their answers are patterns you can reuse all day. This also finishes the greetings. The first lesson gave you good morning and then left the rest of the day uncovered.",
-    grammar:{title:"Having your years",body:"zenbat urte dituzu is literally how many years do you have, because in Basque you have an age rather than being it. The answer follows the same shape. nongoa zara asks where you are of, and you answer with -koa on the place name, so Bilbokoa naiz is I am from Bilbao. gero arte and bihar arte are built the same way, a time word plus arte, until. The day itself runs egun on, arratsalde on, gabon."},
+    grammar:{title:"Having your years",body:"Zenbat urte dituzu is literally how many years do you have, because in Basque you have an age rather than being it. The answer follows the same shape. Nongoa zara asks where you are of, and you answer with -koa on the place name, so Bilbokoa naiz is I am from Bilbao. Gero arte and bihar arte are built the same way, a time word plus arte, until. The day itself runs egun on, arratsalde on, gabon."},
     wordIds:["pozten_nau","nongoa","zenbat_urte","ingelesez","pixka_bat","berriz","badakit","aspaldiko","gero_arte","bihar_arte","arratsalde_on","gabon"],
   },
   {
@@ -5501,7 +5501,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCDA",
     blurb:"Four everyday verbs, and one noun that carries weight.",
     intro:"Four of the most ordinary verbs in any language, which the path has somehow gone this far without. One of them has a second use worth knowing.",
-    grammar:{title:"Le, the one who does it",body:"Add -le to one of these verbs and you get the person who does it. irakurri gives irakurlea, a reader. idatzi gives idazlea, a writer. entzun gives entzulea, a listener. hitza means a word, and hitza eman, to give your word, is a promise that Basque custom treats as binding. hitz egin, literally to make word, is how you say to speak at all."},
+    grammar:{title:"Le, the one who does it",body:"Add -le to one of these verbs and you get the person who does it. Irakurri gives irakurlea, a reader. Idatzi gives idazlea, a writer. Entzun gives entzulea, a listener. Hitza means a word, and hitza eman, to give your word, is a promise that Basque custom treats as binding. Hitz egin, literally to make word, is how you say to speak at all."},
     wordIds:["irakurri","idatzi","entzun","begiratu","hitza"],
   },
   {
@@ -5512,7 +5512,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD22",
     blurb:"The numbers one through ten.",
     intro:"Numbers are some of the most useful words to know early, for prices, ages, times, and quantities. Basque numbers are not related to Spanish or French, so they will feel new, but they are short and rhythmic. Try counting out loud.",
-    grammar:{title:"A base-twenty system",body:"Basque traditionally counts in twenties (like old French). hogei is twenty, and larger numbers build from it. For now, ten (hamar) is your milestone."},
+    grammar:{title:"A base-twenty system",body:"Basque traditionally counts in twenties (like old French). Hogei is twenty, and larger numbers build from it. For now, ten (hamar) is your milestone."},
     wordIds:["bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar"],
   },
   {
@@ -5711,7 +5711,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFE0",
     blurb:"The rooms you live in, and what is in them.",
     intro:"Basque names rooms plainly. Once you know that gela means room, half the house follows: the sleep room, the staying room, the bath room. The kitchen is the exception, and its name is older and warmer than the rest.",
-    grammar:{title:"Rooms are built from gela",body:"gela means \"room\", and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. egon (to stay) + gela = egongela, the living room. bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
+    grammar:{title:"Rooms are built from gela",body:"Gela means \"room\", and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. Egon (to stay) + gela = egongela, the living room. Bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
     wordIds:["logela","sukaldea","egongela","bainugela","mahaia","aulkia","sofa","ohea","leihoa","atea"],
   },
   {
@@ -5735,7 +5735,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD55",
     blurb:"Fruit and vegetables, by the names you would ask for them.",
     intro:"The food words so far covered what you eat. This is what you buy, which is a different list and the one you need standing in front of a stall.",
-    grammar:{title:"Where the vegetables came from",body:"Many of these names arrived with the thing itself. arroza came from Arabic ar-ruzz by way of Spanish, and azukrea from as-sukkar along the same road. tipula goes back to Latin cepulla, a little onion, which makes Spanish cebolla its cousin rather than its parent. sagarra is native and old, and it is the first half of sagardoa, cider, which is apple plus wine."},
+    grammar:{title:"Where the vegetables came from",body:"Many of these names arrived with the thing itself. Arroza came from Arabic ar-ruzz by way of Spanish, and azukrea from as-sukkar along the same road. Tipula goes back to Latin cepulla, a little onion, which makes Spanish cebolla its cousin rather than its parent. Sagarra is native and old, and it is the first half of sagardoa, cider, which is apple plus wine."},
     wordIds:["tomatea","patata","tipula","azenarioa","letxuga","baratxuria","sagarra","banana"],
   },
   {
@@ -5747,7 +5747,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF74",
     blurb:"What goes in the pan, and what you eat it with.",
     intro:"Seasonings, staples and the things you set a table with. One of these words has a quietly lovely origin that makes it impossible to forget.",
-    grammar:{title:"A little pitchfork",body:"sardexka is the one to remember: sarde is a pitchfork and -xka makes a thing small, so a fork is a little pitchfork. That same -xka turns up later softening colors. gatza, salt, is the root behind gazia, salty, and gazta, cheese, is popularly tied to it too. labana came in from Spanish navaja, while the older native word for a blade is still used for traditional knives."},
+    grammar:{title:"A little pitchfork",body:"Sardexka is the one to remember: sarde is a pitchfork and -xka makes a thing small, so a fork is a little pitchfork. That same -xka turns up later softening colors. Gatza, salt, is the root behind gazia, salty, and gazta, cheese, is popularly tied to it too. Labana came in from Spanish navaja, while the older native word for a blade is still used for traditional knives."},
     wordIds:["gatz","olioa","piperra","azukrea","arroza","tea","barazkia","txokolatea","platera","koilara","sardexka","labana"],
   },
   {
@@ -5759,7 +5759,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67",
     blurb:"Aunts, uncles, parents, and a sibling system that depends on you.",
     intro:"The family words so far covered the household. This one widens it, and introduces something Basque does that very few languages bother with.",
-    grammar:{title:"Whose sister you are",body:"Basque chooses the word for a sibling according to who is speaking. A man calls his sister arreba, while a woman calls her sister ahizpa. A woman calls her brother neba, while a man calls his brother anaia. Nothing about the sibling changes, only the person talking. gizona, man, is the root of a larger family of words, including gizakia, a human being."},
+    grammar:{title:"Whose sister you are",body:"Basque chooses the word for a sibling according to who is speaking. A man calls his sister arreba, while a woman calls her sister ahizpa. A woman calls her brother neba, while a man calls his brother anaia. Nothing about the sibling changes, only the person talking. Gizona, man, is the root of a larger family of words, including gizakia, a human being."},
     wordIds:["arreba","neba","osaba","izeba","gurasoak","gizona","emakumea","mutila","neska","umea","pertsona"],
   },
   {
@@ -5771,7 +5771,7 @@ var LESSONS=[
     emoji:"\uD83E\uDDB6",
     blurb:"Back, stomach, neck, hair, and the parts the first lesson skipped.",
     intro:"Enough of the body to say where it hurts, which is the practical reason to learn any of this. One of these words has been in Basque for roughly two thousand years.",
-    grammar:{title:"Corpus, borrowed a very long time ago",body:"gorputza most likely comes from Latin corpus, taken in so long ago that it no longer looks borrowed at all. Basque builds the rest from its own parts: lepokoa, a necklace, is simply the neck-thing, and the thumb is named as the thick finger. zapata is a Romance loan whose final -a belongs to the word itself rather than being the article, which is why it never doubles."},
+    grammar:{title:"Corpus, borrowed a very long time ago",body:"Gorputza most likely comes from Latin corpus, taken in so long ago that it no longer looks borrowed at all. Basque builds the rest from its own parts: lepokoa, a necklace, is simply the neck-thing, and the thumb is named as the thick finger. Zapata is a Romance loan whose final -a belongs to the word itself rather than being the article, which is why it never doubles."},
     wordIds:["bizkarra","sabela","hortzak","lepoa","zapata","gorputza","ilea","hatza"],
   },
   {
@@ -5783,7 +5783,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC11",
     blurb:"Forest, earth, sheep, cattle, and the way the day is going.",
     intro:"Rural vocabulary, which in the Basque Country is not a specialist subject. Two of these words are small compounds that describe exactly what they mean.",
-    grammar:{title:"The day-period, and the full moon",body:"eguraldia, weather, is egun (day) plus aldi (a period), so it is the way the day is going. hilabetea, a month, is hil (moon) plus bete (full), one full cycle of it. eguzkitsua is eguzki (sun) plus -tsu, full of, the ending you meet again in words like indartsua. basoa means forest, and Basajaun, the lord of the forest, is a famous figure of Basque mythology."},
+    grammar:{title:"The day-period, and the full moon",body:"Eguraldia, weather, is egun (day) plus aldi (a period), so it is the way the day is going. Hilabetea, a month, is hil (moon) plus bete (full), one full cycle of it. Eguzkitsua is eguzki (sun) plus -tsu, full of, the ending you meet again in words like indartsua. Basoa means forest, and Basajaun, the lord of the forest, is a famous figure of Basque mythology."},
     wordIds:["basoa","lurra","ardia","behia","eguraldi","eguzkitsua","hilabetea","urtea","segundoa"],
   },
   {
@@ -5795,7 +5795,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF84",
     blurb:"Olentzero, Christmas, and three words for how you feel about people.",
     intro:"A short lesson about celebration, and the words for liking, loving and being worn out by it all afterwards.",
-    grammar:{title:"Olentzero comes down from the hills",body:"Olentzero is the Basque Christmas figure, a charcoal burner who comes down from the mountains on Christmas Eve carrying presents. Gabonak, Christmas, is built on gabon, the good night you say after dark, so the season is named as the good nights. maite means dear or beloved, and maite zaitut is I love you. nekea, tiredness, gives nekatuta nago, I am tired."},
+    grammar:{title:"Olentzero comes down from the hills",body:"Olentzero is the Basque Christmas figure, a charcoal burner who comes down from the mountains on Christmas Eve carrying presents. Gabonak, Christmas, is built on gabon, the good night you say after dark, so the season is named as the good nights. Maite means dear or beloved, and maite zaitut is I love you. Nekea, tiredness, gives nekatuta nago, I am tired."},
     wordIds:["jaia","olentzero","gabonak","maite","maite_izatea","nekea","atsegin"],
   },
   {
@@ -5831,7 +5831,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF42",
     blurb:"Spring, summer, autumn, winter, and the weather between them.",
     intro:"Basque names the year from summer outward. Spring is the new summer and autumn is the last one, which tells you which season the calendar was built around. The weather words that go with them are the ones you will actually hear on the coast.",
-    grammar:{title:"The year revolves around summer",body:"uda means summer. udaberria (spring) is uda + berri, the new summer. udazkena (autumn) is uda + azken, the last summer. Only negua (winter) stands on its own. A calendar built by people who cared most about the warm months."},
+    grammar:{title:"The year revolves around summer",body:"Uda means summer. Udaberria (spring) is uda + berri, the new summer. Udazkena (autumn) is uda + azken, the last summer. Only negua (winter) stands on its own. A calendar built by people who cared most about the warm months."},
     wordIds:["urtaroak","udaberria","uda","udazkena","negua","hodeia","hodeitsu","lainoa","hotza","beroa"],
   },
   {
@@ -5843,7 +5843,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD1D",
     blurb:"Language, culture, freedom, and the word that carries them.",
     intro:"One word does an enormous amount of work in Basque: herri. It means the people, the town, and the nation at once, which is why Euskal Herria is hard to translate in a single phrase. The rest of this lesson is the vocabulary that gathers around it.",
-    grammar:{title:"Herri, and the words built on together",body:"herri means people, town, or nation. Euskal Herria is the Basque homeland, herritar is a citizen, herrialde is a country or territory. A second root does similar work: elkar means each other, giving elkartea (association or club) and elkartasuna (solidarity)."},
+    grammar:{title:"Herri, and the words built on together",body:"Herri means people, town, or nation. Euskal Herria is the Basque homeland, herritar is a citizen, herrialde is a country or territory. A second root does similar work: elkar means each other, giving elkartea (association or club) and elkartasuna (solidarity)."},
     wordIds:["herria","herrialdea","hizkuntza","kultura","historia","askatasuna","elkartasuna","bakea","biztanleak","elkartea"],
   },
   {
@@ -5855,7 +5855,7 @@ var LESSONS=[
     emoji:"\u2696\uFE0F",
     blurb:"Light and dark, cheap and expensive, easy and hard.",
     intro:"Adjectives are easiest to hold onto in pairs. These five pairs cover most of what you need to describe a thing, a price, or a room, and they all follow the rule you learned earlier: the adjective comes after the noun.",
-    grammar:{title:"Adjectives still come second",body:"Basque puts the adjective after the noun: etxe handia is house-big, not big-house. These pairs work the same way. liburu erraza = easy book. gela iluna = dark room. The -a on the end is the article, so the adjective carries it rather than the noun."},
+    grammar:{title:"Adjectives still come second",body:"Basque puts the adjective after the noun: etxe handia is house-big, not big-house. These pairs work the same way. Liburu erraza = easy book. Gela iluna = dark room. The -a on the end is the article, so the adjective carries it rather than the noun."},
     wordIds:["argia","iluna","azkarra","motela","garestia","merkea","erraza","zaila","ozena","isila"],
   },
   {
@@ -5867,7 +5867,7 @@ var LESSONS=[
     emoji:"🍽️",
     blurb:"Cod, steak, hake, anchovy, and what comes on them.",
     intro:"A Basque menu is mostly nouns: the fish or the cut, then how it was cooked. Learn these ten and you can order in most of the Basque Country without pointing.",
-    grammar:{title:"That final -a is the word 'the'",body:"bakailao is cod; bakailaoa is the cod. Basque has no separate word for 'the', it sticks an -a on the end. This is why so much vocabulary seems to end in -a, and why the ending disappears inside compounds. When you learn a new noun, try removing the -a to find the bare word underneath."},
+    grammar:{title:"That final -a is the word 'the'",body:"Bakailao is cod; bakailaoa is the cod. Basque has no separate word for 'the', it sticks an -a on the end. This is why so much vocabulary seems to end in -a, and why the ending disappears inside compounds. When you learn a new noun, try removing the -a to find the bare word underneath."},
     wordIds:["bacalaoa","txuleta","merluzea","antxoa","xerra","tortilla","oliba","saltsa","txakolina","prestatu"],
   },
   {
@@ -5879,7 +5879,7 @@ var LESSONS=[
     emoji:"🍰",
     blurb:"Cake, ice cream, chestnuts, and the afternoon snack.",
     intro:"The Basque afternoon has its own meal, the askaria, somewhere between lunch and dinner. These are the words for it, and for the sweet end of a menu.",
-    grammar:{title:"One word for sweet and for delicious",body:"goxoa covers both. A cake is goxoa because it is sweet; a stew is goxoa because it tastes good. Basque does not force you to choose, which means you can praise almost any food with one adjective while you are still learning."},
+    grammar:{title:"One word for sweet and for delicious",body:"Goxoa covers both. A cake is goxoa because it is sweet; a stew is goxoa because it tastes good. Basque does not force you to choose, which means you can praise almost any food with one adjective while you are still learning."},
     wordIds:["goxoa","opila","pastela","izozkia","esnegaina","gaztaina","intxaurra","askaria","zukua","edaria"],
   },
   {
@@ -5891,7 +5891,7 @@ var LESSONS=[
     emoji:"🫘",
     blurb:"The everyday food behind the famous dishes.",
     intro:"Under the restaurant dishes sits ordinary cooking: beans, mushrooms, pork, and what you drink it from. These words do more work in a Basque kitchen than any of the famous ones.",
-    grammar:{title:"Some foods live in the plural",body:"babarrunak is beans and onddoak is mushrooms, and both are usually said that way. The -ak ending is the plural 'the': babarruna would be one single bean, which is rarely what anyone means. Watch for -ak on things that naturally come in quantity."},
+    grammar:{title:"Some foods live in the plural",body:"Babarrunak is beans and onddoak is mushrooms, and both are usually said that way. The -ak ending is the plural 'the': babarruna would be one single bean, which is rarely what anyone means. Watch for -ak on things that naturally come in quantity."},
     wordIds:["babarrunak","onddo","txerria","txerrikia","pasta","edalontzia","katilua"],
   },
   {
@@ -5903,7 +5903,7 @@ var LESSONS=[
     emoji:"🚗",
     blurb:"Roads, stations, cars, and public transport.",
     intro:"Getting around the Basque Country means narrow roads, short distances and good buses. These are the words you will read on signs and timetables.",
-    grammar:{title:"-toki and -leku build places",body:"geltokia is a station, from gelditu (to stop) plus toki (place): a stopping-place. igerilekua is a swimming pool, from igeri (swim) plus leku (place). Both suffixes mean place, and once you spot one you can usually work out the whole word."},
+    grammar:{title:"-toki and -leku build places",body:"Geltokia is a station, from gelditu (to stop) plus toki (place): a stopping-place. Igerilekua is a swimming pool, from igeri (swim) plus leku (place). Both suffixes mean place, and once you spot one you can usually work out the whole word."},
     wordIds:["bidea","mapa","geltokia","kotxea","kamioia","autopista","garraio_publikoa","bidaia","bidaiari","sarrera"],
   },
   {
@@ -5915,7 +5915,7 @@ var LESSONS=[
     emoji:"🎫",
     blurb:"Passports, bookings, departures, and missing the train.",
     intro:"The practical half of traveling: the paperwork, the booking, and the moment you realize the train has gone without you.",
-    grammar:{title:"galdu loses things and misses them",body:"galdu is to lose, and it is also to miss: trena galdu dut is both 'I have lost the train' and 'I missed the train', and Basque sees no difference worth marking. English splits these; Basque does not, which is a small lesson in not translating word for word."},
+    grammar:{title:"galdu loses things and misses them",body:"Galdu is to lose, and it is also to miss: trena galdu dut is both 'I have lost the train' and 'I missed the train', and Basque sees no difference worth marking. English splits these; Basque does not, which is a small lesson in not translating word for word."},
     wordIds:["pasaportea","hegazkin_txartela","ostatua_erreserbatu","faktura","turismoa","irteera","galdu","bidaia_egitea","itsasontzia","bizi_izan"],
   },
   {
@@ -5927,7 +5927,7 @@ var LESSONS=[
     emoji:"🦴",
     blurb:"The parts of the body you did not learn first.",
     intro:"You already know the head, hand and eye. These are the rest: the joints, the skin, the blood and the bone underneath.",
-    grammar:{title:"Bodies are built from other words",body:"eskumuturra is the wrist, and it is esku (hand) plus mutur (end): the end of the hand. Basque names many body parts by where they sit rather than with a word of their own, so a long one is often two short ones you already know."},
+    grammar:{title:"Bodies are built from other words",body:"Eskumuturra is the wrist, and it is esku (hand) plus mutur (end): the end of the hand. Basque names many body parts by where they sit rather than with a word of their own, so a long one is often two short ones you already know."},
     wordIds:["sorbalda","belaunak","hatzak","ukondoa","eskumuturra","bularraldea","azala","odola","hezurra","arnasa"],
   },
   {
@@ -5939,7 +5939,7 @@ var LESSONS=[
     emoji:"🩺",
     blurb:"Doctors, hospitals, coughs and headaches.",
     intro:"Nobody wants this vocabulary until they need it urgently. Ten words that cover explaining what is wrong and finding someone to help.",
-    grammar:{title:"-ko turns a word into 'of that place'",body:"buruko mina is headache, literally head-of pain: burua (head) plus -ko. The suffix marks what something belongs to or comes from, so sabeleko mina is stomach pain by the same rule. Point at the part and add -ko mina."},
+    grammar:{title:"-ko turns a word into 'of that place'",body:"Buruko mina is headache, literally head-of pain: burua (head) plus -ko. The suffix marks what something belongs to or comes from, so sabeleko mina is stomach pain by the same rule. Point at the part and add -ko mina."},
     wordIds:["osasuna","sendagilea","ospitalea","osasun_zentroa","mina_a2","gaixotasuna","eztula","buruko_mina","hotzeria","gaixoa"],
   },
   {
@@ -5951,7 +5951,7 @@ var LESSONS=[
     emoji:"🌳",
     blurb:"Beech, oak, meadow, lake and the sand at the end of it.",
     intro:"Two trees matter more than any others here. The beech and the oak shaped Basque building, Basque farming and a good deal of Basque myth, and both have their own word.",
-    grammar:{title:"Long words come apart",body:"mendilerroa is a mountain range: mendi (mountain) plus lerro (line), a line of mountains. Basque rarely borrows a new word when it can join two old ones, so when a long word looks unfamiliar, try cutting it where the meaning changes."},
+    grammar:{title:"Long words come apart",body:"Mendilerroa is a mountain range: mendi (mountain) plus lerro (line), a line of mountains. Basque rarely borrows a new word when it can join two old ones, so when a long word looks unfamiliar, try cutting it where the meaning changes."},
     wordIds:["pagoa","haritza","hostoa","larrea","aintzira","mendilerroa","hondartza","harea","harria"],
   },
   {
@@ -5987,7 +5987,7 @@ var LESSONS=[
     emoji:"👪",
     blurb:"The wider family, and the people who live next door.",
     intro:"The family words so far covered the house you grew up in. This one covers everyone else: the spouse, the cousins, the nieces and nephews, and the neighbor who counts as family anyway.",
-    grammar:{title:"-kide means the one you share it with",body:"kide is a member or companion. Add it and you get the person you share the thing with: bikotekidea is your partner (bikote, couple), lankidea is your colleague (lan, work), ezkontidea is your spouse (ezkon, marriage). It is one of the most productive endings in the language."},
+    grammar:{title:"-kide means the one you share it with",body:"Kide is a member or companion. Add it and you get the person you share the thing with: bikotekidea is your partner (bikote, couple), lankidea is your colleague (lan, work), ezkontidea is your spouse (ezkon, marriage). It is one of the most productive endings in the language."},
     wordIds:["senarra","emaztea","bikotea","bikotekidea","bizilaguna","lankidea","iloba","lehengusua","lehengusina","senitartea","lobak","ezkontidea"],
   },
   {
@@ -6011,7 +6011,7 @@ var LESSONS=[
     emoji:"📅",
     blurb:"Monday through Sunday, and when things happen.",
     intro:"You can already say today and tomorrow. These are the days themselves. Three of them are built from aste, the word for week, which makes them easier to hold onto than they look.",
-    grammar:{title:"Three days built from 'week'",body:"astelehena is aste (week) plus lehen (first). asteartea is aste plus arte (between). asteazkena is aste plus azken (last). That last one names Wednesday rather than the end of the week, and why it does is still debated. The remaining days come from older roots."},
+    grammar:{title:"Three days built from 'week'",body:"Astelehena is aste (week) plus lehen (first). Asteartea is aste plus arte (between). Asteazkena is aste plus azken (last). That last one names Wednesday rather than the end of the week, and why it does is still debated. The remaining days come from older roots."},
     wordIds:["astelehenea","asteartea","asteazkena","osteguna","ostirala","larunbata","igandea","goizean","arratsaldean","beti"],
   },
   {
@@ -6023,7 +6023,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD47",
     blurb:"First, second, third, and the ending that makes them.",
     intro:"You can count. Ordering is a separate job, and Basque does it with one ending applied to numbers you already know. Only the first of them is irregular.",
-    grammar:{title:"Garren, the ordinal ending",body:"Take a number and add -garren. bi gives bigarrena, hiru gives hirugarrena, lau gives laugarrena, and so on all the way up without surprises. lehena, first, is the exception, as first usually is in any language. The ending also builds expressions of sequence, so hirugarren aldiz is for the third time."},
+    grammar:{title:"Garren, the ordinal ending",body:"Take a number and add -garren. Bi gives bigarrena, hiru gives hirugarrena, lau gives laugarrena, and so on all the way up without surprises. Lehena, first, is the exception, as first usually is in any language. The ending also builds expressions of sequence, so hirugarren aldiz is for the third time."},
     wordIds:["lehena","bigarrena","hirugarrena","laurgarrena","bosgarrena","seigarrena","zazpigarrena","zortzigarrena","bederatzigarrena","hamargarrena"],
   },
   {
@@ -6035,7 +6035,7 @@ var LESSONS=[
     emoji:"\u2797",
     blurb:"Fifty, seventy, ninety, and the four operations.",
     intro:"Counting Past Twenty gave you the rule and the round numbers. These are the ones the rule produces in between, plus the words for what you do to numbers once you have them.",
-    grammar:{title:"The twenties, completed",body:"You already know that Basque adds ten to a multiple of twenty. Here is the rest of it: berrogeita hamar is forty and ten, fifty. hirurogeita hamar is sixty and ten, seventy. laurogeita hamar is eighty and ten, ninety. That closes the system, and nothing above twenty needs memorizing separately again. The operations take the ending -keta on a short root: ken is minus and gives kenketa, bider is times and gives biderketa, zati is divided and gives zatiketa."},
+    grammar:{title:"The twenties, completed",body:"You already know that Basque adds ten to a multiple of twenty. Here is the rest of it: berrogeita hamar is forty and ten, fifty. Hirurogeita hamar is sixty and ten, seventy. Laurogeita hamar is eighty and ten, ninety. That closes the system, and nothing above twenty needs memorizing separately again. The operations take the ending -keta on a short root: ken is minus and gives kenketa, bider is times and gives biderketa, zati is divided and gives zatiketa."},
     wordIds:["berrogeita_hamar","hirurogeita_hamar","laurogeita_hamar","erdia","birritan","ken","biderketa","zatiketa"],
   },
   {
@@ -6047,7 +6047,7 @@ var LESSONS=[
     emoji:"\uD83E\uDECF",
     blurb:"Donkeys, deer, ducks, and a squirrel with a surprising name.",
     intro:"The animals of the countryside and the farmyard. One of these is among the best examples anywhere of how Basque names a thing by describing it.",
-    grammar:{title:"The red cat",body:"katagorria, a squirrel, is katu (cat) plus gorri (red). A red cat. Basque does this constantly once you start looking. oilarra, a rooster, shares its root with oiloa, a hen, and oilaskoa, a chicken. ahatea and antzara both came in from Latin, anatem and anser, which is a reminder that farm vocabulary travels with farming."},
+    grammar:{title:"The red cat",body:"Katagorria, a squirrel, is katu (cat) plus gorri (red). A red cat. Basque does this constantly once you start looking. Oilarra, a rooster, shares its root with oiloa, a hen, and oilaskoa, a chicken. Ahatea and antzara both came in from Latin, anatem and anser, which is a reminder that farm vocabulary travels with farming."},
     wordIds:["astoa","oreina","katagorria","arratoia","usoa","ahatea","antzara","oilarra"],
   },
   {
@@ -6059,7 +6059,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC0B",
     blurb:"Whales, octopus, eagles, and the water pig.",
     intro:"The Basque relationship with the sea is older than most of the words for it. One of these animals is named with a root you have already met attached to a very different creature.",
-    grammar:{title:"Izurdea, the water pig",body:"izurdea, a dolphin, comes from an old root iz, water, plus urde, pig. A water pig. You have met urde before in basurdea, the wild boar, which is basa (wild) plus the same urde. balea is worth knowing for the history behind it: Basque sailors were the first commercial whalers in Europe, hunting from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s. arranoa, the eagle, is the arrano beltza of the old Kingdom of Navarre."},
+    grammar:{title:"Izurdea, the water pig",body:"Izurdea, a dolphin, comes from an old root iz, water, plus urde, pig. A water pig. You have met urde before in basurdea, the wild boar, which is basa (wild) plus the same urde. Balea is worth knowing for the history behind it: Basque sailors were the first commercial whalers in Europe, hunting from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s. Arranoa, the eagle, is the arrano beltza of the old Kingdom of Navarre."},
     wordIds:["arranoa","tximeleta","izurdea","balea","olagarroa","karramarroa","ganba","maskota"],
   },
   {
@@ -6071,7 +6071,7 @@ var LESSONS=[
     emoji:"\uD83D\uDE0C",
     blurb:"Calm, angry, nervous, bored, and how to say it about yourself.",
     intro:"Adjectives and participles for a state you are in right now. Several of them end the same way, which is the pattern worth taking from this lesson.",
-    grammar:{title:"Ta, the state something left behind",body:"Add -ta to a participle and you get the state it leaves you in. aspertu is to get bored and aspertuta is bored. lotsatu is to be embarrassed and lotsatuta is embarrassed. harritu works as both the verb and the surprise itself. This is the same -ta that gave larrituta and hunkituta, so the pattern is now worth trusting: find the verb and you can build the state."},
+    grammar:{title:"Ta, the state something left behind",body:"Add -ta to a participle and you get the state it leaves you in. Aspertu is to get bored and aspertuta is bored. Lotsatu is to be embarrassed and lotsatuta is embarrassed. Harritu works as both the verb and the surprise itself. This is the same -ta that gave larrituta and hunkituta, so the pattern is now worth trusting: find the verb and you can build the state."},
     wordIds:["lasaia","haserre","urduri","harritu","aspertuta","lotsatuta","poztu"],
   },
   {
@@ -6083,7 +6083,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCAD",
     blurb:"Worry, shame, happiness, and naming a feeling rather than having it.",
     intro:"The same territory as the last lesson, turned into nouns. Basque marks the difference clearly, and the endings that do it are ones you have seen before.",
-    grammar:{title:"From how you feel to what it is",body:"alai is cheerful and alaitasuna is cheerfulness, using the -tasuna that also turned berdin into berdintasuna. harritu is to be surprised and harridura is the surprise itself. kezkatu is to worry and kezka is the worry. Knowing both halves lets you say either that you are worried or that you have a worry, which are not quite the same thing in Basque any more than in English."},
+    grammar:{title:"From how you feel to what it is",body:"Alai is cheerful and alaitasuna is cheerfulness, using the -tasuna that also turned berdin into berdintasuna. Harritu is to be surprised and harridura is the surprise itself. Kezkatu is to worry and kezka is the worry. Knowing both halves lets you say either that you are worried or that you have a worry, which are not quite the same thing in Basque any more than in English."},
     wordIds:["ilusioa","lotsa","alaitasuna","kezka","harridura","pena"],
   },
   {
@@ -6095,7 +6095,7 @@ var LESSONS=[
     emoji:"\uD83E\uDDFC",
     blurb:"Everyday qualities, and two words for measuring how much.",
     intro:"Ordinary describing words you will reach for constantly. Two of them are endings you have already met doing familiar work, and one sits neatly between two words you know.",
-    grammar:{title:"Between hot and cold",body:"epela is lukewarm, the temperature between beroa and hotza, and it is as useful about a welcome as about a drink. osasuntsua is osasun (health) plus -tsu, full of health, the same -tsu behind indartsua and eguzkitsua. interesgarria uses -garri once more, causing interest. gutxiago is gutxi plus -ago, the ending that makes a comparison, so it means less."},
+    grammar:{title:"Between hot and cold",body:"Epela is lukewarm, the temperature between beroa and hotza, and it is as useful about a welcome as about a drink. Osasuntsua is osasun (health) plus -tsu, full of health, the same -tsu behind indartsua and eguzkitsua. Interesgarria uses -garri once more, causing interest. Gutxiago is gutxi plus -ago, the ending that makes a comparison, so it means less."},
     wordIds:["interesgarria","garbia","normala","alaia","epela","osasuntsua","gutxiago","nahikoa","zabala","estua","leuna","beterik"],
   },
   {
@@ -6107,7 +6107,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFEB",
     blurb:"Teachers, students, meetings, and being out of work.",
     intro:"Working and studying life. This lesson is mostly made of parts you already have, which makes it a good test of how much word-building you have picked up.",
-    grammar:{title:"Le and gile, two ways to name a doer",body:"ikaslea is ikasi (to learn) plus -le, a learner, the same -le that made irakurlea a reader. irakaslea is built the same way on irakatsi, to teach. langilea takes a different ending: lan (work) plus -gile, a maker, so a worker. langabezia is lan plus gabezia, a lack of work, and that is gabe again. hitzordua, an appointment, is hitz (word) plus ordua (hour), a word-time."},
+    grammar:{title:"Le and gile, two ways to name a doer",body:"Ikaslea is ikasi (to learn) plus -le, a learner, the same -le that made irakurlea a reader. Irakaslea is built the same way on irakatsi, to teach. Langilea takes a different ending: lan (work) plus -gile, a maker, so a worker. Langabezia is lan plus gabezia, a lack of work, and that is gabe again. Hitzordua, an appointment, is hitz (word) plus ordua (hour), a word-time."},
     wordIds:["irakaslea","ikaslea","bulegoa","bilera","langilea","hitzordua","enplegua","baja","langabezia","maisua","anderenoa"],
   },
   {
@@ -6119,7 +6119,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFB5",
     blurb:"Singers, dancers, players, and the ending they share.",
     intro:"Basque performance has its own institutions, and the people who do these things are all named the same way, which is the point of this lesson.",
-    grammar:{title:"Ari, the one who does it",body:"The ending -ari names the practitioner. dantza gives dantzaria, a dancer. abestu, to sing, gives abeslaria, a singer. pilota gives pilotaria, and bertsoa gives bertsolaria, the singer who improvises verse. Basque has two of these agent endings, -ari and the -le behind irakurlea, and which one a word takes is simply learned with the word."},
+    grammar:{title:"Ari, the one who does it",body:"The ending -ari names the practitioner. Dantza gives dantzaria, a dancer. Abestu, to sing, gives abeslaria, a singer. Pilota gives pilotaria, and bertsoa gives bertsolaria, the singer who improvises verse. Basque has two of these agent endings, -ari and the -le behind irakurlea, and which one a word takes is simply learned with the word."},
     wordIds:["musika","dantza","dantzaria","abeslaria","musika_tresna","pilota","bertsoa"],
   },
   {
@@ -6131,7 +6131,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD73",
     blurb:"Sagardotegis, pintxo-pote, theater, and where to find them.",
     intro:"Where people actually go. Two of these are institutions rather than places, and one ending accounts for half the words in the lesson.",
-    grammar:{title:"Tegi, the place for a thing",body:"sagardotegia is sagardo (cider) plus -tegi, the place for cider, and it is a season as much as a building: the houses open from January to April, and the cider comes straight from the barrel when somebody calls Txotx. kiroldegia is kirol (sport) plus the same -tegi. The same -tegi builds egutegia, the day holder, and ardandegia, a wine cellar. pintxo-pote is the practice of moving bar to bar with a pintxo and a small drink at each, common on Thursday and Friday evenings."},
+    grammar:{title:"Tegi, the place for a thing",body:"Sagardotegia is sagardo (cider) plus -tegi, the place for cider, and it is a season as much as a building: the houses open from January to April, and the cider comes straight from the barrel when somebody calls Txotx. Kiroldegia is kirol (sport) plus the same -tegi. The same -tegi builds egutegia, the day holder, and ardandegia, a wine cellar. Pintxo-pote is the practice of moving bar to bar with a pintxo and a small drink at each, common on Thursday and Friday evenings."},
     wordIds:["festa","sagardotegia","pintxo_pote","antzerkia","margolana","kiroldegi","literatura"],
   },
   {
@@ -6143,7 +6143,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF08",
     blurb:"Silver, brown, gray, and light against dark.",
     intro:"The middle range of color vocabulary, and the two words that let you shade any of it without learning a new word each time.",
-    grammar:{title:"Argi and ilun, light and dark",body:"Put argia or iluna after a color and you have shaded it: urdin argia is sky blue, urdin iluna dark blue, hori iluna a dark yellow close to gold. The pair works on anything, including the general kolore argia and kolore iluna. berdexka uses -xka for approximation, greenish rather than green, the same ending that made a fork a little pitchfork."},
+    grammar:{title:"Argi and ilun, light and dark",body:"Put argia or iluna after a color and you have shaded it: urdin argia is sky blue, urdin iluna dark blue, hori iluna a dark yellow close to gold. The pair works on anything, including the general kolore argia and kolore iluna. Berdexka uses -xka for approximation, greenish rather than green, the same ending that made a fork a little pitchfork."},
     wordIds:["zilarra","urdina_iluna","urdin_argia","hori_iluna","berdexka","zuri_horia","marroia","gris","kolore_argia","kolore_iluna"],
   },
   {
@@ -6155,7 +6155,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFDB\uFE0F",
     blurb:"The council, the mayor, the stadium, and the pool.",
     intro:"The institutions of a Basque town, and the people who run them. One pair of words here is easy to mix up, so it is worth separating them now.",
-    grammar:{title:"Leku and tegi, two words for place",body:"igerilekua is igeri (swimming) plus leku (place), as plain as it looks, and leku does the same job as the -tegi you met in sagardotegia. Now the pair to keep apart: antzerkia is theater as an art form, while antzokia is the building you watch it in. udala is strictly the municipality or the council rather than the building. adinekoa, an elderly person, is adin (age) plus -eko, the one of age, and it is the polite word."},
+    grammar:{title:"Leku and tegi, two words for place",body:"Igerilekua is igeri (swimming) plus leku (place), as plain as it looks, and leku does the same job as the -tegi you met in sagardotegia. Now the pair to keep apart: antzerkia is theater as an art form, while antzokia is the building you watch it in. Udala is strictly the municipality or the council rather than the building. Adinekoa, an elderly person, is adin (age) plus -eko, the one of age, and it is the polite word."},
     wordIds:["gobernua","politika","hizkuntz_komunitatea","alkatea","udala","antzokia","estadioa","igerilekua","adinekoa"],
   },
   {
@@ -6167,7 +6167,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCA1",
     blurb:"Agreeing, hedging, apologizing, and two days English needs four words for.",
     intro:"The small words that make a conversation sound like a conversation rather than a list of sentences. One verb in here does more work than any other in the language.",
-    grammar:{title:"Egin, the verb that helps the others",body:"egin means to do or make, and Basque uses it to build verbs out of nouns. hitz egin is literally to make word, which is how you say to speak. igeri egin is to swim, lo egin is to sleep. Once you notice egin you will see it everywhere. Two other words are worth the price of the lesson on their own: etzi is the day after tomorrow and herenegun is the day before yesterday, each a single word where English needs four."},
+    grammar:{title:"Egin, the verb that helps the others",body:"Egin means to do or make, and Basque uses it to build verbs out of nouns. Hitz egin is literally to make word, which is how you say to speak. Igeri egin is to swim, lo egin is to sleep. Once you notice egin you will see it everywhere. Two other words are worth the price of the lesson on their own: etzi is the day after tomorrow and herenegun is the day before yesterday, each a single word where English needs four."},
     wordIds:["egin","hori_da","akatsa","ziur_ez_nago","mila_esker_denagatik","nongoa_origin","inoiz","sekula","ordu_batean","eta_erdia","etzi","herenegun"],
   },
   {
@@ -6203,7 +6203,7 @@ var LESSONS=[
     emoji:"🍲",
     blurb:"How food is cooked, and four dishes worth knowing.",
     intro:"Basque cooking has a vocabulary of its own, and some of it has crossed into other languages. These are the methods you will see on a menu, and four dishes that are genuinely Basque rather than borrowed.",
-    grammar:{title:"A cooking word is also an adjective",body:"erre is both 'to grill' and 'grilled'. egosi is both 'to boil' and 'boiled'. The participle doubles as the describing word, so arrain errea is grilled fish and arrain egosia is boiled fish. Menus are full of this, and once you see it you can read most of them."},
+    grammar:{title:"A cooking word is also an adjective",body:"Erre is both 'to grill' and 'grilled'. Egosi is both 'to boil' and 'boiled'. The participle doubles as the describing word, so arrain errea is grilled fish and arrain egosia is boiled fish. Menus are full of this, and once you see it you can read most of them."},
     wordIds:["erre","egosi","frijitu","labean_egina","espezia","urdaia","mamia","intxaursaltsa","piperrada","txotx"],
   },
   {
@@ -6215,7 +6215,7 @@ var LESSONS=[
     emoji:"🌊",
     blurb:"Cliffs, coastline, horizon, and the countryside between.",
     intro:"The Basque Country is mountains meeting the sea in a very short distance, and the language has precise words for that edge. Several of them are built from the word for sea.",
-    grammar:{title:"itsas-, the joining form of itsasoa",body:"When itsasoa (the sea) joins another word it shortens to itsas-. itsasertza is sea plus edge, the coastline. itsasontzia is sea plus vessel, a ship. itsas maila is sea level. Spotting the joining form lets you read compounds you have never met."},
+    grammar:{title:"itsas-, the joining form of itsasoa",body:"When itsasoa (the sea) joins another word it shortens to itsas-. Itsasertza is sea plus edge, the coastline. Itsasontzia is sea plus vessel, a ship. Itsas maila is sea level. Spotting the joining form lets you read compounds you have never met."},
     wordIds:["natura","ingurumena","zerumuga","itsasertza","haitzak","labarrak","sasia","landa","ekosistema","hegaztia"],
   },
   {
@@ -6239,7 +6239,7 @@ var LESSONS=[
     emoji:"\uD83D\uDEB6",
     blurb:"The verbs of movement, and the words for where they take you.",
     intro:"Six verbs carry most of what anyone says about moving: going, coming, staying, walking, carrying, continuing. They have been turning up in these lessons all along without ever being taught. Here they are, with the words for the roads they happen on.",
-    grammar:{title:"Bide, the path hiding in other words",body:"bide means road, and it builds nouns all through Basque. ibilbidea is ibili (to walk) plus bidea, the walking path, so a route. bidegurutzea is bidea plus gurutzea, the road cross, a crossroads. helmuga joins heldu (to arrive) with muga (border or limit) into the arrival point, a destination. joan and etorri pair up the same way: joan-etorri, go and come, is a return trip."},
+    grammar:{title:"Bide, the path hiding in other words",body:"Bide means road, and it builds nouns all through Basque. Ibilbidea is ibili (to walk) plus bidea, the walking path, so a route. Bidegurutzea is bidea plus gurutzea, the road cross, a crossroads. Helmuga joins heldu (to arrive) with muga (border or limit) into the arrival point, a destination. Joan and etorri pair up the same way: joan-etorri, go and come, is a return trip."},
     wordIds:["joan","etorri","egon","ibili","eraman","jarraitu","ibilbidea","bidegurutzea","helmuga","aterpea","mugaldea","asegurua","zerbitzu_ordua"],
   },
   {
@@ -6251,7 +6251,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD70\uFE0F",
     blurb:"Looking back, looking forward, and the words in between.",
     intro:"Basque names the past and the future with ordinary verbs, not borrowed abstractions. Once you see where the two words come from, they are hard to forget.",
-    grammar:{title:"Etorkizuna, the time that is coming",body:"etorkizuna, the future, is built on etorri, to come. It is the time that is coming toward you. iragana, the past, comes from iragan, to pass, so it is the time that has gone by. egutegia, a calendar, is egun (day) plus the ending -tegi, a place that holds something. aldia is a period or a turn, and aldi berean means at the same time."},
+    grammar:{title:"Etorkizuna, the time that is coming",body:"Etorkizuna, the future, is built on etorri, to come. It is the time that is coming toward you. Iragana, the past, comes from iragan, to pass, so it is the time that has gone by. Egutegia, a calendar, is egun (day) plus the ending -tegi, a place that holds something. Aldia is a period or a turn, and aldi berean means at the same time."},
     wordIds:["iragana","etorkizuna","aldia","egutegia","iraganeko","aldi_berean","noizbehinka","ordu_erdia","hilabete_bat_barru"],
   },
   {
@@ -6263,7 +6263,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCCA",
     blurb:"Fractions, percentages, and the numbers news reports are made of.",
     intro:"You can count. This is the vocabulary for what people do with counting: halves and thirds, percentages, amounts, and the way figures get reported.",
-    grammar:{title:"Ehuneko, out of a hundred",body:"ehunekoa is ehun (a hundred) plus -eko, meaning of. Literally of a hundred, a percentage. Put any number after it and you have that percentage, so ehuneko berrogeita hamar is fifty percent. The fractions have their own roots: laurdena is a quarter, from lau, and herena a third, from heren. bikoitza, double, is bi plus -koitz, a fold."},
+    grammar:{title:"Ehuneko, out of a hundred",body:"Ehunekoa is ehun (a hundred) plus -eko, meaning of. Literally of a hundred, a percentage. Put any number after it and you have that percentage, so ehuneko berrogeita hamar is fifty percent. The fractions have their own roots: laurdena is a quarter, from lau, and herena a third, from heren. Bikoitza, double, is bi plus -koitz, a fold."},
     wordIds:["bikoitza","ehunekoa","laurdena","herena","milioia","milioiak","ehun_mila","neurria","kopurua","zenbakiketa","batuketak","ehuneko_berrogeita_hamar","azken_urtean","aldaketa_ehunekoa"],
   },
   {
@@ -6275,7 +6275,7 @@ var LESSONS=[
     emoji:"\uD83E\uDDC2",
     blurb:"Sweet, salty, hard, soft, and the bodies in between.",
     intro:"Adjectives that describe how something tastes or feels, and a few that describe the shape a person is in. Several of them carry a noun inside, which makes them easier to hold on to.",
-    grammar:{title:"The salt inside the word",body:"gazia, salty, comes from gatz, salt. gatz gutxiko, low salt, is the same root with gutxi, little. indartsua, strong, is indar (strength) plus the ending -tsu, meaning full of, so literally full of strength. gogorra covers hard in both senses, a hard stone and a hard year, which is worth remembering before you use it about a person."},
+    grammar:{title:"The salt inside the word",body:"Gazia, salty, comes from gatz, salt. Gatz gutxiko, low salt, is the same root with gutxi, little. Indartsua, strong, is indar (strength) plus the ending -tsu, meaning full of, so literally full of strength. Gogorra covers hard in both senses, a hard stone and a hard year, which is worth remembering before you use it about a person."},
     wordIds:["gozoa","gazia","gatz_gutxiko","osoa","indartsu","gogorra","zurruna","gizena","argala"],
   },
   {
@@ -6287,7 +6287,7 @@ var LESSONS=[
     emoji:"\uD83D\uDE42",
     blurb:"Curious, lazy, tiring, kind-hearted, and the ending behind them.",
     intro:"These describe people rather than things, and most of them are built rather than borrowed. One ending does a lot of the work.",
-    grammar:{title:"Garri, the ending that causes",body:"The ending -garri turns a word into what causes that effect. nekagarria, tiring, is neka plus -garri, so a tiring day is a day that causes tiredness. harrigarria, amazing, is harri (stone) plus -garri: something so surprising it turns you to stone. bihozbera, kind-hearted, joins bihotz (heart) and bera (soft), with the tz softening where the two meet."},
+    grammar:{title:"Garri, the ending that causes",body:"The ending -garri turns a word into what causes that effect. Nekagarria, tiring, is neka plus -garri, so a tiring day is a day that causes tiredness. Harrigarria, amazing, is harri (stone) plus -garri: something so surprising it turns you to stone. Bihozbera, kind-hearted, joins bihotz (heart) and bera (soft), with the tz softening where the two meet."},
     wordIds:["harrigarria","arraroa","bitxia","nekagarria","biluzia","bizia","nagi","bihotzbera"],
   },
   {
@@ -6299,7 +6299,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFA8",
     blurb:"Scarlet, jet black, bluish, and how Basque gets there.",
     intro:"You know the colors. Basque changes their strength in two ways, one of which English has no equivalent for, and both are easy once you have seen them.",
-    grammar:{title:"Saying it twice, and saying it softly",body:"Repeating a color makes it absolute. gorri is red and gorri-gorria is scarlet. beltz-beltza is jet black, zuri-zuria is pure white. The ending -xka does the opposite and makes it approximate, so urdinxka is bluish. Otherwise a color takes a second word: more iluna is dark purple and hori argia is pale yellow, with iluna meaning dark and argia bright."},
+    grammar:{title:"Saying it twice, and saying it softly",body:"Repeating a color makes it absolute. Gorri is red and gorri-gorria is scarlet. Beltz-beltza is jet black, zuri-zuria is pure white. The ending -xka does the opposite and makes it approximate, so urdinxka is bluish. Otherwise a color takes a second word: more iluna is dark purple and hori argia is pale yellow, with iluna meaning dark and argia bright."},
     wordIds:["urrea","urdinaxka","gorrigorria","beltz_beltza","zuri_zuria","more_iluna","hori_argia","berde_iluna","zilarra_kolorea","krema_kolorea"],
   },
   {
@@ -6311,7 +6311,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCBC",
     blurb:"Salaries, contracts, companies, and the paperwork around them.",
     intro:"The vocabulary of working life, from the job offer to the pension. Some of it Basque built from its own roots and some of it arrived from Spanish, and the difference is usually visible.",
-    grammar:{title:"Lanbidea, the work path",body:"lanbidea is lan (work) plus bide (path), the same bide that gives a route and a crossroads. What is your profession comes out as zein da zure lanbidea. Basque made txostena (report) and lan eskaintza (job offer) from its own words, while soldata, negozioa and erretiroa came in from Spanish. erakundea is built on eratu, to form or organize."},
+    grammar:{title:"Lanbidea, the work path",body:"Lanbidea is lan (work) plus bide (path), the same bide that gives a route and a crossroads. What is your profession comes out as zein da zure lanbidea. Basque made txostena (report) and lan eskaintza (job offer) from its own words, while soldata, negozioa and erretiroa came in from Spanish. Erakundea is built on eratu, to form or organize."},
     wordIds:["lanbidea","soldata","enpresa","erakundea","industria","negozioa","txostena","kontratua","lan_eskaintza","curriculum","erretiroa","sindikatu"],
   },
   {
@@ -6323,7 +6323,7 @@ var LESSONS=[
     emoji:"\uD83E\uDEC1",
     blurb:"Organs, muscles, and the words for when something is wrong.",
     intro:"The first body lessons covered what you can point at. This one goes under the skin, and adds the words you would need at a doctor's.",
-    grammar:{title:"Fire, flame and fever",body:"sukarra, fever, is su (fire) plus gar (flame), which is a fair description of it. sendagaia, medicine, comes from sendatu, to heal, and the same root gives sendagilea, the healer, meaning a doctor. Some of these are always plural because the thing comes in pairs or in masses, so giltzurrunak is kidneys and tripak is guts. gibela is the liver, and in the eastern dialects the same word means the back of something."},
+    grammar:{title:"Fire, flame and fever",body:"Sukarra, fever, is su (fire) plus gar (flame), which is a fair description of it. Sendagaia, medicine, comes from sendatu, to heal, and the same root gives sendagilea, the healer, meaning a doctor. Some of these are always plural because the thing comes in pairs or in masses, so giltzurrunak is kidneys and tripak is guts. Gibela is the liver, and in the eastern dialects the same word means the back of something."},
     wordIds:["maskuria","gibela","birika","giltzurrunak","tripak","giltzadura","zauria","sukarra","sendagaia","muskulu","tendoia","azkura"],
   },
   {
@@ -6335,7 +6335,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC8D",
     blurb:"Marriage, widowhood, divorce, adoption, and growing up.",
     intro:"The earlier family lessons named who people are to each other. This one covers what happens to families over a lifetime, which is where some of the most useful word-building in Basque shows up.",
-    grammar:{title:"Gabe, the word for without",body:"ezkongabea, single, is ezkondu (to marry) plus gabe, without, so literally without marrying. gabe attaches to almost anything once you notice it. alarguna covers both widow and widower with one word, as Basque often does where English splits by gender. haurtzaroa is haur (child) plus the ending -tzaro, the period of something, so the time of being a child."},
+    grammar:{title:"Gabe, the word for without",body:"Ezkongabea, single, is ezkondu (to marry) plus gabe, without, so literally without marrying. Gabe attaches to almost anything once you notice it. Alarguna covers both widow and widower with one word, as Basque often does where English splits by gender. Haurtzaroa is haur (child) plus the ending -tzaro, the period of something, so the time of being a child."},
     wordIds:["ezkontza","alargun","adopzioa","dibortzioa","ezkongabea","dibortziatua","familia_zabala","haurtzaroa","guraso_bakarra","seme_alaba_adoptatu"],
   },
   {
@@ -6347,7 +6347,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFB6",
     blurb:"Bertsolaris, the txalaparta, championships, and what they are for.",
     intro:"Some of these words have no English equivalent because the thing itself has none. They are worth learning as they are rather than as translations.",
-    grammar:{title:"Txapela, and the contests named after it",body:"txapelketa, a championship, is txapela (the beret) plus -keta, a contest, because the winner is crowned with the txapela. The bertsolari championship fills arenas: singers improvise verse in strict meter and rhyme on a subject handed to them moments earlier. sukaldaritza, cuisine, is built on sukaldea, the kitchen. herrialdea is a territory, and Euskal Herria counts seven of them."},
+    grammar:{title:"Txapela, and the contests named after it",body:"Txapelketa, a championship, is txapela (the beret) plus -keta, a contest, because the winner is crowned with the txapela. The bertsolari championship fills arenas: singers improvise verse in strict meter and rhyme on a subject handed to them moments earlier. Sukaldaritza, cuisine, is built on sukaldea, the kitchen. Herrialdea is a territory, and Euskal Herria counts seven of them."},
     wordIds:["sukaldaritza","errialdea","txapelketa","bertsolaria","ohitura","erritu","ikasi","txalaparta","aberri_eguna","eskultura","txapela"],
   },
   {
@@ -6359,7 +6359,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCA7",
     blurb:"The far ends of feeling, and how Basque builds them.",
     intro:"A short lesson at the top of the emotional range. Each of these is made from a smaller word you can already recognize, which is the quickest way into them.",
-    grammar:{title:"Poz, and the shapes it takes",body:"poz is joy. pozgarria is joy-causing, so pleasing, using the same -garri ending behind tiring and amazing. pozez betea is filled with joy. nahigabea runs the other way: nahi (to want) plus gabe (without), wanting without having, which lands somewhere between disappointment and sorrow. atsekabea is heavier again, the word for real grief."},
+    grammar:{title:"Poz, and the shapes it takes",body:"Poz is joy. Pozgarria is joy-causing, so pleasing, using the same -garri ending behind tiring and amazing. Pozez betea is filled with joy. Nahigabea runs the other way: nahi (to want) plus gabe (without), wanting without having, which lands somewhere between disappointment and sorrow. Atsekabea is heavier again, the word for real grief."},
     wordIds:["pozgarria","malkoak","poza_betea","nahigabea","atsekabea","nahi"],
   },
   {
@@ -6371,7 +6371,7 @@ var LESSONS=[
     emoji:"\uD83D\uDDF3\uFE0F",
     blurb:"Elections, law, parties, and the words a ballot needs.",
     intro:"Political vocabulary that turns up in any Basque newspaper. The words themselves are descriptive rather than partisan, and two of them are built from parts you already know.",
-    grammar:{title:"Eskubideak, the hand path",body:"eskubideak, rights, is esku (hand) plus bide (path), the same bide as in a route and a profession. hauteskundeak, elections, is built on hautatu, to choose, which sits alongside aukeratu meaning much the same thing. berdintasuna is berdin (equal) plus -tasuna, the ending that turns a quality into a thing in its own right. Both rights and elections are plural words in Basque."},
+    grammar:{title:"Eskubideak, the hand path",body:"Eskubideak, rights, is esku (hand) plus bide (path), the same bide as in a route and a profession. Hauteskundeak, elections, is built on hautatu, to choose, which sits alongside aukeratu meaning much the same thing. Berdintasuna is berdin (equal) plus -tasuna, the ending that turns a quality into a thing in its own right. Both rights and elections are plural words in Basque."},
     wordIds:["demokrazia","hauteskundeak","berdintasuna","eskubideak","legea","alderdia","aukeratu","aldatu","lortu"],
   },
   {
@@ -6383,7 +6383,7 @@ var LESSONS=[
     emoji:"\uD83D\uDDE3\uFE0F",
     blurb:"Language policy, normalization, and the words for people in general.",
     intro:"Basque is a language that has had to be argued for, and it has a precise vocabulary for that argument. These are words you will meet in any discussion of where Euskara stands.",
-    grammar:{title:"Giza, the human prefix",body:"giza is the combining form meaning human. gizakia is a human being and gizadia is humanity, the whole of it. normalizazioa names a specific project rather than a vague aspiration: making Basque an ordinary choice again in shops, offices and schools after generations when it was not. hizkuntza politika is the policy that decides how far that goes, and biztanlea, an inhabitant, comes from bizi, to live."},
+    grammar:{title:"Giza, the human prefix",body:"Giza is the combining form meaning human. Gizakia is a human being and gizadia is humanity, the whole of it. Normalizazioa names a specific project rather than a vague aspiration: making Basque an ordinary choice again in shops, offices and schools after generations when it was not. Hizkuntza politika is the policy that decides how far that goes, and biztanlea, an inhabitant, comes from bizi, to live."},
     wordIds:["hizkuntza_politika","normalizazioa","gizarte_mugimendua","gizakia","gizadia","gerra","biztanlea"],
   },
   {
@@ -6395,7 +6395,7 @@ var LESSONS=[
     emoji:"🌳",
     blurb:"Ancestors, descendants, and the house that holds them.",
     intro:"Basque family words reach past the household. They describe a line running through a house and a piece of land, which is much of why so many surnames are the names of farmhouses.",
-    grammar:{title:"Making abstract nouns with -tasun",body:"ahaide is a relative; ahaidetasuna is kinship. The suffix -tasun turns a thing into the quality of being that thing, close to English -ness or -ship. You will meet it everywhere: aske (free) gives askatasuna (freedom), berdin (equal) gives berdintasuna (equality)."},
+    grammar:{title:"Making abstract nouns with -tasun",body:"Ahaide is a relative; ahaidetasuna is kinship. The suffix -tasun turns a thing into the quality of being that thing, close to English -ness or -ship. You will meet it everywhere: aske (free) gives askatasuna (freedom), berdin (equal) gives berdintasuna (equality)."},
     wordIds:["arbasoak","ondorengoa","belaunaldia","etxea_ondarea","arbola","ahaidetasuna","heredentzia","senide_hurbilak","suhia","erraina"],
   },
   {
@@ -6407,7 +6407,7 @@ var LESSONS=[
     emoji:"✈️",
     blurb:"The vocabulary of leaving, and of coming back.",
     intro:"For a century and a half, leaving was an ordinary part of a Basque life. These are the words for that, and for the return that some made and others never did.",
-    grammar:{title:"Building a long word, one piece at a time",body:"aberri is homeland. Add -ra for direction and you have 'to the homeland'. Add -tze to turn that action into a noun and you have aberriratzea, the act of returning home. Basque builds this way constantly, so a long word is usually readable if you take it apart from the left."},
+    grammar:{title:"Building a long word, one piece at a time",body:"Aberri is homeland. Add -ra for direction and you have 'to the homeland'. Add -tze to turn that action into a noun and you have aberriratzea, the act of returning home. Basque builds this way constantly, so a long word is usually readable if you take it apart from the left."},
     wordIds:["diaspora","erbesteratua","aberriratze","mugitzea","bide_luzea","mugarik_gabe","enbaxada","bisa","aduana","bidezidor"],
   },
   {
@@ -6431,7 +6431,7 @@ var LESSONS=[
     emoji:"⚖️",
     blurb:"The words for living together: rights, debate, consequences.",
     intro:"To read a Basque newspaper you need the vocabulary of public life. These are the civic words, the ones about how people live alongside each other and argue about how to do it better.",
-    grammar:{title:"giza-, the joining form for 'human'",body:"gizarte, society, is transparently giza (human) plus arte (among): the space among people. giza eskubideak is human rights. Once you recognize giza- you can usually guess a word built on it, which is a good habit for the long abstract nouns that fill the news."},
+    grammar:{title:"giza-, the joining form for 'human'",body:"Gizarte, society, is transparently giza (human) plus arte (among): the space among people. Giza eskubideak is human rights. Once you recognize giza- you can usually guess a word built on it, which is a good habit for the long abstract nouns that fill the news."},
     wordIds:["gizartea","boterea","justizia","herritartasuna","gutxiengoa","giza_eskubideak","eztabaida","konponbidea","ondorioa","eragina"],
   },
   {
@@ -6443,7 +6443,7 @@ var LESSONS=[
     emoji:"🕊️",
     blurb:"Regret, longing, compassion, and the weight of missing something.",
     intro:"Every language needs words for the difficult things. Some of these are useful to anyone; nostalgia and melankolia will be familiar to anyone who has felt the pull of a place their family left.",
-    grammar:{title:"Two layers in one list",body:"Look at where these words come from. nostalgia, melankolia and jelosia are international borrowings that Basque spells its own way. damua, errukia, sumindura and gorrotoa are native. Most languages carry both layers; Basque wears the difference plainly, and neither set is more correct than the other."},
+    grammar:{title:"Two layers in one list",body:"Look at where these words come from. Nostalgia, melankolia and jelosia are international borrowings that Basque spells its own way. Damua, errukia, sumindura and gorrotoa are native. Most languages carry both layers; Basque wears the difference plainly, and neither set is more correct than the other."},
     wordIds:["nostalgia","melankoliia","mina","damua","etsipena","errukia","sumindura","gorrotoa","jelosia","haserrealdi","atsegin_dut"],
   },
   {
@@ -6467,7 +6467,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCC8",
     blurb:"Goals, budgets, investment, and the words a plan is written in.",
     intro:"The language of running something. Much of it is borrowed, as business vocabulary usually is, but the two most useful words here were built out of Basque parts.",
-    grammar:{title:"Helburua, the head of the road",body:"helburua, a goal, is heldu (to arrive) plus buru (head): the head point you are making for. You have met heldu before inside helmuga, a destination. aukera means opportunity, and aukeratu, to choose, grows straight out of it, so choosing is taking the opportunity in front of you. negoziaketa ends in -keta, the ending for a process, the same one behind zenbaketa."},
+    grammar:{title:"Helburua, the head of the road",body:"Helburua, a goal, is heldu (to arrive) plus buru (head): the head point you are making for. You have met heldu before inside helmuga, a destination. Aukera means opportunity, and aukeratu, to choose, grows straight out of it, so choosing is taking the opportunity in front of you. Negoziaketa ends in -keta, the ending for a process, the same one behind zenbaketa."},
     wordIds:["enpresaria","helburua","aukera","baldintza","aurrekontua","inbertsioa","negoziaketa","estrategia"],
   },
   {
@@ -6479,7 +6479,7 @@ var LESSONS=[
     emoji:"\uD83D\uDEE0\uFE0F",
     blurb:"Strikes, unions, cooperatives, and the economy around them.",
     intro:"Basque industry has a particular history, and the vocabulary carries it. These are words you will meet in any discussion of how work is organized here.",
-    grammar:{title:"Mondragon, and the words around it",body:"kooperatiba is not an abstraction in the Basque Country. The Mondragon Corporation, founded in Arrasate in 1956, grew into the largest worker cooperative in the world, and it shaped how the economy here describes itself. lehiakortasuna is lehia (competition) plus the ending -kortasuna. konpetentzia means both competition between businesses and competence in a person, and only the sentence around it tells you which."},
+    grammar:{title:"Mondragon, and the words around it",body:"Kooperatiba is not an abstraction in the Basque Country. The Mondragon Corporation, founded in Arrasate in 1956, grew into the largest worker cooperative in the world, and it shaped how the economy here describes itself. Lehiakortasuna is lehia (competition) plus the ending -kortasuna. Konpetentzia means both competition between businesses and competence in a person, and only the sentence around it tells you which."},
     wordIds:["greba","sindikalismoa","kooperatiba","produktibitatea","konpetentzia","lehiakortasuna","estatistika"],
   },
   {
@@ -6491,7 +6491,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD22",
     blurb:"Averages, variables, proportions, and one false friend worth knowing.",
     intro:"The vocabulary of figures as they appear in reports and news. One of these words means something different from what an English speaker expects, and getting it wrong changes a number by a factor of a thousand.",
-    grammar:{title:"Batez beste, one with another",body:"batez bestekoa, an average, comes from the set phrase batez beste, literally one with another, which is a fair description of what an average does. gutxi gora-behera, approximately, is gutxi (little) with gora-behera (up and down), so give or take. Now the warning: bilioia is a million millions, as in Spanish, not the American billion. For that, Basque says mila milioi, a thousand million."},
+    grammar:{title:"Batez beste, one with another",body:"Batez bestekoa, an average, comes from the set phrase batez beste, literally one with another, which is a fair description of what an average does. Gutxi gora-behera, approximately, is gutxi (little) with gora-behera (up and down), so give or take. Now the warning: bilioia is a million millions, as in Spanish, not the American billion. For that, Basque says mila milioi, a thousand million."},
     wordIds:["zenbakia","bilioia","zerozero","zenbaki_osoa","kalkulua","formula","proportzioa","gutxi_gora_behera","datuak","indizea","aldagai","batez_bestekoa","desbideratze_estandarra"],
   },
   {
@@ -6503,7 +6503,7 @@ var LESSONS=[
     emoji:"\uD83E\uDE7B",
     blurb:"Breathing, digestion, surgery, and the words a diagnosis uses.",
     intro:"Medical vocabulary, where Basque runs two registers side by side. Some of these are international terms taken in whole, and some are native compounds that describe the thing plainly.",
-    grammar:{title:"Living pain, and the sick house",body:"minbizia, cancer, is min (pain) plus bizi (living), a living pain. erietxea is eri (a sick person) plus etxea (house), the sick house, a native word that sits alongside the borrowed ospitalea. ebakuntza, surgery, comes from ebaki, to cut. arnasketa is arnasa (breath) plus -keta, that same ending for a process."},
+    grammar:{title:"Living pain, and the sick house",body:"Minbizia, cancer, is min (pain) plus bizi (living), a living pain. Erietxea is eri (a sick person) plus etxea (house), the sick house, a native word that sits alongside the borrowed ospitalea. Ebakuntza, surgery, comes from ebaki, to cut. Arnasketa is arnasa (breath) plus -keta, that same ending for a process."},
     wordIds:["ebakuntza","immunitate_sistema","odol_presioa","digestioa","arnasaketa","nerbio_sistema","minbizia","diabetesa","erietxea","jarduera_fisikoa"],
   },
   {
@@ -6515,7 +6515,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF73",
     blurb:"Txokos, tasting menus, pil-pil, and where ingredients come from.",
     intro:"Food was an early lesson. This is food as the Basque Country argues about it, which is a subject with its own vocabulary and one institution that does not translate.",
-    grammar:{title:"Tegi, the place that holds something",body:"ardandegia is ardo (wine) plus -tegi, the ending for a place that holds a thing, the same -tegi behind egutegia, the day holder. A txoko is a private gastronomic society where members cook for one another, and it has no real equivalent elsewhere. pil-pil is named for its sound: salt cod swirled slowly in olive oil until the sauce thickens into an emulsion."},
+    grammar:{title:"Tegi, the place that holds something",body:"Ardandegia is ardo (wine) plus -tegi, the ending for a place that holds a thing, the same -tegi behind egutegia, the day holder. A txoko is a private gastronomic society where members cook for one another, and it has no real equivalent elsewhere. Pil-pil is named for its sound: salt cod swirled slowly in olive oil until the sauce thickens into an emulsion."},
     wordIds:["gastronomia","txoko","errezeta","pil_pil","mahaia_erreserbatu","dastaketa","osagai","sukalde_teknika","bertako_produktua","ardandegi"],
   },
   {
@@ -6527,7 +6527,7 @@ var LESSONS=[
     emoji:"\u23F3",
     blurb:"Centuries, decades, durations, and the edge of a deadline.",
     intro:"Longer stretches of time than the path has used so far, and the words for the limits put around them. Two familiar roots do most of the building.",
-    grammar:{title:"Epe and muga, a stretch and its edge",body:"epea is a stretch of time and muga is a limit, so epemuga is a deadline, the edge of the stretch. You have met muga twice already, in helmuga and mugaldea. iraupena, duration, comes from iraun, to last, and the same root gives iraunkorra, lasting. hamarkada is hamar (ten) plus -kada, so a decade, and mendea is a century."},
+    grammar:{title:"Epe and muga, a stretch and its edge",body:"Epea is a stretch of time and muga is a limit, so epemuga is a deadline, the edge of the stretch. You have met muga twice already, in helmuga and mugaldea. Iraupena, duration, comes from iraun, to last, and the same root gives iraunkorra, lasting. Hamarkada is hamar (ten) plus -kada, so a decade, and mendea is a century."},
     wordIds:["epea","iraungitzea","garaian","iraupena","garaia","mendea","hamarkada","ordutegia","muga_epea","kronologia","iraganeko_geroa"],
   },
   {
@@ -6539,7 +6539,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD8C\uFE0F",
     blurb:"Indigo, turquoise, garnet, and the word for a shade itself.",
     intro:"The last of the color vocabulary, and the most particular. One of these is a native Basque word for something most languages had to borrow.",
-    grammar:{title:"Gabe again, and nabar",body:"koloregabea is kolore plus gabe, without color, the same gabe you met in ezkongabea. distiratsua is distira (shine) plus -tsu, full of shine, the same -tsu as indartsua. ñabardura, a nuance, is the interesting one: it comes from ñabar, meaning variegated or many-colored, so Basque names a shade of meaning with a word about color."},
+    grammar:{title:"Gabe again, and nabar",body:"Koloregabea is kolore plus gabe, without color, the same gabe you met in ezkongabea. Distiratsua is distira (shine) plus -tsu, full of shine, the same -tsu as indartsua. Ñabardura, a nuance, is the interesting one: it comes from ñabar, meaning variegated or many-colored, so Basque names a shade of meaning with a word about color."},
     wordIds:["kolorea_galdu","ñabardura","indigo","turkoisa","granatea","oliba_berdea","beixa","kolore_biziak","koloregabea","distiratsua"],
   },
   {
@@ -6551,7 +6551,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD1D",
     blurb:"Welcomes, toasts, apologies, and the good that ends them.",
     intro:"You have had kaixo and agur since the very beginning. These are the formal versions, the ones for a letter, a speech, or a raised glass.",
-    grammar:{title:"On, the good that ends a wish",body:"on means good, and it closes a whole family of wishes: egun on, gau on, zorte on. Good day, good night, good luck. ongi etorri, welcome, is ongi (well) plus etorri (to come), so come well, using the etorri you met among the verbs of movement. osasuna means health, and raised over a glass it is the Basque toast."},
+    grammar:{title:"On, the good that ends a wish",body:"On means good, and it closes a whole family of wishes: egun on, gau on, zorte on. Good day, good night, good luck. Ongi etorri, welcome, is ongi (well) plus etorri (to come), so come well, using the etorri you met among the verbs of movement. Osasuna means health, and raised over a glass it is the Basque toast."},
     wordIds:["harrera_ona","agurra","adeitasuna","ongi_etorri","zorte_on","osasun","barkamen_eske"],
   },
   {
@@ -6563,7 +6563,7 @@ var LESSONS=[
     emoji:"\u2696\uFE0F",
     blurb:"Adjectives that arrive in opposites, and are easier learned in pairs.",
     intro:"Most of these come with their opposite attached, which is the cheapest way to learn them. Two of them carry more meanings in Basque than their English translation suggests.",
-    grammar:{title:"Words that come in pairs",body:"Learn these two at a time: aberatsa and pobrea, ahula and sendoa. zuzena is the one to watch, because it covers correct, just and straight all at once, and zuzendu means both to correct and to direct. okerra is its opposite in every one of those senses, wrong and crooked together. zehatza is precise, and zehatz-mehatz means precisely."},
+    grammar:{title:"Words that come in pairs",body:"Learn these two at a time: aberatsa and pobrea, ahula and sendoa. Zuzena is the one to watch, because it covers correct, just and straight all at once, and zuzendu means both to correct and to direct. Okerra is its opposite in every one of those senses, wrong and crooked together. Zehatza is precise, and zehatz-mehatz means precisely."},
     wordIds:["aberatsa","pobrea","zuzena","okerra","ahula","sendoa","zehatza"],
   },
   {
@@ -6575,7 +6575,7 @@ var LESSONS=[
     emoji:"\uD83E\uDDE9",
     blurb:"Unbearable, essential, contradictory, and the word for cannot.",
     intro:"Abstract adjectives, the kind an opinion piece is built from. Most of them are assembled from parts, and one small word does the heavy lifting.",
-    grammar:{title:"Ezin, the word for cannot",body:"ezin means cannot, and Basque builds adjectives by saying what is impossible. jasanezina is jasan (to endure) plus ezin, so cannot be endured, unbearable. ezinbestekoa is ezin plus beste (other): it cannot be otherwise, which is how Basque says essential. eztabaidagarria uses -garri once more, worthy of debate. iraunkorra comes from iraun, to last, so sustainable is simply what keeps going."},
+    grammar:{title:"Ezin, the word for cannot",body:"Ezin means cannot, and Basque builds adjectives by saying what is impossible. Jasanezina is jasan (to endure) plus ezin, so cannot be endured, unbearable. Ezinbestekoa is ezin plus beste (other): it cannot be otherwise, which is how Basque says essential. Eztabaidagarria uses -garri once more, worthy of debate. Iraunkorra comes from iraun, to last, so sustainable is simply what keeps going."},
     wordIds:["jasanezina","ezinbestekoa","antzinatekoa","konplexua","eztabaidagarria","iraunkorra","kontraesankorra"],
   },
   {
@@ -6587,7 +6587,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD4A\uFE0F",
     blurb:"The vocabulary of an argument that is still being had.",
     intro:"These words appear constantly in Basque public life, used by people who disagree with each other. They are listed here for what they mean and where they come from, so that you can follow the argument rather than take a side in it.",
-    grammar:{title:"Aberri, and the words built on it",body:"aberri means homeland, and you met it in Aberri Eguna. abertzalea is aberri plus -zalea, one who loves a thing, so a patriot. abertzaletasuna names that attachment as a thing in itself. burujabetza is buru (head) plus jabetza (ownership), owning your own head, which is how Basque says sovereignty. elkarbizitza is elkar (each other) plus bizitza (life): living alongside one another."},
+    grammar:{title:"Aberri, and the words built on it",body:"Aberri means homeland, and you met it in Aberri Eguna. Abertzalea is aberri plus -zalea, one who loves a thing, so a patriot. Abertzaletasuna names that attachment as a thing in itself. Burujabetza is buru (head) plus jabetza (ownership), owning your own head, which is how Basque says sovereignty. Elkarbizitza is elkar (each other) plus bizitza (life): living alongside one another."},
     wordIds:["ekonomia","abertzalea","nazionalismoa","autodeterminazioa","garrantzia","arazo","bortxa","burujabetza","abertzaletasuna","kultura_aniztasuna","elkarbizitza"],
   },
 ];
