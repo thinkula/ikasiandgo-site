@@ -514,7 +514,7 @@ const SEED_VOCAB=[
 {"id":"nor","basque":"Nor?","english":"Who?","cefr":"A1","topic":"greetings","pronunciation":"NOR","notes":"Nor? = Who? Nor zara zu? = Who are you? Nor da? = Who is it? Nor declines like any noun: nork (ergative), nori (to whom), noren (whose), norekin (with whom), and more.","example":{"basque":"Nor da hori?","english":"Who is that?"}},
 {"id":"zergatik","basque":"Zergatik?","english":"Why?","cefr":"A2","topic":"greetings","pronunciation":"ser-GAH-teek","notes":"Zergatik = why. Zergati = reason (root). Zergatik ez? = Why not? One of the most useful question words for understanding explanations.","example":{"basque":"Zergatik etorri zara?","english":"Why did you come?"}},
 {"id":"zenbat","basque":"Zenbat?","english":"How many / How much?","cefr":"A1","topic":"numbers","pronunciation":"SEN-bat","notes":"Zenbat? = How many? / How much? Zenbat da? = How much does it cost? Zenbat urte dituzu? = How old are you? Zenbat denbora? = How long? Zenbat eta gehiago... = The more...","example":{"basque":"Zenbat da?","english":"How much is it?"}},
-{"id":"egon","basque":"Egon","english":"To be / To stay","cefr":"B1","topic":"travel","pronunciation":"EH-gon","notes":"To be (location/state) or to stay. Dago = he/she is. Nago = I am.","example":{"basque":"Gaur etxean nago.","english":"I am at home today."}},
+{"id":"egon","basque":"Egon","english":"To be (where and how you are)","cefr":"A1","topic":"greetings","pronunciation":"EH-gon","notes":"Egon is the second Basque verb for to be, the one for a place or a passing state: where something is, and how someone is right now. Its present forms are nago, zaude, dago, gaude, zaudete and daude. It also means to stay. The other to be is izan, which is for who and what you are, so Bilbon nago is I am in Bilbao today and Bilbokoa naiz is I am from Bilbao.","example":{"basque":"Gaur etxean nago.","english":"I am at home today."}},
 {"id":"ibili","basque":"Ibili","english":"To walk / To go around","cefr":"B1","topic":"travel","pronunciation":"ee-BEE-lee","notes":"Ibili = to walk or go around. Ibiltzen naiz = I am walking. Non ibiltzen zara? = Where do you usually walk? Ibilaldi = walk/outing. Ibilgailua = vehicle (a walking thing). Ibili is also in this app's name: Ikasi (learn) and go (ibili)!","example":{"basque":"Mendian ibiltzen naiz.","english":"I walk in the mountains."}},
 {"id":"egin","basque":"Egin","english":"To do / To make","cefr":"A2","topic":"greetings","pronunciation":"EH-gheen","notes":"Egin = to do or make. One of the most versatile Basque verbs, used in hundreds of compounds. Lan egin = to work. Hitz egin = to speak. Barre egin = to laugh. Negar egin = to cry. Egin dezagun = let's do it!","example":{"basque":"Zer egiten duzu?","english":"What do you do?"}},
 {"id":"eraman","basque":"Eraman","english":"To carry / To take (somewhere)","cefr":"B1","topic":"travel","pronunciation":"eh-RAH-man","notes":"Eraman = to carry or take somewhere. Eramango dut = I will take it. Eramaile = carrier/bearer. Do not confuse with hartu (to take/receive).","example":{"basque":"Eraman nazazu hara.","english":"Take me there."}},
@@ -1063,6 +1063,19 @@ const SEED_VOCAB=[
 {"id":"zuek","basque":"Zuek","english":"You all","cefr":"A1","topic":"greetings","pronunciation":"SOO-ek","notes":"Zuek is a rebuilt plural: once zu had shifted from plural to polite singular, Basque added the plural -ek to create a new you all. Its verbs get their own endings: zuek zarete (you all are), zuek zaudete.","example":{"basque":"Zuek lagunak zarete.","english":"You all are friends."}},
 {"id":"hura","basque":"Hura","english":"He / She / That (over there)","cefr":"A1","topic":"greetings","pronunciation":"OO-rah (h is silent)","notes":"Hura does double duty as he, she, or it and as the far demonstrative, because Basque has no separate third person pronoun. It is step three of a distance system keyed to the speakers: hau (near me), hori (near you), hura (away from both), like Spanish este, ese, aquel. Plural: haiek.","example":{"basque":"Hura nire ama da.","english":"She is my mother."}},
 {"id":"haiek","basque":"Haiek","english":"They / Those (over there)","cefr":"A1","topic":"greetings","pronunciation":"EYE-ek (h is silent)","notes":"Haiek is the plural of hura, so it means both they and those over there. The ergative plural happens to look the same: haiek etorri dira (they came) and haiek egin dute (they did it). Like all demonstratives it follows the noun: etxe haiek = those houses.","example":{"basque":"Haiek euskaldunak dira.","english":"They are Basque."}},
+{"id":"izan","basque":"Izan","english":"To be (who you are)","cefr":"A1","topic":"greetings","pronunciation":"EE-sahn","notes":"Izan is one of the two Basque verbs for to be, the one for identity: who you are, where you are from, what you do. Its present forms are naiz, zara, da, gara, zarete and dira, and each stands on its own without a pronoun. The other to be is egon, which covers where you are and how you feel at this moment.","example":{"basque":"Irakaslea naiz.","english":"I am a teacher."}},
+{"id":"naiz","basque":"Naiz","english":"I am","cefr":"A1","topic":"greetings","pronunciation":"NIGHS","notes":"Naiz is the ni form of izan. The verb already carries the person, so naiz by itself is a complete I am and ni is added only for emphasis. Use it for what you are and where you are from: Bilbokoa naiz, I am from Bilbao. For how you feel right now, Basque switches to egon and nago.","example":{"basque":"Ane naiz.","english":"I am Ane."}},
+{"id":"zara","basque":"Zara","english":"You are","cefr":"A1","topic":"greetings","pronunciation":"SAH-rah","notes":"Zara is the zu form of izan. It looks like a plural because zu was once the plural you, and the verb kept the older shape. Nongoa zara asks where you are from. For where you are standing at this moment, egon takes over with zaude.","example":{"basque":"Nongoa zara?","english":"Where are you from?"}},
+{"id":"da","basque":"Da","english":"He / She / It is","cefr":"A1","topic":"greetings","pronunciation":"DAH","notes":"Da is the hura form of izan and the most common verb form in Basque. It ends a great many sentences, because the verb goes last: hau ura da, this is water. Its egon counterpart is dago.","example":{"basque":"Hau ura da.","english":"This is water."}},
+{"id":"gara","basque":"Gara","english":"We are","cefr":"A1","topic":"greetings","pronunciation":"GAH-rah","notes":"Gara is the gu form of izan. Gu gara is we are, with the pronoun there only for emphasis. Its egon counterpart is gaude.","example":{"basque":"Lagunak gara.","english":"We are friends."}},
+{"id":"zarete","basque":"Zarete","english":"You all are","cefr":"A1","topic":"greetings","pronunciation":"sah-REH-teh","notes":"Zarete is the zuek form of izan. Basque built it when it needed a new plural you, after zu had drifted into the singular. Its egon counterpart is zaudete.","example":{"basque":"Zuek ikasleak zarete.","english":"You all are students."}},
+{"id":"dira","basque":"Dira","english":"They are","cefr":"A1","topic":"greetings","pronunciation":"DEE-rah","notes":"Dira is the haiek form of izan and the plural of da. Basque marks the plural on the verb itself, so the subject does not have to carry it. Its egon counterpart is daude.","example":{"basque":"Haiek anaiak dira.","english":"They are brothers."}},
+{"id":"nago","basque":"Nago","english":"I am (right now)","cefr":"A1","topic":"greetings","pronunciation":"NAH-go","notes":"Nago is the ni form of egon, the to be that covers where you are and how you are. Nekatuta nago is I am tired and hemen nago is I am here. For who you are, Basque uses izan and naiz instead.","example":{"basque":"Nekatuta nago.","english":"I am tired."}},
+{"id":"zaude","basque":"Zaude","english":"You are (right now)","cefr":"A1","topic":"greetings","pronunciation":"SOW-deh","notes":"Zaude is the zu form of egon. Non zaude asks where you are at this moment, while nongoa zara asks where you are from. The two to be verbs divide along exactly that line.","example":{"basque":"Non zaude?","english":"Where are you?"}},
+{"id":"dago","basque":"Dago","english":"He / She / It is (right now)","cefr":"A1","topic":"greetings","pronunciation":"DAH-go","notes":"Dago is the hura form of egon, and the form most learners meet first, inside non dago, where is it. It answers with a place: han dago, it is over there. Its izan counterpart is da.","example":{"basque":"Jatetxea han dago.","english":"The restaurant is over there."}},
+{"id":"gaude","basque":"Gaude","english":"We are (right now)","cefr":"A1","topic":"greetings","pronunciation":"GOW-deh","notes":"Gaude is the gu form of egon. Hemen gaude is we are here. Its izan counterpart is gara, which is for what a group is rather than where it is.","example":{"basque":"Hemen gaude.","english":"We are here."}},
+{"id":"zaudete","basque":"Zaudete","english":"You all are (right now)","cefr":"A1","topic":"greetings","pronunciation":"sow-DEH-teh","notes":"Zaudete is the zuek form of egon and the plural of zaude. Its izan counterpart is zarete.","example":{"basque":"Non zaudete?","english":"Where are you all?"}},
+{"id":"daude","basque":"Daude","english":"They are (right now)","cefr":"A1","topic":"greetings","pronunciation":"DOW-deh","notes":"Daude is the haiek form of egon and the plural of dago. Its izan counterpart is dira.","example":{"basque":"Haiek etxean daude.","english":"They are at home."}},
 {"id":"hau","basque":"Hau","english":"This","cefr":"A1","topic":"greetings","pronunciation":"OW (rhymes with now)","notes":"Hau points to things near the speaker, the first step of hau, hori, hura. Demonstratives come after the noun in Basque: etxe hau = this house, never hau etxe. Plural: hauek.","example":{"basque":"Hau nire etxea da.","english":"This is my house."}},
 {"id":"hori","basque":"Hori","english":"That (near you)","cefr":"A1","topic":"greetings","pronunciation":"OH-ree (h is silent)","notes":"Hori points to things near the listener, the middle step of hau, hori, hura. Watch the lookalike horia (yellow): liburu hori = that book, liburu horia = the yellow book. On its own, Hori da! means exactly, that is it.","example":{"basque":"Bai, hori da!","english":"Yes, that is it!"}},
 {"id":"hauek","basque":"Hauek","english":"These","cefr":"A1","topic":"greetings","pronunciation":"OW-ek (OW as in now)","notes":"Hauek is the plural of hau. The demonstrative carries the plural for the whole phrase, so the noun stays bare: lagun hauek = these friends, not lagunak hauek. The three plurals are hauek, horiek, haiek.","example":{"basque":"Hauek nire lagunak dira.","english":"These are my friends."}},
@@ -5414,39 +5427,39 @@ function ArbolaScreen(props){
 // lesson ids never change, because progress is stored by id.
 // npm run check-lessons enforces all of that.
 var CHAPTERS=[
-  {n:1,name:"First steps",from:1,to:5},
-  {n:2,name:"Counting and kin",from:6,to:9},
-  {n:3,name:"Day to day",from:10,to:14},
-  {n:4,name:"Your world",from:15,to:19},
-  {n:5,name:"Out in the world",from:20,to:23},
-  {n:6,name:"Close to home",from:24,to:25},
-  {n:7,name:"More of everything",from:26,to:28},
-  {n:8,name:"Land and feast",from:29,to:31},
-  {n:9,name:"Going deeper",from:32,to:36},
-  {n:10,name:"At the table",from:37,to:39},
-  {n:11,name:"On the move",from:40,to:41},
-  {n:12,name:"Body and health",from:42,to:43},
-  {n:13,name:"The natural world",from:44,to:45},
-  {n:14,name:"Home and company",from:46,to:48},
-  {n:15,name:"Days and order",from:49,to:51},
-  {n:16,name:"Creatures",from:52,to:53},
-  {n:17,name:"How it feels",from:54,to:55},
-  {n:18,name:"Describing and working",from:56,to:57},
-  {n:19,name:"Music and festival",from:58,to:59},
-  {n:20,name:"Color and town",from:60,to:62},
-  {n:21,name:"Saying it yourself",from:63,to:64},
-  {n:22,name:"The world around you",from:65,to:67},
-  {n:23,name:"Getting your bearings",from:68,to:70},
-  {n:24,name:"Describing the world",from:71,to:73},
-  {n:25,name:"Work and the body",from:74,to:75},
-  {n:26,name:"People and traditions",from:76,to:78},
-  {n:27,name:"Rights and language",from:79,to:80},
-  {n:28,name:"Where you come from",from:81,to:83},
-  {n:29,name:"Words that carry weight",from:84,to:86},
-  {n:30,name:"Business and figures",from:87,to:89},
-  {n:31,name:"Health and the table",from:90,to:91},
-  {n:32,name:"Time, color and courtesy",from:92,to:94},
-  {n:33,name:"Argument and belonging",from:95,to:97}
+  {n:1,name:"First steps",from:1,to:6},
+  {n:2,name:"Counting and kin",from:7,to:10},
+  {n:3,name:"Day to day",from:11,to:16},
+  {n:4,name:"Your world",from:17,to:21},
+  {n:5,name:"Out in the world",from:22,to:25},
+  {n:6,name:"Close to home",from:26,to:27},
+  {n:7,name:"More of everything",from:28,to:30},
+  {n:8,name:"Land and feast",from:31,to:33},
+  {n:9,name:"Going deeper",from:34,to:38},
+  {n:10,name:"At the table",from:39,to:41},
+  {n:11,name:"On the move",from:42,to:43},
+  {n:12,name:"Body and health",from:44,to:45},
+  {n:13,name:"The natural world",from:46,to:47},
+  {n:14,name:"Home and company",from:48,to:50},
+  {n:15,name:"Days and order",from:51,to:53},
+  {n:16,name:"Creatures",from:54,to:55},
+  {n:17,name:"How it feels",from:56,to:57},
+  {n:18,name:"Describing and working",from:58,to:59},
+  {n:19,name:"Music and festival",from:60,to:61},
+  {n:20,name:"Color and town",from:62,to:64},
+  {n:21,name:"Saying it yourself",from:65,to:66},
+  {n:22,name:"The world around you",from:67,to:69},
+  {n:23,name:"Getting your bearings",from:70,to:72},
+  {n:24,name:"Describing the world",from:73,to:75},
+  {n:25,name:"Work and the body",from:76,to:77},
+  {n:26,name:"People and traditions",from:78,to:80},
+  {n:27,name:"Rights and language",from:81,to:82},
+  {n:28,name:"Where you come from",from:83,to:85},
+  {n:29,name:"Words that carry weight",from:86,to:88},
+  {n:30,name:"Business and figures",from:89,to:91},
+  {n:31,name:"Health and the table",from:92,to:93},
+  {n:32,name:"Time, color and courtesy",from:94,to:96},
+  {n:33,name:"Argument and belonging",from:97,to:99}
 ];
 var LESSONS=[
   {
@@ -5472,8 +5485,18 @@ var LESSONS=[
     wordIds:["ni","zu","hi","gu","zuek","hura","haiek"],
   },
   {
-    id:"l03_pointing",
+    id:"l75_izan",
     num:3,
+    title:"Am, Is, Are",
+    titleEu:"Izan",
+    emoji:"\uD83D\uDCDB",
+    blurb:"The first of the two verbs for to be, the one for who you are.",
+    intro:"Basque has two verbs where English makes do with one. This is the first, and it is the one that says what something is: a name, a job, a place you come from. The forms do not look much like one another, so they are worth meeting as a set rather than puzzled out one at a time.",
+    grammar:{title:"One verb, six shapes",body:"Izan is the to be of identity. Naiz is I am, zara is you are, da is he, she or it is, gara is we are, zarete is you all are, and dira is they are. Each form already names its own subject, which is why the pronouns are usually left out: naiz on its own is a whole sentence. Set them side by side and the logic shows, ni naiz, zu zara, hura da, gu gara, zuek zarete, haiek dira, with the pronoun present only for emphasis. Da is the one you will meet most, because Basque puts its verb last and a great many sentences end by saying what something is. None of the six looks much like izan itself, which is what tends to happen to the verb a language uses most."},
+    wordIds:["izan","naiz","zara","da","gara","zarete","dira"],  },
+  {
+    id:"l03_pointing",
+    num:4,
     title:"This, That, And and But",
     titleEu:"Hau, hori, hura",
     emoji:"\uD83D\uDC49",
@@ -5484,7 +5507,7 @@ var LESSONS=[
   },
   {
     id:"l04_meeting",
-    num:4,
+    num:5,
     title:"Meeting Someone",
     titleEu:"Norbait ezagutzen",
     emoji:"\uD83E\uDD17",
@@ -5495,7 +5518,7 @@ var LESSONS=[
   },
   {
     id:"l05_reading",
-    num:5,
+    num:6,
     title:"Reading, Writing and Listening",
     titleEu:"Irakurri eta idatzi",
     emoji:"\uD83D\uDCDA",
@@ -5506,7 +5529,7 @@ var LESSONS=[
   },
   {
     id:"l2_numbers",
-    num:6,
+    num:7,
     title:"Counting to Ten",
     titleEu:"Bat, bi, hiru",
     emoji:"\uD83D\uDD22",
@@ -5517,7 +5540,7 @@ var LESSONS=[
   },
   {
     id:"l3_family",
-    num:7,
+    num:8,
     title:"Family",
     titleEu:"Familia",
     emoji:"\uD83D\uDC6A",
@@ -5528,7 +5551,7 @@ var LESSONS=[
   },
   {
     id:"l4_colors",
-    num:8,
+    num:9,
     title:"Colors",
     titleEu:"Koloreak",
     emoji:"\uD83C\uDFA8",
@@ -5539,7 +5562,7 @@ var LESSONS=[
   },
   {
     id:"l5_food",
-    num:9,
+    num:10,
     title:"Food and Drink",
     titleEu:"Janari eta edaria",
     emoji:"\uD83C\uDF7D\uFE0F",
@@ -5550,7 +5573,7 @@ var LESSONS=[
   },
   {
     id:"l6_time",
-    num:10,
+    num:11,
     title:"Days and Time",
     titleEu:"Egunak eta ordua",
     emoji:"\uD83D\uDD53",
@@ -5561,7 +5584,7 @@ var LESSONS=[
   },
   {
     id:"l7_travel",
-    num:11,
+    num:12,
     title:"Getting Around",
     titleEu:"Hara eta hona",
     emoji:"\uD83D\uDDFA\uFE0F",
@@ -5571,8 +5594,18 @@ var LESSONS=[
     wordIds:["etxea","kalea","hiria","trena","autobusa","jatetxea","non","non_dago","hemen","han","ezkerra","eskuina"],
   },
   {
+    id:"l76_egon",
+    num:13,
+    title:"Where and How You Are",
+    titleEu:"Egon",
+    emoji:"\uD83D\uDCCD",
+    blurb:"The second verb for to be, for a place or a passing state.",
+    intro:"Here is the other one. Basque keeps what something is apart from where it is and how it is doing, and hands the second job to a different verb. With both of them you can put anything in its place and say how it is getting on.",
+    grammar:{title:"Two verbs, one dividing line",body:"Egon covers a place or a passing state, while izan covers identity. Nago is I am, zaude is you are, dago is he, she or it is, gaude is we are, zaudete is you all are, and daude is they are, every one of them meaning at this moment. The dividing line is clean: nongoa zara asks where you are from and takes izan, while non zaude asks where you are standing and takes egon. Non dago, which you have been using as a set phrase, is only dago doing its ordinary work. Egon has a second sense as well, to stay, which is the same idea from the inside, since staying somewhere is being there a while."},
+    wordIds:["egon","nago","zaude","dago","gaude","zaudete","daude"],  },
+  {
     id:"l8_body",
-    num:12,
+    num:14,
     title:"The Body",
     titleEu:"Gorputza",
     emoji:"\uD83D\uDC4B",
@@ -5583,7 +5616,7 @@ var LESSONS=[
   },
   {
     id:"l9_nature",
-    num:13,
+    num:15,
     title:"The Natural World",
     titleEu:"Natura",
     emoji:"\uD83C\uDFD4\uFE0F",
@@ -5594,7 +5627,7 @@ var LESSONS=[
   },
   {
     id:"l10_emotions",
-    num:14,
+    num:16,
     title:"Feelings",
     titleEu:"Sentimenduak",
     emoji:"\u2764\uFE0F",
@@ -5605,7 +5638,7 @@ var LESSONS=[
   },
   {
     id:"l11_describing",
-    num:15,
+    num:17,
     title:"Describing Things",
     titleEu:"Nolakoa da?",
     emoji:"\uD83D\uDD0D",
@@ -5616,7 +5649,7 @@ var LESSONS=[
   },
   {
     id:"l12_months",
-    num:16,
+    num:18,
     title:"Months of the Year",
     titleEu:"Urteko hilabeteak",
     emoji:"\uD83D\uDCC5",
@@ -5627,7 +5660,7 @@ var LESSONS=[
   },
   {
     id:"l13_jobs",
-    num:17,
+    num:19,
     title:"Jobs and Work",
     titleEu:"Lanbideak",
     emoji:"\uD83D\uDCBC",
@@ -5638,7 +5671,7 @@ var LESSONS=[
   },
   {
     id:"l14_culture",
-    num:18,
+    num:20,
     title:"Language and Culture",
     titleEu:"Hizkuntza eta kultura",
     emoji:"\uD83D\uDCD6",
@@ -5649,7 +5682,7 @@ var LESSONS=[
   },
   {
     id:"l15_morefood",
-    num:19,
+    num:21,
     title:"Food and Drink II",
     titleEu:"Janaria eta edaria II",
     emoji:"\uD83C\uDF77",
@@ -5660,7 +5693,7 @@ var LESSONS=[
   },
   {
     id:"l16_conversation",
-    num:20,
+    num:22,
     title:"Making Conversation",
     titleEu:"Solasean",
     emoji:"\uD83D\uDCAC",
@@ -5671,7 +5704,7 @@ var LESSONS=[
   },
   {
     id:"l17_tellingtime",
-    num:21,
+    num:23,
     title:"Telling Time",
     titleEu:"Zer ordu da?",
     emoji:"\u23F0",
@@ -5682,7 +5715,7 @@ var LESSONS=[
   },
   {
     id:"l18_airport",
-    num:22,
+    num:24,
     title:"At the Airport",
     titleEu:"Aireportuan",
     emoji:"\u2708\uFE0F",
@@ -5693,7 +5726,7 @@ var LESSONS=[
   },
   {
     id:"l19_town",
-    num:23,
+    num:25,
     title:"Around Town",
     titleEu:"Herrian",
     emoji:"\uD83C\uDFD8\uFE0F",
@@ -5705,7 +5738,7 @@ var LESSONS=[
   {
     id:"l20_home",
     pro:true,
-    num:24,
+    num:26,
     title:"At Home",
     titleEu:"Etxean",
     emoji:"\uD83C\uDFE0",
@@ -5717,7 +5750,7 @@ var LESSONS=[
   {
     id:"l21_animals",
     pro:true,
-    num:25,
+    num:27,
     title:"Animals",
     titleEu:"Animaliak",
     emoji:"\uD83D\uDC15",
@@ -5729,7 +5762,7 @@ var LESSONS=[
   {
     id:"l26_market",
     pro:true,
-    num:26,
+    num:28,
     title:"At the Market",
     titleEu:"Azokan",
     emoji:"\uD83E\uDD55",
@@ -5741,7 +5774,7 @@ var LESSONS=[
   {
     id:"l27_table",
     pro:true,
-    num:27,
+    num:29,
     title:"Salt, Oil and the Table",
     titleEu:"Mahaia prestatzen",
     emoji:"\uD83C\uDF74",
@@ -5753,7 +5786,7 @@ var LESSONS=[
   {
     id:"l28_family2",
     pro:true,
-    num:28,
+    num:30,
     title:"More of the Family",
     titleEu:"Familia osoa",
     emoji:"\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67",
@@ -5765,7 +5798,7 @@ var LESSONS=[
   {
     id:"l29_body2",
     pro:true,
-    num:29,
+    num:31,
     title:"More of the Body",
     titleEu:"Gorputza osorik",
     emoji:"\uD83E\uDDB6",
@@ -5777,7 +5810,7 @@ var LESSONS=[
   {
     id:"l30_outdoors",
     pro:true,
-    num:30,
+    num:32,
     title:"Woods, Fields and Weather",
     titleEu:"Basoa eta zerua",
     emoji:"\uD83D\uDC11",
@@ -5789,7 +5822,7 @@ var LESSONS=[
   {
     id:"l31_feast",
     pro:true,
-    num:31,
+    num:33,
     title:"Feast and Feeling",
     titleEu:"Jaia eta sentimendua",
     emoji:"\uD83C\uDF84",
@@ -5801,7 +5834,7 @@ var LESSONS=[
   {
     id:"l22_town",
     pro:true,
-    num:32,
+    num:34,
     title:"Places in Town",
     titleEu:"Herriko lekuak",
     emoji:"\u26EA",
@@ -5813,7 +5846,7 @@ var LESSONS=[
   {
     id:"l23_numbers2",
     pro:true,
-    num:33,
+    num:35,
     title:"Counting Past Twenty",
     titleEu:"Hogeitik gora",
     emoji:"\uD83D\uDD22",
@@ -5825,7 +5858,7 @@ var LESSONS=[
   {
     id:"l24_seasons",
     pro:true,
-    num:34,
+    num:36,
     title:"The Four Seasons",
     titleEu:"Urtaroak",
     emoji:"\uD83C\uDF42",
@@ -5837,7 +5870,7 @@ var LESSONS=[
   {
     id:"l25_society",
     pro:true,
-    num:35,
+    num:37,
     title:"People and Nation",
     titleEu:"Herria",
     emoji:"\uD83E\uDD1D",
@@ -5849,7 +5882,7 @@ var LESSONS=[
   {
     id:"l26_opposites",
     pro:true,
-    num:36,
+    num:38,
     title:"Opposites",
     titleEu:"Aurkakoak",
     emoji:"\u2696\uFE0F",
@@ -5861,7 +5894,7 @@ var LESSONS=[
   {
     id:"l39_menu",
     pro:true,
-    num:37,
+    num:39,
     title:"Reading a Menu",
     titleEu:"Menua",
     emoji:"🍽️",
@@ -5873,7 +5906,7 @@ var LESSONS=[
   {
     id:"l40_sweet",
     pro:true,
-    num:38,
+    num:40,
     title:"Sweet Things and Snacks",
     titleEu:"Gozoak",
     emoji:"🍰",
@@ -5885,7 +5918,7 @@ var LESSONS=[
   {
     id:"l41_pantry",
     pro:true,
-    num:39,
+    num:41,
     title:"Beans, Mushrooms and Pork",
     titleEu:"Janari gehiago",
     emoji:"🫘",
@@ -5897,7 +5930,7 @@ var LESSONS=[
   {
     id:"l42_road",
     pro:true,
-    num:40,
+    num:42,
     title:"On the Road",
     titleEu:"Errepidean",
     emoji:"🚗",
@@ -5909,7 +5942,7 @@ var LESSONS=[
   {
     id:"l43_papers",
     pro:true,
-    num:41,
+    num:43,
     title:"Tickets and Papers",
     titleEu:"Bidaiatzea",
     emoji:"🎫",
@@ -5921,7 +5954,7 @@ var LESSONS=[
   {
     id:"l44_body",
     pro:true,
-    num:42,
+    num:44,
     title:"Shoulders, Knees and Bones",
     titleEu:"Gorputza",
     emoji:"🦴",
@@ -5933,7 +5966,7 @@ var LESSONS=[
   {
     id:"l45_ill",
     pro:true,
-    num:43,
+    num:45,
     title:"When You Are Ill",
     titleEu:"Gaixorik",
     emoji:"🩺",
@@ -5945,7 +5978,7 @@ var LESSONS=[
   {
     id:"l46_trees",
     pro:true,
-    num:44,
+    num:46,
     title:"Trees, Land and Shore",
     titleEu:"Zuhaitzak eta lurra",
     emoji:"🌳",
@@ -5957,7 +5990,7 @@ var LESSONS=[
   {
     id:"l47_weather",
     pro:true,
-    num:45,
+    num:47,
     title:"Weather and Wild Animals",
     titleEu:"Eguraldia eta animaliak",
     emoji:"⛈️",
@@ -5969,7 +6002,7 @@ var LESSONS=[
   {
     id:"l48_house",
     pro:true,
-    num:46,
+    num:48,
     title:"Around the House",
     titleEu:"Etxeko gauzak",
     emoji:"🛏️",
@@ -5981,7 +6014,7 @@ var LESSONS=[
   {
     id:"l49_family",
     pro:true,
-    num:47,
+    num:49,
     title:"Husbands, Cousins and Neighbors",
     titleEu:"Senideak",
     emoji:"👪",
@@ -5993,7 +6026,7 @@ var LESSONS=[
   {
     id:"l50_talk",
     pro:true,
-    num:48,
+    num:50,
     title:"Keeping a Conversation Going",
     titleEu:"Elkarrizketan",
     emoji:"💬",
@@ -6005,7 +6038,7 @@ var LESSONS=[
   {
     id:"l27_days",
     pro:true,
-    num:49,
+    num:51,
     title:"The Days of the Week",
     titleEu:"Asteko egunak",
     emoji:"📅",
@@ -6017,7 +6050,7 @@ var LESSONS=[
   {
     id:"l50_ordinals",
     pro:true,
-    num:50,
+    num:52,
     title:"Putting Things in Order",
     titleEu:"Lehena eta bigarrena",
     emoji:"\uD83E\uDD47",
@@ -6029,7 +6062,7 @@ var LESSONS=[
   {
     id:"l51_twenties2",
     pro:true,
-    num:51,
+    num:53,
     title:"Finishing the Twenties",
     titleEu:"Hogeiak osatzen",
     emoji:"\u2797",
@@ -6041,7 +6074,7 @@ var LESSONS=[
   {
     id:"l52_farm",
     pro:true,
-    num:52,
+    num:54,
     title:"Farm and Forest Animals",
     titleEu:"Baserriko animaliak",
     emoji:"\uD83E\uDECF",
@@ -6053,7 +6086,7 @@ var LESSONS=[
   {
     id:"l53_sea",
     pro:true,
-    num:53,
+    num:55,
     title:"Creatures of the Sea and Sky",
     titleEu:"Itsasoa eta zerua",
     emoji:"\uD83D\uDC0B",
@@ -6065,7 +6098,7 @@ var LESSONS=[
   {
     id:"l54_feeling",
     pro:true,
-    num:54,
+    num:56,
     title:"How You Are Feeling",
     titleEu:"Nola zauden",
     emoji:"\uD83D\uDE0C",
@@ -6077,7 +6110,7 @@ var LESSONS=[
   {
     id:"l55_feelingnouns",
     pro:true,
-    num:55,
+    num:57,
     title:"Feelings as Things",
     titleEu:"Sentimenduak",
     emoji:"\uD83D\uDCAD",
@@ -6089,7 +6122,7 @@ var LESSONS=[
   {
     id:"l56_qualities",
     pro:true,
-    num:56,
+    num:58,
     title:"Clean, Warm and Wide",
     titleEu:"Nolakoa den",
     emoji:"\uD83E\uDDFC",
@@ -6101,7 +6134,7 @@ var LESSONS=[
   {
     id:"l57_school",
     pro:true,
-    num:57,
+    num:59,
     title:"School and Office",
     titleEu:"Eskola eta bulegoa",
     emoji:"\uD83C\uDFEB",
@@ -6113,7 +6146,7 @@ var LESSONS=[
   {
     id:"l58_music",
     pro:true,
-    num:58,
+    num:60,
     title:"Music, Dance and Pelota",
     titleEu:"Musika eta dantza",
     emoji:"\uD83C\uDFB5",
@@ -6125,7 +6158,7 @@ var LESSONS=[
   {
     id:"l59_festival",
     pro:true,
-    num:59,
+    num:61,
     title:"Festivals and the Cider House",
     titleEu:"Festak eta sagardotegia",
     emoji:"\uD83E\uDD73",
@@ -6137,7 +6170,7 @@ var LESSONS=[
   {
     id:"l60_colors3",
     pro:true,
-    num:60,
+    num:62,
     title:"More Colors",
     titleEu:"Kolore gehiago",
     emoji:"\uD83C\uDF08",
@@ -6149,7 +6182,7 @@ var LESSONS=[
   {
     id:"l61_town",
     pro:true,
-    num:61,
+    num:63,
     title:"Town and Government",
     titleEu:"Udala eta herria",
     emoji:"\uD83C\uDFDB\uFE0F",
@@ -6161,7 +6194,7 @@ var LESSONS=[
   {
     id:"l62_smallwords",
     pro:true,
-    num:62,
+    num:64,
     title:"Yes, No and When",
     titleEu:"Hitz txikiak",
     emoji:"\uD83D\uDCA1",
@@ -6173,7 +6206,7 @@ var LESSONS=[
   {
     id:"l28_verbs",
     pro:true,
-    num:63,
+    num:65,
     title:"Verbs You Will Use",
     titleEu:"Aditz nagusiak",
     emoji:"🗣️",
@@ -6185,7 +6218,7 @@ var LESSONS=[
   {
     id:"l29_linking",
     pro:true,
-    num:64,
+    num:66,
     title:"Joining Your Thoughts",
     titleEu:"Lokailuak",
     emoji:"🔗",
@@ -6197,7 +6230,7 @@ var LESSONS=[
   {
     id:"l33_kitchen",
     pro:true,
-    num:65,
+    num:67,
     title:"In the Basque Kitchen",
     titleEu:"Sukaldean",
     emoji:"🍲",
@@ -6209,7 +6242,7 @@ var LESSONS=[
   {
     id:"l34_land",
     pro:true,
-    num:66,
+    num:68,
     title:"The Land and the Coast",
     titleEu:"Lurra eta itsasoa",
     emoji:"🌊",
@@ -6221,7 +6254,7 @@ var LESSONS=[
   {
     id:"l35_feelings",
     pro:true,
-    num:67,
+    num:69,
     title:"How You Feel",
     titleEu:"Sentimenduak",
     emoji:"💚",
@@ -6233,19 +6266,19 @@ var LESSONS=[
   {
     id:"l45_motion",
     pro:true,
-    num:68,
+    num:70,
     title:"Coming, Going and Staying",
     titleEu:"Joan eta etorri",
     emoji:"\uD83D\uDEB6",
     blurb:"The verbs of movement, and the words for where they take you.",
-    intro:"Six verbs carry most of what anyone says about moving: going, coming, staying, walking, carrying, continuing. They have been turning up in these lessons all along without ever being taught. Here they are, with the words for the roads they happen on.",
+    intro:"Five verbs carry most of what anyone says about moving: going, coming, walking, carrying, continuing. They have been turning up in these lessons all along without ever being taught. Here they are, with the words for the roads they happen on.",
     grammar:{title:"Bide, the path hiding in other words",body:"Bide means road, and it builds nouns all through Basque. Ibilbidea is ibili (to walk) plus bidea, the walking path, so a route. Bidegurutzea is bidea plus gurutzea, the road cross, a crossroads. Helmuga joins heldu (to arrive) with muga (border or limit) into the arrival point, a destination. Joan and etorri pair up the same way: joan-etorri, go and come, is a return trip."},
-    wordIds:["joan","etorri","egon","ibili","eraman","jarraitu","ibilbidea","bidegurutzea","helmuga","aterpea","mugaldea","asegurua","zerbitzu_ordua"],
+    wordIds:["joan","etorri","ibili","eraman","jarraitu","ibilbidea","bidegurutzea","helmuga","aterpea","mugaldea","asegurua","zerbitzu_ordua"],
   },
   {
     id:"l46_pastfuture",
     pro:true,
-    num:69,
+    num:71,
     title:"The Past and the Future",
     titleEu:"Iragana eta etorkizuna",
     emoji:"\uD83D\uDD70\uFE0F",
@@ -6257,7 +6290,7 @@ var LESSONS=[
   {
     id:"l47_measuring",
     pro:true,
-    num:70,
+    num:72,
     title:"Measuring and Percentages",
     titleEu:"Neurriak eta ehunekoak",
     emoji:"\uD83D\uDCCA",
@@ -6269,7 +6302,7 @@ var LESSONS=[
   {
     id:"l48_taste",
     pro:true,
-    num:71,
+    num:73,
     title:"Taste and Texture",
     titleEu:"Gozoa eta gazia",
     emoji:"\uD83E\uDDC2",
@@ -6281,7 +6314,7 @@ var LESSONS=[
   {
     id:"l49_character",
     pro:true,
-    num:72,
+    num:74,
     title:"What People Are Like",
     titleEu:"Nolakoa den jendea",
     emoji:"\uD83D\uDE42",
@@ -6293,7 +6326,7 @@ var LESSONS=[
   {
     id:"l50_shades",
     pro:true,
-    num:73,
+    num:75,
     title:"Shades of Color",
     titleEu:"Koloreen tonuak",
     emoji:"\uD83C\uDFA8",
@@ -6305,7 +6338,7 @@ var LESSONS=[
   {
     id:"l51_working",
     pro:true,
-    num:74,
+    num:76,
     title:"Work and a Living",
     titleEu:"Lana eta bizibidea",
     emoji:"\uD83D\uDCBC",
@@ -6317,7 +6350,7 @@ var LESSONS=[
   {
     id:"l52_insidebody",
     pro:true,
-    num:75,
+    num:77,
     title:"Inside the Body",
     titleEu:"Barruko gorputza",
     emoji:"\uD83E\uDEC1",
@@ -6329,7 +6362,7 @@ var LESSONS=[
   {
     id:"l53_familychanges",
     pro:true,
-    num:76,
+    num:78,
     title:"How Families Change",
     titleEu:"Familia aldatzen denean",
     emoji:"\uD83D\uDC8D",
@@ -6341,7 +6374,7 @@ var LESSONS=[
   {
     id:"l54_tradition",
     pro:true,
-    num:77,
+    num:79,
     title:"Culture and Tradition",
     titleEu:"Kultura eta ohiturak",
     emoji:"\uD83C\uDFB6",
@@ -6353,7 +6386,7 @@ var LESSONS=[
   {
     id:"l55_joygrief",
     pro:true,
-    num:78,
+    num:80,
     title:"Joy and Grief",
     titleEu:"Poza eta nahigabea",
     emoji:"\uD83D\uDCA7",
@@ -6365,7 +6398,7 @@ var LESSONS=[
   {
     id:"l56_democracy",
     pro:true,
-    num:79,
+    num:81,
     title:"Democracy and Rights",
     titleEu:"Demokrazia eta eskubideak",
     emoji:"\uD83D\uDDF3\uFE0F",
@@ -6377,7 +6410,7 @@ var LESSONS=[
   {
     id:"l57_peoples",
     pro:true,
-    num:80,
+    num:82,
     title:"A Language and Its People",
     titleEu:"Hizkuntza eta herria",
     emoji:"\uD83D\uDDE3\uFE0F",
@@ -6389,7 +6422,7 @@ var LESSONS=[
   {
     id:"l30_lineage",
     pro:true,
-    num:81,
+    num:83,
     title:"The Family Line",
     titleEu:"Gure arbasoak",
     emoji:"🌳",
@@ -6401,7 +6434,7 @@ var LESSONS=[
   {
     id:"l31_leaving",
     pro:true,
-    num:82,
+    num:84,
     title:"Leaving and Returning",
     titleEu:"Joatea eta itzultzea",
     emoji:"✈️",
@@ -6413,7 +6446,7 @@ var LESSONS=[
   {
     id:"l32_language",
     pro:true,
-    num:83,
+    num:85,
     title:"The Language Itself",
     titleEu:"Gure hizkuntza",
     emoji:"📖",
@@ -6425,7 +6458,7 @@ var LESSONS=[
   {
     id:"l36_society",
     pro:true,
-    num:84,
+    num:86,
     title:"Society and the Common Good",
     titleEu:"Gizartea",
     emoji:"⚖️",
@@ -6437,7 +6470,7 @@ var LESSONS=[
   {
     id:"l37_feelings2",
     pro:true,
-    num:85,
+    num:87,
     title:"The Harder Feelings",
     titleEu:"Sentimendu gogorrak",
     emoji:"🕊️",
@@ -6449,7 +6482,7 @@ var LESSONS=[
   {
     id:"l38_world",
     pro:true,
-    num:86,
+    num:88,
     title:"The Living World",
     titleEu:"Mundu bizia",
     emoji:"🌍",
@@ -6461,7 +6494,7 @@ var LESSONS=[
   {
     id:"l64_enterprise",
     pro:true,
-    num:87,
+    num:89,
     title:"Enterprise and Strategy",
     titleEu:"Enpresa eta estrategia",
     emoji:"\uD83D\uDCC8",
@@ -6473,7 +6506,7 @@ var LESSONS=[
   {
     id:"l65_labor",
     pro:true,
-    num:88,
+    num:90,
     title:"Organized Labor",
     titleEu:"Langileen mundua",
     emoji:"\uD83D\uDEE0\uFE0F",
@@ -6485,7 +6518,7 @@ var LESSONS=[
   {
     id:"l66_data",
     pro:true,
-    num:89,
+    num:91,
     title:"Numbers and Data",
     titleEu:"Zenbakiak eta datuak",
     emoji:"\uD83D\uDD22",
@@ -6497,7 +6530,7 @@ var LESSONS=[
   {
     id:"l67_systems",
     pro:true,
-    num:90,
+    num:92,
     title:"The Body's Systems",
     titleEu:"Gorputzaren sistemak",
     emoji:"\uD83E\uDE7B",
@@ -6509,7 +6542,7 @@ var LESSONS=[
   {
     id:"l68_gastronomy",
     pro:true,
-    num:91,
+    num:93,
     title:"Gastronomy",
     titleEu:"Gastronomia",
     emoji:"\uD83C\uDF73",
@@ -6521,7 +6554,7 @@ var LESSONS=[
   {
     id:"l69_eras",
     pro:true,
-    num:92,
+    num:94,
     title:"Eras and Deadlines",
     titleEu:"Garaiak eta epeak",
     emoji:"\u23F3",
@@ -6533,7 +6566,7 @@ var LESSONS=[
   {
     id:"l70_nuance",
     pro:true,
-    num:93,
+    num:95,
     title:"Nuance and Shade",
     titleEu:"Ñabardurak",
     emoji:"\uD83D\uDD8C\uFE0F",
@@ -6545,7 +6578,7 @@ var LESSONS=[
   {
     id:"l71_courtesy",
     pro:true,
-    num:94,
+    num:96,
     title:"Courtesy and Good Wishes",
     titleEu:"Adeitasuna",
     emoji:"\uD83E\uDD1D",
@@ -6557,7 +6590,7 @@ var LESSONS=[
   {
     id:"l72_pairs",
     pro:true,
-    num:95,
+    num:97,
     title:"Rich, Poor and Lasting",
     titleEu:"Aberatsa eta pobrea",
     emoji:"\u2696\uFE0F",
@@ -6569,7 +6602,7 @@ var LESSONS=[
   {
     id:"l73_cannot",
     pro:true,
-    num:96,
+    num:98,
     title:"What Cannot Be",
     titleEu:"Ezinezkoa",
     emoji:"\uD83E\uDDE9",
@@ -6581,7 +6614,7 @@ var LESSONS=[
   {
     id:"l74_nation",
     pro:true,
-    num:97,
+    num:99,
     title:"Nation and Sovereignty",
     titleEu:"Herria eta burujabetza",
     emoji:"\uD83D\uDD4A\uFE0F",
@@ -6590,6 +6623,7 @@ var LESSONS=[
     grammar:{title:"Aberri, and the words built on it",body:"Aberri means homeland, and you met it in Aberri Eguna. Abertzalea is aberri plus -zalea, one who loves a thing, so a patriot. Abertzaletasuna names that attachment as a thing in itself. Burujabetza is buru (head) plus jabetza (ownership), owning your own head, which is how Basque says sovereignty. Elkarbizitza is elkar (each other) plus bizitza (life): living alongside one another."},
     wordIds:["ekonomia","abertzalea","nazionalismoa","autodeterminazioa","garrantzia","arazo","bortxa","burujabetza","abertzaletasuna","kultura_aniztasuna","elkarbizitza"],
   },
+
 ];
 
 
