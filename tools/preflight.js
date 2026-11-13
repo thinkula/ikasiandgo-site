@@ -439,45 +439,76 @@ if (QUICK) {
           sh("xcrun", ["simctl", "uninstall", d.udid, "com.ikasiandgo.app"]);
           const inst = sh("xcrun", ["simctl", "install", d.udid, app]);
           if (!inst.ok) { warn(label, "install failed, skipped"); continue; }
-          sh("xcrun", ["simctl", "launch", d.udid, "com.ikasiandgo.app"]);
           const shot = path.join(shotDir, (rt.name + "-" + d.name).replace(/[^\w.-]+/g, "_") + ".png");
 
-          execFileSync("/bin/sleep", [String(SETTLE)]);
-          let waited = SETTLE, live = false, drawn = null;
-          for (;;) {
-            // Checked every time round, so an app that dies while we wait is
-            // reported as dying rather than as a blank screen.
-            live = /ikasiandgo/i.test(
-              sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]).out);
-            if (!live) break;
-            sh("xcrun", ["simctl", "io", d.udid, "screenshot", "--type=png", shot]);
-            drawn = drawnPercent(shot);
-            // Keep looking while the score is outside the bounds at either
-            // end. Both blankness and the black placeholder are states the app
-            // is expected to pass through, so neither one ends the wait early.
-            if (drawn === null || isDrawn(drawn) || waited >= BUDGET) break;
-            execFileSync("/bin/sleep", [String(POLL)]);
-            waited += POLL;
+          // Launch it, then watch until it draws or the budget runs out.
+          function watchLaunch() {
+            sh("xcrun", ["simctl", "launch", d.udid, "com.ikasiandgo.app"]);
+            execFileSync("/bin/sleep", [String(SETTLE)]);
+            let waited = SETTLE, live = false, drawn = null;
+            for (;;) {
+              // Checked every time round, so an app that dies while we wait is
+              // reported as dying rather than as a blank screen.
+              live = /ikasiandgo/i.test(
+                sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]).out);
+              if (!live) break;
+              sh("xcrun", ["simctl", "io", d.udid, "screenshot", "--type=png", shot]);
+              drawn = drawnPercent(shot);
+              // Keep looking while the score is outside the bounds at either
+              // end. Both blankness and the black placeholder are states the app
+              // is expected to pass through, so neither one ends the wait early.
+              if (drawn === null || isDrawn(drawn) || waited >= BUDGET) break;
+              execFileSync("/bin/sleep", [String(POLL)]);
+              waited += POLL;
+            }
+            return { waited, live, drawn };
           }
 
+          /*
+           * A screen that never drew gets one relaunch before it is believed,
+           * the same courtesy the build itself gets further up.
+           *
+           * On 2026-11-12 the iPhone 18 Pro Max sat blank for the whole 30
+           * seconds on the sixth device of a run, then drew in 8 on the very
+           * next launch, same build, same device. Nothing was wrong with the
+           * app. A gate that fails a good build stops being read, and a gate
+           * nobody reads is how the scene crash shipped three times.
+           *
+           * A process that died is not retried. That is the crash this file
+           * exists to catch, and it gets reported the first time it happens.
+           */
+          let { waited, live, drawn } = watchLaunch();
+          let relaunched = false;
+          if (live && drawn !== null && !isDrawn(drawn)) {
+            relaunched = true;
+            sh("xcrun", ["simctl", "terminate", d.udid, "com.ikasiandgo.app"]);
+            ({ waited, live, drawn } = watchLaunch());
+          }
+          const after = relaunched ? " after a relaunch" : "";
+
           if (!live) {
-            fail(label, "the app did not stay running");
+            fail(label, "the app did not stay running" + after);
           } else if (drawn === null) {
             warn(label, "running after " + waited + "s, but the screenshot could not be measured");
           } else if (isDrawn(drawn)) {
-            pass(label, "drew in " + waited + "s  (" + drawn + "% of the screen)");
-            // Not a failure, but it is the 1.6 bug in slow motion, and the
-            // next device or the next runtime may be the one that runs out.
-            if (waited > BUDGET / 2) {
+            pass(label, "drew in " + waited + "s" + after + "  (" + drawn + "% of the screen)");
+            // Neither is a failure, but both are the 1.6 bug in slow motion,
+            // and the next device or the next runtime may be the one that
+            // runs out. A device that only drew the second time is the louder
+            // of the two: it spent a whole budget showing a user nothing.
+            if (relaunched) {
+              warn(label, "drew only on the second launch, the first showed nothing for " +
+                BUDGET + "s");
+            } else if (waited > BUDGET / 2) {
               warn(label, "took " + waited + "s of the " + BUDGET + "s allowed to draw");
             }
           } else if (drawn > DRAWN_MAX) {
-            fail(label, "still one flat dark screen after " + waited + "s  (" + drawn +
+            fail(label, "still one flat dark screen after " + waited + "s" + after + "  (" + drawn +
               "% of the screen, expected at most " + DRAWN_MAX + "%)");
             console.log("      The process is alive and the screen is a single dark color.");
             console.log("      That is the launch placeholder: no first frame ever arrived.");
           } else {
-            fail(label, "still blank after " + waited + "s  (" + drawn +
+            fail(label, "still blank after " + waited + "s" + after + "  (" + drawn +
               "% of the screen, needs " + DRAWN_PCT + "%)");
             console.log("      The process is alive and drawing nothing. Open the shot below:");
             console.log("      a bare cream screen is a webview that never loaded.");
