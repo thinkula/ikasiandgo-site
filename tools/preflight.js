@@ -388,8 +388,9 @@ if (QUICK) {
       const CREAM = [0xF8, 0xF7, 0xF5];
       const GRID = 16;        // downsample to GRID x GRID before measuring
       const OFF_CREAM = 80;   // per channel, how far from cream reads as drawn
-      const DRAWN_PCT = 15;   // share of the grid that has to be that far off
+      const DRAWN_PCT = 30;   // share of the grid that has to be that far off
       const DRAWN_MAX = 85;   // above this it is one flat color, not the app
+      const BLANK_PCT = 10;   // below this nothing was drawn at all
       const SETTLE = 4;       // seconds before the first look
       const POLL = 2;         // seconds between looks after that
       const BUDGET = 30;      // seconds before a screen is called blank
@@ -425,8 +426,24 @@ if (QUICK) {
         return total ? Math.round((drawn * 100) / total) : null;
       }
 
-      // Measured against the six shots this gate takes, a drawn screen scores
-      // between 38 and 61. Cream and white score 0, black scores 100.
+      /*
+       * Measured over three full matrix runs, eighteen shots, a drawn screen
+       * scores 38, 43 or 61 and nothing else. Cream and white score 0, black
+       * scores 100.
+       *
+       * The lower bound sat at 15 and let something through. The home screen
+       * paints its skeleton first, a green header over empty placeholder
+       * cards with no text in them, and that scores 19. It is a real screen,
+       * so the gate called it drawn and stopped looking, which meant a pass
+       * that only proved the webview had mounted. On iOS 27 the 17e did that
+       * on two runs out of three.
+       *
+       * So the bar is 30, in the clear gap between the skeleton at 19 and the
+       * lowest real screen at 38. Anything below it is still on its way, and
+       * the poll keeps looking until the content lands or the budget runs
+       * out. If a future device draws a genuine screen under 30, widen the
+       * gap rather than lowering the bar back onto the skeleton.
+       */
       function isDrawn(d) { return d !== null && d >= DRAWN_PCT && d <= DRAWN_MAX; }
 
       console.log("\npreflight: launch matrix");
@@ -507,11 +524,19 @@ if (QUICK) {
               "% of the screen, expected at most " + DRAWN_MAX + "%)");
             console.log("      The process is alive and the screen is a single dark color.");
             console.log("      That is the launch placeholder: no first frame ever arrived.");
-          } else {
+          } else if (drawn < BLANK_PCT) {
             fail(label, "still blank after " + waited + "s" + after + "  (" + drawn +
               "% of the screen, needs " + DRAWN_PCT + "%)");
             console.log("      The process is alive and drawing nothing. Open the shot below:");
             console.log("      a bare cream screen is a webview that never loaded.");
+          } else {
+            // Raising the bar past the skeleton made this its own outcome. It
+            // is not the blank screen above: something drew, it just never
+            // became a screen with any content on it.
+            fail(label, "stopped part drawn after " + waited + "s" + after + "  (" + drawn +
+              "% of the screen, needs " + DRAWN_PCT + "%)");
+            console.log("      The process is alive and the frame is stuck partway. Open the shot");
+            console.log("      below: placeholder cards with no text are vocabulary that never came.");
           }
           sh("xcrun", ["simctl", "shutdown", d.udid]);
         }
