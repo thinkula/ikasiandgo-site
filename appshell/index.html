@@ -98,7 +98,12 @@
 })();
 </script>
 </head>
-<body style="margin:0;padding:0;background:#fff;">
+<!-- Cream, not white. This is the first thing the webview paints, before
+     React mounts, and every other surface in the launch is #F8F7F5: the
+     Splash asset, the Capacitor webview background and the app page. White
+     here showed up as a distinct flash between the launch screen and the
+     app. -->
+<body style="margin:0;padding:0;background:#F8F7F5;">
 <!-- Keep this empty. The startup guard above decides a launch has failed by
      finding no children here, so anything static placed inside it, a skeleton
      or a spinner, silently disables the guard and nothing would fail. -->

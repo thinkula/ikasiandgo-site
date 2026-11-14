@@ -65,6 +65,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // The window arrives with no background colour of its own, which draws
+        // as black. Every other surface in the launch is cream, so any instant
+        // the bare window is visible reads as a fault rather than as loading.
+        window?.backgroundColor = UIColor(red: 0xF8 / 255.0,
+                                          green: 0xF7 / 255.0,
+                                          blue: 0xF5 / 255.0,
+                                          alpha: 1.0)
         for context in connectionOptions.urlContexts {
             _ = ApplicationDelegateProxy.shared.application(UIApplication.shared, open: context.url, options: [:])
         }
