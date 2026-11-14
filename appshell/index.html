@@ -4,8 +4,104 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Ikasi &amp; Go</title>
+<script>
+/*
+ * The last resort for a launch that never gets as far as React.
+ *
+ * The ErrorBoundary in App.jsx catches throws while the component tree
+ * renders, and that is the right place for them. It cannot catch what comes
+ * before: the bundle never arriving, the module throwing while it is still
+ * being evaluated, or a promise rejected during startup. Those all end the
+ * same way, a blank page with no message and no way back, which on a phone
+ * reads as the app refusing to open. The 1.6 launch matrix hit that screen
+ * three times on iOS 27 and could not tell it apart from a webview that never
+ * loaded.
+ *
+ * This lives inline in the shell rather than in the bundle on purpose. A
+ * guard inside the bundle cannot report the bundle failing to run, which is
+ * the one case actually seen here.
+ */
+(function () {
+  // Long enough to clear the slowest first paint this project has measured,
+  // which is 24 seconds, on an iOS 27 simulator sharing a Mac with five
+  // others midway through a launch matrix. Telling someone the app is broken
+  // when it is only slow is worse than making them wait: a blank page is
+  // recoverable on its own, and that message is not.
+  var GIVE_UP_MS = 30000;
+  var shown = false, timer = null, watch = null;
+
+  function rendered() {
+    var r = document.getElementById("root");
+    return !!(r && r.childNodes.length);
+  }
+
+  function paint() {
+    try {
+      // An error after the app is up belongs to the running app, not to the
+      // launch, and must never cover what the user is looking at.
+      if (shown || rendered() || !document.body) return;
+      shown = true;
+
+      var box = document.createElement("div");
+      box.id = "startup-failure";
+      box.setAttribute("style", "position:fixed;inset:0;z-index:2147483647;" +
+        "background:#F8F7F5;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;" +
+        "display:flex;flex-direction:column;align-items:center;justify-content:center;" +
+        "padding:24px;text-align:center;");
+      box.innerHTML =
+        '<div style="font-size:52px;margin-bottom:18px;">&#128533;</div>' +
+        '<p style="margin:0 0 8px;font-size:19px;font-weight:900;color:#1A1A1A;">Ikasi could not start</p>' +
+        '<p style="margin:0 0 22px;font-size:15px;line-height:1.5;color:#555555;max-width:300px;">' +
+        'Something went wrong while the app was opening. Reloading usually fixes it, ' +
+        'and your saved progress is safe.</p>' +
+        '<button id="startup-reload" style="border:none;border-radius:16px;padding:15px 32px;' +
+        'font-size:16px;font-weight:900;background:linear-gradient(135deg,#0E7A40,#19A85A);' +
+        'color:#fff;font-family:inherit;box-shadow:0 4px 0 #0B5C30;">Reload app</button>';
+      document.body.appendChild(box);
+      document.getElementById("startup-reload").onclick = function () {
+        try { window.location.reload(); } catch (e) { /* nothing left to try */ }
+      };
+
+      // If the app was only very slow and turns up after this, get out of its
+      // way rather than sitting on top of a working screen.
+      watch = setInterval(function () {
+        try {
+          if (!rendered()) return;
+          clearInterval(watch);
+          if (box.parentNode) box.parentNode.removeChild(box);
+          shown = false;
+        } catch (e) { /* nothing left to try */ }
+      }, 1000);
+    } catch (e) {
+      // There is no fallback behind the fallback. Failing quietly beats
+      // throwing from an error handler.
+    }
+  }
+
+  function armCheck() {
+    try { if (!timer) timer = setTimeout(paint, GIVE_UP_MS); } catch (e) { /* nothing left */ }
+  }
+
+  try {
+    // The check runs on every launch rather than waiting for something to
+    // throw, because the failures seen here were silent: nothing threw,
+    // nothing rejected, and the page simply stayed empty. Listening for
+    // error and unhandledrejection as well would add nothing, since the
+    // timer is already armed by the time either could fire, and a thrown
+    // error is not proof the launch is lost anyway. A font that will not
+    // load fires one too, and the app renders a moment later regardless.
+    armCheck();
+    // Reached only when the bundle ran and the mount itself threw, where
+    // there is nothing to wait for.
+    window.__ikasiStartupFailed = function () { try { clearTimeout(timer); } catch (e) {} paint(); };
+  } catch (e) { /* nothing left to try */ }
+})();
+</script>
 </head>
 <body style="margin:0;padding:0;background:#fff;">
+<!-- Keep this empty. The startup guard above decides a launch has failed by
+     finding no children here, so anything static placed inside it, a skeleton
+     or a spinner, silently disables the guard and nothing would fail. -->
 <div id="root"></div>
 <script type="module" src="/main.jsx"></script>
 </body>
