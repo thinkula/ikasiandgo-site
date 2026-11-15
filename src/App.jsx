@@ -175,7 +175,7 @@ var STORE=(function(){
 })();
 // Load mute preference at startup (after storage polyfill is guaranteed)
 try{STORE.get("sfx_on").then(function(r){if(r&&r.value==="0")_SFX_ON=false;}).catch(function(){});}catch(e){}
-const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}.hscroll{scrollbar-width:none;-ms-overflow-style:none;}.hscroll::-webkit-scrollbar{display:none;height:0;width:0;}@keyframes riseSoft{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}@keyframes lauburuArm{0%{opacity:0;transform:rotate(-115deg) scale(0.28)}55%{opacity:1}100%{opacity:1;transform:rotate(0deg) scale(1)}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
+const STYLE=document.createElement("style");STYLE.textContent=":root{--sat:env(safe-area-inset-top,44px);--shell:420px;--shell-wide:480px;--bleed-ofs:0px;}@media (min-width:768px){:root{--shell:620px;--shell-wide:620px;--bleed-ofs:calc(50vw - 50%);}}html,body{overflow-x:hidden;}@font-face{font-family:'Nunito';font-style:normal;font-weight:400 900;font-display:swap;src:url('fonts/Nunito.woff2') format('woff2');}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}body{margin:0;background:#F6F6F6;font-family:Nunito,-apple-system,BlinkMacSystemFont,'SF Pro Rounded',sans-serif;}input,textarea{font-size:16px!important;}@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}@keyframes popIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}@keyframes slideUp{0%{transform:translateY(12px);opacity:0;}100%{transform:translateY(0);opacity:1;}}@keyframes fadeIn{0%{opacity:0;transform:translateY(6px);}100%{opacity:1;transform:translateY(0);}}button:active{transform:scale(0.97)!important;opacity:0.9!important;}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}@keyframes cardIn{from{opacity:0;transform:scale(0.85) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes waitingPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,0.4)}50%{box-shadow:0 0 0 6px rgba(249,115,22,0)}}@keyframes waitingDot{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes correctPop{0%{transform:scale(0.7);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes badgeBounce{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.2) rotate(4deg)}100%{transform:scale(1) rotate(0);opacity:1}}@keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(25,168,90,0)}40%{box-shadow:0 0 0 5px rgba(25,168,90,0.18)}100%{box-shadow:0 0 0 0 rgba(25,168,90,0)}}@keyframes wrongGlow{0%{box-shadow:0 0 0 0 rgba(239,68,68,0)}40%{box-shadow:0 0 0 5px rgba(239,68,68,0.18)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}@keyframes streakPop{0%{transform:scale(0) translateY(8px);opacity:0}55%{transform:scale(1.25) translateY(0)}100%{transform:scale(1);opacity:1}}.hscroll{scrollbar-width:none;-ms-overflow-style:none;}.hscroll::-webkit-scrollbar{display:none;height:0;width:0;}@keyframes riseSoft{0%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}@keyframes risePop{0%{transform:translateY(14px) scale(0.9);opacity:0}60%{transform:translateY(-3px) scale(1.04)}100%{transform:translateY(0) scale(1);opacity:1}}@keyframes sparkle{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1.3) rotate(180deg);opacity:1}100%{transform:scale(0) rotate(360deg);opacity:0}}@keyframes lauburuArm{0%{opacity:0;transform:rotate(-115deg) scale(0.28)}55%{opacity:1}100%{opacity:1;transform:rotate(0deg) scale(1)}}";var VP=document.querySelector('meta[name=viewport]');if(VP)VP.content="width=device-width,initial-scale=1,viewport-fit=cover";else{var VM=document.createElement("meta");VM.name="viewport";VM.content="width=device-width,initial-scale=1,viewport-fit=cover";document.head.appendChild(VM);};document.head.appendChild(STYLE);
 const VERSION="1.6.0";
 // RevenueCat: paste the PUBLIC Apple API key (starts with appl_) from
 // app.revenuecat.com > API Keys. Purchases stay disabled until it is set.
@@ -1312,7 +1312,7 @@ class ErrorBoundary extends React.Component{
   componentDidCatch(error,info){try{console.error("App crash caught by ErrorBoundary:",error,info);}catch(e){}}
   render(){
     if(this.state.hasError){
-      return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5",fontFamily:"Nunito,system-ui,sans-serif",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"24px",textAlign:"center"}},
+      return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5",fontFamily:"Nunito,system-ui,sans-serif",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"24px",textAlign:"center"}},
         React.createElement("div",{style:{fontSize:52,marginBottom:18}},"\uD83D\uDE15"),
         React.createElement("h1",{style:{margin:"0 0 10px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.4}},"Something went wrong"),
         React.createElement("p",{style:{margin:"0 0 28px",fontSize:15,color:"#8E8E93",fontWeight:500,lineHeight:1.5,maxWidth:300}},"The app hit an unexpected error. Your progress is saved. Tap below to reload and continue."),
@@ -1488,9 +1488,9 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {isLoadingVocab&&<div style={{position:"fixed",top:0,left:0,right:0,height:3,zIndex:9998,background:"linear-gradient(90deg,#19A85A,#22C070,#19A85A)",backgroundSize:"200% 100%",animation:"shimmer 1.5s infinite"}}/>}
     {toast&&<div style={{position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",zIndex:9999,backgroundColor:toast==="offline"?"#555":toast==="loading"?"#888":"#19A85A",color:"#fff",fontSize:13,fontWeight:700,padding:"10px 20px",borderRadius:24,boxShadow:"0 4px 16px rgba(0,0,0,0.2)",whiteSpace:"nowrap",pointerEvents:"none"}}>{toast==="offline"?"Offline. Showing saved words.":toast==="loading"?"Loading...":"Vocabulary updated!"}</div>}
     {isBooting&&(
-      <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5"}}>
+      <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5"}}>
         {/* Header skeleton */}
-        <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 40%,#19A85A 100%)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:0}}>
+        <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 40%,#19A85A 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
           <div style={{display:"flex",alignItems:"center",gap:12,paddingBottom:20}}>
             <Logo size={32}/>
             <div style={{flex:1}}>
@@ -1662,11 +1662,11 @@ function HomeScreen(props){
   var wotd=freeWords.length>0?freeWords[dayNum%freeWords.length]:null;
   var _ml=modal&&CL[modal]?CL[modal]:null;
   function onClose(){setModal(null);}
-  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 1px 3px rgba(0,0,0,0.10)",fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
-  return(<div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
+  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 1px 3px rgba(0,0,0,0.10)",fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
+  return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
 
     {/* ── Header ── */}
-    <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 45%,#19A85A 100%)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:0,flexShrink:0}}>
+    <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 45%,#19A85A 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0,flexShrink:0}}>
       <div style={{display:"flex",alignItems:"center",gap:10,paddingBottom:14}}>
         <Logo size={30}/>
         <div style={{flex:1}}>
@@ -2010,7 +2010,7 @@ function QuizScreen(props){
   var doneCount=latest.current.length;
   var correctCount=latest.current.filter(function(r){return r.correct;}).length;
   var opts=q.options||snoozeOpts;
-  return(<div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+  return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
     {/* ── Header ── */}
     <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",flexShrink:0}}>
@@ -2145,7 +2145,7 @@ function QuizScreen(props){
     )}
 
     {/* ── Bottom action bar ── */}
-    <div style={{position:"fixed",bottom:0,left:"50%",transform:"translateX(-50%)",width:"100%",maxWidth:420,backgroundColor:"#fff",borderTop:"1px solid #E8E8EE",padding:"12px 14px calc(20px + env(safe-area-inset-bottom, 0px))",boxShadow:"0 -4px 20px rgba(0,0,0,0.07)"}}>
+    <div style={{position:"fixed",bottom:0,left:"50%",transform:"translateX(-50%)",width:"100%",maxWidth:"var(--shell)",backgroundColor:"#fff",borderTop:"1px solid #E8E8EE",padding:"12px 14px calc(20px + env(safe-area-inset-bottom, 0px))",boxShadow:"0 -4px 20px rgba(0,0,0,0.07)"}}>
       {!result?(
         isAnyMC?(
           <p style={{textAlign:"center",fontSize:12,color:"#C7C7CC",fontWeight:700,margin:0}}>
@@ -2201,7 +2201,7 @@ function ResultsScreen(props){
   var tabs=[["summary","Summary"]];
   if(score.missedWords.length+score.closeWords.length>0)tabs.push(["missed","Missed"+(score.missedWords.length>0?" ("+score.missedWords.length+")":" ≈("+score.closeWords.length+")")]);
   tabs.push(["all","All ("+results.length+")"]);
-  return(<div style={{maxWidth:420,margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
+  return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
     {acc===100&&<Confetti/>}
     <div style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
       {/* Finishing a lesson is the moment worth marking. A plain practice
@@ -2347,7 +2347,7 @@ function OnboardingScreen(props){
   var isLast=slide===slides.length-1;
   return(
     <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.65)",zIndex:500,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={function(e){if(e.target===e.currentTarget&&!isLast)setSlide(function(s){return s+1;});}}>
-      <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,padding:"32px 24px 48px",boxShadow:"0 -8px 40px rgba(0,0,0,0.25)"}}>
+      <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",padding:"32px 24px 48px",boxShadow:"0 -8px 40px rgba(0,0,0,0.25)"}}>
         <div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:28}}>
           {slides.map(function(_,i){return(<div key={i} style={{width:i===slide?32:8,height:8,borderRadius:4,backgroundColor:i===slide?"#19A85A":"#E8E8E8",transition:"all 0.3s ease"}}/>);})}
         </div>
@@ -2470,7 +2470,7 @@ function BrowseScreen(props){
   // Words the current user can actually quiz (gated words are view-only teasers).
   var quizzable=useMemo(function(){return filtered.filter(function(w){return isPro||isFreeWord(w);});},[filtered,isPro]);
   return(
-    <div style={{maxWidth:420,margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F6F6F6",animation:"fadeIn 0.2s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F6F6F6",animation:"fadeIn 0.2s ease"}}>
       <div style={{background:"linear-gradient(155deg,#0E7A40 0%,#19A85A 100%)",paddingTop:"calc(20px + env(safe-area-inset-top,0px))",paddingLeft:16,paddingRight:16,paddingBottom:16,flexShrink:0}}>
         <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
           <button style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontSize:18,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center"}} onClick={onBack}>{"<"}</button>
@@ -2603,8 +2603,8 @@ function PaywallScreen(props){
     {label:"All levels SRS tracking",sub:"Word memory across A2, B1 and B2 words too"},
   ];
   return(
-    <div style={{maxWidth:420,margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
-      <div style={{background:"linear-gradient(160deg,#064E3B 0%,#065F46 30%,#19A85A 100%)",padding:"36px 24px 0",textAlign:"center",flexShrink:0,position:"relative"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
+      <div style={{background:"linear-gradient(160deg,#064E3B 0%,#065F46 30%,#19A85A 100%)",marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingTop:36,paddingBottom:0,paddingLeft:"calc(var(--bleed-ofs) + 24px)",paddingRight:"calc(var(--bleed-ofs) + 24px)",textAlign:"center",flexShrink:0,position:"relative"}}>
         <button onClick={onContinueFree} aria-label="Close" style={{position:"absolute",top:"calc(env(safe-area-inset-top, 20px) + 8px)",right:16,zIndex:10,background:"rgba(255,255,255,0.25)",border:"none",color:"#fff",width:36,height:36,borderRadius:"50%",cursor:"pointer",fontSize:18,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>✕</button>
         <Logo size={44}/>
         <h1 style={{margin:"14px 0 4px",fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.8,lineHeight:1.1}}>Ikasi Pro</h1>
@@ -2613,7 +2613,7 @@ function PaywallScreen(props){
             <span key={s} style={{fontSize:11,fontWeight:700,color:"rgba(255,255,255,0.9)",backgroundColor:"rgba(255,255,255,0.15)",padding:"4px 10px",borderRadius:20}}>{s}</span>
           );})}
         </div>
-        <svg viewBox="0 0 420 40" style={{display:"block",width:"calc(100% + 48px)",height:32,marginTop:20,marginLeft:-24}} preserveAspectRatio="none">
+        <svg viewBox="0 0 420 40" style={{display:"block",width:"100vw",height:32,marginTop:20,marginLeft:"calc(50% - 50vw)"}} preserveAspectRatio="none">
           <path d="M0,20 C80,40 200,0 300,25 C370,40 400,15 420,20 L420,40 L0,40 Z" fill="#F6F6F6"/>
         </svg>
       </div>
@@ -2863,7 +2863,7 @@ function PairsScreen(props){
   var timerPct=isTimed?(secs/sizeCfg.timedSecs*100):100;
 
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* ── Header ── */}
       <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:10,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0"),}}>
@@ -2995,7 +2995,7 @@ function PairsScreen(props){
       {/* ── Failed overlay (timed mode) ── */}
       {failed&&(
         <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.6)",zIndex:200,display:"flex",alignItems:"flex-end"}}>
-          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}}>
+          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
               <div style={{width:72,height:72,borderRadius:"50%",background:"linear-gradient(135deg,#991B1B,#EF4444)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:"0 8px 24px rgba(239,68,68,0.3)"}}>⏰</div>
@@ -3021,7 +3021,7 @@ function PairsScreen(props){
       {/* ── Win overlay ── */}
       {won&&(
         <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){buildGame();}}>
-          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
+          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
             {/* Drag handle */}
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
@@ -3052,7 +3052,7 @@ function PairsScreen(props){
       {/* ── Settings sheet ── */}
       {showSettings&&(
         <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.4)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){setShowSettings(false);}}>
-          <div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
+          <div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 16px"}}/>
             <div style={{padding:"0 20px"}}>
               <p style={{margin:"0 0 10px",fontSize:16,fontWeight:900,color:"#1A1A1A"}}>Mode</p>
@@ -3126,10 +3126,10 @@ function GamesScreen(props){
   ];
 
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* Header */}
-      <div style={{background:"linear-gradient(160deg,#1A1A2E,#16213E,#0F3460)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
+      <div style={{background:"linear-gradient(160deg,#1A1A2E,#16213E,#0F3460)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.12)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -3316,7 +3316,7 @@ function TapScreen(props){
   
 
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* ── Header ── */}
       <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0")}}>
@@ -3454,7 +3454,7 @@ function TapScreen(props){
       {/* ── Win overlay (bottom sheet) ── */}
       {won&&(
         <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.7)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={start}>
-          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
+          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
               <div style={{width:72,height:72,borderRadius:"50%",background:score>best&&score>0?"linear-gradient(135deg,#C2510E,#F97316)":correct===ROUNDS?"linear-gradient(135deg,#059669,#22C55E)":"linear-gradient(135deg,#475569,#94A3B8)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:score>best?"0 8px 24px rgba(249,115,22,0.35)":correct===ROUNDS?"0 8px 24px rgba(34,197,94,0.3)":"none"}}>
@@ -3977,10 +3977,10 @@ function BasqueKitchenScreen(props){
 
   // ── Menu screen ──
   if(!dish){return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* Warm kitchen header */}
-      <div style={{background:"linear-gradient(160deg,#92400E,#C2510E,#F97316)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
+      <div style={{background:"linear-gradient(160deg,#92400E,#C2510E,#F97316)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -4057,10 +4057,10 @@ function BasqueKitchenScreen(props){
   })();
   var nextDish=DISHES[nextDishIdx];
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
 
       {/* ── Dish header — tall, immersive ── */}
-      <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:18,position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:18,position:"relative",overflow:"hidden"}}>
         {/* Subtle dot texture */}
         <div style={{position:"absolute",inset:0,opacity:0.06,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         {/* Nav row */}
@@ -4101,7 +4101,7 @@ function BasqueKitchenScreen(props){
         {/* ── Done overlay ── */}
         {done&&(
           <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.65)",zIndex:200,display:"flex",alignItems:"flex-end"}}>
-            <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}}>
+            <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
               <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
               <div style={{padding:"20px 24px 0",textAlign:"center"}}>
                 <div style={{width:76,height:76,borderRadius:"50%",background:"linear-gradient(135deg,"+DARK+","+COLOR+")",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:38,boxShadow:"0 8px 24px rgba(0,0,0,0.2)"}}>{lives>0?dish.emoji:"💔"}</div>
@@ -4449,8 +4449,8 @@ function OrduegiScreen(props){
 
   // ── Menu screen ──
   if(!scenario){return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
-      <div style={{background:"linear-gradient(160deg,#0C4A6E,#0369A1,#0EA5E9)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+      <div style={{background:"linear-gradient(160deg,#0C4A6E,#0369A1,#0EA5E9)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -4508,10 +4508,10 @@ function OrduegiScreen(props){
 
   // ── Game screen ──
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
 
       {/* Header */}
-      <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14,position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.05,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
           <button aria-label="Close" onClick={function(){setScenario(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
@@ -4549,7 +4549,7 @@ function OrduegiScreen(props){
         {/* Done overlay */}
         {done&&(
           <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.65)",zIndex:200,display:"flex",alignItems:"flex-end"}}>
-            <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}}>
+            <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
               <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
               <div style={{padding:"20px 24px 0",textAlign:"center"}}>
                 <div style={{width:76,height:76,borderRadius:"50%",background:"linear-gradient(135deg,"+DARK+","+COLOR+")",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:38,boxShadow:"0 8px 24px rgba(0,0,0,0.2)"}}>{lives>0?scenario.emoji:"💔"}</div>
@@ -4793,12 +4793,12 @@ function KoloreakScreen(props){
   }
 
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:!active&&!won?"#F5F3FF":won?"#F5F3FF":activeBg,transition:"background-color 0.5s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:!active&&!won?"#F5F3FF":won?"#F5F3FF":activeBg,transition:"background-color 0.5s ease"}}>
 
     {/* ── START SCREEN ── */}
     {(!active&&!won)&&(
       <div>
-      <div style={{background:"linear-gradient(160deg,#4C1D95,#6D28D9,#7C3AED)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:0}}>
+      <div style={{background:"linear-gradient(160deg,#4C1D95,#6D28D9,#7C3AED)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
         <div style={{display:"flex",alignItems:"center",gap:10,paddingBottom:16}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
           <div style={{flex:1}}>
@@ -5204,8 +5204,8 @@ function ArbolaScreen(props){
 
   // ── Menu screen ──
   if(!family){return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
-      <div style={{background:"linear-gradient(160deg,#134E4A,#0D9488,#14B8A6)",paddingTop:56,paddingLeft:16,paddingRight:16,paddingBottom:20}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
+      <div style={{background:"linear-gradient(160deg,#134E4A,#0D9488,#14B8A6)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -5266,10 +5266,10 @@ function ArbolaScreen(props){
 
   // ── Game screen ──
   return(
-    <div style={{maxWidth:420,margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
 
       {/* Header */}
-      <div style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14,position:"relative",overflow:"hidden"}}>
+      <div style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
           <button aria-label="Close" onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
@@ -5321,7 +5321,7 @@ function ArbolaScreen(props){
         {/* Done overlay */}
         {done&&(
           <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.65)",zIndex:200,display:"flex",alignItems:"flex-end"}}>
-            <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:420,margin:"0 auto",paddingBottom:40}}>
+            <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
               <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
               <div style={{padding:"20px 24px 0",textAlign:"center"}}>
                 {/* Show portrait of placed members */}
@@ -6735,7 +6735,7 @@ function LearnScreen(props){
     var lesson=selLesson;
     var words=lessonWords(lesson);
     var isDone=doneLessons.indexOf(lesson.id)!==-1;
-    return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+    return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
       // Header
       React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:22,paddingLeft:18,paddingRight:18}},
         React.createElement("button",{"aria-label":"Back",onClick:function(){setSelLesson(null);window.scrollTo(0,0);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
@@ -6795,7 +6795,7 @@ function LearnScreen(props){
     return{chapter:c,lessons:inCh,done:done,total:inCh.length};
   });
   var currentChapter=(chapterStats.filter(function(cs){return cs.done<cs.total;})[0]||{}).chapter||null;
-  return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+  return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
     React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
       React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
       React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Ikasbidea"),
@@ -7151,7 +7151,7 @@ function ProgressScreen(props){
     )
   ):null;
 
-  return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+  return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
     shareOverlay,
     React.createElement("div",{style:{background:"linear-gradient(135deg,#0E7A40,#19A85A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
       React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
@@ -7334,7 +7334,7 @@ function StoryScreen(props){
   if(!selStory){
     var byLevel={A1:[],A2:[],B1:[],B2:[]};
     _STORIES.forEach(function(s){if(byLevel[s.level])byLevel[s.level].push(s);});
-    return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+    return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
       // Header
       React.createElement("div",{style:{background:"linear-gradient(135deg,#0D9488,#134E4A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18,position:"relative"}},
         React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
@@ -7383,7 +7383,7 @@ function StoryScreen(props){
   var st=selStory;
   var cat=STORY_CATS[st.cat]||STORY_CATS.story;
   var lvlColor=STORY_LEVEL_C[st.level];
-  return React.createElement("div",{style:{maxWidth:480,margin:"0 auto",minHeight:"100vh",backgroundColor:"#FBFBFD",fontFamily:"Nunito,system-ui,sans-serif"}},
+  return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#FBFBFD",fontFamily:"Nunito,system-ui,sans-serif"}},
     wordPopup,
     // Reader header
     React.createElement("div",{style:{background:"linear-gradient(135deg,"+cat.color+","+(cat.color==="#0D9488"?"#134E4A":cat.color==="#9B5DE5"?"#5B21B6":"#C2510E")+")",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:20,paddingLeft:18,paddingRight:18}},
