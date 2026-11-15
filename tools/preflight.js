@@ -394,6 +394,13 @@ if (QUICK) {
       const SETTLE = 4;       // seconds before the first look
       const POLL = 2;         // seconds between looks after that
       const BUDGET = 30;      // seconds before a screen is called blank
+      // Separate from BUDGET on purpose. How long the process takes to appear
+      // is a fact about the simulator, not about the app: timed across one
+      // matrix on 2026-11-15 it ranged from 2.3s to 21.2s on the same build,
+      // and boot itself ranged from 2.9s to 31.2s, with no relation to where
+      // the device fell in the run. Counting that against the drawing budget
+      // is what made a loaded machine look like a crash.
+      const START_BUDGET = 60;
       const bmpPath = path.join(os.tmpdir(), "ikasi-preflight-probe.bmp");
 
       // Percent of the shot that is substantially off cream, or null if the
@@ -459,15 +466,31 @@ if (QUICK) {
           const shot = path.join(shotDir, (rt.name + "-" + d.name).replace(/[^\w.-]+/g, "_") + ".png");
 
           // Launch it, then watch until it draws or the budget runs out.
+          const running = () => /ikasiandgo/i.test(
+            sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]).out);
+
           function watchLaunch() {
             sh("xcrun", ["simctl", "launch", d.udid, "com.ikasiandgo.app"]);
             execFileSync("/bin/sleep", [String(SETTLE)]);
-            let waited = SETTLE, live = false, drawn = null;
+
+            // First wait for the process to exist at all. It is not drawing yet
+            // and it has not died: on a busy machine the simulator simply has
+            // not got there. Treating that as a death is what reported "the app
+            // did not stay running" for a build that was fine.
+            let started = SETTLE, ever = running();
+            while (!ever && started < START_BUDGET) {
+              execFileSync("/bin/sleep", [String(POLL)]);
+              started += POLL;
+              ever = running();
+            }
+            if (!ever) return { waited: started, started, ever, live: false, drawn: null };
+
+            // Only now does the clock that judges the app start, and only now
+            // does the process going away mean it died rather than that it had
+            // not yet arrived.
+            let waited = 0, live = true, drawn = null;
             for (;;) {
-              // Checked every time round, so an app that dies while we wait is
-              // reported as dying rather than as a blank screen.
-              live = /ikasiandgo/i.test(
-                sh("xcrun", ["simctl", "spawn", d.udid, "launchctl", "list"]).out);
+              live = running();
               if (!live) break;
               sh("xcrun", ["simctl", "io", d.udid, "screenshot", "--type=png", shot]);
               drawn = drawnPercent(shot);
@@ -478,7 +501,7 @@ if (QUICK) {
               execFileSync("/bin/sleep", [String(POLL)]);
               waited += POLL;
             }
-            return { waited, live, drawn };
+            return { waited, started, ever, live, drawn };
           }
 
           /*
@@ -494,21 +517,32 @@ if (QUICK) {
            * A process that died is not retried. That is the crash this file
            * exists to catch, and it gets reported the first time it happens.
            */
-          let { waited, live, drawn } = watchLaunch();
+          let { waited, started, ever, live, drawn } = watchLaunch();
           let relaunched = false;
           if (live && drawn !== null && !isDrawn(drawn)) {
             relaunched = true;
             sh("xcrun", ["simctl", "terminate", d.udid, "com.ikasiandgo.app"]);
-            ({ waited, live, drawn } = watchLaunch());
+            ({ waited, started, ever, live, drawn } = watchLaunch());
           }
           const after = relaunched ? " after a relaunch" : "";
+          // What a person cares about is how long it took from the tap,
+          // so the headline number stays the whole wait. The split only
+          // decides what counts against the app.
+          const total = started + waited;
 
-          if (!live) {
-            fail(label, "the app did not stay running" + after);
+          if (!ever) {
+            // Never appeared at all. Worth saying separately: a process that
+            // started and then vanished is the launch crash this file exists
+            // to catch, while one that never arrived is more often the host.
+            fail(label, "the app never started, " + START_BUDGET + "s after launch" + after);
+            console.log("      Nothing was ever listed for the bundle id. That is a launch that");
+            console.log("      did not take, not a crash: a crash shows up and then goes away.");
+          } else if (!live) {
+            fail(label, "the app started and then died" + after);
           } else if (drawn === null) {
-            warn(label, "running after " + waited + "s, but the screenshot could not be measured");
+            warn(label, "running after " + total + "s, but the screenshot could not be measured");
           } else if (isDrawn(drawn)) {
-            pass(label, "drew in " + waited + "s" + after + "  (" + drawn + "% of the screen)");
+            pass(label, "drew in " + total + "s" + after + "  (" + drawn + "% of the screen)");
             // Neither is a failure, but both are the 1.6 bug in slow motion,
             // and the next device or the next runtime may be the one that
             // runs out. A device that only drew the second time is the louder
@@ -519,13 +553,19 @@ if (QUICK) {
             } else if (waited > BUDGET / 2) {
               warn(label, "took " + waited + "s of the " + BUDGET + "s allowed to draw");
             }
+            // Not the app's fault and not counted against it, but a machine
+            // this slow to start a process is worth knowing about before the
+            // numbers above get read as anything.
+            if (started > SETTLE + POLL * 2) {
+              warn(label, "the simulator took " + started + "s just to start the process");
+            }
           } else if (drawn > DRAWN_MAX) {
-            fail(label, "still one flat dark screen after " + waited + "s" + after + "  (" + drawn +
+            fail(label, "still one flat dark screen after " + total + "s" + after + "  (" + drawn +
               "% of the screen, expected at most " + DRAWN_MAX + "%)");
             console.log("      The process is alive and the screen is a single dark color.");
             console.log("      That is the launch placeholder: no first frame ever arrived.");
           } else if (drawn < BLANK_PCT) {
-            fail(label, "still blank after " + waited + "s" + after + "  (" + drawn +
+            fail(label, "still blank after " + total + "s" + after + "  (" + drawn +
               "% of the screen, needs " + DRAWN_PCT + "%)");
             console.log("      The process is alive and drawing nothing. Open the shot below:");
             console.log("      a bare cream screen is a webview that never loaded.");
@@ -533,7 +573,7 @@ if (QUICK) {
             // Raising the bar past the skeleton made this its own outcome. It
             // is not the blank screen above: something drew, it just never
             // became a screen with any content on it.
-            fail(label, "stopped part drawn after " + waited + "s" + after + "  (" + drawn +
+            fail(label, "stopped part drawn after " + total + "s" + after + "  (" + drawn +
               "% of the screen, needs " + DRAWN_PCT + "%)");
             console.log("      The process is alive and the frame is stuck partway. Open the shot");
             console.log("      below: placeholder cards with no text are vocabulary that never came.");
