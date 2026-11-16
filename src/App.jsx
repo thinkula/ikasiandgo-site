@@ -3197,12 +3197,12 @@ function GamesScreen(props){
   },[]);
 
   var games=[
-    {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1–B2","Two modes"],pro:false},
+    {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1-B2","Two modes"],pro:false},
     {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","3 lives"],pro:false},
-    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1–B2"],pro:false},
+    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1-B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
-    {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["12 scenarios","Numbers & time","A1–B1"],pro:false},
-    {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4–8 pairs","Timed","All topics"],pro:false},
+    {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["23 scenarios","Numbers & time","A1-B2"],pro:false},
+    {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4-8 pairs","Timed","All topics"],pro:false},
   ];
 
   return(
@@ -4391,7 +4391,7 @@ function OrduegiScreen(props){
     ]},
     {key:"merkatuan",name:"Merkatuan",emoji:"🛒",desc:"Shopping at the market",color:"#065F46",dark:"#022C22",bg:"#ECFDF5",stages:[
       {instruction:"You want 3 apples. Say three",keyword:"hiru",hint:"Hiru: three. Hirugarrena is third, hiruko is a trio"},
-      {instruction:"They cost 5 euros each. Say five",keyword:"bost",hint:"Bost: five. It resembles no number in any neighbouring language"},
+      {instruction:"They cost 5 euros each. Say five",keyword:"bost",hint:"Bost: five. It resembles no number in any neighboring language"},
       {instruction:"You pick up 6 tomatoes. Say six",keyword:"sei",hint:"Sei: six, and it sounds like the English say"},
       {instruction:"The vendor asks: how much do you want? Say 'how much'",keyword:"zenbat",hint:"Zenbat: how many or how much. Zenbat da? is how much does it cost?"},
       {instruction:"You pay 20 euros. Say twenty",keyword:"hogei",hint:"Hogei: twenty, the base Basque counts on. Every round number is a multiple of it"},
@@ -4449,7 +4449,7 @@ function OrduegiScreen(props){
       {instruction:"The pool opens at 7am. Say seven",keyword:"zazpi",hint:"Zazpi: seven. Zazpiak Bat, the seven are one, is the motto of the seven provinces"},
       {instruction:"You swim 10 lengths. Say ten",keyword:"hamar",hint:"Hamar: ten. From here Basque counts in twenties rather than tens"},
       {instruction:"Membership costs 30 euros. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty, hogei (20) + ta (and) + hamar (10)"},
-      {instruction:"The gym has 5 treadmills. Say five",keyword:"bost",hint:"Bost: five. It resembles no number in any neighbouring language"},
+      {instruction:"The gym has 5 treadmills. Say five",keyword:"bost",hint:"Bost: five. It resembles no number in any neighboring language"},
       {instruction:"Your heart rate is 100bpm. Say one hundred",keyword:"ehun",hint:"Ehun: one hundred. Berrehun is 200 and hirurehun 300, so the hundreds go by tens again"},
     ]},
     {key:"jaiegunean",name:"Jaiegunean",emoji:"🎉",desc:"Planning a celebration",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
@@ -4465,6 +4465,90 @@ function OrduegiScreen(props){
       {instruction:"The doctor asks your age. You're 30. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty, hogei (20) + ta (and) + hamar (10)"},
       {instruction:"Take the medicine 3 times a day. Say three",keyword:"hiru",hint:"Hiru: three. Hirugarrena is third, hiruko is a trio"},
       {instruction:"Come back in 15 days. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen, hamar (10) + bost (5)"},
+    ]},
+    // ---- Time, as opposed to counting ----
+    // The twelve scenarios above are all numerals, and between them they use
+    // 26 words, every one from the numbers topic. The game is called Ordutegi,
+    // timetable, and it reached none of the 67 words in the time topic: not a
+    // day of the week, not a month, not goizean or gaua. These eleven cover 55
+    // of them. They run roughly A1 to B2, and the menu reads each one level
+    // off its own words.
+    {key:"asteko_egunak",name:"Asteko Egunak",emoji:"📅",desc:"The five days of the working week",color:"#4F46E5",dark:"#3730A3",bg:"#EEF2FF",stages:[
+      {instruction:"The weekend is over and the working week starts again",keyword:"astelehenea",hint:"Astelehena: Monday. Aste (week) + lehena (first), literally the first of the week"},
+      {instruction:"The second day, named for the middle of the week",keyword:"asteartea",hint:"Asteartea: Tuesday. Aste (week) + artea (middle or between), literally between-the-week"},
+      {instruction:"Named as the last day of an old three-day Basque week",keyword:"asteazkena",hint:"Asteazkena: Wednesday. Aste (week) + azkena (last), the last day of an old three-day week"},
+      {instruction:"The one that sits between Wednesday and Friday",keyword:"osteguna",hint:"Osteguna: Thursday. The day names are among the hardest Basque words to hold on to"},
+      {instruction:"The last working day, the one people announce with relief",keyword:"ostirala",hint:"Ostirala: Friday. TGIF in Basque is Ostirala da!"},
+    ]},
+    {key:"asteburua",name:"Asteburua",emoji:"🎒",desc:"The weekend and the shape of the week",color:"#DB2777",dark:"#9D174D",bg:"#FDF2F8",stages:[
+      {instruction:"The two days at the end of the week, taken as one word",keyword:"asteburua",hint:"Asteburua: weekend. Aste (week) + burua (head or end), literally week-end"},
+      {instruction:"The first of those two days",keyword:"larunbata",hint:"Larunbata: Saturday. Larunbatean is on Saturday, larunbatero every Saturday"},
+      {instruction:"The second of them, named for rising",keyword:"igandea",hint:"Igandea: Sunday. Igan is to ascend or rise, which reflects the day religious weight"},
+      {instruction:"Seven of them taken together",keyword:"astea",hint:"Astea: week. Astero is every week, astebete is one full week"},
+      {instruction:"One of those seven, from dawn to dawn",keyword:"eguna",hint:"Eguna: the day. Egunero is every day, egunsentia is dawn"},
+    ]},
+    {key:"gaur_eta_bihar",name:"Gaur eta Bihar",emoji:"🗓️",desc:"Placing a day against today",color:"#0891B2",dark:"#155E75",bg:"#ECFEFF",stages:[
+      {instruction:"The day you are standing in right now",keyword:"gaur",hint:"Gaur: today. Gaur goizean is this morning"},
+      {instruction:"The one that comes next",keyword:"bihar",hint:"Bihar: tomorrow. One vowel away from behar, which means need"},
+      {instruction:"The one just behind you",keyword:"atzo",hint:"Atzo: yesterday. Atzo arratsaldean is yesterday afternoon"},
+      {instruction:"Two days ahead, and Basque has one short word for it",keyword:"etzi",hint:"Etzi: the day after tomorrow. Etzi joango naiz is I will go the day after tomorrow"},
+      {instruction:"Two days behind, and there is a word for that too",keyword:"herenegun",hint:"Herenegun: the day before yesterday. Atzo is yesterday, herenegun is two days back"},
+    ]},
+    {key:"eguna",name:"Eguna",emoji:"🌅",desc:"Morning, afternoon, night and now",color:"#EA580C",dark:"#9A3412",bg:"#FFF7ED",stages:[
+      {instruction:"The stretch before noon, when you get up",keyword:"goizean",hint:"Goizean: in the morning. Goizero is every morning, goiz jaiki is to get up early"},
+      {instruction:"The stretch after the midday meal and before dark",keyword:"arratsaldean",hint:"Arratsaldean: in the afternoon. Arratsaldero is every afternoon"},
+      {instruction:"The dark stretch between one day and the next",keyword:"gaua",hint:"Gaua: the night. Gauean is at night, gauerdia is midnight, literally night-half"},
+      {instruction:"This exact moment, neither before nor after",keyword:"orain",hint:"Orain: now. Orain Euskara! is a language rights slogan"},
+      {instruction:"The word you reach for to ask what time something happens",keyword:"noiz",hint:"Noiz?: when? Noiz etorriko zara? is when will you come?"},
+    ]},
+    {key:"urtearen_hasiera",name:"Urtearen Hasiera",emoji:"❄️",desc:"The year and the months that open it",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
+      {instruction:"The full turn of twelve months",keyword:"urtea",hint:"Urtea: the year. Urteberri is New Year, urtebete is one full year"},
+      {instruction:"One twelfth of it, named for a full moon cycle",keyword:"hilabetea",hint:"Hilabetea: month. Hil (moon) + bete (full), a full moon cycle. The old Basque calendar was lunar"},
+      {instruction:"The one that opens the year, and the coldest",keyword:"urtarrila",hint:"Urtarrila: January. Usually read as urte (year) + hil (month), the month that starts the year"},
+      {instruction:"The wolf month, when wolves went hungriest",keyword:"otsaila",hint:"Otsaila: February. Otso, wolf, is in the root"},
+      {instruction:"The one the wildflowers start in",keyword:"martxoa",hint:"Martxoa: March. From Latin Martius. Spring begins here with wildflowers blooming"},
+    ]},
+    {key:"udako_hilabeteak",name:"Udako Hilabeteak",emoji:"☀️",desc:"Spring into the height of summer",color:"#CA8A04",dark:"#854D0E",bg:"#FEFCE8",stages:[
+      {instruction:"The month Aberri Eguna falls in",keyword:"apirila",hint:"Apirila: April. Aberri Eguna, Basque Homeland Day, falls in April"},
+      {instruction:"The month the countryside is at its greenest",keyword:"maiatza",hint:"Maiatza: May. The Basque countryside is at its most beautiful, green hills and mild weather"},
+      {instruction:"The sunny one, with eki in its root",keyword:"ekaina",hint:"Ekaina: June. Eki, sun, is in the root"},
+      {instruction:"The harvest month, and the hottest",keyword:"uztaila",hint:"Uztaila: July. Uzta, harvest, is in the root"},
+      {instruction:"The month of Aste Nagusia in Bilbo and Semana Grande in Donostia",keyword:"abuztua",hint:"Abuztua: August. Aste Nagusia in Bilbo and La Semana Grande in Donostia, the two biggest of the year"},
+    ]},
+    {key:"urtearen_amaiera",name:"Urtearen Amaiera",emoji:"🍂",desc:"Autumn into the end of the year",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
+      {instruction:"The month the ferns turn golden and cider season opens",keyword:"iraila",hint:"Iraila: September. Irail possibly from ira, fern, the time when ferns turn golden"},
+      {instruction:"The one whose name means scarce",keyword:"urria",hint:"Urria: October. Urri means scarce, the month when summer abundance ends"},
+      {instruction:"The sowing month",keyword:"azaroa",hint:"Azaroa: November. Usually explained as hazi (seed) + aro (season), the sowing month"},
+      {instruction:"The month of Gabonak",keyword:"abendua",hint:"Abendua: December. Also called Gabon-hilabetea, Christmas month"},
+      {instruction:"The thing on the wall that holds all twelve",keyword:"egutegia",hint:"Egutegia: calendar. Egun (day) + -tegi (place), literally day-holder"},
+    ]},
+    {key:"urtaroak",name:"Urtaroak",emoji:"🌸",desc:"The four seasons of the year",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",stages:[
+      {instruction:"All four of them, taken together",keyword:"urtaroak",hint:"Urtaroak: the seasons, plural. Urtaroa is one season"},
+      {instruction:"The new summer, when the valleys flower",keyword:"udaberria",hint:"Udaberria: spring. Uda (summer) + berria (new), literally new summer"},
+      {instruction:"The mild one, when the Donostia beaches fill",keyword:"uda",hint:"Uda: summer. Udan is in summer. Basque summers are mild, rarely very hot"},
+      {instruction:"The last summer, when the beech woods go gold",keyword:"udazkena",hint:"Udazkena: autumn. Uda (summer) + azkena (last), literally last summer"},
+      {instruction:"Snow in the mountains and rain on the coast",keyword:"negua",hint:"Negua: winter. Neguan is in winter, neguko jaiak are the winter festivals"},
+    ]},
+    {key:"ordua",name:"Ordua",emoji:"⏱️",desc:"Reading the clock",color:"#4338CA",dark:"#312E81",bg:"#EEF2FF",stages:[
+      {instruction:"Sixty of these make an hour",keyword:"minutua",hint:"Minutua: minute. Bost minutu is five minutes, ordubete is one hour"},
+      {instruction:"Sixty of these make one of those",keyword:"segundoa",hint:"Segundoa: second. Segundoak minututan, seconds into minutes"},
+      {instruction:"The hour at which the clock strikes once",keyword:"ordu_batean",hint:"Ordu batean: at one o clock. Ordu bietan is at two"},
+      {instruction:"Thirty minutes past the hour, which Basque puts in the plural",keyword:"eta_erdia",hint:"Eta erdiak: half past. Ordu bat eta erdiak is half past one, with the plural -ak"},
+      {instruction:"A span thirty minutes long, which is not the same phrase",keyword:"ordu_erdia",hint:"Ordu erdia: half an hour. Half past is eta erdiak, a different phrase"},
+    ]},
+    {key:"beti_eta_sekula",name:"Beti eta Sekula",emoji:"🔁",desc:"How often something happens",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
+      {instruction:"Every time, without exception",keyword:"beti",hint:"Beti: always. Beti bezala is as always, betiko is eternal"},
+      {instruction:"Not once, said with force",keyword:"sekula",hint:"Sekula: never, emphatic. From Latin saecula, ages. Stronger than inoiz ez"},
+      {instruction:"At any point at all, the word a question reaches for",keyword:"inoiz",hint:"Inoiz: ever in a question, and never when paired with ez. Inoiz joan zara? is have you ever gone?"},
+      {instruction:"Now and then, but not often",keyword:"noizbehinka",hint:"Noizbehinka: occasionally. Noiz (when) + behin (once) + -ka"},
+      {instruction:"Not now, but at some point after",keyword:"gero",hint:"Gero: later or then. Gero arte! is see you later"},
+    ]},
+    {key:"iragana_eta_etorkizuna",name:"Iragana eta Etorkizuna",emoji:"📜",desc:"The longest spans of time",color:"#57534E",dark:"#292524",bg:"#FAFAF9",stages:[
+      {instruction:"Everything already behind us",keyword:"iragana",hint:"Iragana: the past. Iragana ezin da aldatu, the past cannot be changed"},
+      {instruction:"Everything still to come",keyword:"etorkizuna",hint:"Etorkizuna: the future. From etorri (to come) + -kizun (that which will)"},
+      {instruction:"A hundred years",keyword:"mendea",hint:"Mendea: century. Hogeita batgarren mendea is the 21st century"},
+      {instruction:"Ten years",keyword:"hamarkada",hint:"Hamarkada: decade. Hamar (ten) + -kada. Azken hamarkadan is in the last decade"},
+      {instruction:"The word this whole game is named after",keyword:"ordutegia",hint:"Ordutegia: timetable or schedule. Ordu (hour) + -tegia. Ordutegi estua is a tight schedule"},
     ]},
   ];
 
@@ -4521,6 +4605,53 @@ function OrduegiScreen(props){
     bigarrena:["lehena","hirugarrena","lau"],hirugarrena:["lehena","bigarrena","lau"],
   };
 
+  // Distractors for the time words. NEARBY above is a hand-written row per
+  // numeral, which does not scale to 55 words, so these are sets instead: any
+  // word draws its wrong answers from the set it belongs to. A day of the week
+  // is offered against other days, a month against other months. Without this
+  // the fallback reached for random A1 numbers, which would have put Hiru
+  // beside Astelehena and given the answer away by category alone.
+  var TIME_SETS=[
+    ["astelehenea","asteartea","asteazkena","osteguna","ostirala","larunbata","igandea"],
+    ["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua"],
+    ["gaur","bihar","atzo","etzi","herenegun","orain","noiz"],
+    ["goizean","arratsaldean","gaua","eguna","astea","asteburua"],
+    ["urtaroak","udaberria","uda","udazkena","negua","egutegia"],
+    ["minutua","segundoa","ordu_batean","eta_erdia","ordu_erdia","urtea","hilabetea"],
+    ["beti","sekula","inoiz","noizbehinka","gero"],
+    ["iragana","etorkizuna","mendea","hamarkada","ordutegia"],
+  ];
+  function sameSet(id){
+    for(var i=0;i<TIME_SETS.length;i++){
+      if(TIME_SETS[i].indexOf(id)===-1)continue;
+      return TIME_SETS[i].filter(function(x){return x!==id;});
+    }
+    return [];
+  }
+  // Read off the words a scenario actually asks for, so the badge cannot drift
+  // from the content the way a hand-set label would.
+  // The menu runs the counting scenarios first and the time ones after. The
+  // divider between them is placed by looking at the words a scenario asks
+  // for, not by a hard-coded index, so adding one later cannot push the label
+  // onto the wrong card.
+  function isTimeScenario(sc){
+    for(var i=0;i<sc.stages.length;i++){
+      var w=findWord(sc.stages[i].keyword);
+      if(w&&w.topic==="time")return true;
+    }
+    return false;
+  }
+  function scenarioLevel(sc){
+    var order=["A1","A2","B1","B2"],top=0;
+    for(var i=0;i<sc.stages.length;i++){
+      var w=findWord(sc.stages[i].keyword);
+      if(!w)continue;
+      var ix=order.indexOf(w.cefr);
+      if(ix>top)top=ix;
+    }
+    return order[top];
+  }
+
   React.useEffect(function(){
     try{STORE.get('ordutegi_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
     // Which units are finished is part of the progress this screen shows,
@@ -4558,8 +4689,16 @@ function OrduegiScreen(props){
     if(!correctWord)return [];
     var nearby=(NEARBY[correctWord.id]||[]).map(function(id){return findWord(id);}).filter(Boolean);
     if(nearby.length<3){
+      var kin=shuffled(sameSet(correctWord.id).map(function(id){return findWord(id);}).filter(function(w){
+        return w&&nearby.indexOf(w)===-1;
+      })).slice(0,3-nearby.length);
+      nearby=nearby.concat(kin);
+    }
+    if(nearby.length<3){
+      // Last resort draws from the answer own topic rather than always from
+      // numbers, which is what it did when every answer was a numeral.
       var extra=shuffled(VOCABULARY.filter(function(w){
-        return w.topic==="numbers"&&w.id!==correctWord.id&&w.cefr==="A1"&&nearby.indexOf(w)===-1;
+        return w.topic===correctWord.topic&&w.id!==correctWord.id&&nearby.indexOf(w)===-1;
       })).slice(0,3-nearby.length);
       nearby=nearby.concat(extra);
     }
@@ -4724,7 +4863,16 @@ function OrduegiScreen(props){
       <div style={{padding:"14px"}}>
         {SCENARIOS.map(function(s,i){
           var isDone=completed.indexOf(s.key)!==-1;
+          var opensTime=isTimeScenario(s)&&(i===0||!isTimeScenario(SCENARIOS[i-1]));
           return(
+          <React.Fragment key={s.key}>
+          {opensTime&&(
+            <div style={{margin:"14px 2px 10px",display:"flex",alignItems:"center",gap:10}}>
+              <div style={{flex:1,height:1,backgroundColor:"#D8D8DE"}}/>
+              <p style={{margin:0,fontSize:10,fontWeight:900,color:"#8E8E93",letterSpacing:1.2}}>DAYS, MONTHS AND TIME</p>
+              <div style={{flex:1,height:1,backgroundColor:"#D8D8DE"}}/>
+            </div>
+          )}
             <button key={i} onClick={function(){startScenario(i);}}
               style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",padding:0,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",display:"block"}}>
               <div style={{background:"linear-gradient(135deg,"+s.dark+","+s.color+")",padding:"15px 16px 12px",position:"relative",overflow:"hidden"}}>
@@ -4742,10 +4890,14 @@ function OrduegiScreen(props){
                 </div>
               </div>
               <div style={{backgroundColor:isDone?s.bg:"#fff",padding:"8px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                <p style={{margin:0,fontSize:11,color:isDone?s.color:"#8E8E93",fontWeight:isDone?700:500}}>{isDone?"✓ Complete. Try again?":s.stages.length+" steps"}</p>
+                <div style={{display:"flex",alignItems:"center",gap:7}}>
+                  <p style={{margin:0,fontSize:11,color:isDone?s.color:"#8E8E93",fontWeight:isDone?700:500}}>{isDone?"✓ Complete. Try again?":s.stages.length+" steps"}</p>
+                  <span style={{fontSize:9,fontWeight:900,color:s.color,backgroundColor:s.bg,borderRadius:20,padding:"2px 7px",letterSpacing:0.3,flexShrink:0}}>{scenarioLevel(s)}</span>
+                </div>
                 <span style={{fontSize:15,color:s.color,fontWeight:700}}>{"›"}</span>
               </div>
             </button>
+          </React.Fragment>
           );
         })}
       </div>
@@ -4853,17 +5005,25 @@ function OrduegiScreen(props){
             var subC=showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93";
             var numC=showResult?(isCorrectOpt?COLOR:isPicked?"#EF4444":"#D1D1D6"):COLOR;
             var sc=isPicked&&isCorrectOpt?"scale(1.05)":isPicked?"scale(0.94)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
-            var numeral=NUMERAL[word.id]||word.english;
+            // The big slot used to fall back to word.english, which printed the
+            // answer in English at 28px. A numeral is a referent and belongs
+            // there; a translation does not. Words with no numeral simply do
+            // without, and because every option in a question comes from one
+            // set, all four cards are alike either way.
+            var numeral=NUMERAL[word.id]||"";
             return(
               <button key={word.id} onClick={function(){pick(word);}}
                 style={{padding:"14px 8px 12px",borderRadius:18,border:"2px solid "+borderCol,backgroundColor:bg,cursor:showResult?"default":"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.2s cubic-bezier(0.34,1.56,0.64,1)",transform:sc,boxShadow:showResult?"none":"0 2px 12px rgba(0,0,0,0.08)",minHeight:100,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2,animation:"cardIn 0.25s ease "+(wi*0.06)+"s both",position:"relative",overflow:"hidden"}}>
                 {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                 {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
-                {/* Big numeral */}
-                <p style={{margin:0,fontSize:numeral.length>4?18:numeral.length>2?24:28,fontWeight:900,color:numC,lineHeight:1,letterSpacing:-1}}>{numeral}</p>
+                {/* Big numeral, on the scenarios that have one */}
+                {numeral?<p style={{margin:0,fontSize:numeral.length>4?18:numeral.length>2?24:28,fontWeight:900,color:numC,lineHeight:1,letterSpacing:-1}}>{numeral}</p>:null}
                 {/* Basque word */}
                 <p style={{margin:"6px 0 0",fontSize:word.basque.length>12?11:13,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2}}>{word.basque}</p>
-                <p style={{margin:"2px 0 0",fontSize:9,color:subC,fontWeight:600}}>{word.english}</p>
+                {/* Held until the answer is in, as in the kitchen and Arbola. The
+                    numeral above stays, because a digit is the thing itself and
+                    not an English word for it. */}
+                <p style={{margin:"2px 0 0",fontSize:9,color:subC,fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 {isCorrectOpt&&showResult&&sel&&<p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:"#19A85A"}}>✓</p>}
                 {isPicked&&!isCorrectOpt&&showResult&&<p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:"#EF4444"}}>✗</p>}
               </button>
