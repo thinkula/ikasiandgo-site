@@ -4316,89 +4316,89 @@ function OrduegiScreen(props){
   var onBack=props.onBack,isPro=props.isPro,onUpgrade=props.onUpgrade;
 
   var SCENARIOS=[
-    {name:"Goizeko Iratzargailua",emoji:"⏰",desc:"Setting the morning alarm",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
-      {instruction:"Your alarm is set for 7am. Say the number seven",keyword:"zazpi",hint:"Zazpi: seven"},
-      {instruction:"You need to be ready in 15 minutes. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen"},
-      {instruction:"The bus comes every 10 minutes. Say ten",keyword:"hamar",hint:"Hamar: ten"},
-      {instruction:"You only have 1 euro for the bus. Say one",keyword:"bat",hint:"Bat: one"},
-      {instruction:"You set 2 alarms to be safe. Say two",keyword:"bi",hint:"Bi: two"},
+    {key:"goizeko_iratzargailua",name:"Goizeko Iratzargailua",emoji:"⏰",desc:"Setting the morning alarm",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
+      {instruction:"Your alarm is set for 7am. Say the number seven",keyword:"zazpi",hint:"Zazpi: seven. Zazpiak Bat, the seven are one, is the motto of the seven provinces"},
+      {instruction:"You need to be ready in 15 minutes. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen, hamar (10) + bost (5)"},
+      {instruction:"The bus comes every 10 minutes. Say ten",keyword:"hamar",hint:"Hamar: ten. From here Basque counts in twenties rather than tens"},
+      {instruction:"You only have 1 euro for the bus. Say one",keyword:"bat",hint:"Bat: one, and also the word for a. Etxe bat is a house"},
+      {instruction:"You set 2 alarms to be safe. Say two",keyword:"bi",hint:"Bi: two, and also both. Bietan means in both"},
     ]},
-    {name:"Merkatuan",emoji:"🛒",desc:"Shopping at the market",color:"#065F46",dark:"#022C22",bg:"#ECFDF5",stages:[
-      {instruction:"You want 3 apples. Say three",keyword:"hiru",hint:"Hiru: three"},
-      {instruction:"They cost 5 euros each. Say five",keyword:"bost",hint:"Bost: five"},
-      {instruction:"You pick up 6 tomatoes. Say six",keyword:"sei",hint:"Sei: six"},
-      {instruction:"The vendor asks: how much do you want? Say 'how much'",keyword:"zenbat",hint:"Zenbat: how many / how much"},
-      {instruction:"You pay 20 euros. Say twenty",keyword:"hogei",hint:"Hogei: twenty"},
+    {key:"merkatuan",name:"Merkatuan",emoji:"🛒",desc:"Shopping at the market",color:"#065F46",dark:"#022C22",bg:"#ECFDF5",stages:[
+      {instruction:"You want 3 apples. Say three",keyword:"hiru",hint:"Hiru: three. Hirugarrena is third, hiruko is a trio"},
+      {instruction:"They cost 5 euros each. Say five",keyword:"bost",hint:"Bost: five. It resembles no number in any neighbouring language"},
+      {instruction:"You pick up 6 tomatoes. Say six",keyword:"sei",hint:"Sei: six, and it sounds like the English say"},
+      {instruction:"The vendor asks: how much do you want? Say 'how much'",keyword:"zenbat",hint:"Zenbat: how many or how much. Zenbat da? is how much does it cost?"},
+      {instruction:"You pay 20 euros. Say twenty",keyword:"hogei",hint:"Hogei: twenty, the base Basque counts on. Every round number is a multiple of it"},
     ]},
-    {name:"Autobus Geltokian",emoji:"🚌",desc:"At the bus station",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
-      {instruction:"The bus leaves at 7. Say seven",keyword:"zazpi",hint:"Zazpi: seven"},
-      {instruction:"You need platform 4. Say four",keyword:"lau",hint:"Lau: four"},
-      {instruction:"The journey takes 8 hours. Say eight",keyword:"zortzi",hint:"Zortzi: eight"},
-      {instruction:"Your ticket costs 9 euros. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine"},
-      {instruction:"It's quarter past the hour. How do you say that?",keyword:"eta_laurdena",hint:"Eta laurdena: quarter past"},
+    {key:"autobus_geltokian",name:"Autobus Geltokian",emoji:"🚌",desc:"At the bus station",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
+      {instruction:"The bus leaves at 7. Say seven",keyword:"zazpi",hint:"Zazpi: seven. Zazpiak Bat, the seven are one, is the motto of the seven provinces"},
+      {instruction:"You need platform 4. Say four",keyword:"lau",hint:"Lau: four. It rhymes with the English now"},
+      {instruction:"The journey takes 8 hours. Say eight",keyword:"zortzi",hint:"Zortzi: eight. It turns up whole inside hamazortzi, ten-eight, eighteen"},
+      {instruction:"Your ticket costs 9 euros. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine, the longest of the single digits"},
+      {instruction:"It's quarter past the hour. How do you say that?",keyword:"eta_laurdena",hint:"Eta laurdena: quarter past, eta (and) + laurdena (the quarter)"},
     ]},
-    {name:"Jatetxean",emoji:"🍽️",desc:"At the restaurant",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
-      {instruction:"Book a table for 2. Say two",keyword:"bi",hint:"Bi: two"},
-      {instruction:"The menú del día costs 12 euros. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve"},
-      {instruction:"You want to leave a tip. Ask for the percentage",keyword:"ehunekoa",hint:"Ehunekoa: percentage"},
-      {instruction:"You split the bill in half. Say half",keyword:"erdia",hint:"Erdia: half"},
-      {instruction:"The waiter says it's quarter to the hour. How do you say that?",keyword:"laurden_gutxi",hint:"Laurden gutxi: quarter to"},
+    {key:"jatetxean",name:"Jatetxean",emoji:"🍽️",desc:"At the restaurant",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
+      {instruction:"Book a table for 2. Say two",keyword:"bi",hint:"Bi: two, and also both. Bietan means in both"},
+      {instruction:"The menú del día costs 12 euros. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve, hamar (10) + bi (2). Every teen is built that way"},
+      {instruction:"You want to leave a tip. Ask for the percentage",keyword:"ehunekoa",hint:"Ehunekoa: percentage, from ehun (100) + -eko (of). Literally of-a-hundred"},
+      {instruction:"You split the bill in half. Say half",keyword:"erdia",hint:"Erdia: half. Ordu erdia is half an hour, and erdiak is half past"},
+      {instruction:"The waiter says it's quarter to the hour. How do you say that?",keyword:"laurden_gutxi",hint:"Laurden gutxi: quarter to, laurdena (quarter) + gutxi (less)"},
     ]},
-    {name:"Eskolan",emoji:"📚",desc:"At school",color:"#0F766E",dark:"#134E4A",bg:"#F0FDFA",stages:[
-      {instruction:"Class starts at 9. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine"},
-      {instruction:"You're in classroom 11. Say eleven",keyword:"hamaika",hint:"Hamaika: eleven"},
-      {instruction:"There are 20 students. Say twenty",keyword:"hogei",hint:"Hogei: twenty"},
-      {instruction:"The test has 15 questions. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen"},
-      {instruction:"You score 100! Say one hundred",keyword:"ehun",hint:"Ehun: one hundred"},
+    {key:"eskolan",name:"Eskolan",emoji:"📚",desc:"At school",color:"#0F766E",dark:"#134E4A",bg:"#F0FDFA",stages:[
+      {instruction:"Class starts at 9. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine, the longest of the single digits"},
+      {instruction:"You're in classroom 11. Say eleven",keyword:"hamaika",hint:"Hamaika: eleven. It also means countless: hamaika aldiz, countless times"},
+      {instruction:"There are 20 students. Say twenty",keyword:"hogei",hint:"Hogei: twenty, the base Basque counts on. Every round number is a multiple of it"},
+      {instruction:"The test has 15 questions. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen, hamar (10) + bost (5)"},
+      {instruction:"You score 100! Say one hundred",keyword:"ehun",hint:"Ehun: one hundred. Berrehun is 200 and hirurehun 300, so the hundreds go by tens again"},
     ]},
-    {name:"Futbol Partida",emoji:"⚽",desc:"Watching a football match",color:"#991B1B",dark:"#7F1D1D",bg:"#FFF1F2",stages:[
-      {instruction:"Kick-off is at 6pm. Say six",keyword:"sei",hint:"Sei: six"},
-      {instruction:"Athletic Bilbao scores first. Say 'first'",keyword:"lehena",hint:"Lehena: first"},
-      {instruction:"Half-time: it's 2-0. Say two",keyword:"bi",hint:"Bi: two"},
-      {instruction:"Final whistle: 3 goals scored. Say three",keyword:"hiru",hint:"Hiru: three"},
-      {instruction:"1,000 fans are celebrating. Say one thousand",keyword:"mila",hint:"Mila: one thousand"},
+    {key:"futbol_partida",name:"Futbol Partida",emoji:"⚽",desc:"Watching a football match",color:"#991B1B",dark:"#7F1D1D",bg:"#FFF1F2",stages:[
+      {instruction:"Kick-off is at 6pm. Say six",keyword:"sei",hint:"Sei: six, and it sounds like the English say"},
+      {instruction:"Athletic Bilbao scores first. Say 'first'",keyword:"lehena",hint:"Lehena: first. After that the ordinals take -garren: bigarrena, hirugarrena"},
+      {instruction:"Half-time: it's 2-0. Say two",keyword:"bi",hint:"Bi: two, and also both. Bietan means in both"},
+      {instruction:"Final whistle: 3 goals scored. Say three",keyword:"hiru",hint:"Hiru: three. Hirugarrena is third, hiruko is a trio"},
+      {instruction:"1,000 fans are celebrating. Say one thousand",keyword:"mila",hint:"Mila: one thousand. Mila esker, a thousand thanks, is how you say thanks very much"},
     ]},
-    {name:"Bankuan",emoji:"🏦",desc:"At the bank",color:"#1E40AF",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
-      {instruction:"You deposit 100 euros. Say one hundred",keyword:"ehun",hint:"Ehun: one hundred"},
-      {instruction:"The cashier asks for half the form. Say half",keyword:"erdia",hint:"Erdia: half"},
-      {instruction:"You withdraw 40 euros. Say forty",keyword:"berrogei",hint:"Berrogei: forty"},
-      {instruction:"The fee is 50 cents. Say fifty",keyword:"berrogeita_hamar",hint:"Berrogeita hamar: fifty"},
-      {instruction:"Your new balance: 1,000 euros. Say one thousand",keyword:"mila",hint:"Mila: one thousand"},
+    {key:"bankuan",name:"Bankuan",emoji:"🏦",desc:"At the bank",color:"#1E40AF",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
+      {instruction:"You deposit 100 euros. Say one hundred",keyword:"ehun",hint:"Ehun: one hundred. Berrehun is 200 and hirurehun 300, so the hundreds go by tens again"},
+      {instruction:"The cashier asks for half the form. Say half",keyword:"erdia",hint:"Erdia: half. Ordu erdia is half an hour, and erdiak is half past"},
+      {instruction:"You withdraw 40 euros. Say forty",keyword:"berrogei",hint:"Berrogei: forty, two twenties. French counts this way too: quatre-vingts"},
+      {instruction:"The fee is 50 cents. Say fifty",keyword:"berrogeita_hamar",hint:"Berrogeita hamar: fifty, two twenties and a ten"},
+      {instruction:"Your new balance: 1,000 euros. Say one thousand",keyword:"mila",hint:"Mila: one thousand. Mila esker, a thousand thanks, is how you say thanks very much"},
     ]},
-    {name:"Eguraldia",emoji:"🌡️",desc:"Checking the weather forecast",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
-      {instruction:"Temperature: 12 degrees. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve"},
-      {instruction:"Rain chance: 50%. Say fifty percent",keyword:"ehuneko_berrogeita_hamar",hint:"Ehuneko berrogeita hamar: fifty percent"},
-      {instruction:"Wind: 30 km/h. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty"},
-      {instruction:"UV index: 11. Say eleven",keyword:"hamaika",hint:"Hamaika: eleven"},
-      {instruction:"Rain for half the day. Say half",keyword:"erdia",hint:"Erdia: half"},
+    {key:"eguraldia",name:"Eguraldia",emoji:"🌡️",desc:"Checking the weather forecast",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
+      {instruction:"Temperature: 12 degrees. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve, hamar (10) + bi (2). Every teen is built that way"},
+      {instruction:"Rain chance: 50%. Say fifty percent",keyword:"ehuneko_berrogeita_hamar",hint:"Ehuneko berrogeita hamar: fifty percent. Ehuneko before any number gives you the rest"},
+      {instruction:"Wind: 30 km/h. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty, hogei (20) + ta (and) + hamar (10)"},
+      {instruction:"UV index: 11. Say eleven",keyword:"hamaika",hint:"Hamaika: eleven. It also means countless: hamaika aldiz, countless times"},
+      {instruction:"Rain for half the day. Say half",keyword:"erdia",hint:"Erdia: half. Ordu erdia is half an hour, and erdiak is half past"},
     ]},
-    {name:"Telefonoz",emoji:"📱",desc:"On the phone",color:"#0891B2",dark:"#155E75",bg:"#ECFEFF",stages:[
-      {instruction:"Your phone number starts with 6. Say six",keyword:"sei",hint:"Sei: six"},
-      {instruction:"The area code is 9 digits. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine"},
-      {instruction:"You wait on hold for 8 minutes. Say eight",keyword:"zortzi",hint:"Zortzi: eight"},
-      {instruction:"Press option 1 for Basque. Say one",keyword:"bat",hint:"Bat: one"},
-      {instruction:"They call back in 20 minutes. Say twenty",keyword:"hogei",hint:"Hogei: twenty"},
+    {key:"telefonoz",name:"Telefonoz",emoji:"📱",desc:"On the phone",color:"#0891B2",dark:"#155E75",bg:"#ECFEFF",stages:[
+      {instruction:"Your phone number starts with 6. Say six",keyword:"sei",hint:"Sei: six, and it sounds like the English say"},
+      {instruction:"The area code is 9 digits. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine, the longest of the single digits"},
+      {instruction:"You wait on hold for 8 minutes. Say eight",keyword:"zortzi",hint:"Zortzi: eight. It turns up whole inside hamazortzi, ten-eight, eighteen"},
+      {instruction:"Press option 1 for Basque. Say one",keyword:"bat",hint:"Bat: one, and also the word for a. Etxe bat is a house"},
+      {instruction:"They call back in 20 minutes. Say twenty",keyword:"hogei",hint:"Hogei: twenty, the base Basque counts on. Every round number is a multiple of it"},
     ]},
-    {name:"Kiroldegian",emoji:"🏊",desc:"At the sports center",color:"#0D9488",dark:"#134E4A",bg:"#F0FDFA",stages:[
-      {instruction:"The pool opens at 7am. Say seven",keyword:"zazpi",hint:"Zazpi: seven"},
-      {instruction:"You swim 10 lengths. Say ten",keyword:"hamar",hint:"Hamar: ten"},
-      {instruction:"Membership costs 30 euros. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty"},
-      {instruction:"The gym has 5 treadmills. Say five",keyword:"bost",hint:"Bost: five"},
-      {instruction:"Your heart rate is 100bpm. Say one hundred",keyword:"ehun",hint:"Ehun: one hundred"},
+    {key:"kiroldegian",name:"Kiroldegian",emoji:"🏊",desc:"At the sports center",color:"#0D9488",dark:"#134E4A",bg:"#F0FDFA",stages:[
+      {instruction:"The pool opens at 7am. Say seven",keyword:"zazpi",hint:"Zazpi: seven. Zazpiak Bat, the seven are one, is the motto of the seven provinces"},
+      {instruction:"You swim 10 lengths. Say ten",keyword:"hamar",hint:"Hamar: ten. From here Basque counts in twenties rather than tens"},
+      {instruction:"Membership costs 30 euros. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty, hogei (20) + ta (and) + hamar (10)"},
+      {instruction:"The gym has 5 treadmills. Say five",keyword:"bost",hint:"Bost: five. It resembles no number in any neighbouring language"},
+      {instruction:"Your heart rate is 100bpm. Say one hundred",keyword:"ehun",hint:"Ehun: one hundred. Berrehun is 200 and hirurehun 300, so the hundreds go by tens again"},
     ]},
-    {name:"Jaiegunean",emoji:"🎉",desc:"Planning a celebration",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
-      {instruction:"The party starts at 9pm. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine"},
-      {instruction:"You invite 12 friends. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve"},
-      {instruction:"Buy 2 bottles of wine. Say two",keyword:"bi",hint:"Bi: two"},
-      {instruction:"The birthday cake has 40 candles. Say forty",keyword:"berrogei",hint:"Berrogei: forty"},
-      {instruction:"You toast at midnight, it's 12 o'clock!",keyword:"hamabi",hint:"Hamabi: twelve o'clock, midnight!"},
+    {key:"jaiegunean",name:"Jaiegunean",emoji:"🎉",desc:"Planning a celebration",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
+      {instruction:"The party starts at 9pm. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine, the longest of the single digits"},
+      {instruction:"You invite 12 friends. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve, hamar (10) + bi (2). Every teen is built that way"},
+      {instruction:"Buy 2 bottles of wine. Say two",keyword:"bi",hint:"Bi: two, and also both. Bietan means in both"},
+      {instruction:"The birthday cake has 40 candles. Say forty",keyword:"berrogei",hint:"Berrogei: forty, two twenties. French counts this way too: quatre-vingts"},
+      {instruction:"The music runs until half past. Say half",keyword:"erdia",hint:"Erdia: half. Ordu erdia is half an hour, and erdiak is half past"},
     ]},
-    {name:"Ospitalean",emoji:"🏥",desc:"At the hospital",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",stages:[
-      {instruction:"Your appointment is at 11am. Say eleven",keyword:"hamaika",hint:"Hamaika: eleven"},
-      {instruction:"Ward number 4. Say four",keyword:"lau",hint:"Lau: four"},
-      {instruction:"The doctor asks your age. You're 30. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty"},
-      {instruction:"Take the medicine 3 times a day. Say three",keyword:"hiru",hint:"Hiru: three"},
-      {instruction:"Come back in 15 days. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen"},
+    {key:"ospitalean",name:"Ospitalean",emoji:"🏥",desc:"At the hospital",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",stages:[
+      {instruction:"Your appointment is at 11am. Say eleven",keyword:"hamaika",hint:"Hamaika: eleven. It also means countless: hamaika aldiz, countless times"},
+      {instruction:"Ward number 4. Say four",keyword:"lau",hint:"Lau: four. It rhymes with the English now"},
+      {instruction:"The doctor asks your age. You're 30. Say thirty",keyword:"hogeitahamar",hint:"Hogeita hamar: thirty, hogei (20) + ta (and) + hamar (10)"},
+      {instruction:"Take the medicine 3 times a day. Say three",keyword:"hiru",hint:"Hiru: three. Hirugarrena is third, hiruko is a trio"},
+      {instruction:"Come back in 15 days. Say fifteen",keyword:"hamabost",hint:"Hamabost: fifteen, hamar (10) + bost (5)"},
     ]},
   ];
 
@@ -4418,7 +4418,13 @@ function OrduegiScreen(props){
   var _flash=useState(null);var flash=_flash[0];var setFlash=_flash[1];
   var scoreRef=React.useRef(0);
   var timerRef=React.useRef(null);
+  // Lives has to be readable from the countdown, which runs inside a closure
+  // built several renders ago. Reading the state variable there meant a run
+  // could not be lost: see the comment on handleTimeout.
+  var livesRef=React.useRef(3);
+  var secsRef=React.useRef(0);
   var MAX_SECS=8;
+  var LIVES=3;
 
   // Map keyword → display numeral for big visual
   var NUMERAL={bat:"1",bi:"2",hiru:"3",lau:"4",bost:"5",sei:"6",zazpi:"7",zortzi:"8",
@@ -4454,7 +4460,24 @@ function OrduegiScreen(props){
     // Which units are finished is part of the progress this screen shows,
     // so it has to outlive the screen. Only the high score used to be saved,
     // and every dot reset the moment you left.
-    try{STORE.get('ordutegi_done').then(function(r){if(r&&r.value){try{var a=JSON.parse(r.value);if(Array.isArray(a))setCompleted(a);}catch(e){}}}).catch(function(){});}catch(e){}
+    // Completed scenarios used to be stored by display name, so editing a
+    // scenario title silently reset it for anyone who had already played it.
+    // Stored by key now; names already on disk are mapped across on the way in
+    // and rewritten, and anything matching neither is dropped.
+    try{STORE.get('ordutegi_done').then(function(r){
+      if(!r||!r.value)return;
+      var a;try{a=JSON.parse(r.value);}catch(e){return;}
+      if(!Array.isArray(a))return;
+      var out=[],changed=false;
+      a.forEach(function(v){
+        var sc=SCENARIOS.filter(function(x){return x.key===v;})[0]||SCENARIOS.filter(function(x){return x.name===v;})[0];
+        if(!sc){changed=true;return;}
+        if(sc.key!==v)changed=true;
+        if(out.indexOf(sc.key)===-1)out.push(sc.key);
+      });
+      setCompleted(out);
+      if(changed){try{STORE.set('ordutegi_done',JSON.stringify(out)).catch(function(){});}catch(e){}}
+    }).catch(function(){});}catch(e){}
     return function(){clearInterval(timerRef.current);};
   },[]);
 
@@ -4479,32 +4502,54 @@ function OrduegiScreen(props){
 
   function startTimer(){
     clearInterval(timerRef.current);
+    secsRef.current=MAX_SECS;
     setTimerSecs(MAX_SECS);
+    // The countdown runs off a ref. It used to call handleTimeout from inside
+    // the setTimerSecs updater, which is not somewhere a state updater may
+    // reach: React is free to run one twice.
     timerRef.current=setInterval(function(){
-      setTimerSecs(function(t){
-        if(t<=1){
-          clearInterval(timerRef.current);
-          handleTimeout();
-          return 0;
-        }
-        return t-1;
-      });
+      var t=secsRef.current-1;
+      secsRef.current=t;
+      setTimerSecs(t<0?0:t);
+      if(t<=0){clearInterval(timerRef.current);handleTimeout();}
     },1000);
   }
 
+  // Time is up: lose a life, show the hint, let them retry the same step.
+  //
+  // This used to read `lives` straight from state. Every retry schedules the
+  // next startTimer from a setTimeout created in an earlier render, so the
+  // handleTimeout it eventually reaches is that render's, holding that
+  // render's `lives`. After one wrong answer the count was already stale, and
+  // from then on every timeout set lives to the value it already had. A run
+  // could sit on one life and time out forever. Verified in the browser
+  // before the fix: three consecutive timeouts, still one life, still step 1.
   function handleTimeout(){
-    // Time's up — lose a life, show the hint, let them retry the same step
     haptic("error");sfx("wrong");
     setStreak(0);setFlash('wrong');
     setTimeout(function(){setFlash(null);},500);
-    var livesLeft=lives-1;
+    var livesLeft=livesRef.current-1;
+    livesRef.current=livesLeft;
     setLives(livesLeft);
     if(livesLeft<=0){
-      sfx("fail");setTimeout(function(){setDone(true);},700);
+      sfx("fail");saveBest();
+      setTimeout(function(){setDone(true);},700);
     }else{
-      // Restart the timer for a retry, with the hint now visible
       setTimeout(function(){setShowHint(true);startTimer();},400);
     }
+  }
+
+  // The record is written on the way out of a run however the run ended. It
+  // used to be saved only on a completed scenario, and against the stale
+  // `best` of the enclosing render. Reading the stored value back means the
+  // write can only ever raise it.
+  function saveBest(){
+    var v=scoreRef.current;
+    setBest(function(b){return Math.max(b,v);});
+    try{STORE.get('ordutegi_best').then(function(r){
+      var prev=r&&r.value?parseInt(r.value)||0:0;
+      if(v>prev)STORE.set('ordutegi_best',String(v)).catch(function(){});
+    }).catch(function(){});}catch(e){}
   }
 
   function startScenario(idx){
@@ -4512,7 +4557,8 @@ function OrduegiScreen(props){
     scoreRef.current=0;
     clearInterval(timerRef.current);
     setScenario(s);setScenIdx(idx);setStage(0);setSel(null);setDone(false);
-    setShowHint(false);setScore(0);setLives(3);setStreak(0);setFlash(null);
+    setShowHint(false);setScore(0);setLives(LIVES);setStreak(0);setFlash(null);
+    livesRef.current=LIVES;
     setOpts(buildOptions(s,0));
     startTimer();
   }
@@ -4534,11 +4580,10 @@ function OrduegiScreen(props){
         if(next>=scenario.stages.length){
           haptic("success");sfx("complete");
           clearInterval(timerRef.current);
-          var doneNow=completed.indexOf(scenario.name)===-1?completed.concat([scenario.name]):completed;
+          var doneNow=completed.indexOf(scenario.key)===-1?completed.concat([scenario.key]):completed;
           setCompleted(doneNow);
           try{STORE.set('ordutegi_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
-          setBest(function(b){return Math.max(b,scoreRef.current);});
-          try{STORE.set('ordutegi_best',String(Math.max(best,scoreRef.current))).catch(function(){});}catch(e){}
+          saveBest();
           setDone(true);
         }else{
           setStage(next);setSel(null);setShowHint(false);
@@ -4550,11 +4595,13 @@ function OrduegiScreen(props){
       haptic("error");sfx("wrong");
       setStreak(0);setFlash('wrong');
       setTimeout(function(){setFlash(null);},500);
-      var willDie=lives-1<=0;
-      var livesLeft=lives-1;
+      var livesLeft=livesRef.current-1;
+      livesRef.current=livesLeft;
       setLives(livesLeft);
-      if(livesLeft<=0){sfx("fail");setTimeout(function(){setDone(true);},700);}
-      if(!willDie){
+      if(livesLeft<=0){
+        sfx("fail");saveBest();
+        setTimeout(function(){setDone(true);},700);
+      }else{
         setTimeout(function(){setSel(null);setShowHint(true);startTimer();},950);
       }
     }
@@ -4565,16 +4612,17 @@ function OrduegiScreen(props){
   var COLOR=scenario?scenario.color:"#0369A1";
   var DARK=scenario?scenario.dark:"#0C4A6E";
   var BG=scenario?scenario.bg:"#EFF6FF";
+  // Offer the nearest scenario still unplayed, wrapping past the end, rather
+  // than whatever came next in the list and was already marked Complete.
   var nextIdx=(scenIdx+1)%SCENARIOS.length;
+  for(var ni=1;ni<=SCENARIOS.length;ni++){
+    var cand=(scenIdx+ni)%SCENARIOS.length;
+    if(completed.indexOf(SCENARIOS[cand].key)===-1){nextIdx=cand;break;}
+  }
   var nextScen=SCENARIOS[nextIdx];
   var timerPct=timerSecs/MAX_SECS*100;
   var timerColor=timerSecs<=2?"#EF4444":timerSecs<=4?"#F97316":COLOR;
 
-  // Number emoji map
-  var NUM_EMOJI={"bat":"1️⃣","bi":"2️⃣","hiru":"3️⃣","lau":"4️⃣","bost":"5️⃣","sei":"6️⃣","zazpi":"7️⃣","zortzi":"8️⃣","bederatzi":"9️⃣","hamar":"🔟","hamaika":"🔢","hamabi":"🕛","hamabost":"🕒","hogei":"🎲","ehun":"💯","mila":"🏦","zenbat":"❓","ordu_bat":"🕐","ordu_biak":"🕑","laurden_gutxi":"⏰","eta_laurdena":"⌚","erdia":"½","ehunekoa":"📊","ehuneko_berrogeita_hamar":"50%","berrogei":"4️⃣0️⃣","berrogeita_hamar":"5️⃣0️⃣","hogeitahamar":"3️⃣0️⃣","lehena":"🥇","bigarrena":"🥈","hirugarrena":"🥉",
-    "urdina":"🔵","berdea":"🟢","horia":"🟡","gorria":"🔴","zuria":"⚪","beltza":"⚫","morea":"🟣","laranja":"🟠","arrosa":"🩷","marroia":"🟤","gris":"⬛","urrea":"🥇","zilarra":"🥈","kolore":"🎨","berdexka":"💚","urdina_iluna":"💙","urdin_argia":"🩵","zuri_horia":"🤍","hori_iluna":"✨","gorrigorria":"❤️‍🔥","beltz_beltza":"🖤","zuri_zuria":"🤍","berde_iluna":"🌲","more_iluna":"💜","turkoisa":"🩵","indigo":"🌊","granatea":"❤️","oliba_berdea":"🫒","beixa":"🏜️"
-  };
-  function getNumEmoji(word){return NUM_EMOJI[word.id]||"🔢";}
 
   // ── Menu screen ──
   if(!scenario){return(
@@ -4591,22 +4639,25 @@ function OrduegiScreen(props){
             <p style={{margin:0,fontSize:8,color:"rgba(255,255,255,0.65)",fontWeight:700}}>BEST</p>
           </div>}
         </div>
-        {completed.length>0?(
+        {/* The rules line stays up whatever the progress. It used to be
+            replaced by the progress strip the moment the first scenario was
+            finished, so the one thing a returning player might have forgotten
+            was the one thing the screen stopped saying. */}
+        {completed.length>0&&(
           <div style={{backgroundColor:"rgba(255,255,255,0.12)",borderRadius:12,padding:"8px 12px",marginTop:8,display:"flex",alignItems:"center",gap:8}}>
             <span style={{fontSize:14}}>✅</span>
             <p style={{margin:0,fontSize:12,fontWeight:700,color:"#fff"}}>Completed {completed.length} of {SCENARIOS.length} scenarios</p>
             <div style={{display:"flex",gap:3,marginLeft:"auto"}}>
-              {SCENARIOS.map(function(s,i){return <div key={i} style={{width:8,height:8,borderRadius:"50%",backgroundColor:completed.indexOf(s.name)!==-1?"#fff":"rgba(255,255,255,0.25)"}}/>;  })}
+              {SCENARIOS.map(function(s,i){return <div key={i} style={{width:8,height:8,borderRadius:"50%",backgroundColor:completed.indexOf(s.key)!==-1?"#fff":"rgba(255,255,255,0.25)"}}/>;  })}
             </div>
           </div>
-        ):(
-          <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.55)",fontWeight:500}}>5 steps per scenario · 3 lives · tap to begin</p>
         )}
+        <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.55)",fontWeight:500}}>5 steps per scenario · {LIVES} lives · {MAX_SECS} seconds a step</p>
       </div>
 
       <div style={{padding:"14px"}}>
         {SCENARIOS.map(function(s,i){
-          var isDone=completed.indexOf(s.name)!==-1;
+          var isDone=completed.indexOf(s.key)!==-1;
           return(
             <button key={i} onClick={function(){startScenario(i);}}
               style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",padding:0,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",display:"block"}}>
@@ -4654,7 +4705,7 @@ function OrduegiScreen(props){
               <p style={{margin:0,fontSize:8,color:"rgba(255,255,255,0.6)",fontWeight:700}}>PTS</p>
             </div>}
             <div style={{display:"flex",gap:1}}>
-              {Array.from({length:3}).map(function(_,i){return(
+              {Array.from({length:LIVES}).map(function(_,i){return(
                 <span key={i} style={{fontSize:16,transition:"transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s",transform:i<lives?"scale(1)":"scale(0.45)",opacity:i<lives?1:0.15}}>❤️</span>
               );})}
             </div>
