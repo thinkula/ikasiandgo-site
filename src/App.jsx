@@ -3619,7 +3619,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Add a splash of water",keyword:"ura",hint:"Helps emulsify the sauce"},
       {instruction:"Season to taste",keyword:"gatz",hint:"Go easy: the cod is already salty"},
     ]},
-    {key:"tortilla_espanola",name:"Patata-tortilla",emoji:"🍳",desc:"Potato omelette, thick and slow cooked",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
+    {key:"tortilla_espanola",name:"Patata tortilla",emoji:"🍳",desc:"Potato omelette, thick and slow cooked",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
       {instruction:"Slice the potatoes thinly",keyword:"patata",hint:"The heart of the tortilla"},
       {instruction:"Beat the eggs",keyword:"arrautza",hint:"Use plenty: 4 to 6"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Salt the potatoes and eggs"},
@@ -3668,7 +3668,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Pour in the oil",keyword:"olioa",hint:"Good olive oil is the base"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Taste before serving"},
     ]},
-    {key:"revuelto_de_hongos",name:"Onddo-nahaskia",emoji:"🍄",desc:"Wild mushrooms scrambled with egg",color:"#78350F",dark:"#431407",bg:"#FFF7ED",stages:[
+    {key:"revuelto_de_hongos",name:"Onddo nahaskia",emoji:"🍄",desc:"Wild mushrooms scrambled with egg",color:"#78350F",dark:"#431407",bg:"#FFF7ED",stages:[
       {instruction:"Pick the mushrooms",keyword:"onddo",hint:"Wild mushrooms from the Basque hills"},
       {instruction:"Beat the eggs",keyword:"arrautza",hint:"3 eggs per person"},
       {instruction:"Heat the oil",keyword:"olioa",hint:"A generous splash in the pan"},
@@ -3696,7 +3696,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Add walnuts for dessert",keyword:"intxaurra",hint:"With Idiazabal cheese and quince"},
       {instruction:"Call txotx!",keyword:"txotx",hint:"The signal to fill your glass at the barrel"},
     ]},
-    {key:"arroz_con_leche",name:"Esne-arroza",emoji:"🍚",desc:"Rice slowly cooked in milk",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
+    {key:"arroz_con_leche",name:"Arroz-esnea",emoji:"🍚",desc:"Rice slowly cooked in milk",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
       {instruction:"Measure the rice",keyword:"arroza",hint:"Short grain rice absorbs milk best"},
       {instruction:"Warm the milk",keyword:"esnea",hint:"Whole milk, slowly heated"},
       {instruction:"Stir in the sugar",keyword:"azukrea",hint:"Add to taste: some like it sweet"},
