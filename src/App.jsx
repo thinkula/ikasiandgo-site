@@ -5470,7 +5470,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC4B",
     blurb:"Say hello, thank you, and be polite.",
     intro:"Every conversation in Euskara starts here. Basque greetings are warm and used with everyone, from close friends to shopkeepers. One word does a lot of work: on means good, and you will meet it again and again (egun on, gau on).",
-    grammar:{title:"The little word 'on'",body:"On means \"good\". Basque builds greetings by adding it after a time word: egun (day) + on = egun on (good morning). You will see this pattern throughout the language."},
+    grammar:{title:"The little word 'on'",body:"On means good. Basque builds greetings by adding it after a time word: egun (day) + on = egun on (good morning). You will see this pattern throughout the language."},
     wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on","gau_on"],
   },
   {
@@ -5491,8 +5491,8 @@ var LESSONS=[
     titleEu:"Izan",
     emoji:"\uD83D\uDCDB",
     blurb:"The first of the two verbs for to be, the one for who you are.",
-    intro:"Basque has two verbs where English makes do with one. This is the first, and it is the one that says what something is: a name, a job, a place you come from. The forms do not look much like one another, so they are worth meeting as a set rather than puzzled out one at a time.",
-    grammar:{title:"One verb, six shapes",body:"Izan is the to be of identity. Naiz is I am, zara is you are, da is he, she or it is, gara is we are, zarete is you all are, and dira is they are. Each form already names its own subject, which is why the pronouns are usually left out: naiz on its own is a whole sentence. Set them side by side and the logic shows, ni naiz, zu zara, hura da, gu gara, zuek zarete, haiek dira, with the pronoun present only for emphasis. Da is the one you will meet most, because Basque puts its verb last and a great many sentences end by saying what something is. None of the six looks much like izan itself, which is what tends to happen to the verb a language uses most."},
+    intro:"Basque has two verbs where English makes do with one. This is the first, and it is the one that says what something is: a name, a job, a place you come from. The forms do not look much like one another, so they are worth meeting as a set rather than puzzling them out one at a time.",
+    grammar:{title:"One verb, six shapes",body:"Izan is the to be of identity. Naiz is I am, zara is you are, da is he, she or it is, gara is we are, zarete is you all are, and dira is they are. Each form already names its own subject, which is why the pronouns are usually left out: naiz on its own is a whole sentence. Set them beside their pronouns and the pattern shows through, ni naiz, zu zara, hura da, gu gara, zuek zarete, haiek dira, with the pronoun present only for emphasis. Da is the one you will meet most, because Basque puts its verb last and a great many sentences end by saying what something is. None of the six looks much like izan itself, which is what tends to happen to the verb a language uses most."},
     wordIds:["izan","naiz","zara","da","gara","zarete","dira"],  },
   {
     id:"l03_pointing",
@@ -5545,8 +5545,8 @@ var LESSONS=[
     titleEu:"Familia",
     emoji:"\uD83D\uDC6A",
     blurb:"The people closest to you.",
-    intro:"Family (familia) is central to Basque culture. These words let you talk about the people in your life. Notice that many end in -a, which is the Basque way of saying \"the\": ama means \"the mother\", aita means \"the father\".",
-    grammar:{title:"The ending -a means 'the'",body:"Basque has no separate word for \"the\". Instead it attaches -a to the end of the noun. So ama is really \"the mother\" and semea is \"the son\". This ending is everywhere in Basque."},
+    intro:"Family (familia) is central to Basque culture. These words let you talk about the people in your life. Notice that many end in -a, which is how Basque carries the article: ama means the mother, aita means the father.",
+    grammar:{title:"The ending -a means 'the'",body:"Basque has no separate word the. It attaches -a to the end of the noun instead, so ama is really the mother and semea is the son. This ending is everywhere in Basque."},
     wordIds:["ama","aita","anaia","ahizpa","semea","alaba","amona","aitona","familia","haurra"],
   },
   {
@@ -5556,8 +5556,8 @@ var LESSONS=[
     titleEu:"Koloreak",
     emoji:"\uD83C\uDFA8",
     blurb:"Name the colors around you.",
-    intro:"Colors (koloreak) bring your descriptions to life. The Basque flag, the ikurrina, is red, green, and white, three colors you will learn right here. Like family words, color words end in -a, the \"the\" ending.",
-    grammar:{title:"Colors describe nouns",body:"In Basque, the color usually comes after the thing it describes: etxe gorria = \"red house\" (literally \"house red\"). The describing word follows the noun, the opposite of English."},
+    intro:"Colors (koloreak) are among the first words you can actually use. The Basque flag, the ikurrina, is red, green, and white, three colors you will learn right here. Like family words, color words end in -a, the same article ending.",
+    grammar:{title:"Colors describe nouns",body:"In Basque, the color usually comes after the thing it describes: etxe gorria = red house, literally house red. The describing word follows the noun, the opposite of English."},
     wordIds:["gorria","urdina","berdea","zuria","beltza","horia","laranja","morea","arrosa","kolore"],
   },
   {
@@ -5567,8 +5567,8 @@ var LESSONS=[
     titleEu:"Janari eta edaria",
     emoji:"\uD83C\uDF7D\uFE0F",
     blurb:"Order food and name what is on the table.",
-    intro:"Basque food culture is famous, from pintxos on the bar to cider houses in the hills. These words cover the basics you need to order and enjoy a meal. Many foods end in -a, the \"the\" ending you have already met, so ogia is really \"the bread\".",
-    grammar:{title:"Naming meals",body:"Basque has a clear word for each meal: gosaria (breakfast), bazkaria (lunch), afaria (dinner). Each has a matching verb that means \"to have that meal\": gosaldu, bazkaldu, afaldu. Notice how the meal name and its verb share the same root."},
+    intro:"Basque food culture is famous, from pintxos on the bar to cider houses in the hills. These words cover the basics you need to order and enjoy a meal. Many foods end in -a, the article ending you have already met, so ogia is really the bread.",
+    grammar:{title:"Naming meals",body:"Basque has a clear word for each meal: gosaria (breakfast), bazkaria (lunch), afaria (dinner). Each has a matching verb that means to have that meal: gosaldu, bazkaldu, afaldu. Notice how the meal name and its verb share the same root."},
     wordIds:["ura","ogia","kafea","janaria","arraina","haragia","fruta","gazta","jan","edan"],
   },
   {
@@ -5579,7 +5579,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD53",
     blurb:"Talk about today, tomorrow, and when.",
     intro:"Telling time and talking about days lets you make plans and arrange to meet. These words anchor a conversation in the present, past, or future. Start with the everyday trio: gaur (today), bihar (tomorrow), atzo (yesterday).",
-    grammar:{title:"When is it?",body:"To ask \"when\", use noiz. The answer is often one of these time words: gaur (today), orain (now), gero (later). Learn this small set first and you can place almost any sentence in time."},
+    grammar:{title:"When is it?",body:"To ask when, use noiz. The answer is often one of these time words: gaur (today), orain (now), gero (later). Learn this small set first and you can place almost any sentence in time."},
     wordIds:["gaur","bihar","atzo","orain","gero","eguna","gaua","astea","asteburua","noiz"],
   },
   {
@@ -5590,7 +5590,7 @@ var LESSONS=[
     emoji:"\uD83D\uDDFA\uFE0F",
     blurb:"Find your way around town.",
     intro:"Whether you are catching a train or finding a restaurant, these words help you navigate a Basque town. Direction words like ezkerra (left) and eskuina (right) are essential, and so is knowing how to ask non dago (where is it).",
-    grammar:{title:"Asking where",body:"To ask \"where\", use non. To say \"where is...?\" use non dago...? The answers are often hemen (here) or han (there). These pointing words are the backbone of getting directions."},
+    grammar:{title:"Asking where",body:"To ask where, use non. To say where is...? use non dago...? The answers are often hemen (here) or han (there). These pointing words are the backbone of getting directions."},
     wordIds:["etxea","kalea","hiria","trena","autobusa","jatetxea","non","non_dago","hemen","han","ezkerra","eskuina"],
   },
   {
@@ -5610,8 +5610,8 @@ var LESSONS=[
     titleEu:"Gorputza",
     emoji:"\uD83D\uDC4B",
     blurb:"Name the parts of the body.",
-    intro:"Knowing body parts helps at the doctor, at the gym, or just describing how you feel. Like most Basque nouns, these end in -a, so begia is \"the eye\" and eskua is \"the hand\". Notice how many are short and easy to say.",
-    grammar:{title:"The -a ending again",body:"You have seen that -a means \"the\" on a Basque noun. Body parts follow the same rule: buru is the bare root \"head\", and burua is \"the head\". When you learn a new noun, the dictionary form already includes this -a."},
+    intro:"Knowing body parts helps at the doctor, at the gym, or when describing how you feel. Like most Basque nouns, these end in -a, so begia is the eye and eskua is the hand. Notice how many are short and easy to say.",
+    grammar:{title:"The -a ending again",body:"You have seen that -a carries the article on a Basque noun. Body parts follow the same rule: buru is the bare root, head, and burua is the head. When you learn a new noun, the dictionary form already includes this -a."},
     wordIds:["burua","begia","ahoa","sudurra","belarria","eskua","besoa","hanka","oina","bihotza"],
   },
   {
@@ -5622,7 +5622,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFD4\uFE0F",
     blurb:"Mountains, sea, sun, and rain.",
     intro:"The Basque Country is green and mountainous, with the sea on one side and peaks on the other. These words let you talk about the landscape and the weather. Eguzkia (sun) and euria (rain) come up in conversation often given the Atlantic climate.",
-    grammar:{title:"Talking about weather",body:"To say what the weather is doing, Basque often pairs a nature word with a verb. Euria ari du means \"it is raining\" (literally \"it is doing rain\"). For now, just learning the nouns like euria, elurra, and haizea gives you the building blocks."},
+    grammar:{title:"Talking about weather",body:"To say what the weather is doing, Basque often pairs a nature word with a verb. Euria ari du means it is raining, literally it is doing rain. For now, just learning the nouns like euria, elurra, and haizea gives you the building blocks."},
     wordIds:["mendia","itsasoa","ibaia","eguzkia","euria","elurra","haizea","zuhaitza","lorea","txoria"],
   },
   {
@@ -5633,7 +5633,7 @@ var LESSONS=[
     emoji:"\u2764\uFE0F",
     blurb:"Say how you feel.",
     intro:"Being able to express emotion makes any conversation more human. These words cover the core feelings: poza (joy), tristura (sadness), beldurra (fear), haserrea (anger). You can pair them with the verbs you already know to talk about your own state.",
-    grammar:{title:"Nouns and states",body:"Basque often has a noun for the feeling and a separate word for being in that state. Poza is \"joy\" (the thing), while pozik means \"happy\" (how you are). Learning both gives you more ways to express yourself."},
+    grammar:{title:"Nouns and states",body:"Basque often has a noun for the feeling and a separate word for being in that state. Poza is joy, the thing itself, while pozik means happy, the state you are in. Learning both gives you more ways to express yourself."},
     wordIds:["poza","tristura","beldurra","haserrea","pozik","triste","gosea","egarria","nekatuta","gaixorik"],
   },
   {
@@ -5643,8 +5643,8 @@ var LESSONS=[
     titleEu:"Nolakoa da?",
     emoji:"\uD83D\uDD0D",
     blurb:"Big, small, good, bad, and more.",
-    intro:"Adjectives bring your sentences to life. With words like handia (big), txikia (small), ona (good), and txarra (bad), you can describe almost anything around you. These are some of the most useful words in the whole language.",
-    grammar:{title:"Adjectives come after",body:"As with the colors, in Basque the adjective follows the noun. So \"a big house\" is etxe handia, and \"a good book\" is liburu ona. The describing word comes second, the opposite order from English."},
+    intro:"Adjectives are what turn a list of nouns into a description. With words like handia (big), txikia (small), ona (good), and txarra (bad), you can describe almost anything around you. These are some of the most useful words in the whole language.",
+    grammar:{title:"Adjectives come after",body:"As with the colors, in Basque the adjective follows the noun. So a big house is etxe handia, and a good book is liburu ona. The describing word comes second, the opposite order from English."},
     wordIds:["handia","txikia","ona","txarra","zaharra","berria","ederra","gaztea","gehiago","zuzen"],
   },
   {
@@ -5655,7 +5655,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCC5",
     blurb:"January through December.",
     intro:"Naming the months lets you talk about birthdays, seasons, and plans. Basque month names are distinct and worth memorizing as a set. Many connect to old seasonal or agricultural roots, like uztaila (July) from uzta, the harvest.",
-    grammar:{title:"Months as a set",body:"The twelve months each have their own name and, like other nouns, end in -a: urtarrila (January), otsaila (February), and so on. To say \"in [month]\", Basque adds a case ending, but for now learning the names themselves is the goal."},
+    grammar:{title:"Months as a set",body:"The twelve months each have their own name and, like other nouns, end in -a: urtarrila (January), otsaila (February), and so on. To say in a given month, Basque adds a case ending, but for now learning the names themselves is the goal."},
     wordIds:["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua"],
   },
   {
@@ -5665,8 +5665,8 @@ var LESSONS=[
     titleEu:"Lanbideak",
     emoji:"\uD83D\uDCBC",
     blurb:"Talk about what people do.",
-    intro:"Asking what someone does for work is part of any introduction. These words cover common professions and the workplace itself. Notice that many job words end in -a, the article you already know, so medikua is \"the doctor\".",
-    grammar:{title:"Saying your job",body:"To say what someone is, Basque uses the verb \"to be\" with the profession: Medikua naiz means \"I am a doctor\". The job word takes the -a ending. You can pair any of these professions with naiz (I am) or da (he/she is)."},
+    intro:"Asking what someone does for work is part of any introduction. These words cover common professions and the workplace itself. Notice that many job words end in -a, the article you already know, so medikua is the doctor.",
+    grammar:{title:"Saying your job",body:"To say what someone is, Basque uses the verb to be with the profession: Medikua naiz means I am a doctor. The job word takes the -a ending. You can pair any of these professions with naiz (I am) or da (he/she is)."},
     wordIds:["lana","lantegia","nagusia","medikua","erizaina","sukaldaria","abokatu","idazkaria","nekazaria","arkitektoa"],
   },
   {
@@ -5677,7 +5677,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCD6",
     blurb:"Books, sports, and the Basque language.",
     intro:"These words are close to the heart of why people learn Basque. Euskara (the Basque language) and Euskal Herria (the Basque Country) are central, alongside everyday culture like books, cinema, and sports. Learning them connects your vocabulary to the living culture.",
-    grammar:{title:"Euskara and euskalduna",body:"Euskara is the Basque language itself. A euskalduna is a Basque speaker, literally \"one who has Basque\". The -dun ending means \"one who has\", a useful pattern you will meet again in the language."},
+    grammar:{title:"Euskara and euskalduna",body:"Euskara is the Basque language itself. A euskalduna is a Basque speaker, literally one who has Basque. The -dun ending means one who has, a useful pattern you will meet again in the language."},
     wordIds:["euskara","euskalduna","euskal_herria","ikurrina","liburua","liburutegia","zinema","kirolak","futbola","abestia"],
   },
   {
@@ -5709,7 +5709,7 @@ var LESSONS=[
     titleEu:"Zer ordu da?",
     emoji:"\u23F0",
     blurb:"The clock and bigger numbers.",
-    intro:"Once you can count, telling time is the next step. These words cover the clock and the larger numbers you need for it. Basque builds the hour from the number, so ordu bat da is \"it is one o'clock\".",
+    intro:"Once you can count, telling time is the next step. These words cover the clock and the larger numbers you need for it. Basque builds the hour from the number, so ordu bat da is it is one o'clock.",
     grammar:{title:"Hours and quarters",body:"To tell time, Basque names the hour: ordu bata da (it is one o'clock), ordu biak (two o'clock). For the half and quarter, you add phrases like eta laurdena (quarter past) and laurden gutxi (quarter to). The numbers themselves carry the count."},
     wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","minutua","ordu_bat","ordu_biak","eta_laurdena","laurden_gutxi"],
   },
@@ -5721,7 +5721,7 @@ var LESSONS=[
     emoji:"\u2708\uFE0F",
     blurb:"Travel, hotels, and finding your way.",
     intro:"Traveling brings its own vocabulary. These words help at the airport, the hotel, and when you need to find something. Pairing non dago (where is...?) with these places lets you ask for directions to almost anywhere.",
-    grammar:{title:"Here and there",body:"You learned hemen (here) and han (there). Basque has a third: hor, meaning \"there\" but nearer to the listener. So Basque points at three distances: hemen (by me), hor (by you), han (over there). This three-way system runs through the language."},
+    grammar:{title:"Here and there",body:"You learned hemen (here) and han (there). Basque has a third: hor, meaning there but nearer to the listener. So Basque points at three distances: hemen (by me), hor (by you), han (over there). This three-way system runs through the language."},
     wordIds:["aireportua","hegazkina","ostatua","gela","taxia","komunak","irekia","itxia","han","hor"],
   },
   {
@@ -5744,7 +5744,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFE0",
     blurb:"The rooms you live in, and what is in them.",
     intro:"Basque names rooms plainly. Once you know that gela means room, half the house follows: the sleep room, the staying room, the bath room. The kitchen is the exception, and its name is older and warmer than the rest.",
-    grammar:{title:"Rooms are built from gela",body:"Gela means \"room\", and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. Egon (to stay) + gela = egongela, the living room. Bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
+    grammar:{title:"Rooms are built from gela",body:"Gela means room, and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. Egon (to stay) + gela = egongela, the living room. Bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
     wordIds:["logela","sukaldea","egongela","bainugela","mahaia","aulkia","sofa","ohea","leihoa","atea"],
   },
   {
@@ -5840,7 +5840,7 @@ var LESSONS=[
     emoji:"\u26EA",
     blurb:"The square, the church, the fronton, the bridge.",
     intro:"A Basque town is organized around a few places: the plaza where the festivals happen, the church the village grew around, the bridge that gave the town its name. These words are worth knowing twice over, because you will meet them again in surnames.",
-    grammar:{title:"The town inside a surname",body:"Place names are built from words you already know. Eliza plus ondo gives Elizondo. Ondo usually means \"well\", but in place names it means \"beside\", so Elizondo is beside the church. Zubi is bridge, zahar is old, and -eta marks a place full of something: Zubizarreta, the place of the old bridges."},
+    grammar:{title:"The town inside a surname",body:"Place names are built from words you already know. Eliza plus ondo gives Elizondo. Ondo usually means well, but in place names it means beside, so Elizondo is beside the church. Zubi is bridge, zahar is old, and -eta marks a place full of something: Zubizarreta, the place of the old bridges."},
     wordIds:["plaza","denda","eliza","parkea","frontoia","zubia","eraikina","supermerkatua","farmazia","bankua","museoa"],
   },
   {
