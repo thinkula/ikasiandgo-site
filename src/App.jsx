@@ -5599,9 +5599,9 @@ var LESSONS=[
     title:"Where and How You Are",
     titleEu:"Egon",
     emoji:"\uD83D\uDCCD",
-    blurb:"The second verb for to be, for a place or a passing state.",
-    intro:"Here is the other one. Basque keeps what something is apart from where it is and how it is doing, and hands the second job to a different verb. With both of them you can put anything in its place and say how it is getting on.",
-    grammar:{title:"Two verbs, one dividing line",body:"Egon covers a place or a passing state, while izan covers identity. Nago is I am, zaude is you are, dago is he, she or it is, gaude is we are, zaudete is you all are, and daude is they are, every one of them meaning at this moment. The dividing line is clean: nongoa zara asks where you are from and takes izan, while non zaude asks where you are standing and takes egon. Non dago, which you have been using as a set phrase, is only dago doing its ordinary work. Egon has a second sense as well, to stay, which is the same idea from the inside, since staying somewhere is being there a while."},
+    blurb:"The other verb for to be, the one for where and how you are.",
+    intro:"English says I am tired and I am a teacher with the same verb. Basque does not. One of its two verbs is for what you are, and this is the other one, for where you are and how you feel at this moment. With both of them you can say where anything is and how anyone is doing today.",
+    grammar:{title:"Two verbs, one dividing line",body:"Egon is the to be of place and passing state. Its forms run nago, zaude, dago, gaude, zaudete, daude: I am, you are, he or she is, we are, you all are, they are, each with at this moment built into it. The line between the two verbs is clean. Nongoa zara asks where you are from, a fact about you that does not change, so it takes izan. Non zaude asks where you are right now, which does change, so it takes egon. You have already been saying non dago without knowing which verb it came from. Egon carries a second sense too, to stay, which is only what being somewhere for a while amounts to."},
     wordIds:["egon","nago","zaude","dago","gaude","zaudete","daude"],  },
   {
     id:"l8_body",
