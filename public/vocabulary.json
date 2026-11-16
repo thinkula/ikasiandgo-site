@@ -10752,11 +10752,11 @@
     {
       "id": "nik",
       "basque": "Nik",
-      "english": "I (as the one doing it)",
+      "english": "I (doing something)",
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "NEEK",
-      "notes": "Nik is ni plus the -k that marks the one doing something. Ni naiz is I am, where nothing is being done to anything, so ni stays bare. Nik ogia jan dut has an eater and a thing eaten, so the -k appears. The -k never goes on the subject of izan or egon.",
+      "notes": "Nik is ni plus the -k that marks the one doing something. Ni naiz is I am, with nothing on the receiving end, so ni stays bare. Nik ogia jan dut has an eater and a thing eaten, so the -k turns up. It never appears on the subject of izan or egon.",
       "example": {
         "basque": "Nik ogia jan dut.",
         "english": "I have eaten the bread."
@@ -10765,11 +10765,11 @@
     {
       "id": "zuk",
       "basque": "Zuk",
-      "english": "You (as the one doing it)",
+      "english": "You (doing something)",
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SOOK",
-      "notes": "Zuk is zu plus -k, for when you are the one acting: zuk kafea edan duzu. Zu zara keeps the bare zu, because being something is not doing something.",
+      "notes": "Zuk is zu plus -k, for when you are the one acting: zuk kafea edan duzu. Zu zara keeps the bare zu, because being something is not doing something to it.",
       "example": {
         "basque": "Zuk kafea edan duzu.",
         "english": "You have drunk the coffee."
@@ -10778,7 +10778,7 @@
     {
       "id": "hark",
       "basque": "Hark",
-      "english": "He / She / It (as the one doing it)",
+      "english": "He / She / It (doing something)",
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "ARK (h is silent)",
@@ -10791,11 +10791,11 @@
     {
       "id": "guk",
       "basque": "Guk",
-      "english": "We (as the one doing it)",
+      "english": "We (doing something)",
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "GOOK",
-      "notes": "Guk is gu plus -k. Zuek and haiek stay exactly as they are for this, so of the six pronouns only four take a visible -k.",
+      "notes": "Guk is gu plus -k. Zuek and haiek stay as they are, so of the six pronouns only four ever show the -k.",
       "example": {
         "basque": "Guk euskara ikasi dugu.",
         "english": "We have learned Basque."
@@ -10808,7 +10808,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DOOT",
-      "notes": "Dut is the have-verb: liburu bat dut is I have a book. It is also the form that carries who acted, so behind a participle it gives nik ogia jan dut. Five more forms fill out the set, one for each person.",
+      "notes": "Dut is the have-verb: liburu bat dut is I have a book. It is also the form that carries who acted, so behind a participle it gives nik ogia jan dut, I have eaten the bread. Five more forms fill out the set, one for each person.",
       "example": {
         "basque": "Liburu bat dut.",
         "english": "I have a book."
