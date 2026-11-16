@@ -3326,7 +3326,7 @@
       "basque": "Nahi",
       "english": "To want",
       "cefr": "A2",
-      "topic": "work",
+      "topic": "emotions",
       "pronunciation": "NAH-ee",
       "notes": "Nahi = to want/will. Nahi dut = I want. Nahi gabe = unwillingly. Nahikoa = enough (as much as wanted). Nahi eta nahi ez = whether you want or not.",
       "example": {
@@ -3631,6 +3631,19 @@
       "example": {
         "basque": "Zer egiten duzu?",
         "english": "What do you do?"
+      }
+    },
+    {
+      "id": "gabe",
+      "basque": "Gabe",
+      "english": "Without",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "GAH-beh",
+      "notes": "Gabe = without, and it comes after the word it takes away: zu gabe = without you, lan gabe = out of work. It builds adjectives too, so ezkongabea is unmarried and koloregabea colorless. Gabezia = a lack of something.",
+      "example": {
+        "basque": "Kafea esnerik gabe nahi dut.",
+        "english": "I want the coffee without milk."
       }
     },
     {
@@ -5240,7 +5253,7 @@
     {
       "id": "txerria",
       "basque": "Txerria",
-      "english": "Pig / Pork",
+      "english": "Pig",
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "cheh-REE-ah",
@@ -7255,7 +7268,7 @@
     {
       "id": "lagunartea",
       "basque": "Lagunartea",
-      "english": "Community / Circle of friends",
+      "english": "Circle of friends",
       "cefr": "A1",
       "topic": "society",
       "pronunciation": "lah-goon-AR-teh-ah",
@@ -8698,7 +8711,7 @@
     {
       "id": "alkatea",
       "basque": "Alkatea",
-      "english": "Mayor (alternate)",
+      "english": "Mayor (southern usage)",
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "al-KAH-teh-ah",
@@ -12095,7 +12108,7 @@
     {
       "id": "txerrikia",
       "basque": "Txerrikia",
-      "english": "Pork",
+      "english": "Pork (the meat)",
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "cheh-RREE-kee-ah",
@@ -12184,6 +12197,45 @@
       "example": {
         "basque": "Hitz berri bat ikasi dut gaur.",
         "english": "I learned a new word today."
+      }
+    },
+    {
+      "id": "irakurlea",
+      "basque": "Irakurlea",
+      "english": "Reader",
+      "cefr": "A1",
+      "topic": "culture",
+      "pronunciation": "ee-rah-KOOR-leh-ah",
+      "notes": "Irakurlea = irakurri (to read) plus -le, the ending that names the one who does something. Irakurle ona = a good reader. Irakurketa = reading, the activity. The same -le gives idazlea and entzulea.",
+      "example": {
+        "basque": "Irakurle ona zara.",
+        "english": "You are a good reader."
+      }
+    },
+    {
+      "id": "idazlea",
+      "basque": "Idazlea",
+      "english": "Writer",
+      "cefr": "A1",
+      "topic": "culture",
+      "pronunciation": "ee-DAHS-leh-ah",
+      "notes": "Idazlea = idatzi (to write) plus -le. The verb shortens to idaz- before the ending. Idazle handia = a great writer. Idazkaria, a secretary, grows from the same root.",
+      "example": {
+        "basque": "Idazle euskaldun bat ezagutu dut.",
+        "english": "I met a Basque writer."
+      }
+    },
+    {
+      "id": "entzulea",
+      "basque": "Entzulea",
+      "english": "Listener",
+      "cefr": "A1",
+      "topic": "culture",
+      "pronunciation": "en-TSOO-leh-ah",
+      "notes": "Entzulea = entzun (to listen) plus -le. Entzuleak means the audience, literally the listeners. Entzumena = hearing.",
+      "example": {
+        "basque": "Entzule asko zeuden gelan.",
+        "english": "There were many listeners in the room."
       }
     },
     {
