@@ -4354,9 +4354,18 @@ function BasqueKitchenScreen(props){
                 {/* Subtle tint strip at bottom on result */}
                 {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                 {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
+                {/* The gloss waits for the answer, the way Koloreak holds its
+                    swatch, but the picture does not. Of the 135 steps, 107 name
+                    the ingredient in English in the instruction itself, so a card
+                    reading "Bread" beside "Start with a base of bread" was answered
+                    without a glance at the Basque. The emoji does the opposite job:
+                    it ties the picture to Ogia with no English in between, which is
+                    the association worth building, and with the gloss gone it leaves
+                    the Basque as the only text on the card. An invisible element
+                    still takes up its space, so nothing moves on the reveal. */}
                 <span style={{fontSize:28,lineHeight:1}}>{getEmoji(word)}</span>
                 <p style={{margin:"6px 0 0",fontSize:(word.basque&&word.basque.length>10)?12:15,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2,padding:"0 4px"}}>{word.basque}</p>
-                <p style={{margin:"2px 0 0",fontSize:11,color:subC,fontWeight:600}}>{word.english}</p>
+                <p style={{margin:"2px 0 0",fontSize:11,color:subC,fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 {pron&&<p style={{margin:"3px 0 0",fontSize:9,fontWeight:700,color:"#19A85A",fontStyle:"italic",opacity:0.8}}>{correctWord.pronunciation}</p>}
                 {isPicked&&!isCorrectOpt&&showResult&&<span style={{fontSize:16,marginTop:2}}>✗</span>}
               </button>
@@ -5735,9 +5744,18 @@ function ArbolaScreen(props){
                 style={{padding:"16px 10px 14px",borderRadius:18,border:"2px solid "+borderCol,backgroundColor:bg,cursor:showResult?"default":"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.2s cubic-bezier(0.34,1.56,0.64,1)",transform:sc,boxShadow:showResult?"none":"0 2px 12px rgba(0,0,0,0.08)",minHeight:100,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:4,animation:"cardIn 0.2s ease "+(wi*0.06)+"s both",position:"relative",overflow:"hidden"}}>
                 {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                 {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
+                {/* The picture stays and the gloss waits, as in the kitchen.
+                    Fifteen of the 32 prompts name the role in plain English and
+                    the rest describe it, so a card carrying the English answered
+                    itself. The glyph leads the eye to the card and the Basque is
+                    then the only thing written on it. Worth knowing: ROLE_EMOJI is
+                    a true picture for the people (amona is a grandmother, haurra a
+                    baby) but only a marker for the abstractions, where a flexed arm
+                    stands for a single parent and a teddy bear for childhood. Those
+                    teach nothing on their own, and the hint is what carries them. */}
                 <span style={{fontSize:30,lineHeight:1}}>{wordEmoji}</span>
                 <p style={{margin:"6px 0 0",fontSize:word.basque.length>12?12:15,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2}}>{word.basque}</p>
-                <p style={{margin:"2px 0 0",fontSize:10,color:subC,fontWeight:600}}>{word.english}</p>
+                <p style={{margin:"2px 0 0",fontSize:10,color:subC,fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 {isCorrectOpt&&showResult&&word.pronunciation&&<p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:"#19A85A",fontStyle:"italic"}}>{word.pronunciation}</p>}
                 {isPicked&&!isCorrectOpt&&showResult&&<span style={{fontSize:14,marginTop:2}}>✗</span>}
               </button>
