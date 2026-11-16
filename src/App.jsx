@@ -2729,12 +2729,20 @@ function PairsScreen(props){
   var _bestMoves=useState(0);var bestMoves=_bestMoves[0];var setBestMoves=_bestMoves[1];
   var _bestTime=useState(0);var bestTime=_bestTime[0];var setBestTime=_bestTime[1];
   var _mismatch=useState(false);var mismatch=_mismatch[0];var setMismatch=_mismatch[1];
-  var _newBest=useState(false);var newBest=_newBest[0];var setNewBest=_newBest[1];
+  // Which of the two records this run beat, if either: "moves", "time",
+  // "both", or null. It used to be a single boolean set when either improved,
+  // so the sheet said "New personal best!" without saying best at what.
+  var _newBest=useState(null);var newBest=_newBest[0];var setNewBest=_newBest[1];
   var _penalty=useState(false);var penalty=_penalty[0];var setPenalty=_penalty[1];
   var timerRef=React.useRef(null);
   var chipRowRef=React.useRef(null);
   var boardKey=React.useRef(0);
   var secsRef=React.useRef(0); // track secs without stale closure in timed mode
+  var movesRef=React.useRef(0);
+  // The record as it stood when this board was dealt. The sheet renders after
+  // the record has already been raised, so it cannot ask bestMoves/bestTime
+  // what the previous one was.
+  var bestRef=React.useRef({moves:0,time:0});
 
   // Only offer board sizes this topic can actually fill. buildGame clamps with
   // Math.min, so an oversized choice never broke anything, it just quietly dealt
@@ -2753,9 +2761,13 @@ function PairsScreen(props){
 
   React.useEffect(function(){
     var key='pairs_best_'+topic+'_'+effSize+(isTimed?'_timed':'');
+    bestRef.current={moves:0,time:0};setBestMoves(0);setBestTime(0);
     try{STORE.get(key).then(function(r){
-      if(r&&r.value){var d=JSON.parse(r.value);setBestMoves(d.moves||0);setBestTime(d.time||0);}
-      else{setBestMoves(0);setBestTime(0);}
+      if(r&&r.value){
+        var d=JSON.parse(r.value);
+        bestRef.current={moves:d.moves||0,time:d.time||0};
+        setBestMoves(bestRef.current.moves);setBestTime(bestRef.current.time);
+      }
     }).catch(function(){});}catch(e){}
   },[topic,effSize,mode]);
 
@@ -2785,7 +2797,8 @@ function PairsScreen(props){
     secsRef.current=initSecs;
     setCards(pairs);setFlipped([]);setMatched([]);setMoves(0);setLocked(false);
     setWon(false);setFailed(false);setSecs(initSecs);setFinalSecs(0);setStarted(false);
-    setPairCount(pc);setMismatch(false);setNewBest(false);setPenalty(false);
+    movesRef.current=0;
+    setPairCount(pc);setMismatch(false);setNewBest(null);setPenalty(false);
     boardKey.current=boardKey.current+1;
   }
 
@@ -2811,6 +2824,28 @@ function PairsScreen(props){
     }
   }
 
+  // Fewest moves and fastest time are two separate records, and a board can
+  // beat one without beating the other, so they are kept and shown as two.
+  // They used to be written as a single {moves,time} and printed as one line,
+  // which read as a run somebody had played: ten moves from Tuesday beside
+  // forty seconds from Thursday, a result nobody ever had.
+  //
+  // This also used to live inside three nested state updaters, with the store
+  // write, setBestMoves and setNewBest all firing from inside setBestTime's.
+  // An updater has to be pure; React may run one twice.
+  function recordResult(mv,elapsed){
+    var prev=bestRef.current;
+    var betterMoves=!prev.moves||mv<prev.moves;
+    var betterTime=!prev.time||elapsed<prev.time;
+    if(!betterMoves&&!betterTime){setNewBest(null);return;}
+    var next={moves:betterMoves?mv:prev.moves,time:betterTime?elapsed:prev.time};
+    bestRef.current=next;
+    setBestMoves(next.moves);setBestTime(next.time);
+    setNewBest(betterMoves&&betterTime?"both":betterMoves?"moves":"time");
+    var key='pairs_best_'+topic+'_'+effSize+(isTimed?'_timed':'');
+    try{STORE.set(key,JSON.stringify(next)).catch(function(){});}catch(e){}
+  }
+
   function onFlip(idx){
     if(locked||won||failed)return;
     var card=cards[idx];
@@ -2826,7 +2861,10 @@ function PairsScreen(props){
     sfx("flip");
     if(newFlipped.length===2){
       var a=cards[newFlipped[0]],b=cards[newFlipped[1]];
-      setMoves(function(m){return m+1;});
+      // Counted in a ref as well as in state, because the win check reads the
+      // total from inside a timeout where the state value is a render behind.
+      movesRef.current=movesRef.current+1;
+      setMoves(movesRef.current);
       setLocked(true);
       if(a.pair===b.pair&&a.type!==b.type){
         haptic("success");sfx("correct");
@@ -2838,25 +2876,7 @@ function PairsScreen(props){
               var elapsed=isTimed?sizeCfg.timedSecs-secsRef.current:secsRef.current;
               setFinalSecs(elapsed);setWon(true);
               haptic("success");sfx("complete");
-              setMoves(function(mv){
-                setBestMoves(function(bm){
-                  setBestTime(function(bt){
-                    var isFirst=bm===0&&bt===0;
-                    var betterMoves=bm===0||mv<bm;
-                    var betterTime=bt===0||elapsed<bt;
-                    if(isFirst||betterMoves||betterTime){
-                      var newBm=betterMoves?mv:(bm||mv);
-                      var newBt=betterTime?elapsed:(bt||elapsed);
-                      var key='pairs_best_'+topic+'_'+effSize+(isTimed?'_timed':'');
-                      try{STORE.set(key,JSON.stringify({moves:newBm,time:newBt})).catch(function(){});}catch(e){}
-                      setBestMoves(newBm);setNewBest(true);return newBt;
-                    }
-                    return bt;
-                  });
-                  return bm;
-                });
-                return mv;
-              });
+              recordResult(movesRef.current,elapsed);
             }
             return newMatched;
           });
@@ -2882,7 +2902,7 @@ function PairsScreen(props){
   var _showSettings=useState(false);var showSettings=_showSettings[0];var setShowSettings=_showSettings[1];
 
   // Display values
-  var displaySecs=isTimed?secs:secs;
+  var displaySecs=secs;
   var mins=Math.floor(displaySecs/60);var ss=('0'+(displaySecs%60)).slice(-2);
   var timeStr=mins>0?mins+'m '+ss+'s':displaySecs+'s';
   var fmins=Math.floor(finalSecs/60);var fss=('0'+(finalSecs%60)).slice(-2);
@@ -3058,7 +3078,7 @@ function PairsScreen(props){
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
               <div style={{width:72,height:72,borderRadius:"50%",background:newBest?"linear-gradient(135deg,#F97316,#FBBF24)":"linear-gradient(135deg,#19A85A,#22C070)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:newBest?"0 8px 24px rgba(249,115,22,0.35)":"0 8px 24px rgba(25,168,90,0.3)"}}>{newBest?"⭐":"🎉"}</div>
-              <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{newBest?"New personal best!":"All matched!"}</p>
+              <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{newBest==="both"?"Best on both counts!":newBest==="moves"?"Fewest moves yet!":newBest==="time"?"Fastest yet!":"All matched!"}</p>
               <p style={{margin:"0 0 20px",fontSize:13,color:"#8E8E93",fontWeight:600,textTransform:"capitalize"}}>{topic} · {sizeCfg.label}{isTimed?" · ⏱️ Timed":""}</p>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginBottom:16}}>
                 {[{v:moves,l:"Moves",c:"#1A1A1A"},{v:finalTimeStr,l:isTimed?"Used":"Time",c:"#19A85A"},{v:accuracy+"%",l:"Accuracy",c:"#F97316"}].map(function(s){return(
@@ -3071,7 +3091,7 @@ function PairsScreen(props){
               {isTimed&&secs>0&&<div style={{backgroundColor:"#EDFAF3",borderRadius:12,padding:"9px 12px",marginBottom:12}}>
                 <p style={{margin:0,fontSize:13,fontWeight:800,color:"#19A85A"}}>⏱️ {secs}s to spare!</p>
               </div>}
-              {bestMoves>0&&<p style={{margin:"0 0 16px",fontSize:12,color:"#C7C7CC",fontWeight:600}}>Previous best: {bestMoves} moves · {bestTime}s</p>}
+              {(bestMoves>0||bestTime>0)&&<p style={{margin:"0 0 16px",fontSize:12,color:"#C7C7CC",fontWeight:600}}>Best here: {bestMoves} moves · fastest {bestTime}s</p>}
               <div style={{display:"flex",gap:10}}>
                 <button onClick={function(){buildGame();}} style={{flex:1,padding:"15px",borderRadius:18,border:"none",backgroundColor:"#19A85A",color:"#fff",fontSize:15,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40"}}>Play again</button>
                 <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];setTopic(next);}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
@@ -3140,7 +3160,24 @@ function GamesScreen(props){
   var _arbolaBest=useState(null);var arbolaBest=_arbolaBest[0];var setArbolaBest=_arbolaBest[1];
 
   React.useEffect(function(){
-    try{STORE.get('pairs_best_greetings_medium').then(function(r){if(r&&r.value){var d=JSON.parse(r.value);setPairsBest(d.moves+"mv · "+d.time+"s");}}).catch(function(){});}catch(e){}
+    // Pairs keeps a record per topic, board size and mode, which is over a
+    // hundred keys. This card used to read one hardcoded greetings/medium key,
+    // so a player who never touched that exact combination saw no best at all.
+    // Take the fewest moves and the fastest time across everything stored.
+    try{STORE.list('pairs_best_').then(function(r){
+      var keys=(r&&r.keys)||[];
+      if(!keys.length)return;
+      return Promise.all(keys.map(function(k){return STORE.get(k).catch(function(){return null;});})).then(function(rows){
+        var mv=0,tm=0;
+        rows.forEach(function(x){
+          if(!x||!x.value)return;
+          var d;try{d=JSON.parse(x.value);}catch(e){return;}
+          if(d&&d.moves&&(!mv||d.moves<mv))mv=d.moves;
+          if(d&&d.time&&(!tm||d.time<tm))tm=d.time;
+        });
+        if(mv||tm)setPairsBest((mv||"-")+"mv · "+(tm||"-")+"s");
+      });
+    }).catch(function(){});}catch(e){}
     // Tap keeps a separate record per topic and difficulty, 42 of them. This
     // card used to read one hardcoded key, so a player whose best was on Food
     // or on Hard saw no best at all. Take the highest of whatever is stored.
