@@ -4781,12 +4781,18 @@ function KoloreakScreen(props){
     "zilarra":"#C0C0C0",       // silver
     "urdina_iluna":"#1E3A8A",  // dark blue — much darker than urdina
     "urdin_argia":"#BAE6FD",   // light blue / sky blue — very light
-    "hori_iluna":"#B45309",    // golden / dark yellow
+    // Was #B45309, which is a brown. The card says dark yellow or gold, and
+    // gives autumn leaves as the example, which is not what the swatch showed.
+    "hori_iluna":"#CA8A04",    // dark yellow / gold
     "berdexka":"#86EFAC",      // greenish — lighter than berdea
     "zuri_horia":"#FEF08A",    // cream/off-white — more yellow than zuria
     // B1 shades
     "urrea":"#F59E0B",         // gold
-    "gorrigorria":"#991B1B",   // scarlet — much darker than gorria
+    // Was #991B1B, a dark brick red, under a comment calling it darker than
+    // gorria. The card teaches the opposite: reduplication intensifies, so
+    // gorri-gorri is very red. Pure, the way zuri_zuria is #FFFFFF and
+    // beltz_beltza is #000000. It never appears beside gorria anyway.
+    "gorrigorria":"#FF0000",   // very red
     "berde_iluna":"#14532D",   // forest green — much darker than berdea
     "more_iluna":"#581C87",    // dark purple — much darker than morea
     "beltz_beltza":"#000000",  // jet black — pure vs beltza which is dark gray
@@ -4806,15 +4812,24 @@ function KoloreakScreen(props){
   // Words that can't be a swatch (abstract concepts) — excluded from pool
   var ABSTRACT_IDS=["kolore","kolorea_galdu","ñabardura","kolore_biziak","koloregabea","distiratsua","kolore_argia","kolore_iluna"];
 
-  // Similar-looking color pairs — never show together as distractors
+  // Swatches too close to tell apart — never offered together, in either mode.
+  // These are families, not pairs: the light neutrals used to be written as
+  // two separate pairs, zuria with zuri_zuria and zilarra with zilarra_kolorea,
+  // which left zuria and zilarra_kolorea free to appear side by side. Measured
+  // in Lab, that is the closest pair of the whole palette after the creams, so
+  // the question was White against Silver color with nothing to go on. Gray
+  // sits in the same band and belongs with them.
+  // Yellow, Gold and Dark yellow gloss as near-synonyms in English and sit
+  // close on the swatch, and the two dark reds, Scarlet and Garnet, likewise.
   var SIMILAR_PAIRS=[
     ["gorria","gorrigorria"],
+    ["gorrigorria","granatea"],
     ["beltza","beltz_beltza"],
-    ["zuria","zuri_zuria"],
-    ["zilarra","zilarra_kolorea"],
+    ["zuria","zuri_zuria","zilarra","zilarra_kolorea","gris"],
     ["urdina","urdina_iluna"],
     ["urdin_argia","urdinaxka"],
     ["hori_argia","zuri_horia","krema_kolorea"],
+    ["horia","urrea","hori_iluna"],
   ];
 
   // Two modes: SEE color → tap word | SEE word → tap color swatch
@@ -4826,6 +4841,11 @@ function KoloreakScreen(props){
   var _total=useState(0);var total=_total[0];var setTotal=_total[1];
   var _streak=useState(0);var streak=_streak[0];var setStreak=_streak[1];
   var _best=useState(0);var best=_best[0];var setBest=_best[1];
+  // The record as it stood when the run began. The finish screen has to ask
+  // this, not `best`, because `best` has already been raised to this run's
+  // score by the time it renders.
+  var _pbest=useState(0);var prevBest=_pbest[0];var setPrevBest=_pbest[1];
+  var bestRef=React.useRef(0);
   var _active=useState(false);var active=_active[0];var setActive=_active[1];
   var _won=useState(false);var won=_won[0];var setWon=_won[1];
   var _level=useState("A1");var level=_level[0];var setLevel=_level[1];
@@ -4835,7 +4855,9 @@ function KoloreakScreen(props){
   var lastQuestionId=React.useRef(null);
 
   React.useEffect(function(){
-    try{STORE.get('koloreak_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    try{STORE.get('koloreak_best').then(function(r){
+      if(r&&r.value){var n=parseInt(r.value)||0;bestRef.current=n;setBest(n);setPrevBest(n);}
+    }).catch(function(){});}catch(e){}
   },[]);
 
   function getPool(){
@@ -4848,21 +4870,30 @@ function KoloreakScreen(props){
     });
   }
 
+  // Everything this colour must not be shown beside, across every family it
+  // belongs to. Returning the first matching family was enough while no colour
+  // was in two, and would have quietly half-applied the moment one was:
+  // gorrigorria sits with gorria and with granatea.
   function getSimilarGroup(id){
+    var out=[];
     for(var i=0;i<SIMILAR_PAIRS.length;i++){
-      if(SIMILAR_PAIRS[i].indexOf(id)!==-1)return SIMILAR_PAIRS[i];
+      if(SIMILAR_PAIRS[i].indexOf(id)===-1)continue;
+      for(var j=0;j<SIMILAR_PAIRS[i].length;j++){
+        if(out.indexOf(SIMILAR_PAIRS[i][j])===-1)out.push(SIMILAR_PAIRS[i][j]);
+      }
     }
-    return [];
+    return out;
   }
 
   function nextQuestion(pool,currentTotal){
     if(currentTotal>=rounds){
       var final=scoreRef.current;
-      setBest(function(b){return Math.max(b,final);});
-      try{
-        var nb=Math.max(best,final);
-        STORE.set('koloreak_best',String(nb)).catch(function(){});
-      }catch(e){}
+      var pb=bestRef.current;
+      setPrevBest(pb);
+      if(final>pb){
+        bestRef.current=final;setBest(final);
+        try{STORE.set('koloreak_best',String(final)).catch(function(){});}catch(e){}
+      }
       setWon(true);setActive(false);return;
     }
     // Exclude last question to prevent repeats
@@ -5005,7 +5036,7 @@ function KoloreakScreen(props){
           <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"10px auto 0"}}/>
           <div style={{padding:"20px 24px 0",textAlign:"center"}}>
             <div style={{width:76,height:76,borderRadius:"50%",background:"linear-gradient(135deg,#4C1D95,#7C3AED)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:38,boxShadow:"0 8px 24px rgba(124,58,237,0.3)"}}>🎨</div>
-            <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{score>best?"New best!":"Finished!"}</p>
+            <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{score>prevBest&&score>0?"New best!":"Finished!"}</p>
             <p style={{margin:"0 0 20px",fontSize:13,color:"#8E8E93"}}>{level} · {isSwatchMode?"See color":"See word"}</p>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:20}}>
               {[{v:score,l:"Points",c:"#7C3AED"},{v:total,l:"Rounds",c:"#1A1A1A"},{v:best,l:"Best",c:"#8E8E93"}].map(function(s){return(
