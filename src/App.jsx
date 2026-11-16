@@ -3572,6 +3572,24 @@ function BasqueKitchenScreen(props){
   var VOCABULARY=_VOCAB;
   var onBack=props.onBack,isPro=props.isPro,onUpgrade=props.onUpgrade;
 
+  // key is storage, name is copy, and they are allowed to drift apart. Several
+  // keys still read as Spanish because they were slugged from the Spanish
+  // titles these dishes used to carry, and renaming a key would wipe the
+  // Cooked badge off every dish a player has already made. Leave them. The
+  // whole reason the key exists is so the name is free to change.
+  //
+  // That slugging is also how a save written before the keys existed is read
+  // back. Such a save holds display names, and the migration matched them
+  // against the current names, which stopped working the moment those names
+  // were translated: a player who had cooked "Bacalao Pil Pil" opened the next
+  // build and found nothing by that name, so the dish came back uncooked.
+  // Every key here is the slug of the title its dish carried at the time, so
+  // slugging a stored name finds it again however the title has since changed.
+  function dishSlug(s){
+    return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
+      .replace(/[^a-z0-9]+/g,"_").replace(/^_|_$/g,"");
+  }
+
   var DISHES=[
     {key:"pintxoak",name:"Pintxoak",emoji:"🥖",desc:"Classic Basque bar snacks",color:"#C2510E",dark:"#92400E",bg:"#FFF7ED",stages:[
       {instruction:"Start with a base of bread",keyword:"ogia",hint:"The base of every pintxo: baked, not fried"},
@@ -3587,21 +3605,21 @@ function BasqueKitchenScreen(props){
       {instruction:"Fill the pot with water",keyword:"ura",hint:"The stew base"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Don't forget to taste!"},
     ]},
-    {key:"pastel_vasco",name:"Pastel Vasco",emoji:"🥧",desc:"Basque cream cake",color:"#7C3AED",dark:"#5B21B6",bg:"#F5F3FF",stages:[
+    {key:"pastel_vasco",name:"Euskal pastela",emoji:"🥧",desc:"The cake, filled with pastry cream",color:"#7C3AED",dark:"#5B21B6",bg:"#F5F3FF",stages:[
       {instruction:"Weigh out the sugar",keyword:"azukrea",hint:"Makes it sweet: don't skimp"},
       {instruction:"Crack in the eggs",keyword:"arrautza",hint:"Binds the batter together"},
       {instruction:"Drizzle in some oil",keyword:"olioa",hint:"Keeps it moist"},
       {instruction:"Pour the milk",keyword:"esnea",hint:"Gives it its creamy texture"},
       {instruction:"Bake until golden",keyword:"beroa",hint:"It needs heat to set"},
     ]},
-    {key:"bacalao_pil_pil",name:"Bacalao Pil Pil",emoji:"🧄",desc:"Salted cod in garlic sauce",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
+    {key:"bacalao_pil_pil",name:"Bakailaoa pil-pilean",emoji:"🧄",desc:"Salted cod in its own garlic sauce",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
       {instruction:"Soak the salted cod overnight",keyword:"bacalaoa",hint:"The Basque classic fish"},
       {instruction:"Peel and slice the garlic",keyword:"baratxuria",hint:"Pungent and aromatic"},
       {instruction:"Swirl the pan low and slow until the sauce comes together, and name it",keyword:"pil_pil",hint:"Named for the sound of the gentle bubbling"},
       {instruction:"Add a splash of water",keyword:"ura",hint:"Helps emulsify the sauce"},
       {instruction:"Season to taste",keyword:"gatz",hint:"Go easy: the cod is already salty"},
     ]},
-    {key:"tortilla_espanola",name:"Tortilla Española",emoji:"🍳",desc:"Spanish-style potato omelette",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
+    {key:"tortilla_espanola",name:"Patata-tortilla",emoji:"🍳",desc:"Potato omelette, thick and slow cooked",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
       {instruction:"Slice the potatoes thinly",keyword:"patata",hint:"The heart of the tortilla"},
       {instruction:"Beat the eggs",keyword:"arrautza",hint:"Use plenty: 4 to 6"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Salt the potatoes and eggs"},
@@ -3615,42 +3633,42 @@ function BasqueKitchenScreen(props){
       {instruction:"Pour in the oil",keyword:"olioa",hint:"Enough to coat the pan"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Taste as you go"},
     ]},
-    {key:"ensalada_vasca",name:"Ensalada Vasca",emoji:"🥗",desc:"Fresh Basque salad",color:"#16A34A",dark:"#14532D",bg:"#F0FDF4",stages:[
+    {key:"ensalada_vasca",name:"Euskal entsalada",emoji:"🥗",desc:"Lettuce, tomato and a good oil",color:"#16A34A",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"Tear the lettuce",keyword:"letxuga",hint:"Use your hands, not a knife"},
       {instruction:"Slice the tomato",keyword:"tomatea",hint:"Ripe and red"},
       {instruction:"Grate the carrot",keyword:"azenarioa",hint:"Adds color and sweetness"},
       {instruction:"Drizzle with oil",keyword:"olioa",hint:"Olive oil always"},
       {instruction:"Finish with salt",keyword:"gatz",hint:"Just a pinch"},
     ]},
-    {key:"txakolina_pintxo",name:"Txakolina & Pintxo",emoji:"🍷",desc:"Wine pairing experience",color:"#9333EA",dark:"#6B21A8",bg:"#FAF5FF",stages:[
+    {key:"txakolina_pintxo",name:"Txakolina eta pintxoak",emoji:"🍷",desc:"What to drink and what to eat with it",color:"#9333EA",dark:"#6B21A8",bg:"#FAF5FF",stages:[
       {instruction:"Pour the Txakoli wine",keyword:"txakolina",hint:"Basque white wine: poured from a height"},
       {instruction:"Lay out the bread",keyword:"ogia",hint:"Fresh bread is essential"},
       {instruction:"Add anchovy on top",keyword:"antxoa",hint:"The classic pintxo topping"},
       {instruction:"Serve with cheese",keyword:"gazta",hint:"Idiazabal is the Basque choice"},
       {instruction:"The wider word for what is in the glass",keyword:"ardoa",hint:"Ardoa: wine. Txakolina is one kind, ardoa is all of them"},
     ]},
-    {key:"pollo_al_txakoli",name:"Pollo al Txakoli",emoji:"🍗",desc:"Chicken in Txakoli wine sauce",color:"#D97706",dark:"#92400E",bg:"#FFFBEB",stages:[
+    {key:"pollo_al_txakoli",name:"Oilaskoa txakolinarekin",emoji:"🍗",desc:"Chicken in a txakoli sauce",color:"#D97706",dark:"#92400E",bg:"#FFFBEB",stages:[
       {instruction:"Season the chicken",keyword:"oilaskoa",hint:"The main protein: use a whole bird"},
       {instruction:"Add the sauce",keyword:"saltsa",hint:"Txakoli reduces into a rich sauce"},
       {instruction:"Slice in garlic",keyword:"baratxuria",hint:"Several cloves: don't hold back"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Season every layer"},
       {instruction:"Cook it down until it is ready",keyword:"prestatu",hint:"Prestatu: to prepare, and also to cook a dish. Afaria prestatu is to make dinner"},
     ]},
-    {key:"alubias_de_tolosa",name:"Alubias de Tolosa",emoji:"🫘",desc:"Famous Tolosa black beans",color:"#7F1D1D",dark:"#450A0A",bg:"#FFF1F2",stages:[
+    {key:"alubias_de_tolosa",name:"Tolosako babarrunak",emoji:"🫘",desc:"The famous black beans of Tolosa",color:"#7F1D1D",dark:"#450A0A",bg:"#FFF1F2",stages:[
       {instruction:"Soak the beans overnight",keyword:"babarrunak",hint:"Tolosa beans are dark and earthy"},
       {instruction:"Add the meat",keyword:"haragia",hint:"Pork belly or chorizo"},
       {instruction:"Pour in the water",keyword:"ura",hint:"Enough to cover the beans"},
       {instruction:"Add the bacon",keyword:"urdaia",hint:"Cured pork fat adds richness"},
       {instruction:"Season to taste",keyword:"gatz",hint:"Add salt at the end, not the beginning"},
     ]},
-    {key:"merluza_en_salsa_verde",name:"Merluza en Salsa Verde",emoji:"🐠",desc:"Hake in green parsley sauce",color:"#065F46",dark:"#022C22",bg:"#ECFDF5",stages:[
+    {key:"merluza_en_salsa_verde",name:"Legatza saltsa berdean",emoji:"🐠",desc:"Hake in a green parsley sauce",color:"#065F46",dark:"#022C22",bg:"#ECFDF5",stages:[
       {instruction:"Prepare the hake fillets",keyword:"merluzea",hint:"The most prized fish in Basque cooking"},
       {instruction:"Make the sauce",keyword:"saltsa",hint:"Parsley, oil and garlic blended"},
       {instruction:"Add the garlic",keyword:"baratxuria",hint:"Finely chopped, not crushed"},
       {instruction:"Pour in the oil",keyword:"olioa",hint:"Good olive oil is the base"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Taste before serving"},
     ]},
-    {key:"revuelto_de_hongos",name:"Revuelto de Hongos",emoji:"🍄",desc:"Wild mushroom scramble",color:"#78350F",dark:"#431407",bg:"#FFF7ED",stages:[
+    {key:"revuelto_de_hongos",name:"Onddo-nahaskia",emoji:"🍄",desc:"Wild mushrooms scrambled with egg",color:"#78350F",dark:"#431407",bg:"#FFF7ED",stages:[
       {instruction:"Pick the mushrooms",keyword:"onddo",hint:"Wild mushrooms from the Basque hills"},
       {instruction:"Beat the eggs",keyword:"arrautza",hint:"3 eggs per person"},
       {instruction:"Heat the oil",keyword:"olioa",hint:"A generous splash in the pan"},
@@ -3664,42 +3682,42 @@ function BasqueKitchenScreen(props){
       {instruction:"Name the round bread it is baked as",keyword:"opila",hint:"Opila: a Basque bun, the sweet kind traditionally eaten at Easter"},
       {instruction:"Bake until hot",keyword:"beroa",hint:"A hot oven gives a golden crust"},
     ]},
-    {key:"txuleta_a_la_parrilla",name:"Txuleta a la Parrilla",emoji:"🥩",desc:"Basque grilled ribeye steak",color:"#991B1B",dark:"#450A0A",bg:"#FFF1F2",stages:[
+    {key:"txuleta_a_la_parrilla",name:"Txuleta errea",emoji:"🥩",desc:"Aged rib chop over coals",color:"#991B1B",dark:"#450A0A",bg:"#FFF1F2",stages:[
       {instruction:"Choose a thick steak",keyword:"txuleta",hint:"Basque txuleton: aged and enormous"},
       {instruction:"Grill over hot coals",keyword:"erre",hint:"High heat, short time: never well done"},
       {instruction:"Carve it into thick slices to serve",keyword:"xerra",hint:"A steak, a fillet, a slice off the bone"},
       {instruction:"Rest the meat",keyword:"haragia",hint:"Let it rest before cutting"},
       {instruction:"Serve at the table",keyword:"jan",hint:"Everyone eats together"},
     ]},
-    {key:"sagardotegi_plater",name:"Sagardotegi Plater",emoji:"🍶",desc:"Traditional cider house menu",color:"#166534",dark:"#14532D",bg:"#F0FDF4",stages:[
+    {key:"sagardotegi_plater",name:"Sagardotegiko platera",emoji:"🍶",desc:"What the cider house serves",color:"#166534",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"Pour the cider",keyword:"sagardoa",hint:"Poured from height to aerate it"},
       {instruction:"Serve the omelette",keyword:"tortilla",hint:"Cod omelette is the traditional starter"},
       {instruction:"Bring out the steak",keyword:"txuleta",hint:"Enormous: for the whole table"},
       {instruction:"Add walnuts for dessert",keyword:"intxaurra",hint:"With Idiazabal cheese and quince"},
       {instruction:"Call txotx!",keyword:"txotx",hint:"The signal to fill your glass at the barrel"},
     ]},
-    {key:"arroz_con_leche",name:"Arroz con Leche",emoji:"🍚",desc:"Basque rice pudding",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
+    {key:"arroz_con_leche",name:"Esne-arroza",emoji:"🍚",desc:"Rice slowly cooked in milk",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
       {instruction:"Measure the rice",keyword:"arroza",hint:"Short grain rice absorbs milk best"},
       {instruction:"Warm the milk",keyword:"esnea",hint:"Whole milk, slowly heated"},
       {instruction:"Stir in the sugar",keyword:"azukrea",hint:"Add to taste: some like it sweet"},
       {instruction:"Add cream on top",keyword:"esnegaina",hint:"A spoonful of cream to finish"},
       {instruction:"Boil gently",keyword:"egosi",hint:"Low heat, constant stirring"},
     ]},
-    {key:"patatas_fritas_caseras",name:"Patatas Fritas Caseras",emoji:"🍟",desc:"Homemade Basque fried potatoes",color:"#CA8A04",dark:"#78350F",bg:"#FFFBEB",stages:[
+    {key:"patatas_fritas_caseras",name:"Patata frijituak",emoji:"🍟",desc:"Thick cut and fried twice",color:"#CA8A04",dark:"#78350F",bg:"#FFFBEB",stages:[
       {instruction:"Peel the potatoes",keyword:"patata",hint:"Thick cut: these are proper chips"},
       {instruction:"Heat plenty of oil",keyword:"olioa",hint:"Sunflower or olive: enough to submerge"},
       {instruction:"Fry until golden",keyword:"frijitu",hint:"Twice-fried for extra crunch"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Salt immediately while still hot"},
       {instruction:"Serve with vegetables",keyword:"barazkia",hint:"A simple green salad on the side"},
     ]},
-    {key:"menu_del_dia",name:"Menú del Día",emoji:"📋",desc:"The classic Basque set lunch",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
+    {key:"menu_del_dia",name:"Eguneko menua",emoji:"📋",desc:"Three courses and wine, every weekday",color:"#7C3AED",dark:"#4C1D95",bg:"#F5F3FF",stages:[
       {instruction:"Read the menu",keyword:"menua",hint:"Three courses, wine included"},
       {instruction:"Order the salad",keyword:"letxuga",hint:"Always a simple green salad to start"},
       {instruction:"Choose the fish",keyword:"arraina",hint:"Basques always have fish on the menu"},
       {instruction:"Finish with fruit",keyword:"fruta",hint:"Seasonal fruit or a small dessert"},
       {instruction:"Order coffee",keyword:"kafea",hint:"A cortado to finish: always"},
     ]},
-    {key:"gosaria_euskalduna",name:"Gosaria Euskalduna",emoji:"🌅",desc:"Traditional Basque breakfast",color:"#C2410C",dark:"#7C2D12",bg:"#FFF7ED",stages:[
+    {key:"gosaria_euskalduna",name:"Gosaria euskalduna",emoji:"🌅",desc:"Traditional Basque breakfast",color:"#C2410C",dark:"#7C2D12",bg:"#FFF7ED",stages:[
       {instruction:"Start the morning",keyword:"gosaria",hint:"Breakfast in Basque is a ritual"},
       {instruction:"Brew the coffee",keyword:"kafea",hint:"Strong and black or with milk"},
       {instruction:"Toast the bread",keyword:"ogia",hint:"Ogia: bread. Ogitegi is a bakery, the bread-place"},
@@ -3713,7 +3731,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Make the walnut sauce",keyword:"intxaursaltsa",hint:"Blend until silky smooth"},
       {instruction:"Boil to thicken",keyword:"egosi",hint:"Stir constantly to avoid burning"},
     ]},
-    {key:"txokolatea_eta_sagarra",name:"Txokolatea eta Sagarra",emoji:"🍫",desc:"Chocolate and apple dessert",color:"#7C2D12",dark:"#431407",bg:"#FFF7ED",stages:[
+    {key:"txokolatea_eta_sagarra",name:"Txokolatea eta sagarra",emoji:"🍫",desc:"Chocolate and apple dessert",color:"#7C2D12",dark:"#431407",bg:"#FFF7ED",stages:[
       {instruction:"Slice the apple",keyword:"sagarra",hint:"Basque apples are tart and crisp"},
       {instruction:"Melt the chocolate",keyword:"txokolatea",hint:"Dark chocolate, minimum 70%"},
       {instruction:"Warm the milk",keyword:"esnea",hint:"For a smooth ganache"},
@@ -3727,35 +3745,35 @@ function BasqueKitchenScreen(props){
       {instruction:"Serve with walnuts",keyword:"intxaurra",hint:"Crushed walnuts on top is traditional"},
       {instruction:"Taste for sweetness",keyword:"goxoa",hint:"It should be delicately sweet"},
     ]},
-    {key:"pintxo_bar_crawl",name:"Pintxo Bar Crawl",emoji:"🍺",desc:"An evening in the Old Town",color:"#1E40AF",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
+    {key:"pintxo_bar_crawl",name:"Pintxo-poteoa",emoji:"🍺",desc:"An evening going bar to bar",color:"#1E40AF",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
       {instruction:"Order a pintxo",keyword:"pintxoa",hint:"One bite, one drink: that's the rule"},
       {instruction:"Pour a cold beer",keyword:"garagardoa",hint:"Garagardoa: garagar (barley) + ardoa (wine), literally barley-wine"},
       {instruction:"Find the food",keyword:"janaria",hint:"Every bar has its speciality"},
       {instruction:"Call it dinner",keyword:"afaria",hint:"Pintxos are dinner in the Basque Country"},
       {instruction:"Raise the glass before you move on",keyword:"edan",hint:"Edan: to drink. Edaria is a drink, edateko ura is drinking water"},
     ]},
-    {key:"piperrada_euskalduna",name:"Piperrada Euskalduna",emoji:"🌶️",desc:"The original Basque pepper stew",color:"#B91C1C",dark:"#7F1D1D",bg:"#FFF1F2",stages:[
+    {key:"piperrada_euskalduna",name:"Piperrada euskalduna",emoji:"🌶️",desc:"The original Basque pepper stew",color:"#B91C1C",dark:"#7F1D1D",bg:"#FFF1F2",stages:[
       {instruction:"Find the written method you are following",keyword:"errezeta",hint:"Errezeta: recipe, from Spanish receta. Errezeta jarraitu is to follow one"},
       {instruction:"List the ingredients",keyword:"osagai",hint:"Pepper, tomato, onion, oil, egg"},
       {instruction:"Use local produce",keyword:"bertako_produktua",hint:"Basque vegetables are world-class"},
       {instruction:"Apply cooking technique",keyword:"sukalde_teknika",hint:"Low and slow: don't rush it"},
       {instruction:"It is a traditional dish",keyword:"piperrada",hint:"The Basque word for piperade"},
     ]},
-    {key:"ardandegi_bisita",name:"Ardandegi Bisita",emoji:"🍷",desc:"A visit to a Basque winery",color:"#6B21A8",dark:"#3B0764",bg:"#FAF5FF",stages:[
+    {key:"ardandegi_bisita",name:"Ardandegiko bisita",emoji:"🍷",desc:"A visit to a Basque winery",color:"#6B21A8",dark:"#3B0764",bg:"#FAF5FF",stages:[
       {instruction:"Visit the wine cellar",keyword:"ardandegi",hint:"Ardandegia: ardo (wine) + -tegi (place for), the same ending as sagardotegi"},
       {instruction:"Taste the wines",keyword:"dastaketa",hint:"A guided tasting: sip, swirl, spit"},
       {instruction:"Learn about gastronomy",keyword:"gastronomia",hint:"Basques take food as seriously as wine"},
       {instruction:"Pour the wine",keyword:"ardoa",hint:"Red Rioja or white Txakoli"},
       {instruction:"Reserve a table",keyword:"mahaia_erreserbatu",hint:"The restaurant is attached to the winery"},
     ]},
-    {key:"bazkaria_etxean",name:"Bazkaria Etxean",emoji:"🏡",desc:"Sunday lunch at home",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",stages:[
+    {key:"bazkaria_etxean",name:"Bazkaria etxean",emoji:"🏡",desc:"Sunday lunch at home",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"Prepare Sunday lunch",keyword:"bazkaria",hint:"The most important meal of the week"},
       {instruction:"Sit down to eat",keyword:"bazkaldu",hint:"To have lunch: together, always"},
       {instruction:"Serve the food",keyword:"janaria",hint:"Whatever Ama has cooked"},
       {instruction:"Pour some tea",keyword:"tea",hint:"For those who don't drink wine"},
       {instruction:"Enjoy the meal",keyword:"jan",hint:"Eat well, eat slowly"},
     ]},
-    {key:"mahaia_prestatu",name:"Mahaia Prestatu",emoji:"\u{1F374}",desc:"Laying a place at the table",color:"#64748B",dark:"#334155",bg:"#F1F5F9",stages:[
+    {key:"mahaia_prestatu",name:"Mahaia prestatu",emoji:"\u{1F374}",desc:"Laying a place at the table",color:"#64748B",dark:"#334155",bg:"#F1F5F9",stages:[
       {instruction:"Lay the plate in the middle",keyword:"platera",hint:"Round, flat, and the first thing down"},
       {instruction:"Set the knife on the right",keyword:"labana",hint:"The one for cutting"},
       {instruction:"Put the fork on the left",keyword:"sardexka",hint:"A little pitchfork, if you take the word apart"},
@@ -3796,7 +3814,9 @@ function BasqueKitchenScreen(props){
       if(!Array.isArray(a))return;
       var out=[],changed=false;
       a.forEach(function(v){
-        var d=DISHES.filter(function(x){return x.key===v;})[0]||DISHES.filter(function(x){return x.name===v;})[0];
+        var d=DISHES.filter(function(x){return x.key===v;})[0]||
+              DISHES.filter(function(x){return x.name===v;})[0]||
+              DISHES.filter(function(x){return x.key===dishSlug(v);})[0];
         if(!d){changed=true;return;}
         if(d.key!==v)changed=true;
         if(out.indexOf(d.key)===-1)out.push(d.key);
