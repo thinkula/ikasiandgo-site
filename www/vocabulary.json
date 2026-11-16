@@ -10815,6 +10815,71 @@
       }
     },
     {
+      "id": "duzu",
+      "basque": "Duzu",
+      "english": "You have it",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "DOO-soo",
+      "notes": "Duzu is du plus -zu, the ending that stands for zu. Behind a participle it does the same job dut does: zuk kafea edan duzu, you have drunk the coffee.",
+      "example": {
+        "basque": "Zuk ogia duzu.",
+        "english": "You have the bread."
+      }
+    },
+    {
+      "id": "du",
+      "basque": "Du",
+      "english": "He / She / It has it",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "DOO",
+      "notes": "Du is the bare form, with no ending at all, and it covers he, she and it alike. It is the one you will meet most, because so many sentences are about a third person or a thing.",
+      "example": {
+        "basque": "Anek etxe bat du.",
+        "english": "Ane has a house."
+      }
+    },
+    {
+      "id": "dugu",
+      "basque": "Dugu",
+      "english": "We have it",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "DOO-goo",
+      "notes": "Dugu is du plus -gu, and the -gu is gu itself, barely changed. Guk euskara ikasi dugu, we have learned Basque.",
+      "example": {
+        "basque": "Guk kafea dugu.",
+        "english": "We have the coffee."
+      }
+    },
+    {
+      "id": "duzue",
+      "basque": "Duzue",
+      "english": "You all have it",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "doo-SOO-eh",
+      "notes": "Duzue is du plus -zue, which sits next to zuek the way -zu sits next to zu. Zuek stays as it is in front of it, since it never takes the -k.",
+      "example": {
+        "basque": "Zuek liburua duzue.",
+        "english": "You all have the book."
+      }
+    },
+    {
+      "id": "dute",
+      "basque": "Dute",
+      "english": "They have it",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "DOO-teh",
+      "notes": "Dute is du plus -te, the ending for a they. Like zuek, haiek keeps its plain shape in front of it.",
+      "example": {
+        "basque": "Haiek etxe bat dute.",
+        "english": "They have a house."
+      }
+    },
+    {
       "id": "izan",
       "basque": "Izan",
       "english": "To be (who you are)",
