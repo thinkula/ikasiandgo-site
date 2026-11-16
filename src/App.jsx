@@ -5710,40 +5710,50 @@ function ArbolaScreen(props){
 // numbers are positional and get rewritten whenever the path is resequenced;
 // lesson ids never change, because progress is stored by id.
 // npm run check-lessons enforces all of that.
+//
+// Chapters are mostly topic blocks, which is why so many of them are short:
+// the path moves through subjects faster than a book moves through chapters.
+// "Building a sentence" is the exception, and the only one of its kind. The
+// grammar lessons are deliberately scattered, each placed where the learner
+// finally holds the vocabulary to use it, so 14 and 15 are the only two that
+// sit together and the only two that could be given a chapter of their own.
+// 25, 28 and 70 stay where they are, under the topic they interrupt.
 var CHAPTERS=[
   {n:1,name:"First steps",from:1,to:6},
   {n:2,name:"Counting and kin",from:7,to:10},
-  {n:3,name:"Day to day",from:11,to:18},
-  {n:4,name:"Your world",from:19,to:23},
-  {n:5,name:"Out in the world",from:24,to:29},
-  {n:6,name:"Close to home",from:30,to:31},
-  {n:7,name:"More of everything",from:32,to:34},
-  {n:8,name:"Land and feast",from:35,to:37},
-  {n:9,name:"Going deeper",from:38,to:42},
-  {n:10,name:"At the table",from:43,to:45},
-  {n:11,name:"On the move",from:46,to:47},
-  {n:12,name:"Body and health",from:48,to:49},
-  {n:13,name:"The natural world",from:50,to:51},
-  {n:14,name:"Home and company",from:52,to:54},
-  {n:15,name:"Days and order",from:55,to:57},
-  {n:16,name:"Creatures",from:58,to:59},
-  {n:17,name:"How it feels",from:60,to:61},
-  {n:18,name:"Describing and working",from:62,to:63},
-  {n:19,name:"Music and festival",from:64,to:65},
-  {n:20,name:"Color and town",from:66,to:68},
-  {n:21,name:"Saying it yourself",from:69,to:71},
-  {n:22,name:"The world around you",from:72,to:74},
-  {n:23,name:"Getting your bearings",from:75,to:77},
-  {n:24,name:"Describing the world",from:78,to:80},
-  {n:25,name:"Work and the body",from:81,to:82},
-  {n:26,name:"People and traditions",from:83,to:85},
-  {n:27,name:"Rights and language",from:86,to:87},
-  {n:28,name:"Where you come from",from:88,to:90},
-  {n:29,name:"Words that carry weight",from:91,to:93},
-  {n:30,name:"Business and figures",from:94,to:96},
-  {n:31,name:"Health and the table",from:97,to:98},
-  {n:32,name:"Time, color and courtesy",from:99,to:101},
-  {n:33,name:"Argument and belonging",from:102,to:104}
+  {n:3,name:"Day to day",from:11,to:13},
+  {n:4,name:"Building a sentence",from:14,to:15},
+  {n:5,name:"Body, land and feeling",from:16,to:18},
+  {n:6,name:"Your world",from:19,to:23},
+  {n:7,name:"Out in the world",from:24,to:29},
+  {n:8,name:"Close to home",from:30,to:31},
+  {n:9,name:"More of everything",from:32,to:34},
+  {n:10,name:"Land and feast",from:35,to:37},
+  {n:11,name:"Going deeper",from:38,to:42},
+  {n:12,name:"At the table",from:43,to:45},
+  {n:13,name:"On the move",from:46,to:47},
+  {n:14,name:"Body and health",from:48,to:49},
+  {n:15,name:"The natural world",from:50,to:51},
+  {n:16,name:"Home and company",from:52,to:54},
+  {n:17,name:"Days and order",from:55,to:57},
+  {n:18,name:"Creatures",from:58,to:59},
+  {n:19,name:"How it feels",from:60,to:61},
+  {n:20,name:"Describing and working",from:62,to:63},
+  {n:21,name:"Music and festival",from:64,to:65},
+  {n:22,name:"Color and town",from:66,to:68},
+  {n:23,name:"Saying it yourself",from:69,to:71},
+  {n:24,name:"The world around you",from:72,to:74},
+  {n:25,name:"Getting your bearings",from:75,to:77},
+  {n:26,name:"Describing the world",from:78,to:80},
+  {n:27,name:"Work and the body",from:81,to:82},
+  {n:28,name:"People and traditions",from:83,to:85},
+  {n:29,name:"Rights and language",from:86,to:87},
+  {n:30,name:"Where you come from",from:88,to:90},
+  {n:31,name:"Words that carry weight",from:91,to:93},
+  {n:32,name:"Business and figures",from:94,to:96},
+  {n:33,name:"Health and the table",from:97,to:98},
+  {n:34,name:"Time, color and courtesy",from:99,to:101},
+  {n:35,name:"Argument and belonging",from:102,to:104}
 ];
 var LESSONS=[
   {
