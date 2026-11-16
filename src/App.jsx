@@ -3141,7 +3141,18 @@ function GamesScreen(props){
 
   React.useEffect(function(){
     try{STORE.get('pairs_best_greetings_medium').then(function(r){if(r&&r.value){var d=JSON.parse(r.value);setPairsBest(d.moves+"mv · "+d.time+"s");}}).catch(function(){});}catch(e){}
-    try{STORE.get('tap_best_greetings_easy').then(function(r){if(r&&r.value)setTapBest(r.value+" pts");}).catch(function(){});}catch(e){}
+    // Tap keeps a separate record per topic and difficulty, 42 of them. This
+    // card used to read one hardcoded key, so a player whose best was on Food
+    // or on Hard saw no best at all. Take the highest of whatever is stored.
+    try{STORE.list('tap_best_').then(function(r){
+      var keys=(r&&r.keys)||[];
+      if(!keys.length)return;
+      return Promise.all(keys.map(function(k){return STORE.get(k).catch(function(){return null;});})).then(function(rows){
+        var top=0;
+        rows.forEach(function(x){if(x&&x.value){var n=parseInt(x.value)||0;if(n>top)top=n;}});
+        if(top>0)setTapBest(top+" pts");
+      });
+    }).catch(function(){});}catch(e){}
     try{STORE.get('kitchen_best').then(function(r){if(r&&r.value)setTxokoBest(r.value+" pts");}).catch(function(){});}catch(e){}
     try{STORE.get('ordutegi_best').then(function(r){if(r&&r.value)setOrdBest(r.value+" pts");}).catch(function(){});}catch(e){}
     try{STORE.get('koloreak_best').then(function(r){if(r&&r.value)setKolBest(r.value+" pts");}).catch(function(){});}catch(e){}
@@ -3252,16 +3263,29 @@ function TapScreen(props){
   var _won=useState(false);var won=_won[0];var setWon=_won[1];
   var _streak=useState(0);var streak=_streak[0];var setStreak=_streak[1];
   var _best=useState(0);var best=_best[0];var setBest=_best[1];
+  // The record as it stood when the run started. The results sheet needs it to
+  // say whether this run beat it, and it cannot ask `best`, because `best` has
+  // already been raised to this run's score by the time the sheet renders.
+  var _pbest=useState(0);var prevBest=_pbest[0];var setPrevBest=_pbest[1];
   var _shake=useState(false);var shake=_shake[0];var setShake=_shake[1];
   var _combo=useState(null);var combo=_combo[0];var setCombo=_combo[1];
   var timerRef=React.useRef(null);
+  // Counters the interval and the answer handler both advance. They are read
+  // and written outside React state because the places that need them run
+  // inside callbacks, and a state updater is not allowed to schedule anything.
+  var bestRef=React.useRef(0);
+  var totalRef=React.useRef(0);
+  var secsRef=React.useRef(0);
   var ROUNDS=10;
 
   var diffCfg=DIFFICULTIES.find(function(d){return d.key===diff;})||DIFFICULTIES[0];
 
   // Load best score from storage
   React.useEffect(function(){
-    try{STORE.get('tap_best_'+topic+'_'+diff).then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
+    bestRef.current=0;setBest(0);setPrevBest(0);
+    try{STORE.get('tap_best_'+topic+'_'+diff).then(function(r){
+      if(r&&r.value){var n=parseInt(r.value)||0;bestRef.current=n;setBest(n);setPrevBest(n);}
+    }).catch(function(){});}catch(e){}
   },[topic,diff]);
 
   function getPool(){
@@ -3275,10 +3299,12 @@ function TapScreen(props){
     return pool;
   }
 
+  // Starts at diffCfg.secs and steps down twice. Both floors are 2: the middle
+  // one used to be 3, which meant Hard, already at 3, never actually sped up
+  // while the screen said "Getting faster".
   function getTimerSecs(roundIdx){
-    // Adaptive: starts at diffCfg.secs, speeds up after round 5
     if(roundIdx>=7)return Math.max(2,diffCfg.secs-2);
-    if(roundIdx>=4)return Math.max(3,diffCfg.secs-1);
+    if(roundIdx>=4)return Math.max(2,diffCfg.secs-1);
     return diffCfg.secs;
   }
 
@@ -3286,8 +3312,13 @@ function TapScreen(props){
     clearInterval(timerRef.current);
     if(currentTotal>=ROUNDS){
       setActive(false);setWon(true);
-      setBest(function(b){return Math.max(b,currentScore);});
-      try{STORE.set('tap_best_'+topic+'_'+diff,String(Math.max(best,currentScore))).catch(function(){});}catch(e){}      setQuestion(null);return;
+      var pb=bestRef.current;
+      setPrevBest(pb);
+      if(currentScore>pb){
+        bestRef.current=currentScore;setBest(currentScore);
+        try{STORE.set('tap_best_'+topic+'_'+diff,String(currentScore)).catch(function(){});}catch(e){}
+      }
+      setQuestion(null);return;
     }
     var pool=getPool();
     if(pool.length<4){setWon(true);setQuestion(null);return;}
@@ -3296,22 +3327,29 @@ function TapScreen(props){
     var options=shuffled([word].concat(distractors));
     // Direction is user-controlled toggle, not random
     var t=getTimerSecs(currentTotal);
+    secsRef.current=t;
     setQuestion(word);setOpts(options);setSel(null);setSecs(t);setMaxSecs(t);setCombo(null);
+    // The countdown drives off a ref rather than off the setSecs updater. The
+    // updater used to fire setSel, setStreak, setTotal and a setTimeout from
+    // inside itself; React is free to re-run an updater, and a second run
+    // would queue a second nextQuestion and skip a round.
     timerRef.current=setInterval(function(){
-      setSecs(function(s){
-        if(s<=1){
-          clearInterval(timerRef.current);
-          setSel("__timeout__");
-          setStreak(0);setShake(true);setTimeout(function(){setShake(false);},500);
-          setTotal(function(t2){var nt=t2+1;setTimeout(function(){nextQuestion(nt,currentScore,0,currentCorrect);},950);return nt;});
-          return 0;
-        }
-        return s-1;
-      });
+      var s=secsRef.current-1;
+      secsRef.current=s;
+      setSecs(s<0?0:s);
+      if(s<=0){
+        clearInterval(timerRef.current);
+        setSel("__timeout__");
+        setStreak(0);setShake(true);setTimeout(function(){setShake(false);},500);
+        var nt=totalRef.current+1;totalRef.current=nt;setTotal(nt);
+        setTimeout(function(){nextQuestion(nt,currentScore,0,currentCorrect);},950);
+      }
     },1000);
   }
 
   function start(){
+    clearInterval(timerRef.current);
+    totalRef.current=0;
     setScore(0);setTotal(0);setStreak(0);setCorrect(0);setWon(false);setActive(true);
     setQuestion(null);setCombo(null);setShake(false);
     setTimeout(function(){nextQuestion(0,0,0,0);},50);
@@ -3332,11 +3370,13 @@ function TapScreen(props){
       var nc=currentCorrect+1;
       setScore(sc);setStreak(ns);setCorrect(nc);
       if(ns>=3)setCombo("+"+pts+"  🔥"+ns);
-      setTotal(function(t2){var nt=t2+1;setTimeout(function(){nextQuestion(nt,sc,ns,nc);},600);return nt;});
+      var nt=totalRef.current+1;totalRef.current=nt;setTotal(nt);
+      setTimeout(function(){nextQuestion(nt,sc,ns,nc);},600);
     }else{
       haptic("error");sfx("wrong");
       setStreak(0);setShake(true);setTimeout(function(){setShake(false);},500);
-      setTotal(function(t2){var nt=t2+1;setTimeout(function(){nextQuestion(nt,currentScore,0,currentCorrect);},900);return nt;});
+      var nw=totalRef.current+1;totalRef.current=nw;setTotal(nw);
+      setTimeout(function(){nextQuestion(nw,currentScore,0,currentCorrect);},900);
     }
   }
 
@@ -3345,6 +3385,15 @@ function TapScreen(props){
   var timerPct=maxSecs>0?secs/maxSecs*100:100;
   var timerColor=secs<=1?"#EF4444":secs<=2?"#F97316":"#4ADE80";
   var isFlipped=dir==='eu';
+  // Read the speed caption off the clock instead of off the round number, so
+  // it can only say the timer sped up when the timer actually did. On Hard it
+  // used to announce "Getting faster" through three rounds at a flat 3s.
+  var curSecs=getTimerSecs(total),openSecs=getTimerSecs(0),fastSecs=getTimerSecs(ROUNDS-1);
+  var speedNote=fastSecs<openSecs&&curSecs<=fastSecs?"⚡ Max speed!":curSecs<openSecs?"Getting faster…":"";
+  // Measured against the record the run started with. Against `best` this is
+  // always false, because beating the record is what raised `best`, so the
+  // "New best!" line and the star it goes with had never once appeared.
+  var isRecord=score>prevBest&&score>0;
   
 
   return(
@@ -3354,8 +3403,12 @@ function TapScreen(props){
       <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0")}}>
         <button aria-label="Close" onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
         <div style={{flex:1}}>
-          <p style={{margin:0,fontSize:15,fontWeight:900,color:active?"#fff":"#1A1A1A",letterSpacing:-0.3}}>⚡ Tap the Word</p>
-          <p style={{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.4)":"#AAA",fontWeight:600,textTransform:"capitalize"}}>{topic} · {diffCfg.label}</p>
+          {/* The header bar is white in both states. These two used to turn
+              white while a round was active, which left the title and the
+              topic invisible for the whole run, which is exactly when a
+              player might want to check what they picked. */}
+          <p style={{margin:0,fontSize:15,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}}>⚡ Tap the Word</p>
+          <p style={{margin:0,fontSize:10,color:"#AAA",fontWeight:600,textTransform:"capitalize"}}>{topic} · {diffCfg.label}</p>
         </div>
         <div style={{display:"flex",gap:5,alignItems:"center"}}>
           {active&&(
@@ -3403,7 +3456,9 @@ function TapScreen(props){
             <p style={{fontSize:22,fontWeight:900,color:"#1A1A1A",margin:"0 0 6px",letterSpacing:-0.5}}>Tap the Word</p>
             <p style={{fontSize:13,color:"#8E8E93",margin:"0 0 28px",lineHeight:1.6}}>Tap the correct translation<br/>before the timer runs out.</p>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:28,maxWidth:280,margin:"0 auto 28px"}}>
-              {[{l:"10",s:"rounds"},{l:diffCfg.secs+"s",s:"per round"},{l:"+3",s:"combo bonus"},{l:"↔",s:"both directions"}].map(function(p){return(
+              {/* "to start", not "per round": the clock drops twice on the way
+                  through, and on every difficulty it ends faster than this. */}
+              {[{l:"10",s:"rounds"},{l:diffCfg.secs+"s",s:"to start"},{l:"+3",s:"combo bonus"},{l:"↔",s:"both directions"}].map(function(p){return(
                 <div key={p.l} style={{backgroundColor:"#fff",borderRadius:14,padding:"12px 8px",boxShadow:"0 1px 4px rgba(0,0,0,0.07)",textAlign:"center"}}>
                   <p style={{margin:0,fontSize:20,fontWeight:900,color:"#F97316"}}>{p.l}</p>
                   <p style={{margin:0,fontSize:10,color:"#8E8E93",fontWeight:700}}>{p.s}</p>
@@ -3477,7 +3532,7 @@ function TapScreen(props){
                   return <div key={i} style={{width:isCur?12:6,height:6,borderRadius:3,backgroundColor:done?"#F97316":isCur?"rgba(249,115,22,0.4)":"#F0F0F0",transition:"all 0.25s cubic-bezier(0.34,1.56,0.64,1)"}}/>;
                 })}
               </div>
-              <span style={{fontSize:11,fontWeight:700,color:total>=7?"#EF4444":total>=4?"#F97316":"#D1D1D6",transition:"color 0.3s"}}>{total>=7?"⚡ Max speed!":total>=4?"Getting faster…":""}</span>
+              <span style={{fontSize:11,fontWeight:700,color:curSecs<=fastSecs&&fastSecs<openSecs?"#EF4444":curSecs<openSecs?"#F97316":"#D1D1D6",transition:"color 0.3s"}}>{speedNote}</span>
             </div>
           </div>
         )}
@@ -3489,10 +3544,10 @@ function TapScreen(props){
           <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
-              <div style={{width:72,height:72,borderRadius:"50%",background:score>best&&score>0?"linear-gradient(135deg,#C2510E,#F97316)":correct===ROUNDS?"linear-gradient(135deg,#059669,#22C55E)":"linear-gradient(135deg,#475569,#94A3B8)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:score>best?"0 8px 24px rgba(249,115,22,0.35)":correct===ROUNDS?"0 8px 24px rgba(34,197,94,0.3)":"none"}}>
-                {correct===ROUNDS?"🏆":score>best&&score>0?"⭐":"⚡"}
+              <div style={{width:72,height:72,borderRadius:"50%",background:isRecord?"linear-gradient(135deg,#C2510E,#F97316)":correct===ROUNDS?"linear-gradient(135deg,#059669,#22C55E)":"linear-gradient(135deg,#475569,#94A3B8)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:isRecord?"0 8px 24px rgba(249,115,22,0.35)":correct===ROUNDS?"0 8px 24px rgba(34,197,94,0.3)":"none"}}>
+                {correct===ROUNDS?"🏆":isRecord?"⭐":"⚡"}
               </div>
-              <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{correct===ROUNDS?"Perfect!":score>best&&score>0?"New best!":"Round done"}</p>
+              <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{correct===ROUNDS?"Perfect!":isRecord?"New best!":"Round done"}</p>
               <p style={{margin:"0 0 20px",fontSize:13,color:"#8E8E93",fontWeight:600,textTransform:"capitalize"}}>{topic} · {diffCfg.label}</p>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:8,marginBottom:16}}>
                 {[{v:score,l:"Points",c:"#F97316"},{v:correct+"/"+ROUNDS,l:"Correct",c:"#1A1A1A"},{v:Math.round(correct/ROUNDS*100)+"%",l:"Accuracy",c:"#19A85A"},{v:best,l:"Best",c:"#8E8E93"}].map(function(s){return(
