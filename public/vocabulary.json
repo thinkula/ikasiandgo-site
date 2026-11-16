@@ -10880,6 +10880,86 @@
       }
     },
     {
+      "id": "ez_naiz",
+      "basque": "Ez naiz",
+      "english": "I am not",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "ES NIGHS",
+      "notes": "Ez naiz is the negative of naiz. Ez always comes first, and with izan and egon there is nothing else to move: ez naiz, ez nago.",
+      "example": {
+        "basque": "Ez naiz nekatuta.",
+        "english": "I am not tired."
+      }
+    },
+    {
+      "id": "ez_da",
+      "basque": "Ez da",
+      "english": "He / She / It is not",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "ES DAH",
+      "notes": "Ez da is the negative of da, and it is the negative you will hear most, since da itself is the form you meet most.",
+      "example": {
+        "basque": "Ez da nire ama.",
+        "english": "She is not my mother."
+      }
+    },
+    {
+      "id": "ez_dut",
+      "basque": "Ez dut",
+      "english": "I do not / I have not",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "ES DOOT",
+      "notes": "Ez dut is ez plus dut, and the two stay side by side. The participle that would have sat in front of dut drops to the end instead, so ogia jan dut becomes ez dut ogia jan.",
+      "example": {
+        "basque": "Ez dut ogia jan.",
+        "english": "I have not eaten the bread."
+      }
+    },
+    {
+      "id": "ez_dakit",
+      "basque": "Ez dakit",
+      "english": "I do not know",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "ES dah-KEET",
+      "notes": "Ez dakit is the negative of badakit. The ba- on the front of badakit belongs to the affirmative only, so the negative simply drops it.",
+      "example": {
+        "basque": "Ez dakit non dagoen.",
+        "english": "I do not know where it is."
+      }
+    },
+    {
+      "id": "ezer_ez",
+      "basque": "Ezer ez",
+      "english": "Nothing",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "EH-ser es",
+      "mcOnly": true,
+      "notes": "Ezer ez is nothing, and on its own it is a whole answer. Inside a sentence the verb keeps its own ez as well, so ez dut ezer jan is I have eaten nothing, with two negatives adding up to one.",
+      "example": {
+        "basque": "Zer nahi duzu? Ezer ez.",
+        "english": "What do you want? Nothing."
+      }
+    },
+    {
+      "id": "inor_ez",
+      "basque": "Inor ez",
+      "english": "Nobody",
+      "cefr": "A2",
+      "topic": "greetings",
+      "pronunciation": "EE-nor es",
+      "mcOnly": true,
+      "notes": "Inor ez is nobody and it behaves like ezer ez: the verb in the sentence keeps its own ez too.",
+      "example": {
+        "basque": "Nor dago etxean? Inor ez.",
+        "english": "Who is at home? Nobody."
+      }
+    },
+    {
       "id": "izan",
       "basque": "Izan",
       "english": "To be (who you are)",
