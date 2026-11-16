@@ -10960,6 +10960,84 @@
       }
     },
     {
+      "id": "nora",
+      "basque": "Nora?",
+      "english": "Where to?",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "NOH-rah",
+      "notes": "Nora asks where something is headed, where non asks where it already is. The -ra on the end is the same -ra that turns etxe into etxera.",
+      "example": {
+        "basque": "Nora zoaz?",
+        "english": "Where are you going?"
+      }
+    },
+    {
+      "id": "nondik",
+      "basque": "Nondik?",
+      "english": "Where from?",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "NON-deek",
+      "notes": "Nondik asks where something is coming from, and it ends in the same -tik that makes etxetik and hemendik. Keep it apart from nongoa, which asks what place you belong to rather than which way you came.",
+      "example": {
+        "basque": "Nondik dator trena?",
+        "english": "Where does the train come from?"
+      }
+    },
+    {
+      "id": "etxera",
+      "basque": "Etxera",
+      "english": "To home / Homewards",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "eh-CHEH-rah",
+      "notes": "Etxera is etxe plus -ra. The article -a comes off first, so it is built on the bare etxe rather than on etxea.",
+      "example": {
+        "basque": "Etxera noa.",
+        "english": "I am going home."
+      }
+    },
+    {
+      "id": "etxean",
+      "basque": "Etxean",
+      "english": "At home",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "eh-CHEH-ahn",
+      "notes": "Etxean is etxe with the ending for being somewhere. Etxean nago is I am at home, and it takes egon rather than izan, because being somewhere is a passing state.",
+      "example": {
+        "basque": "Etxean nago.",
+        "english": "I am at home."
+      }
+    },
+    {
+      "id": "hemendik",
+      "basque": "Hemendik",
+      "english": "From here",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "eh-MEN-deek",
+      "notes": "Hemendik is hemen plus -tik, and it is regular. Handik is the same thing built on han, from there.",
+      "example": {
+        "basque": "Hemendik gertu dago.",
+        "english": "It is near here."
+      }
+    },
+    {
+      "id": "hona",
+      "basque": "Hona",
+      "english": "To here",
+      "cefr": "A2",
+      "topic": "travel",
+      "pronunciation": "OH-nah",
+      "notes": "Hona is the one that bends. To here is hona, not hemenera, and to there is hara rather than hanera. The from forms stay regular.",
+      "example": {
+        "basque": "Zatoz hona!",
+        "english": "Come here!"
+      }
+    },
+    {
       "id": "izan",
       "basque": "Izan",
       "english": "To be (who you are)",
