@@ -261,6 +261,74 @@ try {
   warn("could not check listing copy", e.message);
 }
 
+/* ------------------------------------------------ website screenshots */
+
+/*
+ * The numbers in the website HTML are stamped by sync-vocab, so they have
+ * never been wrong. The numbers burned into the screenshots are not stamped
+ * by anything, and went five releases without anyone noticing: on 2026-11-16
+ * the live site still showed "Cook 28 classic Basque dishes" (corrected to 27
+ * in 1.6), a lesson path reading "3 / 26 lessons" directly under a stats block
+ * claiming 99 lessons, and "Browse 303 words" against a free tier of 341.
+ *
+ * A PNG cannot be read for its numbers, so this checks age instead. The last
+ * commit to shipped.json is when the currently shipped version was recorded,
+ * so any shot committed before that was taken for an older release and is
+ * suspect by construction. sync-vocab reads shipped.json and never writes it,
+ * which is what makes that date meaningful.
+ */
+
+console.log("\npreflight: website screenshots");
+try {
+  const shotDir = path.join(ROOT, "assets/shots");
+  const gitDate = (f) => {
+    const r = sh("git", ["log", "-1", "--format=%cI", "--", f], { cwd: ROOT });
+    return r.ok && r.out.trim() ? r.out.trim() : null;
+  };
+
+  const html = fs.readdirSync(ROOT).filter(f => f.endsWith(".html"));
+  const referenced = new Set();
+  for (const f of html) {
+    const text = fs.readFileSync(path.join(ROOT, f), "utf8");
+    for (const m of text.matchAll(/assets\/(shots\/[A-Za-z0-9._-]+\.(?:png|jpg|jpeg|webp))/g)) {
+      referenced.add(m[1]);
+    }
+  }
+
+  const missing = [...referenced].filter(r => !fs.existsSync(path.join(ROOT, "assets", r)));
+  if (missing.length) fail("a page references a screenshot that is not there", missing.join(", "));
+
+  const shippedAt = gitDate("shipped.json");
+  if (!referenced.size) {
+    warn("no screenshots referenced by any page", "nothing to check");
+  } else if (!shippedAt) {
+    warn("could not read the shipped.json commit date", "skipping the age check");
+  } else {
+    const stale = [];
+    for (const rel of [...referenced].sort()) {
+      const d = gitDate(path.join("assets", rel));
+      if (d && d < shippedAt) stale.push(rel + " (" + d.slice(0, 10) + ")");
+    }
+    if (stale.length) {
+      fail("screenshots predate the shipped version",
+        stale.join(", ") + "; shipped.json last set " + shippedAt.slice(0, 10) +
+        ". Retake them from the build being advertised.");
+    } else {
+      pass("screenshots are no older than the shipped version",
+        referenced.size + " checked against " + shippedAt.slice(0, 10));
+    }
+  }
+
+  if (fs.existsSync(shotDir)) {
+    const orphans = fs.readdirSync(shotDir)
+      .filter(f => /\.(png|jpg|jpeg|webp)$/.test(f))
+      .filter(f => !referenced.has("shots/" + f));
+    if (orphans.length) warn("screenshots on disk that no page uses", orphans.join(", "));
+  }
+} catch (e) {
+  warn("could not check website screenshots", e.message);
+}
+
 /* ------------------------------------------------------------- launch test */
 
 if (QUICK) {
