@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikasi &amp; Go&trade;: aprende euskera desde el inglés</title>
+<meta name="description" content="Ikasi &amp; Go enseña euskera a partir del inglés, con pronunciación, frases de ejemplo y la historia de cada palabra. La app está en inglés.">
+<meta property="og:title" content="Ikasi &amp; Go&trade;: aprende euskera desde el inglés">
+<meta property="og:description" content="Euskera con su cultura, para quien lee inglés. La app está en inglés; la versión en castellano está prevista para 2027.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://ikasiandgo.com/es/">
+<meta property="og:image" content="https://ikasiandgo.com/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ikasiandgo.com/assets/social-card.png">
+<meta name="theme-color" content="#009B48">
+<link rel="icon" href="/assets/icon.png">
+<link rel="apple-touch-icon" href="/assets/icon.png">
+<link rel="canonical" href="https://ikasiandgo.com/es/">
+<link rel="alternate" hreflang="en" href="https://ikasiandgo.com/">
+<link rel="alternate" hreflang="es" href="https://ikasiandgo.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://ikasiandgo.com/">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+/* Spanish page. Shared theme lives in /assets/site.css; this page carries
+   only its own layout, kept close to the homepage's. */
+.hero{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;padding:64px 0 40px;}
+.kaixo{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:900;color:var(--red);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;}
+.kaixo::after{content:"";width:26px;height:2px;background:var(--red);opacity:.5;}
+h1{font-size:clamp(34px,5.2vw,54px);font-weight:900;line-height:1.05;letter-spacing:-0.035em;}
+h1 .green{color:var(--green);}
+.sub{margin-top:20px;font-size:18px;color:var(--muted);max-width:50ch;}
+.sub b{color:var(--ink);font-weight:800;}
+.cta-row{margin-top:30px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;font-weight:900;font-size:15px;padding:15px 28px;border-radius:14px;box-shadow:0 5px 0 var(--green-deep);text-decoration:none;transition:transform .12s ease,box-shadow .12s ease;}
+a.cta:hover{color:#fff;transform:translateY(2px);box-shadow:0 3px 0 var(--green-deep);}
+a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
+.cta svg{width:19px;height:19px;fill:currentColor;flex:0 0 auto;}
+.cta-note{font-size:13px;font-weight:700;color:var(--faint);}
+.phone{position:relative;margin:0 auto;width:min(300px,80vw);border-radius:42px;padding:10px;background:linear-gradient(160deg,#2b3134,#0e1112);box-shadow:var(--shadow);}
+.phone img{border-radius:33px;width:100%;height:auto;}
+.warn{margin-top:18px;display:inline-block;font-size:15px;color:var(--ink);background:color-mix(in srgb,var(--red) 12%,transparent);border-radius:10px;padding:8px 14px;}
+.warn b{color:var(--red);font-weight:900;}
+.warn a{font-weight:800;}
+.phone-cap{margin-top:12px;font-size:13px;font-weight:700;color:var(--faint);text-align:center;}
+
+/* the notice is the point of this page, so it sits high and reads plainly */
+.notice{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow-sm);margin:8px 0 40px;}
+.notice h2{font-size:clamp(20px,2.6vw,26px);font-weight:900;letter-spacing:-0.02em;line-height:1.2;}
+.notice p{margin-top:10px;font-size:16px;color:var(--muted);max-width:68ch;}
+.notice p b{color:var(--ink);font-weight:800;}
+
+.block{padding:44px 0;border-top:1px solid var(--line);}
+.block h2{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;}
+.block p{margin-top:12px;font-size:16px;color:var(--muted);max-width:62ch;}
+.block p a{font-weight:800;}
+.list{margin-top:18px;display:grid;gap:10px;max-width:62ch;padding:0;list-style:none;}
+.list li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px;color:var(--ink);box-shadow:var(--shadow-sm);}
+.list li b{color:var(--green-text);font-weight:900;}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:40px 0 28px;text-align:center;}
+  .kaixo{justify-content:center;}
+  .sub{margin-left:auto;margin-right:auto;}
+  .cta-row{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/es/"><img src="/assets/icon.png" alt="Icono de Ikasi &amp; Go" width="34" height="34"> Ikasi &amp; Go&trade;</a>
+    <nav class="nav-links">
+      <a href="/" hreflang="en" lang="en">English</a>
+      <a class="nav-get" href="https://apps.apple.com/es/app/ikasi-go/id6779068134">Descargar</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="kaixo">Kaixo!</div>
+    <h1>Euskera,<br><span class="green">aprendido desde el inglés.</span></h1>
+    <p class="sub">Ikasi &amp; Go enseña euskera a quien habla inglés: <b><span data-count="words">1052</span> palabras y expresiones</b>, cada una con su pronunciación, una frase de ejemplo y la historia que hay detrás.</p>
+    <p class="warn"><b>Importante:</b> la app está en inglés. <a href="#antes">Lee esto antes de descargarla</a>.</p>
+  </div>
+  <div>
+    <div class="phone"><img src="/assets/shots/01-home.png" width="414" height="900" alt="Pantalla de inicio de Ikasi &amp; Go, en inglés"></div>
+    <p class="phone-cap">Así se ve la app: todo en inglés.</p>
+  </div>
+</section>
+
+<section class="notice" id="antes">
+  <h2>Antes de descargarla</h2>
+  <p><b>La app está completamente en inglés.</b> Las traducciones, las explicaciones y los ejercicios están en inglés, no en castellano.</p>
+  <p>Si lees inglés con soltura, está hecha para ti. Si no, todavía no es la app adecuada, y preferimos decírtelo antes de que la descargues.</p>
+</section>
+
+<section class="block">
+  <h2>¿Y en castellano?</h2>
+  <p>Esperamos lanzar una versión en castellano en 2027. Si quieres que te avisemos cuando esté lista, escríbenos a <a href="mailto:hello@ikasiandgo.com?subject=Versi%C3%B3n%20en%20castellano">hello@ikasiandgo.com</a> con el asunto «Versión en castellano».</p>
+</section>
+
+<section class="block">
+  <h2>Si lees inglés, esto es lo que incluye</h2>
+  <ul class="list">
+    <li><b><span data-count="words">1052</span></b> palabras y expresiones, de A1 a B2, en <b><span data-count="topics">17</span></b> temas</li>
+    <li><b><span data-count="lessons">99</span></b> lecciones guiadas en <b><span data-count="chapters">33</span></b> capítulos</li>
+    <li>Seis juegos y lecturas cortas en euskera</li>
+    <li>Funciona sin conexión. Sin cuenta y sin anuncios</li>
+    <li>Gratis para empezar</li>
+  </ul>
+  <div class="cta-row">
+    <a class="cta" href="https://apps.apple.com/es/app/ikasi-go/id6779068134"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.13 3-.85.96-2.23 1.7-3.38 1.6-.14-1.1.42-2.25 1.1-3 .78-.86 2.16-1.5 3.24-1.55.03.15.04.3.04.45h.13zm3.98 15.8c-.6 1.4-.89 2.02-1.66 3.25-1.08 1.72-2.6 3.86-4.48 3.88-1.67.02-2.1-1.09-4.37-1.08-2.27.01-2.74 1.1-4.42 1.08-1.88-.02-3.32-1.95-4.4-3.67C-1.9 15.98-2.2 10.3.02 7.3 1.33 5.5 3.3 4.4 5.16 4.4c1.9 0 3.09 1.05 4.66 1.05 1.52 0 2.45-1.05 4.65-1.05 1.65 0 3.4.9 4.65 2.45-4.09 2.24-3.42 8.08.23 9.38z"/></svg>Descargar en el App&nbsp;Store</a>
+    <span class="cta-note">iPhone y iPad</span>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Ikasi &amp; Go&trade; · <a href="mailto:hello@ikasiandgo.com">hello@ikasiandgo.com</a></span>
+  <span><a href="https://apps.apple.com/es/app/ikasi-go/id6779068134">App Store</a> · <a href="https://www.facebook.com/ikasiandgo">Facebook</a> · <a href="/" hreflang="en" lang="en">English</a> · <a href="/privacy.html" hreflang="en">Privacidad (en inglés)</a> · <a href="/terms.html" hreflang="en">Términos (en inglés)</a></span>
+</footer>
+
+</div>
+
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "07c88ddf8a364ff090df382df4dff8d5"}'></script>
+</body>
+</html>

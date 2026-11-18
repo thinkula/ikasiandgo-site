@@ -257,7 +257,7 @@ function countLessons() {
 // the ikasiandgo.com pages quote the vocabulary size via <span data-count="words">
 // and friends, so the site never advertises a stale number. Missing file or
 // missing markers is not an error: a page simply gets nothing stamped.
-const SITE_PAGES = ["index.html", "about.html", "support.html"];
+const SITE_PAGES = ["index.html", "about.html", "support.html", "es/index.html"];
 const topicCount = new Set(vocab.map(function (w) { return w.topic; })).size;
 // per-topic counts in the Inside section carry data-topic="<key>" on the <b>,
 // so those numbers cannot drift either as words are added.
