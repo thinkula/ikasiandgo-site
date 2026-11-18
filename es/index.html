@@ -44,6 +44,9 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
 .warn{margin-top:18px;display:inline-block;font-size:15px;color:var(--ink);background:color-mix(in srgb,var(--red) 12%,transparent);border-radius:10px;padding:8px 14px;}
 .warn b{color:var(--red);font-weight:900;}
 .warn a{font-weight:800;}
+#antes,#castellano{scroll-margin-top:90px;}
+.soon-line{margin-top:10px;font-size:14px;font-weight:700;color:var(--muted);}
+.soon-line a{font-weight:900;}
 .phone-cap{margin-top:12px;font-size:13px;font-weight:700;color:var(--faint);text-align:center;}
 
 /* the notice is the point of this page, so it sits high and reads plainly */
@@ -52,6 +55,8 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
 .notice p{margin-top:10px;font-size:16px;color:var(--muted);max-width:68ch;}
 .notice p b{color:var(--ink);font-weight:800;}
 
+.soon{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:var(--green);border-radius:999px;padding:6px 14px;margin-bottom:14px;}
+.soon::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;opacity:.85;}
 .block{padding:44px 0;border-top:1px solid var(--line);}
 .block h2{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;}
 .block p{margin-top:12px;font-size:16px;color:var(--muted);max-width:62ch;}
@@ -88,6 +93,7 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
     <h1>Euskera,<br><span class="green">aprendido desde el inglés.</span></h1>
     <p class="sub">Ikasi &amp; Go enseña euskera a quien habla inglés: <b><span data-count="words">1052</span> palabras y expresiones</b>, cada una con su pronunciación, una frase de ejemplo y la historia que hay detrás.</p>
     <p class="warn"><b>Importante:</b> la app está en inglés. <a href="#antes">Lee esto antes de descargarla</a>.</p>
+    <p class="soon-line">Versión en castellano: <a href="#castellano">próximamente</a></p>
   </div>
   <div>
     <div class="phone"><img src="/assets/shots/01-home.png" width="414" height="900" alt="Pantalla de inicio de Ikasi &amp; Go, en inglés"></div>
@@ -101,7 +107,8 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
   <p>Si lees inglés con soltura, está hecha para ti. Si no, todavía no es la app adecuada, y preferimos decírtelo antes de que la descargues.</p>
 </section>
 
-<section class="block">
+<section class="block soon-block" id="castellano">
+  <div class="soon">Próximamente · 2027</div>
   <h2>¿Y en castellano?</h2>
   <p>Esperamos lanzar una versión en castellano en 2027. Si quieres que te avisemos cuando esté lista, escríbenos a <a href="mailto:hello@ikasiandgo.com?subject=Versi%C3%B3n%20en%20castellano">hello@ikasiandgo.com</a> con el asunto «Versión en castellano».</p>
 </section>
