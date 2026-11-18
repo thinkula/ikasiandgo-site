@@ -24,6 +24,12 @@
 <link rel="alternate" hreflang="x-default" href="https://ikasiandgo.com/">
 <link rel="stylesheet" href="/assets/site.css">
 <style>
+/* Language switch: the same outlined button in the same place on both pages,
+   reading ES on the English page and EN on the Spanish one. Inline, not in
+   site.css, so a cached stylesheet can never pair with the wrong markup. The display
+   rule beats site.css hiding href="/" links on phones, which would hide EN. */
+.nav-links a.nav-lang{display:inline-block;border:1.5px solid var(--line);color:var(--ink);font-weight:900;letter-spacing:0.04em;padding:6px 10px;border-radius:9px;line-height:1;}
+.nav-links a.nav-lang:hover{border-color:var(--green);color:var(--green);}
 /* Spanish page. Shared theme lives in /assets/site.css; this page carries
    only its own layout, kept close to the homepage's. */
 .hero{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;padding:64px 0 40px;}
@@ -79,7 +85,7 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
   <div class="wrap nav">
     <a class="brand" href="/es/"><img src="/assets/icon.png" alt="Icono de Ikasi &amp; Go" width="34" height="34"> Ikasi &amp; Go&trade;</a>
     <nav class="nav-links">
-      <a href="/" hreflang="en" lang="en" aria-label="English" title="English">EN</a>
+      <a class="nav-lang" href="/" hreflang="en" lang="en" aria-label="English" title="English">EN</a>
       <a class="nav-get" href="https://apps.apple.com/es/app/ikasi-go/id6779068134">Descargar</a>
     </nav>
   </div>

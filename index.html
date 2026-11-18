@@ -51,6 +51,12 @@
 }
 </script>
 <style>
+/* Language switch: the same outlined button in the same place on both pages,
+   reading ES on the English page and EN on the Spanish one. Inline, not in
+   site.css, so a cached stylesheet can never pair with the wrong markup. The display
+   rule beats site.css hiding href="/" links on phones, which would hide EN. */
+.nav-links a.nav-lang{display:inline-block;border:1.5px solid var(--line);color:var(--ink);font-weight:900;letter-spacing:0.04em;padding:6px 10px;border-radius:9px;line-height:1;}
+.nav-links a.nav-lang:hover{border-color:var(--green);color:var(--green);}
 /* index-only layout; shared theme lives in /assets/site.css */
 /* On the narrowest phones Support (also in the footer) makes room for the
    ES link. Kept here rather than in site.css because only this page has it. */
@@ -144,7 +150,7 @@ a.cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--green-deep);}
       <a href="/">Home</a>
       <a href="/about.html">About</a>
       <a href="/support.html">Support</a>
-      <a href="/es/" hreflang="es" lang="es" aria-label="Español" title="Español">ES</a>
+      <a class="nav-lang" href="/es/" hreflang="es" lang="es" aria-label="Español" title="Español">ES</a>
       <a class="nav-get" href="https://apps.apple.com/us/app/ikasi-go/id6779068134">Get the app</a>
     </nav>
   </div>
