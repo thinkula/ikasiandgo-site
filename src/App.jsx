@@ -4742,6 +4742,10 @@ function OrduegiScreen(props){
   // could not be lost: see the comment on handleTimeout.
   var livesRef=React.useRef(3);
   var secsRef=React.useRef(0);
+  // Which run the pending timeouts belong to. Every step schedules its next
+  // move with a setTimeout, and closing the scenario or starting another one
+  // has to cancel those along with the countdown: see leaveScenario.
+  var runRef=React.useRef(0);
   var MAX_SECS=8;
   var LIVES=3;
 
@@ -4905,11 +4909,12 @@ function OrduegiScreen(props){
     var livesLeft=livesRef.current-1;
     livesRef.current=livesLeft;
     setLives(livesLeft);
+    var run=runRef.current;
     if(livesLeft<=0){
       sfx("fail");saveBest();
-      setTimeout(function(){setDone(true);},700);
+      setTimeout(function(){if(runRef.current===run)setDone(true);},700);
     }else{
-      setTimeout(function(){setShowHint(true);startTimer();},400);
+      setTimeout(function(){if(runRef.current!==run)return;setShowHint(true);startTimer();},400);
     }
   }
 
@@ -4926,10 +4931,21 @@ function OrduegiScreen(props){
     }).catch(function(){});}catch(e){}
   }
 
+  // Back to the menu. The close button used to clear the scenario and nothing
+  // else, so the countdown kept running behind the menu: the wrong-answer
+  // buzz every eight seconds, a life gone each time, then the out-of-lives
+  // sound, for a run nobody was playing.
+  function leaveScenario(){
+    clearInterval(timerRef.current);
+    runRef.current=runRef.current+1;
+    setScenario(null);setDone(false);
+  }
+
   function startScenario(idx){
     var s=SCENARIOS[idx];
     scoreRef.current=0;
     clearInterval(timerRef.current);
+    runRef.current=runRef.current+1;
     setScenario(s);setScenIdx(idx);setStage(0);setSel(null);setDone(false);
     setShowHint(false);setScore(0);setLives(LIVES);setStreak(0);setFlash(null);
     livesRef.current=LIVES;
@@ -4940,6 +4956,7 @@ function OrduegiScreen(props){
   function pick(word){
     if(sel||timerSecs===0)return;
     clearInterval(timerRef.current);
+    var run=runRef.current;
     var correctWord=findWord(scenario.stages[stage].keyword);
     var isCorrect=correctWord&&word.id===correctWord.id;
     setSel(word.id);
@@ -4949,17 +4966,22 @@ function OrduegiScreen(props){
       scoreRef.current=scoreRef.current+pts;
       setStreak(ns);setScore(scoreRef.current);setFlash('correct');
       setTimeout(function(){
-        setFlash(null);
+        // Still on this run, or closed in the last three quarters of a second?
+        // A finished scenario is finished either way and is still recorded.
+        var live=runRef.current===run;
         var next=stage+1;
         if(next>=scenario.stages.length){
-          haptic("success");sfx("complete");
-          clearInterval(timerRef.current);
           var doneNow=completed.indexOf(scenario.key)===-1?completed.concat([scenario.key]):completed;
           setCompleted(doneNow);
           try{STORE.set('ordutegi_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
           saveBest();
+          if(!live)return;
+          setFlash(null);
+          haptic("success");sfx("complete");
+          clearInterval(timerRef.current);
           setDone(true);
-        }else{
+        }else if(live){
+          setFlash(null);
           setStage(next);setSel(null);setShowHint(false);
           setOpts(buildOptions(scenario,next));
           startTimer();
@@ -4974,9 +4996,9 @@ function OrduegiScreen(props){
       setLives(livesLeft);
       if(livesLeft<=0){
         sfx("fail");saveBest();
-        setTimeout(function(){setDone(true);},700);
+        setTimeout(function(){if(runRef.current===run)setDone(true);},700);
       }else{
-        setTimeout(function(){setSel(null);setShowHint(true);startTimer();},950);
+        setTimeout(function(){if(runRef.current!==run)return;setSel(null);setShowHint(true);startTimer();},950);
       }
     }
   }
@@ -5081,7 +5103,7 @@ function OrduegiScreen(props){
       <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.05,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
-          <button aria-label="Close" onClick={function(){setScenario(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={leaveScenario} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{scenario.emoji} {scenario.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontStyle:"italic"}}>{scenario.desc}</p>
@@ -5132,7 +5154,7 @@ function OrduegiScreen(props){
                 </div>
                 <div style={{display:"flex",gap:8,marginBottom:lives>0?10:0}}>
                   <button onClick={function(){startScenario(scenIdx);}} style={{flex:1,padding:"14px",borderRadius:16,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Play again</button>
-                  <button onClick={function(){setScenario(null);setDone(false);}} style={{flex:1,padding:"14px",borderRadius:16,border:"none",backgroundColor:COLOR,color:"#fff",fontSize:14,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 "+DARK}}>Menu</button>
+                  <button onClick={leaveScenario} style={{flex:1,padding:"14px",borderRadius:16,border:"none",backgroundColor:COLOR,color:"#fff",fontSize:14,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 "+DARK}}>Menu</button>
                 </div>
                 {lives>0&&<button onClick={function(){startScenario(nextIdx);}} style={{width:"100%",padding:"13px",borderRadius:16,border:"1.5px solid "+nextScen.color,backgroundColor:nextScen.bg,color:nextScen.color,fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>
                   Next: {nextScen.emoji} {nextScen.name} →
