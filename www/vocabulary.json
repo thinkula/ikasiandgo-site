@@ -1621,7 +1621,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "SAL-tsah",
-      "notes": "Saltsa = sauce. Basque sauces are legendary: salsa verde (green sauce with parsley), pil-pil (emulsified cod sauce), bizkaina. From Spanish salsa.",
+      "notes": "Saltsa = sauce. Three well-known Basque sauces are saltsa berdea (green, with parsley), pil-pil (an emulsion of cod and olive oil) and saltsa bizkaitarra (red, from dried peppers). From Spanish salsa.",
       "example": {
         "basque": "Saltsa goxoa da.",
         "english": "The sauce is tasty."
@@ -1634,7 +1634,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "chah-koh-LEE-nah",
-      "notes": "Txakolina = txakoli wine. A light, slightly sparkling, very dry white wine made from unripe grapes. Poured from height to aerate it. Produced in Gipuzkoa, Bizkaia and Araba. Perfect with pintxos.",
+      "notes": "Txakolina = txakoli wine. A light, slightly sparkling, very dry white wine. Poured from height to aerate it. Produced in Gipuzkoa, Bizkaia and Araba. Often served with pintxos.",
       "example": {
         "basque": "Txakolina freskoa da.",
         "english": "The txakoli is fresh."
@@ -1643,14 +1643,14 @@
     {
       "id": "bacalaoa",
       "basque": "Bakailaoa",
-      "english": "Salted cod",
+      "english": "Cod / Salt cod",
       "cefr": "A2",
       "topic": "food",
-      "pronunciation": "bah-kah-LAH-oh-ah",
-      "notes": "Bakailaoa = salted cod, the cornerstone of Basque cuisine. Pil-pil sauce, al pil-pil, bakailao a la vizcaina, all famous dishes. Euskara Batua spelling is bakailaoa, from Spanish bacalao.",
+      "pronunciation": "bah-kai-LAH-oh-ah",
+      "notes": "Bakailaoa = cod, most often eaten salted. Bakailaoa pil-pilean and bakailaoa bizkaitar erara are two well-known dishes. Euskara Batua spelling is bakailaoa, from Spanish bacalao.",
       "example": {
         "basque": "Bakailaoa ohikoa da.",
-        "english": "Salted cod is traditional."
+        "english": "Cod is traditional."
       }
     },
     {
@@ -1660,7 +1660,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "GOH-shoh-ah",
-      "notes": "Goxoa = delicious or sweet. The x sounds like sh (go-SHO-ah). Goxoki = candy/sweet. Goxotasuna = sweetness. Oso goxoa! = So delicious! Used constantly in Basque food culture.",
+      "notes": "Goxoa = delicious or sweet. The x sounds like sh (GOH-shoh-ah). Goxoki = candy/sweet. Goxotasuna = sweetness. Oso goxoa! = So delicious!",
       "example": {
         "basque": "Tarta goxoa da.",
         "english": "The cake is delicious."
@@ -1790,7 +1790,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "MAH-pah",
-      "notes": "Mapa = map. From Spanish mapa. Euskal Herriko mapa = map of the Basque Country. Mapagilea = cartographer.",
+      "notes": "Mapa = map. From Spanish mapa. Euskal Herriko mapa = map of the Basque Country.",
       "example": {
         "basque": "Mapa behar dut.",
         "english": "I need a map."
@@ -1816,7 +1816,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "KOH-cheh-ah",
-      "notes": "Kotxea comes from Spanish coche. Kotxea aparkatu = to park the car. Garaje = garage. Auto is also used in informal speech.",
+      "notes": "Kotxea comes from Spanish coche. Kotxea aparkatu = to park the car. Garaje = garage. Autoa is the other common word for car.",
       "example": {
         "basque": "Kotxea aparkatu dut.",
         "english": "I parked the car."
@@ -1829,7 +1829,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "ee-tsah-SON-tsee-ah",
-      "notes": "Itsasontzia = ship (itsaso=sea + ontzia=vessel). Basque sailors were among the first Europeans fishing Newfoundland cod, from the early 1500s.",
+      "notes": "Itsasontzia = ship (itsaso=sea + ontzia=vessel). Basque cod fishermen were working Newfoundland waters in the 1500s.",
       "example": {
         "basque": "Itsasontzia handia da.",
         "english": "The ship is large."
@@ -1842,7 +1842,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "bee-DAI-ah",
-      "notes": "Bidaia = journey or trip. Bidaiari = traveler. Bidaiatu = to travel. Bide = road/way, so bidaia is literally a going on the road.",
+      "notes": "Bidaia = journey or trip. Bidaiari = traveler. Bidaiatu = to travel.",
       "example": {
         "basque": "Bidaia luzea da baina merezi du.",
         "english": "The journey is long but it is worth it."
@@ -1855,7 +1855,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "oh-sah-SOO-nah",
-      "notes": "Osasuna = health. Also the name of the Iruña (Pamplona) soccer club, a healthy team! Osasun ona = good health. Osasuntsu = healthy.",
+      "notes": "Osasuna = health. Also the name of the Iruñea (Pamplona) soccer club. Osasun ona = good health. Osasuntsu = healthy.",
       "mcOnly": true,
       "example": {
         "basque": "Osasuna zaindu behar duzu.",
@@ -1869,7 +1869,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "sen-dah-ghee-LEH-ah",
-      "notes": "Sendagilea = doctor. Sendatu = to heal. Sendabidea = remedy/cure (healing-path). Sendagile is a beautiful word: the one who heals.",
+      "notes": "Sendagilea = doctor. Sendatu = to heal. Sendabidea = remedy/cure (healing-path). Sendagile is literally the one who heals.",
       "example": {
         "basque": "Sendagilea etorri da.",
         "english": "The doctor has come."
@@ -1882,7 +1882,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "os-pee-TAH-leh-ah",
-      "notes": "Ospitalea = hospital. From Latin hospitale. Basque public healthcare (Osakidetza) is among the best in Europe.",
+      "notes": "Ospitalea = hospital. From Latin hospitale. Osakidetza is the Basque public health service.",
       "example": {
         "basque": "Ospitalea hurbil dago.",
         "english": "The hospital is nearby."
@@ -1895,7 +1895,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "ar-NAH-sah",
-      "notes": "Arnasa = breath. Arnasa hartu = to take a breath/breathe in. Arnasgune = breathing space. Arnastu = to breathe. Used in meditation.",
+      "notes": "Arnasa = breath. Arnasa hartu = to take a breath/breathe in. Arnasgune = breathing space. Arnastu = to breathe.",
       "example": {
         "basque": "Arnasa hartu.",
         "english": "Take a breath."
@@ -2142,7 +2142,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "ER-ree-ah (h is silent)",
-      "notes": "Herria = town, people, or nation. Herri = people/nation (root). Euskal Herria = the Basque homeland. Herritar = citizen. Herrialde = country/territory. One of the most powerful words in Basque political discourse.",
+      "notes": "Herria = town, people, or nation. Herri = people/nation (root). Euskal Herria = the Basque homeland. Herritar = citizen. Herrialde = country/territory.",
       "example": {
         "basque": "Herria altxatzen da.",
         "english": "The people rise up."
@@ -2168,7 +2168,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "kool-TOO-rah",
-      "notes": "Kultura = culture. Kulturala = cultural. Kultura etxea = cultural center. Basque culture (euskal kultura) is distinct and ancient.",
+      "notes": "Kultura = culture. Kulturala = cultural. Kultura etxea = cultural center.",
       "example": {
         "basque": "Kultura bizirik dago.",
         "english": "Culture is alive."
@@ -2181,7 +2181,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "ees-TOH-ree-ah (h is silent)",
-      "notes": "Historia = history. Historikoa = historic. Historiagilea = historian. Basque history stretches back thousands of years.",
+      "notes": "Historia = history. Historikoa = historic. Historialaria = historian.",
       "example": {
         "basque": "Historia luzea da.",
         "english": "The history is long."
@@ -2194,7 +2194,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "as-kah-tah-SOO-nah",
-      "notes": "Askatasuna = freedom or liberty. Aske = free (root). Askatu = to free/liberate. Askatasunez = freely. Askatasunaren aldeko = in favor of freedom. A central concept in Basque political and cultural life.",
+      "notes": "Askatasuna = freedom or liberty. Aske = free (root). Askatu = to free/liberate. Askatasunez = freely. Askatasunaren aldeko = in favor of freedom.",
       "example": {
         "basque": "Askatasuna nahi dugu.",
         "english": "We want freedom."
@@ -2207,7 +2207,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "el-kar-tah-SOO-nah",
-      "notes": "Elkartasuna = solidarity. Elkartu = to unite/join together. Elkar = each other. Elkartasunez = with solidarity. Key Basque labor movement word.",
+      "notes": "Elkartasuna = solidarity. Elkartu = to unite/join together. Elkar = each other. Elkartasunez = with solidarity.",
       "mcOnly": true,
       "example": {
         "basque": "Elkartasuna garrantzitsua da.",
@@ -2247,7 +2247,7 @@
       "cefr": "A2",
       "topic": "adjectives",
       "pronunciation": "as-KAR-rah",
-      "notes": "Azkarra = fast or sharp. Azkar ibili = to move fast. Oso azkarra = very sharp/clever. Also means quick-witted. A compliment in Basque culture.",
+      "notes": "Azkarra = fast or sharp. Azkar ibili = to move fast. Oso azkarra = very sharp/clever. Also means quick-witted.",
       "example": {
         "basque": "Ikaslea azkarra da.",
         "english": "The student is sharp."
@@ -2273,7 +2273,7 @@
       "cefr": "A2",
       "topic": "adjectives",
       "pronunciation": "gah-res-TEE-ah",
-      "notes": "Garestia = expensive. Garesti = expensively. Do not confuse with aberatsa (rich/wealthy). Garestitu = to become expensive.",
+      "notes": "Garestia = expensive. Garesti = expensively. Garestitu = to become expensive.",
       "example": {
         "basque": "Kotxea garestia da.",
         "english": "The car is expensive."
@@ -4249,14 +4249,14 @@
     {
       "id": "opila",
       "basque": "Opila",
-      "english": "Cake / Flatbread",
+      "english": "Bun / Sweet roll",
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "oh-PEE-lah",
-      "notes": "Opila is a traditional Basque sweet bread eaten at Easter. Tarta = cake in general usage.",
+      "notes": "Opila = a bun or sweet roll. A traditional one is eaten at Easter. Tarta = cake.",
       "example": {
         "basque": "Opila gozoa da.",
-        "english": "The cake is delicious."
+        "english": "The bun is delicious."
       }
     },
     {
@@ -4305,7 +4305,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "sor-BAL-dah",
-      "notes": "Shoulder. Sorbaldak = shoulders. Sorbalda zabal = broad-shouldered. Used in expressions about responsibility.",
+      "notes": "Shoulder. Sorbaldak = shoulders. Sorbalda zabal = broad-shouldered.",
       "example": {
         "basque": "Sorbaldetako mina dut.",
         "english": "My shoulders hurt."
@@ -4438,7 +4438,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "PAH-goh-ah",
-      "notes": "Beech tree. Pagadiak (beech forests) cover the mountains, and many place names include Pago-: Pagasarri, Pagoeta. The oak carries the symbolism, but the beech is the tree you actually walk through. The autumn colors are spectacular.",
+      "notes": "Beech tree. Pagadiak (beech forests) cover the mountains, and many place names include Pago-: Pagasarri, Pagoeta.",
       "example": {
         "basque": "Pagoa oso ohikoa da Euskal Herrian.",
         "english": "The beech tree is very common in the Basque Country."
@@ -4451,7 +4451,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "ah-REE-tsah (h is silent)",
-      "notes": "Oak, sacred in Basque culture. The Gernikako Arbola (Tree of Gernika) is an ancient oak under which Basque assemblies met. Haritz = oak root. Symbol of Basque democracy and identity.",
+      "notes": "Oak. The Gernikako Arbola (Tree of Gernika) is an oak under which the assemblies of Bizkaia met, and the symbol of Basque freedoms. Haritz = oak (root).",
       "example": {
         "basque": "Haritza Euskal Herriaren sinboloa da.",
         "english": "The oak is a symbol of the Basque Country."
@@ -4464,7 +4464,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "ain-TSEE-rah",
-      "notes": "Aintzira is the standard literary word for lake; in everyday speech many people say lakua, a loanword. Natural lakes are rare in the Basque Country; the largest is Arreo lake in Álava, and most other 'lakes' are reservoirs (urtegiak). Different from itsasoa (the sea).",
+      "notes": "Aintzira is the standard literary word for lake; in everyday speech many people say lakua, a loanword. Natural lakes are rare in the Basque Country; the largest is Arreo lake in Álava, and most other 'lakes' are reservoirs (urtegiak).",
       "example": {
         "basque": "Aintzira lasaia dago.",
         "english": "The lake is calm."
@@ -4477,7 +4477,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "men-dee-ler-ROH-ah",
-      "notes": "Mountain range. Mendi = mountain + lerroa = row/line. The Pyrenees (Pirinioak) form the natural border. The Cantabrian range (Kantauri mendilerroa) runs along the coast.",
+      "notes": "Mountain range. Mendi = mountain + lerroa = row/line. The Pyrenees are Pirinioak in Basque.",
       "example": {
         "basque": "Mendilerroa ederra da.",
         "english": "The mountain range is beautiful."
@@ -5075,7 +5075,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "pah-sah-POR-teh-ah",
-      "notes": "Passport. Pasaportea galdu dut = I have lost my passport. Pasaportea berritu = to renew a passport. Spain is in the Schengen Area. EU visitors do not need a visa.",
+      "notes": "Passport. Pasaportea galdu dut = I have lost my passport. Pasaportea berritu = to renew a passport.",
       "example": {
         "basque": "Pasaportea non dago?",
         "english": "Where is the passport?"
@@ -5088,7 +5088,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "too-REES-moh-ah",
-      "notes": "Tourism. Turista = tourist. Turismo bulegoa = tourist office. The Basque Country receives millions of tourists for food culture, the Guggenheim Bilbo (Bilbao), and the Camino de Santiago.",
+      "notes": "Tourism. Turista = tourist. Turismo bulegoa = tourist office. Visitors come for the food, the Guggenheim in Bilbo (Bilbao) and the Camino de Santiago.",
       "example": {
         "basque": "Turismoa oso garrantzitsua da hemen.",
         "english": "Tourism is very important here."
@@ -5256,8 +5256,8 @@
       "english": "Pig",
       "cefr": "A2",
       "topic": "food",
-      "pronunciation": "CHEH-ree-ah",
-      "notes": "Pig or pork. Txerri haragia = pork. Txistorra = Basque spicy sausage made from pork and paprika, eaten at every festival. Txerri-festa = pig festival, a traditional winter celebration in rural areas.",
+      "pronunciation": "CHER-ree-ah",
+      "notes": "Pig or pork. Txerri haragia = pork. Txistorra = a thin Basque sausage of pork and paprika.",
       "example": {
         "basque": "Txistorra txerri-haragiarekin egiten da.",
         "english": "Txistorra is made from pork."
@@ -5335,7 +5335,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "pres-TAH-too",
-      "notes": "Prestatu = to prepare or get ready. Afaria prestatu = to prepare dinner. Janaria prestatu = to prepare food. Also used outside cooking: bidaia prestatu = to prepare a trip. Very common verb in everyday Basque.",
+      "notes": "Prestatu = to prepare or get ready. Afaria prestatu = to prepare dinner. Janaria prestatu = to prepare food. Also used outside cooking: bidaia prestatu = to prepare a trip.",
       "example": {
         "basque": "Afaria prestatzen ari naiz.",
         "english": "I am preparing dinner."
@@ -5402,7 +5402,7 @@
       "pronunciation": "beh-LOW-nak (LOW rhymes with now)",
       "notes": "Knees (plural). Belaun = knee (singular). Belaunetan = on one's knees. Belaunikatu = to kneel. Belaunaldi = generation, from belaun (knee; in older Basque also a link of lineage) + aldi (period).",
       "example": {
-        "basque": "Belaunak min ditut.",
+        "basque": "Belaunetako mina dut.",
         "english": "My knees hurt."
       }
     },
@@ -5816,7 +5816,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "leh-GAH-tsah",
-      "notes": "Legatza = hake, the most popular fish in Basque cooking. Legatza saltsa berdean = hake in green sauce, a classic Basque dish. You will also hear merluzea, a colloquial loan from Spanish merluza.",
+      "notes": "Legatza = hake, a favorite fish in Basque cooking. Legatza saltsa berdean = hake in green sauce. You will also hear merluza, the Spanish word.",
       "example": {
         "basque": "Legatza saltsa berdean jan dut.",
         "english": "I ate hake in green sauce."
@@ -5829,7 +5829,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "choo-LEH-tah",
-      "notes": "Txuleta = steak or chop. The txuleta de vaca (beef txuleta) is legendary in Basque cuisine, a thick bone-in ribeye from old dairy cows, grilled over charcoal. A centerpiece of sagardotegi meals.",
+      "notes": "Txuleta = steak or chop. A txuleta is usually a thick bone-in rib steak from an older cow, grilled over charcoal. It is the main course at a sagardotegi.",
       "example": {
         "basque": "Txuleta ongi eginda nahi dut.",
         "english": "I want the steak well done."
@@ -5868,9 +5868,9 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "oo-KON-doh-ah",
-      "notes": "Ukondoa = elbow. Ukondo = elbow (root). Ukondoaz jo = to elbow/nudge. Ukondo min dut = my elbow hurts. In Basque ukondoa is also used metaphorically. Ukondoka = by elbowing through.",
+      "notes": "Ukondoa = elbow. Ukondo = elbow (root). Ukondoaz jo = to elbow/nudge. Ukondoka = by elbowing through.",
       "example": {
-        "basque": "Ukondoa min dut.",
+        "basque": "Ukondoko mina dut.",
         "english": "My elbow hurts."
       }
     },
@@ -5881,7 +5881,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "es-koo-moo-TOOR-rah",
-      "notes": "Eskumuturra = wrist. Esku = hand + mutur = snout/tip. Literally the tip of the hand, a vivid description. Eskumutur min = wrist pain. Erlojua eskumuturrean = watch on the wrist.",
+      "notes": "Eskumuturra = wrist. Esku = hand + mutur = snout/tip. Literally the tip of the hand. Eskumuturreko mina = wrist pain. Erlojua eskumuturrean = watch on the wrist.",
       "example": {
         "basque": "Eskumuturra apurtu dut.",
         "english": "I broke my wrist."
@@ -5893,10 +5893,10 @@
       "english": "Chest",
       "cefr": "A2",
       "topic": "body",
-      "pronunciation": "boo-lar-AL-deh-ah",
+      "pronunciation": "boo-lar-RAL-deh-ah",
       "notes": "Bularraldea = chest. Bular = chest/breast (root). Bularra = chest. Bularreko min = chest pain. Bular-hezurra = breastbone; saihets-hezurra = rib. Bulartsu = brave/gutsy. Bularrez bular = chest to chest.",
       "example": {
-        "basque": "Bularraldea min dut.",
+        "basque": "Bularraldeko mina dut.",
         "english": "I have chest pain."
       }
     },
@@ -5907,7 +5907,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "ah-SAH-lah",
-      "notes": "Azala = skin or cover/surface. Azal = skin/peel/bark/cover (root). Fruitaren azala = fruit skin/peel. Liburuaren azala = book cover. Azaleko = superficial/surface-level. A very versatile root word.",
+      "notes": "Azala = skin or cover/surface. Azal = skin/peel/bark/cover (root). Frutaren azala = fruit skin/peel. Liburuaren azala = book cover. Azaleko = superficial/surface-level.",
       "example": {
         "basque": "Azala leuna du.",
         "english": "He has smooth skin."
@@ -5933,7 +5933,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "eh-SOOR-rah (h is silent)",
-      "notes": "Hezurra = bone. Hezur = bone (root). Hezurra hautsi = to break a bone. Hezurdura = skeleton. Hezurretaraino = to the bone. Common in medical contexts.",
+      "notes": "Hezurra = bone. Hezur = bone (root). Hezurra hautsi = to break a bone. Hezurdura = skeleton. Hezurretaraino = to the bone.",
       "example": {
         "basque": "Hezurra hautsi dut.",
         "english": "I have broken a bone."
@@ -5998,7 +5998,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "BAH-keh-ah",
-      "notes": "Bakea = peace. Bake = peace (root). Bakean bizi = to live in peace. Bake hitzarmena = peace agreement. Bake prozesua = peace process (very relevant to Basque history post-ETA). Baketsu = peaceful.",
+      "notes": "Bakea = peace. Bake = peace (root). Bakean bizi = to live in peace. Bake hitzarmena = peace agreement. Bake prozesua = peace process. Baketsu = peaceful.",
       "example": {
         "basque": "Bakean bizi nahi dugu.",
         "english": "We want to live in peace."
@@ -6141,7 +6141,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "LAR-reh-ah",
-      "notes": "Larrea = meadow or pasture. Larre = pasture (root). Larratu = to put animals out to pasture. The Basque interior is covered in green meadows (larreak) where sheep and cattle graze. Many place names include -larre.",
+      "notes": "Larrea = meadow or pasture. Larre = pasture (root). Larratu = to put animals out to pasture. Many place names include -larre.",
       "example": {
         "basque": "Ardiak larrean daude.",
         "english": "The sheep are in the meadow."
@@ -6245,9 +6245,9 @@
       "cefr": "A2",
       "topic": "adjectives",
       "pronunciation": "GAI-shoh-ah",
-      "notes": "Gaixoa = sick, ill, or poor thing. Gaixotu = to fall ill. Gaixotasuna = illness. Gaixorik nago = I am ill. But gaixoa also expresses sympathy: gaixoa! = poor thing! A word with two very different uses.",
+      "notes": "Gaixoa = sick, ill, or poor thing. Gaixotu = to get sick. Gaixotasuna = illness. Gaixorik nago = I am sick. But gaixoa also expresses sympathy: gaixoa! = poor thing! A word with two very different uses.",
       "example": {
-        "basque": "Gaixoa nago gaur.",
+        "basque": "Gaixo nago gaur.",
         "english": "I am sick today."
       }
     },
@@ -6583,7 +6583,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "gar-RAI-oh poo-BLEE-koh-ah",
-      "notes": "Garraio publikoa = public transportation. Garraio = transport + publikoa = public. Metro, autobus, trena = metro, bus, train. Euskotren and Metro Bilbao connect much of the coast. Very efficient in the Basque Country.",
+      "notes": "Garraio publikoa = public transportation. Garraio = transport + publikoa = public. Metro, autobus, trena = metro, bus, train. Euskotren and Metro Bilbao are two of the operators.",
       "example": {
         "basque": "Garraio publikoa erabiltzen dut.",
         "english": "I use public transportation."
@@ -6596,9 +6596,9 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "sar-REH-rah",
-      "notes": "Sarrera = entrance, entry, or ticket. Sartu = to enter (root). Sarrera librea = free entry. Sarrera erosi = to buy a ticket. Sarrera nagusia = main entrance. Irteera = exit (opposite). Very common travel word.",
+      "notes": "Sarrera = entrance, entry, or ticket. Sartu = to enter (root). Sarrera librea = free entry. Sarrera erosi = to buy a ticket. Sarrera nagusia = main entrance. Irteera = exit (opposite).",
       "example": {
-        "basque": "Sarrera bi erosi ditut.",
+        "basque": "Bi sarrera erosi ditut.",
         "english": "I have bought two tickets."
       }
     },
@@ -6661,7 +6661,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "bee-dai-AH-ree-ah",
-      "notes": "Bidaiaria = traveler or passenger. Bidaia = journey + -ari (one who does). Like other profession nouns, it drops -a as a bare predicate: bidaiari naiz = I am a traveler. Bidaiariak = travelers.",
+      "notes": "Bidaiaria = traveler or passenger. Bidaia = journey + -ari (one who does). After izan the -a can also be dropped: bidaiari naiz = I am a traveler. Bidaiariak = travelers.",
       "example": {
         "basque": "Bidaiari asko daude geltokian.",
         "english": "There are many travelers at the station."
@@ -6934,7 +6934,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "oh-LEE-bah",
-      "notes": "Oliba = olive. Olibondoa = olive tree. Oliba olioa = olive oil. Gilda = the iconic Basque pintxo of olive, anchovy and pickled pepper. Olibak pintxoetan = olives in pintxos. Common in Basque bar snacks.",
+      "notes": "Oliba = olive. Olibondoa = olive tree. Oliba olioa = olive oil. Gilda = the Basque pintxo of olive, anchovy and pickled pepper.",
       "example": {
         "basque": "Olibak gustatzen zaizkit.",
         "english": "I like olives."
@@ -6947,7 +6947,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "AN-choh-ah",
-      "notes": "Antxoa = anchovy. The Cantabrian anchovy (antxoa) is world-renowned. Getaria and Ondarroa are famous anchovy ports. The Gilda pintxo is built around antxoa, olive and pickled pepper. Antxoa olioan = anchovy in oil. Note: antzua means sterile/infertile, a completely different word.",
+      "notes": "Antxoa = anchovy. Getaria and Ondarroa are fishing ports known for anchovy. The Gilda pintxo is built around antxoa, olive and pickled pepper. Antxoa olioan = anchovy in oil.",
       "example": {
         "basque": "Antxoa Gildaren osagaia da.",
         "english": "Anchovy is an ingredient of the Gilda pintxo."
@@ -6972,11 +6972,11 @@
       "english": "Walnut",
       "cefr": "A2",
       "topic": "food",
-      "pronunciation": "een-CHOW-rah",
-      "notes": "Intxaurra = walnut. Intxaur = walnut (root). Intxaursaltsa = walnut cream sauce (Christmas dessert). Intxaurrondoa = walnut tree. Rich in omega-3. Intxaurrak biltzea = gathering walnuts in autumn.",
+      "pronunciation": "een-CHOWR-rah",
+      "notes": "Intxaurra = walnut. Intxaur = walnut (root). Intxaursaltsa = walnut cream sauce (Christmas dessert). Intxaurrondoa = walnut tree. Intxaurrak biltzea = gathering walnuts in autumn.",
       "example": {
-        "basque": "Intxaurretan aberatsa da.",
-        "english": "It is rich in walnuts."
+        "basque": "Intxaurrak gustatzen zaizkit.",
+        "english": "I like walnuts."
       }
     },
     {
@@ -7311,7 +7311,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "bees-TAN-leh-ak",
-      "notes": "Biztanleak = inhabitants or population (plural). Biztanle = inhabitant (singular). Biztanleria = population. Bilboko biztanleak = inhabitants of Bilbo. The Basque Country has about 3 million inhabitants across the 7 territories.",
+      "notes": "Biztanleak = inhabitants or population (plural). Biztanle = inhabitant (singular). Biztanleria = population. Bilboko biztanleak = inhabitants of Bilbao. The Basque Country has about 3 million inhabitants across the 7 territories.",
       "example": {
         "basque": "Biztanle asko dago hirian.",
         "english": "There are many inhabitants in the city."
@@ -7324,7 +7324,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "el-KAR-teh-ah",
-      "notes": "Elkartea = association, club, or society. Elkar = each other/together. Elkartu = to unite/join together. Basque civil society is built on elkarteak, among them sports clubs, cultural societies and choral groups. Gazte elkartea = youth association.",
+      "notes": "Elkartea = association, club, or society. Elkar = each other/together. Elkartu = to unite/join together. Sports clubs, cultural societies and choirs are all elkarteak. Gazte elkartea = youth association.",
       "example": {
         "basque": "Elkarte bateko kide naiz.",
         "english": "I am a member of an association."
@@ -7363,10 +7363,10 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "bah-bar-ROON-ak (rolled rr)",
-      "notes": "Babarrunak = beans (plural). Babarrun = bean (singular). Tolosa beans (Tolosako babarrunak) are world-renowned, a dark, creamy black bean grown near Tolosa. Babarrun saltsa = bean stew. One of the most important ingredients in Basque cuisine.",
+      "notes": "Babarrunak = beans (plural). Babarrun = bean (singular). Tolosako babarrunak are dark, almost black beans grown around Tolosa.",
       "example": {
         "basque": "Tolosako babarrunak ezagunak dira.",
-        "english": "Tolosa beans are famous."
+        "english": "Tolosa beans are well known."
       }
     },
     {
@@ -7376,7 +7376,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "on-DOH-ak (dd = palatal d)",
-      "notes": "Onddoak = mushrooms (plural). Onddo = mushroom (singular). Perretxikoak is the more colloquial everyday Basque word for edible wild mushrooms. Onddo is more formal/general. Mushroom foraging (onddo biltzea) in October is a Basque institution. Ziza, gibelurdina, and onddo beltza are prized varieties.",
+      "notes": "Onddoak = mushrooms (plural). Onddo = mushroom (singular). Perretxikoak is the everyday word for edible wild mushrooms. Onddo is the general word and also names the boletus (onddo beltza, onddo zuria). Mushroom picking (onddo biltzea) is a popular autumn pastime. Ziza and gibelurdina are other prized kinds.",
       "example": {
         "basque": "Onddoak biltzera joaten naiz udazkenean.",
         "english": "I go mushroom picking in autumn."
@@ -7402,7 +7402,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "tor-TEE-lyah",
-      "notes": "Tortilla = omelette or Spanish tortilla. Patata tortilla = potato omelette, ubiquitous in Basque bars. Bakailao-tortilla = salt cod omelette, served at sagardotegi meals. Very central to Basque bar culture.",
+      "notes": "Tortilla = omelette or Spanish tortilla. Patata tortilla = potato omelette, ubiquitous in Basque bars. Bakailao-tortilla = salt cod omelette, served at sagardotegi meals.",
       "example": {
         "basque": "Tortilla bat eskatuko dut.",
         "english": "I will order an omelette."
@@ -7480,7 +7480,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "oh-SAH-soon SEN-troh-ah",
-      "notes": "Osasun zentroa = health center or clinic. Osasun = health + zentroa = center. The primary healthcare system in the Basque Country (Osakidetza) is highly rated. Anbulatorioa is also used. Hitzordua eskatu = to make an appointment.",
+      "notes": "Osasun zentroa = health center or clinic. Osasun = health + zentroa = center. Anbulatorioa is also used. Hitzordua eskatu = to make an appointment.",
       "example": {
         "basque": "Osasun zentrora joan behar dut.",
         "english": "I need to go to the health center."
@@ -10275,7 +10275,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "gai-shoh-tah-SOO-nah",
-      "notes": "Illness or disease. Gaixo (sick) + -tasuna. Gaixotasun larria = serious illness. Gaixotasun kronikoa = chronic disease. Gaixotzea = to fall ill. Essential health vocabulary.",
+      "notes": "Illness or disease. Gaixo (sick) + -tasuna. Gaixotasun larria = serious illness. Gaixotasun kronikoa = chronic disease. Gaixotzea = to get sick.",
       "example": {
         "basque": "Gaixotasun bat daukat eta medikuarengana joan behar dut.",
         "english": "I have an illness and I need to go to the doctor."
@@ -10288,7 +10288,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "es-TOO-lah",
-      "notes": "Cough. Eztul egin = to cough. Eztul lehorra = dry cough. Eztul hezea = wet cough. One of the most common symptoms vocabulary learners need when visiting a doctor or pharmacy.",
+      "notes": "Cough. Eztul egin = to cough. Eztul lehorra = dry cough. Eztul hezea = wet cough.",
       "example": {
         "basque": "Eztul asko egiten dut.",
         "english": "I cough a lot."
@@ -10301,7 +10301,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "BOO-roo-koh MEE-nah",
-      "notes": "Headache. Buru (head) + -ko (of) + mina (pain). Buruko min handia = bad headache. Migraina = migraine. The most common pain complaint, essential vocabulary for any context.",
+      "notes": "Headache. Buru (head) + -ko (of) + mina (pain). Buruko min handia = bad headache. Migraina = migraine.",
       "example": {
         "basque": "Buruko mina daukat eta etzanda egon behar dut.",
         "english": "I have a headache and I need to lie down."
@@ -10336,14 +10336,14 @@
     {
       "id": "ostatua_erreserbatu",
       "basque": "Ostatua erreserbatu",
-      "english": "To book a hotel",
+      "english": "To book a place to stay",
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "os-TAH-too-ah er-reh-ser-BAH-too",
-      "notes": "To book a hotel. Ostatua (hotel) + erreserbatu (to reserve). Gela bat erreserbatu = to book a room. Online erreserba = online booking. Essential practical travel vocabulary.",
+      "notes": "To book lodging. Ostatua (lodging) + erreserbatu (to reserve). Gela bat erreserbatu = to book a room. Online erreserba = online booking.",
       "example": {
         "basque": "Bi gauetarako ostatua erreserbatu dut.",
-        "english": "I have booked a hotel for two nights."
+        "english": "I have booked a place to stay for two nights."
       }
     },
     {
@@ -10366,7 +10366,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "eh-gas-KEEN CHAR-teh-lah (h is silent)",
-      "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joateko txartela = one-way ticket. Joan-etorriko txartela = return ticket. Txartela erosi = to buy a ticket.",
+      "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joateko txartela = one-way ticket. Joan-etorriko txartela = round-trip ticket. Txartela erosi = to buy a ticket.",
       "example": {
         "basque": "Hegazkin txartela erosi behar dut.",
         "english": "I need to buy a plane ticket."
@@ -12334,7 +12334,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "PAHS-tah",
-      "notes": "An international loan. Pasta already ends in -a, so the article never doubles. Pasta serves for both pasta and the pasta. Makarroiak (macaroni) are the school cafeteria classic.",
+      "notes": "An international loan. Pasta already ends in -a, so the article never doubles. Pasta serves for both pasta and the pasta.",
       "example": {
         "basque": "Pasta tomatearekin jaten dugu.",
         "english": "We eat pasta with tomato."
@@ -12464,7 +12464,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "pas-TEH-lah",
-      "notes": "Pastela = cake in general, a Romance loan. Euskal pastela is the famous gateau Basque, a buttery cake from Lapurdi filled with pastry cream or black cherry jam. Not to be confused with opila, a bun or sweet roll, or tarta, a layered celebration cake.",
+      "notes": "Pastela = cake in general, a Romance loan. Euskal pastela is the gateau Basque, a buttery cake from Lapurdi filled with pastry cream or black cherry jam. Not to be confused with opila, a bun or sweet roll, or tarta, a layered celebration cake.",
       "example": {
         "basque": "Amonak pastela egin du.",
         "english": "Grandma has made a cake."
@@ -12477,7 +12477,7 @@
       "english": "Pork (the meat)",
       "cefr": "A2",
       "topic": "food",
-      "pronunciation": "cheh-RREE-kee-ah",
+      "pronunciation": "cher-REE-kee-ah",
       "notes": "Txerrikia = txerri (pig) + -ki, the meat suffix: compare behikia (beef) from behi (cow). You will also hear txerri-haragia, literally pig meat. Oilaskoa (chicken) skips the suffix. The animal word covers the meat too.",
       "example": {
         "basque": "Txerrikia erosi dut harategian.",
@@ -12517,8 +12517,8 @@
       "english": "Steak / Fillet",
       "cefr": "A2",
       "topic": "food",
-      "pronunciation": "SHEH-rrah",
-      "notes": "Xerra is a steak, fillet, or slice. Ogi-xerra is a slice of bread, but xerra alone usually means a cut of meat. For the famous giant Basque rib steak, order a txuleta at a cider house.",
+      "pronunciation": "SHER-rah",
+      "notes": "Xerra is a steak, fillet, or slice. Ogi-xerra is a slice of bread, but xerra alone usually means a cut of meat. For the big rib steak, order a txuleta.",
       "example": {
         "basque": "Xerra handi bat jan dut.",
         "english": "I ate a big steak."
@@ -12623,8 +12623,8 @@
       "english": "Truck",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "kah-MEE-oy-ah",
-      "notes": "Kamioi came into Basque through Spanish camion, itself borrowed from French camion. The driver is a kamioilari, with the same agent ending you see in pilotari and bertsolari. A furgoneta is the smaller van.",
+      "pronunciation": "kah-mee-OY-ah",
+      "notes": "Kamioi came into Basque through Spanish camión, itself borrowed from French camion. The driver is a kamioilari, with the same agent ending you see in pilotari and bertsolari. A furgoneta is the smaller van.",
       "example": {
         "basque": "Kamioi handi bat dago errepidean.",
         "english": "There is a big truck on the road."
@@ -12715,7 +12715,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "on-DAR-tsah (h is silent)",
-      "notes": "Hondartza = hondar (sand) + -tza, a suffix of abundance, so a beach is literally a place of plentiful sand. La Kontxa in Donostia (San Sebastián) is one of the most celebrated city beaches in Europe.",
+      "notes": "Hondartza = hondar (sand) + -tza, a suffix of abundance, so a beach is literally a place of plentiful sand. Kontxa is the best-known beach in Donostia (San Sebastián).",
       "example": {
         "basque": "Hondartzara goaz.",
         "english": "We are going to the beach."
@@ -12741,7 +12741,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "OS-toh-ah (h is silent)",
-      "notes": "Hosto = leaf. Hosto erorkorra = deciduous (leaf falling). The oak leaf is a Basque emblem thanks to the sacred oak of Gernika (Gernikako Arbola).",
+      "notes": "Hosto = leaf. Hosto erorkorra = deciduous (leaf falling).",
       "example": {
         "basque": "Hostoak erortzen dira udazkenean.",
         "english": "The leaves fall in autumn."
@@ -12767,7 +12767,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "AH-reh-ah (h is silent)",
-      "notes": "Harea comes from Latin arena. Hondar is the other common word for sand, preferred in Bizkaia, and it also means remainder. Both are heard on the coast, and the word for beach, hondartza, is built on hondar.",
+      "notes": "Harea comes from Latin arena. Hondar is the other common word for sand, and it also means remainder. Both are heard on the coast, and the word for beach, hondartza, is built on hondar.",
       "example": {
         "basque": "Hondartzan harea dago.",
         "english": "There is sand on the beach."
