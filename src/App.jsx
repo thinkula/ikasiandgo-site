@@ -2278,13 +2278,22 @@ function QuizScreen(props){
             </div>
           )}
 
-          {/* Fill-in-blank */}
+          {/* Fill-in-blank. The sentence comes with its meaning, because without
+              it most of these cannot be answered. The examples are short and
+              the wrong answers are words of the same topic and level, so
+              "___ handia da." was offered with Sofa, Logela, Egongela and
+              Bainugela, every one of which is a fine thing to call big, and
+              three of them were marked wrong. "The living room is big." is
+              what makes it a question about Basque. */}
           {isFB&&(
+            <div>
             <p style={{fontSize:15,lineHeight:2,fontWeight:500,color:"#1A1A1A",textAlign:"center",margin:"4px 0 8px"}}>
               {q.prompt.split("___").map(function(part,pi,arr){return(
                 <span key={pi}>{part}{pi<arr.length-1&&(<span style={{display:"inline-block",minWidth:80,borderBottom:result?"none":"2.5px solid "+lc,color:result?(result.correct?"#19A85A":"#EF4444"):"transparent",fontWeight:900,textAlign:"center",padding:"0 6px",fontSize:16}}>{result?q.correct:"___"}</span>)}</span>
               );})}
             </p>
+            {q.word.example&&q.word.example.english&&<p style={{margin:"0 0 6px",fontSize:13,color:"#8E8E93",fontWeight:600,fontStyle:"italic",textAlign:"center",lineHeight:1.4}}>{q.word.example.english}</p>}
+            </div>
           )}
 
           {/* Typing input */}
