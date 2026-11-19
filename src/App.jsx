@@ -1971,7 +1971,12 @@ function HomeScreen(props){
       <div style={{padding:"12px 14px 14px"}}>
         
         {pw&&<div style={{backgroundColor:pw.bg,border:"1.5px solid "+pw.b,borderRadius:12,padding:"9px 12px",marginBottom:10}}><p style={{margin:"0 0 "+(pw.cta?"6px":"0"),fontSize:12,color:pw.c,fontWeight:600}}>{pw.msg}</p>{pw.cta&&<button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"8px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>Unlock with Pro</button>}</div>}
-        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:sessionLen});}} disabled={poolSize===0}>
+        <button style={{width:"100%",border:"none",borderRadius:16,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:poolSize===0?"not-allowed":"pointer",backgroundColor:poolSize===0?"#C7C7CC":L.color,boxShadow:poolSize===0?"none":"0 1px 3px rgba(0,0,0,0.12)",fontFamily:"inherit",letterSpacing:-0.3,transition:"all 0.15s"}} onClick={function(){
+          // The count the button states, not the session length setting. With
+          // sessionLen passed straight through, "Start · 10 questions" on a
+          // ten-word topic ran twenty, asking every word twice. Below five
+          // words the notice above already says the questions will repeat.
+          if(poolSize>0)onStart({cefr:lvl,topic:topic,cumulative:cumul,count:effectiveCount<5?sessionLen:effectiveCount});}} disabled={poolSize===0}>
           {poolSize>0?"Start · "+effectiveCount+" questions":"No words available"}
         </button>
         {poolSize>0&&(
