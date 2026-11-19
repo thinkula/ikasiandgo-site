@@ -2813,7 +2813,7 @@
       "notes": "Ekonomia = economy. Ekonomikoa = economic. The Basque Country has one of the highest GDPs per capita in Spain, a strong industrial economy.",
       "example": {
         "basque": "Ekonomia hazten da.",
-        "english": "The economy is growing."
+        "english": "The economy grows."
       }
     },
     {
@@ -2878,7 +2878,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "nah-see-oh-nah-lees-MOH-ah",
-      "notes": "Nazionalismoa = nationalism. A central concept in Basque politics. Abertzaletasuna is the specifically Basque nationalist term. Nazionalismo euskalduna = Basque nationalism. Ranges from cultural to independence-seeking.",
+      "notes": "Nazionalismoa = nationalism. Abertzaletasuna is the specifically Basque term. Euskal nazionalismoa = Basque nationalism.",
       "mcOnly": true,
       "example": {
         "basque": "Nazionalismoa indartsua da.",
@@ -2892,11 +2892,11 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "ow-toh-deh-ter-mee-nah-SEE-oh-ah",
-      "notes": "Autodeterminazioa = self-determination. A core concept in Basque politics. The right of Basques to decide their own political future.",
+      "notes": "Autodeterminazioa = self-determination. Autodeterminazio eskubidea = the right of self-determination.",
       "mcOnly": true,
       "example": {
-        "basque": "Autodeterminazioa oinarrizko eskubidea da.",
-        "english": "Self-determination is a basic right."
+        "basque": "Autodeterminazioari buruz eztabaidatzen dute.",
+        "english": "They debate self-determination."
       }
     },
     {
@@ -3376,7 +3376,7 @@
     {
       "id": "zuzena",
       "basque": "Zuzena",
-      "english": "Correct / Just / Direct",
+      "english": "Correct / Just",
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "soo-SEH-nah",
@@ -3406,7 +3406,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "gar-ran-TSEE-ah",
-      "notes": "Garrantzia = importance. Garrantzitsua = important. Garrantzitsuena = the most important. Very commonly heard in news and formal speech.",
+      "notes": "Garrantzia = importance. Garrantzitsua = important. Garrantzitsuena = the most important.",
       "example": {
         "basque": "Garrantzia handia du.",
         "english": "It has great importance."
@@ -3909,11 +3909,11 @@
     {
       "id": "zuzen",
       "basque": "Zuzen",
-      "english": "Straight / Direct / Correct",
+      "english": "Straight / Straight ahead",
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "SOO-sen",
-      "notes": "Straight ahead or correct. Zuzen-zuzen = perfectly straight. Also means just/fair.",
+      "notes": "Straight ahead. Zuzen-zuzen = perfectly straight. With the article, zuzena, it also means correct or just.",
       "example": {
         "basque": "Zuzen jarraitu.",
         "english": "Go straight ahead."
@@ -5049,7 +5049,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "yah-sah-neh-SEE-nah",
-      "notes": "Unbearable. Jasan = to bear/endure + ezin = cannot. Literally cannot-be-endured. Jasangarria = bearable (opposite). Shows how Basque systematically builds complex meanings from roots.",
+      "notes": "Unbearable. Jasan = to bear/endure + ezin = cannot. Literally cannot-be-endured. Jasangarria = bearable (opposite).",
       "example": {
         "basque": "Mina jasanezina da.",
         "english": "The pain is unbearable."
@@ -5062,7 +5062,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "eh-seen-bes-TEH-koh-ah",
-      "notes": "Essential or indispensable. Ezin = cannot + beste = other. Literally cannot-be-otherwise. A key word in formal writing, speeches, and political discourse in the Basque Country.",
+      "notes": "Essential or indispensable. Ezin = cannot + beste = other. Literally cannot-be-otherwise.",
       "example": {
         "basque": "Euskara ezinbestekoa da.",
         "english": "Basque is essential."
@@ -5686,7 +5686,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "an-tsee-nah-TEH-koh-ah",
-      "notes": "Ancient or from ancient times. Antzina = long ago. Antzinatekoa = of antiquity. The Basque language itself is often described as antzinatekoa, one of the oldest languages in Europe with no known relatives.",
+      "notes": "Ancient or from ancient times. Antzina = long ago. Antzinatekoa = of antiquity. Basque is a language isolate, with no known relatives.",
       "example": {
         "basque": "Euskara hizkuntza antzinatekoa da.",
         "english": "Basque is an ancient language."
@@ -5985,7 +5985,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "BOR-chah",
-      "notes": "Bortxa = violence or force. Bortxaz = by force. Careful: bortxatu today primarily means to rape. Bortxakeria = violence/outrage; the usual term for domestic violence is etxeko indarkeria. An important word in social contexts, especially domestic abuse awareness campaigns.",
+      "notes": "Bortxa = violence or force. Bortxaz = by force. Careful: bortxatu today primarily means to rape. Bortxakeria = violence/outrage; the usual term for domestic violence is etxeko indarkeria.",
       "example": {
         "basque": "Bortxarik gabe bizi behar dugu.",
         "english": "We must live without violence."
@@ -7896,7 +7896,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "boo-roo-yah-BEH-tsah",
-      "notes": "Sovereignty or self-rule. Buru (head) + jabetza (ownership). Central concept in Basque political discourse.",
+      "notes": "Sovereignty or self-rule. Buru (head) + jabetza (ownership).",
       "example": {
         "basque": "Burujabetzaren aldeko mugimendua indartsua da.",
         "english": "The movement for sovereignty is strong."
@@ -7922,7 +7922,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "ah-ber-tsah-leh-tah-SOO-nah",
-      "notes": "Basque patriotism or nationalism. Aberri (homeland) + -zaletasuna (love of). A defining concept in Basque political identity.",
+      "notes": "Basque patriotism or nationalism. Aberri (homeland) + -zaletasuna (love of).",
       "example": {
         "basque": "Abertzaletasuna kultura eta hizkuntzarekin lotuta dago.",
         "english": "Basque patriotism is linked to culture and language."
@@ -8065,7 +8065,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "kon-PLEH-shoo-ah",
-      "notes": "Complex or complicated. From Spanish/Latin. Konplexutasuna = complexity. Egoera konplexua = complex situation. Used in academic and professional contexts.",
+      "notes": "Complex or complicated. From Spanish/Latin. Konplexutasuna = complexity. Egoera konplexua = complex situation.",
       "example": {
         "basque": "Egoera politikoa oso konplexua da.",
         "english": "The political situation is very complex."
@@ -8091,7 +8091,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "ee-rown-KOR-rah",
-      "notes": "Sustainable or lasting. Iraunkor = lasting/durable. Garapen iraunkorra = sustainable development. Key term in environmental and economic policy.",
+      "notes": "Sustainable or lasting. Iraunkor = lasting/durable. Garapen iraunkorra = sustainable development.",
       "example": {
         "basque": "Ekonomia iraunkorra behar dugu.",
         "english": "We need a sustainable economy."
@@ -8130,7 +8130,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "seh-AH-tsah",
-      "notes": "Precise or exact. Zehatz-mehatz = precisely/exactly. Zehaztu = to specify. Important in academic, legal and scientific discourse.",
+      "notes": "Precise or exact. Zehatz-mehatz = precisely/exactly. Zehaztu = to specify.",
       "example": {
         "basque": "Datu zehatzak behar ditugu.",
         "english": "We need precise data."
@@ -8143,7 +8143,7 @@
       "cefr": "B2",
       "topic": "adjectives",
       "pronunciation": "kon-trah-eh-san-KOR-rah",
-      "notes": "Contradictory. Kontraesan (contradiction) + -korra. Mezua kontraesankorra da = the message is contradictory. Used in logical and political debate.",
+      "notes": "Contradictory. Kontraesan (contradiction) + -korra. Mezua kontraesankorra da = the message is contradictory.",
       "example": {
         "basque": "Bere argudioak kontraesankorrak dira.",
         "english": "His arguments are contradictory."
@@ -8442,7 +8442,7 @@
       "cefr": "B2",
       "topic": "greetings",
       "pronunciation": "ar-REH-rah OH-nah eh-GHEEN (h is silent)",
-      "notes": "To welcome or give a warm reception. Harrera = reception. Harrera ona egin zioten = they gave him a warm welcome. Used in formal and informal contexts.",
+      "notes": "To welcome or give a warm reception. Harrera = reception. Harrera ona egin zioten = they gave him a warm welcome.",
       "example": {
         "basque": "Harrera ona egin ziguten etxean.",
         "english": "They gave us a warm welcome at home."
@@ -8468,7 +8468,7 @@
       "cefr": "B2",
       "topic": "greetings",
       "pronunciation": "ah-day-tah-SOO-nah",
-      "notes": "Courtesy or politeness. Adeitsua = courteous. Adeitasunez = politely. Important in formal Basque communication. Adeitasun handiz = with great courtesy.",
+      "notes": "Courtesy or politeness. Adeitsua = courteous. Adeitasunez = politely. Adeitasun handiz = with great courtesy.",
       "example": {
         "basque": "Adeitasunez hitz egin behar dugu.",
         "english": "We must speak with courtesy."
@@ -8611,7 +8611,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "kool-TOO-rah ah-nees-tah-SOO-nah",
-      "notes": "Cultural diversity. Kultura (culture) + aniztasuna (diversity). Important concept when discussing the Basque Country's unique position within Spain and France.",
+      "notes": "Cultural diversity. Kultura (culture) + aniztasuna (diversity).",
       "example": {
         "basque": "Kultura aniztasuna aberastasuna da.",
         "english": "Cultural diversity is a richness."
@@ -9134,7 +9134,7 @@
       "notes": "Good luck. Zorte (luck/fate) + on (good). Zorte oneko = lucky. Zorte txarra = bad luck. Used before exams, competitions, journeys. Zorte on denoi = good luck to everyone.",
       "example": {
         "basque": "Zorte on azterketan!",
-        "english": "Good luck in the exam!"
+        "english": "Good luck on the exam!"
       }
     },
     {
@@ -9677,7 +9677,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "el-kar-bee-SEE-tsah",
-      "notes": "Coexistence. Elkar (each other) + bizitza (life). Elkarbizitza baketsua = peaceful coexistence. A key concept in Basque society given its complex political history and diverse communities.",
+      "notes": "Coexistence. Elkar (each other) + bizitza (life). Elkarbizitza baketsua = peaceful coexistence.",
       "example": {
         "basque": "Elkarbizitza baketsua nahi dugu.",
         "english": "We want peaceful coexistence."
@@ -12884,7 +12884,7 @@
       "cefr": "A1",
       "topic": "city",
       "pronunciation": "tah-BER-nah",
-      "notes": "Taberna: a bar. Denda is a shop you buy from; a taberna is where you stand and eat.",
+      "notes": "Taberna: a bar. Denda is a store you buy from; a taberna is where you stand and eat.",
       "example": {
         "basque": "Taberna txikia da.",
         "english": "The bar is small."
@@ -12948,7 +12948,7 @@
       "english": "Sidewalk",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "es-pah-LOH-yah",
+      "pronunciation": "es-pah-LOY-ah",
       "notes": "Espaloia: sidewalk, the raised part of the street for people on foot.",
       "example": {
         "basque": "Espaloia garbia da.",
@@ -12984,14 +12984,14 @@
     {
       "id": "bidegorria",
       "basque": "Bidegorria",
-      "english": "Cycle path",
+      "english": "Bike path",
       "cefr": "B1",
       "topic": "city",
       "pronunciation": "bee-deh-GOR-ree-ah",
-      "notes": "Bidegorria: cycle path. Bide (way) + gorri (red), for the red surface they are paved with.",
+      "notes": "Bidegorria: bike path. Bide (way) + gorri (red), for the red surface they are paved with.",
       "example": {
         "basque": "Bidegorria berria da.",
-        "english": "The cycle path is new."
+        "english": "The bike path is new."
       }
     },
     {
@@ -13040,7 +13040,7 @@
       "cefr": "B1",
       "topic": "city",
       "pronunciation": "ee-ler-REE-ah (h is silent)",
-      "notes": "Hilerria: cemetery. Hil is the root the app already meets in hilabetea, the month.",
+      "notes": "Hilerria: cemetery. Hil (dead) + herri (town): the town of the dead.",
       "example": {
         "basque": "Hilerria isila da.",
         "english": "The cemetery is quiet."
@@ -13053,7 +13053,7 @@
       "cefr": "B1",
       "topic": "city",
       "pronunciation": "gahs-teh-LOO-ah",
-      "notes": "Gaztelua: castle. In the northern dialects the same word can mean a prison.",
+      "notes": "Gaztelua: castle.",
       "example": {
         "basque": "Gaztelua zaharra da.",
         "english": "The castle is old."
@@ -13209,7 +13209,7 @@
       "cefr": "B1",
       "topic": "home",
       "pronunciation": "tay-LAH-too-ah",
-      "notes": "Teilatua: roof, properly a tiled one. Basque farmhouse roofs are steep against the rain.",
+      "notes": "Teilatua: roof, properly a tiled one.",
       "example": {
         "basque": "Teilatua gorria da.",
         "english": "The roof is red."
@@ -13248,7 +13248,7 @@
       "cefr": "B1",
       "topic": "home",
       "pronunciation": "bahl-KOY-ah",
-      "notes": "Balkoia: balcony. Balconies carry flowers and laundry in every Basque town.",
+      "notes": "Balkoia: balcony.",
       "example": {
         "basque": "Balkoia txikia da.",
         "english": "The balcony is small."
@@ -13404,7 +13404,7 @@
       "cefr": "B2",
       "topic": "home",
       "pronunciation": "cheer-REE-nah",
-      "notes": "Txirrina: doorbell or bell. The same word names the swift, the bird.",
+      "notes": "Txirrina: doorbell or bell.",
       "example": {
         "basque": "Txirrina ozena da.",
         "english": "The doorbell is loud."
@@ -13469,7 +13469,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "ER-leh-ah",
-      "notes": "Erlea: bee. Ezti means honey, and the bees of the Basque hills make it from heather and chestnut.",
+      "notes": "Erlea: bee. Ezti means honey.",
       "example": {
         "basque": "Erlea lorean dago.",
         "english": "The bee is on the flower."
@@ -13521,7 +13521,7 @@
       "cefr": "B1",
       "topic": "animals",
       "pronunciation": "BEH-leh-ah",
-      "notes": "Belea: crow. Beleak and kaioak are the two birds you see over every Basque town.",
+      "notes": "Belea: crow.",
       "example": {
         "basque": "Belea beltza da.",
         "english": "The crow is black."
@@ -13534,7 +13534,7 @@
       "cefr": "B1",
       "topic": "animals",
       "pronunciation": "KAI-oh-ah",
-      "notes": "Kaioa: seagull. They follow the fishing boats into Donostia and Bilbo.",
+      "notes": "Kaioa: seagull.",
       "example": {
         "basque": "Kaioak itsasoan daude.",
         "english": "The seagulls are at the sea."
@@ -13547,7 +13547,7 @@
       "cefr": "B1",
       "topic": "animals",
       "pronunciation": "moos-KER-rah",
-      "notes": "Muskerra: lizard. The same word is used for the color green.",
+      "notes": "Muskerra: lizard. In some dialects the same word is used for the color green.",
       "example": {
         "basque": "Muskerra berdea da.",
         "english": "The lizard is green."
@@ -13624,7 +13624,7 @@
       "english": "Insect",
       "cefr": "B2",
       "topic": "animals",
-      "pronunciation": "een-sek-TOO-ah",
+      "pronunciation": "een-tsek-TOO-ah",
       "notes": "Intsektua: insect. Eulia, erlea and inurria are intsektuak.",
       "example": {
         "basque": "Erlea intsektua da.",
