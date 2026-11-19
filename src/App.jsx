@@ -1800,7 +1800,7 @@ function HomeScreen(props){
   var storyCount=(_STORIES&&_STORIES.length)||0;
   // The hero card names the next lesson instead of describing the path, the
   // same way the Continue card on the Learn screen does.
-  var nextLesson=firstUnfinishedLesson(doneLessons);
+  var nextLesson=firstUnfinishedLesson(doneLessons,isPro);
   var heroTitle=nextLesson?("Lesson "+nextLesson.num+" · "+nextLesson.title):"Every lesson finished";
   var heroSub=nextLesson?(doneLessons.length>0?"Continue where you left off":"Start the step-by-step path"):"Zorionak! Practice anything below.";
   // What the quiz below actually draws from. Without this the level tabs and
@@ -7630,14 +7630,27 @@ var LESSONS=[
 ];
 
 
-// The first lesson not yet finished. Lessons unlock in order, so this is both
-// the only one a learner can open next and the one the home screen points at.
-// Shared by both screens so they can never disagree about where you are.
-function firstUnfinishedLesson(doneLessons){
+// The first lesson not yet finished that this reader can open. Lessons unlock
+// in order, so this is both the one a learner can open next and the one the
+// home screen points at. Shared by both screens so they can never disagree
+// about where you are.
+//
+// It has to skip a Pro lesson a free reader cannot open, the same way
+// isUnlocked walks past one. It used to take the first unfinished lesson
+// whatever it was, so a free reader who finished lesson 14 was shown lesson
+// 15, a Pro one, as "Continue where you left off", and went on being shown it
+// for good: the twelve free lessons after it were open and could be finished
+// one by one, and the card and the home screen never moved off 15. Only when
+// no open lesson is left does it fall back to the first locked one, which is
+// where the path really does continue behind the purchase.
+function firstUnfinishedLesson(doneLessons,isPro){
+  var locked=null;
   for(var i=0;i<LESSONS.length;i++){
-    if(doneLessons.indexOf(LESSONS[i].id)===-1)return LESSONS[i];
+    if(doneLessons.indexOf(LESSONS[i].id)!==-1)continue;
+    if(LESSONS[i].pro&&!isPro){if(!locked)locked=LESSONS[i];continue;}
+    return LESSONS[i];
   }
-  return null;
+  return locked;
 }
 
 function LearnScreen(props){
@@ -7703,7 +7716,7 @@ function LearnScreen(props){
   // The first lesson not yet finished: what the Continue card points at and
   // what gets the ring in the list below. The home screen hero uses the same
   // helper, so the two screens always name the same lesson.
-  var nextLesson=firstUnfinishedLesson(doneLessons);
+  var nextLesson=firstUnfinishedLesson(doneLessons,isPro);
 
   // One place that decides what tapping a lesson does, so the card and the list
   // can never disagree: a Pro lesson opens the paywall, an unlocked one opens.
