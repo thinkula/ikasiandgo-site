@@ -6795,7 +6795,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCAC",
     blurb:"Question words and useful phrases.",
     intro:"Real conversation needs more than nouns. These question words and short phrases let you ask, clarify, and keep a chat going. Nor (who), zer (what), and nola (how) are the building blocks of almost every question you will ask.",
-    grammar:{title:"The question words",body:"Question words come first in the sentence, as they do in English, and they all begin with n or z. Two phrases here are worth more than any single word: ez dut ulertzen, I do not understand, and poliki, slowly, which is how you ask someone to give you a chance."},
+    grammar:{title:"The question words",body:"Question words sit right before the verb, usually at the front of the sentence, and they all begin with n or z. Two phrases here are worth more than any single word: ez dut ulertzen, I do not understand, and poliki, slowly, which is how you ask someone to give you a chance."},
     wordIds:["zer_moduz","ondo","nola","zer","nor","zenbat","hitz_egin","ez_dut_ulertzen","poliki","laguntza"],
   },
   {
@@ -6852,7 +6852,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFD8\uFE0F",
     blurb:"School, people, and the community.",
     intro:"These are the places and the people that make up a town. Auzoa, the neighborhood, and jendea, people, come up whenever you talk about where you live, and two of the words here are built out of parts you can see.",
-    grammar:{title:"Community words",body:"Lagunartea is lagun (friend) plus arte (the space between), so it is literally the space among friends. Auzoa is the neighborhood, and auzolana, the work a neighborhood does together, is built on it. Auzapeza, the mayor, is the same auzo plus apez, priest, which tells you who used to run a Basque village."},
+    grammar:{title:"Community words",body:"Lagunartea is lagun (friend) plus arte (the space between), so it is literally the space among friends. Auzoa is the neighborhood, and auzolana, the work a neighborhood does together, is built on it. Auzapeza, the mayor, is the same auzo plus apez, priest."},
     wordIds:["eskola","unibertsitatea","jendea","mundua","auzoa","lagunartea","auzapeza","laguna","komunitatea","polizia"],
   },
   {
@@ -6862,7 +6862,7 @@ var LESSONS=[
     titleEu:"Etxean",
     emoji:"\uD83C\uDFE0",
     blurb:"The rooms you live in, and what is in them.",
-    intro:"Basque names rooms plainly. Once you know that gela means room, half the house follows: the sleep room, the staying room, the bath room. The kitchen is the exception, and its name is older and warmer than the rest.",
+    intro:"Basque names rooms plainly. Once you know that gela means room, half the house follows: the sleep room, the staying room, the bath room. The kitchen is the exception: its name comes from the hearth.",
     grammar:{title:"Rooms are built from gela",body:"Gela means room, and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. Egon (to stay) + gela = egongela, the living room. Bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
     wordIds:["logela","sukaldea","egongela","bainugela","mahaia","aulkia","sofa","ohea","leihoa","atea"],
   },
