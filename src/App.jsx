@@ -1497,6 +1497,13 @@ function App(){
   // guard where this is set.
   var _s13c=useState(null);var browseWord=_s13c[0];var setBrowseWord=_s13c[1];
   var _s14=useState(0);var vocabVersion=_s14[0];var setVocabVersion=_s14[1];
+  // How the fetch of the live vocabulary went: "loading", "ok" or "offline".
+  // The header badge and the loading bar both used to read vocabVersion===0,
+  // which says only that neither the cache nor the network has delivered yet.
+  // So a first launch showed OFFLINE while it was online and fetching, a
+  // launch that really was offline showed nothing once a cache existed, and
+  // with no cache the loading bar ran for as long as the app stayed open.
+  var _s14b=useState("loading");var vocabNet=_s14b[0];var setVocabNet=_s14b[1];
   var _s15=useState(null);var toast=_s15[0];var setToast=_s15[1];
   var _s16=useState(10);var dailyGoal=_s16[0];var setDailyGoal=_s16[1];
   var _s17=useState(0);var todayCount=_s17[0];var setTodayCount=_s17[1];
@@ -1546,8 +1553,10 @@ function App(){
             var cached=await STORE.get("vocab_cache");
             if(cached&&cached.value){try{var cv=JSON.parse(cached.value);if(cv&&cv.vocabulary){_VOCAB=cv.vocabulary;_WC=getWC();if(storiesOk(cv.stories))_STORIES=cv.stories;setVocabVersion(function(v){return v+1;});}}catch(e){}}
             var res=await fetch(VOCAB_URL);
-            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();if(storiesOk(vj.stories))_STORIES=vj.stories;setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
-          }catch(e){setToast("offline");setTimeout(function(){setToast(null);},3000);}
+            var fresh=false;
+            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){fresh=true;var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();if(storiesOk(vj.stories))_STORIES=vj.stories;setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
+            setVocabNet(fresh?"ok":"offline");
+          }catch(e){setVocabNet("offline");setToast("offline");setTimeout(function(){setToast(null);},3000);}
         })();
         // RevenueCat: sync real entitlement + localized price
         (async function(){
@@ -1680,7 +1689,7 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
   function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(missedOnly?null:config);setQs(qs);setResults([]);setScreen("quiz");}
   async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=localDay();var countedSoFar=countDay.current===today3?todayCount:0;countDay.current=today3;var newTodayCount=countedSoFar+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
-  var isLoadingVocab=!isBooting&&vocabVersion===0&&screen==="home";
+  var isLoadingVocab=!isBooting&&vocabNet==="loading"&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
     {isLoadingVocab&&<div style={{position:"fixed",top:0,left:0,right:0,height:3,zIndex:9998,background:"linear-gradient(90deg,#19A85A,#22C070,#19A85A)",backgroundSize:"200% 100%",animation:"shimmer 1.5s infinite"}}/>}
     {toast&&<div style={{position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",zIndex:9999,backgroundColor:toast==="offline"?"#555":toast==="loading"?"#888":"#19A85A",color:"#fff",fontSize:13,fontWeight:700,padding:"10px 20px",borderRadius:24,boxShadow:"0 4px 16px rgba(0,0,0,0.2)",whiteSpace:"nowrap",pointerEvents:"none"}}>{toast==="offline"?"Offline. Showing saved words.":toast==="loading"?"Loading...":"Vocabulary updated!"}</div>}
@@ -1723,7 +1732,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -1868,7 +1877,7 @@ function HomeScreen(props){
         <Logo size={30}/>
         <div style={{flex:1}}>
           <h1 style={{margin:0,fontSize:19,fontWeight:900,color:"#fff",letterSpacing:-0.5,lineHeight:1}}>Ikasi & Go™</h1>
-          <p style={{margin:"2px 0 0",fontSize:10,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque · Euskara{vocabVersion===0&&<span style={{fontSize:9,backgroundColor:"rgba(0,0,0,0.2)",padding:"1px 5px",borderRadius:6,marginLeft:5}}>OFFLINE</span>}</p>
+          <p style={{margin:"2px 0 0",fontSize:10,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque · Euskara{props.offline&&<span style={{fontSize:9,backgroundColor:"rgba(0,0,0,0.2)",padding:"1px 5px",borderRadius:6,marginLeft:5}}>OFFLINE</span>}</p>
         </div>
         <div style={{display:"flex",gap:5,alignItems:"center"}}>
           {!isPro&&!isTrialActive&&(
