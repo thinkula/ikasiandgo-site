@@ -3045,7 +3045,7 @@
       "mcOnly": true,
       "example": {
         "basque": "Produktibitatea handitzen da.",
-        "english": "Productivity is increasing."
+        "english": "Productivity increases."
       }
     },
     {
@@ -7495,7 +7495,7 @@
       "pronunciation": "eh-bah-KOON-tsah",
       "notes": "Ebakuntza = surgery or surgical operation. Ebaki = to cut (root). Ebakuntza egin = to perform surgery. Ebakuntza gela = operating room.",
       "example": {
-        "basque": "Biharko ebakuntzarako prestatu behar naiz.",
+        "basque": "Biharko ebakuntzarako prestatu behar dut.",
         "english": "I need to prepare for tomorrow's surgery."
       }
     },
@@ -9300,7 +9300,7 @@
       "cefr": "B2",
       "topic": "time",
       "pronunciation": "or-doo-TEH-ghee-ah",
-      "notes": "Schedule or timetable. Ordu (hour) + -tegia. Ordutegi estua = tight schedule. Ordutegi malgu = flexible schedule. Garraio publikoaren ordutegia = public transportation schedule.",
+      "notes": "Schedule or timetable. Ordu (hour) + -tegi. Ordutegi estua = tight schedule. Ordutegi malgu = flexible schedule. Garraio publikoaren ordutegia = public transportation schedule.",
       "example": {
         "basque": "Ordutegia aldatu behar dugu bilera egiteko.",
         "english": "We need to change the schedule to have the meeting."
