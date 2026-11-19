@@ -3067,7 +3067,7 @@
       "english": "Expiry",
       "cefr": "B2",
       "topic": "time",
-      "pronunciation": "ee-rown-GEE-tseh-ah",
+      "pronunciation": "ee-rown-GHEE-tseh-ah",
       "notes": "Iraungitzea = expiry or expiration. Iraungitu = to expire. Iraungitze data = expiry date. Used for passports, contracts, food, medicine. Iraungi da = it has expired. Iraungitu gabe = not yet expired. From the verb iraungi (to expire/die out).",
       "example": {
         "basque": "Iraungitzea hurbil dago.",
@@ -4344,7 +4344,7 @@
       "english": "Do you speak English?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "in-geh-LEH-ses ITS eh-GEE-ten DOO-soo",
+      "pronunciation": "in-geh-LEH-ses ITS eh-GHEE-ten DOO-soo",
       "notes": "Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? Al is an optional marker of yes or no questions. The -z suffix means in that language.",
       "mcOnly": true,
       "example": {
@@ -5945,7 +5945,7 @@
       "english": "Kidneys",
       "cefr": "B1",
       "topic": "body",
-      "pronunciation": "geel-tsoo-ROON-ak",
+      "pronunciation": "gheel-tsoo-ROON-ak",
       "notes": "Giltzurrunak = kidneys (plural). Giltzurrun = kidney (singular). Taught as plural since kidneys always come in pairs. Giltzurruneko harriak = kidney stones. Gernubideak = urinary tract. Key medical vocabulary.",
       "example": {
         "basque": "Giltzurrunak ondo daude.",
@@ -7427,7 +7427,7 @@
       "english": "Joint (body)",
       "cefr": "B1",
       "topic": "body",
-      "pronunciation": "geel-tsah-DOO-rah",
+      "pronunciation": "gheel-tsah-DOO-rah",
       "notes": "Giltzadura = joint (body). Giltzadura-tartea = joint range, giltzadurak zaintzea = to care for joints. Giltza = key/lock. Giltzadurako mina = joint pain. Belaungiltzadura = knee joint.",
       "example": {
         "basque": "Giltzadurako mina dut.",
@@ -12896,7 +12896,7 @@
       "english": "Bakery",
       "cefr": "A1",
       "topic": "city",
-      "pronunciation": "oh-keen-DEH-gee-ah",
+      "pronunciation": "oh-keen-DEH-ghee-ah",
       "notes": "Okindegia: bakery. Okin (baker) + -tegi (place for), the same ending as liburutegia and ardandegia.",
       "example": {
         "basque": "Okindegia kalean dago.",
@@ -12909,7 +12909,7 @@
       "english": "Butcher shop",
       "cefr": "A1",
       "topic": "city",
-      "pronunciation": "ah-rah-TEH-gee-ah (h is silent)",
+      "pronunciation": "ah-rah-TEH-ghee-ah (h is silent)",
       "notes": "Harategia: butcher shop. Haragi (meat) + -tegi (place for).",
       "example": {
         "basque": "Harategia handia da.",
@@ -12935,7 +12935,7 @@
       "english": "Gas station",
       "cefr": "A1",
       "topic": "city",
-      "pronunciation": "gah-soh-leen-DEH-gee-ah",
+      "pronunciation": "gah-soh-leen-DEH-ghee-ah",
       "notes": "Gasolindegia: gas station. The -tegi ending again, the place where something is kept.",
       "example": {
         "basque": "Gasolindegia hemen dago.",
@@ -13078,7 +13078,7 @@
       "english": "Urban planning",
       "cefr": "B2",
       "topic": "city",
-      "pronunciation": "ee-ree-GEEN-tsah (h is silent)",
+      "pronunciation": "ee-ree-GHEEN-tsah (h is silent)",
       "notes": "Hirigintza: urban planning. From hiri, the city.",
       "example": {
         "basque": "Hirigintza zaila da.",
@@ -13091,7 +13091,7 @@
       "english": "Infrastructure",
       "cefr": "B2",
       "topic": "city",
-      "pronunciation": "ahs-pee-eh-gee-TOO-rah",
+      "pronunciation": "ahs-pee-eh-ghee-TOO-rah",
       "notes": "Azpiegitura: infrastructure, literally the structure underneath.",
       "example": {
         "basque": "Azpiegitura berria da.",
@@ -13260,7 +13260,7 @@
       "english": "Garden",
       "cefr": "B1",
       "topic": "home",
-      "pronunciation": "loh-rah-TEH-gee-ah",
+      "pronunciation": "loh-rah-TEH-ghee-ah",
       "notes": "Lorategia: garden. Lore (flower) + -tegi (place for), the flower place.",
       "example": {
         "basque": "Lorategia ederra da.",
@@ -13299,7 +13299,7 @@
       "english": "Key",
       "cefr": "B1",
       "topic": "home",
-      "pronunciation": "GEEL-tsah",
+      "pronunciation": "GHEEL-tsah",
       "notes": "Giltza: key. The same word is a wrench, and in music a clef.",
       "example": {
         "basque": "Non dago giltza?",
@@ -13650,7 +13650,7 @@
       "english": "Carnivore",
       "cefr": "B2",
       "topic": "animals",
-      "pronunciation": "ah-rah-gee-yah-LEH-ah (h is silent)",
+      "pronunciation": "ah-rah-ghee-yah-LEH-ah (h is silent)",
       "notes": "Haragijalea: carnivore. Haragi is meat.",
       "example": {
         "basque": "Otsoa haragijalea da.",
