@@ -282,7 +282,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "toh-MAH-teh-ah",
-      "notes": "Tomatea goes into pintxos, sauces and piperada (tomato and pepper stew). From Spanish tomate.",
+      "notes": "Tomatea goes into pintxos, sauces and piperrada (tomato and pepper stew). From Spanish tomate.",
       "example": {
         "basque": "Tomatea gorria da.",
         "english": "The tomato is red."
@@ -2572,7 +2572,7 @@
       "english": "Ritual / Ceremony",
       "cefr": "B1",
       "topic": "culture",
-      "pronunciation": "er-REE-too",
+      "pronunciation": "er-REE-too-ah",
       "notes": "Erritu = ritual. Errituzko = ritual/ceremonial. Basque culture has many ancient rituals tied to seasons, agriculture and community life.",
       "example": {
         "basque": "Erritua garrantzitsua da.",
@@ -2741,7 +2741,7 @@
       "english": "Strong",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "in-DAR-tsoo",
+      "pronunciation": "in-DAR-tsoo-ah",
       "notes": "Indartsu = strong. Indar = strength/force (root). Indarra = the force. Indartu = to strengthen. Indar handia = great strength.",
       "example": {
         "basque": "Gizona indartsua da.",
@@ -4970,7 +4970,7 @@
       "english": "Appointment",
       "cefr": "A2",
       "topic": "work",
-      "pronunciation": "its-OR-doo-ah (h is silent)",
+      "pronunciation": "eets-OR-doo-ah (h is silent)",
       "notes": "Appointment or meeting. Hitz = word + ordua = hour. Literally word-time, a time to keep your word. Hitzordua eman = to give an appointment. Also used for doctor appointments.",
       "example": {
         "basque": "Bihar hitzordua daukat.",
@@ -5296,7 +5296,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "pee-PER-rah",
-      "notes": "Pepper. Piperrak = peppers (plural). Piper gorria = red pepper. Piper berdea = green pepper. The piperada (Basque pepper and tomato stew) is a classic dish. Gernikako piperrak = Gernika peppers, small green peppers from Gernika.",
+      "notes": "Pepper. Piperrak = peppers (plural). Piper gorria = red pepper. Piper berdea = green pepper. The piperrada (Basque pepper and tomato stew) is a classic dish. Gernikako piperrak = Gernika peppers, small green peppers from Gernika.",
       "example": {
         "basque": "Piperra gustuko dut.",
         "english": "I like pepper."
@@ -6257,7 +6257,7 @@
       "english": "Lazy",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "NAH-ghee",
+      "pronunciation": "NAH-ghee-ah",
       "notes": "Lazy. Nagi = lazy (adjective). Nagikeria = laziness (noun). Nagi egon = to be lazy. Nagi da = he/she is lazy. The adjective form is more useful in everyday speech.",
       "example": {
         "basque": "Ez izan nagi, lan egin!",
@@ -6660,7 +6660,7 @@
       "english": "Traveler / Passenger",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "bee-dai-AH-ree",
+      "pronunciation": "bee-dai-AH-ree-ah",
       "notes": "Bidaiaria = traveler or passenger. Bidaia = journey + -ari (one who does). Like other profession nouns, it drops -a as a bare predicate: bidaiari naiz = I am a traveler. Bidaiariak = travelers.",
       "example": {
         "basque": "Bidaiari asko daude geltokian.",
@@ -7353,7 +7353,7 @@
       "notes": "Piperrada = piperade, the classic Basque pepper and tomato stew. Piper = pepper + -ada (collective). Eaten with eggs (arrautzekin), with cod, or as a side. One of the most emblematic Basque dishes, also popular across southwest France.",
       "example": {
         "basque": "Piperrada prestatzen dut.",
-        "english": "I am preparing piperade."
+        "english": "I prepare piperade."
       }
     },
     {
@@ -8168,7 +8168,7 @@
       "english": "Blood pressure",
       "cefr": "B2",
       "topic": "body",
-      "pronunciation": "OH-dol preh-SYOH-ah",
+      "pronunciation": "OH-dol preh-see-OH-ah",
       "notes": "Blood pressure. Odol (blood) + presioa (pressure). Odol-presio altua = high blood pressure. Odol-presio baxua = low blood pressure. Common medical term.",
       "example": {
         "basque": "Odol-presioa neurtu behar dut.",
@@ -8389,7 +8389,7 @@
       "english": "Gray",
       "cefr": "A2",
       "topic": "colors",
-      "pronunciation": "GREES",
+      "pronunciation": "GREE-sah",
       "notes": "Gray. From Spanish gris. Gris argia = light gray. Gris iluna = dark gray. The color of the famous Basque pintxo bar counters and the winter sky.",
       "example": {
         "basque": "Zerua grisa dago gaur.",
@@ -8584,7 +8584,7 @@
       "english": "Digestion",
       "cefr": "B2",
       "topic": "body",
-      "pronunciation": "dee-ges-TYOH-ah",
+      "pronunciation": "dee-ges-tee-OH-ah",
       "notes": "Digestion. International term. Digestio ona = good digestion. Digestio arazoak = digestive problems. The rich Basque diet makes this a common topic.",
       "example": {
         "basque": "Digestio ona izateko ondo jan behar duzu.",
@@ -9104,7 +9104,7 @@
       "english": "Wine cellar / Winery",
       "cefr": "B2",
       "topic": "food",
-      "pronunciation": "ar-dan-DEH-ghee",
+      "pronunciation": "ar-dan-DEH-ghee-ah",
       "notes": "Wine cellar or winery. Ardo (wine) + -tegi (place). The Rioja Alavesa wine region in the Basque Country produces world-class wines. Famous wineries include Marqués de Riscal and Bodegas Ysios.",
       "example": {
         "basque": "Ardandegian Arabako Errioxako ardoak dastatzen ditugu.",
@@ -9234,7 +9234,7 @@
       "english": "Fit of anger / Tantrum",
       "cefr": "B2",
       "topic": "emotions",
-      "pronunciation": "ah-ser-reh-AL-dee (h is silent)",
+      "pronunciation": "ah-ser-reh-AL-dee-ah (h is silent)",
       "notes": "Fit of anger or tantrum. Haserre (anger) + aldi (period/episode). Haserrealdi batean = in a fit of anger. Haserrealdi handia = big tantrum. Used for uncontrolled emotional outbursts.",
       "example": {
         "basque": "Haserrealdi batean esan zuen hori.",
@@ -9390,7 +9390,7 @@
       "english": "Repatriation / Return to homeland",
       "cefr": "B2",
       "topic": "travel",
-      "pronunciation": "ah-ber-ree-RAH-tseh",
+      "pronunciation": "ah-ber-ree-RAH-tseh-ah",
       "notes": "Repatriation or return to the homeland. Aberri (homeland) + -ratze (return). Aberriratzeko gogoa = desire to return to the homeland. Important for the Basque diaspora. Aberri Eguna celebrates the homeland.",
       "example": {
         "basque": "Aberriratze programek emigranteei laguntzen diete.",
@@ -9819,7 +9819,7 @@
       "english": "Adopted child",
       "cefr": "B1",
       "topic": "family",
-      "pronunciation": "SEH-meh ah-LAH-bah ah-dop-TAH-too",
+      "pronunciation": "SEH-meh ah-LAH-bah ah-dop-TAH-too-ah",
       "notes": "Adopted child. Seme-alaba (son/daughter) + adoptatu (adopted). Adopzioa = adoption. Seme-alaba adoptatu bat daukagu = we have an adopted child. Important vocabulary for modern family discussions.",
       "example": {
         "basque": "Seme-alaba adoptatu bat daukate.",
@@ -9910,7 +9910,7 @@
       "english": "CV / Resume",
       "cefr": "B1",
       "topic": "work",
-      "pronunciation": "koo-ree-KOO-loom",
+      "pronunciation": "koo-ree-KOO-loo-mah",
       "notes": "CV or resume. International term also written as curriculum vitae. Curriculuma bidali = to send a CV. Curriculuma eguneratu = to update the CV. Essential professional vocabulary.",
       "example": {
         "basque": "Nire curriculuma bidali dut.",
@@ -10599,7 +10599,7 @@
       "english": "Sports center / Gym",
       "cefr": "A2",
       "topic": "culture",
-      "pronunciation": "kee-rol-DEH-ghee",
+      "pronunciation": "kee-rol-DEH-ghee-ah",
       "notes": "Sports center or gym. Kirol (sport) + -tegi (place). The Basque Country has excellent public sports facilities. Kiroldegira joan = to go to the sports center. Igerileku = swimming pool.",
       "example": {
         "basque": "Astelehen eta asteazkenetan kiroldegira joaten naiz.",
