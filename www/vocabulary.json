@@ -1113,7 +1113,7 @@
       "english": "Day",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "EH-goon-ah",
+      "pronunciation": "eh-GOON-ah",
       "notes": "Eguna = the day. Egun = day (root). Egunero = every day. Eguneroko = daily. Egunsentia = dawn.",
       "example": {
         "basque": "Eguna ederra da.",
@@ -1139,7 +1139,7 @@
       "english": "Home / House",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "eh-CHEH-ah",
+      "pronunciation": "EH-cheh-ah",
       "notes": "Etxea = house or home. Many Basque surnames are really house names: Etxeberria just means the new house. Etxera = home (going home). Etxean = at home. Baserria = farmhouse.",
       "example": {
         "basque": "Etxea ederra da.",
@@ -1672,7 +1672,7 @@
       "english": "Music",
       "cefr": "A2",
       "topic": "culture",
-      "pronunciation": "MOO-see-kah",
+      "pronunciation": "moo-SEE-kah",
       "notes": "Musika = music. Musikaria = musician. Musikal = musical. Basque traditional music uses the txalaparta (wooden percussion) and trikitixa (accordion).",
       "example": {
         "basque": "Musika entzutea gustatzen zait.",
@@ -3444,7 +3444,7 @@
       "english": "Opportunity / Option",
       "cefr": "B2",
       "topic": "work",
-      "pronunciation": "OW-keh-rah",
+      "pronunciation": "ow-KEH-rah",
       "notes": "Aukera = opportunity or option. Aukeratu = to choose (verb from this root). Aukera ona = good opportunity. Aukerak eta baliabideak = opportunities and resources.",
       "example": {
         "basque": "Aukera ona da.",
@@ -3808,7 +3808,7 @@
       "english": "Never",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "SEH-koo-lah",
+      "pronunciation": "seh-KOO-lah",
       "notes": "Sekula = never (emphatic). Sekula ez dut ikusi = I have never ever seen it. More emphatic than inoiz ez. From Latin saecula (ages/forever).",
       "example": {
         "basque": "Sekula ez dut ikusi.",
@@ -4068,7 +4068,7 @@
       "english": "First",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "LEH-heh-nah",
+      "pronunciation": "leh-HEH-nah",
       "notes": "Lehena = first. Bigarrena = second. Hirugarrena = third. Ordinals use -garren suffix after 1st.",
       "example": {
         "basque": "Lehena naiz.",
@@ -4671,7 +4671,7 @@
       "english": "Maybe / Perhaps",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "AH-ghee-an",
+      "pronunciation": "ah-GHEE-an",
       "notes": "Maybe or perhaps. Agian etorriko naiz = maybe I will come. More hopeful than beharbada. Used constantly in everyday speech, a very characteristic Basque filler word.",
       "example": {
         "basque": "Agian bihar eguraldi ona izango da.",
@@ -5646,7 +5646,7 @@
       "english": "Warm / Lukewarm",
       "cefr": "A2",
       "topic": "adjectives",
-      "pronunciation": "EH-peh-lah",
+      "pronunciation": "eh-PEH-lah",
       "notes": "Warm or lukewarm. Epel = lukewarm (root). Between beroa (hot) and hotza (cold). Eguraldi epela = mild weather. Ura epela = lukewarm water. Epeltasuna = warmth. Basque weather is often described as epela, mild and Atlantic.",
       "example": {
         "basque": "Ura epela da.",
@@ -5711,7 +5711,7 @@
       "english": "Slowly / Gently",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "POH-lee-kee",
+      "pronunciation": "poh-LEE-kee",
       "notes": "Slowly or gently. Poliki hitz egin = speak slowly please. Poliki-poliki = very slowly/little by little. Also means nicely or gently. Poliki esaidazu = say it slowly to me. Essential for learners asking native speakers to slow down.",
       "example": {
         "basque": "Poliki hitz egin mesedez.",
@@ -7726,7 +7726,7 @@
       "english": "Stiff / Rigid",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "SOOR-roo-nah",
+      "pronunciation": "soor-ROO-nah",
       "notes": "Zurruna = stiff, rigid, or inflexible. Zurrun = stiff (root). Zurrundu = to stiffen. Muskulu zurrunak = stiff muscles. Jarrera zurruna = rigid attitude. Do not confuse with gogorra (hard/tough). Zurrun egon = to be stiff.",
       "example": {
         "basque": "Lepoa zurruna daukat.",
@@ -8818,7 +8818,7 @@
       "english": "Indigo",
       "cefr": "B2",
       "topic": "colors",
-      "pronunciation": "IN-dee-goh",
+      "pronunciation": "in-DEE-goh-ah",
       "notes": "Indigo. International term. The deep blue-purple color. Indigo kolorea = indigo color. Used in art, fashion and design contexts.",
       "example": {
         "basque": "Gaueko zerua indigo kolorekoa da.",
@@ -9468,7 +9468,7 @@
       "english": "Hospital (native term)",
       "cefr": "B2",
       "topic": "body",
-      "pronunciation": "eh-REE-eh-cheh-ah",
+      "pronunciation": "eh-ree-EH-cheh-ah",
       "notes": "Hospital. Eri (sick person) + etxea (house), literally sick-house. A native synonym of ospitalea, rare in everyday speech; the usual terms are ospitalea and osasun-zentroa.",
       "example": {
         "basque": "Erietxean hitzordua hartu dut.",
@@ -10170,7 +10170,7 @@
       "english": "One third",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "HEH-reh-nah",
+      "pronunciation": "heh-REH-nah",
       "notes": "One third. Heren = third (as a fraction). Bi heren = two thirds. Hiru heren = three thirds = a whole. Paired with erdia (half) and laurdena (quarter) to complete basic fractions.",
       "example": {
         "basque": "Lurraren herena oihanez estalita dago.",
