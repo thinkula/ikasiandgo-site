@@ -6596,8 +6596,8 @@ var LESSONS=[
     titleEu:"Irakurri eta idatzi",
     emoji:"\uD83D\uDCDA",
     blurb:"Four everyday verbs, the people who do them, and one noun that carries weight.",
-    intro:"Four of the most ordinary verbs in any language, which the path has somehow gone this far without. The fifth word here is a noun, and it carries more weight than its size suggests.",
-    grammar:{title:"Le, the one who does it",body:"Add -le to one of these verbs and you get the person who does it. Irakurri gives irakurlea, a reader. Idatzi gives idazlea, a writer. Entzun gives entzulea, a listener. Hitza means a word, and hitza eman, to give your word, is a promise that Basque custom treats as binding. Hitz egin, literally to make word, is how you say to speak at all."},
+    intro:"Four of the most ordinary verbs in any language, which the path has somehow gone this far without. One noun here carries more weight than its size suggests.",
+    grammar:{title:"Le, the one who does it",body:"Add -le to one of these verbs and you get the person who does it. Irakurri gives irakurlea, a reader. Idatzi gives idazlea, a writer. Entzun gives entzulea, a listener. Hitza means a word, and hitza eman, to give your word, is to make a promise. Hitz egin, literally to make word, is how you say to speak at all."},
     wordIds:["irakurri","idatzi","entzun","begiratu","hitza","irakurlea","idazlea","entzulea"],
   },
   {
