@@ -541,7 +541,7 @@
       "english": "Sister (male speaker)",
       "cefr": "A1",
       "topic": "family",
-      "pronunciation": "ah-RREH-bah",
+      "pronunciation": "ar-REH-bah",
       "notes": "Arreba = sister as said by a male speaker (a man's sister). A female speaker says ahizpa for her sister. Basque picks the sibling word by the speaker's gender.",
       "example": {
         "basque": "Nire arreba gaztea da.",
@@ -659,7 +659,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "ee-SEH-bah",
-      "notes": "Izeba = aunt (mothers or fathers sister). Do not confuse with osaba (uncle). Both are important in tight-knit Basque families.",
+      "notes": "Izeba = aunt (mother's or father's sister). Do not confuse with osaba (uncle). Both are important in tight-knit Basque families.",
       "example": {
         "basque": "Izeba bizkorra da.",
         "english": "The aunt is clever."
@@ -867,7 +867,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "BAH-soh-ah",
-      "notes": "Basoa means forest or wild. Basajaun (lord of the forest) is a famous figure of Basque mythology.",
+      "notes": "Basoa means forest. The related basa- means wild: Basajaun (lord of the forest) is a famous figure of Basque mythology.",
       "example": {
         "basque": "Basoa handia da.",
         "english": "The forest is large."
@@ -1088,7 +1088,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ee-lah-BEH-teh-ah (h is silent)",
-      "notes": "Hilabetea = month. Hil = moon/death + bete = full. Literally a full moon cycle. Old Basque calendar was lunar.",
+      "notes": "Hilabetea = month. Hil = moon or month + bete = full. Literally a full moon cycle.",
       "example": {
         "basque": "Hilabetea igaro da.",
         "english": "A month has passed."
@@ -1504,7 +1504,7 @@
       "cefr": "A2",
       "topic": "emotions",
       "pronunciation": "MAI-teh",
-      "notes": "Maite = love/beloved. Maite zaitut = I love you (the most important phrase!). Maitea = beloved/sweetheart. Maite izatea = to love someone.",
+      "notes": "Maite = love/beloved. Maite zaitut = I love you. Maitea = beloved/sweetheart. Maite izatea = to love someone.",
       "example": {
         "basque": "Maite dut euskara.",
         "english": "I love Basque."
@@ -2351,7 +2351,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "KAH-too-ah",
-      "notes": "Katua = cat. Katu = cat (root). From Latin cattus. Katuak zazpi bizi ditu = cats have seven lives (Basque follows the Spanish version of the saying).",
+      "notes": "Katua = cat. Katu = cat (root). From Latin cattus. Katuak zazpi bizi ditu = a cat has seven lives (Basque follows the Spanish version of the saying).",
       "example": {
         "basque": "Katua lasaia da.",
         "english": "The cat is calm."
@@ -2664,7 +2664,7 @@
       "cefr": "A2",
       "topic": "adjectives",
       "pronunciation": "OH-tsah (h is silent)",
-      "notes": "Hotza = cold. Hotz = cold (root). Hotzikara = shiver (cold-shake). Hotzikaraz = with shivers. Hotz egin = to feel cold. Opposite: beroa.",
+      "notes": "Hotza = cold. Hotz = cold (root). Hotzikara = shiver (cold-shake). Hotzikaraz = with shivers. Hotz egiten du = it is cold. Opposite: beroa.",
       "example": {
         "basque": "Negua hotza da.",
         "english": "Winter is cold."
@@ -3991,7 +3991,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "sah-BEH-lah",
-      "notes": "Sabela = stomach or belly. Sabeleko mina dut = I have a stomach ache. Sabelalde = abdominal area. Sabelaldi = litter (of animals). Sabel-zorriak = butterflies in the stomach. Sabela bete = full stomach.",
+      "notes": "Sabela = stomach or belly. Sabeleko mina dut = I have a stomach ache. Sabelalde = abdominal area. Sabelaldi = litter (of animals). Sabela bete = full stomach.",
       "example": {
         "basque": "Sabeleko mina dut.",
         "english": "My stomach hurts."
@@ -4055,7 +4055,7 @@
       "english": "Thirty",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "OH-gay-tah AH-mar (h is silent)",
+      "pronunciation": "OH-gay-tah ah-MAR (h is silent)",
       "notes": "Hogei (20) + ta (and) + hamar (10) = 30. Basque is vigesimal, all numbers built from 20s.",
       "example": {
         "basque": "Hogeita hamar urte.",
@@ -4240,7 +4240,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "TEH-ah",
-      "notes": "Tea. Less common than coffee in the Basque Country but widely available.",
+      "notes": "Tea. Te is the root: te beltza = black tea.",
       "example": {
         "basque": "Tea beroa da.",
         "english": "The tea is hot."
@@ -4893,7 +4893,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "oor-TAH-roh-ak",
-      "notes": "Urtaroak = seasons (plural). Urtaroa = season (singular). Udaberria=spring, Uda=summer, Udazkena=autumn, Negua=winter. The Basque Country is known for changeable weather, four seasons sometimes in one day.",
+      "notes": "Urtaroak = seasons (plural). Urtaroa = season (singular). Udaberria=spring, Uda=summer, Udazkena=autumn, Negua=winter.",
       "example": {
         "basque": "Lau urtaro daude.",
         "english": "There are four seasons."
@@ -4919,7 +4919,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "OO-dah",
-      "notes": "Summer. Udan = in summer. Uda-oporretan = on summer holidays. Basque summers are mild, rarely very hot due to Atlantic influence. Donostia (San Sebastián)'s beaches are packed in July and August.",
+      "notes": "Summer. Udan = in summer. Uda-oporretan = on summer vacation. Basque summers are mild, rarely very hot due to Atlantic influence. Donostia (San Sebastián)'s beaches are packed in July and August.",
       "example": {
         "basque": "Udan itsasora joaten gara.",
         "english": "In summer we go to the sea."
@@ -4932,7 +4932,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "oo-das-KEH-nah",
-      "notes": "Autumn. Uda = summer + azkena = last. Literally last summer. Udazkenean = in autumn. The beech forests turn golden. Mushroom season (perretxiko garaia) begins in October.",
+      "notes": "Autumn. Uda = summer + azkena = last or end. Literally the end of summer. Udazkenean = in autumn. The beech forests turn golden. Mushroom season (perretxiko garaia) begins in October.",
       "example": {
         "basque": "Udazkena ederrena da.",
         "english": "Autumn is the most beautiful."
@@ -5127,7 +5127,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mah-LOW (rhymes with now; h is silent)",
-      "notes": "Hamar (10) + lau (4) = 14. Once you know the single digits and hamar, all Basque teen numbers follow perfectly: hamar + digit.",
+      "notes": "Hamar (10) + lau (4) = 14. Once you know the single digits and hamar, most Basque teen numbers follow the pattern: hamar + digit.",
       "example": {
         "basque": "Hamalau egun barru.",
         "english": "In fourteen days."
@@ -5166,7 +5166,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "low-ROH-gay (low rhymes with now)",
-      "notes": "80 = four twenties (lau=4 + hogei=20). Compare: French quatre-vingts = 80. The Basque and Breton vigesimal systems may share ancient roots.",
+      "notes": "80 = four twenties (lau=4 + hogei=20). Compare: French quatre-vingts = 80.",
       "example": {
         "basque": "Laurogei kilogramo.",
         "english": "Eighty kilograms."
@@ -5179,7 +5179,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mah-SAY (h is silent)",
-      "notes": "Hamar (10) + sei (6) = 16. Hamasei sounds like 'hammer-say'. The teen series: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16.",
+      "notes": "Hamar (10) + sei (6) = 16. The teen series: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16.",
       "example": {
         "basque": "Hamasei urte ditu.",
         "english": "She is sixteen years old."
@@ -5192,7 +5192,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mah-SAS-pee (h is silent)",
-      "notes": "Hamar (10) + zazpi (7) = 17. Both z sounds are pronounced like a crisp s: hah-mah-SAS-pee. Hamazazpi is one of the harder teen numbers to pronounce.",
+      "notes": "Hamar (10) + zazpi (7) = 17. Both z sounds are pronounced like a crisp s.",
       "example": {
         "basque": "Hamazazpi egun barru.",
         "english": "In seventeen days."
@@ -5230,8 +5230,8 @@
       "english": "Vegetable",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "bah-RASK-ee-ah",
-      "notes": "Vegetable. Barazki = vegetable (root). Barazkiak = vegetables (plural). Barazki salda = vegetable broth. The Basque markets (merkatuak) are famous for fresh local vegetables, especially peppers and tomatoes.",
+      "pronunciation": "bah-RAS-kee-ah",
+      "notes": "Vegetable. Barazki = vegetable (root). Barazkiak = vegetables (plural). Barazki salda = vegetable broth.",
       "example": {
         "basque": "Barazkiak osasuntsuak dira.",
         "english": "Vegetables are healthy."
@@ -5282,7 +5282,7 @@
       "english": "Garlic",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "bah-ratch-OO-ree-ah",
+      "pronunciation": "bah-rah-CHOO-ree-ah",
       "notes": "Garlic. Baratxuri = garlic (root). Indispensable in Basque cooking, in salsa verde, pil-pil, and almost every sauce. Baratxuri-atal bat = one clove of garlic. Often fried in oil first to flavor a dish.",
       "example": {
         "basque": "Baratxuria gehitu dut saltsan.",
@@ -5309,7 +5309,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "pah-TAH-tah",
-      "notes": "Potato. The same word as Spanish patata. Patata tortilla = potato omelette, ubiquitous in Basque bars. Patata frijituak = fried potatoes. The Basque Country grows distinctive small potatoes in the interior valleys.",
+      "notes": "Potato. The same word as Spanish patata. Patata tortilla = potato omelette, ubiquitous in Basque bars. Patata frijituak = fried potatoes.",
       "example": {
         "basque": "Tortilla patatarekin egiten da.",
         "english": "The omelette is made with potato."
@@ -5322,7 +5322,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ah-ROH-sah",
-      "notes": "Rice. From Arabic ar-ruzz via Spanish arroz. Arrozarekin = with rice. Arroz con leche (arrozesnea) = rice pudding. Less central than in Spanish cuisine but used in Basque seafood dishes.",
+      "notes": "Rice. From Arabic ar-ruzz via Spanish arroz. Arrozarekin = with rice. Arroz-esnea = rice pudding. Less central than in Spanish cuisine but used in Basque seafood dishes.",
       "example": {
         "basque": "Arrozarekin jan dut.",
         "english": "I ate with rice."
@@ -5389,7 +5389,7 @@
       "pronunciation": "LEH-poh-ah",
       "notes": "Neck. Lepo = neck (root). Lepokoa = necklace (neck-thing). Lepoa mindu = stiff neck. Lepora hartu = to put on one's shoulders (to take responsibility). Leporaino nago = I'm up to my neck (swamped/fed up).",
       "example": {
-        "basque": "Lepoa min dut.",
+        "basque": "Lepoko mina dut.",
         "english": "My neck hurts."
       }
     },
@@ -5504,7 +5504,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "OH-tsoh-ah",
-      "notes": "Wolf. Otso = wolf (root). Wolves returned to the Basque Pyrenees in recent decades, a controversial topic. In Basque mythology the wolf (otso) appears in many legends. Otsaila = February (wolf-month, when wolves were most active).",
+      "notes": "Wolf. Otso = wolf (root). Otsaila (February) is usually explained as otso + hil (month), the wolf month.",
       "example": {
         "basque": "Otsoa basoan bizi da.",
         "english": "The wolf lives in the forest."
@@ -5569,7 +5569,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "goo-RAH-soh-ak",
-      "notes": "Parents (plural). Guraso = parent (singular). Gurasoek = by the parents. Guraso ezkondugabeak = unmarried parents. Gurasoen etxea = the parents' house. One of the most important family words.",
+      "notes": "Parents (plural). Guraso = parent (singular). Gurasoek = by the parents. Gurasoen etxea = the parents' house. One of the most important family words.",
       "example": {
         "basque": "Nire gurasoak Gasteizen bizi dira.",
         "english": "My parents live in Gasteiz (Vitoria)."
@@ -5790,7 +5790,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "GAH-tsah",
-      "notes": "Gatza = salt. Gatz = salt (root). Gazia = salty. Gazta (cheese) is popularly linked to gatz, though the etymology is uncertain. Gatzontzia = salt cellar. Salt was historically precious. Basque salt trade routes were important in medieval times.",
+      "notes": "Gatza = salt. Gatz = salt (root). Gazia = salty. Gazta (cheese) is popularly linked to gatz, though the etymology is uncertain. Gatzontzia = salt cellar. The salt valley of Añana, in Araba, is still worked.",
       "example": {
         "basque": "Gatza gehitu behar diozu.",
         "english": "You need to add salt to it."
@@ -6869,7 +6869,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "sah-GAR-rah",
-      "notes": "Sagarra = apple. Sagar = apple (root). Sagardoa = cider (apple+wine). Sagarrondoa = apple tree. Apples are central to Basque culture. Cider making is a centuries-old tradition. Sagarrondoak = apple orchards cover the Basque hillsides in autumn.",
+      "notes": "Sagarra = apple. Sagar = apple (root). Sagardoa = cider (apple+wine). Sagarrondoa = apple tree. Sagastia = apple orchard. Cider making is a centuries-old tradition.",
       "example": {
         "basque": "Sagarra jan dut.",
         "english": "I ate an apple."
@@ -6882,7 +6882,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "bah-NAH-nah",
-      "notes": "Same word as Spanish and English, though in everyday shops you will often hear platanoa, from Spanish platano. Bananondoa = banana tree. Popular in dessert pintxos.",
+      "notes": "Same word as Spanish and English, though in everyday shops you will often hear platanoa, from Spanish platano. Bananondoa = banana tree.",
       "example": {
         "basque": "Banana jan nahi dut.",
         "english": "I want to eat a banana."
@@ -6908,7 +6908,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ah-seh-nah-REE-oh-ah",
-      "notes": "Azenarioa = carrot. From Spanish zanahoria (older form azanoria). Azenarioak = carrots (plural). Common in Basque vegetable soups and stews. Azenario salda = carrot broth. Azenario tortilla = carrot omelette.",
+      "notes": "Azenarioa = carrot. From Spanish zanahoria (older form azanoria). Azenarioak = carrots (plural). Common in Basque vegetable soups and stews. Azenario salda = carrot broth.",
       "example": {
         "basque": "Azenarioak osasuntsuak dira.",
         "english": "Carrots are healthy."
@@ -6921,7 +6921,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "leh-CHOO-gah",
-      "notes": "Letxuga = lettuce. From Spanish lechuga. Letxuga entsalada = lettuce salad. Basque cuisine uses fresh letxuga in salads. The Basque Country grows excellent letxuga in the Araba flatlands.",
+      "notes": "Letxuga = lettuce. From Spanish lechuga. Letxuga entsalada = lettuce salad. Basque cuisine uses fresh letxuga in salads.",
       "example": {
         "basque": "Letxuga entsaladan dago.",
         "english": "The lettuce is in the salad."
@@ -7142,7 +7142,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "oh-DEH-ee-ah (h is silent)",
-      "notes": "Hodeia = cloud. Hodei = cloud (root). Hodeitsu = cloudy. Hodeiek zerua estaltzen dute = the clouds cover the sky. Basque weather is famously changeable. Bilbo (Bilbao) can have four seasons in one day.",
+      "notes": "Hodeia = cloud. Hodei = cloud (root). Hodeitsu = cloudy. Hodeiek zerua estaltzen dute = the clouds cover the sky.",
       "example": {
         "basque": "Hodei asko dago zeruan.",
         "english": "There are many clouds in the sky."
@@ -7207,7 +7207,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "seh-GOON-doh-ah",
-      "notes": "Segundoa = second (unit of time). From Spanish segundo. Segundo bat = one second. Segundoak igarotzen dira = seconds pass. Segundoak minututan = seconds into minutes. Erlojua segundotan = clock in seconds.",
+      "notes": "Segundoa = second (unit of time). From Spanish segundo. Segundo bat = one second. Segundoak igarotzen dira = seconds pass.",
       "example": {
         "basque": "Segundo bat itxaron.",
         "english": "Wait one second."
@@ -9612,7 +9612,7 @@
       "cefr": "A1",
       "topic": "emotions",
       "pronunciation": "MAI-teh ee-SAH-teh-ah",
-      "notes": "The act of loving someone. Maite = dear/beloved. Maite zaitut = I love you. One of the most important emotional expressions in any language.",
+      "notes": "The act of loving someone. Maite = dear/beloved. Maite zaitut = I love you.",
       "example": {
         "basque": "Maite izatea zoragarria da.",
         "english": "Loving is wonderful."
@@ -10547,8 +10547,8 @@
       "english": "Weather",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "eh-goo-RAL-dee",
-      "notes": "Weather. Egun (day) + aldi (period/time). The Basque Country is famous for its unpredictable weather, four seasons in one day is common. Eguraldia txarra da = the weather is bad. Eguraldiaren iragarpena = weather forecast.",
+      "pronunciation": "eh-goo-RAL-dee-ah",
+      "notes": "Weather. Egun (day) + aldi (period/time). Eguraldia txarra da = the weather is bad. Eguraldiaren iragarpena = weather forecast.",
       "example": {
         "basque": "Eguraldia ona da gaur.",
         "english": "The weather is good today."
@@ -10560,7 +10560,7 @@
       "english": "Cloudy",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "oh-day-TSOO (h is silent)",
+      "pronunciation": "oh-deh-ee-TSOO-ah (h is silent)",
       "notes": "Cloudy. Hodei (cloud) + -tsu (full of). Hodeitsu dago = it is cloudy. The Basque Country has an oceanic climate. Clouds and rain are frequent. Hodei iluna = dark cloud.",
       "example": {
         "basque": "Hodeitsu dago gaur, beharbada euria egingo du.",
@@ -10587,7 +10587,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "eh-goos-KEE-tsoo-ah",
-      "notes": "Sunny. Eguzki (sun) + -tsua (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine. A welcome sight in the often-cloudy Basque Country. The sun features in many Basque symbols.",
+      "notes": "Sunny. Eguzki (sun) + -tsua (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine.",
       "example": {
         "basque": "Eguzkitsua dago gaur eta parkera joango gara.",
         "english": "It is sunny today and we will go to the park."
@@ -11475,7 +11475,7 @@
       "topic": "family",
       "pronunciation": "OO-meh-ah",
       "mcOnly": true,
-      "notes": "Ume is the everyday colloquial word for kid, especially common in Bizkaia; haurra is the more neutral word for a child or baby. The same root shows up in animal offspring words like katakume (kitten) and txakurkume (puppy).",
+      "notes": "Ume is the everyday colloquial word for kid; haurra is the more neutral word for a child or baby. The same root shows up in animal offspring words like katakume (kitten) and txakurkume (puppy).",
       "example": {
         "basque": "Umea pozik dago.",
         "english": "The kid is happy."
@@ -11827,7 +11827,7 @@
       "cefr": "A1",
       "topic": "city",
       "pronunciation": "PLAH-sah",
-      "notes": "The herriko plaza (town square) is the heart of Basque town life. Festivals, markets, and dance all happen here, and the fronton for pilota often stands right on it. From Spanish plaza. Plazan = in the square.",
+      "notes": "Herriko plaza = the town square. Festivals, markets, and dance all happen here, and the fronton for pilota often stands right on it. From Spanish plaza. Plazan = in the square.",
       "example": {
         "basque": "Plaza herriaren erdian dago.",
         "english": "The square is in the middle of the town."
@@ -11983,7 +11983,7 @@
       "cefr": "A1",
       "topic": "city",
       "pronunciation": "PAR-keh-ah",
-      "notes": "A loanword from parque/parc. Jolastokia = playground, from jolas (play) + toki (place). Umeak parkera eraman = to take the kids to the park, a daily ritual in Basque towns.",
+      "notes": "A loanword from parque/parc. Jolastokia = playground, from jolas (play) + toki (place). Umeak parkera eraman = to take the kids to the park.",
       "example": {
         "basque": "Umeak parkean daude.",
         "english": "The children are in the park."
@@ -12087,7 +12087,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "SAH-goo-ah",
-      "notes": "Sagu = mouse (root). Like English, Basque uses sagua for the computer mouse too. Saguzar = bat, literally old mouse, one of the best Basque animal names.",
+      "notes": "Sagu = mouse (root). Like English, Basque uses sagua for the computer mouse too. Saguzar = bat, literally old mouse.",
       "example": {
         "basque": "Sagua txikia da.",
         "english": "The mouse is small."
@@ -12204,7 +12204,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "EH-oo-lee-ah",
-      "notes": "Fly (the insect). Euli = fly (root); eltxoa is the mosquito. Euli mandoa, literally a fly mule (a mule of a fly, that is, a huge one), is the horsefly, a classic Basque compound.",
+      "notes": "Fly (the insect). Euli = fly (root); eltxoa is the mosquito. Mandeulia, the horsefly, is mando (mule) + euli.",
       "example": {
         "basque": "Eulia sukaldean dago.",
         "english": "The fly is in the kitchen."
@@ -12438,7 +12438,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "sar-DESH-kah",
-      "notes": "Sardexka = sarde (pitchfork or hayfork) + the diminutive -xka: literally a little pitchfork, straight from the farmhouse. In everyday speech many people say tenedorea, the Spanish loan.",
+      "notes": "Sardexka = sarde (pitchfork or hayfork) + the diminutive -xka: literally a little pitchfork. In everyday speech many people say tenedorea, the Spanish loan.",
       "example": {
         "basque": "Sardexka eta labana mahaian daude.",
         "english": "The fork and the knife are on the table."
@@ -12451,7 +12451,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "lah-BAH-nah",
-      "notes": "Labana comes from Spanish navaja. The older native word is aiztoa, traditionally linked to haitz (rock) along with aizkora (axe) and aitzur (hoe), a debated but evocative echo of stone tool days. In Iparralde you will hear ganibeta.",
+      "notes": "Labana comes from Spanish navaja. The older native word is aiztoa, traditionally linked to haitz (rock) along with aizkora (axe) and aitzur (hoe), a link that is debated. In Iparralde you will hear ganibeta.",
       "example": {
         "basque": "Labana zorrotza da.",
         "english": "The knife is sharp."
@@ -12532,7 +12532,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "YAI-ah (YAI rhymes with eye)",
-      "notes": "Herriko jaiak, the annual town festivals honoring the local patron saint, are the heart of Basque social life. You almost always hear the word in the plural, jaiak. Jai alai, the name of the famous ball game, literally means merry festival. Festa is a close synonym.",
+      "notes": "Herriko jaiak, the annual town festivals honoring the local patron saint, are held every year. You almost always hear the word in the plural, jaiak. Jai alai, the name of the famous ball game, literally means merry festival. Festa is a close synonym.",
       "example": {
         "basque": "Herriko jaiak abuztuan dira.",
         "english": "The town festivals are in August."
@@ -12676,7 +12676,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "gor-POO-tsah",
-      "notes": "Gorputz likely comes from Latin corpus, borrowed nearly two thousand years ago. Gorputz eta arima = body and soul. Gorputz adarrak = limbs (literally body branches).",
+      "notes": "Gorputz likely comes from Latin corpus, borrowed in Roman times. Gorputz eta arima = body and soul. Gorputz adarrak = limbs (literally body branches).",
       "example": {
         "basque": "Gorputz osoa mugitzen dut.",
         "english": "I move my whole body."
