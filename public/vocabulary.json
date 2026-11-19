@@ -36,8 +36,8 @@
       "pronunciation": "BYE",
       "notes": "Bai is one of the first words visitors learn. It is pronounced like the English word eye with a b in front.",
       "example": {
-        "basque": "Bai ondo dago.",
-        "english": "Yes that is fine."
+        "basque": "Bai, ondo dago.",
+        "english": "Yes, that is fine."
       }
     },
     {
@@ -49,8 +49,8 @@
       "pronunciation": "ES",
       "notes": "Ez is also used as a prefix meaning not/un-: ezagun = known, ezezagun = unknown.",
       "example": {
-        "basque": "Ez eskerrik asko.",
-        "english": "No thank you."
+        "basque": "Ez, eskerrik asko.",
+        "english": "No, thank you."
       }
     },
     {
@@ -75,7 +75,7 @@
       "pronunciation": "meh-SEH-des",
       "notes": "Mesedez = mesede (favor, from Spanish merced) + the instrumental -z: literally as a favor. Common in both formal requests and everyday politeness.",
       "example": {
-        "basque": "Mesedez ekarri ura.",
+        "basque": "Mesedez, ekarri ura.",
         "english": "Please bring water."
       }
     },
@@ -88,8 +88,8 @@
       "pronunciation": "bar-KAH-too",
       "notes": "Barkatu = sorry or excuse me. Used both for apologies (Barkatu, oker nengoen = Sorry, I was wrong) and to get attention (Barkatu, non dago...? = Excuse me, where is...?). From Latin parcere (to spare, forgive).",
       "example": {
-        "basque": "Barkatu non dago trena?",
-        "english": "Excuse me where is the train?"
+        "basque": "Barkatu, non dago trena?",
+        "english": "Excuse me, where is the train?"
       }
     },
     {
@@ -346,7 +346,7 @@
       "english": "Three",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "HEE-roo",
+      "pronunciation": "EE-roo (h is silent)",
       "notes": "Hiru = three. Hirugarrena = third. Hiruko = trio.",
       "example": {
         "basque": "Hiru katu ditut.",
@@ -437,7 +437,7 @@
       "english": "Ten",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "hah-MAR",
+      "pronunciation": "ah-MAR (h is silent)",
       "notes": "Hamar = 10. Basque counts in 20s: hogei=20, hogeita hamar=30 (twenty and ten).",
       "example": {
         "basque": "Hamar urte.",
@@ -450,7 +450,7 @@
       "english": "Twenty",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "HOH-gay",
+      "pronunciation": "OH-gay (h is silent)",
       "notes": "Hogei = 20. The base of the Basque vigesimal counting system. All round numbers are multiples of hogei: berrogei=40, hirurogei=60, laurogei=80. Hogeiren bat = about twenty. Hogei urte = twenty years.",
       "example": {
         "basque": "Hogei lagun.",
@@ -463,7 +463,7 @@
       "english": "One hundred",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "EH-hoon",
+      "pronunciation": "EH-oon",
       "notes": "Ehun = 100. Ehun eta bat = 101. Berrehun = 200, hirurehun = 300, laurehun = 400. Hundreds are formed regularly even though 20-99 use the base-20 system.",
       "example": {
         "basque": "Ehun euro.",
@@ -736,7 +736,7 @@
       "english": "Yellow",
       "cefr": "A1",
       "topic": "colors",
-      "pronunciation": "HOR-ree-ah",
+      "pronunciation": "OH-ree-ah (h is silent)",
       "notes": "Hori = yellow; horia = the yellow one. Watch the lookalike demonstrative hori (that, near you): liburu hori = that book, liburu horia = the yellow book.",
       "example": {
         "basque": "Eguzkia horia da.",
@@ -879,7 +879,7 @@
       "english": "Wind",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "hai-SEH-ah",
+      "pronunciation": "ai-SEH-ah (h is silent)",
       "notes": "Haizea = the wind. Haize = wind (root). Haizearen = of the wind. The Basque Country coast is famous for strong Atlantic winds.",
       "example": {
         "basque": "Haizea gogorra da.",
@@ -905,7 +905,7 @@
       "english": "Tree",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "soo-HAI-tsah",
+      "pronunciation": "soo-AI-tsah",
       "notes": "Zuhaitza = tree. Zuhaitz = tree (root). The Gernikako Arbola (Tree of Gernika) is a sacred oak, symbol of Basque democracy.",
       "example": {
         "basque": "Zuhaitza altua da.",
@@ -970,7 +970,7 @@
       "english": "Heart",
       "cefr": "A1",
       "topic": "body",
-      "pronunciation": "bee-HOT-sah",
+      "pronunciation": "bee-OT-sah",
       "notes": "Bihotz is used in many expressions. Bihotz oneko = kind-hearted. Bihotzez = heartfully/sincerely.",
       "example": {
         "basque": "Bihotza ona du.",
@@ -1035,7 +1035,7 @@
       "english": "Tomorrow",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "BEE-har",
+      "pronunciation": "BEE-ar",
       "notes": "Do not confuse bihar (tomorrow) with behar (need): one vowel apart. Biharko = for tomorrow.",
       "example": {
         "basque": "Bihar ikusiko dugu.",
@@ -1087,7 +1087,7 @@
       "english": "Month",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "hee-lah-BEH-teh-ah",
+      "pronunciation": "ee-lah-BEH-teh-ah (h is silent)",
       "notes": "Hilabetea = month. Hil = moon/death + bete = full. Literally a full moon cycle. Old Basque calendar was lunar.",
       "example": {
         "basque": "Hilabetea igaro da.",
@@ -1165,7 +1165,7 @@
       "english": "City / Town",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "HEE-ree-ah",
+      "pronunciation": "EE-ree-ah (h is silent)",
       "notes": "Hiria = city. Hiri = city (root). Hiritarra = city-dweller/urban. Hiriburua = capital city (city-head). Hiri handia = big city.",
       "example": {
         "basque": "Hiria handia da.",
@@ -1282,7 +1282,7 @@
       "english": "Anger",
       "cefr": "A1",
       "topic": "emotions",
-      "pronunciation": "hah-ser-REH-ah",
+      "pronunciation": "ah-ser-REH-ah (h is silent)",
       "notes": "Haserrea is the noun. Haserre is the adjective. Haserre nago = I am angry. Haserretu = to get angry. Very common emotional vocabulary.",
       "example": {
         "basque": "Haserrea sentitzen dut.",
@@ -1373,7 +1373,7 @@
       "english": "Basque Country",
       "cefr": "A1",
       "topic": "culture",
-      "pronunciation": "EUS-kal HER-ree-ah",
+      "pronunciation": "EUS-kal ER-ree-ah",
       "notes": "Euskal Herria = the Basque Country. Literally the Basque people's land (Euskal = Basque + Herria = people/land). Encompasses 7 territories across Spain and France. More than a geographic term, a statement of identity.",
       "example": {
         "basque": "Euskal Herria ederra da.",
@@ -1412,7 +1412,7 @@
       "english": "Big / Large",
       "cefr": "A1",
       "topic": "adjectives",
-      "pronunciation": "HAN-dee-ah",
+      "pronunciation": "AN-dee-ah (h is silent)",
       "notes": "Handia is one of the most useful adjectives. Oso handia = very big. Handitu = to grow/enlarge. Handikeria = arrogance (being too big).",
       "example": {
         "basque": "Etxea handia da.",
@@ -1438,7 +1438,7 @@
       "english": "Old",
       "cefr": "A1",
       "topic": "adjectives",
-      "pronunciation": "sah-HAR-rah",
+      "pronunciation": "sah-AR-rah",
       "notes": "Zaharra = old (for things and people). Zahartze = aging. Do not confuse with antzinako (ancient). Zahar = elder/old person (respected term).",
       "example": {
         "basque": "Etxea zaharra da.",
@@ -1529,7 +1529,7 @@
       "english": "Angry",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "hah-SER-reh",
+      "pronunciation": "ah-SER-reh (h is silent)",
       "notes": "Haserre = angry (adjective). Haserrea = anger (noun). Haserre nago = I am angry.",
       "example": {
         "basque": "Haserre nago.",
@@ -1555,7 +1555,7 @@
       "english": "Surprised",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "har-REE-too",
+      "pronunciation": "ar-REE-too (h is silent)",
       "notes": "Harritu = to surprise or to be surprised (verb). Harrituta nago = I am surprised (literally I am astonished). Harrigarria = amazing/astonishing. Harri = stone, as if turned to stone with surprise.",
       "example": {
         "basque": "Harrituta nago.",
@@ -1763,7 +1763,7 @@
       "english": "Territory / Region",
       "cefr": "B1",
       "topic": "culture",
-      "pronunciation": "her-ree-AL-deh-ah",
+      "pronunciation": "er-ree-AL-deh-ah (h is silent)",
       "notes": "Herrialdea = territory or region. Euskal Herria has 7 historical territories (herrialdeak), 4 in Spain, 3 in France.",
       "example": {
         "basque": "Herrialdea ederra da.",
@@ -1972,7 +1972,7 @@
       "english": "Monday",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "as-teh-leh-HEH-nah",
+      "pronunciation": "as-teh-leh-EH-nah",
       "notes": "Astelehena = Monday. Aste = week + lehena = first. Literally the first of the week. Work starts here for most Basques.",
       "example": {
         "basque": "Astelehenean lan egin.",
@@ -2141,7 +2141,7 @@
       "english": "Town / People / Nation",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "HER-ree-ah",
+      "pronunciation": "ER-ree-ah (h is silent)",
       "notes": "Herria = town, people, or nation. Herri = people/nation (root). Euskal Herria = the Basque homeland. Herritar = citizen. Herrialde = country/territory. One of the most powerful words in Basque political discourse.",
       "example": {
         "basque": "Herria altxatzen da.",
@@ -2154,7 +2154,7 @@
       "english": "Language",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "hees-KOON-tsah",
+      "pronunciation": "ees-KOON-tsah (h is silent)",
       "notes": "Hizkuntza = language. Hizkuntzalari = linguist. Hizkuntza politika = language policy. Euskara is the hizkuntza of the Basques.",
       "example": {
         "basque": "Hizkuntza ederra da.",
@@ -2180,7 +2180,7 @@
       "english": "History",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "hees-TOH-ree-ah",
+      "pronunciation": "ees-TOH-ree-ah (h is silent)",
       "notes": "Historia = history. Historikoa = historic. Historiagilea = historian. Basque history stretches back thousands of years.",
       "example": {
         "basque": "Historia luzea da.",
@@ -2598,7 +2598,7 @@
       "english": "Proud",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "HAR-roh",
+      "pronunciation": "AR-roh (h is silent)",
       "notes": "Harro = proud. Harrotasun = pride. Harrotu = to become proud. Harro egon = to be proud of. Oso harro nago = I am very proud.",
       "example": {
         "basque": "Harro nago.",
@@ -2663,7 +2663,7 @@
       "english": "Cold",
       "cefr": "A2",
       "topic": "adjectives",
-      "pronunciation": "HOT-sah",
+      "pronunciation": "OT-sah (h is silent)",
       "notes": "Hotza = cold. Hotz = cold (root). Hotzikara = shiver (cold-shake). Hotzikaraz = with shivers. Hotz egin = to feel cold. Opposite: beroa.",
       "example": {
         "basque": "Negua hotza da.",
@@ -2754,7 +2754,7 @@
       "english": "Language policy",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "hees-KOON-tsah poh-LEE-tee-kah",
+      "pronunciation": "ees-KOON-tsah poh-LEE-tee-kah (h is silent)",
       "notes": "Hizkuntza politika = language policy, central to Basque politics. Official language status, education medium, and public signage are all debated.",
       "mcOnly": true,
       "example": {
@@ -2863,7 +2863,7 @@
       "english": "Citizenship",
       "cefr": "B2",
       "topic": "society",
-      "pronunciation": "her-ree-tar-tah-SOO-nah",
+      "pronunciation": "er-ree-tar-tah-SOO-nah (h is silent)",
       "notes": "Herritartasuna = citizenship. Herritar = citizen/townsperson. Herri = town/people. Herritartasun agiria = citizenship document.",
       "mcOnly": true,
       "example": {
@@ -3249,7 +3249,7 @@
       "english": "To take / To receive",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "HAR-too",
+      "pronunciation": "AR-too (h is silent)",
       "notes": "Hartu = to take or receive. Hartzaile = receiver. Harrera = reception/welcome. Hartu-eman = give and take. One of the most common Basque verbs.",
       "example": {
         "basque": "Hartu ezazu.",
@@ -3340,7 +3340,7 @@
       "english": "To need / Must",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "BEH-har",
+      "pronunciation": "BEH-ar",
       "notes": "Behar = need/must. Behar dut = I need/I must. Zer behar duzu? = What do you need? Beharrezkoa = necessary. One of the most used words in Basque.",
       "example": {
         "basque": "Berandutu da, behar dut joan.",
@@ -3431,7 +3431,7 @@
       "english": "Goal / Objective",
       "cefr": "B2",
       "topic": "work",
-      "pronunciation": "hel-BOO-roo-ah",
+      "pronunciation": "el-BOO-roo-ah (h is silent)",
       "notes": "Helburua = goal or objective. Heldu = to arrive/reach + buru = head. Literally the head you are heading to. Helburua lortu = to achieve the goal.",
       "example": {
         "basque": "Helburua lortu dugu.",
@@ -3665,7 +3665,7 @@
       "english": "To talk / To have a conversation",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "HEETS EH-gheen",
+      "pronunciation": "EETS EH-gheen (h is silent)",
       "notes": "Hitz egin (to speak) vs mintzatu (to speak formally). Hitz literally means word, so hitz egin = to do words!",
       "example": {
         "basque": "Euskaraz hitz egiten duzu?",
@@ -3704,7 +3704,7 @@
       "english": "Amazing / Surprising",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "har-ree-GAR-ree-ah",
+      "pronunciation": "ar-ree-GAR-ree-ah (h is silent)",
       "notes": "Harrigarria = amazing or astonishing. Harri = stone + -garri. Turned to stone with amazement. Zer harrigarria! = How amazing!",
       "example": {
         "basque": "Harrigarria da!",
@@ -3743,7 +3743,7 @@
       "english": "Here",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "HEH-men",
+      "pronunciation": "EH-men (h is silent)",
       "notes": "Hemen = near speaker. Hor = near listener. Han = away from both. Spanish makes the same 3-way split (aquí/ahí/allí), so it maps neatly for Spanish speakers.",
       "example": {
         "basque": "Hemen nago.",
@@ -3756,7 +3756,7 @@
       "english": "There",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "HAN",
+      "pronunciation": "AN (h is silent)",
       "notes": "Han is used for things far from both speakers. Handik = from there. Hango = of that place. Haraino = up to there.",
       "example": {
         "basque": "Han dago.",
@@ -3769,7 +3769,7 @@
       "english": "There (nearby)",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "HOR",
+      "pronunciation": "OR (h is silent)",
       "notes": "Basque has 3 heres/theres based on distance: hemen (near me), hor (near you), han (away from both). Like Japanese ko/so/a!",
       "example": {
         "basque": "Hor dago.",
@@ -4003,7 +4003,7 @@
       "english": "Teeth",
       "cefr": "A1",
       "topic": "body",
-      "pronunciation": "HOR-tsak",
+      "pronunciation": "OR-tsak (h is silent)",
       "notes": "Teeth (plural). Singular: hortza. Hortzeko mina dut = I have a toothache (colloquially often hagineko mina).",
       "example": {
         "basque": "Hortzak garbitu.",
@@ -4029,7 +4029,7 @@
       "english": "Twelve",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "hah-MAH-bee",
+      "pronunciation": "ah-MAH-bee (h is silent)",
       "notes": "Hamar (10) + bi (2) = 12. Basque builds teen numbers as ten+number. Hamahiru=13, hamalau=14, hamabost=15.",
       "example": {
         "basque": "Hamabi hilabete urtean.",
@@ -4042,7 +4042,7 @@
       "english": "Fifteen",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "hah-mah-BOST",
+      "pronunciation": "ah-mah-BOST (h is silent)",
       "notes": "Hamar (10) + bost (5) = 15. Quarter past/to is expressed with laurden: hirurak eta laurden = quarter past three.",
       "example": {
         "basque": "Hamabost minutu.",
@@ -4055,7 +4055,7 @@
       "english": "Thirty",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "HOH-gay-tah AH-mar",
+      "pronunciation": "OH-gay-tah AH-mar (h is silent)",
       "notes": "Hogei (20) + ta (and) + hamar (10) = 30. Basque is vigesimal, all numbers built from 20s.",
       "example": {
         "basque": "Hogeita hamar urte.",
@@ -4068,7 +4068,7 @@
       "english": "First",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "leh-HEH-nah",
+      "pronunciation": "leh-EH-nah",
       "notes": "Lehena = first. Bigarrena = second. Hirugarrena = third. Ordinals use -garren suffix after 1st.",
       "example": {
         "basque": "Lehena naiz.",
@@ -4291,7 +4291,7 @@
       "english": "Leg",
       "cefr": "A1",
       "topic": "body",
-      "pronunciation": "HAN-kah",
+      "pronunciation": "AN-kah (h is silent)",
       "notes": "Leg or foot. Hanka = leg/foot (root). Hankak = legs. Do not confuse with oina (foot specifically). Hanka sartu = to put your foot in it (to blunder).",
       "example": {
         "basque": "Hankako mina dut.",
@@ -4317,7 +4317,7 @@
       "english": "Eleven",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "hah-MAI-kah",
+      "pronunciation": "ah-MAI-kah (h is silent)",
       "notes": "Hamar (10) + ika. Hamaika also means countless/many in colloquial Basque: hamaika aldiz = countless times!",
       "example": {
         "basque": "Hamaikak dira.",
@@ -4344,7 +4344,7 @@
       "english": "Do you speak English?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "in-geh-LEH-ses HITS eh-GEE-ten DOO-soo",
+      "pronunciation": "in-geh-LEH-ses ITS eh-GEE-ten DOO-soo",
       "notes": "Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? The -z suffix means in that language.",
       "mcOnly": true,
       "example": {
@@ -4398,7 +4398,7 @@
       "english": "Golden / Dark yellow",
       "cefr": "A2",
       "topic": "colors",
-      "pronunciation": "HOR-ee ee-LOO-nah",
+      "pronunciation": "OH-ree ee-LOO-nah (h is silent)",
       "notes": "Dark yellow or gold. Urre kolorea = gold color (from urre = gold). Used for describing autumn leaves in the Basque mountains in October.",
       "example": {
         "basque": "Hostoak hori ilunak dira udazkenean.",
@@ -4424,7 +4424,7 @@
       "english": "Cream / Off-white",
       "cefr": "A2",
       "topic": "colors",
-      "pronunciation": "SOO-ree HOR-ee-ah",
+      "pronunciation": "SOO-ree OH-ree-ah",
       "notes": "Cream or off-white. Compound colors in Basque are formed by combining two color words. Zuri = white + horia = yellow = cream. Very common for describing walls and fabrics.",
       "example": {
         "basque": "Pareta zuri-horia da.",
@@ -4450,7 +4450,7 @@
       "english": "Oak tree",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "hah-REET-sah",
+      "pronunciation": "ah-REET-sah (h is silent)",
       "notes": "Oak, sacred in Basque culture. The Gernikako Arbola (Tree of Gernika) is an ancient oak under which Basque assemblies met. Haritz = oak root. Symbol of Basque democracy and identity.",
       "example": {
         "basque": "Haritza Euskal Herriaren sinboloa da.",
@@ -4528,7 +4528,7 @@
       "english": "Sixty",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hee-roo-ROH-gay",
+      "pronunciation": "ee-roo-ROH-gay (h is silent)",
       "notes": "60 = three twenties (hiru=3 + hogei=20). The vigesimal system: laurogei=80 (four twenties). French keeps traces of the same system: quatre-vingts (80) = four twenties, quatre-vingt-dix (90) = four twenties and ten.",
       "example": {
         "basque": "Ordu batek hirurogei minutu ditu.",
@@ -4567,7 +4567,7 @@
       "english": "Third",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hee-roo-GAR-reh-nah",
+      "pronunciation": "ee-roo-GAR-reh-nah (h is silent)",
       "notes": "Third (ordinal). Hirugarren aldiz = for the third time. Hirugarren mailan = at the third level. The -garren suffix is very regular making Basque ordinals easy once you know the cardinals.",
       "example": {
         "basque": "Hirugarrena da.",
@@ -4775,7 +4775,7 @@
       "english": "Pride",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "har-roh-TAH-soo-nah",
+      "pronunciation": "ar-roh-TAH-soo-nah (h is silent)",
       "notes": "Pride (noun). Harro = proud (adjective). Harrotasunez = with pride. Do not confuse with harrokeria (arrogance/vanity), which is negative.",
       "example": {
         "basque": "Harrotasunez bizi gara.",
@@ -4840,7 +4840,7 @@
       "english": "Elections",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "how-tes-KOON-deh-ak",
+      "pronunciation": "ow-tes-KOON-deh-ak (h is silent)",
       "notes": "Elections (plural). Hautatu = to choose. Hauteskunde orokorrak = general elections. The Basque Country holds its own elections for the Basque Parliament, separate from Spanish national elections.",
       "example": {
         "basque": "Hauteskundeak hurbil daude.",
@@ -4970,7 +4970,7 @@
       "english": "Appointment",
       "cefr": "A2",
       "topic": "work",
-      "pronunciation": "hits-OR-doo-ah",
+      "pronunciation": "its-OR-doo-ah (h is silent)",
       "notes": "Appointment or meeting. Hitz = word + ordua = hour. Literally word-time, a time to keep your word. Hitzordua eman = to give an appointment. Also used for doctor appointments.",
       "example": {
         "basque": "Bihar hitzordua daukat.",
@@ -5113,7 +5113,7 @@
       "english": "Thirteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-EE-roo",
+      "pronunciation": "ah-mah-EE-roo (h is silent)",
       "notes": "Hamar (10) + hiru (3) = 13. The teen numbers follow this pattern: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16, hamazazpi=17, hamazortzi=18; only 19 is irregular: hemeretzi.",
       "example": {
         "basque": "Hamahiru urte ditu.",
@@ -5126,7 +5126,7 @@
       "english": "Fourteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-LOW (rhymes with now)",
+      "pronunciation": "ah-mah-LOW (rhymes with now; h is silent)",
       "notes": "Hamar (10) + lau (4) = 14. Once you know the single digits and hamar, all Basque teen numbers follow perfectly: hamar + digit.",
       "example": {
         "basque": "Hamalau egun barru.",
@@ -5152,7 +5152,7 @@
       "english": "Seventy",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hee-roo-ROH-gay-tah hah-MAR",
+      "pronunciation": "ee-roo-ROH-gay-tah ah-MAR (h is silent)",
       "notes": "70 = three-twenties + ten. Hirurogei (60) + ta (and) + hamar (10) = 70. The complete round numbers in Basque vigesimal: 20,40,60,80,100.",
       "example": {
         "basque": "Hirurogeita hamar euro.",
@@ -5178,7 +5178,7 @@
       "english": "Sixteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-SAY",
+      "pronunciation": "ah-mah-SAY (h is silent)",
       "notes": "Hamar (10) + sei (6) = 16. Hamasei sounds like 'hammer-say'. The teen series: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16.",
       "example": {
         "basque": "Hamasei urte ditu.",
@@ -5191,7 +5191,7 @@
       "english": "Seventeen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-SAS-pee",
+      "pronunciation": "ah-mah-SAS-pee (h is silent)",
       "notes": "Hamar (10) + zazpi (7) = 17. Both z sounds are pronounced like a crisp s: hah-mah-SAS-pee. Hamazazpi is one of the harder teen numbers to pronounce.",
       "example": {
         "basque": "Hamazazpi egun barru.",
@@ -5204,7 +5204,7 @@
       "english": "Eighteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mah-SOR-tsee",
+      "pronunciation": "ah-mah-SOR-tsee (h is silent)",
       "notes": "Hamar (10) + zortzi (8) = 18. Hamazortzi is the longest teen number. The -zortzi ending has the same -tzi you see in zortzi (8).",
       "example": {
         "basque": "Hamazortzi urte ditut.",
@@ -5217,7 +5217,7 @@
       "english": "Nineteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "heh-meh-RET-see",
+      "pronunciation": "eh-meh-RET-see (h is silent)",
       "notes": "19 = hemeretzi. Note: this does NOT follow the hamar+digit pattern! Hemeretzi is an irregular form. Compare French dix-neuf (10+9) vs Basque irregular hemeretzi.",
       "example": {
         "basque": "Hemeretzi euro kostatzen da.",
@@ -5243,7 +5243,7 @@
       "english": "Meat",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "hah-RAH-ghee-ah",
+      "pronunciation": "ah-RAH-ghee-ah (h is silent)",
       "notes": "Meat. Haragi = meat (root). Txuleta = steak (a Basque speciality). Txerri haragia = pork. Behi haragia = beef. Haragia erretzea = grilling meat. The txuleta at a sagardotegi is legendary.",
       "example": {
         "basque": "Haragia gustatzen zait.",
@@ -5412,7 +5412,7 @@
       "english": "Fingers",
       "cefr": "A2",
       "topic": "body",
-      "pronunciation": "HAH-tsak",
+      "pronunciation": "AH-tsak (h is silent)",
       "notes": "Fingers (plural). Hatz = finger (singular). Behatza (oineko hatza) = toe. Oinatza = footprint. Hatz erakuslea = index finger (pointing finger). Hatz txikia = little finger. Hatzaz erakutsi = to point at.",
       "example": {
         "basque": "Hatzak garbitu behar ditut.",
@@ -5516,7 +5516,7 @@
       "english": "Bear",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "HAR-tsah",
+      "pronunciation": "AR-tsah (h is silent)",
       "notes": "Bear. Hartz = bear (root). Brown bears (hartz arrea) survive in the Pyrenees near the Basque Country. Highly protected and controversial with farmers. Hartzak = bears (plural). Hartzgune = bear territory.",
       "example": {
         "basque": "Hartza Pirinioetan bizi da.",
@@ -5581,7 +5581,7 @@
       "english": "Child / Baby",
       "cefr": "A1",
       "topic": "family",
-      "pronunciation": "HOW-rah",
+      "pronunciation": "OW-rah (h is silent)",
       "notes": "Child or baby. Haur = child (root). Haurtzaro = childhood. Haurra zaintzea = to look after a child. Haur eskola = nursery school. Haurrak = children (plural). Haurrak behar ditu = she needs children.",
       "example": {
         "basque": "Haurra lo dago.",
@@ -5932,7 +5932,7 @@
       "english": "Bone",
       "cefr": "A2",
       "topic": "body",
-      "pronunciation": "heh-SOOR-rah",
+      "pronunciation": "eh-SOOR-rah (h is silent)",
       "notes": "Hezurra = bone. Hezur = bone (root). Hezurra hautsi = to break a bone. Hezurdura = skeleton. Hezurretaraino = to the bone. Common in medical contexts.",
       "example": {
         "basque": "Hezurra hautsi dut.",
@@ -6127,7 +6127,7 @@
       "english": "Cliffs / Rocks",
       "cefr": "B1",
       "topic": "nature",
-      "pronunciation": "HAITS-ak",
+      "pronunciation": "AITS-ak (h is silent)",
       "notes": "Haitzak = cliffs or rocks (plural). Haitz = rock/cliff (singular). Haitzulo = cave (cliff-hole). The Basque coast is famous for its haitzak, dramatic limestone cliffs. Haitz-arte = between the rocks.",
       "example": {
         "basque": "Haitzak altuak dira.",
@@ -6179,7 +6179,7 @@
       "english": "Nevertheless / Even so",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "HAH-lah EH-reh",
+      "pronunciation": "AH-lah EH-reh (h is silent)",
       "notes": "Hala ere = nevertheless or even so. Hala = so/thus + ere = also/even. Essential for expressing concession. Zaila da hala ere saiatuko naiz = It is hard but I will try anyway. Very common connector in speech.",
       "example": {
         "basque": "Hala ere joango naiz.",
@@ -6192,7 +6192,7 @@
       "english": "That's it! / Exactly!",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "HOR-ee dah",
+      "pronunciation": "OH-ree dah (h is silent)",
       "notes": "Hori da! = That's it! / Exactly! / That's right! A very common affirmation. Hori da! Ongi etorri! = That's it! Welcome! Also: Hori bai! = Now that's something! Hori ez = That's not it.",
       "example": {
         "basque": "Hori da, oso ondo!",
@@ -6387,7 +6387,7 @@
       "english": "Country / Nation",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "her-ree-AL-deh-ah",
+      "pronunciation": "er-ree-AL-deh-ah (h is silent)",
       "notes": "Herrialdea = country or nation-state. Different from herria (town/people/nation in a cultural sense). Herrialde batua = united country. Herrialde independentea = independent country. Herria is more emotional; herrialdea is more political/geographic.",
       "example": {
         "basque": "Zein herrialdetan bizi zara?",
@@ -6647,7 +6647,7 @@
       "english": "Destination",
       "cefr": "B1",
       "topic": "travel",
-      "pronunciation": "hel-MOO-gah",
+      "pronunciation": "el-MOO-gah (h is silent)",
       "notes": "Helmuga = destination. Heldu = to arrive + muga = limit/border. Literally the arrival-point. Helmugara iritsi = to reach the destination. Also used in sport: helmuga = finishing line.",
       "example": {
         "basque": "Helmugara iritsi gara.",
@@ -6686,7 +6686,7 @@
       "english": "Moved / Touched (emotionally)",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "hoon-kee-TOO-tah",
+      "pronunciation": "oon-kee-TOO-tah (h is silent)",
       "notes": "Hunkituta = emotionally moved or touched. Hunkitu = to move/touch emotionally. Hunkigarria = moving/touching. Hunkituta nago = I am moved. Used when something beautiful or sad affects you deeply.",
       "example": {
         "basque": "Hunkituta nago.",
@@ -6829,7 +6829,7 @@
       "english": "Bird (formal)",
       "cefr": "B1",
       "topic": "animals",
-      "pronunciation": "heh-GAHS-tee-ah",
+      "pronunciation": "eh-GAHS-tee-ah (h is silent)",
       "notes": "Hegaztia = bird (more formal/scientific term). Hegan egin = to fly (literally to do wing). Hegazkin = aircraft (flying machine). Txoria is the everyday word for bird; hegaztia appears in nature writing, biology, and formal contexts.",
       "example": {
         "basque": "Hegaztiak hegan egiten dute.",
@@ -7024,7 +7024,7 @@
       "english": "Therefore / So / Thus",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "HOR-tas",
+      "pronunciation": "OR-tas (h is silent)",
       "notes": "Hortaz = therefore, so, or thus. Hortaz, joan behar dut = therefore I have to go. Beraz is a synonym also meaning therefore. Hortaz ez dakit = so I don't know. A connector linking cause and consequence.",
       "example": {
         "basque": "Hortaz, etxera joango naiz.",
@@ -7141,7 +7141,7 @@
       "english": "Cloud",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "hoh-DEH-ee-ah",
+      "pronunciation": "oh-DEH-ee-ah (h is silent)",
       "notes": "Hodeia = cloud. Hodei = cloud (root). Hodeitsu = cloudy. Hodeiek zerua estaltzen dute = the clouds cover the sky. Basque weather is famously changeable. Bilbo (Bilbao) can have four seasons in one day.",
       "example": {
         "basque": "Hodei asko dago zeruan.",
@@ -7245,7 +7245,7 @@
       "english": "The day before yesterday",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "heh-reh-neh-GOON",
+      "pronunciation": "eh-reh-neh-GOON (h is silent)",
       "notes": "Herenegun = the day before yesterday. Atzo = yesterday, herenegun = two days ago. Herenegungoa = of the day before yesterday. Basque has elegant words for relative days: etzi (day after tomorrow), etzidamu (three days from now).",
       "example": {
         "basque": "Herenegun ikusi nuen.",
@@ -7284,7 +7284,7 @@
       "english": "Language community",
       "cefr": "A2",
       "topic": "society",
-      "pronunciation": "hees-KOONTS koh-moo-nee-TAH-teh-ah",
+      "pronunciation": "ees-KOONTS koh-moo-nee-TAH-teh-ah (h is silent)",
       "notes": "Hizkuntz komunitatea = language community. Hizkuntz is the bound form of hizkuntza (language) used before nouns, correct Basque grammar. The Basque-speaking community numbers around 750,000 speakers. Language community rights and revival are ongoing political issues.",
       "example": {
         "basque": "Hizkuntz komunitatea indartzen ari da.",
@@ -7505,7 +7505,7 @@
       "english": "Percentage",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "eh-HOO-neh-koh-ah",
+      "pronunciation": "eh-OO-neh-koh-ah",
       "notes": "Ehunekoa = percentage. Ehun = hundred + -eko (of) + -a. Literally of-a-hundred. Ehuneko berrogeita hamar = fifty percent. Essential for news, statistics, and financial conversations.",
       "example": {
         "basque": "Ehuneko berrogeita hamar ados daude.",
@@ -8051,7 +8051,7 @@
       "english": "Heartache / Heartbreak",
       "cefr": "B2",
       "topic": "emotions",
-      "pronunciation": "bee-HOTS MEE-nah",
+      "pronunciation": "bee-OTS MEE-nah",
       "notes": "Heartache or heartbreak. Bihotz (heart) + mina (pain). Bihotz-mina daukat = I have heartache. A poetic and very Basque way of expressing emotional pain. Appears frequently in Basque song and literature.",
       "example": {
         "basque": "Bihotz-mina sentitzen dut zu gabe.",
@@ -8103,7 +8103,7 @@
       "english": "Weak / Fragile",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "ah-HOO-lah",
+      "pronunciation": "ah-OO-lah",
       "notes": "Weak or fragile. Ahultasuna = weakness. Ahuldu = to weaken. Opposite: sendoa (strong). Used for physical and abstract weakness.",
       "example": {
         "basque": "Posizioa ahula da negoziaketan.",
@@ -8129,7 +8129,7 @@
       "english": "Precise / Exact",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "seh-HAT-sah",
+      "pronunciation": "seh-AT-sah",
       "notes": "Precise or exact. Zehatz-mehatz = precisely/exactly. Zehaztu = to specify. Important in academic, legal and scientific discourse.",
       "example": {
         "basque": "Datu zehatzak behar ditugu.",
@@ -8298,7 +8298,7 @@
       "english": "One hundred thousand",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "EH-hoon MEE-lah",
+      "pronunciation": "EH-oon MEE-lah",
       "notes": "One hundred thousand. Ehun (100) + mila (1000) = 100,000. Berrehun mila = 200,000. The greater Basque Country has a population of about hiru milioi (three million).",
       "example": {
         "basque": "Ehun mila lagun bizi dira hemen.",
@@ -8363,7 +8363,7 @@
       "english": "Childhood",
       "cefr": "B1",
       "topic": "family",
-      "pronunciation": "howr-TSAH-roh-ah",
+      "pronunciation": "owr-TSAH-roh-ah (h is silent)",
       "notes": "Childhood. Haur (child) + -tzaroa (period of). Haurtzaroko oroimenak = childhood memories. Haurtzaro zoriontsu = happy childhood.",
       "example": {
         "basque": "Haurtzaroan mendian jolasten nintzen.",
@@ -8428,7 +8428,7 @@
       "english": "Occasionally / From time to time",
       "cefr": "B1",
       "topic": "time",
-      "pronunciation": "nois-beh-HIN-kah",
+      "pronunciation": "nois-beh-IN-kah",
       "notes": "Occasionally or from time to time. Noiz (when) + behin (once) + -ka: literally 'a when-once at a time'. Noizbehinka joaten naiz = I go occasionally. Very useful adverb of frequency.",
       "example": {
         "basque": "Noizbehinka mendira joaten gara.",
@@ -8441,7 +8441,7 @@
       "english": "To welcome / To give a warm reception",
       "cefr": "B2",
       "topic": "greetings",
-      "pronunciation": "har-REH-rah OH-nah eh-GHEEN",
+      "pronunciation": "ar-REH-rah OH-nah eh-GHEEN (h is silent)",
       "notes": "To welcome or give a warm reception. Harrera = reception. Harrera ona egin zioten = they gave him a warm welcome. Used in formal and informal contexts.",
       "example": {
         "basque": "Harrera ona egin ziguten etxean.",
@@ -8805,7 +8805,7 @@
       "english": "Approximately / Roughly",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "GOO-chee GOH-rah beh-HEH-rah",
+      "pronunciation": "GOO-chee GOH-rah beh-EH-rah",
       "notes": "Approximately or roughly. Gutxi (little) + gora-behera (up-down). Gutxi gora-behera ehun = approximately one hundred. Very common in spoken Basque for estimates.",
       "example": {
         "basque": "Gutxi gora-behera berrehun lagun zeuden.",
@@ -8922,7 +8922,7 @@
       "english": "Habitat",
       "cefr": "B2",
       "topic": "nature",
-      "pronunciation": "hah-bee-TAH-tah",
+      "pronunciation": "ah-bee-TAH-tah (h is silent)",
       "notes": "Habitat. International term. Habitata galdu = to lose habitat. Habitataren suntsipena = habitat destruction. Key term in conservation biology and environmental policy.",
       "example": {
         "basque": "Animalien habitata babesten dugu.",
@@ -8974,7 +8974,7 @@
       "english": "Floods",
       "cefr": "B2",
       "topic": "nature",
-      "pronunciation": "oo-hol-DEH-ak",
+      "pronunciation": "oo-ol-DEH-ak",
       "notes": "Floods (plural). Uholde = flood (singular). The Basque rivers (Oka, Nerbioi, Urola) have historically caused flooding. Climate change is increasing flood risk. Uholdeen arriskua = flood risk.",
       "example": {
         "basque": "Uholdeek eragin handia izan dute herrian.",
@@ -8987,7 +8987,7 @@
       "english": "Drought",
       "cefr": "B2",
       "topic": "nature",
-      "pronunciation": "leh-HOR-teh-ah",
+      "pronunciation": "leh-OR-teh-ah",
       "notes": "Drought. Lehor (dry) + -tea. Lehortearen ondorioak = drought consequences. Although the Basque Country is generally wet, droughts are increasing with climate change. Lehorte larria = severe drought.",
       "example": {
         "basque": "Lehortea dela eta urak murriztu dira.",
@@ -9039,7 +9039,7 @@
       "english": "To reserve a table",
       "cefr": "B2",
       "topic": "food",
-      "pronunciation": "mah-HAI-ah er-reh-ser-BAH-too",
+      "pronunciation": "mah-AI-ah er-reh-ser-BAH-too",
       "notes": "To reserve a table. Mahai (table) + erreserbatu (to reserve). Essential phrase for Basque restaurant culture. Txoko reservations and Michelin-starred restaurants require advance booking.",
       "example": {
         "basque": "Gaueko zortzietarako mahaia erreserbatu dut.",
@@ -9234,7 +9234,7 @@
       "english": "Fit of anger / Tantrum",
       "cefr": "B2",
       "topic": "emotions",
-      "pronunciation": "hah-ser-reh-AL-dee",
+      "pronunciation": "ah-ser-reh-AL-dee (h is silent)",
       "notes": "Fit of anger or tantrum. Haserre (anger) + aldi (period/episode). Haserrealdi batean = in a fit of anger. Haserrealdi handia = big tantrum. Used for uncontrolled emotional outbursts.",
       "example": {
         "basque": "Haserrealdi batean esan zuen hori.",
@@ -9286,7 +9286,7 @@
       "english": "Decade",
       "cefr": "B2",
       "topic": "time",
-      "pronunciation": "hah-mar-KAH-dah",
+      "pronunciation": "ah-mar-KAH-dah (h is silent)",
       "notes": "Decade. Hamar (ten) + -kada. Azken hamarkadan = in the last decade. Hamarkada batean = in a decade. Used in journalism, history and social analysis. Key for discussing Basque political and social evolution.",
       "example": {
         "basque": "Azken hamarkadan asko aldatu da gizartea.",
@@ -9507,7 +9507,7 @@
       "english": "Kinship / Family relationship",
       "cefr": "B2",
       "topic": "family",
-      "pronunciation": "ah-hai-deh-tah-SOO-nah",
+      "pronunciation": "ah-ai-deh-tah-SOO-nah",
       "notes": "Kinship or family relationship. Ahaide (relative/kin) + -tasuna. Ahaide hurbilak = close relatives. Ahaidetasun loturak = kinship ties. In traditional Basque society ahaidetasuna extended to the whole community.",
       "example": {
         "basque": "Ahaidetasun lotura estua daukagu familia guztiarekin.",
@@ -9520,7 +9520,7 @@
       "english": "Inheritance",
       "cefr": "B2",
       "topic": "family",
-      "pronunciation": "heh-REN-tsee-ah",
+      "pronunciation": "eh-REN-tsee-ah (h is silent)",
       "notes": "Inheritance. From Spanish herencia; the native legal term is jaraunspena. Herentzia jaso = to receive an inheritance. Testamentua = will/testament. In traditional Basque law the baserri was passed down to one heir to keep the farmstead intact.",
       "example": {
         "basque": "Herentzia jaso zuen aitaren etxetik.",
@@ -9546,7 +9546,7 @@
       "english": "Light yellow / Pale yellow",
       "cefr": "B1",
       "topic": "colors",
-      "pronunciation": "HOR-ee AR-ghee-ah",
+      "pronunciation": "OH-ree AR-ghee-ah (h is silent)",
       "notes": "Light yellow or pale yellow. Hori (yellow) + argia (light/bright). Learning color modification, adding argia (light) or iluna (dark) to any basic color creates new shades. A pattern worth learning once.",
       "example": {
         "basque": "Hori argia gustuko dut eguzki koloreagatik.",
@@ -9884,7 +9884,7 @@
       "english": "In one month / Within a month",
       "cefr": "B1",
       "topic": "time",
-      "pronunciation": "hee-lah-BEH-teh bat BAR-roo",
+      "pronunciation": "ee-lah-BEH-teh bat BAR-roo (h is silent)",
       "notes": "In one month or within a month. Hilabete (month) + bat (one) + barru (within/inside). Barru = within/inside. This pattern works with any time: aste bat barru = in a week, urte bat barru = in a year.",
       "example": {
         "basque": "Hilabete bat barru itzuliko naiz.",
@@ -10118,7 +10118,7 @@
       "english": "Tenth",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "hah-mar-GAR-reh-nah",
+      "pronunciation": "ah-mar-GAR-reh-nah (h is silent)",
       "notes": "Tenth. Hamar (ten) + -garrena. Hamargarren postuan = in tenth place. Hamargarrena = the tenth. Completes the basic ordinal number set.",
       "example": {
         "basque": "Hamargarren solairuan lan egiten dut.",
@@ -10170,7 +10170,7 @@
       "english": "One third",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "heh-REH-nah",
+      "pronunciation": "eh-REH-nah (h is silent)",
       "notes": "One third. Heren = third (as a fraction). Bi heren = two thirds. Hiru heren = three thirds = a whole. Paired with erdia (half) and laurdena (quarter) to complete basic fractions.",
       "example": {
         "basque": "Lurraren herena oihanez estalita dago.",
@@ -10183,7 +10183,7 @@
       "english": "Fifty percent",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "eh-HOO-neh-koh ber-ROH-gay-tah AH-mar",
+      "pronunciation": "eh-OO-neh-koh ber-ROH-gay-tah AH-mar",
       "notes": "Fifty percent. Ehuneko (percentage) + berrogeita hamar (fifty). Learning to combine ehuneko with numbers gives you all percentages. Ehuneko hogei = 20%. Ehuneko ehun = 100%.",
       "example": {
         "basque": "Ehuneko berrogeita hamarrek euskara dakite.",
@@ -10209,7 +10209,7 @@
       "english": "Percentage change",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "al-dah-KEH-tah eh-HOO-neh-koh-ah",
+      "pronunciation": "al-dah-KEH-tah eh-OO-neh-koh-ah",
       "notes": "Percentage change. Aldaketa (change) + ehunekoa (percentage). Aldaketa ehuneko positiboa = positive percentage change. Essential for understanding economic and statistical reporting.",
       "example": {
         "basque": "Aldaketa ehunekoa positiboa da aurten.",
@@ -10326,7 +10326,7 @@
       "english": "Airplane",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "heh-gas-KEE-nah",
+      "pronunciation": "eh-gas-KEE-nah (h is silent)",
       "notes": "Aeroplane or flight. Hegaz (flying) + -kina (machine). Hegazkin txartela = plane ticket. Hegazkin konpainia = airline. Bilbao Airport (Loiu) and San Sebastián Airport serve the Basque Country.",
       "example": {
         "basque": "Hegazkinez joango naiz Madrilera.",
@@ -10365,7 +10365,7 @@
       "english": "Plane ticket",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "heh-gas-KEEN CHAR-teh-lah",
+      "pronunciation": "eh-gas-KEEN CHAR-teh-lah (h is silent)",
       "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joateko txartela = one-way ticket. Joan-etorriko txartela = return ticket. Txartela erosi = to buy a ticket.",
       "example": {
         "basque": "Hegazkin txartela erosi behar dut.",
@@ -10417,7 +10417,7 @@
       "english": "Surprise / Astonishment",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "har-ree-DOO-rah",
+      "pronunciation": "ar-ree-DOO-rah (h is silent)",
       "notes": "Surprise or astonishment (noun). Harritu = to surprise (verb). Harridura handiz = with great surprise. Harrigarria = surprising. Zer harridura! = What a surprise! The noun form for harritu.",
       "example": {
         "basque": "Harridura handiz jaso zuen albistea.",
@@ -10560,7 +10560,7 @@
       "english": "Cloudy",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "hoh-day-TSOO",
+      "pronunciation": "oh-day-TSOO (h is silent)",
       "notes": "Cloudy. Hodei (cloud) + -tsu (full of). Hodeitsu dago = it is cloudy. The Basque Country has an oceanic climate. Clouds and rain are frequent. Hodei iluna = dark cloud.",
       "example": {
         "basque": "Hodeitsu dago gaur, beharbada euria egingo du.",
@@ -10625,7 +10625,7 @@
       "english": "Close relatives / Next of kin",
       "cefr": "B2",
       "topic": "family",
-      "pronunciation": "SEH-nee-deh hoor-BEE-lak",
+      "pronunciation": "SEH-nee-deh oor-BEE-lak",
       "notes": "Close relatives or next of kin. Senide (relative/family member) + hurbilak (close ones). Legal and medical contexts require identifying senide hurbilak. Nire senide hurbilena = my closest relative.",
       "example": {
         "basque": "Senide hurbilei jakinarazi behar diegu.",
@@ -11017,7 +11017,7 @@
       "english": "From here",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "eh-MEN-deek",
+      "pronunciation": "eh-MEN-deek (h is silent)",
       "notes": "Hemendik is hemen plus -tik, and it is regular. Handik is the same thing built on han, from there.",
       "example": {
         "basque": "Hemendik gertu dago.",
@@ -11030,7 +11030,7 @@
       "english": "To here",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "OH-nah",
+      "pronunciation": "OH-nah (h is silent)",
       "notes": "Hona is the one that bends. To here is hona, not hemenera, and to there is hara rather than hanera. The from forms stay regular.",
       "example": {
         "basque": "Zatoz hona!",
@@ -11290,7 +11290,7 @@
       "english": "This",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "OW (rhymes with now)",
+      "pronunciation": "OW (rhymes with now; h is silent)",
       "notes": "Hau points to things near the speaker, the first step of hau, hori, hura. Demonstratives come after the noun in Basque: etxe hau = this house, never hau etxe. Plural: hauek.",
       "example": {
         "basque": "Hau nire etxea da.",
@@ -11316,7 +11316,7 @@
       "english": "These",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "OW-ek (OW as in now)",
+      "pronunciation": "OW-ek (OW as in now; h is silent)",
       "notes": "Hauek is the plural of hau. The demonstrative carries the plural for the whole phrase, so the noun stays bare: lagun hauek = these friends, not lagunak hauek. The three plurals are hauek, horiek, haiek.",
       "example": {
         "basque": "Hauek nire lagunak dira.",
@@ -12491,7 +12491,7 @@
       "english": "Cold (illness)",
       "cefr": "A2",
       "topic": "body",
-      "pronunciation": "oh-TSEH-ree-ah",
+      "pronunciation": "oh-TSEH-ree-ah (h is silent)",
       "notes": "Hotzeria = hotz (cold) + eri (sick), the old native word for illness that also gives eritasuna (illness). Hotzeria harrapatu = to catch a cold. Not the same as hotza, the temperature; colloquially the loan katarroa is also common.",
       "example": {
         "basque": "Hotzeria harrapatu dut.",
@@ -12545,7 +12545,7 @@
       "english": "Sound / Noise",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "OH-tsah",
+      "pronunciation": "OH-tsah (h is silent)",
       "notes": "Hots is any sound or noise, from rain on the roof to waves on the shore. Do not confuse it with hotza (cold). Hotsa has ts, hotza has tz. Hots egin means to call someone, and zarata is the stronger word for loud, unpleasant noise.",
       "example": {
         "basque": "Itsasoaren hotsa entzuten dut.",
@@ -12558,7 +12558,7 @@
       "english": "Word",
       "cefr": "A1",
       "topic": "culture",
-      "pronunciation": "EE-tsah",
+      "pronunciation": "EE-tsah (h is silent)",
       "notes": "Hitza eman means to give your word, and in Basque culture a promise given this way is binding. Hitz egin, literally to do words, means to speak. Several local Basque-language newspapers are named Hitza.",
       "example": {
         "basque": "Hitz berri bat ikasi dut gaur.",
@@ -12701,7 +12701,7 @@
       "english": "Finger",
       "cefr": "A1",
       "topic": "body",
-      "pronunciation": "AH-tsah",
+      "pronunciation": "AH-tsah (h is silent)",
       "notes": "Hatz = finger. Hatz lodia = thumb (the thick finger), and hatz markak = fingerprints. In many regions behatz is used instead, and it can also mean toe.",
       "example": {
         "basque": "Hatzeko mina dut.",
@@ -12714,7 +12714,7 @@
       "english": "Beach",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "on-DAR-tsah",
+      "pronunciation": "on-DAR-tsah (h is silent)",
       "notes": "Hondartza = hondar (sand) + -tza, a suffix of abundance, so a beach is literally a place of plentiful sand. La Kontxa in Donostia (San Sebastian) is one of the most celebrated city beaches in Europe.",
       "example": {
         "basque": "Hondartzara goaz.",
@@ -12740,7 +12740,7 @@
       "english": "Leaf",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "os-TOH-ah",
+      "pronunciation": "os-TOH-ah (h is silent)",
       "notes": "Hosto = leaf. Hosto erorkorra = deciduous (leaf falling). The oak leaf is a Basque emblem thanks to the sacred oak of Gernika (Gernikako Arbola).",
       "example": {
         "basque": "Hostoak erortzen dira udazkenean.",
@@ -12753,7 +12753,7 @@
       "english": "Stone / Rock",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "ar-REE-ah",
+      "pronunciation": "ar-REE-ah (h is silent)",
       "notes": "Harri = stone. Harrijasotzaileak (stone lifters) compete in herri kirolak, the rural sports, lifting stone blocks onto the shoulder. Harritu (to be amazed) literally means turned to stone, and place names like Arrieta mean place of stones.",
       "example": {
         "basque": "Harria astuna da.",
@@ -12766,7 +12766,7 @@
       "english": "Sand",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "ah-REH-ah",
+      "pronunciation": "ah-REH-ah (h is silent)",
       "notes": "Harea comes from Latin arena. Hondar is the other common word for sand, preferred in Bizkaia, and it also means remainder. Both are heard on the coast, and the word for beach, hondartza, is built on hondar.",
       "example": {
         "basque": "Hondartzan harea dago.",
@@ -12909,7 +12909,7 @@
       "english": "Butcher shop",
       "cefr": "A1",
       "topic": "city",
-      "pronunciation": "ah-rah-TEH-gee-ah",
+      "pronunciation": "ah-rah-TEH-gee-ah (h is silent)",
       "notes": "Harategia: butcher shop. Haragi (meat) + -tegi (place for).",
       "example": {
         "basque": "Harategia handia da.",
@@ -13039,7 +13039,7 @@
       "english": "Cemetery",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "ee-leh-RREE-ah",
+      "pronunciation": "ee-leh-RREE-ah (h is silent)",
       "notes": "Hilerria: cemetery. Hil is the root the app already meets in hilabetea, the month.",
       "example": {
         "basque": "Hilerria isila da.",
@@ -13078,7 +13078,7 @@
       "english": "Urban planning",
       "cefr": "B2",
       "topic": "city",
-      "pronunciation": "ee-ree-GEEN-tsah",
+      "pronunciation": "ee-ree-GEEN-tsah (h is silent)",
       "notes": "Hirigintza: urban planning. From hiri, the city.",
       "example": {
         "basque": "Hirigintza zaila da.",
@@ -13221,7 +13221,7 @@
       "english": "Wall",
       "cefr": "B1",
       "topic": "home",
-      "pronunciation": "OR-mah",
+      "pronunciation": "OR-mah (h is silent)",
       "notes": "Horma: wall. The same word means ice in several dialects, so context decides.",
       "example": {
         "basque": "Horma zuria da.",
@@ -13273,7 +13273,7 @@
       "english": "Refrigerator",
       "cefr": "B1",
       "topic": "home",
-      "pronunciation": "ohs-kai-LOO-ah",
+      "pronunciation": "ohs-kai-LOO-ah (h is silent)",
       "notes": "Hozkailua: refrigerator. Hotz (cold) + gailu (device), the cold device.",
       "example": {
         "basque": "Hozkailua hotza da.",
@@ -13507,7 +13507,7 @@
       "english": "Owl",
       "cefr": "B1",
       "topic": "animals",
-      "pronunciation": "ON-tsah",
+      "pronunciation": "ON-tsah (h is silent)",
       "notes": "Hontza: owl. It hunts at night, like the saguzarra.",
       "example": {
         "basque": "Hontza gauez ikusten dut.",
@@ -13572,7 +13572,7 @@
       "english": "Nest",
       "cefr": "B1",
       "topic": "animals",
-      "pronunciation": "ah-BEE-ah",
+      "pronunciation": "ah-BEE-ah (h is silent)",
       "notes": "Habia: a bird's nest.",
       "example": {
         "basque": "Habia zuhaitzean dago.",
@@ -13650,7 +13650,7 @@
       "english": "Carnivore",
       "cefr": "B2",
       "topic": "animals",
-      "pronunciation": "ah-rah-gee-hah-LEH-ah",
+      "pronunciation": "ah-rah-gee-hah-LEH-ah (h is silent)",
       "notes": "Haragijalea: carnivore. Haragi is meat.",
       "example": {
         "basque": "Otsoa haragijalea da.",
