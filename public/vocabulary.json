@@ -424,7 +424,7 @@
       "english": "Nine",
       "cefr": "A1",
       "topic": "numbers",
-      "pronunciation": "beh-deh-RAT-see",
+      "pronunciation": "beh-deh-RAH-tsee",
       "notes": "Bederatzi is the longest single-digit number in Basque. Break it: beder + atzi.",
       "example": {
         "basque": "Bederatzi euro.",
@@ -801,7 +801,7 @@
       "english": "Sea / Ocean",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "it-SAH-soh-ah",
+      "pronunciation": "ee-TSAH-soh-ah",
       "notes": "Basques have been master sailors for centuries. Basque cod fishermen were working Newfoundland waters by the early 1500s, among the first Europeans there.",
       "example": {
         "basque": "Itsasoa handia da.",
@@ -970,7 +970,7 @@
       "english": "Heart",
       "cefr": "A1",
       "topic": "body",
-      "pronunciation": "bee-OT-sah",
+      "pronunciation": "bee-OH-tsah",
       "notes": "Bihotz is used in many expressions. Bihotz oneko = kind-hearted. Bihotzez = heartfully/sincerely.",
       "example": {
         "basque": "Bihotza ona du.",
@@ -1048,7 +1048,7 @@
       "english": "Yesterday",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "AT-so",
+      "pronunciation": "AH-tso",
       "notes": "Atzo is one of the more distinctive Basque words. Atzo arratsaldean = yesterday afternoon.",
       "example": {
         "basque": "Atzo etorri zen.",
@@ -1581,7 +1581,7 @@
       "english": "Shame / Embarrassment",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "LOT-sah",
+      "pronunciation": "LOH-tsah",
       "notes": "Lotsa = shame or embarrassment. Lotsatu = to be embarrassed. Lotsagarria = shameful. Lotsagabea = shameless (without shame).",
       "example": {
         "basque": "Lotsa ematen dit.",
@@ -1737,7 +1737,7 @@
       "english": "Cuisine",
       "cefr": "B1",
       "topic": "culture",
-      "pronunciation": "soo-kal-dah-REET-sah",
+      "pronunciation": "soo-kal-dah-REE-tsah",
       "notes": "Sukaldaritza = cuisine or the art of cooking. Sukaldaria = chef. Sukaldea = kitchen. Basque cuisine is world-renowned with one of the highest concentrations of Michelin stars per capita in the world. Arzak, Berasategui, and Mugaritz lead globally.",
       "example": {
         "basque": "Sukaldaritza bikaina da.",
@@ -1828,7 +1828,7 @@
       "english": "Ship / Boat",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "it-sah-SON-tsee-ah",
+      "pronunciation": "ee-tsah-SON-tsee-ah",
       "notes": "Itsasontzia = ship (itsaso=sea + ontzia=vessel). Basque sailors were among the first Europeans fishing Newfoundland cod, from the early 1500s.",
       "example": {
         "basque": "Itsasontzia handia da.",
@@ -2076,7 +2076,7 @@
       "english": "In the afternoon",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "ar-rat-sal-DEH-an",
+      "pronunciation": "ar-rah-tsal-DEH-an",
       "notes": "Arratsaldean = in the afternoon. Arratsalde = afternoon/evening. Arratsaldeko = of the afternoon. Arratsaldero = every afternoon.",
       "example": {
         "basque": "Arratsaldean etorri da.",
@@ -2663,7 +2663,7 @@
       "english": "Cold",
       "cefr": "A2",
       "topic": "adjectives",
-      "pronunciation": "OT-sah (h is silent)",
+      "pronunciation": "OH-tsah (h is silent)",
       "notes": "Hotza = cold. Hotz = cold (root). Hotzikara = shiver (cold-shake). Hotzikaraz = with shivers. Hotz egin = to feel cold. Opposite: beroa.",
       "example": {
         "basque": "Negua hotza da.",
@@ -2741,7 +2741,7 @@
       "english": "Strong",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "in-DART-soo",
+      "pronunciation": "in-DAR-tsoo",
       "notes": "Indartsu = strong. Indar = strength/force (root). Indarra = the force. Indartu = to strengthen. Indar handia = great strength.",
       "example": {
         "basque": "Gizona indartsua da.",
@@ -3353,7 +3353,7 @@
       "english": "Rich / Wealthy",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "ah-beh-RAT-sah",
+      "pronunciation": "ah-beh-RAH-tsah",
       "notes": "Aberatsa = rich or wealthy. Aberastasuna = wealth. Aberastu = to become rich. Aberats = wealthy (root). Opposite: pobrea / txiroa (poor).",
       "example": {
         "basque": "Herria aberatsa da.",
@@ -4450,7 +4450,7 @@
       "english": "Oak tree",
       "cefr": "A2",
       "topic": "nature",
-      "pronunciation": "ah-REET-sah (h is silent)",
+      "pronunciation": "ah-REE-tsah (h is silent)",
       "notes": "Oak, sacred in Basque culture. The Gernikako Arbola (Tree of Gernika) is an ancient oak under which Basque assemblies met. Haritz = oak root. Symbol of Basque democracy and identity.",
       "example": {
         "basque": "Haritza Euskal Herriaren sinboloa da.",
@@ -5217,7 +5217,7 @@
       "english": "Nineteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "eh-meh-RET-see (h is silent)",
+      "pronunciation": "eh-meh-REH-tsee (h is silent)",
       "notes": "19 = hemeretzi. Note: this does NOT follow the hamar+digit pattern! Hemeretzi is an irregular form. Compare French dix-neuf (10+9) vs Basque irregular hemeretzi.",
       "example": {
         "basque": "Hemeretzi euro kostatzen da.",
@@ -5503,7 +5503,7 @@
       "english": "Wolf",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "OT-soh-ah",
+      "pronunciation": "OH-tsoh-ah",
       "notes": "Wolf. Otso = wolf (root). Wolves returned to the Basque Pyrenees in recent decades, a controversial topic. In Basque mythology the wolf (otso) appears in many legends. Otsaila = February (wolf-month, when wolves were most active).",
       "example": {
         "basque": "Otsoa basoan bizi da.",
@@ -5789,7 +5789,7 @@
       "english": "Salt",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "GAT-sah",
+      "pronunciation": "GAH-tsah",
       "notes": "Gatza = salt. Gatz = salt (root). Gazia = salty. Gazta (cheese) is popularly linked to gatz, though the etymology is uncertain. Gatzontzia = salt cellar. Salt was historically precious. Basque salt trade routes were important in medieval times.",
       "example": {
         "basque": "Gatza gehitu behar diozu.",
@@ -5854,7 +5854,7 @@
       "english": "Walnut cream sauce",
       "cefr": "B1",
       "topic": "food",
-      "pronunciation": "een-chowr-SALT-sah",
+      "pronunciation": "een-chowr-SAL-tsah",
       "notes": "Intxaursaltsa = traditional Basque walnut dessert sauce. Intxaur = walnut + saltsa = sauce. Made from walnuts, milk, sugar, and cinnamon (kanela). Eaten warm at Christmas Eve dinner. The recipe is over 150 years old. One of the oldest Basque desserts, from Gipuzkoa.",
       "example": {
         "basque": "Intxaursaltsa gozoa da.",
@@ -6114,7 +6114,7 @@
       "english": "Coastline",
       "cefr": "B1",
       "topic": "nature",
-      "pronunciation": "it-sah-SER-tsah",
+      "pronunciation": "ee-tsah-SER-tsah",
       "notes": "Itsasertza = coastline. Itsas = sea + ertz = edge. The Basque coastline is dramatic, with rocky cliffs (labarrak), sandy beaches (hondartzak), and fishing harbors (portuak). Itsasertzeko = coastal.",
       "example": {
         "basque": "Itsasertza ederra da.",
@@ -6699,7 +6699,7 @@
       "english": "Embarrassed / Ashamed",
       "cefr": "A2",
       "topic": "emotions",
-      "pronunciation": "lot-sah-TOO-tah",
+      "pronunciation": "loh-tsah-TOO-tah",
       "notes": "Lotsatuta = embarrassed or ashamed. Lotsatu = to embarrass/be ashamed (verb). Lotsagarria = shameful. Gorri jarri = to go red (with embarrassment). Lotsatuta nago = I am embarrassed.",
       "example": {
         "basque": "Lotsatuta nago.",
@@ -6764,7 +6764,7 @@
       "english": "To write",
       "cefr": "A1",
       "topic": "culture",
-      "pronunciation": "ee-DAT-see",
+      "pronunciation": "ee-DAH-tsee",
       "notes": "Idatzi = to write. Idazten dut = I am writing. Idazlea = writer/author. Idazketa = writing (noun). Idazki = written document. Idatzia = written (adjective). Fundamental verb alongside irakurri (to read).",
       "example": {
         "basque": "Gutun bat idazten dut.",
@@ -6816,7 +6816,7 @@
       "english": "Mistake / Error",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "ah-KAT-sah",
+      "pronunciation": "ah-KAH-tsah",
       "notes": "Akatsa = mistake or error. Akats = fault/flaw (root). Akatsik gabe = without errors. Akatsetatik ikasi = to learn from mistakes. Akats hau = this mistake. Essential word for language learners. Everyone makes akatsak!",
       "example": {
         "basque": "Akats bat egin dut.",
@@ -7232,7 +7232,7 @@
       "english": "The day after tomorrow",
       "cefr": "A2",
       "topic": "time",
-      "pronunciation": "ET-see",
+      "pronunciation": "EH-tsee",
       "notes": "Etzi = the day after tomorrow. Herenegun = the day before yesterday. These short words show how Basque efficiently expresses relative time. Etzi joango naiz = I will go the day after tomorrow. Very useful for planning conversations.",
       "example": {
         "basque": "Etzi ikusiko dugu.",
@@ -7583,7 +7583,7 @@
       "english": "Service time / Opening hours",
       "cefr": "B1",
       "topic": "travel",
-      "pronunciation": "ser-BEET-soo OR-doo-ah",
+      "pronunciation": "ser-BEE-tsoo OR-doo-ah",
       "notes": "Zerbitzu ordua = service time or opening hours. Zerbitzu = service + ordua = time/hour. Harrera = check-in (hotel reception). Sarrera ordua = check-in time. Irteera ordua = check-out time. Zerbitzu ordutegia = service schedule.",
       "example": {
         "basque": "Zerbitzu ordua goizeko bederatzietatik arratsaldeko seietara da.",
@@ -7752,7 +7752,7 @@
       "english": "February",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "ot-SAI-lah",
+      "pronunciation": "oh-TSAI-lah",
       "notes": "February. Otso (wolf) is in the root. February is the wolf month, when wolves were hungriest in winter.",
       "example": {
         "basque": "Otsailean hotz egiten du.",
@@ -7895,7 +7895,7 @@
       "english": "Sovereignty",
       "cefr": "B2",
       "topic": "society",
-      "pronunciation": "boo-roo-yah-BET-sah",
+      "pronunciation": "boo-roo-yah-BEH-tsah",
       "notes": "Sovereignty or self-rule. Buru (head) + jabetza (ownership). Central concept in Basque political discourse.",
       "example": {
         "basque": "Burujabetzaren aldeko mugimendua indartsua da.",
@@ -8129,7 +8129,7 @@
       "english": "Precise / Exact",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "seh-AT-sah",
+      "pronunciation": "seh-AH-tsah",
       "notes": "Precise or exact. Zehatz-mehatz = precisely/exactly. Zehaztu = to specify. Important in academic, legal and scientific discourse.",
       "example": {
         "basque": "Datu zehatzak behar ditugu.",
@@ -8909,7 +8909,7 @@
       "english": "Shiny / Glossy",
       "cefr": "B2",
       "topic": "colors",
-      "pronunciation": "dees-tee-RAT-soo-ah",
+      "pronunciation": "dees-tee-RAH-tsoo-ah",
       "notes": "Shiny or glossy. Distira (shine/gloss) + -tsua. Distiratsua da = it is shiny. Distira eman = to make shine. Used in art, design and describing materials.",
       "example": {
         "basque": "Pintura distiratsua erabili dut hormarako.",
@@ -9013,7 +9013,7 @@
       "english": "Sea level",
       "cefr": "B2",
       "topic": "nature",
-      "pronunciation": "IT-sas MAI-lah",
+      "pronunciation": "EE-tsas MAI-lah",
       "notes": "Sea level. Itsas (sea) + maila (level). Itsas mailaren igoera = sea level rise. Critical concept in climate change discussions. Itsas mailatik gorago = above sea level.",
       "example": {
         "basque": "Itsas mailak gora egin du azken hamarkadetan.",
@@ -9169,7 +9169,7 @@
       "english": "I like it / I enjoy it",
       "cefr": "B2",
       "topic": "emotions",
-      "pronunciation": "at-SEH-gheen doot",
+      "pronunciation": "ah-TSEH-gheen doot",
       "notes": "I like it or I enjoy it. Atsegin (pleasure) + dut (I have). More formal and literary than gustatu. Atsegin dut zure laguntza = I appreciate your help. Used in polite and formal expressions of appreciation.",
       "example": {
         "basque": "Oso atsegin dut zurekin hitz egitea.",
@@ -9208,7 +9208,7 @@
       "english": "Despair / Hopelessness",
       "cefr": "B2",
       "topic": "emotions",
-      "pronunciation": "et-see-PEH-nah",
+      "pronunciation": "eh-tsee-PEH-nah",
       "notes": "Despair or hopelessness. Etsi (to give up hope) + -pena. Etsita egon = to be in despair. Etsipen handian dago = he is in great despair. The opposite of esperantza (hope).",
       "example": {
         "basque": "Etsipenak ez gaitu gelditu behar.",
@@ -9624,7 +9624,7 @@
       "english": "Pleasure / Liking",
       "cefr": "A1",
       "topic": "emotions",
-      "pronunciation": "at-SEH-gheen",
+      "pronunciation": "ah-TSEH-gheen",
       "notes": "Pleasure or liking. Atsegin dut = I like it. Atsegin handiz = with great pleasure. More formal than gustatu. Atsegingarria = pleasant. Essential A1 emotion vocabulary.",
       "example": {
         "basque": "Atsegin dut euskara ikastea.",
@@ -9741,7 +9741,7 @@
       "english": "Sick leave",
       "cefr": "A2",
       "topic": "work",
-      "pronunciation": "BAH-hah",
+      "pronunciation": "BAH-yah",
       "notes": "Sick leave. From Spanish baja (medical leave). Bajan egon = to be on sick leave. Bajara joan = to go on sick leave. Very common in Basque workplace vocabulary, used daily.",
       "example": {
         "basque": "Bajan nago astebetez.",
@@ -10105,7 +10105,7 @@
       "english": "Ninth",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "beh-deh-rat-see-GAR-reh-nah",
+      "pronunciation": "beh-deh-rah-tsee-GAR-reh-nah",
       "notes": "Ninth. Bederatzi (nine) + -garrena. Bederatzigarren postuan = in ninth place. The longest ordinal for single digits, learning it completes the set.",
       "example": {
         "basque": "Bederatzigarrena naiz zerrendan.",
@@ -10248,7 +10248,7 @@
       "english": "Standard deviation",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "des-bee-deh-RAT-seh es-tan-DAR-rah",
+      "pronunciation": "des-bee-deh-RAH-tseh es-tan-DAR-rah",
       "notes": "Standard deviation. Desbideratu (to deviate) + estandarra (standard). Key statistical concept used in research, quality control and data science. Desbideratze txikia = small standard deviation.",
       "example": {
         "basque": "Desbideratze estandarra txikia da lagin honetan.",
@@ -10443,7 +10443,7 @@
       "english": "Grief / Sorrow",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "at-seh-KAH-beh-ah",
+      "pronunciation": "ah-tseh-KAH-beh-ah",
       "notes": "Grief or deep sorrow. Atsekabe = grief (root). Atsekabetu = to grieve. Atsekabea sentitu = to feel grief. More intense than tristura (sadness). Used for loss and mourning.",
       "example": {
         "basque": "Atsekabe handia sentitzen dut zure galera jakitean.",
@@ -10586,7 +10586,7 @@
       "english": "Sunny",
       "cefr": "A1",
       "topic": "nature",
-      "pronunciation": "eh-goos-KEET-soo-ah",
+      "pronunciation": "eh-goos-KEE-tsoo-ah",
       "notes": "Sunny. Eguzki (sun) + -tsua (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine. A welcome sight in the often-cloudy Basque Country. The sun features in many Basque symbols.",
       "example": {
         "basque": "Eguzkitsua dago gaur eta parkera joango gara.",
@@ -13650,7 +13650,7 @@
       "english": "Carnivore",
       "cefr": "B2",
       "topic": "animals",
-      "pronunciation": "ah-rah-gee-hah-LEH-ah (h is silent)",
+      "pronunciation": "ah-rah-gee-yah-LEH-ah (h is silent)",
       "notes": "Haragijalea: carnivore. Haragi is meat.",
       "example": {
         "basque": "Otsoa haragijalea da.",
@@ -13663,7 +13663,7 @@
       "english": "Herbivore",
       "cefr": "B2",
       "topic": "animals",
-      "pronunciation": "beh-lar-hah-LEH-ah",
+      "pronunciation": "beh-lar-yah-LEH-ah",
       "notes": "Belarjalea: herbivore. Belar is grass.",
       "example": {
         "basque": "Behia belarjalea da.",
