@@ -3856,17 +3856,17 @@ function BasqueKitchenScreen(props){
       {instruction:"Push a toothpick through it and name what you have made",keyword:"pintxoa",hint:"A small bite held by a toothpick. Every bar makes its own"},
     ]},
     {key:"marmitakoa",name:"Marmitakoa",emoji:"🐟",desc:"Tuna and potato stew",color:"#0E7A40",dark:"#065F46",bg:"#EDFAF3",stages:[
-      {instruction:"Cut the tuna into chunks",keyword:"hegaluzea",hint:"Hegaluzea: albacore, the tuna of marmitakoa"},
-      {instruction:"Peel and chop the potato",keyword:"patata",hint:"Starchy and filling"},
-      {instruction:"Slice in a red pepper",keyword:"piperra",hint:"Adds color and warmth"},
-      {instruction:"Fill the pot with water",keyword:"ura",hint:"The stew base"},
       {instruction:"Soften an onion first",keyword:"tipula",hint:"Onion and pepper are the base of the stew"},
+      {instruction:"Slice in a red pepper",keyword:"piperra",hint:"Adds color and warmth"},
+      {instruction:"Peel and chop the potato",keyword:"patata",hint:"It thickens the stew as it cooks"},
+      {instruction:"Cover it all with water",keyword:"ura",hint:"And simmer until the potato is soft"},
+      {instruction:"Add the tuna last, in chunks",keyword:"hegaluzea",hint:"Hegaluzea: albacore. It cooks in minutes"},
     ]},
     {key:"pastel_vasco",name:"Euskal pastela",emoji:"🥧",desc:"The Basque cake, filled with cream or cherries",color:"#7C3AED",dark:"#5B21B6",bg:"#F5F3FF",stages:[
       {instruction:"Sift the flour",keyword:"irina",hint:"Irina: flour, the body of the dough"},
       {instruction:"Work in the soft butter",keyword:"gurina",hint:"Gurina: butter. The cake is made with it, not oil"},
-      {instruction:"Fold in the ground almonds",keyword:"arbendola",hint:"Arbendola: almond"},
       {instruction:"Weigh out the sugar",keyword:"azukrea",hint:"Makes it sweet: do not skimp"},
+      {instruction:"Fold in the ground almonds",keyword:"arbendola",hint:"Arbendola: almond"},
       {instruction:"Fill it the old way, with red fruit",keyword:"gerezia",hint:"Gerezia: cherry. The first ones were filled with cherries from Itsasu"},
     ]},
     {key:"bacalao_pil_pil",name:"Bakailaoa pil-pilean",emoji:"🧄",desc:"Salted cod in its own garlic sauce",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
@@ -3884,10 +3884,10 @@ function BasqueKitchenScreen(props){
       {instruction:"Set it down and call everyone over",keyword:"jan",hint:"Jan: to eat. Jan eta edan, eat and drink, go together"},
     ]},
     {key:"piperrada",name:"Piperrada",emoji:"🌶️",desc:"Basque pepper and tomato stew",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",stages:[
-      {instruction:"Chop the peppers",keyword:"piperra",hint:"Red and green both work"},
-      {instruction:"Add ripe tomatoes",keyword:"tomatea",hint:"Sweet and juicy"},
-      {instruction:"Slice the onion",keyword:"tipula",hint:"Softens and sweetens with heat"},
-      {instruction:"Pour in the oil",keyword:"olioa",hint:"Enough to coat the pan"},
+      {instruction:"Warm the oil in a wide pan",keyword:"olioa",hint:"Enough to coat the pan"},
+      {instruction:"Soften the sliced onion",keyword:"tipula",hint:"It sweetens with heat"},
+      {instruction:"Add the chopped peppers",keyword:"piperra",hint:"Green and red. The dish is named for them"},
+      {instruction:"Add ripe tomatoes",keyword:"tomatea",hint:"Cooked down until soft"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Taste as you go"},
     ]},
     {key:"ensalada_vasca",name:"Entsalada",emoji:"🥗",desc:"Lettuce, tomato and a good oil",color:"#16A34A",dark:"#14532D",bg:"#F0FDF4",stages:[
@@ -3944,7 +3944,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Name the meat it is: from the cow",keyword:"behikia",hint:"Behikia: beef, behi (cow) + -ki"},
       {instruction:"Grill over hot coals",keyword:"erre",hint:"High heat, short time"},
       {instruction:"Carve it into thick slices to serve",keyword:"xerra",hint:"A steak, a fillet, a slice off the bone"},
-      {instruction:"Serve at the table",keyword:"jan",hint:"Everyone eats from the same board"},
+      {instruction:"The wider word for what is on the board",keyword:"haragia",hint:"Haragia: meat. Behikia is one kind of it"},
     ]},
     {key:"sagardotegi_plater",name:"Sagardotegiko platera",emoji:"🍶",desc:"What the cider house serves",color:"#166534",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"The barrel is opened: shout the call",keyword:"txotx",hint:"The signal to fill your glass at the barrel"},
@@ -3978,7 +3978,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Start the morning",keyword:"gosaria",hint:"Gosaria: breakfast. Gosaldu is to have it"},
       {instruction:"Brew the coffee",keyword:"kafea",hint:"Strong and black or with milk"},
       {instruction:"Toast the bread",keyword:"ogia",hint:"Ogia: bread. Ogitegi is a bakery, the bread-place"},
-      {instruction:"Pour a glass of milk",keyword:"esnea",hint:"For the children, or for the coffee"},
+      {instruction:"Add a sweet bun",keyword:"opila",hint:"Opila: a sweet bread, traditionally eaten at Easter"},
       {instruction:"Sit down to eat",keyword:"gosaldu",hint:"To have breakfast: take your time"},
     ]},
     {key:"intxaursaltsa",name:"Intxaursaltsa",emoji:"🌰",desc:"Walnut cream, Christmas dessert",color:"#92400E",dark:"#451A03",bg:"#FFF7ED",stages:[
@@ -3989,10 +3989,10 @@ function BasqueKitchenScreen(props){
       {instruction:"Boil to thicken",keyword:"egosi",hint:"Stir constantly to avoid burning"},
     ]},
     {key:"hegaluzea_tomatearekin",name:"Hegaluzea tomatearekin",emoji:"\u{1FAD5}",desc:"Albacore tuna in tomato sauce",color:"#DC2626",dark:"#991B1B",bg:"#FEF2F2",stages:[
-      {instruction:"Cut the tuna into chunks",keyword:"hegaluzea",hint:"Hegaluzea: albacore tuna"},
+      {instruction:"Warm a good olive oil",keyword:"olioa",hint:"Enough to coat the pan"},
       {instruction:"Soften the onion slowly",keyword:"tipula",hint:"The base of the sauce"},
       {instruction:"Add the tomatoes",keyword:"tomatea",hint:"Ripe ones, cooked down"},
-      {instruction:"Use a good olive oil",keyword:"olioa",hint:"Enough to coat the pan"},
+      {instruction:"Lay the chunks of tuna in the sauce",keyword:"hegaluzea",hint:"Hegaluzea: albacore tuna"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Taste first"},
     ]},
     {key:"mamia",name:"Mamia",emoji:"🍮",desc:"Traditional Basque curd dessert",color:"#0F766E",dark:"#134E4A",bg:"#F0FDFA",stages:[
@@ -4014,7 +4014,7 @@ function BasqueKitchenScreen(props){
       {instruction:"List the ingredients",keyword:"osagai",hint:"Pepper, tomato, onion, oil, egg"},
       {instruction:"Use local produce",keyword:"bertako_produktua",hint:"Peppers and tomatoes from nearby farms"},
       {instruction:"Cook it low and slow, the way the method says",keyword:"sukalde_teknika",hint:"Sukalde teknika: cooking technique"},
-      {instruction:"It is a traditional dish",keyword:"piperrada",hint:"The Basque word for piperade"},
+      {instruction:"Name the dish the recipe is for",keyword:"piperrada",hint:"Piperrada: the pepper, tomato and onion stew"},
     ]},
     {key:"ardandegi_bisita",name:"Ardandegiko bisita",emoji:"🍷",desc:"A visit to a Basque winery",color:"#6B21A8",dark:"#3B0764",bg:"#FAF5FF",stages:[
       {instruction:"Visit the wine cellar",keyword:"ardandegi",hint:"Ardandegia: ardo (wine) + -tegi (place for), the same ending as sagardotegi"},
@@ -4026,7 +4026,7 @@ function BasqueKitchenScreen(props){
     {key:"bazkaria_etxean",name:"Bazkaria etxean",emoji:"🏡",desc:"Sunday lunch at home",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"Prepare Sunday lunch",keyword:"bazkaria",hint:"The big family meal of the week"},
       {instruction:"Sit down to eat",keyword:"bazkaldu",hint:"Bazkaldu: to have lunch"},
-      {instruction:"Serve the food",keyword:"janaria",hint:"Whatever Ama has cooked"},
+      {instruction:"End with fruit from the bowl: an apple",keyword:"sagarra",hint:"Sagarra: apple, the first half of sagardoa, cider"},
       {instruction:"Put a jug of water on the table",keyword:"ura",hint:"Ura: water, on every table"},
       {instruction:"Enjoy the meal",keyword:"jan",hint:"Eat well, eat slowly"},
     ]},
@@ -4034,7 +4034,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Lay the plate in the middle",keyword:"platera",hint:"Round, flat, and the first thing down"},
       {instruction:"Set the knife on the right",keyword:"labana",hint:"The one for cutting"},
       {instruction:"Put the fork on the left",keyword:"sardexka",hint:"A little pitchfork, if you take the word apart"},
-      {instruction:"Add the spoon beside it",keyword:"koilara",hint:"For the soup course"},
+      {instruction:"Add the spoon to the right of the knife",keyword:"koilara",hint:"For the soup course"},
       {instruction:"Finish with the glass above the knife",keyword:"edalontzia",hint:"Literally a vessel for drinking"},
     ]},
     // Four A2 rounds added in 1.8. Each header picture differs from every
@@ -4065,7 +4065,7 @@ function BasqueKitchenScreen(props){
     ]},
     {key:"pastela_eta_izozkia",name:"Pastela eta izozkia",emoji:"\u{1F382}",desc:"Cake and ice cream",color:"#BE185D",dark:"#831843",bg:"#FDF2F8",stages:[
       {instruction:"Cut a slice of cake",keyword:"pastela",hint:"Not a bun, and not a layered tart"},
-      {instruction:"Put it on a plate",keyword:"platera",hint:"Flat and round"},
+      {instruction:"Add a spoonful of whipped cream",keyword:"esnegaina",hint:"Esnegaina: cream, esne (milk) + gaina (top)"},
       {instruction:"Add a scoop of ice cream",keyword:"izozkia",hint:"Its name is built on the word for ice"},
       {instruction:"Grate some chocolate over the top",keyword:"txokolatea",hint:"Sweet and dark"},
       {instruction:"Hand out a spoon",keyword:"koilara",hint:"For the ice cream"},
