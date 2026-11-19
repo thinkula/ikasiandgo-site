@@ -3263,7 +3263,7 @@ function GamesScreen(props){
 
   var games=[
     {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1-B2","Two modes"],pro:false},
-    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","3 lives"],pro:false},
+    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","A1-B2"],pro:false},
     {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1-B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["23 scenarios","Numbers & time","A1-B2"],pro:false},
@@ -3898,9 +3898,14 @@ function BasqueKitchenScreen(props){
   var _showHint=useState(false);var showHint=_showHint[0];var setShowHint=_showHint[1];
   var _completedDishes=useState([]);var completedDishes=_completedDishes[0];var setCompletedDishes=_completedDishes[1];
   var _flash=useState(null);var flash=_flash[0];var setFlash=_flash[1]; // 'correct'|'wrong'
+  // Which level the menu is showing. "all" lists every dish grouped by level.
+  var _lvl=useState("all");var lvlFilter=_lvl[0];var setLvlFilter=_lvl[1];
   var scoreRef=React.useRef(0);
 
   React.useEffect(function(){
+    try{STORE.get('kitchen_level').then(function(r){
+      if(r&&r.value&&(r.value==="all"||DISH_LEVELS.indexOf(r.value)!==-1))setLvlFilter(r.value);
+    }).catch(function(){});}catch(e){}
     try{STORE.get('kitchen_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
     // Which units are finished is part of the progress this screen shows,
     // so it has to outlive the screen. Only the high score used to be saved,
@@ -3936,6 +3941,22 @@ function BasqueKitchenScreen(props){
     return w||null;
   }
 
+  // A dish is as hard as the hardest word it asks for, the same rule Ordutegi
+  // uses for its scenarios, so the badge is read off the content and cannot
+  // drift from it when a stage or a word's tag changes.
+  var DISH_LEVELS=["A1","A2","B1","B2"];
+  var LEVEL_NAMES={A1:"BEGINNER",A2:"ELEMENTARY",B1:"INTERMEDIATE",B2:"UPPER INTERMEDIATE"};
+  function dishLevel(d){
+    var top=0;
+    for(var i=0;i<d.stages.length;i++){
+      var w=findWord(d.stages[i].keyword);
+      if(!w)continue;
+      var ix=DISH_LEVELS.indexOf(w.cefr);
+      if(ix>top)top=ix;
+    }
+    return DISH_LEVELS[top];
+  }
+
   function buildOptions(currentDish,currentStageIdx){
     var correct=currentDish.stages[currentStageIdx];
     var correctWord=findWord(correct.keyword);
@@ -3946,15 +3967,32 @@ function BasqueKitchenScreen(props){
     // because they read as dishes under the fallback pan emoji. The three
     // stages that teach a greeting or an adjective were the problem, since one
     // non-food word among three foods gives the answer away without any Basque.
+    //
+    // They also come from the answer's own level, nearest first. Every
+    // distractor used to be A1, so a B2 answer stood alone among beginner words
+    // and anyone who knew the easy ones could pick it by elimination. That is
+    // why the higher dishes played no harder than the first ones.
+    //
+    // And when the answer has a picture, so must the others. A greeting or an
+    // adjective at B1 or B2 often has no entry in WORD_EMOJI, and three pans
+    // around one picture would give the answer away just the same.
     var topic=correctWord.topic||"food";
-    var byTopic=function(lvl){return noMeaningClash(VOCABULARY.filter(function(w){
-      return w.topic===topic&&w.id!==correctWord.id&&(!lvl||w.cefr===lvl);
-    }),correctWord);};
-    var foodPool=byTopic("A1");
-    if(foodPool.length<3)foodPool=byTopic(null);
-    if(foodPool.length<3)foodPool=noMeaningClash(VOCABULARY.filter(function(w){return w.topic==="food"&&w.id!==correctWord.id;}),correctWord);
-    var distractors=shuffled(foodPool).slice(0,3);
-    return shuffled([correctWord].concat(distractors.slice(0,3)));
+    var ansEm=getEmoji(correctWord)!=="\u{1F958}";
+    var lv=DISH_LEVELS.indexOf(correctWord.cefr);
+    var picks=[];
+    function take(pool){
+      if(picks.length>=3)return;
+      pool=noMeaningClash(pool.filter(function(w){
+        return w.id!==correctWord.id&&picks.indexOf(w)===-1&&(!ansEm||getEmoji(w)!=="\u{1F958}");
+      }),correctWord);
+      picks=picks.concat(shuffled(pool).slice(0,3-picks.length));
+    }
+    var inTopic=VOCABULARY.filter(function(w){return w.topic===topic;});
+    take(inTopic.filter(function(w){return w.cefr===correctWord.cefr;}));
+    take(inTopic.filter(function(w){return Math.abs(DISH_LEVELS.indexOf(w.cefr)-lv)===1;}));
+    take(inTopic);
+    if(picks.length<3)take(VOCABULARY.filter(function(w){return w.topic==="food";}));
+    return shuffled([correctWord].concat(picks.slice(0,3)));
   }
 
   function startDish(idx){
@@ -4105,6 +4143,13 @@ function BasqueKitchenScreen(props){
     "gurina":"🧈",         // butter
     "esnea":"🥛",          // milk
     "beroa":"🔥",          // hot
+    // Other A2 adjectives, so the one adjective step (beroa, in two baking
+    // dishes) has pictured words of its own kind and level to stand beside.
+    // Without them its options fell back to foods and gave it away.
+    "hotza":"❄️",          // cold
+    "garbia":"🧼",         // clean
+    "iluna":"🌑",          // dark
+    "gaixoa":"🤒",         // sick
     "bacalaoa":"🐡",      // salted cod
     "baratxuria":"🧄",     // garlic
     // Distractors
@@ -4259,35 +4304,70 @@ function BasqueKitchenScreen(props){
       </div>
 
       <div style={{padding:"14px"}}>
-        {DISHES.map(function(d,i){
-          var isDone=completedDishes.indexOf(d.key)!==-1;
+        {/* Level selector. The dishes run from A1 to B2, and a cook who is
+            past the beginner ones should not have to scroll through them to
+            find something that stretches them. The choice is remembered. */}
+        <div role="tablist" aria-label="Level" style={{display:"flex",gap:6,marginBottom:14}}>
+          {["all"].concat(DISH_LEVELS).map(function(L){
+            var inL=L==="all"?DISHES:DISHES.filter(function(d){return dishLevel(d)===L;});
+            if(!inL.length)return null;
+            var cooked=inL.filter(function(d){return completedDishes.indexOf(d.key)!==-1;}).length;
+            var on=lvlFilter===L;
+            return(
+              <button key={L} role="tab" aria-selected={on} onClick={function(){
+                setLvlFilter(L);
+                try{STORE.set('kitchen_level',L).catch(function(){});}catch(e){}
+              }} style={{flex:1,padding:"7px 0 6px",borderRadius:12,border:on?"none":"1px solid #E5E5EA",backgroundColor:on?"#C2510E":"#fff",color:on?"#fff":"#1C1C1E",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
+                <p style={{margin:0,fontSize:13,fontWeight:900,lineHeight:1.1}}>{L==="all"?"All":L}</p>
+                <p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:on?"rgba(255,255,255,0.8)":"#8E8E93"}}>{cooked}/{inL.length}</p>
+              </button>
+            );
+          })}
+        </div>
+        {DISH_LEVELS.map(function(L){
+          if(lvlFilter!=="all"&&lvlFilter!==L)return null;
+          var inL=[];
+          DISHES.forEach(function(d,i){if(dishLevel(d)===L)inL.push({d:d,i:i});});
+          if(!inL.length)return null;
           return(
-            <button key={i} onClick={function(){startDish(i);}}
-              style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",padding:0,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",display:"block"}}>
-              <div style={{background:"linear-gradient(135deg,"+d.dark+","+d.color+")",padding:"16px 16px 12px",position:"relative",overflow:"hidden"}}>
-                <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"16px 16px"}}/>
-                {isDone&&(
-                  <div style={{position:"absolute",top:10,right:10,backgroundColor:"rgba(255,255,255,0.9)",borderRadius:20,padding:"3px 10px",display:"flex",alignItems:"center",gap:4}}>
-                    <span style={{fontSize:9}}>✓</span>
-                    <span style={{fontSize:10,fontWeight:800,color:d.color}}>Cooked!</span>
+            <React.Fragment key={L}>
+              <p style={{margin:"4px 2px 8px",fontSize:10,fontWeight:900,color:"#8E8E93",letterSpacing:1.2}}>{L} {"\u00B7"} {LEVEL_NAMES[L]}</p>
+              {inL.map(function(x){
+                var d=x.d,i=x.i,lvl=L;
+                var isDone=completedDishes.indexOf(d.key)!==-1;
+                return(
+              <button key={i} onClick={function(){startDish(i);}}
+                style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",padding:0,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",display:"block"}}>
+                <div style={{background:"linear-gradient(135deg,"+d.dark+","+d.color+")",padding:"16px 16px 12px",position:"relative",overflow:"hidden"}}>
+                  <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"16px 16px"}}/>
+                  {isDone&&(
+                    <div style={{position:"absolute",top:10,right:10,backgroundColor:"rgba(255,255,255,0.9)",borderRadius:20,padding:"3px 10px",display:"flex",alignItems:"center",gap:4}}>
+                      <span style={{fontSize:9}}>✓</span>
+                      <span style={{fontSize:10,fontWeight:800,color:d.color}}>Cooked!</span>
+                    </div>
+                  )}
+                  <div style={{display:"flex",alignItems:"center",gap:12,position:"relative"}}>
+                    <div style={{width:56,height:56,borderRadius:16,backgroundColor:"rgba(255,255,255,0.22)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0,boxShadow:"0 2px 8px rgba(0,0,0,0.15)"}}>{d.emoji}</div>
+                    <div style={{flex:1}}>
+                      <div style={{display:"flex",alignItems:"center",gap:7}}>
+                        <p style={{margin:0,fontSize:17,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{d.name}</p>
+                        <span style={{fontSize:9,fontWeight:900,color:d.dark,backgroundColor:"rgba(255,255,255,0.9)",borderRadius:20,padding:"2px 7px",letterSpacing:0.3,flexShrink:0}}>{lvl}</span>
+                      </div>
+                      <p style={{margin:"1px 0 0",fontSize:12,color:"rgba(255,255,255,0.75)",fontWeight:500,fontStyle:"italic"}}>{d.desc}</p>
+                    </div>
                   </div>
-                )}
-                <div style={{display:"flex",alignItems:"center",gap:12,position:"relative"}}>
-                  <div style={{width:56,height:56,borderRadius:16,backgroundColor:"rgba(255,255,255,0.22)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0,boxShadow:"0 2px 8px rgba(0,0,0,0.15)"}}>{d.emoji}</div>
-                  <div style={{flex:1}}>
-                    <p style={{margin:0,fontSize:17,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{d.name}</p>
-                    <p style={{margin:"1px 0 0",fontSize:12,color:"rgba(255,255,255,0.75)",fontWeight:500,fontStyle:"italic"}}>{d.desc}</p>
+                  <div style={{display:"flex",gap:4,marginTop:12,position:"relative"}}>
+                    {d.stages.map(function(_,si){return <div key={si} style={{flex:1,height:4,borderRadius:2,backgroundColor:isDone?"rgba(255,255,255,0.85)":"rgba(255,255,255,0.3)"}}/>;  })}
                   </div>
                 </div>
-                <div style={{display:"flex",gap:4,marginTop:12,position:"relative"}}>
-                  {d.stages.map(function(_,si){return <div key={si} style={{flex:1,height:4,borderRadius:2,backgroundColor:isDone?"rgba(255,255,255,0.85)":"rgba(255,255,255,0.3)"}}/>;  })}
+                <div style={{backgroundColor:isDone?d.bg:"#fff",padding:"9px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                  <p style={{margin:0,fontSize:11,color:isDone?d.color:"#8E8E93",fontWeight:isDone?700:500}}>{isDone?"✓ Cooked. Cook again?":d.stages.length+" steps to complete"}</p>
+                  <span style={{fontSize:15,color:d.color,fontWeight:700}}>{"›"}</span>
                 </div>
-              </div>
-              <div style={{backgroundColor:isDone?d.bg:"#fff",padding:"9px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                <p style={{margin:0,fontSize:11,color:isDone?d.color:"#8E8E93",fontWeight:isDone?700:500}}>{isDone?"✓ Cooked. Cook again?":d.stages.length+" steps to complete"}</p>
-                <span style={{fontSize:15,color:d.color,fontWeight:700}}>{"›"}</span>
-              </div>
-            </button>
+              </button>
+                );
+              })}
+            </React.Fragment>
           );
         })}
       </div>
@@ -4299,10 +4379,17 @@ function BasqueKitchenScreen(props){
   // Walk forward to the first dish not cooked yet rather than to whatever sits
   // at the next index. Now that completion survives the screen, suggesting a
   // dish with a tick already on it is visibly wrong.
+  // It looks at the same level first, so a cook working through the B1 dishes
+  // is not sent back to an A1 one just because it sits next in the list.
   var nextDishIdx=(function(){
-    for(var k=1;k<=DISHES.length;k++){
-      var idx=(dishIdx+k)%DISHES.length;
-      if(completedDishes.indexOf(DISHES[idx].key)===-1)return idx;
+    var here=dishLevel(DISHES[dishIdx]);
+    for(var pass=0;pass<2;pass++){
+      for(var k=1;k<=DISHES.length;k++){
+        var idx=(dishIdx+k)%DISHES.length;
+        if(completedDishes.indexOf(DISHES[idx].key)!==-1)continue;
+        if(pass===0&&dishLevel(DISHES[idx])!==here)continue;
+        return idx;
+      }
     }
     return (dishIdx+1)%DISHES.length;
   })();
