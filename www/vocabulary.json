@@ -4515,7 +4515,7 @@
       "english": "Fifty",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "ber-ROH-gay-tah AH-mar",
+      "pronunciation": "ber-ROH-gay-tah ah-MAR",
       "notes": "50 = two-twenties + ten. Berrogei = 40 (two twenties) + ta (and) + hamar (10) = 50. The vigesimal system: 20, 40, 60, 80 are the key round numbers in Basque.",
       "example": {
         "basque": "Berrogeita hamar euro balio du.",
@@ -4541,7 +4541,7 @@
       "english": "Ninety",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "low-ROH-gay-tah AH-mar (low rhymes with now)",
+      "pronunciation": "low-ROH-gay-tah ah-MAR (low rhymes with now)",
       "notes": "90 = four-twenties + ten. Laurogei=80, laurogeita hamar=90. The complete round numbers: hogei=20, berrogei=40, hirurogei=60, laurogei=80, ehun=100.",
       "example": {
         "basque": "Laurogeita hamar urte ditu.",
@@ -4762,7 +4762,7 @@
       "english": "Basque Homeland Day",
       "cefr": "B1",
       "topic": "culture",
-      "pronunciation": "ah-BER-ree EH-goon-ah",
+      "pronunciation": "ah-BER-ree eh-GOON-ah",
       "notes": "Basque Homeland Day, celebrated on Easter Sunday. Aberri = homeland + eguna = day. Major political and cultural celebration with demonstrations across the Basque Country and diaspora.",
       "example": {
         "basque": "Aberri Egunean manifestazioa dago.",
@@ -5842,7 +5842,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "es-neh-GAI-nah",
-      "notes": "Esnegaina = cream (also written esne-gaina). Esne = milk + gaina = top. Literally the top of the milk. Esnegain urtu = melted cream. Used in Basque desserts including goxua and intxaursaltsa. Krema is also used in modern Basque.",
+      "notes": "Esnegaina = cream (also written esne-gaina). Esne = milk + gaina = top. Literally the top of the milk. Used in Basque desserts including goxua and intxaursaltsa. Krema is also used in modern Basque.",
       "example": {
         "basque": "Esnegaina gehitu dut.",
         "english": "I added cream."
@@ -5894,7 +5894,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "boo-lar-RAL-deh-ah",
-      "notes": "Bularraldea = chest. Bular = chest/breast (root). Bularra = chest. Bularreko min = chest pain. Bular-hezurra = breastbone; saihets-hezurra = rib. Bulartsu = brave/gutsy. Bularrez bular = chest to chest.",
+      "notes": "Bularraldea = chest. Bular = chest/breast (root). Bularra = chest. Bularreko mina = chest pain. Bular-hezurra = breastbone; saihets-hezurra = rib. Bulartsu = brave/gutsy. Bularrez bular = chest to chest.",
       "example": {
         "basque": "Bularraldeko mina dut.",
         "english": "I have chest pain."
@@ -6388,7 +6388,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "er-ree-AL-deh-ah (h is silent)",
-      "notes": "Herrialdea = country or nation-state. Different from herria (town/people/nation in a cultural sense). Herrialde batua = united country. Herrialde independentea = independent country. Herria is more emotional; herrialdea is more political/geographic.",
+      "notes": "Herrialdea = country or nation-state. Different from herria (town/people/nation in a cultural sense). Herrialde batua = united country. Herrialde independentea = independent country.",
       "example": {
         "basque": "Zein herrialdetan bizi zara?",
         "english": "In which country do you live?"
@@ -7076,7 +7076,7 @@
       "english": "Musical instrument",
       "cefr": "A2",
       "topic": "culture",
-      "pronunciation": "MOO-see-kah TRES-nah",
+      "pronunciation": "moo-SEE-kah TRES-nah",
       "notes": "Musika tresna = musical instrument. Tresna = tool/instrument. Musika tresnak jotzea = to play musical instruments. Basque instruments include txalaparta, trikitixa, txirula (flute), and alboka (horn). Tresna = tool is also used for any tool.",
       "example": {
         "basque": "Musika tresna bat jotzen duzu?",
@@ -8753,7 +8753,7 @@
       "english": "Whole number / Integer",
       "cefr": "B2",
       "topic": "numbers",
-      "pronunciation": "sen-BAH-kee oh-SOH-ah",
+      "pronunciation": "sen-BAH-kee OH-soh-ah",
       "notes": "Whole number or integer. Zenbaki (number) + osoa (whole). Zenbaki positiboak = positive numbers. Zenbaki negatiboak = negative numbers. Used in mathematics and science.",
       "example": {
         "basque": "Zenbaki osoak dira 1, 2, 3 eta abar.",
@@ -10183,7 +10183,7 @@
       "english": "Fifty percent",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "eh-OO-neh-koh ber-ROH-gay-tah AH-mar",
+      "pronunciation": "eh-OO-neh-koh ber-ROH-gay-tah ah-MAR",
       "notes": "Fifty percent. Ehuneko (percentage) + berrogeita hamar (fifty). Learning to combine ehuneko with numbers gives you all percentages. Ehuneko hogei = 20%. Ehuneko ehun = 100%.",
       "example": {
         "basque": "Ehuneko berrogeita hamarrek euskara dakite.",
@@ -10288,7 +10288,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "es-TOO-lah",
-      "notes": "Cough. Eztul egin = to cough. Eztul lehorra = dry cough. Eztul hezea = wet cough.",
+      "notes": "Cough. Eztul egin = to cough. Eztul lehorra = dry cough.",
       "example": {
         "basque": "Eztul asko egiten dut.",
         "english": "I cough a lot."
@@ -10365,8 +10365,8 @@
       "english": "Plane ticket",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "eh-gas-KEEN CHAR-teh-lah (h is silent)",
-      "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joateko txartela = one-way ticket. Joan-etorriko txartela = round-trip ticket. Txartela erosi = to buy a ticket.",
+      "pronunciation": "eh-gas-KEEN char-TEH-lah (h is silent)",
+      "notes": "Plane ticket. Hegazkin (plane) + txartela (ticket/card). Joaneko txartela = one-way ticket. Joan-etorriko txartela = round-trip ticket. Txartela erosi = to buy a ticket.",
       "example": {
         "basque": "Hegazkin txartela erosi behar dut.",
         "english": "I need to buy a plane ticket."
