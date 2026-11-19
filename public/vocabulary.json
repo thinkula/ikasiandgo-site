@@ -13708,6 +13708,84 @@
         "basque": "Basurdea basatia da.",
         "english": "The wild boar is wild."
       }
+    },
+    {
+      "id": "gurina",
+      "basque": "Gurina",
+      "english": "Butter",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "goo-REE-nah",
+      "notes": "Gurina = butter. Gurin is the root. It is the fat in euskal pastela, the Basque cake, made with flour, ground almonds and sugar.",
+      "example": {
+        "basque": "Gurina behar dut.",
+        "english": "I need butter."
+      }
+    },
+    {
+      "id": "irina",
+      "basque": "Irina",
+      "english": "Flour",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "ee-REE-nah",
+      "notes": "Irina = flour. Irin is the root. With gurina (butter) and azukrea (sugar) it makes the dough of euskal pastela.",
+      "example": {
+        "basque": "Irina behar dut.",
+        "english": "I need flour."
+      }
+    },
+    {
+      "id": "eztia",
+      "basque": "Eztia",
+      "english": "Honey",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "ES-tee-ah",
+      "notes": "Eztia = honey. Ezti is the root. Mamia, the sheep's milk curd, is often eaten with it.",
+      "example": {
+        "basque": "Eztia gozoa da.",
+        "english": "Honey is sweet."
+      }
+    },
+    {
+      "id": "kanela",
+      "basque": "Kanela",
+      "english": "Cinnamon",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "kah-NEH-lah",
+      "notes": "Kanela = cinnamon. It already ends in -a, so the article never doubles. A stick of it flavors arroz-esnea, rice pudding.",
+      "example": {
+        "basque": "Kanela behar dut.",
+        "english": "I need cinnamon."
+      }
+    },
+    {
+      "id": "hegaluzea",
+      "basque": "Hegaluzea",
+      "english": "Albacore tuna",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "eh-gah-loo-SEH-ah",
+      "notes": "Hegaluzea = albacore, the tuna of marmitakoa and of hegaluzea tomatearekin, tuna in tomato sauce.",
+      "example": {
+        "basque": "Hegaluzea freskoa da.",
+        "english": "The tuna is fresh."
+      }
+    },
+    {
+      "id": "perrexila",
+      "basque": "Perrexila",
+      "english": "Parsley",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "peh-reh-SHEE-lah",
+      "notes": "Perrexila = parsley. It is what turns saltsa berdea, green sauce, green.",
+      "example": {
+        "basque": "Perrexila berdea da.",
+        "english": "The parsley is green."
+      }
     }
   ],
   "stories": [
