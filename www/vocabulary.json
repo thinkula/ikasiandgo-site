@@ -1519,7 +1519,7 @@
       "pronunciation": "lah-SAI-ah",
       "notes": "Lasaia = calm. Lasaitu = to calm down. Lasai egon = stay calm. Lasaitasuna = calmness. Opposite of urduri (nervous).",
       "example": {
-        "basque": "Lasaia nago.",
+        "basque": "Lasai nago.",
         "english": "I am calm."
       }
     },
@@ -1543,7 +1543,7 @@
       "cefr": "A2",
       "topic": "emotions",
       "pronunciation": "oor-DOO-ree",
-      "notes": "Urduri = nervous/anxious. Urduritu = to become nervous. Urduritasuna = nervousness. Very useful for expressing anxiety.",
+      "notes": "Urduri = nervous/anxious. Urduritu = to become nervous. Urduritasuna = nervousness.",
       "example": {
         "basque": "Urduri nago.",
         "english": "I am nervous."
@@ -1552,7 +1552,7 @@
     {
       "id": "harritu",
       "basque": "Harritu",
-      "english": "Surprised",
+      "english": "To surprise / To be surprised",
       "cefr": "A2",
       "topic": "emotions",
       "pronunciation": "ar-REE-too (h is silent)",
@@ -1608,7 +1608,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "MEE-lah ES-ker",
-      "notes": "Mila esker = a thousand thanks. Mila = thousand. A very common alternative to eskerrik asko, slightly more emphatic.",
+      "notes": "Mila esker = a thousand thanks. Mila = thousand. A common alternative to eskerrik asko.",
       "example": {
         "basque": "Mila esker zure laguntzagatik.",
         "english": "Many thanks for your help."
@@ -1973,7 +1973,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "as-teh-leh-EH-nah",
-      "notes": "Astelehena = Monday. Aste = week + lehena = first. Literally the first of the week. Work starts here for most Basques.",
+      "notes": "Astelehena = Monday. Aste = week + lehena = first. Literally the first of the week.",
       "example": {
         "basque": "Astelehenean lan egin.",
         "english": "Work on Monday."
@@ -1999,7 +1999,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "as-teh-as-KEH-nah",
-      "notes": "Asteazkena = Wednesday. Aste = week + azkena = last: the last day of an old three-day Basque week. Asteazkenean = on Wednesday. The hardest day name to remember.",
+      "notes": "Asteazkena = Wednesday. Aste = week + azkena = last, usually explained as the last day of an old three-day week. Asteazkenean = on Wednesday.",
       "example": {
         "basque": "Asteazkena erdian dago.",
         "english": "Wednesday is in the middle."
@@ -2012,7 +2012,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "os-teh-GOO-nah",
-      "notes": "Osteguna is Thursday. The days of the week are among the hardest Basque words to remember. Try: Aste (week) + lehena=Monday, artea=Tuesday, azkena=Wednesday...",
+      "notes": "Osteguna = Thursday. Ostegunean = on Thursday. Ostegunero = every Thursday.",
       "example": {
         "basque": "Osteguna dator.",
         "english": "Thursday is coming."
@@ -2025,7 +2025,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "os-tee-RAH-lah",
-      "notes": "Ostirala = Friday. Origin uncertain, possibly from Latin. TGIF in Basque: Ostirala da! Ostiraleko = of Friday.",
+      "notes": "Ostirala = Friday. Origin uncertain. TGIF in Basque: Ostirala da! Ostiraleko = of Friday.",
       "example": {
         "basque": "Ostiralean libre nago.",
         "english": "I am free on Friday."
@@ -2051,7 +2051,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ee-gan-DEH-ah",
-      "notes": "Igandea = Sunday. Igan = to ascend/rise. The day of rising, reflecting its religious significance. Igandero = every Sunday.",
+      "notes": "Igandea = Sunday. Often linked to igan (to rise), though the origin is uncertain. Igandero = every Sunday.",
       "example": {
         "basque": "Igandean atseden hartu.",
         "english": "Rest on Sunday."
@@ -2067,7 +2067,7 @@
       "notes": "Goizean = in the morning. Goiz = morning (root). Goizeko = of the morning. Goizero = every morning. Goiz jaiki = to get up early.",
       "example": {
         "basque": "Goizean jaiki naiz.",
-        "english": "I woke up in the morning."
+        "english": "I got up in the morning."
       }
     },
     {
@@ -2090,7 +2090,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "seh-NAR-rah",
-      "notes": "Senarra = husband. Senar = husband (root). Senar-emazteak = husband and wife (a married couple). Bizilagun eta senarra = neighbor and husband (sometimes the same).",
+      "notes": "Senarra = husband. Senar = husband (root). Senar-emazteak = husband and wife (a married couple).",
       "example": {
         "basque": "Senarra etxean dago.",
         "english": "The husband is at home."
@@ -2103,7 +2103,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "eh-mas-TEH-ah",
-      "notes": "Emaztea = wife. Emazte = wife (root). Emaztearen = wife's. An old word. Modern Basque also uses bikotekidea (partner) more neutrally.",
+      "notes": "Emaztea = wife. Emazte = wife (root). Emaztearen = wife's. Modern Basque also uses bikotekidea (partner) more neutrally.",
       "example": {
         "basque": "Emaztea langilea da.",
         "english": "The wife is hardworking."
@@ -3575,7 +3575,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "ser-GAH-teek",
-      "notes": "Zergatik = why. Zergati = reason (root). Zergatik ez? = Why not? One of the most useful question words for understanding explanations.",
+      "notes": "Zergatik = why. Zergati = reason (root). Zergatik ez? = Why not?",
       "example": {
         "basque": "Zergatik etorri zara?",
         "english": "Why did you come?"
@@ -4581,7 +4581,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "ee-LOH-bah",
-      "notes": "Nephew or niece, same word for both genders in Basque. Context clarifies. Ilobak = nephews/nieces. Another example of Basque gender-neutrality in family terms.",
+      "notes": "Nephew or niece, the same word for both. Ilobak = nephews/nieces. Loba is another form of the same word.",
       "example": {
         "basque": "Nire iloba oso polita da.",
         "english": "My niece is very sweet."
@@ -4594,7 +4594,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "leh-en-GOO-soo-ah",
-      "notes": "Lehengusua = male cousin. Lehen = first. The female cousin is lehengusina. A common word in extended Basque families (senitartea), which are traditionally very close.",
+      "notes": "Lehengusua = male cousin. Lehen = first. The female cousin is lehengusina.",
       "example": {
         "basque": "Nire lehengusua Bilbon bizi da.",
         "english": "My cousin lives in Bilbao."
@@ -4620,7 +4620,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "seh-nee-TAR-teh-ah",
-      "notes": "Relatives or extended family. Senide = relative/sibling. Basque families (etxeak) traditionally had strong clan identities tied to the family house. Senitartekoak = family members.",
+      "notes": "Relatives or extended family. Senide = relative/sibling. Senitartekoak = family members.",
       "example": {
         "basque": "Senitartea bildu da gaur.",
         "english": "The family has gathered today."
@@ -4659,7 +4659,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "AH-dos",
-      "notes": "OK or agreed. A loan from the Romance game term a dos (tied score), which came to mean agreed. Ados nago = I agree. Ados gaude = we are agreed. One of the most used words in everyday Basque conversation across all age groups.",
+      "notes": "OK or agreed. A loan from the Romance game term a dos (tied score), which came to mean agreed. Ados nago = I agree. Ados gaude = we are agreed.",
       "example": {
         "basque": "Ados, bihar ikusiko dugu.",
         "english": "OK, we will see tomorrow."
@@ -4672,7 +4672,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "ah-GHEE-an",
-      "notes": "Maybe or perhaps. Agian etorriko naiz = maybe I will come. More hopeful than beharbada. Used constantly in everyday speech, a very characteristic Basque filler word.",
+      "notes": "Maybe or perhaps. Agian etorriko naiz = maybe I will come. Beharbada is another word for maybe.",
       "example": {
         "basque": "Agian bihar eguraldi ona izango da.",
         "english": "Maybe tomorrow the weather will be good."
@@ -4685,7 +4685,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "soh-ree-OH-nak",
-      "notes": "Congratulations or happy birthday! Zorion = happiness, from zori (fortune) + on (good), literally good fortune. Zorioneko = lucky/happy. Zorionez = luckily/fortunately. One of the most joyful Basque words to say and hear.",
+      "notes": "Congratulations or happy birthday! Zorion = happiness, from zori (fortune) + on (good), literally good fortune. Zorioneko = lucky/happy. Zorionez = luckily/fortunately.",
       "example": {
         "basque": "Zorionak zure urtebetetzeagatik!",
         "english": "Happy birthday!"
@@ -4698,7 +4698,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "ON-doh ee-BEE-lee",
-      "notes": "Take care, a warm farewell. Ondo = well + ibili = walk/go around. Literally walk well. More affectionate than agur. Used among friends. Often said when parting for a while.",
+      "notes": "Take care, a farewell. Ondo = well + ibili = walk/go around. Literally walk well. Used among friends when parting.",
       "example": {
         "basque": "Ondo ibili lagun!",
         "english": "Take care friend!"
@@ -4958,7 +4958,7 @@
       "cefr": "A2",
       "topic": "work",
       "pronunciation": "lan-KEE-deh-ah",
-      "notes": "Colleague or coworker. Lan = work + kidea = companion. Lankide ona = good colleague. Lankidetza = cooperation. Lantaldea = team. Essential word for anyone working in a Basque-speaking environment.",
+      "notes": "Colleague or coworker. Lan = work + kidea = companion. Lankide ona = good colleague. Lankidetza = cooperation. Lantaldea = team.",
       "example": {
         "basque": "Nire lankideak oso onak dira.",
         "english": "My colleagues are very good."
@@ -5517,7 +5517,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "AR-tsah (h is silent)",
-      "notes": "Bear. Hartz = bear (root). Brown bears (hartz arrea) survive in the Pyrenees near the Basque Country. Highly protected and controversial with farmers. Hartzak = bears (plural). Hartzgune = bear territory.",
+      "notes": "Bear. Hartz = bear (root). Brown bears (hartz arrea) still live in the Pyrenees. Hartzak = bears (plural).",
       "example": {
         "basque": "Hartza Pirinioetan bizi da.",
         "english": "The bear lives in the Pyrenees."
@@ -5530,7 +5530,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "sah-goo-SAR-rah",
-      "notes": "Bat. Sagu = mouse + zar(ra) = old = old mouse. Saguzarrak = bats (plural). Gaueko hegaztia = night flyer. Saguzarrek intsektuak jaten dituzte = bats eat insects.",
+      "notes": "Bat. Sagu = mouse + zahar = old: old mouse. Saguzarrak = bats (plural). Saguzarrek intsektuak jaten dituzte = bats eat insects.",
       "example": {
         "basque": "Saguzarrek gauez hegan egiten dute.",
         "english": "Bats fly at night."
@@ -5543,7 +5543,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "ee-GEH-lah",
-      "notes": "Frog. Igel = frog (root). Common in Basque streams and wetlands. Igela uretatik kanpo = out of water (like a fish out of water). Igelaren saltoa = the frog's jump.",
+      "notes": "Frog. Igel = frog (root). Igelak = frogs (plural).",
       "example": {
         "basque": "Igela ibaiaren ondoan dago.",
         "english": "The frog is near the river."
@@ -6310,7 +6310,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ER-dee-ah",
-      "notes": "Erdia = half. Erdi = half (root). Ordu erdia = half an hour. Erdiak = half past (telling time). Erdibitu = to halve. Erditik = from the middle. A very useful word, appears constantly in time expressions.",
+      "notes": "Erdia = half. Erdi = half (root). Ordu erdia = half an hour. Erdiak = half past (telling time). Erdibitu = to halve. Erditik = from the middle.",
       "example": {
         "basque": "Ordu erdia pasa da.",
         "english": "Half an hour has passed."
@@ -6674,7 +6674,7 @@
       "cefr": "A2",
       "topic": "emotions",
       "pronunciation": "as-per-TOO-tah",
-      "notes": "Aspertuta = bored. Aspertu = to bore/get bored (verb). Aspergarria = boring. Aspertu egin naiz = I got bored. Zer aspergarria! = How boring! Very useful everyday expression.",
+      "notes": "Aspertuta = bored. Aspertu = to bore/get bored (verb). Aspergarria = boring. Aspertu egin naiz = I got bored. Zer aspergarria! = How boring!",
       "example": {
         "basque": "Aspertuta nago.",
         "english": "I am bored."
@@ -6700,7 +6700,7 @@
       "cefr": "A2",
       "topic": "emotions",
       "pronunciation": "loh-tsah-TOO-tah",
-      "notes": "Lotsatuta = embarrassed or ashamed. Lotsatu = to embarrass/be ashamed (verb). Lotsagarria = shameful. Gorri jarri = to go red (with embarrassment). Lotsatuta nago = I am embarrassed.",
+      "notes": "Lotsatuta = embarrassed or ashamed. Lotsatu = to embarrass/be ashamed (verb). Lotsagarria = shameful. Gorri jarri = to turn red (with embarrassment). Lotsatuta nago = I am embarrassed.",
       "example": {
         "basque": "Lotsatuta nago.",
         "english": "I am embarrassed."
@@ -6726,7 +6726,7 @@
       "cefr": "B1",
       "topic": "animals",
       "pronunciation": "bah-SOOR-deh-ah",
-      "notes": "Basurdea = wild boar. Basa = wild + urde = pig, literally wild pig; this is the word Basque speakers actually use, not the literal phrase txerri basatia. Common in Basque forests and mountains, hunted in autumn, and its meat is a delicacy in Basque cuisine.",
+      "notes": "Basurdea = wild boar. Basa = wild + urde = pig, literally wild pig; this is the word Basque speakers actually use, not the literal phrase txerri basatia. Common in Basque forests and hunted in autumn.",
       "example": {
         "basque": "Basurdeak basoan bizi dira.",
         "english": "Wild boars live in the forest."
@@ -6791,7 +6791,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "gal-DEH-rah",
-      "notes": "Galdera = question (noun). Galdetu = to ask (verb). Galdegin = to ask (more formal). Galdera bat dut = I have a question. Galderak egin = to ask questions. Galdetegi = questionnaire.",
+      "notes": "Galdera = question (noun). Galdetu = to ask (verb). Galdegin = to ask (another verb). Galdera bat dut = I have a question. Galderak egin = to ask questions. Galdetegi = questionnaire.",
       "example": {
         "basque": "Galdera bat daukat.",
         "english": "I have a question."
@@ -7168,7 +7168,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "chee-MEES-tah",
-      "notes": "Tximista = lightning. Tximist = lightning bolt (root). Trumoiak = thunder (different word). Tximistargia = lightning flash. The Basque word for lightning contains the tx (ch) sound. Tximista sounds almost like a flash itself.",
+      "notes": "Tximista = lightning. The final -a is part of the word: tximista bat = a bolt of lightning. Trumoia = thunder. Tximistargia = lightning flash.",
       "example": {
         "basque": "Tximistak jotzen du.",
         "english": "Lightning strikes."
@@ -7532,7 +7532,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "beer-REE-tan (rolled rr)",
-      "notes": "Birritan = twice or two times. Birri = twice (root). Hirugarrenez = for the third time. Behin = once. Behin eta berriz = once and again = repeatedly. Birritan pentsatu = to think twice. Very common in everyday Basque speech.",
+      "notes": "Birritan = twice or two times. Hirugarrenez = for the third time. Behin = once. Behin eta berriz = once and again = repeatedly. Birritan pentsatu = to think twice.",
       "example": {
         "basque": "Birritan esan dizut.",
         "english": "I told you twice."
@@ -7636,7 +7636,7 @@
       "cefr": "A2",
       "topic": "greetings",
       "pronunciation": "NOH-lah EH-sah-ten dah",
-      "notes": "Nola esaten da...? = How do you say...? The single most useful phrase for language learners. Nola esaten da euskaraz? = How do you say it in Basque? Nola idazten da? = How do you write it? Essential for expanding vocabulary in conversation.",
+      "notes": "Nola esaten da...? = How do you say...? Nola esaten da euskaraz? = How do you say it in Basque? Nola idazten da? = How do you write it?",
       "example": {
         "basque": "Nola esaten da hori euskaraz?",
         "english": "How do you say that in Basque?"
@@ -8273,9 +8273,9 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "LOH-bak",
-      "notes": "Nieces and nephews (plural). Loba = niece/nephew (singular). Basque uses the same word for both, no gender distinction. Lobatxoa = little niece/nephew.",
+      "notes": "Nieces and nephews (plural). Loba = niece/nephew (singular), another form of iloba. Lobatxoa = little niece/nephew.",
       "example": {
-        "basque": "Nire lobak maitatzen ditut.",
+        "basque": "Nire lobak maite ditut.",
         "english": "I love my nieces and nephews."
       }
     },
@@ -9690,7 +9690,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "es-kon-TEE-deh-ah",
-      "notes": "Spouse. Ezkon (married) + kidea (companion). Gender-neutral term for husband or wife. More formal than senarra/emaztea. Ezkontide onena = best spouse. Used in official and legal contexts.",
+      "notes": "Spouse. Ezkon (married) + kidea (companion). Gender-neutral term for husband or wife. More formal than senarra/emaztea. Used in official and legal contexts.",
       "example": {
         "basque": "Nire ezkontidea medikua da.",
         "english": "My spouse is a doctor."
@@ -10080,7 +10080,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "sas-pee-GAR-reh-nah",
-      "notes": "Seventh. Zazpi (seven) + -garrena. Zazpigarren zeruan = in seventh heaven. The ordinal suffix pattern is consistent and learnable once understood.",
+      "notes": "Seventh. Zazpi (seven) + -garrena. Zazpigarren zeruan = in seventh heaven.",
       "example": {
         "basque": "Zazpigarren solairuan bizi naiz.",
         "english": "I live on the seventh floor."
@@ -10106,7 +10106,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "beh-deh-rah-tsee-GAR-reh-nah",
-      "notes": "Ninth. Bederatzi (nine) + -garrena. Bederatzigarren postuan = in ninth place. The longest ordinal for single digits, learning it completes the set.",
+      "notes": "Ninth. Bederatzi (nine) + -garrena. Bederatzigarren postuan = in ninth place.",
       "example": {
         "basque": "Bederatzigarrena naiz zerrendan.",
         "english": "I am ninth on the list."
@@ -10119,7 +10119,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mar-GAR-reh-nah (h is silent)",
-      "notes": "Tenth. Hamar (ten) + -garrena. Hamargarren postuan = in tenth place. Hamargarrena = the tenth. Completes the basic ordinal number set.",
+      "notes": "Tenth. Hamar (ten) + -garrena. Hamargarren postuan = in tenth place. Hamargarrena = the tenth.",
       "example": {
         "basque": "Hamargarren solairuan lan egiten dut.",
         "english": "I work on the tenth floor."
@@ -10145,7 +10145,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "bee-der-KEH-tah",
-      "notes": "Multiplication. Bider = times/multiplied by. Biderketa taula = multiplication table. Bi bider hiru sei da = two times three is six. Essential school mathematics vocabulary.",
+      "notes": "Multiplication. Bider = times/multiplied by. Biderketa taula = multiplication table. Bi bider hiru sei da = two times three is six.",
       "example": {
         "basque": "Biderketa taula ikasi behar duzu.",
         "english": "You need to learn the multiplication table."
@@ -10158,7 +10158,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "sah-tee-KEH-tah",
-      "notes": "Division. Zati = part/divided by. Zatiketa egin = to do division. Hamar zati bi bost da = ten divided by two is five. Zati = part, and the divided-by operator; zatikia = fraction.",
+      "notes": "Division. Zati = part, and the word for divided by. Zatiketa egin = to do division. Hamar zati bi bost da = ten divided by two is five. Zatikia = fraction.",
       "example": {
         "basque": "Zatiketa matematikako oinarria da.",
         "english": "Division is a foundation of mathematics."
@@ -10574,7 +10574,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "ten-peh-rah-TOO-rah",
-      "notes": "Temperature. From Spanish temperatura. Tenperatura altua = high temperature. Tenperatura baxua = low temperature. Zenbat gradu daude? = How many degrees is it? Essential for weather and science.",
+      "notes": "Temperature. From Spanish temperatura. Tenperatura altua = high temperature. Tenperatura baxua = low temperature. Zenbat gradu daude? = How many degrees is it?",
       "example": {
         "basque": "Gaur tenperatura altua dago.",
         "english": "Today the temperature is high."
@@ -11710,7 +11710,7 @@
       "cefr": "A2",
       "topic": "home",
       "pronunciation": "sah-BAI-ah (BAI sounds like bye)",
-      "notes": "Sabaia means ceiling, and in the baserri farmhouse the same word also names the hayloft, a bit of rural life hiding in an everyday word. Nearby vocabulary: ganbara = attic, teilatua = roof.",
+      "notes": "Sabaia means ceiling, and in the baserri farmhouse the same word also names the hayloft. Nearby vocabulary: ganbara = attic, teilatua = roof.",
       "example": {
         "basque": "Sabaia zuria da.",
         "english": "The ceiling is white."
@@ -11749,7 +11749,7 @@
       "cefr": "A2",
       "topic": "home",
       "pronunciation": "lan-PAH-rah",
-      "notes": "Lanpara comes from Spanish lampara and already ends in -a, so no extra article is added. Lanpara piztu = to turn on the lamp, lanpara itzali = to turn it off. Argia = light.",
+      "notes": "Lanpara comes from Spanish lámpara and already ends in -a, so no extra article is added. Lanpara piztu = to turn on the lamp, lanpara itzali = to turn it off. Argia = light.",
       "example": {
         "basque": "Lanpara piztu dut.",
         "english": "I have turned on the lamp."
@@ -11814,7 +11814,7 @@
       "cefr": "A2",
       "topic": "home",
       "pronunciation": "MAHN-tah",
-      "notes": "Manta is borrowed from Spanish and ends in -a already, so no article is added. Manta azpian = under the blanket, prime winter vocabulary. Tapakia is another word for a blanket or cover.",
+      "notes": "Manta is borrowed from Spanish and ends in -a already, so no article is added. Manta azpian = under the blanket. Tapakia is another word for a blanket or cover.",
       "example": {
         "basque": "Manta bat behar dut.",
         "english": "I need a blanket."
@@ -12035,7 +12035,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "AHS-toh-ah",
-      "notes": "Asto = donkey (root), the classic farm helper of Basque villages. Also a common affectionate insult: astoa zara! = you are such a donkey. Astakeria = a foolish act, built with the suffix -keria.",
+      "notes": "Asto = donkey (root). Also a common affectionate insult: astoa zara! = you are such a donkey. Astakeria = a foolish act, built with the suffix -keria.",
       "example": {
         "basque": "Astoa txikia da, baina oso indartsua.",
         "english": "The donkey is small, but very strong."
@@ -12073,7 +12073,7 @@
       "english": "Squirrel",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "kah-tah-goh-RREE-ah",
+      "pronunciation": "kah-tah-gor-REE-ah",
       "notes": "Literally red cat: katu (cat) + gorri (red). Urtxintxa is a widely used synonym; both are standard.",
       "example": {
         "basque": "Katagorriak intxaurrak jaten ditu.",
@@ -12099,7 +12099,7 @@
       "english": "Rat",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "ah-rrah-TOY-ah",
+      "pronunciation": "ar-rah-TOY-ah",
       "notes": "Arratoi = rat (root), a Romance loan. Old Basque avoided words beginning with r, so borrowings grew an extra vowel in front, the same reason Rome is Erroma in Basque. The size split matches English: sagua for the small one, arratoia for the big one.",
       "example": {
         "basque": "Arratoiak gazta jan du.",
@@ -12113,7 +12113,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "OO-soh-ah",
-      "notes": "Uso = pigeon or dove (root); Basque uses one word for both. The autumn pigeon migration through the Pyrenean passes is a centuries-old tradition, and in Etxalar hunters still net them from usategiak (pigeon towers). Uso zuria = white dove, a peace symbol and a beloved folk song image.",
+      "notes": "Uso = pigeon or dove (root); Basque uses one word for both. The autumn pigeon migration through the Pyrenean passes is a centuries-old tradition, and in Etxalar hunters still net them from usategiak (pigeon towers). Uso zuria = white dove, a peace symbol.",
       "example": {
         "basque": "Usoak hegan egiten du.",
         "english": "The pigeon flies."
@@ -12126,7 +12126,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "ah-AH-teh-ah",
-      "notes": "Ahate = duck (root), from Latin anatem. Duck is a star of the cooking of Iparralde, the northern Basque Country bordering Gascony: think magret and confit. Ahatekume = duckling.",
+      "notes": "Ahate = duck (root), from Latin anatem. Duck dishes such as magret and confit belong to the cooking of Iparralde, the northern Basque Country. Ahatekume = duckling.",
       "example": {
         "basque": "Ahatea uretan dago.",
         "english": "The duck is in the water."
@@ -12164,7 +12164,7 @@
       "english": "Rooster",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "oh-LYAH-rrah",
+      "pronunciation": "oh-LYAR-rah",
       "notes": "Rooster. Oilar shares its root with oiloa (hen) and oilaskoa (chicken), so learn the whole farmyard family together. Basque roosters say kukurruku, not cock-a-doodle-doo.",
       "example": {
         "basque": "Oilarrak goizero kantatzen du.",
@@ -12177,8 +12177,8 @@
       "english": "Eagle",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "ah-RRAH-noh-ah",
-      "notes": "Eagle. The arrano beltza (black eagle) is the ancient emblem of the Kingdom of Navarre and remains a powerful Basque symbol today. Arranoa! also survives as an old-fashioned exclamation of surprise, something like good heavens.",
+      "pronunciation": "ar-RAH-noh-ah",
+      "notes": "Eagle. The arrano beltza (black eagle) was a seal of the kings of Navarre and is still used as a Basque symbol. Arranoa! also survives as an old-fashioned exclamation of surprise, something like good heavens.",
       "example": {
         "basque": "Arranoak mendi gainean hegan egiten du.",
         "english": "The eagle flies above the mountain."
@@ -12191,7 +12191,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "chee-meh-LEH-tah",
-      "notes": "Butterfly. The initial tx- gives the word the light, affectionate feel Basque loves. In Iparralde (the French Basque Country) you may hear pinpilinpauxa, often voted one of the most beautiful words in the language; mitxeleta is another variant.",
+      "notes": "Butterfly. In Iparralde (the French Basque Country) you may hear pinpilinpauxa; mitxeleta is another variant.",
       "example": {
         "basque": "Tximeleta lorean dago.",
         "english": "The butterfly is on the flower."
@@ -12242,8 +12242,8 @@
       "english": "Octopus",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "oh-lah-gah-RROH-ah",
-      "notes": "Octopus. A pintxo bar staple: olagarroa served Galician style with paprika and olive oil sits on counters all over the Basque Country, and grilled olagarro pintxos are a port town specialty. Olagarro-jana = an octopus feast.",
+      "pronunciation": "oh-lah-gar-ROH-ah",
+      "notes": "Octopus. Often served Galician style, with paprika and olive oil.",
       "example": {
         "basque": "Olagarroa jan dugu tabernan.",
         "english": "We ate octopus at the bar."
@@ -12255,8 +12255,8 @@
       "english": "Crab",
       "cefr": "A2",
       "topic": "animals",
-      "pronunciation": "kah-rrah-mah-RROH-ah",
-      "notes": "Crab. Karramarro is the everyday word, the one children use for the little crabs in harbor rock pools. The star of Basque crab cooking is txangurroa, the spider crab, baked and served in its own shell as txangurro, a San Sebastián classic.",
+      "pronunciation": "kar-rah-mar-ROH-ah",
+      "notes": "Crab. Karramarro is the everyday word, the one children use for the little crabs in harbor rock pools. Txangurroa, the spider crab, is baked and served in its own shell, a Donostia (San Sebastián) dish.",
       "example": {
         "basque": "Karramarroa hondartzan dago.",
         "english": "The crab is on the beach."
@@ -12269,7 +12269,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "GAHN-bah",
-      "notes": "Shrimp. A loanword from Spanish gamba; the older Basque word izkira survives for small native shrimp. Ganba brotxeta, a grilled shrimp skewer, is one of the most famous pintxos in San Sebastián.",
+      "notes": "Shrimp. A loanword from Spanish gamba; the older Basque word izkira survives for small native shrimp. Ganba brotxeta, a grilled shrimp skewer, is a well-known pintxo in Donostia (San Sebastián).",
       "example": {
         "basque": "Ganbak jan ditut.",
         "english": "I ate the shrimp."
@@ -12282,7 +12282,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "mahs-KOH-tah",
-      "notes": "Pet. A modern loanword via Spanish mascota, from French mascotte (lucky charm). Traditional baserri (farmhouse) culture kept working animals rather than pets, so the borrowed word filled a real gap; etxeko animalia (house animal) also works.",
+      "notes": "Pet. A modern loanword via Spanish mascota, from French mascotte (lucky charm). Traditional baserri (farmhouse) life kept working animals rather than pets. Etxeko animalia (house animal) also works.",
       "example": {
         "basque": "Nire maskota katu bat da.",
         "english": "My pet is a cat."
@@ -12504,7 +12504,7 @@
       "english": "War",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "GEH-rrah",
+      "pronunciation": "GER-rah",
       "notes": "Gerra came into Basque from Spanish guerra. Gerra Zibila, the Civil War of 1936-1939, left deep scars in the Basque Country. The bombing of Gernika in 1937 inspired the famous Picasso painting. Gerra aurreko (prewar) and gerra ondoko (postwar) are common time markers in Basque history.",
       "example": {
         "basque": "Gerra Zibila 1936an hasi zen.",
@@ -12793,7 +12793,7 @@
       "cefr": "A2",
       "topic": "nature",
       "pronunciation": "ee-SAR-rah",
-      "notes": "Izar = star and a popular given name for girls. Izarra is also a classic Basque liqueur from Baiona (Bayonne); the name means the star. Zeru izarratua = starry sky.",
+      "notes": "Izar = star and a popular given name for girls. Izarra is also a Basque liqueur from Baiona (Bayonne); the name means the star. Zeru izarratua = starry sky.",
       "example": {
         "basque": "Gauean izarrak ikusten ditugu.",
         "english": "At night we see the stars."
@@ -12961,7 +12961,7 @@
       "english": "Road",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "eh-rreh-PEE-deh-ah",
+      "pronunciation": "er-reh-PEE-deh-ah",
       "notes": "Errepidea: road. Bidea is any way or path; an errepide is a built road for vehicles.",
       "example": {
         "basque": "Errepidea zabala da.",
@@ -12987,7 +12987,7 @@
       "english": "Cycle path",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "bee-deh-GOH-rree-ah",
+      "pronunciation": "bee-deh-GOR-ree-ah",
       "notes": "Bidegorria: cycle path. Bide (way) + gorri (red), for the red surface they are paved with.",
       "example": {
         "basque": "Bidegorria berria da.",
@@ -13026,7 +13026,7 @@
       "english": "Garbage",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "sah-BOH-rrah",
+      "pronunciation": "sah-BOR-rah",
       "notes": "Zaborra: garbage or waste. Also used figuratively, as garbage is in English.",
       "example": {
         "basque": "Zaborra kalean dago.",
@@ -13039,7 +13039,7 @@
       "english": "Cemetery",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "ee-leh-RREE-ah (h is silent)",
+      "pronunciation": "ee-ler-REE-ah (h is silent)",
       "notes": "Hilerria: cemetery. Hil is the root the app already meets in hilabetea, the month.",
       "example": {
         "basque": "Hilerria isila da.",
@@ -13065,7 +13065,7 @@
       "english": "Tower",
       "cefr": "B1",
       "topic": "city",
-      "pronunciation": "DOH-rreh-ah",
+      "pronunciation": "DOR-reh-ah",
       "notes": "Dorrea: tower. Basque towns kept dorretxeak, fortified tower houses, through the clan wars.",
       "example": {
         "basque": "Dorrea handia da.",
@@ -13325,7 +13325,7 @@
       "english": "Farmhouse",
       "cefr": "B1",
       "topic": "home",
-      "pronunciation": "bah-seh-RREE-ah",
+      "pronunciation": "bah-ser-REE-ah",
       "notes": "Baserria: the Basque farmhouse, house and farm together. Countless Basque surnames are the name of a baserri, which is why so many families are named after a house.",
       "example": {
         "basque": "Baserria mendian dago.",
@@ -13390,7 +13390,7 @@
       "english": "Lock",
       "cefr": "B2",
       "topic": "home",
-      "pronunciation": "sah-RRAI-lah",
+      "pronunciation": "sar-RAI-lah",
       "notes": "Sarraila: lock. The giltza goes in it.",
       "example": {
         "basque": "Sarraila zaharra da.",
@@ -13403,7 +13403,7 @@
       "english": "Doorbell",
       "cefr": "B2",
       "topic": "home",
-      "pronunciation": "chee-RREE-nah",
+      "pronunciation": "cheer-REE-nah",
       "notes": "Txirrina: doorbell or bell. The same word names the swift, the bird.",
       "example": {
         "basque": "Txirrina ozena da.",
@@ -13546,7 +13546,7 @@
       "english": "Lizard",
       "cefr": "B1",
       "topic": "animals",
-      "pronunciation": "moos-KEH-rrah",
+      "pronunciation": "moos-KER-rah",
       "notes": "Muskerra: lizard. The same word is used for the color green.",
       "example": {
         "basque": "Muskerra berdea da.",
@@ -13598,7 +13598,7 @@
       "english": "Reptile",
       "cefr": "B2",
       "topic": "animals",
-      "pronunciation": "nah-rrahs-TEE-ah",
+      "pronunciation": "nar-ras-TEE-ah",
       "notes": "Narrastia: reptile. Sugea and muskerra are narrastiak.",
       "example": {
         "basque": "Sugea narrastia da.",
