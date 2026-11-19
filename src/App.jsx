@@ -2613,43 +2613,6 @@ function relDate(iso){
   if(days<30)return Math.floor(days/7)+" weeks ago";
   return d.toLocaleDateString();
 }
-function ResetButton(){
-  var _s0=useState(false);var confirm=_s0[0];var setConfirm=_s0[1];
-  function doReset(){
-    STORE.set("srs_data","{}").catch(function(){});
-    STORE.set("streak_data","{}").catch(function(){});
-    STORE.set("pro_status","").catch(function(){});
-    STORE.set("session_history","[]").catch(function(){});
-    STORE.set("last_config","{}").catch(function(){});
-    STORE.set("vocab_cache","").catch(function(){});
-    // trial_until is deliberately kept. It is the only record that the 7-day
-    // trial was ever taken, and clearing it offered the trial again after
-    // every reset, for ever.
-    STORE.set("today_count_"+localDay(),"0").catch(function(){});
-    STORE.set("streak_freeze","").catch(function(){});
-    setConfirm(false);
-    window.location.reload();
-  }
-  return(
-    <div style={{textAlign:"center",marginTop:24,paddingBottom:8}}>
-      {!confirm&&(
-        <button onClick={function(){setConfirm(true);}} style={{background:"none",border:"none",color:"#CCC",fontSize:12,cursor:"pointer",fontFamily:"inherit",padding:"6px"}}>
-          Reset all progress
-        </button>
-      )}
-      {confirm&&(
-        <div style={{backgroundColor:"#FFFAFA",border:"1px solid #FFBBBB",borderRadius:12,padding:"14px 16px"}}>
-          <p style={{margin:"0 0 10px",fontSize:13,fontWeight:700,color:"#C85070"}}>Reset all progress?</p>
-          <p style={{margin:"0 0 12px",fontSize:12,color:"#888"}}>This clears your word memory, streak, and Pro status.</p>
-          <div style={{display:"flex",gap:8}}>
-            <button onClick={function(){setConfirm(false);}} style={{flex:1,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:10,padding:"9px",fontSize:13,cursor:"pointer",fontFamily:"inherit",color:"#888"}}>Cancel</button>
-            <button onClick={doReset} style={{flex:1,backgroundColor:"#C85070",border:"none",borderRadius:10,padding:"9px",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",color:"#fff"}}>Reset</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
 // Blurred cultural-note / etymology teaser shown on gated (A2+) words to free users.
 // The real note text is rendered blurred so learners see depth exists; tapping converts.
 function LockedNote(props){
@@ -2808,7 +2771,6 @@ function BrowseScreen(props){
             <button style={{border:"none",borderRadius:14,padding:"12px 28px",backgroundColor:"#19A85A",color:"#fff",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #0E7A40"}} onClick={onUpgrade}>Upgrade to Pro</button>
           </div>
         )}
-        <ResetButton/>
       </div>
     </div>
   );
