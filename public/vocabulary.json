@@ -165,7 +165,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "OH-ghee-ah",
-      "notes": "Ogia = bread, the staple of Basque meals. Ogia eta gazta = bread and cheese is a classic combination. Ogitegi = bakery (bread-place).",
+      "notes": "Ogia = bread, the staple of Basque meals. Ogia eta gazta = bread and cheese is a classic combination. Okindegia = bakery.",
       "example": {
         "basque": "Ogia gozo dago.",
         "english": "The bread is delicious."
@@ -178,7 +178,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "OO-rah",
-      "notes": "Ura is one of the shortest Basque words. Ur (water, no article) vs ura (the water).",
+      "notes": "Ur (water, no article) vs ura (the water).",
       "example": {
         "basque": "Ura edan nahi dut.",
         "english": "I want to drink water."
@@ -217,7 +217,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ar-RAI-nah",
-      "notes": "Arraina = fish. Central to Basque cuisine. Bakailaoa (salted cod), legatza (hake) and bisigua (sea bream) are the most prized. The Basque fishing fleet was legendary, reaching Newfoundland centuries ago.",
+      "notes": "Arraina = fish. Bakailaoa (cod), legatza (hake) and bisigua (sea bream) are common on Basque tables. Basque cod fishermen were working Newfoundland waters in the 1500s.",
       "example": {
         "basque": "Arraina freskoa da.",
         "english": "The fish is fresh."
@@ -815,7 +815,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "ee-BAI-ah",
-      "notes": "Ibaia is the river, critical in Basque geography. Bilbo (Bilbao) sits on the Nerbioi (Nervion) river. Ibarra = valley.",
+      "notes": "Ibaia is the river. Bilbo (Bilbao) sits on the Nerbioi (Nervion) river. Ibarra = valley.",
       "example": {
         "basque": "Ibaia luzea da.",
         "english": "The river is long."
@@ -828,7 +828,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "EH-oo-ree-ah",
-      "notes": "The Basque Country (especially Bilbo (Bilbao)) is famous for rain. Euria egiten du = it is raining (literally rain does).",
+      "notes": "The Basque Country, and Bilbo (Bilbao) most of all, is famous for rain. Euria egiten du = it is raining (literally rain does).",
       "example": {
         "basque": "Euria egiten du.",
         "english": "It is raining."
@@ -880,7 +880,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "ai-SEH-ah (h is silent)",
-      "notes": "Haizea = the wind. Haize = wind (root). Haizearen = of the wind. The Basque Country coast is famous for strong Atlantic winds.",
+      "notes": "Haizea = the wind. Haize = wind (root). Haizearen = of the wind. Hego haizea = the south wind.",
       "example": {
         "basque": "Haizea gogorra da.",
         "english": "The wind is strong."
@@ -919,7 +919,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "LOH-reh-ah",
-      "notes": "Lorea = flower. Lore = flower (root). Lorategia = garden (flower-place). Loredun = flowery. Common in place names.",
+      "notes": "Lorea = flower. Lore = flower (root). Lorategia = garden (flower-place). Loredun = flowery.",
       "example": {
         "basque": "Lorea ederra da.",
         "english": "The flower is beautiful."
@@ -971,7 +971,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "bee-OH-tsah",
-      "notes": "Bihotz is used in many expressions. Bihotz oneko = kind-hearted. Bihotzez = heartfully/sincerely.",
+      "notes": "Bihotz is used in many expressions. Bihotz oneko = kind-hearted. Bihotzez = from the heart, sincerely.",
       "example": {
         "basque": "Bihotza ona du.",
         "english": "He has a good heart."
@@ -1023,7 +1023,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "GOWR",
-      "notes": "Gaur is often the first time word learners pick up. Gaur goizean = this morning. Gaur arratsaldean = this afternoon.",
+      "notes": "Gaur goizean = this morning. Gaur arratsaldean = this afternoon.",
       "example": {
         "basque": "Gaur eguraldi ona dago.",
         "english": "Today the weather is good."
@@ -1049,7 +1049,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "AH-tso",
-      "notes": "Atzo is one of the more distinctive Basque words. Atzo arratsaldean = yesterday afternoon.",
+      "notes": "Herenegun = the day before yesterday. Atzo arratsaldean = yesterday afternoon.",
       "example": {
         "basque": "Atzo etorri zen.",
         "english": "He came yesterday."
@@ -1075,7 +1075,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "GEH-ro",
-      "notes": "Gero = later, then, or after. Gero eta gehiago = more and more. Eta gero? = And then? Gerora = later on. Lehenago = earlier. Geroago = later on. Gero arte! = See you later!",
+      "notes": "Gero = later, then, or after. Gero eta gehiago = more and more. Eta gero? = And then? Gerora = afterwards. Lehenago = earlier. Geroago = later on. Gero arte! = See you later!",
       "example": {
         "basque": "Gero hitz egingo dugu.",
         "english": "We will talk later."
@@ -1231,7 +1231,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "yah-TEH-cheh-ah",
-      "notes": "Jatetxea = restaurant. Jan = to eat + etxe = house. Eating house! Basque restaurants (jatetxeak) are world-renowned for their cuisine.",
+      "notes": "Jatetxea = restaurant. Jan = to eat + etxe = house: eating house.",
       "example": {
         "basque": "Jatetxea beteta dago.",
         "english": "The restaurant is full."
@@ -1244,7 +1244,7 @@
       "cefr": "A1",
       "topic": "emotions",
       "pronunciation": "POH-sah",
-      "notes": "Poza = joy (noun). Pozik = happy (adjective). Poztu = to make happy. Zer poza! = What joy! One of the most positive Basque words.",
+      "notes": "Poza = joy (noun). Pozik = happy (adjective). Poztu = to make happy. Zer poza! = What joy!",
       "example": {
         "basque": "Poza sentitzen dut.",
         "english": "I feel joy."
@@ -1260,7 +1260,7 @@
       "notes": "Tristura is the noun form. Triste is the adjective (borrowed from Spanish/Latin). With noun emotions Basque uses have: tristura dut, beldurra dut. With adjectives it uses be: triste nago, pozik nago.",
       "example": {
         "basque": "Tristura dut.",
-        "english": "I have sadness."
+        "english": "I feel sad."
       }
     },
     {
@@ -1439,7 +1439,7 @@
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "sah-AR-rah",
-      "notes": "Zaharra = old (for things and people). Zahartze = aging. Do not confuse with antzinako (ancient). Zahar = elder/old person (respected term).",
+      "notes": "Zaharra = old (for things and people). Zahartze = aging. Do not confuse with antzinako (ancient). Zahar = old (root).",
       "example": {
         "basque": "Etxea zaharra da.",
         "english": "The house is old."
@@ -4279,7 +4279,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "BEH-soh-ah",
-      "notes": "Arm. Beso = arm (root). Besarkada = hug (arm-full). Besoa luzatu = to extend the arm.",
+      "notes": "Arm. Beso = arm (root). Besarkada = hug. Besoa luzatu = to extend the arm.",
       "example": {
         "basque": "Besoko mina dut.",
         "english": "My arm hurts."
@@ -4359,7 +4359,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "NON DAH-go",
-      "notes": "The most useful tourist phrase. Non dago geltokia? = Where is the station? Non daude komunak? = Where are the toilets?",
+      "notes": "Non dago geltokia? = Where is the station? Non daude komunak? = Where are the toilets?",
       "mcOnly": true,
       "example": {
         "basque": "Non dago jatetxea?",
@@ -5244,7 +5244,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ah-RAH-ghee-ah (h is silent)",
-      "notes": "Meat. Haragi = meat (root). Txuleta = steak (a Basque speciality). Txerri haragia = pork. Behi haragia = beef. Haragia erretzea = grilling meat. The txuleta at a sagardotegi is legendary.",
+      "notes": "Meat. Haragi = meat (root). Txuleta = steak (a Basque speciality). Txerri haragia = pork. Behi haragia = beef. Haragia erretzea = grilling meat. Txuleta is the main course at a sagardotegi (cider house).",
       "example": {
         "basque": "Haragia gustatzen zait.",
         "english": "I like meat."
@@ -5348,7 +5348,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "YAN",
-      "notes": "To eat, one of the most essential verbs. Jan = eat (also used as noun: janaria = food). Zer jan duzu? = What did you eat? Jaten ari naiz = I am eating. Jan eta edan = eat and drink. The j is a y sound.",
+      "notes": "To eat, one of the most essential verbs. Zer jan duzu? = What did you eat? Jaten ari naiz = I am eating. Jan eta edan = eat and drink. The j is a y sound.",
       "example": {
         "basque": "Zer jan nahi duzu?",
         "english": "What do you want to eat?"
@@ -7220,10 +7220,10 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "as-teh-BOO-roo-ah",
-      "notes": "Asteburua = weekend. Aste = week + burua = head/end. Literally week-end. Asteburuan = at the weekend. Asteburuko planak = weekend plans. Larunbata eta igandea = Saturday and Sunday.",
+      "notes": "Asteburua = weekend. Aste = week + burua = head/end. Literally week-end. Asteburuan = on the weekend. Asteburuko planak = weekend plans. Larunbata eta igandea = Saturday and Sunday.",
       "example": {
         "basque": "Asteburuan zer egingo duzu?",
-        "english": "What will you do at the weekend?"
+        "english": "What will you do on the weekend?"
       }
     },
     {
@@ -7740,7 +7740,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "oor-TAR-ree-lah",
-      "notes": "January. Usually analyzed as urte (year) + hil (month), the month that starts the year. The coldest month in the Basque Country.",
+      "notes": "January. Usually analyzed as urte (year) + hil (month), the month that starts the year.",
       "example": {
         "basque": "Urtarrilean jaio nintzen.",
         "english": "I was born in January."
@@ -7766,7 +7766,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "mar-CHOH-ah",
-      "notes": "March. From Latin Martius. Spring begins in the Basque Country with wildflowers blooming.",
+      "notes": "March. From Latin Martius.",
       "example": {
         "basque": "Martxoan udaberria hasten da.",
         "english": "Spring begins in March."
@@ -7820,7 +7820,7 @@
       "pronunciation": "oos-TAI-lah",
       "notes": "July. Uzta (harvest) is in the root. The San Fermin festival in Iruñea (Pamplona) begins on July 6.",
       "example": {
-        "basque": "Uztailean bero handia dago.",
+        "basque": "Uztailean bero handia egiten du.",
         "english": "It is very hot in July."
       }
     },
@@ -7844,7 +7844,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ee-RAI-lah",
-      "notes": "September. Irail possibly from ira (fern), the time when ferns turn golden. The apple harvest for cider begins.",
+      "notes": "September. Usually explained as ira (fern) + hil (month). The apple harvest for cider begins.",
       "example": {
         "basque": "Irailean eskola hasten da.",
         "english": "School starts in September."
@@ -7857,7 +7857,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "OOR-ree-ah",
-      "notes": "October. Urri means scarce. Usually explained as the month when summer abundance ends. Autumn colors in the Basque hills are spectacular.",
+      "notes": "October. Urri means scarce. Usually explained as the month when summer abundance ends.",
       "example": {
         "basque": "Urrian hostoak erortzen dira.",
         "english": "Leaves fall in October."
