@@ -5411,7 +5411,13 @@ function KoloreakScreen(props){
   var qColor=question&&COLOR_HEX[question.id];
   var previewColors=Object.values(COLOR_HEX).slice(0,9);
   var activeBg="#F5F3FF";
-  if(active&&qColor&&qColor!=="#FFFFFF"&&qColor!=="#E5E5E5"){
+  // In "see word, tap the color" the color is the answer, so nothing on screen
+  // may wear it until the answer is in. The page used to be tinted with it and
+  // the word card carried a stripe of it down its left edge, from the moment
+  // the question appeared: match the stripe to a swatch and the round is won
+  // without reading the word. In the other mode the color is the question.
+  var colorShown=isSwatchMode||showResult;
+  if(active&&qColor&&colorShown&&qColor!=="#FFFFFF"&&qColor!=="#E5E5E5"){
     // 8% of the color over white. The old form was c*0.08+240, which passes 255
     // for any channel above 187, so most of the palette was clamped and the
     // palest colors tinted to plain white.
@@ -5566,7 +5572,7 @@ function KoloreakScreen(props){
           </div>
         ):(
           <div style={{backgroundColor:"#fff",borderRadius:24,padding:"28px 20px",textAlign:"center",boxShadow:"0 4px 20px rgba(0,0,0,0.08)",position:"relative",overflow:"hidden"}}>
-            {qColor&&<div style={{position:"absolute",left:0,top:0,bottom:0,width:5,backgroundColor:qColor}}/>}
+            {qColor&&colorShown&&<div style={{position:"absolute",left:0,top:0,bottom:0,width:5,backgroundColor:qColor}}/>}
             {streak>=3&&(
               <div style={{marginBottom:10,animation:"popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)"}}>
                 <span style={{fontSize:12,fontWeight:900,color:"#7C3AED",backgroundColor:"#F5F3FF",padding:"4px 12px",borderRadius:20,border:"1px solid #DDD6FE"}}>🔥 {streak} in a row! +2 pts</span>
