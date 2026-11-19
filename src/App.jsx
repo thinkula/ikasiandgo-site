@@ -1353,7 +1353,24 @@ function normBasque(s){
   return s;
 }
 function lev(a,b){var m=a.length,n=b.length,prev=[];for(var p=0;p<=n;p++)prev.push(p);for(var i=1;i<=m;i++){var cur=[i];for(var j=1;j<=n;j++){var c=a[i-1]===b[j-1]?0:1;cur.push(Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+c));}prev=cur;}return prev[n];}
-function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return{correct:ua===q.correct,wasClose:false,userAnswer:ua};}var n1=normBasque(ua),n2=normBasque(q.correct),exact=ua.toLowerCase()===q.correct.toLowerCase();var d=lev(n1,n2);var tol=n2.length<=4?1:n2.length<=7?2:2;return{correct:exact||n1===n2,wasClose:!exact&&n1!==n2&&d<=tol&&n1.length>=3,userAnswer:ua};}
+// What a typed answer is compared on. The card's own punctuation is not part of
+// the word: Nola? was only ever right with the question mark typed, so "nola"
+// came back as So close, and "zergatik" and "nongoa zara" as plain wrong,
+// because the suffix rules below then ran on one side and not the other. A
+// hyphen and a space are the same answer too (zuri horia for Zuri-horia), and
+// iOS turns a double space into a full stop.
+function plainAnswer(s){return (s||"").toLowerCase().replace(/[?!\u00BF\u00A1.,\u2026]/g," ").replace(/[-\u2010-\u2015]/g," ").replace(/\s+/g," ").trim();}
+function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return{correct:ua===q.correct,wasClose:false,userAnswer:ua};}var p1=plainAnswer(ua),p2=plainAnswer(q.correct);var n1=normBasque(p1),n2=normBasque(p2),exact=p1===p2;
+  // The word with or without its article. norm() is meant to allow this, but
+  // it strips case endings first, so the bare form of a word ending in -ri,
+  // -ko or -ren lost its tail as well: "gosari" for Gosaria became "gosa" and
+  // was marked wrong, and so did "bigarren" for Bigarrena.
+  var bare=p1.length>=3&&(p1+"a"===p2||p1===p2+"a");
+  // Question words and exclamations are fixed forms, so they get the
+  // punctuation rule and nothing looser. Otherwise dropping the question mark
+  // would let the article rule take "nora" (where to) for Nor? (who).
+  var fixed=/[?!]/.test(q.correct);
+  var ok=exact||(!fixed&&(n1===n2||bare));var d=lev(n1,n2);var tol=n2.length<=4?1:2;return{correct:ok,wasClose:!ok&&d<=tol&&n1.length>=3,userAnswer:ua};}
 function scoreSession(results){var total=results.length,correct=0,close=0,wrong=0;for(var i=0;i<results.length;i++){var r=results[i];if(r.correct)correct++;else if(r.wasClose)close++;else wrong++;}var acc=total>0?Math.round(correct/total*100):0;var grade=acc===100?{label:"Perfect!",sub:"Flawless!",emoji:"*"}:acc>=80?{label:"Excellent",sub:"Great work!",emoji:"*"}:acc>=60?{label:"Good",sub:"Keep going!",emoji:"!"}:{label:"Keep trying",sub:"Practice makes perfect",emoji:"~"};var mw=[],cw=[],mid={};for(var j=0;j<results.length;j++){var r2=results[j];if(!r2.correct&&r2.question&&r2.question.word){var w=r2.question.word;if(!r2.wasClose&&!mid[w.id]){mw.push(w);mid[w.id]=1;}else if(r2.wasClose&&!mid[w.id]){cw.push(w);mid[w.id]=1;}}}return{total:total,correct:correct,closeButWrong:close,genuinelyWrong:wrong,accuracy:acc,grade:grade,missedWords:mw,closeWords:cw};}
 // The app icon, served from the bundle so it works offline. This used to be a
 // hand-drawn green glyph that predated the icon redesign, which left the header
