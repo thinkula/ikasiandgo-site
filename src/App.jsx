@@ -3849,11 +3849,11 @@ function BasqueKitchenScreen(props){
 
   var DISHES=[
     {key:"pintxoak",name:"Pintxoak",emoji:"🥖",desc:"Classic Basque bar snacks",color:"#C2510E",dark:"#92400E",bg:"#FFF7ED",stages:[
-      {instruction:"Start with a base of bread",keyword:"ogia",hint:"The base of many pintxos, though not all: a gilda has none"},
-      {instruction:"Name the bar snack you have just built",keyword:"pintxoa",hint:"Bread, a topping, a toothpick through the middle"},
-      {instruction:"Lay on a ripe tomato",keyword:"tomatea",hint:"Red, juicy, sliced thin"},
+      {instruction:"Slice the bread",keyword:"ogia",hint:"The base of many pintxos, though not all: a gilda has none"},
+      {instruction:"Lay on a slice of cheese",keyword:"gazta",hint:"Any cheese you like"},
+      {instruction:"Add a strip of red pepper",keyword:"piperra",hint:"Red, and cut long"},
       {instruction:"Finish with a drizzle of oil",keyword:"olioa",hint:"Olive oil, usually"},
-      {instruction:"Welcome your guests",keyword:"ongi_etorri",hint:"A Basque greeting for arrivals"},
+      {instruction:"Push a toothpick through it and name what you have made",keyword:"pintxoa",hint:"A small bite held by a toothpick. Every bar makes its own"},
     ]},
     {key:"marmitakoa",name:"Marmitakoa",emoji:"🐟",desc:"Tuna and potato stew",color:"#0E7A40",dark:"#065F46",bg:"#EDFAF3",stages:[
       {instruction:"Cut the tuna into chunks",keyword:"hegaluzea",hint:"Hegaluzea: albacore, the tuna of marmitakoa"},
@@ -3900,7 +3900,7 @@ function BasqueKitchenScreen(props){
     {key:"txakolina_pintxo",name:"Txakolina eta pintxoak",emoji:"🍷",desc:"What to drink and what to eat with it",color:"#9333EA",dark:"#6B21A8",bg:"#FAF5FF",stages:[
       {instruction:"Pour the Txakoli wine",keyword:"txakolina",hint:"Basque white wine: poured from a height"},
       {instruction:"Lay out the bread",keyword:"ogia",hint:"Fresh bread is essential"},
-      {instruction:"Add anchovy on top",keyword:"antxoa",hint:"The classic pintxo topping"},
+      {instruction:"Add anchovy on top",keyword:"antxoa",hint:"A favorite pintxo topping"},
       {instruction:"Serve with cheese",keyword:"gazta",hint:"Idiazabal is the Basque choice"},
       {instruction:"The wider word for what is in the glass",keyword:"ardoa",hint:"Ardoa: wine. Txakolina is one kind, ardoa is all of them"},
     ]},
