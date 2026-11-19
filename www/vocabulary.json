@@ -2364,7 +2364,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "ee-rah-GAH-nah",
-      "notes": "Iragana = the past. Iraganeko = of the past. Iragana ezin da aldatu = the past cannot be changed. Key word in Basque history discussions.",
+      "notes": "Iragana = the past. Iraganeko = of the past. Iragana ezin da aldatu = the past cannot be changed.",
       "example": {
         "basque": "Iragana aldaezina da.",
         "english": "The past is unchangeable."
@@ -2377,7 +2377,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "eh-tor-kee-SOO-nah",
-      "notes": "The future. Etorkizuneko = future (adjective). Etorkizunean = in the future. Key word in Basque language planning. Etorkizuna and the survival of Euskara is a constant political discussion. From etorri (to come) + -kizun (that which will).",
+      "notes": "The future. Etorkizuneko = future (adjective). Etorkizunean = in the future. From etorri (to come) + -kizun (that which will).",
       "example": {
         "basque": "Etorkizuna argitsua da.",
         "english": "The future is bright."
@@ -2390,7 +2390,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "AL-dee-ah",
-      "notes": "Aldia = a period or turn. Nire aldia da = it is my turn. Aldi berean = at the same time. Noizean behin = from time to time.",
+      "notes": "Aldia = a period or turn. Nire aldia da = it is my turn. Aldi berean = at the same time.",
       "example": {
         "basque": "Nire aldia da.",
         "english": "It is my turn."
@@ -2416,7 +2416,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "moo-GAHL-deh-ah",
-      "notes": "Border area or frontier zone. Muga = border + aldea = side/area. The French-Spanish border runs through the Basque Country. The Basque people straddle it. Mugakide = border neighbor. A politically sensitive concept.",
+      "notes": "Border area or frontier zone. Muga = border + aldea = side/area. The French-Spanish border runs through the Basque Country. The Basque people straddle it. Mugakide = border neighbor.",
       "example": {
         "basque": "Mugaldea interesgarria da.",
         "english": "The border area is interesting."
@@ -2429,7 +2429,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "ee-beel-BEE-deh-ah",
-      "notes": "Route or itinerary. Ibil = walk/travel + bidea = path. Literally the traveling-path. The Camino de Santiago (Santiago Bidea) passes through the Basque Country via Donostia. GR11 and GR10 are famous Basque hiking routes.",
+      "notes": "Route or itinerary. Ibil = walk/travel + bidea = path. Literally the traveling-path. The Camino de Santiago (Done Jakue bidea) passes through the Basque Country via Donostia. The GR 10 and GR 11 trails cross the Pyrenees.",
       "example": {
         "basque": "Ibilbidea luzea da.",
         "english": "The route is long."
@@ -2582,11 +2582,11 @@
     {
       "id": "kezkatu",
       "basque": "Kezkatu",
-      "english": "Worried",
+      "english": "To worry / To be worried",
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "kes-KAH-too",
-      "notes": "Kezkatu = worried. Kezka = worry/concern (root). Kezkatzea = worrying. Kezkagarria = worrying/concerning. Kezkatu naiz = I am worried.",
+      "notes": "Kezkatu = to worry. Kezka = worry/concern (root). Kezkatzea = worrying. Kezkagarria = worrying/concerning. Kezkatu naiz = I got worried. Kezkatuta nago = I am worried.",
       "example": {
         "basque": "Kezkatuta nago.",
         "english": "I am worried."
@@ -3185,7 +3185,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "sai-AH-too",
-      "notes": "Saiatu = to try. Saiakera = attempt/essay. Saialdia = try/attempt. Saiatu naiz = I tried. Very encouraging word. Keep trying!",
+      "notes": "Saiatu = to try. Saiakera = attempt/essay. Saialdia = try/attempt. Saiatu naiz = I tried.",
       "example": {
         "basque": "Saiatzen ari naiz.",
         "english": "I am trying."
@@ -3276,7 +3276,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "YOH-ahn",
-      "notes": "Joan = to go. Nora joaten zara? = Where are you going? Joango naiz = I will go. Joan-etorri = return trip (go-come). Essential verb.",
+      "notes": "Joan = to go. Nora joaten zara? = Where do you go? Joango naiz = I will go. Joan-etorri = round trip (go-come).",
       "example": {
         "basque": "Joango naiz.",
         "english": "I will go."
@@ -3614,7 +3614,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "ee-BEE-lee",
-      "notes": "Ibili = to walk or go around. Ibiltzen naiz = I am walking. Non ibiltzen zara? = Where do you usually walk? Ibilaldi = walk/outing. Ibilgailua = vehicle (a walking thing). Ibili is also in this app's name: Ikasi (learn) and go (ibili)!",
+      "notes": "Ibili = to walk or go around. Ibiltzen naiz = I walk. Non ibiltzen zara? = Where do you usually walk? Ibilaldi = walk/outing. Ibilgailua = vehicle (a walking thing).",
       "example": {
         "basque": "Mendian ibiltzen naiz.",
         "english": "I walk in the mountains."
@@ -4490,7 +4490,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "eh-koh-sis-TEH-mah",
-      "notes": "Ecosystem. Ekologia = ecology. The Basque Country spans Atlantic, mountain, and near-Mediterranean ecosystems in a small area. Biodiversity protection is a key political issue.",
+      "notes": "Ecosystem. Ekologia = ecology. The Basque Country spans Atlantic, mountain, and near-Mediterranean ecosystems in a small area.",
       "example": {
         "basque": "Ekosistema babestu behar dugu.",
         "english": "We must protect the ecosystem."
@@ -4775,7 +4775,7 @@
       "english": "Pride",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "ar-roh-TAH-soo-nah (h is silent)",
+      "pronunciation": "ar-roh-tah-SOO-nah (h is silent)",
       "notes": "Pride (noun). Harro = proud (adjective). Harrotasunez = with pride. Do not confuse with harrokeria (arrogance/vanity), which is negative.",
       "example": {
         "basque": "Harrotasunez bizi gara.",
@@ -4789,7 +4789,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "bah-kar-DAH-deh-ah",
-      "notes": "Loneliness or solitude. Bakar = alone (root). In Basque culture, solitude in nature (mendian bakarrik) is often valued positively. Bakardadean = in solitude. A contemplative word.",
+      "notes": "Loneliness or solitude. Bakar = alone (root). Bakardadean = in solitude.",
       "example": {
         "basque": "Bakardadea sentitzen dut batzuetan.",
         "english": "I sometimes feel loneliness."
@@ -4880,7 +4880,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "eh-goo-TEH-ghee-ah",
-      "notes": "Calendar. Egun = day + -tegi = place. Literally day-holder. Egutegian markatu = to mark on the calendar. Euskal egutegia includes traditional Basque festivals and celebrations.",
+      "notes": "Calendar. Egun = day + -tegi = place. Literally day-holder. Egutegian markatu = to mark on the calendar.",
       "example": {
         "basque": "Egutegia ikusi behar dut.",
         "english": "I need to look at the calendar."
@@ -5010,7 +5010,7 @@
       "cefr": "B1",
       "topic": "adjectives",
       "pronunciation": "ar-RAH-roh-ah",
-      "notes": "Strange or unusual. Arraro = strangely. Arraroa iruditzen zait = it seems strange to me. More negative than bitxia (curious/interesting). Arrarotasuna = strangeness.",
+      "notes": "Strange or unusual. Arraro = strange (root). Arraroa iruditzen zait = it seems strange to me. More negative than bitxia (curious/interesting). Arrarotasuna = strangeness.",
       "example": {
         "basque": "Arraroa da hori.",
         "english": "That is strange."
@@ -5023,7 +5023,7 @@
       "cefr": "B1",
       "topic": "adjectives",
       "pronunciation": "BEE-chee-ah",
-      "notes": "Curious, interesting or slightly odd, in a positive way. Bitxi = jewel (also!). Bitxikeriak = curiosities. More positive than arraroa. Zer bitxia! = How interesting! Common in conversation.",
+      "notes": "Curious, interesting or slightly odd, in a positive way. Bitxi = jewel (also!). Bitxikeriak = curiosities. More positive than arraroa. Zer bitxia! = How interesting!",
       "example": {
         "basque": "Zer bitxia den hori!",
         "english": "How curious that is!"
@@ -5101,7 +5101,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "ah-TER-peh-ah",
-      "notes": "Shelter or refuge. Mountain shelters (mendiko aterpeak) are essential for hikers. The GR11 and GR10 long-distance paths cross the Basque Pyrenees with huts every few hours.",
+      "notes": "Shelter or refuge. Mendiko aterpea = mountain hut.",
       "example": {
         "basque": "Aterpea bilatzen ari naiz.",
         "english": "I am looking for shelter."
@@ -5634,7 +5634,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "mai-tah-SOO-nah",
-      "notes": "Love (noun). Maitatu = to love. Maitea = loved one/beloved. Maite zaitut = I love you. Maitasunezko = of love/loving. Maitasuna is the abstract noun, compare with maite (the adjective/verb). Central to Basque poetry and song.",
+      "notes": "Love (noun). Maitatu = to love. Maitea = loved one/beloved. Maite zaitut = I love you. Maitasunezko = of love/loving. Maitasuna is the abstract noun, compare with maite (the adjective/verb).",
       "example": {
         "basque": "Maitasuna indartsua da.",
         "english": "Love is powerful."
@@ -5764,7 +5764,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "eh-GOH-see",
-      "notes": "Egosi = to boil or cook. Arrautza egosia = boiled egg. Barazkiak egosi = boil the vegetables. Egosi ongi = cook well. A fundamental cooking verb alongside erre (grill) and frijitu (fry).",
+      "notes": "Egosi = to boil or cook. Arrautza egosia = boiled egg. Barazkiak egosi = boil the vegetables.",
       "example": {
         "basque": "Patatak egosi ditut.",
         "english": "I have boiled the potatoes."
@@ -5776,8 +5776,8 @@
       "english": "To fry",
       "cefr": "B1",
       "topic": "food",
-      "pronunciation": "free-YEET-too",
-      "notes": "Frijitu = to fry. Arrautza frijitua = fried egg. Frijitua = fried (adjective). Patata frijituak = French fries. From Spanish freír. Frijitegian = in the fryer. Very common in Basque bar cooking.",
+      "pronunciation": "free-YEE-too",
+      "notes": "Frijitu = to fry. Arrautza frijitua = fried egg. Frijitua = fried (adjective). Patata frijituak = French fries. From Spanish freír.",
       "example": {
         "basque": "Arrautza bat frijitu nahi dut.",
         "english": "I want to fry an egg."
@@ -5855,7 +5855,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "een-chowr-SAL-tsah",
-      "notes": "Intxaursaltsa = traditional Basque walnut dessert sauce. Intxaur = walnut + saltsa = sauce. Made from walnuts, milk, sugar, and cinnamon (kanela). Eaten warm at Christmas Eve dinner. The recipe is over 150 years old. One of the oldest Basque desserts, from Gipuzkoa.",
+      "notes": "Intxaursaltsa = traditional Basque walnut dessert sauce. Intxaur = walnut + saltsa = sauce. Made from walnuts, milk, sugar, and cinnamon (kanela). Eaten warm at Christmas Eve dinner.",
       "example": {
         "basque": "Intxaursaltsa gozoa da.",
         "english": "The walnut sauce is delicious."
@@ -6063,7 +6063,7 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "OOR-reh-ah",
-      "notes": "Urrea = gold (color and metal). Urrezko = golden. Urre kolorea = gold color. Urregorria = golden-red.",
+      "notes": "Urrea = gold (color and metal). Urrezko = golden. Urre kolorea = gold color.",
       "example": {
         "basque": "Urrea distiratsua da.",
         "english": "Gold is shiny."
@@ -6076,7 +6076,7 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "oor-DEENSH-kah",
-      "notes": "Urdinxka = bluish or blue-gray. The -xka suffix makes approximate colors: berdexka=greenish, urdinxka=bluish. The Basque sky in autumn is often described as urdinxka, a misty blue-gray.",
+      "notes": "Urdinxka = bluish or blue-gray. The -xka suffix makes approximate colors: berdexka=greenish, urdinxka=bluish.",
       "example": {
         "basque": "Zerua urdinxka dago.",
         "english": "The sky is bluish."
@@ -6089,7 +6089,7 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "gor-ree-GOR-ree-ah",
-      "notes": "Gorrigorria = bright red or scarlet. Reduplication intensifies color in Basque: gorri=red, gorrigorri=very red. Same pattern: zuri-zuria=pure white, beltz-beltza=jet black. A very expressive feature of the language.",
+      "notes": "Gorri-gorria = bright red or scarlet. Reduplication intensifies color in Basque: gorri=red, gorri-gorria=very red. Same pattern: zuri-zuria=pure white, beltz-beltza=jet black.",
       "example": {
         "basque": "Aurpegia gorri-gorri jarri zitzaion.",
         "english": "His face turned bright red."
@@ -6102,7 +6102,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "seh-roo-MOO-gah",
-      "notes": "Zerumuga = horizon. Zeru = sky + muga = border/limit. Literally the sky-border. A beautiful compound. Zerumuga urrunean = on the far horizon. Common in Basque poetry and descriptions of the sea coast.",
+      "notes": "Zerumuga = horizon. Zeru = sky + muga = border/limit. Literally the sky-border. Zerumuga urrunean = on the far horizon.",
       "example": {
         "basque": "Zerumuga ikusten da.",
         "english": "The horizon is visible."
@@ -6115,7 +6115,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "ee-tsah-SER-tsah",
-      "notes": "Itsasertza = coastline. Itsas = sea + ertz = edge. The Basque coastline is dramatic, with rocky cliffs (labarrak), sandy beaches (hondartzak), and fishing harbors (portuak). Itsasertzeko = coastal.",
+      "notes": "Itsasertza = coastline. Itsas = sea + ertz = edge. The Basque coastline has rocky cliffs (labarrak), sandy beaches (hondartzak) and fishing harbors (portuak). Itsasertzeko = coastal.",
       "example": {
         "basque": "Itsasertza ederra da.",
         "english": "The coastline is beautiful."
@@ -6128,7 +6128,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "AI-tsak (h is silent)",
-      "notes": "Haitzak = cliffs or rocks (plural). Haitz = rock/cliff (singular). Haitzulo = cave (cliff-hole). The Basque coast is famous for its haitzak, dramatic limestone cliffs. Haitz-arte = between the rocks.",
+      "notes": "Haitzak = cliffs or rocks (plural). Haitz = rock/cliff (singular). Haitzulo = cave (cliff-hole).",
       "example": {
         "basque": "Haitzak altuak dira.",
         "english": "The cliffs are tall."
@@ -6154,7 +6154,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "LAH-bar-rak",
-      "notes": "Labarrak = sea cliffs (plural). Labar = cliff (singular). The Basque coastline has spectacular labarrak, especially around Zumaia with its flysch geological formations, millions of years of earth history visible in the cliff faces.",
+      "notes": "Labarrak = sea cliffs (plural). Labar = cliff (singular). The flysch cliffs at Zumaia show millions of years of rock layers.",
       "example": {
         "basque": "Labarrak ikusgarriak dira.",
         "english": "The sea cliffs are spectacular."
@@ -6167,7 +6167,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "EH-ghee-ah EH-san",
-      "notes": "Egia esan = to tell the truth, or as a filler: honestly/frankly. Egia esan, ez dakit = honestly, I don't know. Egia = truth. Esan = to say. Egiazki = truly/indeed. Very common in Basque conversation.",
+      "notes": "Egia esan = to tell the truth, or as a filler: honestly/frankly. Egia esan, ez dakit = honestly, I don't know. Egia = truth. Esan = to say. Egiazki = truly/indeed.",
       "example": {
         "basque": "Egia esan ez dakit zer egin.",
         "english": "Honestly I don't know what to do."
@@ -6180,7 +6180,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "AH-lah EH-reh (h is silent)",
-      "notes": "Hala ere = nevertheless or even so. Hala = so/thus + ere = also/even. Essential for expressing concession. Zaila da hala ere saiatuko naiz = It is hard but I will try anyway. Very common connector in speech.",
+      "notes": "Hala ere = nevertheless or even so. Hala = so/thus + ere = also/even. Zaila da; hala ere, saiatuko naiz = It is hard, but I will try anyway.",
       "example": {
         "basque": "Hala ere joango naiz.",
         "english": "Even so I will go."
@@ -6479,7 +6479,7 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "belts BEL-tsah",
-      "notes": "Beltz-beltza = jet black. Reduplication intensifies: beltz=black, beltz-beltza=completely black. Same pattern as gorrigorria (scarlet). Gau beltz-beltza = pitch-black night. Very expressive Basque color intensification.",
+      "notes": "Beltz-beltza = jet black. Reduplication intensifies: beltz=black, beltz-beltza=completely black. Same pattern as gorri-gorria (scarlet). Gau beltz-beltza = pitch-black night.",
       "example": {
         "basque": "Gaua beltz-beltza dago.",
         "english": "The night is pitch black."
@@ -6648,7 +6648,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "el-MOO-gah (h is silent)",
-      "notes": "Helmuga = destination. Heldu = to arrive + muga = limit/border. Literally the arrival-point. Helmugara iritsi = to reach the destination. Also used in sport: helmuga = finishing line.",
+      "notes": "Helmuga = destination. Heldu = to arrive + muga = limit/border. Literally the arrival-point. Helmugara iritsi = to reach the destination. Also used in sport: helmuga = finish line.",
       "example": {
         "basque": "Helmugara iritsi gara.",
         "english": "We have reached our destination."
@@ -6739,7 +6739,7 @@
       "cefr": "B1",
       "topic": "nature",
       "pronunciation": "SAH-see-ah",
-      "notes": "Sasia = bushes or scrubland. Sasi = bush/bramble (root). Masustak sasietan biltzen dira = blackberries are picked from brambles. Sasitzea = to overgrow. Common Basque surname element: Sasiburu, Sasiain. Sasijakintsu = know-it-all (sasi- as a prefix means pseudo-/false).",
+      "notes": "Sasia = bushes or scrubland. Sasi = bush/bramble (root). Masustak sasietan biltzen dira = blackberries are picked from brambles. Common Basque surname element: Sasiburu, Sasiain. Sasijakintsu = know-it-all (sasi- as a prefix means pseudo-/false).",
       "example": {
         "basque": "Sasia bide ondoan dago.",
         "english": "The bushes are alongside the path."
@@ -6830,7 +6830,7 @@
       "cefr": "B1",
       "topic": "animals",
       "pronunciation": "eh-GAHS-tee-ah (h is silent)",
-      "notes": "Hegaztia = bird (more formal/scientific term). Hegan egin = to fly (literally to do wing). Hegazkin = aircraft (flying machine). Txoria is the everyday word for bird; hegaztia appears in nature writing, biology, and formal contexts.",
+      "notes": "Hegaztia = bird (more formal/scientific term). Hegan egin = to fly (literally to do flying). Hegazkin = aircraft (flying machine). Txoria is the everyday word for bird; hegaztia appears in nature writing, biology, and formal contexts.",
       "example": {
         "basque": "Hegaztiak hegan egiten dute.",
         "english": "Birds fly."
@@ -7038,7 +7038,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "BEH-ras",
-      "notes": "Beraz = so, therefore, or then. Beraz, zer egin dezakegu? = So what can we do? Very common in Basque conversation, used to draw conclusions or transitions. Synonymous with hortaz; both are very common in speech and writing.",
+      "notes": "Beraz = so, therefore, or then. Beraz, zer egin dezakegu? = So what can we do? Hortaz is a synonym.",
       "example": {
         "basque": "Beraz, ados gaude.",
         "english": "So we are agreed."
@@ -7051,7 +7051,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "gai-NEH-rah",
-      "notes": "Gainera = moreover, besides, or in addition. Gain = top/above + -era. Gainera, merkeagoa da = moreover it is cheaper. One of the most useful discourse connectors in Basque writing and speech.",
+      "notes": "Gainera = moreover, besides, or in addition. Gain = top/above + -era. Gainera, merkeagoa da = moreover it is cheaper.",
       "example": {
         "basque": "Gainera, oso polita da.",
         "english": "Moreover it is very nice."
@@ -7064,7 +7064,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "AL-dees",
-      "notes": "Aldiz = on the other hand, however, or in contrast. Aldi = time/turn + -z. Ni aldiz ez noa = I on the other hand am not going. Essential for contrast in Basque argumentation. Baina (but) is simpler; aldiz is more emphatic.",
+      "notes": "Aldiz = on the other hand, however, or in contrast. Aldi = time/turn + -z. Ni aldiz ez noa = I on the other hand am not going. Baina (but) is the simpler word.",
       "example": {
         "basque": "Ni aldiz etxean geratuko naiz.",
         "english": "I on the other hand will stay at home."
@@ -7337,7 +7337,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "MAH-mee-ah",
-      "notes": "Mamia = curd or junket, a traditional Basque dessert made from sheep's milk and rennet, traditionally in a wooden kaiku, and served with honey. One of the oldest Basque foods. Pastoralism is ancient in the Basque Country and mamia reflects this.",
+      "notes": "Mamia = curd or junket, a traditional Basque dessert made from sheep's milk and rennet, traditionally in a wooden kaiku, and served with honey.",
       "example": {
         "basque": "Mamia gozoa da.",
         "english": "The curd is delicious."
@@ -7350,7 +7350,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "pee-per-RAH-dah",
-      "notes": "Piperrada = piperade, the classic Basque pepper and tomato stew. Piper = pepper + -ada (collective). Eaten with eggs (arrautzekin), with cod, or as a side. One of the most emblematic Basque dishes, also popular across southwest France.",
+      "notes": "Piperrada = piperade, a Basque pepper and tomato stew. Piper = pepper + -ada (collective). Eaten with eggs (arrautzekin), with cod, or as a side. Also eaten across southwest France.",
       "example": {
         "basque": "Piperrada prestatzen dut.",
         "english": "I prepare piperade."
@@ -7389,7 +7389,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "oor-DAI-ah",
-      "notes": "Urdaia = cured pork fat, lard, or bacon. It appears in food contexts alongside odolkiak (blood sausage) and txorizoak (chorizo). Urdai egosi = boiled pork. Urdaiazpikoa = ham (pig's thigh). Do not confuse: urdaia is fat/lard, urdaiazpikoa is cured ham.",
+      "notes": "Urdaia = cured pork fat, lard, or bacon. Urdaiazpikoa = ham (pig's thigh). Do not confuse: urdaia is fat/lard, urdaiazpikoa is cured ham.",
       "example": {
         "basque": "Urdaia erosi dut merkatuan.",
         "english": "I bought bacon at the market."
@@ -7415,7 +7415,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "CHOHTCH",
-      "notes": "Txotx = the call shouted in a sagardotegi (cider house) when the barrel tap is opened and everyone rushes to fill their glass. The word itself is the name of the wooden peg (txotx) that plugs the barrel. Saying Txotx! is one of the most joyful Basque experiences.",
+      "notes": "Txotx = the call shouted in a sagardotegi (cider house) when the barrel tap is opened and everyone rushes to fill their glass. The word itself is the name of the wooden peg (txotx) that plugs the barrel.",
       "example": {
         "basque": "Txotx! deitzen dutenean, korrika joaten gara.",
         "english": "When they shout Txotx we run to the barrel."
@@ -7506,7 +7506,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "eh-OO-neh-koh-ah",
-      "notes": "Ehunekoa = percentage. Ehun = hundred + -eko (of) + -a. Literally of-a-hundred. Ehuneko berrogeita hamar = fifty percent. Essential for news, statistics, and financial conversations.",
+      "notes": "Ehunekoa = percentage. Ehun = hundred + -eko (of) + -a. Literally of-a-hundred. Ehuneko berrogeita hamar = fifty percent.",
       "example": {
         "basque": "Ehuneko berrogeita hamar ados daude.",
         "english": "Fifty percent are in agreement."
@@ -7519,7 +7519,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "lowr-DEH-nah (lowr rhymes with hour)",
-      "notes": "Laurdena = quarter or one fourth. Lau = four + -den (of) + -a. Ordu laurdena = quarter of an hour. Ordu bata eta laurdenak = quarter past one. Herena = a third. Useful for telling time and fractions.",
+      "notes": "Laurdena = quarter or one fourth. Laur- (four) + -den, a fraction ending. Ordu laurdena = quarter of an hour. Ordu bata eta laurdenak = quarter past one. Herena = a third.",
       "example": {
         "basque": "Ordu laurdena pasa da.",
         "english": "A quarter of an hour has passed."
@@ -7544,7 +7544,7 @@
       "english": "Millions",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "mee-lee-OH-ee-ak",
+      "pronunciation": "mee-lee-OY-ak",
       "notes": "Milioiak = millions (plural). Milioi = million (singular). Bi milioi = two million. Milioika = in their millions. Milaka = in thousands. Milioi bat lagun = a million people.",
       "example": {
         "basque": "Milioika pertsona bizi da munduan.",
@@ -7571,7 +7571,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "ah-seh-GOO-roo-ah",
-      "notes": "Asegurua = insurance. From Spanish seguro. Bidaia asegurua = travel insurance. Aseguru medikoa = medical insurance. Asegurua egin = to take out insurance. Aseguratua = insured. Essential vocabulary for international travel.",
+      "notes": "Asegurua = insurance. From Spanish seguro. Bidaia asegurua = travel insurance. Aseguru medikoa = medical insurance. Asegurua egin = to take out insurance. Aseguratua = insured.",
       "example": {
         "basque": "Bidaia asegurua daukat.",
         "english": "I have travel insurance."
@@ -7584,7 +7584,7 @@
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "ser-BEE-tsoo OR-doo-ah",
-      "notes": "Zerbitzu ordua = service time or opening hours. Zerbitzu = service + ordua = time/hour. Harrera = check-in (hotel reception). Sarrera ordua = check-in time. Irteera ordua = check-out time. Zerbitzu ordutegia = service schedule.",
+      "notes": "Zerbitzu ordua = service time or opening hours. Zerbitzu = service + ordua = time/hour. Harrera = check-in (hotel reception). Sarrera ordua = check-in time. Irteera ordua = check-out time.",
       "example": {
         "basque": "Zerbitzu ordua goizeko bederatzietatik arratsaldeko seietara da.",
         "english": "The service hours are from nine in the morning to six in the afternoon."
@@ -7623,7 +7623,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "EH-san NAH-ee doot",
-      "notes": "Esan nahi dut = I mean, or what I mean is. Esan = to say + nahi = want + dut = I have/do. Literally I want to say. Zer esan nahi duzu? = What do you mean? Hori esan nahi dut = That is what I mean. Essential for clarification in conversation.",
+      "notes": "Esan nahi dut = I mean, or what I mean is. Esan = to say + nahi = want + dut = I have/do. Literally I want to say. Zer esan nahi duzu? = What do you mean? Hori esan nahi dut = That is what I mean.",
       "example": {
         "basque": "Esan nahi dut, ez dakit ziur.",
         "english": "What I mean is I am not sure."
@@ -7649,7 +7649,7 @@
       "cefr": "B1",
       "topic": "greetings",
       "pronunciation": "eh-SAL-dee-ah",
-      "notes": "Esaldia = phrase or sentence. Esan = to say + -aldi (instance) + -a. Literally a saying-instance. Esaldi bat = one sentence. Esaldi laburra = short phrase. Esamoldea = set phrase/idiom. Hitzaldi = speech (word-instance). Useful metalanguage for language learners.",
+      "notes": "Esaldia = phrase or sentence. Esan = to say + -aldi (instance) + -a. Literally a saying-instance. Esaldi bat = one sentence. Esaldi laburra = short phrase. Esamoldea = set phrase/idiom. Hitzaldi = speech (word-instance).",
       "example": {
         "basque": "Esaldi hori ikasi dut.",
         "english": "I have learned that phrase."
@@ -7661,8 +7661,8 @@
       "english": "You are right",
       "cefr": "B1",
       "topic": "greetings",
-      "pronunciation": "ar-rah-SOI-ah DOO-soo",
-      "notes": "Arrazoia duzu = you are right (literally you have the reason). Arrazoirik ez duzu = you are wrong. Arrazoi = reason + duzu = you have. Arrazoi osoa = completely right. Egia da = it is true. A very common social phrase in Basque conversation.",
+      "pronunciation": "ar-rah-SOY-ah DOO-soo",
+      "notes": "Arrazoia duzu = you are right (literally you have the reason). Arrazoirik ez duzu = you are wrong. Arrazoi = reason + duzu = you have. Arrazoi osoa = completely right. Egia da = it is true.",
       "example": {
         "basque": "Arrazoia duzu, barkatu.",
         "english": "You are right, I am sorry."
@@ -8311,7 +8311,7 @@
       "english": "Million",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "mee-LEE-oh-ee-ah",
+      "pronunciation": "mee-lee-OY-ah",
       "notes": "Million. From Spanish millón. Bi milioi = two million. Milioika = millions of. Used in economic and demographic contexts.",
       "example": {
         "basque": "Hiru milioi lagun inguru bizi dira Euskal Herrian.",
@@ -8428,8 +8428,8 @@
       "english": "Occasionally / From time to time",
       "cefr": "B1",
       "topic": "time",
-      "pronunciation": "nois-beh-IN-kah",
-      "notes": "Occasionally or from time to time. Noiz (when) + behin (once) + -ka: literally 'a when-once at a time'. Noizbehinka joaten naiz = I go occasionally. Very useful adverb of frequency.",
+      "pronunciation": "noys-beh-EEN-kah",
+      "notes": "Occasionally or from time to time. Noiz (when) + behin (once) + -ka: literally 'a when-once at a time'. Noizbehinka joaten naiz = I go occasionally.",
       "example": {
         "basque": "Noizbehinka mendira joaten gara.",
         "english": "We occasionally go to the mountains."
@@ -9533,8 +9533,8 @@
       "english": "Dark purple / Violet",
       "cefr": "B1",
       "topic": "colors",
-      "pronunciation": "moh-REH ee-LOO-nah",
-      "notes": "Dark purple or violet. More (purple) + iluna (dark). The color of heather (txilarra) covering Basque hillsides in late summer. Morea is already A1. This teaches color modification with iluna/argia.",
+      "pronunciation": "MOH-reh ee-LOO-nah",
+      "notes": "Dark purple or violet. More (purple) + iluna (dark).",
       "example": {
         "basque": "More iluneko arropa darama.",
         "english": "She wears dark purple clothing."
@@ -9547,10 +9547,10 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "OH-ree AR-ghee-ah (h is silent)",
-      "notes": "Light yellow or pale yellow. Hori (yellow) + argia (light/bright). Learning color modification, adding argia (light) or iluna (dark) to any basic color creates new shades. A pattern worth learning once.",
+      "notes": "Light yellow or pale yellow. Hori (yellow) + argia (light/bright). Adding argia (light) or iluna (dark) to a color makes a new shade.",
       "example": {
-        "basque": "Hori argia gustuko dut eguzki koloreagatik.",
-        "english": "I like light yellow because of the sun color."
+        "basque": "Hori argia gustuko dut.",
+        "english": "I like light yellow."
       }
     },
     {
@@ -9560,7 +9560,7 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "BER-deh ee-LOO-nah",
-      "notes": "Dark green or forest green. Berde (green) + iluna (dark). The color of the Basque forests (basoak) and the ikurriña. Berde ilun kolorea = dark green color. Pinua berde iluna da = the pine is dark green.",
+      "notes": "Dark green or forest green. Berde (green) + iluna (dark). Berde ilun kolorea = dark green color. Pinua berde iluna da = the pine is dark green.",
       "example": {
         "basque": "Basoa berde iluna da udazken hasieran.",
         "english": "The forest is dark green at the start of autumn."
@@ -9572,8 +9572,8 @@
       "english": "Silver color",
       "cefr": "B1",
       "topic": "colors",
-      "pronunciation": "SEE-lar koh-LOH-reh-ah",
-      "notes": "Silver color. Zilar (silver) + kolorea. Zilarrezko = made of silver. The color of the Bay of Biscay in winter and of traditional Basque silverware. Zilar kolorekoa = silver colored.",
+      "pronunciation": "see-LAR koh-LOH-reh-ah",
+      "notes": "Silver color. Zilar (silver) + kolorea. Zilarrezko = made of silver. Zilar kolorekoa = silver colored.",
       "example": {
         "basque": "Itsasoa zilar kolorekoa da gauean.",
         "english": "The sea is silver colored at night."
@@ -9585,7 +9585,7 @@
       "english": "Measure / Measurement",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "NEU-ree-ah",
+      "pronunciation": "NEH-oor-ree-ah",
       "notes": "Measure or measurement. Neurtu = to measure. Neurria hartu = to take a measure. Neurri batean = to some extent. Also used figuratively: neurria gainditu = to exceed the limit/measure.",
       "example": {
         "basque": "Neurri zehatzak hartu behar ditugu.",
@@ -9599,7 +9599,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "koh-POO-roo-ah",
-      "notes": "Amount or quantity. Kopuru handian = in large quantities. Kopurua handitu = to increase the amount. Zenbateko kopurua? = What amount? Very useful in commercial and everyday contexts.",
+      "notes": "Amount or quantity. Kopuru handian = in large quantities. Kopurua handitu = to increase the amount. Zenbateko kopurua? = What amount?",
       "example": {
         "basque": "Kopuru nahikoa badaukagu.",
         "english": "We have enough quantity."
@@ -9755,7 +9755,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "LAH-beh-an EH-ghee-nah",
-      "notes": "Baked or oven-cooked. Labe (oven) + -an egina (made in). Labean egindako ogia = oven-baked bread. Essential cooking vocabulary. Labea = oven. The wood-fired oven is traditional in Basque cooking.",
+      "notes": "Baked or oven-cooked. Labe (oven) + -an egina (made in). Labean egindako ogia = oven-baked bread. Labea = oven.",
       "example": {
         "basque": "Labean egindako arraina oso goxoa da.",
         "english": "Oven-baked fish is very delicious."
@@ -9768,7 +9768,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "GATS GOO-chee-koh",
-      "notes": "Low-salt or low-sodium. Gatz (salt) + gutxi (little) + -ko. Health-conscious food vocabulary. Gatz gutxiko dieta = low-salt diet. Increasingly relevant given Basque cuisine's richness.",
+      "notes": "Low-salt or low-sodium. Gatz (salt) + gutxi (little) + -ko. Gatz gutxiko dieta = low-salt diet.",
       "example": {
         "basque": "Gatz gutxiko elikadura gomendatzen dut.",
         "english": "I recommend a low-salt diet."
@@ -9781,7 +9781,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "sen-bah-KEH-tah",
-      "notes": "Counting. Zenbatu (to count) + -keta. Oinarrizko zenbaketa = basic counting. Aritmetika = arithmetic. Used in education and mathematics.",
+      "notes": "Counting. Zenbatu (to count) + -keta. Oinarrizko zenbaketa = basic counting. Aritmetika = arithmetic.",
       "example": {
         "basque": "Zenbaketa ikasi behar dute haurrek.",
         "english": "Children need to learn counting."
@@ -9794,7 +9794,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "bah-too-KEH-tah",
-      "notes": "Addition in mathematics. Batu (to add/join) + -keta. Batuketa egin = to do addition. Ken = minus; kenketa = subtraction. Biderketa = multiplication. Zatiketa = division. Key mathematical operations vocabulary.",
+      "notes": "Addition in mathematics. Batu (to add/join) + -keta. Batuketa egin = to do addition. Ken = minus; kenketa = subtraction. Biderketa = multiplication. Zatiketa = division.",
       "example": {
         "basque": "Batuketa sinplea da matematikan.",
         "english": "Addition is simple in mathematics."
@@ -9833,7 +9833,7 @@
       "cefr": "B1",
       "topic": "colors",
       "pronunciation": "KREH-mah koh-LOH-reh-ah",
-      "notes": "Cream color. Krema (cream) + kolorea (color). The color of Basque farmhouse walls and fresh sheep's cheese. Krema kolorekoa = cream colored. Used in interior design and fashion.",
+      "notes": "Cream color. Krema (cream) + kolorea (color). Krema kolorekoa = cream colored.",
       "example": {
         "basque": "Hormak krema kolorekoak dira.",
         "english": "The walls are cream colored."
@@ -9872,7 +9872,7 @@
       "cefr": "B1",
       "topic": "time",
       "pronunciation": "OR-doo ER-dee-ah",
-      "notes": "Half an hour. Ordu (hour) + erdia (half). Ordu erdi barru = in half an hour. Ordu erdian = in half an hour. Essential for making appointments and time expressions.",
+      "notes": "Half an hour. Ordu (hour) + erdia (half). Ordu erdi barru = in half an hour. Ordu erdian = in half an hour.",
       "example": {
         "basque": "Ordu erdi barru iritsiko naiz.",
         "english": "I will arrive in half an hour."
@@ -10197,7 +10197,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "AS-ken OOR-teh-an",
-      "notes": "In the last year or year-on-year. Azken (last/final) + urtean (in the year). Azken urtean igoera = increase in the last year. Used constantly in statistics, news and reports.",
+      "notes": "In the last year. Azken (last/final) + urtean (in the year). Azken urtean igoera = increase in the last year.",
       "example": {
         "basque": "Azken urtean prezioek gora egin dute.",
         "english": "Prices have risen in the last year."
@@ -10210,7 +10210,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "al-dah-KEH-tah eh-OO-neh-koh-ah",
-      "notes": "Percentage change. Aldaketa (change) + ehunekoa (percentage). Aldaketa ehuneko positiboa = positive percentage change. Essential for understanding economic and statistical reporting.",
+      "notes": "Percentage change. Aldaketa (change) + ehunekoa (percentage). Aldaketa ehuneko positiboa = positive percentage change.",
       "example": {
         "basque": "Aldaketa ehunekoa positiboa da aurten.",
         "english": "The percentage change is positive this year."
@@ -12347,7 +12347,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "es-PEH-see-ah",
-      "notes": "Espezia comes from Latin species through Romance. Traditional Basque cooking is famously restrained with spices, building flavor from garlic, parsley and choricero peppers instead. Espeziak (plural) = spices.",
+      "notes": "Espezia comes from Latin species through Romance. Traditional Basque cooking uses few spices and relies on garlic, parsley and dried choricero peppers. Espeziak (plural) = spices.",
       "example": {
         "basque": "Sukaldariak espeziak erabiltzen ditu.",
         "english": "The cook uses spices."
