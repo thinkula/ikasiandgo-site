@@ -1436,6 +1436,21 @@ class ErrorBoundary extends React.Component{
     return this.props.children;
   }
 }
+// The streak counts calendar days as the learner's clock has them. It is alive
+// if the last counted session was today or yesterday.
+//
+// A streak freeze buys one missed day: armed after a session, it covers the
+// day that follows. It used to be stored as "24 hours from now" and only
+// consulted when the last session was already two or more days back, and
+// those two can never both hold, since 24 hours after a session is at the
+// latest the next day. So the button said "Streak freeze active" and the
+// streak reset anyway, on the home screen as soon as the app was opened and
+// in storage with the next session. The freeze now runs to the end of the day
+// after the one it covers, which is the last day it can still be needed.
+function dayAgo(n){return new Date(Date.now()-n*86400000).toDateString();}
+function freezeEnd(){var u=new Date();u.setDate(u.getDate()+2);u.setHours(23,59,59,999);return u;}
+function readFreeze(raw){try{if(!raw)return null;var v=JSON.parse(raw);var u=v&&v.until?new Date(v.until):null;return u&&u>new Date()?u:null;}catch(e){return null;}}
+function streakAlive(lastDay,frozen){return lastDay===dayAgo(0)||lastDay===dayAgo(1)||(!!frozen&&lastDay===dayAgo(2));}
 function App(){
   useEffect(function(){document.title="Ikasi & Go™";},[]);
   var _s0=useState("home");var screen=_s0[0];var setScreen=_s0[1];
@@ -1467,7 +1482,7 @@ function App(){
   var _s15=useState(null);var toast=_s15[0];var setToast=_s15[1];
   var _s16=useState(10);var dailyGoal=_s16[0];var setDailyGoal=_s16[1];
   var _s17=useState(0);var todayCount=_s17[0];var setTodayCount=_s17[1];
-  var _s18=useState(false);var streakFrozen=_s18[0];var setStreakFrozen=_s18[1];
+  var _s18=useState(null);var freezeUntil=_s18[0];var setFreezeUntil=_s18[1];var streakFrozen=!!(freezeUntil&&new Date()<freezeUntil);
   var _s19=useState(null);var lastOpened=_s19[0];var setLastOpened=_s19[1];
   var _s20=useState("$12.99");var rcPrice=_s20[0];var setRcPrice=_s20[1];var rcPkg=useRef(null);
   var VOCABULARY=_VOCAB;
@@ -1495,11 +1510,10 @@ function App(){
     });
   },[srsData,isProOrTrial,vocabVersion,trialUntil]);
   var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil]);
-  useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data")]);if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value),today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString();setStreak((d.lastDay===today||d.lastDay===yest)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
+  useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data"),STORE.get("streak_freeze")]);var fz=readFreeze(rs[2]&&rs[2].value);setFreezeUntil(fz);if(!fz&&rs[2]&&rs[2].value)STORE.set("streak_freeze","").catch(function(){});if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value);setStreak(streakAlive(d.lastDay,fz)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
         try{var dg=await STORE.get("daily_goal");if(dg&&dg.value)setDailyGoal(parseInt(dg.value)||10);}catch(e){}
-        try{var sf=await STORE.get("streak_freeze");if(sf&&sf.value){var sfv=JSON.parse(sf.value);if(sfv.until&&new Date(sfv.until)>new Date()){setStreakFrozen(true);}else{STORE.set("streak_freeze","").catch(function(){});}}}catch(e){}
         try{var lo=await STORE.get("last_opened");var today2=new Date().toISOString().slice(0,10);setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
         try{var tc=await STORE.get("today_count_"+new Date().toISOString().slice(0,10));if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
         try{var tr=await STORE.get("trial_until");if(tr&&tr.value){setTrialUsed(true);var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
@@ -1525,6 +1539,7 @@ function App(){
           }catch(e){}
         })();
       }load();},[]);
+  function armStreakFreeze(){var until=freezeEnd();setFreezeUntil(until);STORE.set("streak_freeze",JSON.stringify({until:until.toISOString()})).catch(function(){});}
   function grantPro(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});setTrialUntil(null);STORE.set("trial_until","").catch(function(){});}
   async function doPurchase(after){
     if(!rcReady()){alert("Purchases are not available in this build.");return;}
@@ -1574,7 +1589,21 @@ function App(){
     setSessionHistory(hist);
   }catch(e){}
 }
-async function recordSession(){var today=new Date().toDateString(),yest=new Date(Date.now()-86400000).toDateString(),ns=streak;try{var r=await STORE.get("streak_data");var d=r&&r.value?JSON.parse(r.value):{};if(d.lastDay===today)ns=d.streak||0;else if(d.lastDay===yest)ns=(d.streak||0)+1;else ns=streakFrozen?(d.streak||0):1;var nl=Math.max(ns,d.longest||0);var newTotal=(d.totalSessions||0)+1;await STORE.set("streak_data",JSON.stringify({streak:ns,longest:nl,lastDay:today,totalSessions:newTotal})).catch(function(){});setStreak(ns);setLongest(nl);setTotalSess(newTotal);}catch(e){setStreak(streak+1);}return ns;}
+async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{var r=await STORE.get("streak_data");var d=r&&r.value?JSON.parse(r.value):{};
+  // The freeze is read from storage, not from state: this runs from a closure
+  // that may be a day old, and the state it captured never expires.
+  var fz=null;try{var sf=await STORE.get("streak_freeze");fz=readFreeze(sf&&sf.value);}catch(e){}
+  var spent=false;
+  if(d.lastDay===today)ns=d.streak||0;
+  else if(d.lastDay===yest){ns=(d.streak||0)+1;spent=!!fz&&fz.toDateString()!==freezeEnd().toDateString();}
+  else if(fz&&d.lastDay===dayAgo(2)){ns=(d.streak||0)+1;spent=true;}
+  else ns=1;
+  // A freeze covers the day after it was armed. Once that day has gone by,
+  // missed or not, it is used up, and the results screen offers a new one.
+  // One armed earlier today is the exception: it is for tomorrow, and a
+  // second session today must not throw it away.
+  if(spent){setFreezeUntil(null);STORE.set("streak_freeze","").catch(function(){});}
+  var nl=Math.max(ns,d.longest||0);var newTotal=(d.totalSessions||0)+1;await STORE.set("streak_data",JSON.stringify({streak:ns,longest:nl,lastDay:today,totalSessions:newTotal})).catch(function(){});setStreak(ns);setLongest(nl);setTotalSess(newTotal);}catch(e){setStreak(streak+1);}return ns;}
   function buildMCSession(words){
     var sid=Math.random().toString(36).slice(2,8);
     var pool=shuffled(words).slice(0,20);
@@ -1640,9 +1669,9 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={function(){setStreakFrozen(true);var until=new Date(Date.now()+86400000).toISOString();STORE.set("streak_freeze",JSON.stringify({until:until})).catch(function(){});}}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
