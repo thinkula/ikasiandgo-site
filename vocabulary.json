@@ -98,7 +98,7 @@
       "english": "How are you?",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "SER MO-doos",
+      "pronunciation": "SER MOH-doos",
       "notes": "Zer moduz? = How are you? (literally in what manner?). The standard everyday greeting after kaixo. Zer moduz zaude? is the fuller form. Ondo = fine. Primeran = great. Txarto = badly.",
       "example": {
         "basque": "Kaixo! Zer moduz?",
@@ -191,7 +191,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "AR-doh-ah",
-      "notes": "Ardoa = wine, but the Basque Country is famous for Txakoli, a light sparkling white. Ardo beltza = red wine. Ardo zuria = white wine.",
+      "notes": "Ardoa = wine, but the Basque Country is famous for Txakoli, a dry, lightly sparkling white wine. Ardo beltza = red wine. Ardo zuria = white wine.",
       "example": {
         "basque": "Ardoa ona da.",
         "english": "The wine is good."
@@ -477,7 +477,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "MEE-lah",
-      "notes": "Mila = one thousand. Mila esker = a thousand thanks. Mila bider = a thousand times. Milioika = millions (of). Mila is also used as an intensifier: mila aldiz = countless times. Bi mila = 2000.",
+      "notes": "Mila = one thousand. Mila esker = a thousand thanks. Mila bider = a thousand times. Milioika = millions (of). Mila aldiz = a thousand times. Bi mila = 2000.",
       "example": {
         "basque": "Mila esker.",
         "english": "A thousand thanks."
@@ -633,7 +633,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "lah-GOON-ah",
-      "notes": "Laguna = close friend or companion. Adiskidea is also used for friend. Lagunartea = circle of friends. Lagundu = to help or accompany (same root). Nire laguna = my friend.",
+      "notes": "Laguna = friend or companion. Adiskidea is also used for friend. Lagunartea = circle of friends. Lagundu = to help or accompany (same root). Nire laguna = my friend.",
       "example": {
         "basque": "Laguna etorri da.",
         "english": "The friend has come."
@@ -1218,7 +1218,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "os-TAH-too-ah",
-      "notes": "Ostatua = inn or lodging, a Romance loan (compare Spanish hostal). A modern hotel is hotela. Also used for traditional rural guesthouses (casas rurales).",
+      "notes": "Ostatua = inn or lodging, a Romance loan (compare Spanish hostal). A modern hotel is hotela. Also used for traditional rural guesthouses.",
       "example": {
         "basque": "Ostatua erosoa da.",
         "english": "The inn is comfortable."
@@ -1348,7 +1348,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "eus-KAH-rah",
-      "notes": "Euskara is the official name. The origin is mysterious, possibly from an old root meaning to say or speak plus -(k)ara (manner): a way of speaking.",
+      "notes": "Euskara is the official name. The origin is uncertain, possibly from an old root meaning to say or speak plus -(k)ara (manner): a way of speaking.",
       "example": {
         "basque": "Euskara ederra da.",
         "english": "Basque is beautiful."
@@ -3510,7 +3510,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "NOH-lah",
-      "notes": "Nola? = How? One of the most essential question words. Nola duzu izena? = What is your name? (literally how do you have your name?) Nola joan? = How to go? Nola esaten da? = How do you say it?",
+      "notes": "Nola? = How? One of the most essential question words. Nola duzu izena? = What is your name? (literally how do you have your name?) Nola esaten da? = How do you say it?",
       "example": {
         "basque": "Nola duzu izena?",
         "english": "What is your name?"
@@ -3549,7 +3549,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SER",
-      "notes": "Zer? = What? The most common question word in Basque. Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (in what manner?). Zer berri? = What's new?",
+      "notes": "Zer? = What? Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (in what manner?). Zer berri? = What's new?",
       "example": {
         "basque": "Zer nahi duzu?",
         "english": "What do you want?"
@@ -3835,7 +3835,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "TAH-shee-ah",
-      "notes": "Taxi. In Basque x = sh sound, so taxia sounds like TAH-shee-ah not \"taxi\". Taxi bat nahi dut = I want a taxi. Taxis are widely available in Basque cities.",
+      "notes": "Taxi. In Basque x = sh sound, so taxia sounds like TAH-shee-ah not \"taxi\". Taxi bat nahi dut = I want a taxi.",
       "example": {
         "basque": "Taxi bat nahi dut.",
         "english": "I want a taxi."
@@ -3861,7 +3861,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "MEH-noo-ah",
-      "notes": "The menu, but also refers to the set lunch menu (menua) which is excellent value in Basque restaurants.",
+      "notes": "The menu. Eguneko menua = the set lunch menu.",
       "example": {
         "basque": "Menua ekar iezadazu.",
         "english": "Bring me the menu."
@@ -3926,7 +3926,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "ee-REH-kee-ah",
-      "notes": "Open. Irekita dago = it is open. Do not confuse with itxita (closed).",
+      "notes": "Open. Irekita dago = it is open. The opposite is itxia (closed).",
       "example": {
         "basque": "Denda irekita dago?",
         "english": "Is the shop open?"
@@ -3939,7 +3939,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "EE-chee-ah",
-      "notes": "Closed. Itxita dago = it is closed. Do not confuse with irekia (open).",
+      "notes": "Closed. Itxita dago = it is closed. The opposite is irekia (open).",
       "example": {
         "basque": "Denda itxita dago.",
         "english": "The shop is closed."
@@ -4201,7 +4201,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ar-ROW-tsah",
-      "notes": "Egg. Arrautzak = eggs (plural). Arrautza frijitua = fried egg. Arrautza opila = omelette. Essential in Basque cooking.",
+      "notes": "Egg. Arrautzak = eggs (plural). Arrautza frijitua = fried egg. Arrautzopila = omelette. Essential in Basque cooking.",
       "example": {
         "basque": "Arrautza bat nahi dut.",
         "english": "I want an egg."
@@ -4331,7 +4331,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "ES doot oo-LER-tsen",
-      "notes": "The single most useful phrase for a language learner. Mesedez errepikatu = please repeat. Poliki esaidazu = say it slowly.",
+      "notes": "A phrase every learner needs. Mesedez errepikatu = please repeat. Poliki esaidazu = say it slowly.",
       "mcOnly": true,
       "example": {
         "basque": "Ez dut ulertzen. Mesedez errepikatu.",
@@ -5712,7 +5712,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "poh-LEE-kee",
-      "notes": "Slowly or gently. Poliki hitz egin = speak slowly. Poliki-poliki = very slowly/little by little. Also means nicely or gently. Poliki esaidazu = say it slowly to me. Essential for learners asking native speakers to slow down.",
+      "notes": "Slowly or gently. Poliki hitz egin = speak slowly. Poliki-poliki = very slowly/little by little. Poliki esaidazu = say it slowly to me. Essential for learners asking native speakers to slow down.",
       "example": {
         "basque": "Poliki hitz egin mesedez.",
         "english": "Please speak slowly."
@@ -6518,7 +6518,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "kee-ROH-lak",
-      "notes": "Kirolak = sports (plural). Kirola = sport (singular). Kirolaria = athlete/sportsperson. Kirol eguna = sports day. Basque rural sports (herri kirolak) include wood chopping, stone lifting and tug of war.",
+      "notes": "Kirolak = sports (plural). Kirola = sport (singular). Kirolaria = athlete/sportsperson. Basque rural sports (herri kirolak) include wood chopping, stone lifting and tug of war.",
       "example": {
         "basque": "Kirolak gustatzen zaizkit.",
         "english": "I like sports."
@@ -6570,7 +6570,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "see-NEH-mah",
-      "notes": "Zinema = cinema or film. Zinema-aretoa = cinema (hall). Zinemara joan = to go to the cinema. The San Sebastián International Film Festival (Donostia Zinemaldia) is held every September.",
+      "notes": "Zinema = cinema or film. Zinema-aretoa = movie theater. Zinemara joan = to go to the movies. The San Sebastián International Film Festival (Donostia Zinemaldia) is held every September.",
       "example": {
         "basque": "Zinema gustatzen zait.",
         "english": "I like cinema."
@@ -6856,7 +6856,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "goh-SAH-ree-ah",
-      "notes": "Gosaria = breakfast. Gose = hunger + -ari: the meal that breaks the night's hunger. Gosaldu = to have breakfast. Gosaria egin = to make breakfast. The three meals: gosaria (breakfast), bazkaria (lunch), afaria (dinner).",
+      "notes": "Gosaria = breakfast. Gose (hunger) + -ari, a meal ending shared with bazkaria and afaria. Gosaldu = to have breakfast. Gosaria egin = to make breakfast. The three meals: gosaria (breakfast), bazkaria (lunch), afaria (dinner).",
       "example": {
         "basque": "Gosaria jan dut.",
         "english": "I have had breakfast."
@@ -7103,7 +7103,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "ah-BES-tee-ah",
-      "notes": "Abestia = song. Abestu = to sing (root). Abestiak = songs (plural). Txoria txori = famous Basque song by Mikel Laboa. Abesti herrikoiak = folk songs. Basque singing culture is very rich: bertso, koral, and folk traditions are all strong.",
+      "notes": "Abestia = song. Abestu = to sing (root). Abestiak = songs (plural). Txoria txori = famous Basque song by Mikel Laboa. Abesti herrikoiak = folk songs. Bertso singing, choirs and folk song are all part of Basque music.",
       "example": {
         "basque": "Abesti eder bat da.",
         "english": "It is a beautiful song."
@@ -8689,7 +8689,7 @@
       "cefr": "A1",
       "topic": "work",
       "pronunciation": "neh-kah-SAH-ree-ah",
-      "notes": "Farmer. Neka (toil) + -zaria. The baserri (farmhouse) and its farmer are central to Basque rural identity. Many Basque surnames come from farmhouse names.",
+      "notes": "Farmer. Neke (toil) + -zari, a form of the occupation ending -ari. The baserri (farmhouse) and its farmer are central to Basque rural identity. Many Basque surnames come from farmhouse names.",
       "example": {
         "basque": "Nekazariak baserrian lan egiten du.",
         "english": "The farmer works on the farm."
@@ -8702,7 +8702,7 @@
       "cefr": "A1",
       "topic": "society",
       "pronunciation": "ow-sah-PEH-sah",
-      "notes": "Mayor. Auzo (community) + apez (priest), literally 'town priest'. This is the usual term in the northern Basque Country; in the south alkatea is used.",
+      "notes": "Mayor. Auzo (neighborhood) + apez (priest). The word first meant an abbot or a senior council member. This is the usual term in the northern Basque Country; in the south alkatea is used.",
       "example": {
         "basque": "Auzapeza herriko bileran dago.",
         "english": "The mayor is at the town meeting."
@@ -10028,7 +10028,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "OR-doo BEE-ak",
-      "notes": "Two o'clock. Ordu (hour) + biak (the twos). Basque uses the definite plural for telling time: biak = the twos = two o'clock. Ordu biak dira = it is two o'clock.",
+      "notes": "Two o'clock. Ordu (hour) + biak (the two). Basque uses the definite plural for telling time. Ordu biak dira = it is two o'clock.",
       "example": {
         "basque": "Ordu biak dira.",
         "english": "It is two o'clock."
@@ -10353,7 +10353,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "GEH-lah",
-      "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Komunak = bathroom. Gela bikoitza = double room. Essential hotel vocabulary.",
+      "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Bainugela = bathroom. Gela bikoitza = double room. Essential hotel vocabulary.",
       "example": {
         "basque": "Gela bat nahi dut bi gauetarako.",
         "english": "I want a room for two nights."
@@ -10470,7 +10470,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "bas-KAL-doo",
-      "notes": "To have lunch. Bazkal-, the combining form of bazkari, + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture, often a three-course menua.",
+      "notes": "To have lunch. Bazkal-, the combining form of bazkari, + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture.",
       "example": {
         "basque": "Jatetxean bazkaldu dugu.",
         "english": "We had lunch at the restaurant."
@@ -10924,7 +10924,7 @@
       "english": "I do not know",
       "cefr": "A2",
       "topic": "greetings",
-      "pronunciation": "ES dah-KEET",
+      "pronunciation": "ES DAH-keet",
       "notes": "Ez dakit is the negative of badakit. The ba- on the front of badakit belongs to the affirmative only, so the negative simply drops it.",
       "example": {
         "basque": "Ez dakit non dagoen.",
