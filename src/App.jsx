@@ -4013,7 +4013,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Find the written method you are following",keyword:"errezeta",hint:"Errezeta: recipe, from Spanish receta. Errezeta jarraitu is to follow one"},
       {instruction:"List the ingredients",keyword:"osagai",hint:"Pepper, tomato, onion, oil, egg"},
       {instruction:"Use local produce",keyword:"bertako_produktua",hint:"Peppers and tomatoes from nearby farms"},
-      {instruction:"Cook it low and slow, the way the method says",keyword:"sukalde_teknika",hint:"Sukalde teknika: cooking technique"},
+      {instruction:"Cook it low and slow, the way the method says",keyword:"sukalde_teknika",hint:"Sukaldaritza teknika: cooking technique"},
       {instruction:"Name the dish the recipe is for",keyword:"piperrada",hint:"Piperrada: the pepper, tomato and onion stew"},
     ]},
     {key:"ardandegi_bisita",name:"Ardandegiko bisita",emoji:"🍷",desc:"A visit to a Basque winery",color:"#6B21A8",dark:"#3B0764",bg:"#FAF5FF",stages:[
@@ -7603,7 +7603,7 @@ var LESSONS=[
     emoji:"🕊️",
     blurb:"Regret, longing, compassion, and the weight of missing something.",
     intro:"Every language needs words for the difficult things. Some of these are useful to anyone; nostalgia and melankolia will be familiar to anyone who has felt the pull of a place their family left.",
-    grammar:{title:"Two layers in one list",body:"Look at where these words come from. Nostalgia, melankolia and jelosia are international borrowings that Basque spells its own way. Damua, errukia, sumindura and gorrotoa are native. Most languages carry both layers; Basque wears the difference plainly, and neither set is more correct than the other."},
+    grammar:{title:"Two layers in one list",body:"Look at where these words come from. Nostalgia, melankolia and jelosia are international borrowings that Basque spells its own way. Damua, errukia, sumindura and gorrotoa are older Basque words. Most languages carry both layers; Basque wears the difference plainly, and neither set is more correct than the other."},
     wordIds:["nostalgia","melankoliia","mina","damua","etsipena","errukia","sumindura","gorrotoa","jelosia","haserrealdi","atsegin_dut"],
   },
   {
@@ -7615,7 +7615,7 @@ var LESSONS=[
     emoji:"🌍",
     blurb:"Climate, habitat, wildlife, and the words for when it goes wrong.",
     intro:"The last stretch of vocabulary is the modern world: climate, biodiversity, and the language of a coast that floods and a land that shakes. These are the words a Basque news bulletin uses now.",
-    grammar:{title:"Modern terms are built from two words",body:"Basque makes new vocabulary by putting existing words side by side rather than borrowing wholesale: klima aldaketa is climate change, itsas maila is sea level, espazio naturala is a natural space. They are written as two words and read as one idea, so take them apart when a long term looks unfamiliar."},
+    grammar:{title:"Modern terms are built from two words",body:"Many modern terms are two words set side by side: klima aldaketa is climate change, itsas maila is sea level, espazio naturala is a natural space. They are written as two words and read as one idea, so take them apart when a long term looks unfamiliar."},
     wordIds:["klima_aldaketa","biodibertsitatea","habitat","espazio_naturala","basabizitza","lurrikara","uholdeak","lehortea","klima_epela","itsas_maila"],
   },
   {
@@ -7675,7 +7675,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF73",
     blurb:"Txokos, tasting menus, pil-pil, and where ingredients come from.",
     intro:"Food was an early lesson. This is food as the Basque Country argues about it, which is a subject with its own vocabulary and one institution that does not translate.",
-    grammar:{title:"Where the wine is kept",body:"Ardandegia is ardo (wine) plus the -tegi you met at the cider house, the ending for a place that holds a thing. A txoko is a private gastronomic society where members cook for one another, and it has no real equivalent elsewhere. Pil-pil is named for its sound: salt cod swirled slowly in olive oil until the sauce thickens into an emulsion."},
+    grammar:{title:"Where the wine is kept",body:"Ardandegia is ardo (wine) plus the -tegi you met at the cider house, the ending for a place that holds a thing. A txoko is a private gastronomic society where members cook for one another. Pil-pil is named for its sound: salt cod swirled slowly in olive oil until the sauce thickens into an emulsion."},
     wordIds:["gastronomia","txoko","errezeta","pil_pil","mahaia_erreserbatu","dastaketa","osagai","sukalde_teknika","bertako_produktua","ardandegi"],
   },
   {
@@ -7698,7 +7698,7 @@ var LESSONS=[
     titleEu:"Ñabardurak",
     emoji:"\uD83D\uDD8C\uFE0F",
     blurb:"Indigo, turquoise, garnet, and the word for a shade itself.",
-    intro:"The last of the color vocabulary, and the most particular. One of these is a native Basque word for something most languages had to borrow.",
+    intro:"The last of the color vocabulary, and the most particular. One of these is a native Basque word where English borrowed from French.",
     grammar:{title:"Gabe again, and nabar",body:"Koloregabea is kolore plus gabe, without color, the same gabe you met in ezkongabea. Distiratsua is distira (shine) plus -tsu, full of shine, the same -tsu as indartsua. Ñabardura, a nuance, is the interesting one: it comes from ñabar, meaning variegated or many-colored, so Basque names a shade of meaning with a word about color."},
     wordIds:["kolorea_galdu","ñabardura","indigo","turkoisa","granatea","oliba_berdea","beixa","kolore_biziak","koloregabea","distiratsua"],
   },
