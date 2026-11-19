@@ -13786,6 +13786,162 @@
         "basque": "Perrexila berdea da.",
         "english": "The parsley is green."
       }
+    },
+    {
+      "id": "txirla",
+      "basque": "Txirla",
+      "english": "Clam",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "CHEER-lah",
+      "notes": "Txirla = clam. Legatza saltsa berdean, hake in green sauce, is made with txirlak and parsley.",
+      "example": {
+        "basque": "Txirlak freskoak dira.",
+        "english": "The clams are fresh."
+      }
+    },
+    {
+      "id": "aza",
+      "basque": "Aza",
+      "english": "Cabbage",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "AH-sah",
+      "notes": "Aza = cabbage. Tolosa's black beans are served with boiled cabbage, chorizo and blood sausage, the sides known as sakramentuak.",
+      "example": {
+        "basque": "Aza berdea da.",
+        "english": "The cabbage is green."
+      }
+    },
+    {
+      "id": "limoia",
+      "basque": "Limoia",
+      "english": "Lemon",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "LEE-moy-ah",
+      "notes": "Limoia = lemon. Its peel flavors arroz-esnea, rice pudding, along with cinnamon. In the northern Basque Country the word is zitroina.",
+      "example": {
+        "basque": "Limoia horia da.",
+        "english": "The lemon is yellow."
+      }
+    },
+    {
+      "id": "gerezia",
+      "basque": "Gerezia",
+      "english": "Cherry",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "gheh-REH-see-ah",
+      "notes": "Gerezia = cherry. Euskal pastela, the Basque cake, was first filled with the red cherries of Itsasu.",
+      "example": {
+        "basque": "Gereziak gorriak dira.",
+        "english": "Cherries are red."
+      }
+    },
+    {
+      "id": "behikia",
+      "basque": "Behikia",
+      "english": "Beef",
+      "cefr": "A2",
+      "topic": "food",
+      "pronunciation": "beh-EE-kee-ah",
+      "notes": "Behikia = beef: behi (cow) + -ki, the meat suffix, as in txerrikia (pork).",
+      "example": {
+        "basque": "Behikia erosi dut harategian.",
+        "english": "I bought beef at the butcher shop."
+      }
+    },
+    {
+      "id": "pipermina",
+      "basque": "Pipermina",
+      "english": "Chili pepper",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "pee-PER-mee-nah",
+      "notes": "Pipermina = chili pepper. The gilda pintxo is an olive, an anchovy and pickled chilies from Ibarra, and a dried one goes into bakailaoa pil-pilean.",
+      "example": {
+        "basque": "Pipermina gorria da.",
+        "english": "The chili is red."
+      }
+    },
+    {
+      "id": "piperrautsa",
+      "basque": "Piperrautsa",
+      "english": "Paprika",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "pee-PEH-row-tsah",
+      "notes": "Piperrautsa = paprika. It is what colors txistorra, the Basque sausage, red.",
+      "example": {
+        "basque": "Piperrautsa gorria da.",
+        "english": "Paprika is red."
+      }
+    },
+    {
+      "id": "ozpina",
+      "basque": "Ozpina",
+      "english": "Vinegar",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "os-PEE-nah",
+      "notes": "Ozpina = vinegar. Ozpinetako describes something pickled in it.",
+      "example": {
+        "basque": "Ozpina behar dut.",
+        "english": "I need vinegar."
+      }
+    },
+    {
+      "id": "odolkia",
+      "basque": "Odolkia",
+      "english": "Blood sausage",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "oh-DOL-kee-ah",
+      "notes": "Odolkia = blood sausage, made with the blood (odol) of the pig or the lamb. Boiled, it is one of the sides served with Tolosa beans.",
+      "example": {
+        "basque": "Odolkia jan dut.",
+        "english": "I ate blood sausage."
+      }
+    },
+    {
+      "id": "txorizoa",
+      "basque": "Txorizoa",
+      "english": "Chorizo",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "cho-REE-soh-ah",
+      "notes": "Txorizoa = chorizo. Boiled, it is one of the sides served with Tolosa beans.",
+      "example": {
+        "basque": "Txorizoa jan dut.",
+        "english": "I ate chorizo."
+      }
+    },
+    {
+      "id": "arbendola",
+      "basque": "Arbendola",
+      "english": "Almond",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "ar-BEN-doh-lah",
+      "notes": "Arbendola = almond. In the southern Basque Country many say almendra. Ground almond goes into the dough of euskal pastela.",
+      "example": {
+        "basque": "Arbendolak gustatzen zaizkit.",
+        "english": "I like almonds."
+      }
+    },
+    {
+      "id": "irasagarra",
+      "basque": "Irasagarra",
+      "english": "Quince",
+      "cefr": "B1",
+      "topic": "food",
+      "pronunciation": "ee-RAH-sah-gar-rah",
+      "notes": "Irasagarra = quince. It is mostly made into irasagar-gozokia, quince paste, which a cider house serves with cheese and walnuts.",
+      "example": {
+        "basque": "Irasagarra horia da.",
+        "english": "The quince is yellow."
+      }
     }
   ],
   "stories": [

@@ -1296,7 +1296,19 @@ const SEED_VOCAB=[
 {"id":"eztia","basque":"Eztia","english":"Honey","cefr":"A2","topic":"food","pronunciation":"ES-tee-ah","notes":"Eztia = honey. Ezti is the root. Mamia, the sheep's milk curd, is often eaten with it.","example":{"basque":"Eztia gozoa da.","english":"Honey is sweet."}},
 {"id":"kanela","basque":"Kanela","english":"Cinnamon","cefr":"A2","topic":"food","pronunciation":"kah-NEH-lah","notes":"Kanela = cinnamon. It already ends in -a, so the article never doubles. A stick of it flavors arroz-esnea, rice pudding.","example":{"basque":"Kanela behar dut.","english":"I need cinnamon."}},
 {"id":"hegaluzea","basque":"Hegaluzea","english":"Albacore tuna","cefr":"A2","topic":"food","pronunciation":"eh-gah-loo-SEH-ah","notes":"Hegaluzea = albacore, the tuna of marmitakoa and of hegaluzea tomatearekin, tuna in tomato sauce.","example":{"basque":"Hegaluzea freskoa da.","english":"The tuna is fresh."}},
-{"id":"perrexila","basque":"Perrexila","english":"Parsley","cefr":"A2","topic":"food","pronunciation":"peh-reh-SHEE-lah","notes":"Perrexila = parsley. It is what turns saltsa berdea, green sauce, green.","example":{"basque":"Perrexila berdea da.","english":"The parsley is green."}}
+{"id":"perrexila","basque":"Perrexila","english":"Parsley","cefr":"A2","topic":"food","pronunciation":"peh-reh-SHEE-lah","notes":"Perrexila = parsley. It is what turns saltsa berdea, green sauce, green.","example":{"basque":"Perrexila berdea da.","english":"The parsley is green."}},
+{"id":"txirla","basque":"Txirla","english":"Clam","cefr":"A2","topic":"food","pronunciation":"CHEER-lah","notes":"Txirla = clam. Legatza saltsa berdean, hake in green sauce, is made with txirlak and parsley.","example":{"basque":"Txirlak freskoak dira.","english":"The clams are fresh."}},
+{"id":"aza","basque":"Aza","english":"Cabbage","cefr":"A2","topic":"food","pronunciation":"AH-sah","notes":"Aza = cabbage. Tolosa's black beans are served with boiled cabbage, chorizo and blood sausage, the sides known as sakramentuak.","example":{"basque":"Aza berdea da.","english":"The cabbage is green."}},
+{"id":"limoia","basque":"Limoia","english":"Lemon","cefr":"A2","topic":"food","pronunciation":"LEE-moy-ah","notes":"Limoia = lemon. Its peel flavors arroz-esnea, rice pudding, along with cinnamon. In the northern Basque Country the word is zitroina.","example":{"basque":"Limoia horia da.","english":"The lemon is yellow."}},
+{"id":"gerezia","basque":"Gerezia","english":"Cherry","cefr":"A2","topic":"food","pronunciation":"gheh-REH-see-ah","notes":"Gerezia = cherry. Euskal pastela, the Basque cake, was first filled with the red cherries of Itsasu.","example":{"basque":"Gereziak gorriak dira.","english":"Cherries are red."}},
+{"id":"behikia","basque":"Behikia","english":"Beef","cefr":"A2","topic":"food","pronunciation":"beh-EE-kee-ah","notes":"Behikia = beef: behi (cow) + -ki, the meat suffix, as in txerrikia (pork).","example":{"basque":"Behikia erosi dut harategian.","english":"I bought beef at the butcher shop."}},
+{"id":"pipermina","basque":"Pipermina","english":"Chili pepper","cefr":"B1","topic":"food","pronunciation":"pee-PER-mee-nah","notes":"Pipermina = chili pepper. The gilda pintxo is an olive, an anchovy and pickled chilies from Ibarra, and a dried one goes into bakailaoa pil-pilean.","example":{"basque":"Pipermina gorria da.","english":"The chili is red."}},
+{"id":"piperrautsa","basque":"Piperrautsa","english":"Paprika","cefr":"B1","topic":"food","pronunciation":"pee-PEH-row-tsah","notes":"Piperrautsa = paprika. It is what colors txistorra, the Basque sausage, red.","example":{"basque":"Piperrautsa gorria da.","english":"Paprika is red."}},
+{"id":"ozpina","basque":"Ozpina","english":"Vinegar","cefr":"B1","topic":"food","pronunciation":"os-PEE-nah","notes":"Ozpina = vinegar. Ozpinetako describes something pickled in it.","example":{"basque":"Ozpina behar dut.","english":"I need vinegar."}},
+{"id":"odolkia","basque":"Odolkia","english":"Blood sausage","cefr":"B1","topic":"food","pronunciation":"oh-DOL-kee-ah","notes":"Odolkia = blood sausage, made with the blood (odol) of the pig or the lamb. Boiled, it is one of the sides served with Tolosa beans.","example":{"basque":"Odolkia jan dut.","english":"I ate blood sausage."}},
+{"id":"txorizoa","basque":"Txorizoa","english":"Chorizo","cefr":"B1","topic":"food","pronunciation":"cho-REE-soh-ah","notes":"Txorizoa = chorizo. Boiled, it is one of the sides served with Tolosa beans.","example":{"basque":"Txorizoa jan dut.","english":"I ate chorizo."}},
+{"id":"arbendola","basque":"Arbendola","english":"Almond","cefr":"B1","topic":"food","pronunciation":"ar-BEN-doh-lah","notes":"Arbendola = almond. In the southern Basque Country many say almendra. Ground almond goes into the dough of euskal pastela.","example":{"basque":"Arbendolak gustatzen zaizkit.","english":"I like almonds."}},
+{"id":"irasagarra","basque":"Irasagarra","english":"Quince","cefr":"B1","topic":"food","pronunciation":"ee-RAH-sah-gar-rah","notes":"Irasagarra = quince. It is mostly made into irasagar-gozokia, quince paste, which a cider house serves with cheese and walnuts.","example":{"basque":"Irasagarra horia da.","english":"The quince is yellow."}}
 ];
 /* SEED_VOCAB:END */
 const CEFR_ORDER=["A1","A2","B1","B2"];
@@ -3850,19 +3862,19 @@ function BasqueKitchenScreen(props){
       {instruction:"Fill the pot with water",keyword:"ura",hint:"The stew base"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Don't forget to taste!"},
     ]},
-    {key:"pastel_vasco",name:"Euskal pastela",emoji:"🥧",desc:"The cake, filled with pastry cream",color:"#7C3AED",dark:"#5B21B6",bg:"#F5F3FF",stages:[
+    {key:"pastel_vasco",name:"Euskal pastela",emoji:"🥧",desc:"The Basque cake, filled with cream or cherries",color:"#7C3AED",dark:"#5B21B6",bg:"#F5F3FF",stages:[
       {instruction:"Sift the flour",keyword:"irina",hint:"Irina: flour, the body of the dough"},
       {instruction:"Work in the soft butter",keyword:"gurina",hint:"Gurina: butter. The cake is made with it, not oil"},
+      {instruction:"Fold in the ground almonds",keyword:"arbendola",hint:"Arbendola: almond"},
       {instruction:"Weigh out the sugar",keyword:"azukrea",hint:"Makes it sweet: do not skimp"},
-      {instruction:"Crack in the eggs",keyword:"arrautza",hint:"For the dough and for the cream filling"},
-      {instruction:"Heat the milk for the pastry cream",keyword:"esnea",hint:"Milk, egg and sugar make the filling"},
+      {instruction:"Fill it the old way, with red fruit",keyword:"gerezia",hint:"Gerezia: cherry. The first ones were filled with cherries from Itsasu"},
     ]},
     {key:"bacalao_pil_pil",name:"Bakailaoa pil-pilean",emoji:"🧄",desc:"Salted cod in its own garlic sauce",color:"#1D4ED8",dark:"#1E3A8A",bg:"#EFF6FF",stages:[
       {instruction:"Soak the salted cod overnight",keyword:"bacalaoa",hint:"The Basque classic fish"},
       {instruction:"Peel and slice the garlic",keyword:"baratxuria",hint:"Fried gently in the oil first"},
+      {instruction:"Drop in a small dried chili",keyword:"pipermina",hint:"Pipermina: chili pepper, the fourth ingredient"},
       {instruction:"Pour in plenty of olive oil",keyword:"olioa",hint:"Oil and the cod's own gelatin are the whole sauce"},
       {instruction:"Swirl the pan low and slow until the sauce comes together, and name it",keyword:"pil_pil",hint:"Named for the sound of the gentle bubbling"},
-      {instruction:"Season to taste",keyword:"gatz",hint:"Go easy: the cod is already salty"},
     ]},
     {key:"tortilla_espanola",name:"Patata tortilla",emoji:"🍳",desc:"Potato omelette, thick and slow cooked",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
       {instruction:"Slice the potatoes thinly",keyword:"patata",hint:"The heart of the tortilla"},
@@ -3900,17 +3912,17 @@ function BasqueKitchenScreen(props){
       {instruction:"Cook it down until it is ready",keyword:"prestatu",hint:"Prestatu: to prepare, and also to cook a dish. Afaria prestatu is to make dinner"},
     ]},
     {key:"alubias_de_tolosa",name:"Tolosako babarrunak",emoji:"🫘",desc:"The famous black beans of Tolosa",color:"#7F1D1D",dark:"#450A0A",bg:"#FFF1F2",stages:[
-      {instruction:"Soak the beans overnight",keyword:"babarrunak",hint:"Tolosa beans are dark and earthy"},
-      {instruction:"Add the meat",keyword:"haragia",hint:"Pork belly or chorizo"},
-      {instruction:"Pour in the water",keyword:"ura",hint:"Enough to cover the beans"},
-      {instruction:"Add the bacon",keyword:"urdaia",hint:"Cured pork fat adds richness"},
-      {instruction:"Season to taste",keyword:"gatz",hint:"Add salt at the end, not the beginning"},
+      {instruction:"Simmer the black beans slowly",keyword:"babarrunak",hint:"Tolosa beans are dark, almost black"},
+      {instruction:"Boil the cabbage on the side",keyword:"aza",hint:"Aza: cabbage. The sides are cooked apart from the beans"},
+      {instruction:"Boil the red sausage",keyword:"txorizoa",hint:"Txorizoa: chorizo"},
+      {instruction:"Boil the dark sausage, the one made with blood",keyword:"odolkia",hint:"Odolkia: blood sausage"},
+      {instruction:"Add a piece of cured pork fat",keyword:"urdaia",hint:"Each person adds the sides they like"},
     ]},
     {key:"merluza_en_salsa_verde",name:"Legatza saltsa berdean",emoji:"🐠",desc:"Hake in a green parsley sauce",color:"#065F46",dark:"#022C22",bg:"#ECFDF5",stages:[
       {instruction:"Prepare the hake fillets",keyword:"merluzea",hint:"A favorite fish in Basque cooking"},
       {instruction:"Slice the garlic into the oil",keyword:"baratxuria",hint:"Gently, so it does not brown"},
-      {instruction:"Pour in the oil",keyword:"olioa",hint:"Good olive oil is the base"},
       {instruction:"Chop a big handful of parsley",keyword:"perrexila",hint:"It is what makes the sauce green"},
+      {instruction:"Add the clams, still closed",keyword:"txirla",hint:"Txirla: clam. They open in the hot broth"},
       {instruction:"Shake the pan until it all becomes a sauce",keyword:"saltsa",hint:"Swirled in the pan, as for pil-pil, not blended"},
     ]},
     {key:"revuelto_de_hongos",name:"Onddo nahaskia",emoji:"🍄",desc:"Wild mushrooms scrambled with egg",color:"#78350F",dark:"#431407",bg:"#FFF7ED",stages:[
@@ -3931,22 +3943,22 @@ function BasqueKitchenScreen(props){
       {instruction:"Choose a thick steak",keyword:"txuleta",hint:"Basque txuleton: aged and enormous"},
       {instruction:"Grill over hot coals",keyword:"erre",hint:"High heat, short time: never well done"},
       {instruction:"Carve it into thick slices to serve",keyword:"xerra",hint:"A steak, a fillet, a slice off the bone"},
-      {instruction:"One word for what is on the grill",keyword:"haragia",hint:"Haragia: meat. Txuleta is one cut of it"},
+      {instruction:"Name the meat it is: from the cow",keyword:"behikia",hint:"Behikia: beef, behi (cow) + -ki"},
       {instruction:"Serve at the table",keyword:"jan",hint:"Everyone eats together"},
     ]},
     {key:"sagardotegi_plater",name:"Sagardotegiko platera",emoji:"🍶",desc:"What the cider house serves",color:"#166534",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"Pour the cider",keyword:"sagardoa",hint:"Poured from height to aerate it"},
       {instruction:"Serve the omelette",keyword:"tortilla",hint:"Cod omelette is the traditional starter"},
       {instruction:"Bring out the steak",keyword:"txuleta",hint:"Enormous: for the whole table"},
-      {instruction:"Add walnuts for dessert",keyword:"intxaurra",hint:"With Idiazabal cheese and quince"},
+      {instruction:"Bring out the dessert: cheese, walnuts and a sweet paste of this fruit",keyword:"irasagarra",hint:"Irasagarra: quince"},
       {instruction:"Call txotx!",keyword:"txotx",hint:"The signal to fill your glass at the barrel"},
     ]},
     {key:"arroz_con_leche",name:"Arroz-esnea",emoji:"🍚",desc:"Rice slowly cooked in milk",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",stages:[
-      {instruction:"Measure the rice",keyword:"arroza",hint:"Short grain rice absorbs milk best"},
       {instruction:"Warm the milk",keyword:"esnea",hint:"Whole milk, slowly heated"},
-      {instruction:"Stir in the sugar",keyword:"azukrea",hint:"Add to taste: some like it sweet"},
-      {instruction:"Drop in a stick of cinnamon",keyword:"kanela",hint:"Kanela: cinnamon. With lemon peel, the usual flavoring"},
-      {instruction:"Boil gently",keyword:"egosi",hint:"Low heat, constant stirring"},
+      {instruction:"Grate in some lemon peel",keyword:"limoia",hint:"Limoia: lemon. Only the peel goes in"},
+      {instruction:"Drop in a stick of cinnamon",keyword:"kanela",hint:"Kanela: cinnamon"},
+      {instruction:"When the milk boils, pour in the rice",keyword:"arroza",hint:"Then turn the heat down until it is soft"},
+      {instruction:"Stir in the sugar",keyword:"azukrea",hint:"Last, once the rice is soft"},
     ]},
     {key:"patatas_fritas_caseras",name:"Patata frijituak",emoji:"🍟",desc:"Thick cut and fried twice",color:"#CA8A04",dark:"#78350F",bg:"#FFFBEB",stages:[
       {instruction:"Peel the potatoes",keyword:"patata",hint:"Thick cut: these are proper chips"},
@@ -4037,18 +4049,18 @@ function BasqueKitchenScreen(props){
       {instruction:"Warm some milk in a wide cup",keyword:"katilua",hint:"The wide cup you dunk cookies into"},
       {instruction:"Name the snack you have just put together",keyword:"askaria",hint:"It comes between lunch and dinner"},
     ]},
-    {key:"gilda",name:"Gilda",emoji:"\u{1F362}",desc:"Olive, anchovy and pepper on a toothpick",color:"#4D7C0F",dark:"#365314",bg:"#F7FEE7",stages:[
+    {key:"gilda",name:"Gilda",emoji:"\u{1F362}",desc:"Olive, anchovy and pickled chili on a toothpick",color:"#4D7C0F",dark:"#365314",bg:"#F7FEE7",stages:[
       {instruction:"Spear a green olive",keyword:"oliba",hint:"Small, green and salty"},
       {instruction:"Fold an anchovy around it",keyword:"antxoa",hint:"A small, salty fish"},
-      {instruction:"Add a pickled green chili",keyword:"piperra",hint:"Long, thin and mild, the kind from Ibarra"},
-      {instruction:"Name the bar snack on the toothpick",keyword:"pintxoa",hint:"Bars line them up along the counter"},
+      {instruction:"Add a green chili, the kind from Ibarra",keyword:"pipermina",hint:"Pipermina: chili pepper"},
+      {instruction:"Name what the chili was pickled in",keyword:"ozpina",hint:"Ozpina: vinegar. It is what makes a gilda sharp"},
       {instruction:"Order something to drink with it",keyword:"edaria",hint:"Anything you would order at the bar"},
     ]},
     {key:"txistorra",name:"Txistorra",emoji:"\u{1F32D}",desc:"The thin red sausage from Navarre",color:"#B91C1C",dark:"#7F1D1D",bg:"#FEF2F2",stages:[
       {instruction:"Start with fresh minced pork",keyword:"txerrikia",hint:"The meat, not the animal"},
       {instruction:"Crush in some garlic",keyword:"baratxuria",hint:"Strong, white, and it comes in cloves"},
       {instruction:"Season it with salt",keyword:"gatz",hint:"A pinch, not a handful"},
-      {instruction:"Color it red with ground pepper",keyword:"piperra",hint:"Ground into the paprika that turns it red"},
+      {instruction:"Color it red",keyword:"piperrautsa",hint:"Piperrautsa: paprika, ground from dried red peppers"},
       {instruction:"Name the animal the meat comes from",keyword:"txerria",hint:"Txerrikia is built from this word"},
     ]},
     {key:"pastela_eta_izozkia",name:"Pastela eta izozkia",emoji:"\u{1F382}",desc:"Cake and ice cream",color:"#BE185D",dark:"#831843",bg:"#FDF2F8",stages:[
@@ -4160,7 +4172,11 @@ function BasqueKitchenScreen(props){
     // pork", so it must never be a wrong answer for txerrikia, or the reverse.
     // noMeaningClash compares the English glosses ("Pig" and "Pork (the
     // meat)"), which do not overlap, so it cannot see this.
-    var NEVER_TOGETHER={txerria:["txerrikia"],txerrikia:["txerria"]};
+    var NEVER_TOGETHER={txerria:["txerrikia"],txerrikia:["txerria"],
+      // pepper, chili and paprika answer for each other too easily
+      piperra:["pipermina","piperrautsa"],pipermina:["piperra","piperrautsa"],piperrautsa:["piperra","pipermina"],
+      // behikia is haragia, and a txuleta is behikia
+      behikia:["haragia","txuleta","xerra"],haragia:["behikia"],txuleta:["behikia"],xerra:["behikia"]};
     var apart=NEVER_TOGETHER[correctWord.id]||[];
     function take(pool){
       if(picks.length>=3)return;
@@ -4324,6 +4340,18 @@ function BasqueKitchenScreen(props){
     "arrautza":"🥚",       // egg (id)
     "gurina":"🧈",         // butter
     "irina":"🌾",          // flour
+    "txirla":"🦪",         // clam
+    "aza":"🥦",            // cabbage
+    "limoia":"🍋",         // lemon
+    "gerezia":"🍒",        // cherry
+    "behikia":"🐄",        // beef
+    "pipermina":"🌶️",      // chili (never offered beside piperra)
+    "piperrautsa":"🫙",    // paprika
+    "ozpina":"🫗",         // vinegar
+    "odolkia":"🩸",        // blood sausage
+    "txorizoa":"🥫",       // chorizo
+    "arbendola":"🥜",      // almond
+    "irasagarra":"🍐",     // quince
     "eztia":"🍯",          // honey
     "kanela":"🪵",         // cinnamon, the stick
     "hegaluzea":"🐟",      // albacore tuna
@@ -6503,7 +6531,8 @@ var CHAPTERS=[
   // animal past the beginner level.
   {n:36,name:"The city around you",from:105,to:108},
   {n:37,name:"Inside the house",from:109,to:110},
-  {n:38,name:"Animals and the land",from:111,to:112}
+  {n:38,name:"Animals and the land",from:111,to:112},
+  {n:39,name:"What goes in the pot",from:113,to:113}
 ];
 var LESSONS=[
   {
@@ -7822,6 +7851,18 @@ var LESSONS=[
     intro:"The words a nature program uses. They sort animals you already know into the groups a biologist would put them in, and two of them say plainly what the animal eats.",
     grammar:{title:"The ending that marks the eater",body:"Haragijalea is the meat eater and belarjalea is the grass eater. The ending does the work that -vore does in English, and it attaches to whatever is eaten: haragia is meat. Basatia is the opposite of maskota, the pet."},
     wordIds:["ugaztuna","narrastia","anfibioa","intsektua","espeziea","haragijalea","belarjalea","abeltzaintza","basatia"],
+  },
+  {
+    id:"l83_pot",
+    pro:true,
+    num:113,
+    title:"What Goes in the Pot",
+    titleEu:"Lapikoan",
+    emoji:"🍲",
+    blurb:"Clams, cabbage, chili and the rest of what the classic dishes are made of.",
+    intro:"The famous Basque dishes are short lists of ingredients, and these are the ones the lists were missing: the clams in green sauce, the cabbage and sausages beside Tolosa beans, the almond and cherry in the Basque cake.",
+    grammar:{title:"The ending that makes it food",body:"Behi is a cow and behikia is beef. Txerri is a pig and txerrikia is pork. The ending -ki turns the animal into what is on the plate, and it is the same ending as in izozkia, ice cream, from izotz, ice."},
+    wordIds:["txirla","aza","limoia","gerezia","behikia","pipermina","piperrautsa","ozpina","odolkia","txorizoa","arbendola","irasagarra"],
   },
 
 ];
