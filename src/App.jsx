@@ -1306,7 +1306,7 @@ const SEED_VOCAB=[
 {"id":"piperrautsa","basque":"Piperrautsa","english":"Paprika","cefr":"B1","topic":"food","pronunciation":"pee-PEH-row-tsah","notes":"Piperrautsa = paprika. It is what colors txistorra, the Basque sausage, red.","example":{"basque":"Piperrautsa gorria da.","english":"Paprika is red."}},
 {"id":"ozpina","basque":"Ozpina","english":"Vinegar","cefr":"B1","topic":"food","pronunciation":"os-PEE-nah","notes":"Ozpina = vinegar. Ozpinetako describes something pickled in it.","example":{"basque":"Ozpina behar dut.","english":"I need vinegar."}},
 {"id":"odolkia","basque":"Odolkia","english":"Blood sausage","cefr":"B1","topic":"food","pronunciation":"oh-DOL-kee-ah","notes":"Odolkia = blood sausage, made with the blood (odol) of the pig or the lamb. Boiled, it is one of the sides served with Tolosa beans.","example":{"basque":"Odolkia jan dut.","english":"I ate blood sausage."}},
-{"id":"txorizoa","basque":"Txorizoa","english":"Chorizo","cefr":"B1","topic":"food","pronunciation":"cho-REE-soh-ah","notes":"Txorizoa = chorizo. Boiled, it is one of the sides served with Tolosa beans.","example":{"basque":"Txorizoa jan dut.","english":"I ate chorizo."}},
+{"id":"txorizoa","basque":"Txorizoa","english":"Chorizo","cefr":"B1","topic":"food","pronunciation":"choh-REE-soh-ah","notes":"Txorizoa = chorizo. Boiled, it is one of the sides served with Tolosa beans.","example":{"basque":"Txorizoa jan dut.","english":"I ate chorizo."}},
 {"id":"arbendola","basque":"Arbendola","english":"Almond","cefr":"B1","topic":"food","pronunciation":"ar-BEN-doh-lah","notes":"Arbendola = almond. In the southern Basque Country many say almendra. Ground almond goes into the dough of euskal pastela.","example":{"basque":"Arbendolak gustatzen zaizkit.","english":"I like almonds."}},
 {"id":"irasagarra","basque":"Irasagarra","english":"Quince","cefr":"B1","topic":"food","pronunciation":"ee-RAH-sah-gar-rah","notes":"Irasagarra = quince. It is mostly made into irasagar-gozokia, quince paste, which a cider house serves with cheese and walnuts.","example":{"basque":"Irasagarra horia da.","english":"The quince is yellow."}}
 ];
@@ -6772,7 +6772,7 @@ var LESSONS=[
     titleEu:"Hizkuntza eta kultura",
     emoji:"\uD83D\uDCD6",
     blurb:"Books, sports, and the Basque language.",
-    intro:"These words sit close to the heart of why people learn Basque at all. Euskara, the language, and Euskal Herria, the country, come first, and then the ordinary culture around them: books, cinema, sport, song.",
+    intro:"These words sit close to the heart of why people learn Basque at all. Euskara, the language, and Euskal Herria, the country, come first, and then the ordinary culture around them: books, movies, sports, song.",
     grammar:{title:"Euskara and euskalduna",body:"Euskara is the Basque language itself. A euskalduna is a Basque speaker, literally one who has Basque. The -dun ending means one who has, a useful pattern you will meet again in the language."},
     wordIds:["euskara","euskalduna","euskal_herria","ikurrina","liburua","liburutegia","zinema","kirolak","futbola","abestia"],
   },
@@ -6875,7 +6875,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC15",
     blurb:"Dogs, horses, and the animals hiding in Basque names.",
     intro:"Animals are everywhere in Basque, and not only in the field. They turn up in surnames, in place names, and even in the word for a witches' gathering. Learn the animal and you often learn a name you have seen before.",
-    grammar:{title:"Animals inside names",body:"Otsoa (wolf) gave the surname Ochoa. Aker, the billy goat, sits inside akelarre, the word for a witches' gathering, from aker + larre (meadow). Many Basque names began as something living."},
+    grammar:{title:"Animals inside names",body:"Otsoa (wolf) gave the surname Ochoa. Aker, the billy goat, sits inside akelarre, the word for a witches' gathering, from aker + larre (meadow)."},
     wordIds:["animalia","txakurra","katua","zaldia","oiloa","sagua","eulia","otsoa","ahuntza","untxia"],
   },
   {
@@ -6898,7 +6898,7 @@ var LESSONS=[
     emoji:"\uD83C\uDF74",
     blurb:"What goes in the pan, and what you eat it with.",
     intro:"Seasonings, staples and the things you set a table with. One of these words is built from a farm tool.",
-    grammar:{title:"A little pitchfork",body:"Sardexka is the one to remember: sarde is a pitchfork and -xka makes a thing small, so a fork is a little pitchfork. That same -xka turns up later softening colors. Gatza, salt, is the root behind gazia, salty, and gazta, cheese, is popularly tied to it too. Labana came in from Spanish navaja, while aizto, the older native word, stayed with the traditional knives."},
+    grammar:{title:"A little pitchfork",body:"Sardexka is the one to remember: sarde is a pitchfork and -xka makes a thing small, so a fork is a little pitchfork. That same -xka turns up later softening colors. Gatza, salt, is the root behind gazia, salty, and gazta, cheese, is popularly tied to it too. Labana came in from Spanish navaja; aizto is the older native word."},
     wordIds:["gatz","olioa","piperra","azukrea","arroza","tea","barazkia","txokolatea","platera","koilara","sardexka","labana"],
   },
   {
