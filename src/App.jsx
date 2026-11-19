@@ -1380,7 +1380,42 @@ function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return
   // punctuation rule and nothing looser. Otherwise dropping the question mark
   // would let the article rule take "nora" (where to) for Nor? (who).
   var fixed=/[?!]/.test(q.correct);
-  var ok=exact||(!fixed&&(n1===n2||bare));var d=lev(n1,n2);var tol=n2.length<=4?1:2;return{correct:ok,wasClose:!ok&&d<=tol&&n1.length>=3,userAnswer:ua};}
+  var ok=exact||(!fixed&&(n1===n2||bare));var d=lev(n1,n2);var tol=n2.length<=4?1:2;
+  // The loose rules above (case endings, tz for ts, the article added) also
+  // reach other cards: "hotza" (cold) normalised into Hotsa (sound), "gabon"
+  // (good night) into Gabonak (Christmas), "etxean" (at home) into Etxea. A
+  // typed answer that is exactly another card's word is that word, so it is
+  // wrong, and not "so close" either. Dropping this card's own article stays
+  // right even when the bare form is a card too: "hori" for Horia (yellow).
+  var dropArticle=p1.length>=3&&p1+"a"===p2;
+  if(ok&&!exact&&!dropArticle&&isOtherCard(p1,p2,q.word)){ok=false;return{correct:false,wasClose:false,userAnswer:ua};}
+  return{correct:ok,wasClose:!ok&&d<=tol&&n1.length>=3,userAnswer:ua};}
+// Every card's word, and its form without the article, mapped to the cards it
+// belongs to. Rebuilt only when the vocabulary is swapped for a fetched one.
+var _cardForms={src:null,map:null};
+function cardFormMap(){
+  if(_cardForms.src===_VOCAB)return _cardForms.map;
+  var m={};
+  function add(k,w){if(!k)return;if(!m[k])m[k]=[];m[k].push(w);}
+  for(var i=0;i<_VOCAB.length;i++){
+    var w=_VOCAB[i],pf=plainAnswer(w.basque);
+    add(pf,w);
+    if(pf.length>=4&&pf.charAt(pf.length-1)==="a")add(pf.slice(0,-1),w);
+  }
+  _cardForms={src:_VOCAB,map:m};
+  return m;
+}
+function isOtherCard(typed,target,word){
+  var hits=cardFormMap()[typed];
+  if(!hits)return false;
+  for(var i=0;i<hits.length;i++){
+    var h=hits[i];
+    if(word&&h.id===word.id)continue;
+    if(plainAnswer(h.basque)===target)continue;
+    return true;
+  }
+  return false;
+}
 function scoreSession(results){var total=results.length,correct=0,close=0,wrong=0;for(var i=0;i<results.length;i++){var r=results[i];if(r.correct)correct++;else if(r.wasClose)close++;else wrong++;}var acc=total>0?Math.round(correct/total*100):0;var grade=acc===100?{label:"Perfect!",sub:"Flawless!",emoji:"*"}:acc>=80?{label:"Excellent",sub:"Great work!",emoji:"*"}:acc>=60?{label:"Good",sub:"Keep going!",emoji:"!"}:{label:"Keep trying",sub:"Practice makes perfect",emoji:"~"};var mw=[],cw=[],mid={};for(var j=0;j<results.length;j++){var r2=results[j];if(!r2.correct&&r2.question&&r2.question.word){var w=r2.question.word;if(!r2.wasClose&&!mid[w.id]){mw.push(w);mid[w.id]=1;}else if(r2.wasClose&&!mid[w.id]){cw.push(w);mid[w.id]=1;}}}return{total:total,correct:correct,closeButWrong:close,genuinelyWrong:wrong,accuracy:acc,grade:grade,missedWords:mw,closeWords:cw};}
 // The app icon, served from the bundle so it works offline. This used to be a
 // hand-drawn green glyph that predated the icon redesign, which left the header
