@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+  Source for assets/social-card.png, the 1200x630 link preview image.
+  The PNG is not stamped by sync-vocab, so keep its claims drift-proof:
+  no exact word count, and only what every word has.
+
+  Render from the repo root:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+      --window-size=1200,630 --screenshot=assets/social-card.png \
+      "file://$PWD/tools/social-card.html"
+-->
+<html><head><meta charset="utf-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:630px;overflow:hidden;}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#16241B;
+    background:linear-gradient(180deg,#FDF8ED 0%,#F4EBD6 100%);position:relative;}
+  .kaixo{position:absolute;left:100px;top:188px;font-size:27px;font-weight:700;
+    letter-spacing:0.3em;color:#DA291C;line-height:1;}
+  h1{position:absolute;left:97px;top:241px;font-size:65px;font-weight:700;
+    letter-spacing:-0.015em;line-height:72px;white-space:nowrap;}
+  h1 .g{color:#009B48;}
+  .sub{position:absolute;left:100px;top:404px;font-size:27px;font-weight:400;
+    line-height:38px;color:#5F6B62;white-space:nowrap;}
+  .rule{position:absolute;left:100px;top:516px;width:150px;height:4px;background:#009B48;border-radius:2px;}
+  .foot{position:absolute;left:100px;top:540px;font-size:25px;line-height:30px;color:#8A9288;white-space:nowrap;}
+  .foot b{color:#16241B;font-weight:700;margin-right:18px;}
+  .icon{position:absolute;left:776px;top:150px;width:300px;height:300px;border-radius:68px;
+    box-shadow:0 22px 44px rgba(60,48,20,0.16);display:block;}
+</style></head>
+<body>
+  <div class="kaixo">KAIXO!</div>
+  <h1>Learn Basque,<br><span class="g">straight from English.</span></h1>
+  <p class="sub">Over 1,000 words, each with a pronunciation guide,<br>an example sentence and a short note.</p>
+  <div class="rule"></div>
+  <div class="foot"><b>Ikasi &amp; Go</b>Free on the App Store · iPhone &amp; iPad</div>
+  <img class="icon" src="../ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png" alt="">
+</body></html>
