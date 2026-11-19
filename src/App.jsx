@@ -3978,7 +3978,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Start the morning",keyword:"gosaria",hint:"Gosaria: breakfast. Gosaldu is to have it"},
       {instruction:"Brew the coffee",keyword:"kafea",hint:"Strong and black or with milk"},
       {instruction:"Toast the bread",keyword:"ogia",hint:"Ogia: bread. Ogitegi is a bakery, the bread-place"},
-      {instruction:"Add a sweet bun",keyword:"opila",hint:"Opila: a sweet bread, traditionally eaten at Easter"},
+      {instruction:"Pour a glass of milk",keyword:"esnea",hint:"For the children, or for the coffee"},
       {instruction:"Sit down to eat",keyword:"gosaldu",hint:"To have breakfast: take your time"},
     ]},
     {key:"intxaursaltsa",name:"Intxaursaltsa",emoji:"🌰",desc:"Walnut cream, Christmas dessert",color:"#92400E",dark:"#451A03",bg:"#FFF7ED",stages:[
