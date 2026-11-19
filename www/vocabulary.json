@@ -59,8 +59,8 @@
       "english": "Thank you",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "es-KER-ik AS-ko",
-      "notes": "Eskerrik asko = many thanks. Esker = thanks + -rik (partitive suffix) + asko = much/many. The partitive -rik expresses an indefinite quantity of thanks. A beautiful construction: indefinitely many thanks.",
+      "pronunciation": "es-KER-reek AS-koh",
+      "notes": "Eskerrik asko = many thanks. Esker = thanks + -ik (partitive suffix) + asko = much/many. The partitive -ik expresses an indefinite quantity of thanks. A beautiful construction: indefinitely many thanks.",
       "example": {
         "basque": "Eskerrik asko laguntzeagatik.",
         "english": "Thank you for helping."
@@ -334,7 +334,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "BEE",
-      "notes": "Bi also means both. Bietan = in both. Basque numbers are base-20: hogei=20, berrogei=40 (two twenties).",
+      "notes": "Biak = both. Bietan = in both. Basque numbers are base-20: hogei=20, berrogei=40 (two twenties).",
       "example": {
         "basque": "Bi lagun daude.",
         "english": "There are two friends."
@@ -360,7 +360,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "LOW (rhymes with now)",
-      "notes": "Lau rhymes with the English word now. Four floors down = lau solairutan behera.",
+      "notes": "Lau rhymes with the English word now.",
       "example": {
         "basque": "Lau urteko umea.",
         "english": "A four year old child."
@@ -373,7 +373,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "BOST",
-      "notes": "Bost is one of the most distinct Basque numbers, with no relation to any other language.",
+      "notes": "Bost = five. Bosgarrena = fifth.",
       "example": {
         "basque": "Bost minutu.",
         "english": "Five minutes."
@@ -425,7 +425,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "beh-deh-RAH-tsee",
-      "notes": "Bederatzi is the longest single-digit number in Basque. Break it: beder + atzi.",
+      "notes": "Bederatzi is the longest single-digit number in Basque. It shares its -tzi ending with zortzi (eight).",
       "example": {
         "basque": "Bederatzi euro.",
         "english": "Nine euros."
@@ -503,7 +503,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "AI-tah",
-      "notes": "Aita is also used in religious contexts. Aita Gurea = Our Father (the Lords Prayer in Basque).",
+      "notes": "Aita is also used in religious contexts. Aita Gurea = Our Father (the Lord's Prayer in Basque).",
       "example": {
         "basque": "Nire aita Bilbon bizi da.",
         "english": "My father lives in Bilbo."
@@ -531,8 +531,8 @@
       "pronunciation": "ah-EES-pah",
       "notes": "Ahizpa = sister as said by a female speaker (a woman's sister). A male speaker says arreba for his sister. Basque distinguishes sibling terms by the speaker's gender, not the sibling's.",
       "example": {
-        "basque": "Nire ahizpa eta anaia Donostian bizi dira.",
-        "english": "My sister and brother live in Donostia."
+        "basque": "Nire ahizpa Donostian bizi da.",
+        "english": "My sister lives in Donostia."
       }
     },
     {
@@ -620,7 +620,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "fah-MEE-lee-ah",
-      "notes": "Familia comes from Latin/Spanish. The more traditional Basque word for family is etxea (house/home), reflecting how family centered on the household.",
+      "notes": "Familia comes from Latin/Spanish. Sendia is another Basque word for family.",
       "example": {
         "basque": "Familia handia dut.",
         "english": "I have a big family."
@@ -672,7 +672,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "GOR-ree-ah",
-      "notes": "All Basque colors end in -a (the definite article). Gorri = red, gorria = the red one.",
+      "notes": "The colors here are shown with the article -a. Gorri = red, gorria = the red one.",
       "example": {
         "basque": "Sagarra gorria da.",
         "english": "The apple is red."
@@ -685,7 +685,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "oor-DEE-nah",
-      "notes": "Urdina is also used for green in some dialects. The sea (itsasoa) is described as urdina in poetry.",
+      "notes": "In older Basque, urdin also covered green and grey. The sea (itsasoa) is described as urdina in poetry.",
       "example": {
         "basque": "Zerua urdina da.",
         "english": "The sky is blue."
@@ -698,7 +698,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "BER-deh-ah",
-      "notes": "Berde comes from Latin viridis. Also used for traffic lights: berdea = go!",
+      "notes": "Berde comes from Latin viridis.",
       "example": {
         "basque": "Belarra berdea da.",
         "english": "The grass is green."
@@ -711,7 +711,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "SOO-ree-ah",
-      "notes": "Figuratively, zuri can mean flattering or insincere: hitz zuriak = empty flattery. Ardi zuria = white sheep, a common Basque image.",
+      "notes": "Figuratively, zuri can mean flattering or insincere: hitz zuriak = empty flattery.",
       "example": {
         "basque": "Elurra zuria da.",
         "english": "The snow is white."
@@ -724,7 +724,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "BEL-tsah",
-      "notes": "Beltza is also a surname. The Basque flag (ikurrina) uses red, green and white, no black.",
+      "notes": "Ardo beltza, literally black wine, is red wine. The Basque flag (ikurrina) uses red, green and white, no black.",
       "example": {
         "basque": "Gaua beltza da.",
         "english": "The night is black."
@@ -763,7 +763,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "moh-REH-ah",
-      "notes": "Morea comes from Spanish morado. A bruise is ubeldua, from ubel, another purple word.",
+      "notes": "Morea is related to Spanish morado. A bruise is ubeldura, from ubel, another purple word.",
       "example": {
         "basque": "Lorea morea da.",
         "english": "The flower is purple."
@@ -5582,7 +5582,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "OW-rah (h is silent)",
-      "notes": "Child or baby. Haur = child (root). Haurtzaro = childhood. Haurra zaintzea = to look after a child. Haur eskola = nursery school. Haurrak = children (plural). Haurrak behar ditu = she needs children.",
+      "notes": "Child or baby. Haur = child (root). Haurtzaro = childhood. Haurra zaintzea = to look after a child. Haur eskola = nursery school. Haurrak = children (plural).",
       "example": {
         "basque": "Haurra lo dago.",
         "english": "The child is sleeping."
@@ -5699,7 +5699,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "PEESH-kah bat",
-      "notes": "A little or a bit. Pixka = small amount. Pixka bat gehiago = a little more. Euskara pixka bat badakit = I know a little Basque. The most useful phrase for a beginner, shows humility and willingness to try.",
+      "notes": "A little or a bit. Pixka = small amount. Pixka bat gehiago = a little more. Euskara pixka bat badakit = I know a little Basque.",
       "example": {
         "basque": "Euskara pixka bat badakit.",
         "english": "I know a little Basque."
@@ -6752,10 +6752,10 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "ee-rah-KOOR-ree",
-      "notes": "Irakurri = to read. Irakurtzen dut = I am reading. Irakurketa = reading (noun). Irakurle = reader. Irakurgarria = readable/worth reading. One of the most essential verbs. Reading Basque is the foundation of learning it.",
+      "notes": "Irakurri = to read. Irakurtzen dut = I read. Irakurketa = reading (noun). Irakurle = reader. Irakurgarria = readable/worth reading. One of the most essential verbs.",
       "example": {
         "basque": "Liburua irakurtzen dut.",
-        "english": "I am reading the book."
+        "english": "I read the book."
       }
     },
     {
@@ -6765,10 +6765,10 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "ee-DAH-tsee",
-      "notes": "Idatzi = to write. Idazten dut = I am writing. Idazlea = writer/author. Idazketa = writing (noun). Idazki = written document. Idatzia = written (adjective). Fundamental verb alongside irakurri (to read).",
+      "notes": "Idatzi = to write. Idazten dut = I write. Idazlea = writer/author. Idazketa = writing (noun). Idazki = written document. Idatzia = written (adjective). Fundamental verb alongside irakurri (to read).",
       "example": {
         "basque": "Gutun bat idazten dut.",
-        "english": "I am writing a letter."
+        "english": "I write a letter."
       }
     },
     {
@@ -6778,10 +6778,10 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "en-TSOON",
-      "notes": "Entzun = to listen or hear. Entzuten dut = I hear/I am listening. Entzule = listener. Entzungarria = audible. Entzun! = Listen! Entzun al duzu? = Did you hear?",
+      "notes": "Entzun = to listen or hear. Entzuten dut = I hear/I listen. Entzule = listener. Entzungarria = audible. Entzun! = Listen! Entzun al duzu? = Did you hear?",
       "example": {
         "basque": "Musika entzuten dut.",
-        "english": "I am listening to music."
+        "english": "I listen to music."
       }
     },
     {
@@ -6843,7 +6843,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "beh-ghee-RAH-too",
-      "notes": "Begiratu = to look at or watch (intentional). Begiratzen dut = I am looking. Begiratu! = Look! Do not confuse with ikusi (to see, perception) vs begiratu (to look, deliberate act). Begirale = observer/watcher. Begi = eye (root).",
+      "notes": "Begiratu = to look at or watch (intentional). Begiratzen dut = I look. Begiratu! = Look! Do not confuse with ikusi (to see, perception) vs begiratu (to look, deliberate act). Begirale = observer/watcher. Begi = eye (root).",
       "example": {
         "basque": "Begiratu ezazu.",
         "english": "Look at it."
@@ -10691,7 +10691,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "EE (h is silent)",
-      "notes": "Hi is the intimate you (hika), used with close friends and siblings in some regions and families, and it takes its own verb forms: hi haiz = you are. Usage varies widely and can feel too familiar if misjudged, so learners should default to zu, much as French vous is used generally.",
+      "notes": "Hi is the intimate you (hika), used with close friends and siblings in some regions and families, and it takes its own verb forms: hi haiz = you are. Usage varies widely and can feel too familiar if misjudged, so learners should default to zu.",
       "example": {
         "basque": "Hi nire laguna haiz.",
         "english": "You are my friend."
@@ -11161,7 +11161,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DAH",
-      "notes": "Da is the hura form of izan and the most common verb form in Basque. It ends a great many sentences, because the verb goes last: hau ura da, this is water. Its egon counterpart is dago.",
+      "notes": "Da is the hura form of izan and one of the most common verb forms in Basque. It ends a great many sentences, because the verb goes last: hau ura da, this is water. Its egon counterpart is dago.",
       "example": {
         "basque": "Hau ura da.",
         "english": "This is water."
@@ -11200,7 +11200,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DEE-rah",
-      "notes": "Dira is the haiek form of izan and the plural of da. Basque marks the plural on the verb itself, so the subject does not have to carry it. Its egon counterpart is daude.",
+      "notes": "Dira is the haiek form of izan and the plural of da. Basque marks the plural on the verb as well as on the noun. Its egon counterpart is daude.",
       "example": {
         "basque": "Haiek anaiak dira.",
         "english": "They are brothers."
@@ -11541,7 +11541,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "bee-AR AR-teh",
-      "notes": "Bihar (tomorrow) + arte (until): literally until tomorrow. The pattern works with any time word: gero arte (see you later), laster arte (see you soon). The h in bihar is silent in the south.",
+      "notes": "Bihar (tomorrow) + arte (until): literally until tomorrow. The pattern works with any time word: gero arte (see you later), laster arte (see you soon).",
       "example": {
         "basque": "Agur, bihar arte!",
         "english": "Goodbye, see you tomorrow!"
@@ -11658,7 +11658,7 @@
       "cefr": "A1",
       "topic": "home",
       "pronunciation": "oh-EH-ah",
-      "notes": "Ohea is an old native Basque word, with the h silent in the south. Ohera joan = to go to bed, and oheratu is a verb meaning to turn in. Ohe bikoitza = double bed, useful at hotels.",
+      "notes": "Ohea is an old native Basque word. The h is silent. Ohera joan = to go to bed, and oheratu is a verb meaning to turn in. Ohe bikoitza = double bed, useful at hotels.",
       "example": {
         "basque": "Ohera noa. Gabon!",
         "english": "I am going to bed. Good night!"
@@ -12559,7 +12559,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "EE-tsah (h is silent)",
-      "notes": "Hitza eman means to give your word, and in Basque culture a promise given this way is binding. Hitz egin, literally to do words, means to speak. Several local Basque-language newspapers are named Hitza.",
+      "notes": "Hitza eman means to give your word, to promise. Hitz egin, literally to do words, means to speak. Several local Basque-language newspapers are named Hitza.",
       "example": {
         "basque": "Hitz berri bat ikasi dut gaur.",
         "english": "I learned a new word today."
