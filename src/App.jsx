@@ -6651,7 +6651,7 @@ var LESSONS=[
     titleEu:"Egunak eta ordua",
     emoji:"\uD83D\uDD53",
     blurb:"Talk about today, tomorrow, and when.",
-    intro:"Telling time and talking about days lets you make plans and arrange to meet. These words anchor a conversation in the present, past, or future. Start with the everyday trio: gaur (today), bihar (tomorrow), atzo (yesterday).",
+    intro:"Talking about days lets you make plans and arrange to meet. These words anchor a conversation in the present, past, or future. Start with the everyday trio: gaur (today), bihar (tomorrow), atzo (yesterday).",
     grammar:{title:"The week, and how often",body:"Asteburua is the weekend, aste plus buru, the head of the week, which is nearly the picture English draws with weekend. Both roots take -ero for how often a thing happens: egunero is every day, astero every week. Noiz asks when, and the answer is usually one of the words in this lesson."},
     wordIds:["gaur","bihar","atzo","orain","gero","eguna","gaua","astea","asteburua","noiz"],
   },
@@ -6696,7 +6696,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD32",
     blurb:"The other five people, and the endings that make them.",
     intro:"You can say what you did. These are the other five people, built the same way: one shape with a small ending on the back. The endings are the part worth having, because they turn up on other verbs too.",
-    grammar:{title:"One shape, six endings",body:"All six start du and differ only in what is stuck on the end. Dut is du plus -t, duzu is du plus -zu, dugu takes -gu, duzue takes -zue and dute takes -te. Du itself takes nothing at all. That is the habit that left zuek and haiek alone in the last lesson: where there is nothing particular to mark, Basque marks nothing. Line the endings up against the pronouns and you can almost read them off, -gu from gu, -zu from zu, -zue from zuek. All six are for one thing at a time, so a whole shelf of books needs a different set, and that comes later."},
+    grammar:{title:"One shape, six endings",body:"All six start du and differ only in what is stuck on the end. Dut is du plus -t, duzu is du plus -zu, dugu takes -gu, duzue takes -zue and dute takes -te. Du itself takes nothing at all. Line the endings up against the pronouns and you can almost read them off, -gu from gu, -zu from zu, -zue from zuek. All six are for one thing at a time, so a whole shelf of books needs a different set, and that comes later."},
     wordIds:["duzu","du","dugu","duzue","dute"],
   },
   {
@@ -6707,7 +6707,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC4B",
     blurb:"Name the parts of the body.",
     intro:"Knowing body parts helps at the doctor, at the gym, or when describing how you feel. Like most Basque nouns, these end in -a, so begia is the eye and eskua is the hand. Notice how many are short and easy to say.",
-    grammar:{title:"The -a ending again",body:"You have seen that -a carries the article on a Basque noun. Body parts follow the same rule: buru is the bare root, head, and burua is the head. When you learn a new noun, the dictionary form already includes this -a."},
+    grammar:{title:"The -a ending again",body:"You have seen that -a carries the article on a Basque noun. Body parts follow the same rule: buru is the bare root, head, and burua is the head. The form on each word card already includes this -a. Hanka is the exception here: its -a belongs to the word itself, so hanka is both leg and the leg."},
     wordIds:["burua","begia","ahoa","sudurra","belarria","eskua","besoa","hanka","oina","bihotza"],
   },
   {
@@ -6718,7 +6718,7 @@ var LESSONS=[
     emoji:"\uD83C\uDFD4\uFE0F",
     blurb:"Mountains, sea, sun, and rain.",
     intro:"The Basque Country is green and mountainous, with the sea on one side and peaks on the other. These words let you talk about the landscape and the weather. Eguzkia (sun) and euria (rain) come up in conversation often given the Atlantic climate.",
-    grammar:{title:"Talking about weather",body:"To say what the weather is doing, Basque often pairs a nature word with a verb. Euria ari du means it is raining, literally it is doing rain. For now, just learning the nouns like euria, elurra, and haizea gives you the building blocks."},
+    grammar:{title:"Talking about weather",body:"To say what the weather is doing, Basque often pairs a nature word with a verb. Euria egiten du means it is raining, literally rain does. For now, just learning the nouns like euria, elurra, and haizea gives you the building blocks."},
     wordIds:["mendia","itsasoa","ibaia","eguzkia","euria","elurra","haizea","zuhaitza","lorea","txoria"],
   },
   {
