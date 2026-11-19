@@ -60,7 +60,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "es-KER-reek AS-koh",
-      "notes": "Eskerrik asko = many thanks. Esker = thanks + -ik (partitive suffix) + asko = much/many. The partitive -ik expresses an indefinite quantity of thanks. A beautiful construction: indefinitely many thanks.",
+      "notes": "Eskerrik asko = many thanks. Esker = thanks + -ik (partitive suffix) + asko = much/many. The partitive -ik expresses an indefinite quantity of thanks: indefinitely many thanks.",
       "example": {
         "basque": "Eskerrik asko laguntzeagatik.",
         "english": "Thank you for helping."
@@ -360,7 +360,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "LOW (rhymes with now)",
-      "notes": "Lau rhymes with the English word now.",
+      "notes": "Lau rhymes with the English word now. Laugarrena = fourth.",
       "example": {
         "basque": "Lau urteko umea.",
         "english": "A four year old child."
@@ -490,7 +490,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "AH-mah",
-      "notes": "Ama appears in compounds and titles like Amalur (Mother Earth) and Ama Birjina (the Virgin Mary). Very common in songs and poetry.",
+      "notes": "Ama appears in compounds and titles like Amalur (Mother Earth) and Ama Birjina (the Virgin Mary).",
       "example": {
         "basque": "Nire ama medikua da.",
         "english": "My mother is a doctor."
@@ -506,7 +506,7 @@
       "notes": "Aita is also used in religious contexts. Aita Gurea = Our Father (the Lord's Prayer in Basque).",
       "example": {
         "basque": "Nire aita Bilbon bizi da.",
-        "english": "My father lives in Bilbo."
+        "english": "My father lives in Bilbao."
       }
     },
     {
@@ -558,7 +558,7 @@
       "notes": "Neba = brother as said by a female speaker (a woman's brother). Mainly Bizkaian; many speakers use anaia instead. A male speaker says anaia for his brother.",
       "example": {
         "basque": "Nire neba Bilbon bizi da.",
-        "english": "My brother lives in Bilbo."
+        "english": "My brother lives in Bilbao."
       }
     },
     {
@@ -594,7 +594,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "ah-MOH-nah",
-      "notes": "Amona combines ama (mother) + ona (good). Literally good mother, a lovely construction.",
+      "notes": "Amona combines ama (mother) + ona (good). Literally good mother.",
       "example": {
         "basque": "Amona zaharra da.",
         "english": "The grandmother is old."
@@ -685,7 +685,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "oor-DEE-nah",
-      "notes": "In older Basque, urdin also covered green and gray. The sea (itsasoa) is described as urdina in poetry.",
+      "notes": "In older Basque, urdin also covered green and gray.",
       "example": {
         "basque": "Zerua urdina da.",
         "english": "The sky is blue."
@@ -776,7 +776,7 @@
       "cefr": "A1",
       "topic": "colors",
       "pronunciation": "ar-ROH-sah",
-      "notes": "Arrosa also means rose (the flower). A lovely double meaning, the color named after the flower. Arrosa bat = a rose.",
+      "notes": "Arrosa also means rose (the flower): the color is named after it. Arrosa bat = a rose.",
       "example": {
         "basque": "Kamiseta arrosa daramat.",
         "english": "I am wearing a pink shirt."
@@ -2129,7 +2129,7 @@
       "cefr": "A2",
       "topic": "family",
       "pronunciation": "bee-see-lah-GOON-ah",
-      "notes": "Bizilaguna = neighbor. Bizi = to live + laguna = friend. Literally living-friend, what a lovely way to describe a neighbor!",
+      "notes": "Bizilaguna = neighbor. Bizi = to live + laguna = friend. Literally living-friend.",
       "example": {
         "basque": "Bizilaguna adeitsua da.",
         "english": "The neighbor is friendly."
@@ -3731,7 +3731,7 @@
       "cefr": "A2",
       "topic": "adjectives",
       "pronunciation": "ah-LAI-ah",
-      "notes": "Alaia = cheerful or joyful. Alaitasuna = cheerfulness/joy. Alaigarri = cheering/uplifting. Alai ibili = to go about cheerfully. A lovely warm word.",
+      "notes": "Alaia = cheerful or joyful. Alaitasuna = cheerfulness/joy. Alaigarri = cheering/uplifting. Alai ibili = to go about cheerfully.",
       "example": {
         "basque": "Neska alaia da.",
         "english": "The girl is cheerful."
@@ -3799,7 +3799,7 @@
       "notes": "Inoiz = ever (questions/conditionals) or never (with ez). Inoiz joan zara? = Have you ever gone? Inoiz ez = never. Also used before superlatives: inoiz egin den film onena = the best film ever made. Do not confuse with sekula (never, emphatic).",
       "example": {
         "basque": "Inoiz joan zara Bilbora?",
-        "english": "Have you ever been to Bilbo?"
+        "english": "Have you ever been to Bilbao?"
       }
     },
     {
@@ -4345,7 +4345,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "in-geh-LEH-ses ITS eh-GEE-ten DOO-soo",
-      "notes": "Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? The -z suffix means in that language.",
+      "notes": "Essential emergency phrase. Euskaraz hitz egiten duzu? = Do you speak Basque? Al is an optional marker of yes or no questions. The -z suffix means in that language.",
       "mcOnly": true,
       "example": {
         "basque": "Ingelesez hitz egiten al duzu?",
@@ -4597,7 +4597,7 @@
       "notes": "Lehengusua = male cousin. Lehen = first. The female cousin is lehengusina. A common word in extended Basque families (senitartea), which are traditionally very close.",
       "example": {
         "basque": "Nire lehengusua Bilbon bizi da.",
-        "english": "My cousin lives in Bilbo."
+        "english": "My cousin lives in Bilbao."
       }
     },
     {
@@ -5530,7 +5530,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "sah-goo-SAR-rah",
-      "notes": "Bat. Sagu = mouse + zar(ra) = old = old mouse! One of the most charming Basque etymologies. Saguzarrak = bats (plural). Gaueko hegaztia = night flyer. Saguzarrek intsektuak jaten dituzte = bats eat insects.",
+      "notes": "Bat. Sagu = mouse + zar(ra) = old = old mouse. Saguzarrak = bats (plural). Gaueko hegaztia = night flyer. Saguzarrek intsektuak jaten dituzte = bats eat insects.",
       "example": {
         "basque": "Saguzarrek gauez hegan egiten dute.",
         "english": "Bats fly at night."
@@ -5581,7 +5581,7 @@
       "english": "Child / Baby",
       "cefr": "A1",
       "topic": "family",
-      "pronunciation": "OW-rah (h is silent)",
+      "pronunciation": "OWR-rah (h is silent)",
       "notes": "Child or baby. Haur = child (root). Haurtzaro = childhood. Haurra zaintzea = to look after a child. Haur eskola = nursery school. Haurrak = children (plural).",
       "example": {
         "basque": "Haurra lo dago.",
@@ -5724,7 +5724,7 @@
       "english": "Again / Once more",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "BER-ees",
+      "pronunciation": "BER-rees",
       "notes": "Again or once more. Berriz esan = say again. Berriz etorri = come again. Berriz ere = once again/yet again. Berriro = again (variant). Essential for language learners who need things repeated.",
       "example": {
         "basque": "Berriz esan mesedez.",
@@ -6843,7 +6843,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "beh-ghee-RAH-too",
-      "notes": "Begiratu = to look at or watch (intentional). Begiratzen dut = I look. Begiratu! = Look! Do not confuse with ikusi (to see, perception) vs begiratu (to look, deliberate act). Begirale = observer/watcher. Begi = eye (root).",
+      "notes": "Begiratu = to look at or watch (intentional). Begiratzen dut = I look. Begiratu! = Look! Ikusi is to see; begiratu is the deliberate act of looking. Begirale = observer/watcher. Begi = eye (root).",
       "example": {
         "basque": "Begiratu ezazu.",
         "english": "Look at it."
@@ -11369,7 +11369,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "AH-lah",
-      "notes": "Ala is the or of questions offering a real choice: Kafea ala tea? expects you to pick one. Use edo in a question and it turns into a yes or no question about wanting either at all. A tidy distinction English does not mark.",
+      "notes": "Ala is the or of questions offering a real choice: Kafea ala tea? expects you to pick one. Use edo in a question and it turns into a yes or no question about wanting either at all.",
       "example": {
         "basque": "Kafea ala tea nahi duzu?",
         "english": "Do you want coffee or tea?"
@@ -11382,7 +11382,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "BAH-nyah",
-      "notes": "Baina means but, and in most of the country the n after the i is palatalized, so it sounds like ba-nya. Do not mix it up with baino, the than of comparisons: hau hori baino handiagoa da = this is bigger than that.",
+      "notes": "Baina means but, and in many areas the n after the i is palatalized, so it sounds like ba-nya. Do not mix it up with baino, the than of comparisons: hau hori baino handiagoa da = this is bigger than that.",
       "example": {
         "basque": "Euskara zaila da, baina polita.",
         "english": "Basque is difficult, but beautiful."
@@ -11514,7 +11514,7 @@
       "english": "Good afternoon",
       "cefr": "A1",
       "topic": "greetings",
-      "pronunciation": "ah-rrah-TSAHL-deh ON",
+      "pronunciation": "ar-rah-TSAL-deh ON",
       "notes": "The standard afternoon greeting, used from around midday until dark: egun on in the morning, arratsalde on in the afternoon, gabon at night. Arratsalde combines arrats (dusk, evening) and alde (part), the evening part of the day.",
       "example": {
         "basque": "Arratsalde on! Zer moduz?",
@@ -12074,7 +12074,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "kah-tah-goh-RREE-ah",
-      "notes": "Literally red cat: katu (cat) + gorri (red), a lovely example of Basque compound naming. Urtxintxa is a widely used synonym; both are standard.",
+      "notes": "Literally red cat: katu (cat) + gorri (red). Urtxintxa is a widely used synonym; both are standard.",
       "example": {
         "basque": "Katagorriak intxaurrak jaten ditu.",
         "english": "The squirrel eats walnuts."
@@ -12217,7 +12217,7 @@
       "cefr": "A2",
       "topic": "animals",
       "pronunciation": "ee-SOOR-deh-ah",
-      "notes": "Dolphin. The etymology is charming: an old root iz (water, also seen in izotz, ice) plus urde (pig), so literally the water pig. Dolphins are a common sight in the Bay of Biscay (Bizkaiko Golkoa), often trailing fishing boats.",
+      "notes": "Dolphin. Usually explained as an old root iz (water, also seen in izotz, ice) plus urde (pig), so literally the water pig. Dolphins are a common sight in the Bay of Biscay (Bizkaiko Golkoa), often trailing fishing boats.",
       "example": {
         "basque": "Izurdeak itsasoan igeri egiten du.",
         "english": "The dolphin swims in the sea."
@@ -12399,7 +12399,7 @@
       "cefr": "A2",
       "topic": "food",
       "pronunciation": "eh-dah-LON-tsee-ah",
-      "notes": "A lovely transparent formation: edan (to drink) + ontzi (vessel) = drinking vessel. Ontzi is everywhere. Itsasontzia = ship (sea vessel), ontziak garbitu = to wash the dishes. Colloquially basoa (from Spanish vaso) is also common.",
+      "notes": "Edan (to drink) + ontzi (vessel) = drinking vessel. Ontzi is everywhere. Itsasontzia = ship (sea vessel), ontziak garbitu = to wash the dishes. Colloquially basoa (from Spanish vaso) is also common.",
       "example": {
         "basque": "Edalontzia urez bete dut.",
         "english": "I filled the glass with water."
@@ -12559,7 +12559,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "EE-tsah (h is silent)",
-      "notes": "Hitza eman means to give your word, to promise. Hitz egin, literally to do words, means to speak. Several local Basque-language newspapers are named Hitza.",
+      "notes": "Hitza eman means to give your word, to promise. Hitz egin, literally to make word, means to speak. Several local Basque-language newspapers are named Hitza.",
       "example": {
         "basque": "Hitz berri bat ikasi dut gaur.",
         "english": "I learned a new word today."
