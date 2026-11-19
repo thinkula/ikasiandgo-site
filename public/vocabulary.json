@@ -282,7 +282,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "toh-MAH-teh-ah",
-      "notes": "Tomatea in Basque cooking is everywhere, in pintxos, sauces, and the famous piperada (tomato and pepper stew). From Spanish tomate.",
+      "notes": "Tomatea goes into pintxos, sauces and piperada (tomato and pepper stew). From Spanish tomate.",
       "example": {
         "basque": "Tomatea gorria da.",
         "english": "The tomato is red."
@@ -5478,7 +5478,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "AR-dee-ah",
-      "notes": "Sheep. Ardi = sheep (root). Central to Basque rural life. Idiazabal cheese (Idiazabal gazta) is made from sheep's milk. Artzaina = shepherd. The Basque shepherd tradition is ancient and still alive in the Pyrenees.",
+      "notes": "Sheep. Ardi = sheep (root). Idiazabal cheese (Idiazabal gazta) is made from sheep's milk. Artzaina = shepherd.",
       "example": {
         "basque": "Ardiak mendian daude.",
         "english": "The sheep are in the mountains."
@@ -6882,7 +6882,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "bah-NAH-nah",
-      "notes": "Same word as Spanish and English, though in everyday shops you will often hear platanoa, from Spanish platano. Bananondoa = banana tree.",
+      "notes": "Same word as Spanish and English, though in everyday shops you will often hear platanoa, from Spanish plátano. Bananondoa = banana tree.",
       "example": {
         "basque": "Banana jan nahi dut.",
         "english": "I want to eat a banana."
@@ -8376,7 +8376,7 @@
       "english": "Brown",
       "cefr": "A2",
       "topic": "colors",
-      "pronunciation": "mar-ROH-ee-ah",
+      "pronunciation": "mar-ROY-ah",
       "notes": "Brown. From Spanish marrón. Marroi iluna = dark brown. The color of Basque wooden furniture and traditional farmhouses (baserri).",
       "example": {
         "basque": "Aulkia marroia da.",
@@ -9858,7 +9858,7 @@
       "english": "Tendon",
       "cefr": "B1",
       "topic": "body",
-      "pronunciation": "ten-DOH-ee-ah",
+      "pronunciation": "ten-DOY-ah",
       "notes": "Tendon. From Spanish tendón. Tendoi-lesio = tendon injury. Akilesen tendoia = Achilles tendon. Common sports injury vocabulary. Basque mountain sports make tendon injuries frequent.",
       "example": {
         "basque": "Tendoi-lesio bat daukat belaunean.",
@@ -10587,9 +10587,9 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "eh-goos-KEE-tsoo-ah",
-      "notes": "Sunny. Eguzki (sun) + -tsu (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine.",
+      "notes": "Sunny. Eguzki (sun) + -tsu (full of). Eguzkitsu dago = it is sunny. Eguzki argitsua = bright sunshine.",
       "example": {
-        "basque": "Eguzkitsua dago gaur eta parkera joango gara.",
+        "basque": "Eguzkitsu dago gaur eta parkera joango gara.",
         "english": "It is sunny today and we will go to the park."
       }
     },
@@ -12022,7 +12022,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "SAHL-dee-ah",
-      "notes": "Zaldi = horse (root). Horses run deep in rural Basque culture: zaldi-probak are traditional contests where horses drag huge stones, and the pottoka is a small semi-wild pony native to the Basque hills. Zaldiko-maldikoa = merry-go-round, a playful derivative.",
+      "notes": "Zaldi = horse (root). Zaldi-probak are traditional contests where horses drag huge stones, and the pottoka is a small semi-wild pony native to the Basque hills. Zaldiko-maldikoa = merry-go-round, a playful derivative.",
       "example": {
         "basque": "Zaldia azkarra da.",
         "english": "The horse is fast."
@@ -12152,7 +12152,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "OH-lyoh-ah",
-      "notes": "Oilo = hen (root). Oilar = rooster and oilasko = chicken (the one on your plate). Oilo-ipurdia = goosebumps, literally hen bottom, and oilo-busti (wet hen) means a coward.",
+      "notes": "Oilo = hen (root). Oilar = rooster and oilasko = chicken (the one on your plate). Oilo-ipurdia = goosebumps, literally hen bottom.",
       "example": {
         "basque": "Oiloak arrautzak erruten ditu.",
         "english": "The hen lays eggs."
@@ -12858,7 +12858,7 @@
       "cefr": "A2",
       "topic": "city",
       "pronunciation": "fron-TOY-ah",
-      "notes": "Nearly every Basque town has a frontoia, usually on or beside the plaza. The oldest kind is a single high wall, and in many villages that wall was the side of the church. Pilotalekua is the native word, from pilota and leku (place). From Spanish fronton.",
+      "notes": "Nearly every Basque town has a frontoia, usually on or beside the plaza. The oldest kind is a single high wall, and in many villages that wall was the side of the church. Pilotalekua is the native word, from pilota and leku (place). From Spanish frontón.",
       "example": {
         "basque": "Frontoia plazaren ondoan dago.",
         "english": "The fronton is next to the square."
@@ -13247,7 +13247,7 @@
       "english": "Balcony",
       "cefr": "B1",
       "topic": "home",
-      "pronunciation": "bahl-KOH-yah",
+      "pronunciation": "bahl-KOY-ah",
       "notes": "Balkoia: balcony. Balconies carry flowers and laundry in every Basque town.",
       "example": {
         "basque": "Balkoia txikia da.",
