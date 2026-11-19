@@ -7361,8 +7361,8 @@ var LESSONS=[
     title:"In the Basque Kitchen",
     titleEu:"Sukaldean",
     emoji:"🍲",
-    blurb:"How food is cooked, and four dishes worth knowing.",
-    intro:"Basque cooking has a vocabulary of its own, and some of it has crossed into other languages. These are the methods you will see on a menu, and four dishes that are genuinely Basque rather than borrowed.",
+    blurb:"How food is cooked, three dishes worth knowing, and one shout.",
+    intro:"Basque cooking has a vocabulary of its own, and some of it has crossed into other languages. These are the methods you will see on a menu, three dishes that are Basque rather than borrowed, and the call you hear in a cider house.",
     grammar:{title:"A cooking word is also an adjective",body:"Erre is both to grill and grilled. Egosi is both to boil and boiled. The participle doubles as the describing word, so arrain errea is grilled fish and arrain egosia is boiled fish. Menus are full of this, and once you see it you can read most of them."},
     wordIds:["erre","egosi","frijitu","labean_egina","espezia","urdaia","mamia","intxaursaltsa","piperrada","txotx"],
   },
@@ -7399,7 +7399,7 @@ var LESSONS=[
     emoji:"\uD83D\uDEB6",
     blurb:"The verbs of movement, and the words for where they take you.",
     intro:"Five verbs carry most of what anyone says about moving: going, coming, walking, carrying, continuing. They have been turning up in these lessons all along without ever being taught. Here they are, with the words for the roads they happen on.",
-    grammar:{title:"Bide, the path hiding in other words",body:"Bide means road, and it builds nouns all through Basque. Ibilbidea is ibili (to walk) plus bidea, the walking path, so a route. Bidegurutzea is bidea plus gurutzea, the road cross, a crossroads. Helmuga joins heldu (to arrive) with muga (border or limit) into the arrival point, a destination. Joan and etorri pair up the same way: joan-etorri, go and come, is a return trip."},
+    grammar:{title:"Bide, the path hiding in other words",body:"Bide means road, and it builds nouns all through Basque. Ibilbidea is ibili (to walk) plus bidea, the walking path, so a route. Bidegurutzea is bidea plus gurutzea, the road cross, a crossroads. Helmuga joins heldu (to arrive) with muga (border or limit) into the arrival point, a destination. Joan and etorri pair up the same way: joan-etorri, go and come, is a round trip."},
     wordIds:["joan","etorri","ibili","eraman","jarraitu","ibilbidea","bidegurutzea","helmuga","aterpea","mugaldea","asegurua","zerbitzu_ordua"],
   },
   {
@@ -7423,7 +7423,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCCA",
     blurb:"Fractions, percentages, and the numbers news reports are made of.",
     intro:"You can count. This is the vocabulary for what people do with counting: halves and thirds, percentages, amounts, and the way figures get reported.",
-    grammar:{title:"Ehuneko, out of a hundred",body:"Ehunekoa is ehun (a hundred) plus the same -ko behind buruko mina, so literally of a hundred, a percentage. Put any number after it and you have that percentage, so ehuneko berrogeita hamar is fifty percent. The fractions have their own roots: laurdena is a quarter, from lau, and herena a third, from heren. Bikoitza, double, is bi plus -koitz, a fold."},
+    grammar:{title:"Ehuneko, out of a hundred",body:"Ehunekoa is ehun (a hundred) plus the same -ko behind buruko mina, so literally of a hundred, a percentage. Put any number after it and you have that percentage, so ehuneko berrogeita hamar is fifty percent. The fractions have their own roots: laurdena is a quarter, from lau, and herena is a third. Bikoitza, double, is bi plus -koitz, a fold."},
     wordIds:["bikoitza","ehunekoa","laurdena","herena","milioia","milioiak","ehun_mila","neurria","kopurua","zenbakiketa","batuketak","ehuneko_berrogeita_hamar","azken_urtean","aldaketa_ehunekoa"],
   },
   {
