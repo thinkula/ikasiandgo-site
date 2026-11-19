@@ -802,7 +802,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "ee-TSAH-soh-ah",
-      "notes": "Basques have been master sailors for centuries. Basque cod fishermen were working Newfoundland waters by the early 1500s, among the first Europeans there.",
+      "notes": "Basques have been master sailors for centuries. Basque cod fishermen were working Newfoundland waters in the 1500s, among the first Europeans there.",
       "example": {
         "basque": "Itsasoa handia da.",
         "english": "The sea is vast."
@@ -815,7 +815,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "ee-BAI-ah",
-      "notes": "Ibaia is the river, critical in Basque geography. Bilbo (Bilbao) sits on the Nerbioi (Nervion) river. Ibarra = valley (literally river-land).",
+      "notes": "Ibaia is the river, critical in Basque geography. Bilbo (Bilbao) sits on the Nerbioi (Nervion) river. Ibarra = valley.",
       "example": {
         "basque": "Ibaia luzea da.",
         "english": "The river is long."
@@ -1025,7 +1025,7 @@
       "pronunciation": "GOWR",
       "notes": "Gaur is often the first time word learners pick up. Gaur goizean = this morning. Gaur arratsaldean = this afternoon.",
       "example": {
-        "basque": "Gaur eguraldia ona dago.",
+        "basque": "Gaur eguraldi ona dago.",
         "english": "Today the weather is good."
       }
     },
@@ -1062,7 +1062,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "OH-rine",
-      "notes": "Orain often appears in political slogans. Orain Euskara! = Basque now! is a common language rights phrase.",
+      "notes": "Orain = now. Oraintxe = right now. Oraindik = still. Orain arte = until now.",
       "example": {
         "basque": "Orain joango naiz.",
         "english": "I will go now."
@@ -1192,7 +1192,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "ow-toh-BOO-sah",
-      "notes": "Autobusa = bus. From Spanish autobús. Autobusera igo = to get on the bus. Pesa is the main Basque inter-city bus company.",
+      "notes": "Autobusa = bus. From Spanish autobús. Autobusera igo = to get on the bus.",
       "example": {
         "basque": "Autobusa etorri da.",
         "english": "The bus has arrived."
@@ -1452,7 +1452,7 @@
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "BER-ree-ah",
-      "notes": "Berria also means news! Berria is the name of the main Basque-language newspaper. Zer berri? = What is new? (What is the news?)",
+      "notes": "Berria also means news! Berria is the name of the Basque-language daily newspaper. Zer berri? = What is new? (What is the news?)",
       "example": {
         "basque": "Autoa berria da.",
         "english": "The car is new."
@@ -1465,7 +1465,7 @@
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "eh-DER-rah",
-      "notes": "Ederra is the standard word for beautiful. Eder = beauty (root). Edertasun = beauty. Bai ederra! = How beautiful! Common exclamation.",
+      "notes": "Ederra is the standard word for beautiful. Eder = beautiful (root). Edertasun = beauty. Bai ederra! = How beautiful! Common exclamation.",
       "example": {
         "basque": "Mendia ederra da.",
         "english": "The mountain is beautiful."
@@ -3536,7 +3536,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "NOYS",
-      "notes": "Noiz? = When? Noiz etorriko zara? = When will you come? Noiz arte? = Until when? Noizbehinka = occasionally (sometimes-when). Noizean behin = from time to time. Noiznahi = whenever.",
+      "notes": "Noiz? = When? Noiz etorriko zara? = When will you come? Noiz arte? = Until when? Noizbehinka = occasionally (when-once). Noizean behin = from time to time. Noiznahi = whenever.",
       "example": {
         "basque": "Noiz etorriko zara?",
         "english": "When will you come?"
@@ -3601,7 +3601,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "EH-gon",
-      "notes": "Egon is the second Basque verb for to be, the one for a place or a passing state: where something is, and how someone is right now. Its present forms are nago, zaude, dago, gaude, zaudete and daude. It also means to stay. The other to be is izan, which is for who and what you are, so Bilbon nago is I am in Bilbao today and Bilbokoa naiz is I am from Bilbao.",
+      "notes": "Egon is the second Basque verb for to be, the one for a place or a passing state: where something is, and how someone is right now. Its present forms are nago, zaude, dago, gaude, zaudete and daude. It also means to stay. The other to be is izan, which is for who and what you are, so Bilbon nago is I am in Bilbao and Bilbokoa naiz is I am from Bilbao.",
       "example": {
         "basque": "Gaur etxean nago.",
         "english": "I am at home today."
@@ -5374,7 +5374,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "BEH-ghee-ah",
-      "notes": "Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begi on = good eye / lucky charm. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favorably on something.",
+      "notes": "Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favorably on something.",
       "example": {
         "basque": "Begia min dut.",
         "english": "My eye hurts."
@@ -6127,7 +6127,7 @@
       "english": "Cliffs / Rocks",
       "cefr": "B1",
       "topic": "nature",
-      "pronunciation": "AITS-ak (h is silent)",
+      "pronunciation": "AI-tsak (h is silent)",
       "notes": "Haitzak = cliffs or rocks (plural). Haitz = rock/cliff (singular). Haitzulo = cave (cliff-hole). The Basque coast is famous for its haitzak, dramatic limestone cliffs. Haitz-arte = between the rocks.",
       "example": {
         "basque": "Haitzak altuak dira.",
@@ -6322,7 +6322,7 @@
       "english": "Double",
       "cefr": "B1",
       "topic": "numbers",
-      "pronunciation": "bee-KOITS-ah",
+      "pronunciation": "bee-KOI-tsah",
       "notes": "Bikoitza = double. Bi = two + -koitz (fold). Hirukoitza = triple. Bikoiztu = to double. Bikoitza ordaindu = to pay double. The -koitz suffix: bikoitz=double, hirukoitz=triple, laukoitz=quadruple.",
       "example": {
         "basque": "Prezioa bikoitza da.",
@@ -7011,7 +7011,7 @@
       "english": "Ill / Unwell",
       "cefr": "A1",
       "topic": "emotions",
-      "pronunciation": "gai-SHOR-eek",
+      "pronunciation": "gai-SHOH-reek",
       "notes": "Gaixorik = ill or unwell (adverb form). Gaixorik nago = I am ill/unwell. Different from gaixoa (the poor thing, sympathetic). Gaixotu = to fall ill. Gaixotasuna = illness. Ez nago ondo, gaixorik nago = I am not well, I am ill.",
       "example": {
         "basque": "Gaixorik nago.",
@@ -7753,7 +7753,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "oh-TSAI-lah",
-      "notes": "February. Otso (wolf) is in the root. February is the wolf month, when wolves were hungriest in winter.",
+      "notes": "February. Usually explained as otso (wolf) + hil (month), the wolf month.",
       "example": {
         "basque": "Otsailean hotz egiten du.",
         "english": "It is cold in February."
@@ -7779,7 +7779,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ah-pee-REE-lah",
-      "notes": "April. From Latin Aprilis. Famous Basque festivals like Aberri Eguna (Basque Homeland Day) fall in April.",
+      "notes": "April. From Latin Aprilis. Aberri Eguna (Basque Homeland Day) is held on Easter Sunday, which usually falls in April.",
       "example": {
         "basque": "Apirilean euria egiten du.",
         "english": "It rains in April."
@@ -7791,7 +7791,7 @@
       "english": "May",
       "cefr": "A1",
       "topic": "time",
-      "pronunciation": "mai-ATS-ah",
+      "pronunciation": "mai-AH-tsah",
       "notes": "May. From Latin Maius. The Basque countryside is at its most beautiful in May, with green hills and mild weather.",
       "example": {
         "basque": "Maiatzean eguzkia egiten du.",
@@ -7805,7 +7805,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "eh-KAI-nah",
-      "notes": "June. Eki (sun) is in the root. June is the sunny month. The famous San Fermin festival begins in nearby Pamplona in July.",
+      "notes": "June. Eki (sun) is in the root. June is the sunny month.",
       "example": {
         "basque": "Ekainean uda hasten da.",
         "english": "Summer begins in June."
@@ -7818,7 +7818,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "oos-TAI-lah",
-      "notes": "July. Uzta (harvest) is in the root. The hottest month. Aste Nagusia (Great Week) in Bilbo is in August.",
+      "notes": "July. Uzta (harvest) is in the root. The San Fermin festival in Iruñea (Pamplona) begins on July 6.",
       "example": {
         "basque": "Uztailean bero handia dago.",
         "english": "It is very hot in July."
@@ -7831,7 +7831,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ah-BOOS-too-ah",
-      "notes": "August. From Latin Augustus. Aste Nagusia in Bilbao and La Semana Grande in Donostia are in August, the two biggest of the year.",
+      "notes": "August. From Latin Augustus. Bilbo (Bilbao) and Donostia (San Sebastian) each hold their Aste Nagusia (Great Week) in August.",
       "example": {
         "basque": "Abuztuan Aste Nagusia da.",
         "english": "The Great Week is in August."
@@ -7844,7 +7844,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ee-RAI-lah",
-      "notes": "September. Irail possibly from ira (fern), the time when ferns turn golden. The sagardotegi (cider houses) season begins.",
+      "notes": "September. Irail possibly from ira (fern), the time when ferns turn golden. The apple harvest for cider begins.",
       "example": {
         "basque": "Irailean eskola hasten da.",
         "english": "School starts in September."
@@ -7870,10 +7870,10 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ah-sah-ROH-ah",
-      "notes": "November. Azaro is usually explained as hazi (seed) + aro (season), the sowing month; the word also means sowing season. Cider season is in full swing.",
+      "notes": "November. Azaro is usually explained as hazi (seed) + aro (season), the sowing month; the word also means sowing season.",
       "example": {
-        "basque": "Azaroan sagardoa edaten dugu.",
-        "english": "We drink cider in November."
+        "basque": "Azaroan euri asko egiten du.",
+        "english": "It rains a lot in November."
       }
     },
     {
@@ -7883,7 +7883,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "ah-BEN-doo-ah",
-      "notes": "December. Aben possibly from Latin adventus. Also called Gabon-hilabetea (Christmas month). Gabonak (Christmas) is a major celebration.",
+      "notes": "December. From Latin adventus, Advent. Gabonak (Christmas) is a major celebration.",
       "example": {
         "basque": "Abenduan Gabonak ospatzen ditugu.",
         "english": "We celebrate Christmas in December."
@@ -10496,7 +10496,7 @@
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "GOH-seh-ah",
-      "notes": "Hungry. Gose = hunger (root). Gose naiz = I am hungry. Gose handia daukat = I am very hungry. Gose-egarria = hunger and thirst. One of the most basic body state adjectives.",
+      "notes": "Gose = hunger (root). Gose naiz = I am hungry. Gose handia daukat = I am very hungry. Gose-egarria = hunger and thirst.",
       "example": {
         "basque": "Gose naiz, zer jan dezakegu?",
         "english": "I am hungry, what can we eat?"
@@ -10509,7 +10509,7 @@
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "eh-GAR-ree-ah",
-      "notes": "Thirsty. Egarri = thirst (root). Egarri naiz = I am thirsty. Egarri handia daukat = I am very thirsty. Gose-egarria = hunger and thirst (paired expression). Essential basic vocabulary.",
+      "notes": "Egarri = thirst (root). Egarri naiz = I am thirsty. Egarri handia daukat = I am very thirsty. Gose-egarria = hunger and thirst (paired expression). Essential basic vocabulary.",
       "example": {
         "basque": "Egarri naiz, ur pixka bat mesedez.",
         "english": "I am thirsty, a little water please."
@@ -10522,7 +10522,7 @@
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "neh-kah-TOO-tah",
-      "notes": "Tired or exhausted. Neka (tiredness) + -tuta (state suffix). Oso nekatuta nago = I am very tired. Nekatuta egon = to be tired. One of the most used everyday adjectives.",
+      "notes": "Tired or exhausted. Nekatu (to tire) + -ta (state suffix). Oso nekatuta nago = I am very tired. Nekatuta egon = to be tired. One of the most used everyday adjectives.",
       "example": {
         "basque": "Oso nekatuta nago gaur.",
         "english": "I am very tired today."
