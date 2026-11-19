@@ -659,7 +659,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "ee-SEH-bah",
-      "notes": "Izeba = aunt (mother's or father's sister). Do not confuse with osaba (uncle). Both are important in tight-knit Basque families.",
+      "notes": "Izeba = aunt (mother's or father's sister). Do not confuse with osaba (uncle).",
       "example": {
         "basque": "Izeba bizkorra da.",
         "english": "The aunt is clever."
@@ -3991,7 +3991,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "sah-BEH-lah",
-      "notes": "Sabela = stomach or belly. Sabeleko mina dut = I have a stomach ache. Sabelalde = abdominal area. Sabelaldi = litter (of animals). Sabela bete = full stomach.",
+      "notes": "Sabela = stomach or belly. Sabeleko mina dut = I have a stomach ache. Sabelalde = abdominal area. Sabelaldi = litter (of animals). Sabela bete = to fill one's belly.",
       "example": {
         "basque": "Sabeleko mina dut.",
         "english": "My stomach hurts."
@@ -4056,7 +4056,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "OH-gay-tah ah-MAR (h is silent)",
-      "notes": "Hogei (20) + ta (and) + hamar (10) = 30. Basque is vigesimal, all numbers built from 20s.",
+      "notes": "Hogei (20) + ta (and) + hamar (10) = 30. The tens are built on twenties.",
       "example": {
         "basque": "Hogeita hamar urte.",
         "english": "Thirty years."
@@ -4906,7 +4906,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "oo-dah-BER-ree-ah",
-      "notes": "Spring. Uda = summer + berria = new. Literally new summer. Spring arrives later in the Basque mountains. Udaberrian = in spring. Flowers (loreak) bloom in the valleys from March.",
+      "notes": "Spring. Uda = summer + berria = new. Literally new summer. Udaberrian = in spring.",
       "example": {
         "basque": "Udaberrian loreak agertzen dira.",
         "english": "In spring the flowers appear."
@@ -4919,7 +4919,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "OO-dah",
-      "notes": "Summer. Udan = in summer. Uda-oporretan = on summer vacation. Basque summers are mild, rarely very hot due to Atlantic influence. Donostia (San Sebastián)'s beaches are packed in July and August.",
+      "notes": "Summer. Udan = in summer. Uda-oporretan = on summer vacation. Basque summers are mild, rarely very hot due to Atlantic influence.",
       "example": {
         "basque": "Udan itsasora joaten gara.",
         "english": "In summer we go to the sea."
@@ -4932,7 +4932,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "oo-das-KEH-nah",
-      "notes": "Autumn. Uda = summer + azkena = last or end. Literally the end of summer. Udazkenean = in autumn. The beech forests turn golden. Mushroom season (perretxiko garaia) begins in October.",
+      "notes": "Autumn. Uda = summer + azkena = last or end. Literally the end of summer. Udazkenean = in autumn. Autumn is mushroom season (perretxiko garaia).",
       "example": {
         "basque": "Udazkena ederrena da.",
         "english": "Autumn is the most beautiful."
@@ -5114,7 +5114,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mah-EE-roo (h is silent)",
-      "notes": "Hamar (10) + hiru (3) = 13. The teen numbers follow this pattern: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16, hamazazpi=17, hamazortzi=18; only 19 is irregular: hemeretzi.",
+      "notes": "Hamar (10) + hiru (3) = 13. The teen numbers follow this pattern: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16, hamazazpi=17, hamazortzi=18. Two are irregular: 11 (hamaika) and 19 (hemeretzi).",
       "example": {
         "basque": "Hamahiru urte ditu.",
         "english": "He is thirteen years old."
@@ -5140,7 +5140,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ber-ROH-gay",
-      "notes": "40 = two twenties (bi + hogei). The vigesimal system: hogei=20, berrogei=40, hirurogei=60, laurogei=80. French also counts this way: quatre-vingts = 80.",
+      "notes": "40 = two twenties (berr-, twice, + hogei). The vigesimal system: hogei=20, berrogei=40, hirurogei=60, laurogei=80. French also counts this way: quatre-vingts = 80.",
       "example": {
         "basque": "Berrogei urte ditu.",
         "english": "She is forty years old."
@@ -5205,7 +5205,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mah-SOR-tsee (h is silent)",
-      "notes": "Hamar (10) + zortzi (8) = 18. Hamazortzi is the longest teen number. The -zortzi ending has the same -tzi you see in zortzi (8).",
+      "notes": "Hamar (10) + zortzi (8) = 18. Hamazortzi is the longest teen number.",
       "example": {
         "basque": "Hamazortzi urte ditut.",
         "english": "I am eighteen years old."
@@ -5218,7 +5218,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "eh-meh-REH-tsee (h is silent)",
-      "notes": "19 = hemeretzi. Note: this does NOT follow the hamar+digit pattern! Hemeretzi is an irregular form. Compare French dix-neuf (10+9) vs Basque irregular hemeretzi.",
+      "notes": "19 = hemeretzi. It does not follow the hamar + digit pattern. Compare French dix-neuf (10+9) vs Basque irregular hemeretzi.",
       "example": {
         "basque": "Hemeretzi euro kostatzen da.",
         "english": "It costs nineteen euros."
@@ -5283,7 +5283,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "bah-rah-CHOO-ree-ah",
-      "notes": "Garlic. Baratxuri = garlic (root). Indispensable in Basque cooking, in salsa verde, pil-pil, and almost every sauce. Baratxuri-atal bat = one clove of garlic. Often fried in oil first to flavor a dish.",
+      "notes": "Garlic. Baratxuri = garlic (root). Used in saltsa berdea, pil-pil and many other sauces. Baratxuri-atal bat = one clove of garlic. Often fried in oil first to flavor a dish.",
       "example": {
         "basque": "Baratxuria gehitu dut saltsan.",
         "english": "I have added garlic to the sauce."
@@ -5296,7 +5296,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "pee-PER-rah",
-      "notes": "Pepper. Piperrak = peppers (plural). Piper gorria = red pepper. Piper berdea = green pepper. The piperada (Basque pepper and tomato stew) is a classic dish. Gernikako piperrak = Gernika peppers, small green peppers unique to the Basque Country.",
+      "notes": "Pepper. Piperrak = peppers (plural). Piper gorria = red pepper. Piper berdea = green pepper. The piperada (Basque pepper and tomato stew) is a classic dish. Gernikako piperrak = Gernika peppers, small green peppers from Gernika.",
       "example": {
         "basque": "Piperra gustuko dut.",
         "english": "I like pepper."
@@ -5321,11 +5321,11 @@
       "english": "Rice",
       "cefr": "A1",
       "topic": "food",
-      "pronunciation": "ah-ROH-sah",
-      "notes": "Rice. From Arabic ar-ruzz via Spanish arroz. Arrozarekin = with rice. Arroz-esnea = rice pudding. Less central than in Spanish cuisine but used in Basque seafood dishes.",
+      "pronunciation": "ar-ROH-sah",
+      "notes": "Rice. From Arabic ar-ruzz via Spanish arroz. Arrozarekin = with rice. Arroz-esnea = rice pudding.",
       "example": {
-        "basque": "Arrozarekin jan dut.",
-        "english": "I ate with rice."
+        "basque": "Arraina arrozarekin jan dut.",
+        "english": "I ate the fish with rice."
       }
     },
     {
@@ -5387,7 +5387,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "LEH-poh-ah",
-      "notes": "Neck. Lepo = neck (root). Lepokoa = necklace (neck-thing). Lepoa mindu = stiff neck. Lepora hartu = to put on one's shoulders (to take responsibility). Leporaino nago = I'm up to my neck (swamped/fed up).",
+      "notes": "Neck. Lepo = neck (root). Lepokoa = necklace (neck-thing). Lepora hartu = to put on one's shoulders (to take responsibility). Leporaino nago = I'm up to my neck (swamped/fed up).",
       "example": {
         "basque": "Lepoko mina dut.",
         "english": "My neck hurts."
@@ -5491,7 +5491,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "BEH-ee-ah",
-      "notes": "Cow. Behi = cow (root). Behi esnea = cow's milk. Behi haragia = beef. Dairy farms with behiak are typical of the green Basque valleys. Behiaren = of the cow.",
+      "notes": "Cow. Behi = cow (root). Behi esnea = cow's milk. Behi haragia = beef. Dairy farms with behiak are typical of the green Basque valleys.",
       "example": {
         "basque": "Behiak belardian daude.",
         "english": "The cows are in the meadow."
@@ -5569,7 +5569,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "goo-RAH-soh-ak",
-      "notes": "Parents (plural). Guraso = parent (singular). Gurasoek = by the parents. Gurasoen etxea = the parents' house. One of the most important family words.",
+      "notes": "Parents (plural). Guraso = parent (singular). Gurasoek = the parents, as the ones doing something. Gurasoen etxea = the parents' house.",
       "example": {
         "basque": "Nire gurasoak Gasteizen bizi dira.",
         "english": "My parents live in Gasteiz (Vitoria)."
@@ -5803,7 +5803,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ah-SOO-kreh-ah",
-      "notes": "Azukrea = sugar. From Arabic as-sukkar via Spanish azúcar. Azukre = sugar (root). Azukre gehiegi = too much sugar. Gozoa = sweet, a word often associated with azukrea.",
+      "notes": "Azukrea = sugar. From Arabic as-sukkar via Spanish azúcar. Azukre = sugar (root). Azukre gehiegi = too much sugar. Gozoa = sweet.",
       "example": {
         "basque": "Kafean azukrea nahi duzu?",
         "english": "Do you want sugar in your coffee?"
@@ -6895,7 +6895,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "tee-POO-lah",
-      "notes": "Tipula = onion. From Latin cepulla (little onion); Spanish cebolla is a cousin, not the source. Tipula betea = stuffed onion. Tipula-saltsa = onion sauce. Onions are fundamental in Basque cooking. The sofrito base of most dishes starts with tipula.",
+      "notes": "Tipula = onion. From Latin cepulla (little onion); Spanish cebolla is a cousin, not the source. Tipula betea = stuffed onion. Tipula-saltsa = onion sauce.",
       "example": {
         "basque": "Tipula txikitu behar dut.",
         "english": "I need to chop the onion."
@@ -6921,7 +6921,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "leh-CHOO-gah",
-      "notes": "Letxuga = lettuce. From Spanish lechuga. Letxuga entsalada = lettuce salad. Basque cuisine uses fresh letxuga in salads.",
+      "notes": "Letxuga = lettuce. From Spanish lechuga. Letxuga entsalada = lettuce salad.",
       "example": {
         "basque": "Letxuga entsaladan dago.",
         "english": "The lettuce is in the salad."
@@ -9625,7 +9625,7 @@
       "cefr": "A1",
       "topic": "emotions",
       "pronunciation": "ah-TSEH-gheen",
-      "notes": "Pleasure or liking. Atsegin dut = I like it. Atsegin handiz = with great pleasure. More formal than gustatu. Atsegingarria = pleasant. Essential A1 emotion vocabulary.",
+      "notes": "Pleasure or liking. Atsegin dut = I like it. Atsegin handiz = with great pleasure. More formal than gustatu. Atsegingarria = pleasant.",
       "example": {
         "basque": "Atsegin dut euskara ikastea.",
         "english": "I like learning Basque."
@@ -10587,7 +10587,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "eh-goos-KEE-tsoo-ah",
-      "notes": "Sunny. Eguzki (sun) + -tsua (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine.",
+      "notes": "Sunny. Eguzki (sun) + -tsu (full of). Eguzkitsua dago = it is sunny. Eguzki argitsua = bright sunshine.",
       "example": {
         "basque": "Eguzkitsua dago gaur eta parkera joango gara.",
         "english": "It is sunny today and we will go to the park."
@@ -11500,7 +11500,7 @@
       "english": "Person",
       "cefr": "A1",
       "topic": "family",
-      "pronunciation": "pehr-TSOH-nah",
+      "pronunciation": "per-TSOH-nah",
       "mcOnly": true,
       "notes": "A Latin loanword (persona) and the everyday word for a person; it already ends in -a, so the article form stays Pertsona. For humankind in the abstract, Basque prefers gizakia (human being).",
       "example": {
@@ -12532,7 +12532,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "YAI-ah (YAI rhymes with eye)",
-      "notes": "Herriko jaiak, the annual town festivals honoring the local patron saint, are held every year. You almost always hear the word in the plural, jaiak. Jai alai, the name of the famous ball game, literally means merry festival. Festa is a close synonym.",
+      "notes": "Herriko jaiak are the annual town festivals, usually honoring the local patron saint. You almost always hear the word in the plural, jaiak. Jai alai, the name of the famous ball game, literally means merry festival. Festa is a close synonym.",
       "example": {
         "basque": "Herriko jaiak abuztuan dira.",
         "english": "The town festivals are in August."
