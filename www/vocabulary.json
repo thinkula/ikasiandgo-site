@@ -217,7 +217,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ar-RAI-nah",
-      "notes": "Arraina = fish. Central to Basque cuisine. Bakailaoa (salted cod), merluzea (hake) and besugoa (sea bream) are the most prized. The Basque fishing fleet was legendary, reaching Newfoundland centuries ago.",
+      "notes": "Arraina = fish. Central to Basque cuisine. Bakailaoa (salted cod), legatza (hake) and bisigua (sea bream) are the most prized. The Basque fishing fleet was legendary, reaching Newfoundland centuries ago.",
       "example": {
         "basque": "Arraina freskoa da.",
         "english": "The fish is fresh."
@@ -308,7 +308,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "GAS-tah",
-      "notes": "Gazta = cheese. Gazta may be related to gatz (salt), though the etymology is uncertain. Idiazabal is the famous smoked sheep's milk cheese from the Basque Country, PDO protected. Gazta freskoa = fresh cheese. Gaztagintza = cheesemaking.",
+      "notes": "Gazta = cheese. Gazta may be related to gatz (salt), though the etymology is uncertain. Idiazabal is the famous sheep's milk cheese from the Basque Country, often smoked and PDO protected. Gazta freskoa = fresh cheese. Gaztagintza = cheesemaking.",
       "example": {
         "basque": "Gazta ona da.",
         "english": "The cheese is good."
@@ -841,7 +841,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "eh-GOOS-kee-ah",
-      "notes": "Eguzkia = the sun. Etymology debated, possibly from egun (day) + -zki, or possibly pre-Indo-European with no known root. The Basque sun deity was also called Eguzki, a female deity, unlike most solar gods.",
+      "notes": "Eguzkia = the sun. Usually linked to egun (day). In Basque mythology the sun is Eguzki Amandrea, Grandmother Sun.",
       "example": {
         "basque": "Euria gelditu da eta eguzkia atera da.",
         "english": "The rain has stopped and the sun has come out."
@@ -854,7 +854,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "eh-LOOR-rah",
-      "notes": "Elurra is important in Basque Country. The Pyrenees get heavy snow. Elurra egiten du = it is snowing.",
+      "notes": "The Pyrenees get heavy snow. Elurra egiten du = it is snowing.",
       "example": {
         "basque": "Elurra ederra da.",
         "english": "The snow is beautiful."
@@ -906,7 +906,7 @@
       "cefr": "A1",
       "topic": "nature",
       "pronunciation": "soo-AI-tsah",
-      "notes": "Zuhaitza = tree. Zuhaitz = tree (root). The Gernikako Arbola (Tree of Gernika) is a sacred oak, symbol of Basque democracy.",
+      "notes": "Zuhaitza = tree. Zuhaitz = tree (root). The Gernikako Arbola (Tree of Gernika) is an oak, the symbol of Basque freedoms.",
       "example": {
         "basque": "Zuhaitza altua da.",
         "english": "The tree is tall."
@@ -958,7 +958,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "OY-nah",
-      "notes": "Oina = foot (specifically the foot, not the leg). Hanka = leg or foot more generally. Oinez = on foot/walking. Oinazea = pain/suffering. Oinetakoak = shoes (foot-things).",
+      "notes": "Oina = foot (specifically the foot, not the leg). Hanka = leg or foot more generally. Oinez = on foot/walking. Oinetakoak = shoes (foot-things).",
       "example": {
         "basque": "Oineko mina dut.",
         "english": "My foot hurts."
@@ -984,7 +984,7 @@
       "cefr": "A1",
       "topic": "body",
       "pronunciation": "AH-oh-ah",
-      "notes": "Ahoa = the mouth. Aho = mouth (root). Ahoa bete = a mouthful. Aho batez = unanimously (with one mouth). Ahoz = orally.",
+      "notes": "Ahoa = the mouth. Aho = mouth (root). Ahobete = a mouthful. Aho batez = unanimously (with one mouth). Ahoz = orally.",
       "example": {
         "basque": "Ahoa itxi.",
         "english": "Close your mouth."
@@ -1012,7 +1012,7 @@
       "pronunciation": "beh-LAR-ree-ah",
       "notes": "Belarria = ear. Belarri = ear (root). Do not confuse with belarra (grass): belarria vs belarra, one letter apart. Belarria eman = to lend an ear.",
       "example": {
-        "basque": "Belarria min dut.",
+        "basque": "Belarriko mina dut.",
         "english": "My ear hurts."
       }
     },
@@ -1075,7 +1075,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "GEH-ro",
-      "notes": "Gero = later, then, or after. Gero eta gehiago = more and more. Eta gero? = And then? Gerora = for later. Lehenago = earlier. Geroago = later on. Gero arte! = See you later!",
+      "notes": "Gero = later, then, or after. Gero eta gehiago = more and more. Eta gero? = And then? Gerora = later on. Lehenago = earlier. Geroago = later on. Gero arte! = See you later!",
       "example": {
         "basque": "Gero hitz egingo dugu.",
         "english": "We will talk later."
@@ -5376,7 +5376,7 @@
       "pronunciation": "BEH-ghee-ah",
       "notes": "Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favorably on something.",
       "example": {
-        "basque": "Begia min dut.",
+        "basque": "Begiko mina dut.",
         "english": "My eye hurts."
       }
     },
@@ -7792,7 +7792,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "mai-AH-tsah",
-      "notes": "May. From Latin Maius. The Basque countryside is at its most beautiful in May, with green hills and mild weather.",
+      "notes": "May. From Latin Maius.",
       "example": {
         "basque": "Maiatzean eguzkia egiten du.",
         "english": "It is sunny in May."
@@ -7805,7 +7805,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "eh-KAI-nah",
-      "notes": "June. Eki (sun) is in the root. June is the sunny month.",
+      "notes": "June. Usually explained as the sunny month, with eki (sun) in the root.",
       "example": {
         "basque": "Ekainean uda hasten da.",
         "english": "Summer begins in June."
@@ -7857,7 +7857,7 @@
       "cefr": "A1",
       "topic": "time",
       "pronunciation": "OOR-ree-ah",
-      "notes": "October. Urri means scarce. It is the month when summer abundance ends. Autumn colors in the Basque hills are spectacular.",
+      "notes": "October. Urri means scarce. Usually explained as the month when summer abundance ends. Autumn colors in the Basque hills are spectacular.",
       "example": {
         "basque": "Urrian hostoak erortzen dira.",
         "english": "Leaves fall in October."
