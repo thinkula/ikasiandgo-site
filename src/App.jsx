@@ -6575,7 +6575,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC49",
     blurb:"Pointing in three steps, and the small words that join a sentence.",
     intro:"Basque points in three steps where English manages two, and the three line up with the people in the conversation. The joining words are tiny and you will use them in nearly every sentence you build from here on.",
-    grammar:{title:"Three steps, and two ways to say or",body:"Hau is near me, hori is near you, hura is over there, which matches ni, zu and hura exactly. The demonstrative comes after its noun rather than before it, and it carries the plural for the whole phrase, so the noun itself stays singular. Two words mean or and they do not swap: edo is the or of statements, while ala offers a real choice in a question. The word eta is hiding inside numbers you have not met yet, because hogeita bat is hogei eta bat run together."},
+    grammar:{title:"Three steps, and two ways to say or",body:"Hau is near me, hori is near you, hura is over there, which matches ni, zu and hura exactly. The demonstrative comes after its noun rather than before it, and it carries the plural for the whole phrase, so the noun itself stays bare. Two words mean or and they do not swap: edo is the or of statements, while ala offers a real choice in a question. The word eta is hiding inside numbers you have not met yet, because hogeita bat is hogei eta bat run together."},
     wordIds:["hau","hori","hauek","horiek","eta","edo","ala","baina"],
   },
   {
