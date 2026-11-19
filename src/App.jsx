@@ -3362,7 +3362,7 @@ function GamesScreen(props){
   var games=[
     {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1-B2","Two modes"],pro:false},
     {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 31 Basque dishes and meals by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["31 dishes","5 steps each","A1-B2"],pro:false},
-    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1-B2"],pro:false},
+    {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build ten Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["10 families","5 or 6 members","A1-B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["23 scenarios","Numbers & time","A1-B2"],pro:false},
     {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4-8 pairs","Timed","All topics"],pro:false},
@@ -5795,34 +5795,41 @@ function ArbolaScreen(props){
     ahaidetasuna:"🔗",etxea_ondarea:"🏘️",arbasoak:"🌿",
     bikotea:"💑",bikotekidea:"🤝",ezkontidea:"💞",senarra:"🤵",emaztea:"👰",
     ezkontza:"💍",dibortzioa:"⚖️",dibortziatua:"💔",ezkongabea:"🚶",alargun:"🕯️",
-    guraso_bakarra:"💪",haurtzaroa:"🧸",heredentzia:"📜",arbola:"🌳"
+    guraso_bakarra:"💪",haurtzaroa:"🧸",heredentzia:"📜",arbola:"🌳",
+    // 1.8: the 23 family words no portrait used to ask for.
+    gizona:"👨‍🦱",emakumea:"👩‍🦰",mutila:"🏃‍♂️",neska:"💁‍♀️",umea:"🪁",pertsona:"🧑",
+    bizilaguna:"🚪",adinekoa:"🧓",lobak:"👯",
+    adopzioa:"📝",seme_alaba_adoptatu:"🫶",familia_zabala:"👨‍👩‍👧‍👦",
+    suhia:"👨‍💼",erraina:"👩‍💼",ondorengoa:"🧬",senide_hurbilak:"🏥"
   };
   function roleEmoji(id){return ROLE_EMOJI[id]||"👤";}
 
   var LIVES=3;
 
-  // Six families: five members each, except Aizpurua and Goikoetxea, which
-  // have six. Two rules hold this together. Every instruction has to point at
+  // Ten families of five or six members. key is what completion is stored
+  // under, so a family can be renamed without un-completing it for everyone
+  // who built it; saves written before keys existed held the name, and are
+  // mapped across on load. Two rules hold this together. Every instruction has to point at
   // one member and no other, and it has to stand on its own, because the
   // player sees one at a time and never the ones before it. And every hint has
   // to say something true that the word card also says, because these hints
   // are the only teaching this screen does.
   var FAMILIES=[
-    {name:"Etxeberria",emoji:"🏡",desc:"A traditional Basque farmhouse family",color:"#0D9488",dark:"#134E4A",bg:"#F0FDFA",members:[
+    {key:"etxeberria",name:"Etxeberria",emoji:"🏡",desc:"A traditional Basque farmhouse family",color:"#0D9488",dark:"#134E4A",bg:"#F0FDFA",members:[
       {instruction:"She has been cooking since dawn, the mother of the house",keyword:"ama",hint:"Ama: mother. It turns up in Amalur, Mother Earth"},
       {instruction:"The father comes home just before dinner",keyword:"aita",hint:"Aita: father. Aita Gurea is the Lord's Prayer in Basque"},
       {instruction:"The baby of the house is asleep upstairs",keyword:"haurra",hint:"Haurra: child or baby. Haur is the root"},
       {instruction:"The grandmother is already sitting at the table",keyword:"amona",hint:"Amona: grandmother, from ama (mother) + ona (good)"},
       {instruction:"The grandfather has been out in the fields all day",keyword:"aitona",hint:"Aitona: grandfather, from aita (father) + ona (good)"},
     ]},
-    {name:"Mendizabal",emoji:"⛰️",desc:"A mountain village household and the relatives who call in",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",members:[
+    {key:"mendizabal",name:"Mendizabal",emoji:"⛰️",desc:"A mountain village household and the relatives who call in",color:"#15803D",dark:"#14532D",bg:"#F0FDF4",members:[
       {instruction:"The eldest boy is out playing, their son",keyword:"semea",hint:"Semea: son. Seme is the root and the -a is the article"},
       {instruction:"The youngest girl is their daughter",keyword:"alaba",hint:"Alaba: daughter. Do not mix it up with Araba, the province"},
       {instruction:"The mother's brother is visiting for the weekend",keyword:"osaba",hint:"Osaba: uncle. Osaba-izebak means uncles and aunts"},
       {instruction:"The father's sister is here too",keyword:"izeba",hint:"Izeba: aunt, on either side of the family"},
       {instruction:"Not a relative at all, but as close as one",keyword:"laguna",hint:"Laguna: friend. Lagunartea is a circle of friends"},
     ]},
-    {name:"Aizpurua",emoji:"🌊",desc:"A seaside family and the cousins who come to visit",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",members:[
+    {key:"aizpurua",name:"Aizpurua",emoji:"🌊",desc:"A seaside family and the cousins who come to visit",color:"#0369A1",dark:"#0C4A6E",bg:"#EFF6FF",members:[
       {instruction:"A boy talking about the brother he grew up with",keyword:"anaia",hint:"Anaia: brother as a man says it. A woman says neba"},
       {instruction:"A boy talking about his younger sister",keyword:"arreba",hint:"Arreba: sister as a man says it. A woman says ahizpa"},
       {instruction:"The two who raised them, taken together",keyword:"gurasoak",hint:"Gurasoak: parents. Guraso is one parent"},
@@ -5830,14 +5837,14 @@ function ArbolaScreen(props){
       {instruction:"A cousin arrives from Donostia, a girl",keyword:"lehengusina",hint:"Lehengusina: a female cousin, one of the few Basque words with its own feminine form"},
       {instruction:"Their sister's little boy came along as well",keyword:"iloba",hint:"Iloba: niece or nephew, the same word for both"},
     ]},
-    {name:"Urrutia",emoji:"🍷",desc:"A modern Basque couple and the words for the people in it",color:"#9333EA",dark:"#6B21A8",bg:"#FAF5FF",members:[
+    {key:"urrutia",name:"Urrutia",emoji:"🍷",desc:"A modern Basque couple and the words for the people in it",color:"#9333EA",dark:"#6B21A8",bg:"#FAF5FF",members:[
       {instruction:"Two people building a life together, taken as a pair",keyword:"bikotea",hint:"Bikotea: couple. Bikote is a pair"},
       {instruction:"The woman he married",keyword:"emaztea",hint:"Emaztea: wife. Senar-emazteak means husband and wife"},
       {instruction:"The man she married",keyword:"senarra",hint:"Senarra: husband. Senar is the root"},
       {instruction:"The day they married, and everyone came",keyword:"ezkontza",hint:"Ezkontza: wedding. Ezkondu is to marry"},
       {instruction:"She calls him her partner, not her husband",keyword:"bikotekidea",hint:"Bikotekidea: partner, bikote (couple) + kidea (member). Gender-neutral"},
     ]},
-    {name:"Goikoetxea",emoji:"🎭",desc:"One family, and the words for how its lives turned out",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",members:[
+    {key:"goikoetxea",name:"Goikoetxea",emoji:"🎭",desc:"One family, and the words for how its lives turned out",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",members:[
       {instruction:"She raises the children on her own now",keyword:"guraso_bakarra",hint:"Guraso bakarra: single parent, guraso (parent) + bakarra (alone)"},
       {instruction:"Her boy is all grown up now",keyword:"semea",hint:"Semea: son. Seme is the root and the -a is the article"},
       {instruction:"A woman talking about the sister who helps her",keyword:"ahizpa",hint:"Ahizpa: sister as a woman says it. A man says arreba"},
@@ -5845,12 +5852,45 @@ function ArbolaScreen(props){
       {instruction:"The marriage ended years ago, and this is what she calls herself",keyword:"dibortziatua",hint:"Dibortziatua: divorced. Dibortzioa is the divorce itself"},
       {instruction:"Her brother never married at all",keyword:"ezkongabea",hint:"Ezkongabea: single, from ezkondu (to marry) + gabea (without)"},
     ]},
-    {name:"Zubiaurre",emoji:"🌳",desc:"Four generations and the words that hold them together",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",members:[
+    {key:"zubiaurre",name:"Zubiaurre",emoji:"🌳",desc:"Four generations and the words that hold them together",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",members:[
       {instruction:"All those who came before, generations back",keyword:"arbasoak",hint:"Arbasoak: ancestors. Arbaso is one of them"},
       {instruction:"Everyone born around the same time, one layer of the family",keyword:"belaunaldia",hint:"Belaunaldia: generation, from belaun, which is both knee and generation"},
       {instruction:"The years before you grew up",keyword:"haurtzaroa",hint:"Haurtzaroa: childhood, from haur (child)"},
       {instruction:"What gets passed down when someone dies",keyword:"heredentzia",hint:"Herentzia: inheritance. The native legal word is jaraunspena"},
       {instruction:"All of it drawn out on one page, the family tree",keyword:"arbola",hint:"Arbola: tree. Familiaren arbola is the family tree"},
+    ]},
+    // Four families added in 1.8, one per level, built from the 23 family
+    // words that no portrait asked for. Hints restate the word cards.
+    {key:"arrieta",name:"Arrieta",emoji:"📸",desc:"A family photo, and who is in it",color:"#0891B2",dark:"#155E75",bg:"#ECFEFF",members:[
+      {instruction:"Everyone in the photo together, the whole family",keyword:"familia",hint:"Familia comes from Latin. The older Basque word for it was etxea, the house"},
+      {instruction:"A woman pointing at her brother in the photo",keyword:"neba",hint:"Neba: brother, as a woman says it. A man says anaia"},
+      {instruction:"The boy at the front, grinning",keyword:"mutila",hint:"Mutila: boy. Mutil zaharra, literally old boy, means a bachelor"},
+      {instruction:"The girl standing next to him",keyword:"neska",hint:"Neska: girl. Neska-mutilak means boys and girls"},
+      {instruction:"Not the baby: the everyday word for a kid",keyword:"umea",hint:"Umea: kid, the everyday word. Haurra is the more neutral one"},
+      {instruction:"Someone nobody in the family knows took the picture, just a person",keyword:"pertsona",hint:"Pertsona: person, a loanword from Latin persona"},
+    ]},
+    {key:"uriarte",name:"Uriarte",emoji:"🏘️",desc:"The street they live on, and the people on it",color:"#CA8A04",dark:"#854D0E",bg:"#FEFCE8",members:[
+      {instruction:"The woman next door, who has known the family for years",keyword:"bizilaguna",hint:"Bizilaguna: neighbor, from bizi (to live) + laguna (friend)"},
+      {instruction:"The oldest man on the street, not related to anyone here",keyword:"adinekoa",hint:"Adinekoa: elderly person, the respectful word, gentler than zaharra (old)"},
+      {instruction:"A man waves from the bakery door",keyword:"gizona",hint:"Gizona: man. Gizarte, society, is built on the same root"},
+      {instruction:"A woman waves back from her balcony",keyword:"emakumea",hint:"Emakumea: woman. Andrea, lady, is a respectful alternative"},
+      {instruction:"All of their sister's children at once, nieces and nephews",keyword:"lobak",hint:"Lobak: nieces and nephews. One word covers both"},
+      {instruction:"On the official form, the one word for husband or wife",keyword:"ezkontidea",hint:"Ezkontidea: spouse, the formal word for either husband or wife"},
+    ]},
+    {key:"larranaga",name:"Larrañaga",emoji:"🧩",desc:"How a family is made, and made again",color:"#DB2777",dark:"#9D174D",bg:"#FDF2F8",members:[
+      {instruction:"They brought her home as a baby, and she is their daughter now",keyword:"seme_alaba_adoptatu",hint:"Seme-alaba adoptatua: adopted child, seme-alaba (son or daughter) + adoptatua"},
+      {instruction:"The paperwork that made it official",keyword:"adopzioa",hint:"Adopzioa: adoption. Adoptatu is to adopt"},
+      {instruction:"Her grandmother lost her husband years ago",keyword:"alargun",hint:"Alarguna: widow or widower, the same word for both"},
+      {instruction:"What ended her parents' marriage",keyword:"dibortzioa",hint:"Dibortzioa: divorce. Dibortziatua is divorced"},
+      {instruction:"Not just parents and children: aunts, uncles and cousins too",keyword:"familia_zabala",hint:"Familia zabala: extended family, familia + zabala (wide)"},
+    ]},
+    {key:"garmendia",name:"Garmendia",emoji:"🏡",desc:"In-laws, heirs and the house that outlasts them",color:"#4F46E5",dark:"#3730A3",bg:"#EEF2FF",members:[
+      {instruction:"The man who married their daughter",keyword:"suhia",hint:"Suhia: son-in-law. Suhi-errainak means sons- and daughters-in-law"},
+      {instruction:"The woman who married their son",keyword:"erraina",hint:"Erraina: daughter-in-law. Errain is the root"},
+      {instruction:"The house itself, handed down with its own name",keyword:"etxea_ondarea",hint:"Etxe-ondarea: family homestead, etxe (house) + ondarea (heritage)"},
+      {instruction:"The one who will carry it all on after them",keyword:"ondorengoa",hint:"Ondorengoa: descendant or heir, from ondoren (after)"},
+      {instruction:"The ties that bind them all, in one word",keyword:"ahaidetasuna",hint:"Ahaidetasuna: kinship. Ahaide is a relative"},
+      {instruction:"The hospital asks who to call: the closest family",keyword:"senide_hurbilak",hint:"Senide hurbilak: next of kin, senide (relative) + hurbilak (close ones)"},
     ]},
   ];
 
@@ -5892,6 +5932,32 @@ function ArbolaScreen(props){
     "haurtzaroa":["haurra","belaunaldia","arbasoak"],
     "heredentzia":["arbasoak","belaunaldia","etxea_ondarea"],
     "arbola":["belaunaldia","arbasoak","familia"],
+    // 1.8. Each list leaves out any word that would also be a fair answer:
+    // haurra beside umea, iloba beside lobak, senitartea beside familia
+    // zabala, senarra and emaztea beside suhia and erraina.
+    "familia":["gurasoak","laguna","pertsona"],
+    "neba":["anaia","ahizpa","semea"],
+    "mutila":["neska","gizona","aitona"],
+    "neska":["mutila","emakumea","amona"],
+    "umea":["gizona","emakumea","laguna"],
+    "pertsona":["laguna","osaba","izeba"],
+    "bizilaguna":["laguna","lehengusina","adinekoa"],
+    "adinekoa":["aitona","bizilaguna","osaba"],
+    "gizona":["emakumea","mutila","aita"],
+    "emakumea":["gizona","neska","ama"],
+    "lobak":["lehengusua","gurasoak","senitartea"],
+    "ezkontidea":["bikotea","senarra","emaztea"],
+    "seme_alaba_adoptatu":["adopzioa","guraso_bakarra","haurtzaroa"],
+    "adopzioa":["ezkontza","dibortzioa","seme_alaba_adoptatu"],
+    "alargun":["dibortziatua","ezkongabea","guraso_bakarra"],
+    "dibortzioa":["ezkontza","adopzioa","dibortziatua"],
+    "familia_zabala":["bikotea","belaunaldia","lobak"],
+    "suhia":["erraina","ondorengoa","lehengusua"],
+    "erraina":["suhia","izeba","lehengusina"],
+    "etxea_ondarea":["heredentzia","arbasoak","ahaidetasuna"],
+    "ondorengoa":["arbasoak","belaunaldia","heredentzia"],
+    "ahaidetasuna":["senide_hurbilak","belaunaldia","arbola"],
+    "senide_hurbilak":["ahaidetasuna","arbasoak","ondorengoa"],
   };
 
   var _family=useState(null);var family=_family[0];var setFamily=_family[1];
@@ -5909,14 +5975,49 @@ function ArbolaScreen(props){
   var _flash=useState(null);var flash=_flash[0];var setFlash=_flash[1];
   // Portrait slots — tracks which members have been placed
   var _portrait=useState([]);var portrait=_portrait[0];var setPortrait=_portrait[1];
+  // Which level the menu shows; "all" lists every family grouped by level.
+  var _alvl=useState("all");var lvlFilter=_alvl[0];var setLvlFilter=_alvl[1];
   var scoreRef=React.useRef(0);
+  // A family is as hard as the hardest word it asks for, the rule Kitchen and
+  // Ordutegi use, so the badge is read off the words and cannot drift.
+  var FAM_LEVELS=["A1","A2","B1","B2"];
+  var FAM_LEVEL_NAMES={A1:"BEGINNER",A2:"ELEMENTARY",B1:"INTERMEDIATE",B2:"UPPER INTERMEDIATE"};
+  function famLevel(f){
+    var top=0;
+    for(var i=0;i<f.members.length;i++){
+      var w=findWord(f.members[i].keyword);
+      if(!w)continue;
+      var ix=FAM_LEVELS.indexOf(w.cefr);
+      if(ix>top)top=ix;
+    }
+    return FAM_LEVELS[top];
+  }
 
   React.useEffect(function(){
     try{STORE.get('arbola_best').then(function(r){if(r&&r.value)setBest(parseInt(r.value)||0);}).catch(function(){});}catch(e){}
     // Which units are finished is part of the progress this screen shows,
     // so it has to outlive the screen. Only the high score used to be saved,
     // and every dot reset the moment you left.
-    try{STORE.get('arbola_done').then(function(r){if(r&&r.value){try{var a=JSON.parse(r.value);if(Array.isArray(a))setCompleted(a);}catch(e){}}}).catch(function(){});}catch(e){}
+    try{STORE.get('arbola_level').then(function(r){
+      if(r&&r.value&&(r.value==="all"||FAM_LEVELS.indexOf(r.value)!==-1))setLvlFilter(r.value);
+    }).catch(function(){});}catch(e){}
+    // Completion is stored by key now. Saves from before held display names;
+    // those are mapped to their key and rewritten, and anything matching
+    // neither is dropped rather than left as a family that does not exist.
+    try{STORE.get('arbola_done').then(function(r){
+      if(!r||!r.value)return;
+      var a;try{a=JSON.parse(r.value);}catch(e){return;}
+      if(!Array.isArray(a))return;
+      var out=[],changed=false;
+      a.forEach(function(v){
+        var f=FAMILIES.filter(function(x){return x.key===v;})[0]||FAMILIES.filter(function(x){return x.name===v;})[0];
+        if(!f){changed=true;return;}
+        if(f.key!==v)changed=true;
+        if(out.indexOf(f.key)===-1)out.push(f.key);
+      });
+      setCompleted(out);
+      if(changed){try{STORE.set('arbola_done',JSON.stringify(out)).catch(function(){});}catch(e){}}
+    }).catch(function(){});}catch(e){}
   },[]);
 
   function findWord(keyword){
@@ -5991,7 +6092,7 @@ function ArbolaScreen(props){
         var next=step+1;
         if(next>=family.members.length){
           haptic("success");sfx("complete");
-          var doneNow=completed.indexOf(family.name)===-1?completed.concat([family.name]):completed;
+          var doneNow=completed.indexOf(family.key)===-1?completed.concat([family.key]):completed;
           setCompleted(doneNow);
           try{STORE.set('arbola_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
           saveBest();
@@ -6028,10 +6129,17 @@ function ArbolaScreen(props){
   // Point "Next" at the nearest family still unbuilt, wrapping past the end,
   // so finishing the fifth portrait offers the sixth rather than one already
   // marked Complete. Falls back to the plain next one once all six are done.
+  // It looks at the same level first, so a player working through the B1
+  // families is not sent back to an A1 one.
   var nextIdx=(famIdx+1)%FAMILIES.length;
-  for(var ni=1;ni<=FAMILIES.length;ni++){
-    var cand=(famIdx+ni)%FAMILIES.length;
-    if(completed.indexOf(FAMILIES[cand].name)===-1){nextIdx=cand;break;}
+  var hereLvl=famLevel(FAMILIES[famIdx]);
+  outer:for(var pass=0;pass<2;pass++){
+    for(var ni=1;ni<=FAMILIES.length;ni++){
+      var cand=(famIdx+ni)%FAMILIES.length;
+      if(completed.indexOf(FAMILIES[cand].key)!==-1)continue;
+      if(pass===0&&famLevel(FAMILIES[cand])!==hereLvl)continue;
+      nextIdx=cand;break outer;
+    }
   }
   var nextFam=FAMILIES[nextIdx];
 
@@ -6059,7 +6167,7 @@ function ArbolaScreen(props){
             <span style={{fontSize:14}}>🌳</span>
             <p style={{margin:0,fontSize:12,fontWeight:700,color:"#fff"}}>Built {completed.length} of {FAMILIES.length} family portraits</p>
             <div style={{display:"flex",gap:3,marginLeft:"auto"}}>
-              {FAMILIES.map(function(f,i){return <div key={i} style={{width:8,height:8,borderRadius:"50%",backgroundColor:completed.indexOf(f.name)!==-1?"#fff":"rgba(255,255,255,0.25)"}}/>;  })}
+              {FAMILIES.map(function(f,i){return <div key={i} style={{width:8,height:8,borderRadius:"50%",backgroundColor:completed.indexOf(f.key)!==-1?"#fff":"rgba(255,255,255,0.25)"}}/>;  })}
             </div>
           </div>
         )}
@@ -6067,33 +6175,66 @@ function ArbolaScreen(props){
       </div>
 
       <div style={{padding:"14px"}}>
-        {FAMILIES.map(function(f,i){
-          var isDone=completed.indexOf(f.name)!==-1;
+        {/* Level selector, as in the Kitchen. The choice is remembered. */}
+        <div role="tablist" aria-label="Level" style={{display:"flex",gap:6,marginBottom:14}}>
+          {["all"].concat(FAM_LEVELS).map(function(LV){
+            var inL=LV==="all"?FAMILIES:FAMILIES.filter(function(f){return famLevel(f)===LV;});
+            if(!inL.length)return null;
+            var built=inL.filter(function(f){return completed.indexOf(f.key)!==-1;}).length;
+            var on=lvlFilter===LV;
+            return(
+              <button key={LV} role="tab" aria-selected={on} onClick={function(){
+                setLvlFilter(LV);
+                try{STORE.set('arbola_level',LV).catch(function(){});}catch(e){}
+              }} style={{flex:1,padding:"7px 0 6px",borderRadius:12,border:on?"none":"1px solid #E5E5EA",backgroundColor:on?"#0D9488":"#fff",color:on?"#fff":"#1C1C1E",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
+                <p style={{margin:0,fontSize:13,fontWeight:900,lineHeight:1.1}}>{LV==="all"?"All":LV}</p>
+                <p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:on?"rgba(255,255,255,0.8)":"#8E8E93"}}>{built}/{inL.length}</p>
+              </button>
+            );
+          })}
+        </div>
+        {FAM_LEVELS.map(function(L){
+          if(lvlFilter!=="all"&&lvlFilter!==L)return null;
+          var inL=[];
+          FAMILIES.forEach(function(f,i){if(famLevel(f)===L)inL.push({f:f,i:i});});
+          if(!inL.length)return null;
           return(
-            <button key={i} onClick={function(){startFamily(i);}}
-              style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",padding:0,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",display:"block"}}>
-              <div style={{background:"linear-gradient(135deg,"+f.dark+","+f.color+")",padding:"15px 16px 12px",position:"relative",overflow:"hidden"}}>
-                <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"16px 16px"}}/>
-                {isDone&&<div style={{position:"absolute",top:10,right:10,backgroundColor:"rgba(255,255,255,0.9)",borderRadius:20,padding:"3px 10px"}}><span style={{fontSize:10,fontWeight:800,color:f.color}}>✓ Complete</span></div>}
-                <div style={{display:"flex",alignItems:"center",gap:12,position:"relative"}}>
-                  <div style={{width:52,height:52,borderRadius:14,backgroundColor:"rgba(255,255,255,0.2)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,flexShrink:0}}>{f.emoji}</div>
-                  <div style={{flex:1}}>
-                    <p style={{margin:0,fontSize:16,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{f.name}</p>
-                    <p style={{margin:"2px 0 0",fontSize:11,color:"rgba(255,255,255,0.7)",fontWeight:500,fontStyle:"italic"}}>{f.desc}</p>
+            <React.Fragment key={L}>
+              <p style={{margin:"4px 2px 8px",fontSize:10,fontWeight:900,color:"#8E8E93",letterSpacing:1.2}}>{L} {"\u00B7"} {FAM_LEVEL_NAMES[L]}</p>
+              {inL.map(function(x){
+                var f=x.f,i=x.i;
+                var isDone=completed.indexOf(f.key)!==-1;
+                return(
+              <button key={i} onClick={function(){startFamily(i);}}
+                style={{width:"100%",marginBottom:10,borderRadius:20,border:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left",padding:0,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.08)",display:"block"}}>
+                <div style={{background:"linear-gradient(135deg,"+f.dark+","+f.color+")",padding:"15px 16px 12px",position:"relative",overflow:"hidden"}}>
+                  <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"16px 16px"}}/>
+                  {isDone&&<div style={{position:"absolute",top:10,right:10,backgroundColor:"rgba(255,255,255,0.9)",borderRadius:20,padding:"3px 10px"}}><span style={{fontSize:10,fontWeight:800,color:f.color}}>✓ Complete</span></div>}
+                  <div style={{display:"flex",alignItems:"center",gap:12,position:"relative"}}>
+                    <div style={{width:52,height:52,borderRadius:14,backgroundColor:"rgba(255,255,255,0.2)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,flexShrink:0}}>{f.emoji}</div>
+                    <div style={{flex:1}}>
+                      <div style={{display:"flex",alignItems:"center",gap:7}}>
+                        <p style={{margin:0,fontSize:16,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{f.name}</p>
+                        <span style={{fontSize:9,fontWeight:900,color:f.dark,backgroundColor:"rgba(255,255,255,0.9)",borderRadius:20,padding:"2px 7px",letterSpacing:0.3,flexShrink:0}}>{L}</span>
+                      </div>
+                      <p style={{margin:"2px 0 0",fontSize:11,color:"rgba(255,255,255,0.7)",fontWeight:500,fontStyle:"italic"}}>{f.desc}</p>
+                    </div>
+                  </div>
+                  {/* Portrait preview */}
+                  <div style={{display:"flex",gap:4,marginTop:10,position:"relative",alignItems:"center"}}>
+                    {f.members.map(function(m,mi){return(
+                      <div key={mi} style={{width:34,height:34,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.22)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,border:"1.5px solid rgba(255,255,255,0.3)"}}>{roleEmoji(m.keyword)}</div>
+                    );})}
                   </div>
                 </div>
-                {/* Portrait preview */}
-                <div style={{display:"flex",gap:4,marginTop:10,position:"relative",alignItems:"center"}}>
-                  {f.members.map(function(m,mi){return(
-                    <div key={mi} style={{width:34,height:34,borderRadius:"50%",backgroundColor:"rgba(255,255,255,0.22)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,border:"1.5px solid rgba(255,255,255,0.3)"}}>{roleEmoji(m.keyword)}</div>
-                  );})}
+                <div style={{backgroundColor:isDone?f.bg:"#fff",padding:"8px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                  <p style={{margin:0,fontSize:11,color:isDone?f.color:"#8E8E93",fontWeight:isDone?700:500}}>{isDone?"✓ Complete. Try again?":"Tap to meet the family"}</p>
+                  <span style={{fontSize:15,color:f.color,fontWeight:700}}>›</span>
                 </div>
-              </div>
-              <div style={{backgroundColor:isDone?f.bg:"#fff",padding:"8px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                <p style={{margin:0,fontSize:11,color:isDone?f.color:"#8E8E93",fontWeight:isDone?700:500}}>{isDone?"✓ Complete. Try again?":"Tap to meet the family"}</p>
-                <span style={{fontSize:15,color:f.color,fontWeight:700}}>›</span>
-              </div>
-            </button>
+              </button>
+                );
+              })}
+            </React.Fragment>
           );
         })}
       </div>
