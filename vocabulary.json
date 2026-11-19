@@ -1738,7 +1738,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "soo-kal-dah-REE-tsah",
-      "notes": "Sukaldaritza = cuisine or the art of cooking. Sukaldaria = chef. Sukaldea = kitchen. Basque cuisine is world-renowned with one of the highest concentrations of Michelin stars per capita in the world. Arzak, Berasategui, and Mugaritz lead globally.",
+      "notes": "Sukaldaritza = cuisine or the art of cooking. Sukaldaria = chef. Sukaldea = kitchen. Donostia (San Sebastián) is often cited for its number of Michelin stars per inhabitant. Arzak, Martín Berasategui and Mugaritz are among its best-known restaurants.",
       "example": {
         "basque": "Sukaldaritza bikaina da.",
         "english": "The cuisine is excellent."
@@ -1764,7 +1764,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "er-ree-AL-deh-ah (h is silent)",
-      "notes": "Herrialdea = territory or region. Euskal Herria has 7 historical territories (herrialdeak), 4 in Spain, 3 in France.",
+      "notes": "Herrialdea = territory or region. Euskal Herria has 7 historical territories (herrialdeak), 4 in Spain, 3 in France. The same word also means a country.",
       "example": {
         "basque": "Herrialdea ederra da.",
         "english": "The region is beautiful."
@@ -1855,7 +1855,7 @@
       "cefr": "A2",
       "topic": "body",
       "pronunciation": "oh-sah-SOO-nah",
-      "notes": "Osasuna = health. Also the name of the Iruñea (Pamplona) soccer club. Osasun ona = good health. Osasuntsu = healthy.",
+      "notes": "Osasuna = health. Also the name of the Iruñea (Pamplona) soccer club. Osasun ona = good health. Osasuntsu = healthy. Osasuna! is also the toast, like cheers.",
       "mcOnly": true,
       "example": {
         "basque": "Osasuna zaindu behar duzu.",
@@ -2403,7 +2403,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "es-KON-tsah",
-      "notes": "Ezkontza = wedding. Ezkondu = to marry. Ezkontide = spouse. Ezkongai = engaged person. Basque weddings are famous multi-day celebrations.",
+      "notes": "Ezkontza = wedding. Ezkondu = to marry. Ezkontide = spouse. Ezkongai = engaged person.",
       "example": {
         "basque": "Ezkontza ederra zen.",
         "english": "The wedding was beautiful."
@@ -2482,7 +2482,7 @@
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "sol-DAH-tah",
-      "notes": "Soldata = salary or wage. From Spanish sueldo. Soldata igoera = pay rise. Gutxieneko soldata = minimum wage.",
+      "notes": "Soldata = salary or wage. From Spanish sueldo. Soldata igoera = pay raise. Gutxieneko soldata = minimum wage.",
       "example": {
         "basque": "Soldata txikia da.",
         "english": "The salary is small."
@@ -2521,7 +2521,7 @@
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "in-DOOS-tree-ah",
-      "notes": "Industria = industry. Industriala = industrial. Bilbo (Bilbao) was once a major steel and shipbuilding center. Industry shaped modern Basque identity.",
+      "notes": "Industria = industry. Industriala = industrial. Bilbo (Bilbao) was once a major steel and shipbuilding center.",
       "example": {
         "basque": "Industria handia da.",
         "english": "The industry is large."
@@ -2534,7 +2534,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "chah-pel-KEH-tah",
-      "notes": "Championship. Txapela = beret + -keta = contest. The Bertsolari Championship (Bertsolari Txapelketa) held every 4 years fills the BEC arena in Bilbo (Bilbao) with 15,000 fans watching improvised verse. A unique Basque institution.",
+      "notes": "Championship. Txapela = beret + -keta = contest. The Bertsolari Championship (Bertsolari Txapelketa) held every 4 years fills the BEC arena in Bilbo (Bilbao) with 15,000 fans watching improvised verse.",
       "example": {
         "basque": "Txapelketa ederra da.",
         "english": "The championship is great."
@@ -2547,7 +2547,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "ber-tsoh-LAH-ree-ah",
-      "notes": "Bertsolaria = verse singer (bertsolaritza practitioner). Improvises in strict meter and rhyme on given themes. National championships fill the BEC arena in Bilbo (Bilbao) with 15,000 spectators. A uniquely Basque art form.",
+      "notes": "Bertsolaria = verse singer (bertsolaritza practitioner). Improvises in strict meter and rhyme on given themes. National championships fill the BEC arena in Bilbo (Bilbao) with 15,000 spectators.",
       "example": {
         "basque": "Bertsolaria bikaina da.",
         "english": "The verse singer is excellent."
@@ -2560,7 +2560,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "oh-EE-too-rah",
-      "notes": "Ohitura = custom or habit. Ohitu = to get used to. Ohitura onez = by good custom. Ohiturak eta balioak = customs and values.",
+      "notes": "Ohitura = custom or habit. Ohitu = to get used to. Ohiturak eta balioak = customs and values.",
       "example": {
         "basque": "Ohiturak onak dira.",
         "english": "Customs are good."
@@ -2573,7 +2573,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "er-REE-too-ah",
-      "notes": "Erritu = ritual. Errituzko = ritual/ceremonial. Basque culture has many ancient rituals tied to seasons, agriculture and community life.",
+      "notes": "Erritu = ritual. Errituzko = ritual/ceremonial.",
       "example": {
         "basque": "Erritua garrantzitsua da.",
         "english": "The ritual is important."
@@ -2755,7 +2755,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "ees-KOON-tsah poh-LEE-tee-kah (h is silent)",
-      "notes": "Hizkuntza politika = language policy, central to Basque politics. Official language status, education medium, and public signage are all debated.",
+      "notes": "Hizkuntza politika = language policy: official status, the language of schooling and public signage.",
       "mcOnly": true,
       "example": {
         "basque": "Hizkuntza politika ezinbestekoa da.",
@@ -2769,7 +2769,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "nor-mah-lee-sah-SEE-oh-ah",
-      "notes": "Normalizazioa = normalization, specifically the process of making Basque normal in daily life. A key political and cultural concept.",
+      "notes": "Normalizazioa = normalization, specifically the process of making Basque normal in daily life.",
       "mcOnly": true,
       "example": {
         "basque": "Normalizazioa prozesua da.",
@@ -2920,7 +2920,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "on-DAH-reh-ah",
-      "notes": "Ondarea = heritage or legacy. Ondare = inheritance (root). Kultura ondarea = cultural heritage. Basque heritage includes language, sport, music and food.",
+      "notes": "Ondarea = heritage or legacy. Ondare = inheritance (root). Kultura ondarea = cultural heritage. Basque heritage includes language, sports, music and food.",
       "mcOnly": true,
       "example": {
         "basque": "Ondarea babestu behar dugu.",
@@ -2934,7 +2934,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "ee-den-tee-TAH-teh-ah",
-      "notes": "Identity, central to Basque cultural and political life. Euskal identitatea = Basque identity. The question of who is Basque (language-based vs blood-based) is actively debated. Basque identity is largely defined through language use.",
+      "notes": "Identity. Euskal identitatea = Basque identity. The word euskalduna, Basque speaker, ties identity to the language.",
       "mcOnly": true,
       "example": {
         "basque": "Identitatea garrantzitsua da.",
@@ -2948,7 +2948,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "trah-dee-SEE-oh-ah",
-      "notes": "Tradizioa = tradition. Tradizional = traditional. Tradizioak gorde = to preserve traditions. Basque traditions are unusually well-preserved.",
+      "notes": "Tradizioa = tradition. Tradizional = traditional. Tradizioak gorde = to preserve traditions.",
       "example": {
         "basque": "Gure tradizioak bizirik daude belaunaldiz belaunaldi.",
         "english": "Our traditions are alive from generation to generation."
@@ -2961,7 +2961,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "moh-der-nee-TAH-teh-ah",
-      "notes": "Modernitatea = modernity. Moderno = modern. The tension between modernitatea and tradizioa is a constant theme in Basque cultural debate.",
+      "notes": "Modernitatea = modernity. Moderno = modern.",
       "mcOnly": true,
       "example": {
         "basque": "Modernitatea eta tradizioa.",
@@ -2988,7 +2988,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "eus-KAL-kee-ah",
-      "notes": "Euskalkia = dialect. Basque has 5-7 main dialects: Bizkaiera, Gipuzkera, Lapurtera, Zuberera, Nafarrera. Unified Basque (Euskara Batua) was standardized in 1968.",
+      "notes": "Euskalkia = dialect. Koldo Zuazo's modern classification names five: western, central, Navarrese, Navarrese-Lapurdian and Souletin (Zuberoan). Unified Basque (Euskara Batua) was standardized in 1968.",
       "example": {
         "basque": "Euskalkia ederra da.",
         "english": "The dialect is beautiful."
@@ -3149,7 +3149,7 @@
       "notes": "Aukeratu = to choose. Aukera = option/opportunity (root). Aukeratze = choosing. Zein aukeratzen duzu? = Which do you choose?",
       "example": {
         "basque": "Aukeratu ezazu.",
-        "english": "Please choose."
+        "english": "Choose."
       }
     },
     {
@@ -3159,7 +3159,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "al-DAH-too",
-      "notes": "Aldatu = to change. Aldaketa = change (noun). Aldakorra = changeable. Dena aldatu da = everything has changed. Very common verb.",
+      "notes": "Aldatu = to change. Aldaketa = change (noun). Aldakorra = changeable. Dena aldatu da = everything has changed.",
       "example": {
         "basque": "Hiria asko aldatu da azken urteetan.",
         "english": "The city has changed a lot in recent years."
@@ -3224,7 +3224,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "LOR-too",
-      "notes": "Lortu = to achieve or get. Lortu dut! = I did it! / I got it! Ezin da lortu = it cannot be achieved. Lortezina = unattainable. Lorpen = achievement. Very satisfying word to use.",
+      "notes": "Lortu = to achieve or get. Lortu dut! = I did it! / I got it! Ezin da lortu = it cannot be achieved. Lortezina = unattainable. Lorpen = achievement.",
       "example": {
         "basque": "Gogorra zen baina lortu duzu!",
         "english": "It was hard but you achieved it!"
@@ -3330,7 +3330,7 @@
       "pronunciation": "NAH-ee",
       "notes": "Nahi = to want/will. Nahi dut = I want. Nahi gabe = unwillingly. Nahikoa = enough (as much as wanted). Nahi eta nahi ez = whether you want or not.",
       "example": {
-        "basque": "Nahi dut etxera joan.",
+        "basque": "Etxera joan nahi dut.",
         "english": "I want to go home."
       }
     },
@@ -4646,7 +4646,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "ah-dop-SEE-oh-ah",
-      "notes": "Adoption. Adoptatu = to adopt. Adoptatutako haurra = adopted child. Basque law has progressive adoption rules. The concept of chosen family (aukeratutako familia) is valued.",
+      "notes": "Adoption. Adoptatu = to adopt. Adoptatutako haurra = adopted child.",
       "example": {
         "basque": "Adopzioa aukera ederra da.",
         "english": "Adoption is a wonderful option."
@@ -4750,7 +4750,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "chah-lah-PAR-tah",
-      "notes": "Ancient Basque percussion instrument. Two players strike wooden planks with batons in interlocking rhythms. Used at cider pressings and festivals. A unique sound found nowhere else in the world.",
+      "notes": "A Basque percussion instrument. Two players strike wooden planks with sticks in interlocking rhythms. Traditionally played after the cider pressing, and now at festivals.",
       "example": {
         "basque": "Txalaparta entzutea ederra da.",
         "english": "It is wonderful to hear the txalaparta."
@@ -4802,7 +4802,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "MAL-koh-ak",
-      "notes": "Tears (plural). Malko = tear (singular). Malkoak isuri = to shed tears. Malkotan = in tears. Basque poetry and song have beautiful expressions involving tears and longing.",
+      "notes": "Tears (plural). Malko = tear (singular). Malkoak isuri = to shed tears. Malkotan = in tears.",
       "example": {
         "basque": "Malkoak irteten zaizkio.",
         "english": "Tears come from her eyes."
@@ -4814,7 +4814,7 @@
       "english": "Full of joy / Overjoyed",
       "cefr": "B1",
       "topic": "emotions",
-      "pronunciation": "POH-ses beh-TEH-ah",
+      "pronunciation": "POH-ses BEH-teh-ah",
       "notes": "Overjoyed or full of joy. Pozez betea = literally filled with joy: poz (joy) + the instrumental -ez + betea (full). A more intense way to say pozik (happy).",
       "example": {
         "basque": "Pozez beteta nago albiste honekin.",
@@ -4828,7 +4828,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "deh-moh-KRAH-see-ah",
-      "notes": "Democracy. Demokratikoa = democratic. Basque foral democracy under the Tree of Gernika is one of Europe's oldest traditions. The Basque Parliament has its seat in Gasteiz (Vitoria).",
+      "notes": "Democracy. Demokratikoa = democratic. The assemblies of Bizkaia met under the Tree of Gernika. The Basque Parliament has its seat in Gasteiz (Vitoria).",
       "example": {
         "basque": "Demokrazia garrantzitsua da.",
         "english": "Democracy is important."
@@ -4853,8 +4853,8 @@
       "english": "Equality",
       "cefr": "B1",
       "topic": "society",
-      "pronunciation": "ber-din-TAH-soo-nah",
-      "notes": "Equality. Berdin = equal/same. Genero-berdintasuna = gender equality (major topic in Basque politics). Berdintasunezko = egalitarian. The Basque Country has progressive equality legislation.",
+      "pronunciation": "ber-deen-tah-SOO-nah",
+      "notes": "Equality. Berdin = equal/same. Genero-berdintasuna = gender equality. Berdintasunezko = egalitarian.",
       "example": {
         "basque": "Berdintasuna lortu nahi dugu.",
         "english": "We want to achieve equality."
@@ -4867,7 +4867,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "es-koo-BEE-deh-ak",
-      "notes": "Rights (plural). Esku = hand + bide = path = rights! Oinarrizko eskubideak = fundamental rights. Hizkuntza eskubideak = language rights, a central issue in Basque politics and daily life.",
+      "notes": "Rights (plural). Esku = hand + bide = path = rights! Oinarrizko eskubideak = fundamental rights. Hizkuntza eskubideak = language rights.",
       "example": {
         "basque": "Eskubideak babestu behar dira.",
         "english": "Rights must be protected."
@@ -4983,8 +4983,8 @@
       "english": "Report",
       "cefr": "B1",
       "topic": "work",
-      "pronunciation": "choh-STEH-nah",
-      "notes": "Report or document. Txostena idatzi = to write a report. Urteko txostena = annual report. Very common in professional Basque. Official documents in the Basque public administration are issued in Basque alongside Spanish.",
+      "pronunciation": "chos-TEH-nah",
+      "notes": "Report or document. Txostena idatzi = to write a report. Urteko txostena = annual report. Official documents in the Basque public administration are issued in Basque alongside Spanish.",
       "example": {
         "basque": "Txostena prestatu behar dut.",
         "english": "I need to prepare the report."
@@ -4997,7 +4997,7 @@
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "kon-TRAH-too-ah",
-      "notes": "Contract. Kontratua sinatu = to sign a contract. Lan-kontratua = work contract. Aldi baterako kontratua = temporary contract. Key vocabulary for job seekers and HR professionals.",
+      "notes": "Contract. Kontratua sinatu = to sign a contract. Lan-kontratua = work contract. Aldi baterako kontratua = temporary contract.",
       "example": {
         "basque": "Kontratua sinatu dut.",
         "english": "I have signed the contract."
@@ -5426,7 +5426,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "mas-KOO-ree-ah",
-      "notes": "Maskuria = bladder (gernu-maskuria = urinary bladder). In traditional Basque carnivals, characters carry inflated bladders (maskuriak). Do not confuse with sabela (stomach/belly) or sabelaldea (abdominal area).",
+      "notes": "Maskuria = bladder (gernu-maskuria = urinary bladder). Do not confuse with sabela (stomach/belly) or sabelaldea (abdominal area).",
       "example": {
         "basque": "Gernu-maskurian arazoak ditut.",
         "english": "I have problems with my bladder."
@@ -5452,7 +5452,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "bee-REE-kah",
-      "notes": "Lung. Birikak = lungs (plural). Biriketako gaixotasuna = lung disease. Birika osasuntsuak = healthy lungs. Birika beteak = full lungs. Important medical vocabulary for healthcare settings.",
+      "notes": "Lung. Birikak = lungs (plural). Biriketako gaixotasuna = lung disease. Birika osasuntsuak = healthy lungs.",
       "example": {
         "basque": "Birikak garbi ditu.",
         "english": "Her lungs are clear."
@@ -5556,7 +5556,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "dee-bor-TSEE-oh-ah",
-      "notes": "Divorce. Dibortziatu = to divorce. Dibortziatua = divorced. From Spanish divorcio. Spain legalised divorce in 1981, relatively recent. Basque divorce rates are similar to European averages.",
+      "notes": "Divorce. Dibortziatu = to divorce. Dibortziatua = divorced. From Spanish divorcio. Spain legalized divorce in 1981.",
       "example": {
         "basque": "Dibortzioa eskatu dute.",
         "english": "They have filed for divorce."
@@ -5946,7 +5946,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "gheel-tsoo-ROON-ak",
-      "notes": "Giltzurrunak = kidneys (plural). Giltzurrun = kidney (singular). Taught as plural since kidneys always come in pairs. Giltzurruneko harriak = kidney stones. Gernubideak = urinary tract. Key medical vocabulary.",
+      "notes": "Giltzurrunak = kidneys (plural). Giltzurrun = kidney (singular). Giltzurruneko harriak = kidney stones. Gernubideak = urinary tract.",
       "example": {
         "basque": "Giltzurrunak ondo daude.",
         "english": "The kidneys are fine."
@@ -6037,7 +6037,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "nah-ee-GAH-beh-ah",
-      "notes": "Nahigabea = disappointment or grief. Nahi = want + gabe = without = wanting-without = lacking what you want. Nahigabeturiko = disappointed/grieved. A more literary sadness than tristura.",
+      "notes": "Nahigabea = disappointment or grief. Nahi = want + gabe = without = wanting-without = lacking what you want. Nahigabetu = to grieve, to upset.",
       "example": {
         "basque": "Nahigabea sentitzen dut.",
         "english": "I feel disappointment."
@@ -6388,7 +6388,7 @@
       "cefr": "A2",
       "topic": "society",
       "pronunciation": "er-ree-AL-deh-ah (h is silent)",
-      "notes": "Herrialdea = country or nation-state. Different from herria (town/people/nation in a cultural sense). Herrialde batua = united country. Herrialde independentea = independent country.",
+      "notes": "Herrialdea = country or nation-state. Different from herria (town/people/nation in a cultural sense). Herrialde batua = united country. Herrialde independentea = independent country. The same word names each of the seven historical territories of Euskal Herria.",
       "example": {
         "basque": "Zein herrialdetan bizi zara?",
         "english": "In which country do you live?"
@@ -6414,7 +6414,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "LEH-geh-ah",
-      "notes": "Legea = law. Lege = law (root). Legezko = lawful/legal. Legea hautsi = to break the law. Legelaria = lawyer. Lege organikoa = organic law. Basque foral law (forua) is an ancient legal tradition predating Spain.",
+      "notes": "Legea = law. Lege = law (root). Legezko = lawful/legal. Legea hautsi = to break the law. Legelaria = lawyer. Lege organikoa = organic law. The foruak are the historic Basque charters of law.",
       "example": {
         "basque": "Legea errespetatu behar da.",
         "english": "The law must be respected."
@@ -6453,7 +6453,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "al-DER-dee-ah",
-      "notes": "Alderdia = political party. Alderdi = party/side (root). EAJ-PNV (Basque Nationalist Party) and EH Bildu are the main Basque parties. Alderdikeria = partisanship. Alderdi politikoa = political party.",
+      "notes": "Alderdia = political party. Alderdi = party/side (root). EAJ-PNV (Basque Nationalist Party) and EH Bildu are two of the main Basque parties. Alderdikeria = partisanship. Alderdi politikoa = political party.",
       "example": {
         "basque": "Alderdi politikoa hautatu dut.",
         "english": "I have chosen a political party."
@@ -7129,7 +7129,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "es-kool-TOO-rah",
-      "notes": "Eskultura = sculpture. Eskultore = sculptor. Eduardo Chillida and Jorge Oteiza are world-renowned Basque sculptors. Chillida Leku museum near Donostia (San Sebastián) displays Chillida's monumental works in a forest setting.",
+      "notes": "Eskultura = sculpture. Eskultore = sculptor. Eduardo Chillida and Jorge Oteiza are well-known Basque sculptors. Chillida Leku, a museum near Donostia (San Sebastián), shows Chillida's large works outdoors.",
       "example": {
         "basque": "Eskultura bikaina da.",
         "english": "The sculpture is magnificent."
@@ -7428,7 +7428,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "gheel-tsah-DOO-rah",
-      "notes": "Giltzadura = joint (body). Giltzadura-tartea = joint range, giltzadurak zaintzea = to care for joints. Giltza = key/lock. Giltzadurako mina = joint pain. Belaungiltzadura = knee joint.",
+      "notes": "Giltzadura = joint (body). Giltzadurak zaintzea = to care for joints. Giltza = key. Giltzadurako mina = joint pain.",
       "example": {
         "basque": "Giltzadurako mina dut.",
         "english": "I have joint pain."
@@ -7441,7 +7441,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "SOW-ree-ah",
-      "notes": "Zauria = wound or injury. Zauri = wound (root). Zauritua = injured/wounded. Zauria sendatu = to heal a wound. Zauritu = to injure/wound. An important word for medical and emergency contexts. Zauririk gabe = unharmed.",
+      "notes": "Zauria = wound or injury. Zauri = wound (root). Zauritua = injured/wounded. Zauria sendatu = to heal a wound. Zauritu = to injure/wound. Zauririk gabe = unharmed.",
       "example": {
         "basque": "Zauria sendatzen ari da.",
         "english": "The wound is healing."
@@ -7454,7 +7454,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "soo-KAR-rah (rolled rr)",
-      "notes": "Sukarra = fever. Su = fire + gar = flame. Literally fire-flame. Sukarra daukat = I have a fever. Sukarra jaitsi = fever has gone down. Sukar handia = high fever. One of the most useful medical words: the connection to su (fire) makes it memorable.",
+      "notes": "Sukarra = fever. Su = fire + gar = flame. Literally fire-flame. Sukarra daukat = I have a fever. Sukarra jaitsi = fever has gone down. Sukar handia = high fever.",
       "example": {
         "basque": "Sukarra daukat.",
         "english": "I have a fever."
@@ -7558,7 +7558,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "en-bah-SHAH-dah",
-      "notes": "Enbaxada = embassy. From Spanish embajada. Enbaxadorea = ambassador. Kontsulatua = consulate. Enbaxadan erregistratu = to register at the embassy. Essential for travelers needing documentation or emergency assistance abroad.",
+      "notes": "Enbaxada = embassy. From Spanish embajada. Enbaxadorea = ambassador. Kontsulatua = consulate. Enbaxadan erregistratu = to register at the embassy.",
       "example": {
         "basque": "Enbaxadara joan behar dut.",
         "english": "I need to go to the embassy."
@@ -8026,7 +8026,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "AS-teh nah-GOO-see-ah",
-      "notes": "The Great Week, Bilbao's biggest annual festival in August. Nine days of concerts, street parties, and events. Attracts over a million visitors.",
+      "notes": "The Great Week, Bilbao's biggest annual festival in August. Nine days of concerts, street parties, and events.",
       "example": {
         "basque": "Aste Nagusia abuztuan ospatzen da Bilbon.",
         "english": "The Great Week is celebrated in Bilbao in August."
@@ -8195,7 +8195,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "ah-doo-AH-nah",
-      "notes": "Customs. From Spanish aduana. Aduana kontrola = customs control. The Franco-Spanish border through the Basque Country was historically significant.",
+      "notes": "Customs. From Spanish aduana. Aduana kontrola = customs control.",
       "example": {
         "basque": "Aduanan gelditu ninduten.",
         "english": "They stopped me at customs."
@@ -8208,7 +8208,7 @@
       "cefr": "B2",
       "topic": "family",
       "pronunciation": "on-doh-REN-goh-ah",
-      "notes": "Descendant or heir. Ondoren (after/following) + -goa. Ondorengo = successor. The Basque diaspora maintains strong connections to their ondorengoak worldwide.",
+      "notes": "Descendant or heir. Ondoren (after/following) + -goa. Ondorengo = successor.",
       "example": {
         "basque": "Euskal diasporaren ondorengoak mundu osoan daude.",
         "english": "The descendants of the Basque diaspora are all over the world."
@@ -8217,14 +8217,14 @@
     {
       "id": "arbola",
       "basque": "Arbola",
-      "english": "Tree (also: family tree)",
+      "english": "Tree (as in the Tree of Gernika)",
       "cefr": "B2",
       "topic": "family",
       "pronunciation": "ar-BOH-lah",
-      "notes": "Tree, but also used for family tree. Familiaren arbola = family tree. Gernikako Arbola (Tree of Gernika) is the sacred oak symbol of Basque democracy and rights.",
+      "notes": "Arbola = tree, a Romance loan beside the native zuhaitza. Gernikako Arbola (Tree of Gernika) is an oak, the symbol of Basque freedoms. A family tree is usually zuhaitz genealogikoa.",
       "example": {
-        "basque": "Gure familiaren arbola luzea da.",
-        "english": "Our family tree is long."
+        "basque": "Gernikako Arbola haritz bat da.",
+        "english": "The Tree of Gernika is an oak."
       }
     },
     {
@@ -8325,7 +8325,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "es-kon-GAH-beh-ah",
-      "notes": "Single or unmarried. Ezkondu (to marry) + gabea (without): literally 'without marrying'. Ezkongabe bizi = to live single. Increasingly common as marriage rates change.",
+      "notes": "Single or unmarried. Ezkondu (to marry) + gabea (without): literally 'without marrying'. Ezkongabe bizi = to live single.",
       "example": {
         "basque": "Oraindik ezkongabea naiz.",
         "english": "I am still single."
@@ -8338,7 +8338,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "dee-bor-tsee-ah-TOO-ah",
-      "notes": "Divorced. From Spanish divorciado. Dibortziatu = to divorce. Dibortzioa = divorce. Family structures in the Basque Country have changed significantly.",
+      "notes": "Divorced. From Spanish divorciado. Dibortziatu = to divorce. Dibortzioa = divorce.",
       "example": {
         "basque": "Nire gurasoak dibortziatu ziren.",
         "english": "My parents got divorced."
@@ -8351,7 +8351,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "fah-MEE-lee-ah sah-BAH-lah",
-      "notes": "Extended family. Familia (family) + zabala (wide/broad). Traditional Basque culture placed great importance on the extended family unit, the etxea (house/family).",
+      "notes": "Extended family. Familia (family) + zabala (wide/broad).",
       "example": {
         "basque": "Familia zabalarekin biltzen gara Gabonetan.",
         "english": "We gather with the extended family at Christmas."
@@ -9339,7 +9339,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "dee-AS-poh-rah",
-      "notes": "Diaspora. International term. The Basque diaspora is one of the most cohesive in the world. Significant communities exist in Argentina, USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",
+      "notes": "Diaspora. International term. Significant communities exist in Argentina, USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",
       "example": {
         "basque": "Euskal diaspora mundu osoan sakabanatuta dago.",
         "english": "The Basque diaspora is scattered all over the world."
@@ -9352,7 +9352,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "moo-GHEE-tseh-ah",
-      "notes": "To move or migration. Mugitu (to move) + -tzea (verbal noun). Mugitzeko askatasuna = freedom of movement. Biztanleriaren mugimendua = population movement. Key in discussions of mobility and migration.",
+      "notes": "To move or migration. Mugitu (to move) + -tzea (verbal noun). Mugitzeko askatasuna = freedom of movement. Biztanleriaren mugimendua = population movement.",
       "example": {
         "basque": "Mugitzeko askatasuna eskubide bat da.",
         "english": "Freedom of movement is a right."
@@ -9365,7 +9365,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "er-bes-teh-RAH-too-ah",
-      "notes": "Exile or exiled person. Erbestea = exile. Erbesteratu = to go into exile. During the Franco dictatorship many Basques were erbesteratua in France, Mexico and elsewhere. A historically charged word.",
+      "notes": "Exile or exiled person. Erbestea = exile. Erbesteratu = to go into exile. During the Franco dictatorship many Basques were erbesteratua in France, Mexico and elsewhere.",
       "example": {
         "basque": "Frankismo garaian euskaldun asko erbesteratu ziren.",
         "english": "During the Franco era many Basques went into exile."
@@ -9378,7 +9378,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "moo-GAH-reek GAH-beh",
-      "notes": "Without borders or borderless. Muga (border) + -rik gabe (without). Mugarik gabeko mundua = a borderless world. Schengen area made the French-Spanish Basque border invisible. Politically significant phrase.",
+      "notes": "Without borders or borderless. Muga (border) + -rik gabe (without). Mugarik gabeko mundua = a borderless world. The Schengen area removed routine checks at the French-Spanish border.",
       "example": {
         "basque": "Mugarik gabeko Europa batean bizi gara.",
         "english": "We live in a borderless Europe."
@@ -9391,7 +9391,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "ah-ber-ree-RAH-tseh-ah",
-      "notes": "Repatriation or return to the homeland. Aberri (homeland) + -ratze (return). Aberriratzeko gogoa = desire to return to the homeland. Important for the Basque diaspora. Aberri Eguna celebrates the homeland.",
+      "notes": "Repatriation or return to the homeland. Aberri (homeland) + -ra (to) + -tze, the ending that makes a noun of the action. Aberriratzeko gogoa = desire to return to the homeland. Aberri Eguna celebrates the homeland.",
       "example": {
         "basque": "Aberriratze programek emigranteei laguntzen diete.",
         "english": "Repatriation programs help emigrants."
@@ -9404,7 +9404,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "BEE-deh LOO-seh-ah",
-      "notes": "Long road or long journey. Bide (road/path) + luzea (long). Both literal and metaphorical. Bide luzea dago oraindik = there is still a long road ahead. Used in discussions of political, social and personal journeys.",
+      "notes": "Long road or long journey. Bide (road/path) + luzea (long). Both literal and metaphorical. Bide luzea dago oraindik = there is still a long road ahead.",
       "example": {
         "basque": "Bide luzea dago helmugaraino.",
         "english": "There is a long road to the destination."
@@ -9417,7 +9417,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "bee-deh-SEE-dor-rah",
-      "notes": "Path, trail or shortcut. Bide (road) + zidor (narrow path). The Basque mountains are crossed by ancient bidezidorrak used by shepherds and pilgrims. The Camino de Santiago passes through the Basque Country.",
+      "notes": "Path, trail or shortcut. Bide (road) + zidor (narrow path).",
       "example": {
         "basque": "Bidezidor zahar bat hartu genuen mendira igotzeko.",
         "english": "We took an old path to climb the mountain."
@@ -9495,7 +9495,7 @@
       "cefr": "B2",
       "topic": "family",
       "pronunciation": "beh-low-NAL-dee-ah (low rhymes with now)",
-      "notes": "Generation. Belaun (knee/generation) + -aldia. Belaunaldi berriak = new generations. Belaunaldiz belaunaldi = from generation to generation. The transmission of Basque language across belaunaldiak is a central cultural concern.",
+      "notes": "Generation. Belaun (knee/generation) + -aldia. Belaunaldi berriak = new generations. Belaunaldiz belaunaldi = from generation to generation.",
       "example": {
         "basque": "Belaunaldiz belaunaldi transmititu da euskara.",
         "english": "Basque has been transmitted from generation to generation."
@@ -9508,7 +9508,7 @@
       "cefr": "B2",
       "topic": "family",
       "pronunciation": "ah-ai-deh-tah-SOO-nah",
-      "notes": "Kinship or family relationship. Ahaide (relative/kin) + -tasuna. Ahaide hurbilak = close relatives. Ahaidetasun loturak = kinship ties. In traditional Basque society ahaidetasuna extended to the whole community.",
+      "notes": "Kinship or family relationship. Ahaide (relative/kin) + -tasuna. Ahaide hurbilak = close relatives. Ahaidetasun loturak = kinship ties.",
       "example": {
         "basque": "Ahaidetasun lotura estua daukagu familia guztiarekin.",
         "english": "We have close kinship ties with the whole family."
@@ -9651,7 +9651,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "ghee-SAH-dee-ah",
-      "notes": "Humanity or mankind. Giza (human) + -dia. Gizadiaren historia = the history of humanity. Gizadiari lagundu = to help humanity. A fundamental concept in society.",
+      "notes": "Humanity or mankind. Giza (human) + -dia. Gizadiaren historia = the history of humanity. Gizadiari lagundu = to help humanity.",
       "example": {
         "basque": "Gizadia planeta honetan bizi da.",
         "english": "Humanity lives on this planet."
@@ -9807,7 +9807,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "goo-RAH-soh bah-KAR-rah",
-      "notes": "Single parent. Guraso (parent) + bakarra (alone/single). Guraso bakarreko familia = single-parent family. Increasingly common family structure discussed in modern Basque society.",
+      "notes": "Single parent. Guraso (parent) + bakarra (alone/single). Guraso bakarreko familia = single-parent family.",
       "example": {
         "basque": "Guraso bakarreko familia asko daude.",
         "english": "There are many single-parent families."
@@ -9820,7 +9820,7 @@
       "cefr": "B1",
       "topic": "family",
       "pronunciation": "SEH-meh ah-LAH-bah ah-dop-TAH-too-ah",
-      "notes": "Adopted child. Seme-alaba (son/daughter) + adoptatu (adopted). Adopzioa = adoption. Seme-alaba adoptatu bat daukagu = we have an adopted child. Important vocabulary for modern family discussions.",
+      "notes": "Adopted child. Seme-alaba (son/daughter) + adoptatu (adopted). Adopzioa = adoption. Seme-alaba adoptatu bat daukagu = we have an adopted child.",
       "example": {
         "basque": "Seme-alaba adoptatu bat daukate.",
         "english": "They have an adopted child."
@@ -9846,7 +9846,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "moos-KOO-loo-ah",
-      "notes": "Muscle. From Spanish músculo. Muskulu-mina = muscle pain. Muskuluak landu = to work the muscles. Muskulu-lesio = muscle injury. Essential for sports, health and fitness vocabulary.",
+      "notes": "Muscle. From Spanish músculo. Muskulu-mina = muscle pain. Muskuluak landu = to work the muscles. Muskulu-lesio = muscle injury.",
       "example": {
         "basque": "Muskuluak entrenatu behar ditut.",
         "english": "I need to train my muscles."
@@ -9859,7 +9859,7 @@
       "cefr": "B1",
       "topic": "body",
       "pronunciation": "ten-DOY-ah",
-      "notes": "Tendon. From Spanish tendón. Tendoi-lesio = tendon injury. Akilesen tendoia = Achilles tendon. Common sports injury vocabulary. Basque mountain sports make tendon injuries frequent.",
+      "notes": "Tendon. From Spanish tendón. Tendoi-lesio = tendon injury. Akilesen tendoia = Achilles tendon.",
       "example": {
         "basque": "Tendoi-lesio bat daukat belaunean.",
         "english": "I have a tendon injury in my knee."
@@ -9898,7 +9898,7 @@
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "LAN es-KAIN-tsah",
-      "notes": "Job offer. Lan (work) + eskaintza (offer). Lan eskaintza bat jaso = to receive a job offer. Lan eskaintzak bilatu = to look for job offers. Common in professional and career discussions.",
+      "notes": "Job offer. Lan (work) + eskaintza (offer). Lan eskaintza bat jaso = to receive a job offer. Lan eskaintzak bilatu = to look for job offers.",
       "example": {
         "basque": "Lan eskaintza on bat jaso dut.",
         "english": "I have received a good job offer."
@@ -9907,14 +9907,14 @@
     {
       "id": "curriculum",
       "basque": "Curriculuma",
-      "english": "CV / Resume",
+      "english": "Resume / CV",
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "koo-ree-KOO-loo-mah",
-      "notes": "CV or resume. International term also written as curriculum vitae. Curriculuma bidali = to send a CV. Curriculuma eguneratu = to update the CV. Essential professional vocabulary.",
+      "notes": "Resume or CV. International term also written as curriculum vitae. Curriculuma bidali = to send a resume. Curriculuma eguneratu = to update the resume.",
       "example": {
         "basque": "Nire curriculuma bidali dut.",
-        "english": "I have sent my CV."
+        "english": "I have sent my resume."
       }
     },
     {
@@ -9963,7 +9963,7 @@
       "cefr": "B2",
       "topic": "family",
       "pronunciation": "ar-BAH-soh-ak",
-      "notes": "Ancestors. Arbaso = ancestor (singular). Arbasoak = ancestors (plural). The Basque tradition of honoring ancestors is strong. The etxea (family home) connects the living to their arbasoak across generations. Arbasoen lurra = the land of our ancestors.",
+      "notes": "Ancestors. Arbaso = ancestor (singular). Arbasoak = ancestors (plural). Arbasoen lurra = the land of our ancestors.",
       "example": {
         "basque": "Gure arbasoek euskaraz hitz egiten zuten.",
         "english": "Our ancestors spoke Basque."
@@ -9989,7 +9989,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "EUS-kal lee-teh-rah-TOO-rah",
-      "notes": "Basque literature. Bernat Etxepare wrote the first book ever printed in Basque in 1545. Modern authors include Bernardo Atxaga (Obabakoak) and Kirmen Uribe. Euskal literatura has a rich oral tradition via bertsolaritza.",
+      "notes": "Basque literature. Bernat Etxepare wrote the first book ever printed in Basque in 1545. Modern authors include Bernardo Atxaga (Obabakoak) and Kirmen Uribe. Basque literature also has a strong oral tradition in bertsolaritza.",
       "example": {
         "basque": "Euskal literatura aberatsa da.",
         "english": "Basque literature is rich."
@@ -10002,7 +10002,7 @@
       "cefr": "B2",
       "topic": "culture",
       "pronunciation": "EUS-kal see-NEH-mah",
-      "notes": "Basque cinema. Directors like Julio Medem and Alex de la Iglesia have Basque roots. The San Sebastián International Film Festival (Donostiako Nazioarteko Zinema Jaialdia) is one of Europe's most prestigious.",
+      "notes": "Basque cinema. Julio Medem and Álex de la Iglesia are Basque-born directors. The San Sebastián International Film Festival (Donostiako Nazioarteko Zinema Jaialdia) is held every September.",
       "example": {
         "basque": "Euskal zinemak nazioarteko saria irabazi du.",
         "english": "Basque cinema has won an international award."
@@ -10392,7 +10392,7 @@
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "er-reh-TEE-roh-ah",
-      "notes": "Retirement. From Spanish retiro. Erretirora joan = to retire. Erretiro adina = retirement age. Erretiro pentsioa = retirement pension. The Basque provinces collect their own taxes, but Social Security pensions remain managed by the Spanish state.",
+      "notes": "Retirement. From Spanish retiro. Erretirora joan = to retire. Erretiro adina = retirement age. Erretiro pentsioa = retirement pension.",
       "example": {
         "basque": "Erretirora joango naiz hurrengo urtean.",
         "english": "I will retire next year."
@@ -10401,14 +10401,14 @@
     {
       "id": "sindikatu",
       "basque": "Sindikatua",
-      "english": "Trade union",
+      "english": "Labor union",
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "seen-dee-KAH-too-ah",
-      "notes": "Trade union. ELA and LAB are the main Basque trade unions. Sindikatuan sartu = to join a union. Sindikatu kidea = union member. Strong tradition of trade unionism in the Basque industrial sector.",
+      "notes": "Labor union. ELA and LAB are the main Basque unions. Sindikatuan sartu = to join a union. Sindikatu kidea = union member.",
       "example": {
         "basque": "Sindikatuan nago nire eskubideak babesteko.",
-        "english": "I am in the trade union to protect my rights."
+        "english": "I am in the union to protect my rights."
       }
     },
     {
@@ -10625,8 +10625,8 @@
       "english": "Close relatives / Next of kin",
       "cefr": "B2",
       "topic": "family",
-      "pronunciation": "SEH-nee-deh oor-BEE-lak",
-      "notes": "Close relatives or next of kin. Senide (relative/family member) + hurbilak (close ones). Legal and medical contexts require identifying senide hurbilak. Nire senide hurbilena = my closest relative.",
+      "pronunciation": "seh-NEE-deh oor-BEE-lak",
+      "notes": "Close relatives or next of kin. Senide (relative/family member) + hurbilak (close ones). Nire senide hurbilena = my closest relative.",
       "example": {
         "basque": "Senide hurbilei jakinarazi behar diegu.",
         "english": "We need to inform the close relatives."
@@ -12505,7 +12505,7 @@
       "cefr": "B1",
       "topic": "society",
       "pronunciation": "GER-rah",
-      "notes": "Gerra came into Basque from Spanish guerra. Gerra Zibila, the Civil War of 1936-1939, left deep scars in the Basque Country. The bombing of Gernika in 1937 inspired the famous Picasso painting. Gerra aurreko (prewar) and gerra ondoko (postwar) are common time markers in Basque history.",
+      "notes": "Gerra came into Basque from Spanish guerra. Gerra Zibila, the Civil War of 1936-1939, left deep scars in the Basque Country. The bombing of Gernika in 1937 is the subject of Picasso's painting Guernica. Gerra aurreko (prewar) and gerra ondoko (postwar) are common time markers in Basque history.",
       "example": {
         "basque": "Gerra Zibila 1936an hasi zen.",
         "english": "The Civil War started in 1936."
