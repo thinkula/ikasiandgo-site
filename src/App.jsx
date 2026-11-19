@@ -3390,7 +3390,7 @@ function GamesScreen(props){
 
   var games=[
     {id:"koloreak",emoji:"🎨",title:"Koloreak",desc:"Match Basque color words to real color swatches, and guess the color from the word",tag:"Colors",color:"#7C3AED",dark:"#4C1D95",fn:onKoloreak,best:kolBest,stats:["32 colors","A1-B2","Two modes"],pro:false},
-    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 27 classic Basque dishes by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["27 dishes","5 steps each","A1-B2"],pro:false},
+    {id:"txoko",emoji:"👨‍🍳",title:"Basque Kitchen",desc:"Cook 31 Basque dishes and meals by choosing the right Basque ingredients",tag:"Story",color:"#C2510E",dark:"#92400E",fn:onTxoko,best:txokoBest,stats:["31 dishes","5 steps each","A1-B2"],pro:false},
     {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build six Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["6 families","5 or 6 members","A1-B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["23 scenarios","Numbers & time","A1-B2"],pro:false},
@@ -4013,6 +4013,39 @@ function BasqueKitchenScreen(props){
       {instruction:"Add the spoon beside it",keyword:"koilara",hint:"For the soup course"},
       {instruction:"Finish with the glass above the knife",keyword:"edalontzia",hint:"Literally a vessel for drinking"},
     ]},
+    // Four A2 rounds added in 1.8. Each header picture differs from every
+    // answer's picture in its dish, or the header would give a step away. The Kitchen asked for 42 of the 44 A1 food
+    // words but only 16 of the 27 A2 ones; these make nine more of them answers.
+    // Gilda and txistorra follow their eu.wikipedia articles ("Gilda (pintxoa)",
+    // "Txistor"); askaria is the light meal between lunch and dinner ("Askari").
+    {key:"askaria",name:"Askaria",emoji:"\u{1F9FA}",desc:"The light meal between lunch and dinner",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
+      {instruction:"Cut two slices of bread",keyword:"ogia",hint:"Most afternoon snacks start as a sandwich"},
+      {instruction:"Lay a bar of chocolate between them",keyword:"txokolatea",hint:"Sweet, dark, and it melts a little"},
+      {instruction:"Pour a glass of orange juice",keyword:"zukua",hint:"Squeezed fruit, in a glass"},
+      {instruction:"Warm some milk in a wide cup",keyword:"katilua",hint:"The wide cup you dunk cookies into"},
+      {instruction:"Name the snack you have just put together",keyword:"askaria",hint:"It comes between lunch and dinner"},
+    ]},
+    {key:"gilda",name:"Gilda",emoji:"\u{1F362}",desc:"Olive, anchovy and pepper on a toothpick",color:"#4D7C0F",dark:"#365314",bg:"#F7FEE7",stages:[
+      {instruction:"Spear a green olive",keyword:"oliba",hint:"Small, green and salty"},
+      {instruction:"Fold an anchovy around it",keyword:"antxoa",hint:"A small, salty fish"},
+      {instruction:"Add a pickled green chili",keyword:"piperra",hint:"Long, thin and mild, the kind from Ibarra"},
+      {instruction:"Name the bar snack on the toothpick",keyword:"pintxoa",hint:"Bars line them up along the counter"},
+      {instruction:"Order something to drink with it",keyword:"edaria",hint:"Anything you would order at the bar"},
+    ]},
+    {key:"txistorra",name:"Txistorra",emoji:"\u{1F32D}",desc:"The thin red sausage from Navarre",color:"#B91C1C",dark:"#7F1D1D",bg:"#FEF2F2",stages:[
+      {instruction:"Start with fresh minced pork",keyword:"txerrikia",hint:"The meat, not the animal"},
+      {instruction:"Crush in some garlic",keyword:"baratxuria",hint:"Strong, white, and it comes in cloves"},
+      {instruction:"Season it with salt",keyword:"gatz",hint:"A pinch, not a handful"},
+      {instruction:"Color it red with ground pepper",keyword:"piperra",hint:"Ground into the paprika that turns it red"},
+      {instruction:"Name the animal the meat comes from",keyword:"txerria",hint:"Txerrikia is built from this word"},
+    ]},
+    {key:"pastela_eta_izozkia",name:"Pastela eta izozkia",emoji:"\u{1F382}",desc:"Cake and ice cream",color:"#BE185D",dark:"#831843",bg:"#FDF2F8",stages:[
+      {instruction:"Cut a slice of cake",keyword:"pastela",hint:"Not a bun, and not a layered tart"},
+      {instruction:"Put it on a plate",keyword:"platera",hint:"Flat and round"},
+      {instruction:"Add a scoop of ice cream",keyword:"izozkia",hint:"Its name is built on the word for ice"},
+      {instruction:"Grate some chocolate over the top",keyword:"txokolatea",hint:"Sweet and dark"},
+      {instruction:"Hand out a spoon",keyword:"koilara",hint:"For the ice cream"},
+    ]},
   ];
 
   var LIVES=3;
@@ -4111,10 +4144,16 @@ function BasqueKitchenScreen(props){
     var ansEm=getEmoji(correctWord)!=="\u{1F958}";
     var lv=DISH_LEVELS.indexOf(correctWord.cefr);
     var picks=[];
+    // Pairs a learner could defend either way. The txerria card says "pig or
+    // pork", so it must never be a wrong answer for txerrikia, or the reverse.
+    // noMeaningClash compares the English glosses ("Pig" and "Pork (the
+    // meat)"), which do not overlap, so it cannot see this.
+    var NEVER_TOGETHER={txerria:["txerrikia"],txerrikia:["txerria"]};
+    var apart=NEVER_TOGETHER[correctWord.id]||[];
     function take(pool){
       if(picks.length>=3)return;
       pool=noMeaningClash(pool.filter(function(w){
-        return w.id!==correctWord.id&&picks.indexOf(w)===-1&&(!ansEm||getEmoji(w)!=="\u{1F958}");
+        return w.id!==correctWord.id&&picks.indexOf(w)===-1&&apart.indexOf(w.id)===-1&&(!ansEm||getEmoji(w)!=="\u{1F958}");
       }),correctWord);
       picks=picks.concat(shuffled(pool).slice(0,3-picks.length));
     }
