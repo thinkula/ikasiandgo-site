@@ -6857,7 +6857,6 @@ var LESSONS=[
   },
   {
     id:"l20_home",
-    pro:true,
     num:30,
     title:"At Home",
     titleEu:"Etxean",
@@ -6893,7 +6892,6 @@ var LESSONS=[
   },
   {
     id:"l27_table",
-    pro:true,
     num:33,
     title:"Salt, Oil and the Table",
     titleEu:"Mahaia prestatzen",
@@ -6905,7 +6903,6 @@ var LESSONS=[
   },
   {
     id:"l28_family2",
-    pro:true,
     num:34,
     title:"More of the Family",
     titleEu:"Familia osoa",
@@ -6917,7 +6914,6 @@ var LESSONS=[
   },
   {
     id:"l29_body2",
-    pro:true,
     num:35,
     title:"More of the Body",
     titleEu:"Gorputza osorik",
@@ -6929,7 +6925,6 @@ var LESSONS=[
   },
   {
     id:"l30_outdoors",
-    pro:true,
     num:36,
     title:"Woods, Fields and Weather",
     titleEu:"Basoa eta zerua",
@@ -7758,7 +7753,6 @@ var LESSONS=[
 
   {
     id:"l75_errands",
-    pro:true,
     num:105,
     title:"Shops and Errands",
     titleEu:"Dendak eta tabernak",
