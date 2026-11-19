@@ -3442,7 +3442,11 @@ function TapScreen(props){
     var pool=getPool();
     if(pool.length<4){setWon(true);setQuestion(null);return;}
     var word=shuffled(pool)[0];
-    var distractors=shuffled(noMeaningClash(pool.filter(function(w){return w.id!==word.id;}),word)).slice(0,3);
+    // sameShape, as in the quiz: when the answer is a question (Nola?) and
+    // enough of the pool are too, the wrong answers are questions as well.
+    // Otherwise the one card ending in a question mark is the answer to the
+    // one prompt ending in a question mark, with no Basque read.
+    var distractors=shuffled(sameShape(noMeaningClash(pool.filter(function(w){return w.id!==word.id;}),word),word)).slice(0,3);
     var options=shuffled([word].concat(distractors));
     // Direction is user-controlled toggle, not random
     var t=getTimerSecs(currentTotal);
