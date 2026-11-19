@@ -1732,7 +1732,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={function(){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -1784,6 +1784,12 @@ function HomeScreen(props){
   // card below can name the lesson you are actually on rather than the path
   // in the abstract.
   var _ld=useState([]);var doneLessons=_ld[0];var setDoneLessons=_ld[1];
+  // The trial-ended card used to depend on trialUntil, which only holds a
+  // running trial, so it showed only if the trial ran out with the app open
+  // and was gone after the next launch. trialEnded comes from storage, so it
+  // survives a relaunch; "Not now" puts the card away for good.
+  var _ted=useState(false);var trialCardHidden=_ted[0];var setTrialCardHidden=_ted[1];
+  useEffect(function(){try{STORE.get("trial_card_hidden").then(function(r){if(r&&r.value==="1")setTrialCardHidden(true);}).catch(function(){});}catch(e){}},[]);
   useEffect(function(){try{STORE.get("lessons_done").then(function(r){if(r&&r.value){try{var arr=JSON.parse(r.value);if(Array.isArray(arr))setDoneLessons(arr);}catch(e){}}}).catch(function(){});}catch(e){}},[]);
   function setLvl(v){setLvlRaw(v);setTopicRaw(function(t){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:v,topic:t,cumul:c})).catch(function(){});return c;});return t;});}
   function setTopic(v){setTopicRaw(v);setLvlRaw(function(l){setCumulRaw(function(c){STORE.set("last_config",JSON.stringify({lvl:l,topic:v,cumul:c})).catch(function(){});return c;});return l;});}
@@ -2005,11 +2011,12 @@ function HomeScreen(props){
     <div style={{padding:"10px 14px calc(72px + env(safe-area-inset-bottom, 0px))",display:"flex",flexDirection:"column",gap:10,flex:1}}>
 
       {/* ── Expired trial ── */}
-      {trialUntil&&!isTrialActive&&!isPro&&(
+      {props.trialEnded&&!isPro&&!trialCardHidden&&(
         <div style={{backgroundColor:"#fff",border:"1.5px solid #F59E0B",borderRadius:16,padding:"13px 14px"}}>
           <p style={{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#D97706"}}>Your free trial has ended</p>
-          <p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93"}}>Subscribe to keep access to all words.</p>
-          <button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"10px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}}>Subscribe now</button>
+          <p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93"}}>Unlock Pro to keep every level, or keep learning with the free A1 words.</p>
+          <button onClick={onUpgrade} style={{width:"100%",backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"10px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}}>Unlock Pro</button>
+          <button onClick={function(){setTrialCardHidden(true);try{STORE.set("trial_card_hidden","1").catch(function(){});}catch(e){}}} style={{width:"100%",marginTop:6,background:"none",border:"none",padding:"6px",fontSize:12,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>Not now</button>
         </div>
       )}
 
@@ -2563,7 +2570,7 @@ function OnboardingScreen(props){
     {
       emoji:"🎉",
       title:"You are ready to start",
-      body:"Greetings, food, and numbers are free forever. That's "+a1+" words to begin your journey. Upgrade to Pro to unlock all "+_VOCAB.length+" words including family, travel, emotions, culture and more.",
+      body:"Every topic is free at the beginner level. That's "+a1+" words to begin your journey. Upgrade to Pro to unlock all "+_VOCAB.length+" words, every level up to B2.",
       cta:"Start learning Basque!"
     }
   ];
@@ -2615,7 +2622,9 @@ function ResetButton(){
     STORE.set("session_history","[]").catch(function(){});
     STORE.set("last_config","{}").catch(function(){});
     STORE.set("vocab_cache","").catch(function(){});
-    STORE.set("trial_until","").catch(function(){});
+    // trial_until is deliberately kept. It is the only record that the 7-day
+    // trial was ever taken, and clearing it offered the trial again after
+    // every reset, for ever.
     STORE.set("today_count_"+localDay(),"0").catch(function(){});
     STORE.set("streak_freeze","").catch(function(){});
     setConfirm(false);
