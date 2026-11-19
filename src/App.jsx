@@ -1448,6 +1448,14 @@ class ErrorBoundary extends React.Component{
 // in storage with the next session. The freeze now runs to the end of the day
 // after the one it covers, which is the last day it can still be needed.
 function dayAgo(n){return new Date(Date.now()-n*86400000).toDateString();}
+// The learner's own calendar day, as YYYY-MM-DD. The daily goal, the session
+// log and the week chart used to key on new Date().toISOString().slice(0,10),
+// which is the day in UTC. In New York that day turns over at seven in the
+// evening and in California at four in the afternoon, so the daily goal went
+// back to zero in the middle of the evening, and the week chart filed an
+// afternoon session under yesterday once the evening came. The streak has
+// always counted local days; these now agree with it.
+function localDay(d){d=d||new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
 function freezeEnd(){var u=new Date();u.setDate(u.getDate()+2);u.setHours(23,59,59,999);return u;}
 function readFreeze(raw){try{if(!raw)return null;var v=JSON.parse(raw);var u=v&&v.until?new Date(v.until):null;return u&&u>new Date()?u:null;}catch(e){return null;}}
 function streakAlive(lastDay,frozen){return lastDay===dayAgo(0)||lastDay===dayAgo(1)||(!!frozen&&lastDay===dayAgo(2));}
@@ -1514,8 +1522,8 @@ function App(){
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
         try{var dg=await STORE.get("daily_goal");if(dg&&dg.value)setDailyGoal(parseInt(dg.value)||10);}catch(e){}
-        try{var lo=await STORE.get("last_opened");var today2=new Date().toISOString().slice(0,10);setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
-        try{var tc=await STORE.get("today_count_"+new Date().toISOString().slice(0,10));if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
+        try{var lo=await STORE.get("last_opened");var today2=localDay();setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
+        try{var tc=await STORE.get("today_count_"+localDay());if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
         try{var tr=await STORE.get("trial_until");if(tr&&tr.value){setTrialUsed(true);var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
         // Fetch vocabulary
         (async function(){
@@ -1583,7 +1591,7 @@ function App(){
   try{
     var r=await STORE.get("session_history");
     var hist=r&&r.value?JSON.parse(r.value):[];
-    hist.push({date:new Date().toISOString().slice(0,10),acc:accuracy,lvl:level,topic:topic});
+    hist.push({date:localDay(),acc:accuracy,lvl:level,topic:topic});
     if(hist.length>90)hist=hist.slice(-90);
     await STORE.set("session_history",JSON.stringify(hist)).catch(function(){});
     setSessionHistory(hist);
@@ -1624,7 +1632,7 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
   function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(missedOnly?null:config);setQs(qs);setResults([]);setScreen("quiz");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=new Date().toISOString().slice(0,10);var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=localDay();var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
@@ -1796,7 +1804,7 @@ function HomeScreen(props){
       active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:12,padding:"2px 8px",fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
     );
   });
-  var today4=new Date().toISOString().slice(0,10);
+  var today4=localDay();
   var daysSinceOpened=0;if(lastOpened&&lastOpened!==today4){var diff=Math.round((new Date(today4)-new Date(lastOpened))/86400000);daysSinceOpened=isNaN(diff)?0:diff;}
   var goalPct=Math.min(Math.round(todayCount/(dailyGoal||10)*100),100);
   var goalDone=todayCount>=(dailyGoal||10);
@@ -2535,7 +2543,7 @@ function ResetButton(){
     STORE.set("last_config","{}").catch(function(){});
     STORE.set("vocab_cache","").catch(function(){});
     STORE.set("trial_until","").catch(function(){});
-    STORE.set("today_count_"+new Date().toISOString().slice(0,10),"0").catch(function(){});
+    STORE.set("today_count_"+localDay(),"0").catch(function(){});
     STORE.set("streak_freeze","").catch(function(){});
     setConfirm(false);
     window.location.reload();
@@ -7933,8 +7941,8 @@ function ProgressScreen(props){
   var week=useMemo(function(){
     var days=[];
     for(var k=6;k>=0;k--){
-      var dt=new Date(Date.now()-k*86400000);
-      var key=dt.toISOString().slice(0,10);
+      var dt=new Date();dt.setDate(dt.getDate()-k);
+      var key=localDay(dt);
       var count=0,accSum=0,accN=0;
       for(var i=0;i<hist.length;i++){
         if(hist[i].date===key){count++;if(typeof hist[i].acc==="number"){accSum+=hist[i].acc;accN++;}}
