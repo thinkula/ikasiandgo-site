@@ -1490,6 +1490,11 @@ function App(){
   var _s15=useState(null);var toast=_s15[0];var setToast=_s15[1];
   var _s16=useState(10);var dailyGoal=_s16[0];var setDailyGoal=_s16[1];
   var _s17=useState(0);var todayCount=_s17[0];var setTodayCount=_s17[1];
+  // The day todayCount belongs to, and a tick that moves when the day does.
+  // iOS keeps the app suspended for days at a time, so "today" cannot be
+  // something only read at launch: see the wake handler below.
+  var countDay=useRef(localDay());
+  var _sDay=useState(0);var dayTick=_sDay[0];var setDayTick=_sDay[1];
   var _s18=useState(null);var freezeUntil=_s18[0];var setFreezeUntil=_s18[1];var streakFrozen=!!(freezeUntil&&new Date()<freezeUntil);
   var _s19=useState(null);var lastOpened=_s19[0];var setLastOpened=_s19[1];
   var _s20=useState("$12.99");var rcPrice=_s20[0];var setRcPrice=_s20[1];var rcPkg=useRef(null);
@@ -1516,8 +1521,8 @@ function App(){
     return out.sort(function(a,b){
       return new Date(srsData[a.id].nextReview)-new Date(srsData[b.id].nextReview);
     });
-  },[srsData,isProOrTrial,vocabVersion,trialUntil]);
-  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil]);
+  },[srsData,isProOrTrial,vocabVersion,trialUntil,dayTick]);
+  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
   useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data"),STORE.get("streak_freeze")]);var fz=readFreeze(rs[2]&&rs[2].value);setFreezeUntil(fz);if(!fz&&rs[2]&&rs[2].value)STORE.set("streak_freeze","").catch(function(){});if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value);setStreak(streakAlive(d.lastDay,fz)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
@@ -1547,6 +1552,37 @@ function App(){
           }catch(e){}
         })();
       }load();},[]);
+  // Coming back to an app that was left open overnight. Nothing here re-read
+  // the date, so yesterday's count was still on the home screen as today's
+  // ("10/10, Goal complete!" before a single word), the next session was
+  // added on top of it and saved under the new day, the streak still showed
+  // after it had lapsed, and words that fell due overnight were not offered
+  // for review until something else happened to redraw the card.
+  useEffect(function(){
+    function onWake(e){
+      try{if(e&&e.type==="visibilitychange"&&document.visibilityState==="hidden")return;}catch(err){}
+      var day=localDay();
+      if(countDay.current===day)return;
+      countDay.current=day;
+      setTodayCount(0);
+      STORE.get("today_count_"+day).then(function(tc){if(countDay.current===day&&tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}).catch(function(){});
+      Promise.all([STORE.get("streak_data"),STORE.get("streak_freeze")]).then(function(rs){
+        var fz=readFreeze(rs[1]&&rs[1].value);setFreezeUntil(fz);
+        if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value);setStreak(streakAlive(d.lastDay,fz)?(d.streak||0):0);}
+      }).catch(function(){});
+      setDayTick(function(v){return v+1;});
+    }
+    // visibilitychange is the web's signal, resume is the one Capacitor sends
+    // when iOS brings the app back to the foreground.
+    document.addEventListener("visibilitychange",onWake);
+    document.addEventListener("resume",onWake);
+    window.addEventListener("focus",onWake);
+    return function(){
+      document.removeEventListener("visibilitychange",onWake);
+      document.removeEventListener("resume",onWake);
+      window.removeEventListener("focus",onWake);
+    };
+  },[]);
   function armStreakFreeze(){var until=freezeEnd();setFreezeUntil(until);STORE.set("streak_freeze",JSON.stringify({until:until.toISOString()})).catch(function(){});}
   function grantPro(){setIsPro(true);STORE.set("pro_status","1").catch(function(){});setTrialUntil(null);STORE.set("trial_until","").catch(function(){});}
   async function doPurchase(after){
@@ -1632,7 +1668,7 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
   function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(missedOnly?null:config);setQs(qs);setResults([]);setScreen("quiz");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=localDay();var newTodayCount=todayCount+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}var today3=localDay();var countedSoFar=countDay.current===today3?todayCount:0;countDay.current=today3;var newTodayCount=countedSoFar+res.filter(function(r){return r.correct;}).length;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
