@@ -99,7 +99,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SER MO-doos",
-      "notes": "Zer moduz? = How are you? (literally how is the manner?). The standard everyday greeting after kaixo. Zer moduz zaude? is a slightly more emphatic form. Ondo = fine. Primeran = great. Txarto = badly.",
+      "notes": "Zer moduz? = How are you? (literally in what manner?). The standard everyday greeting after kaixo. Zer moduz zaude? is the fuller form. Ondo = fine. Primeran = great. Txarto = badly.",
       "example": {
         "basque": "Kaixo! Zer moduz?",
         "english": "Hello! How are you?"
@@ -112,7 +112,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "ON-do",
-      "notes": "Ondo = well or fine (adverb, not adjective). Ondo nago = I am well. Ondo egin = to do well. Ondo etorri = welcome (come well). Ongi = also means well (slightly more formal). Opposite: gaizki (badly).",
+      "notes": "Ondo = well or fine (adverb, not adjective). Ondo nago = I am well. Ondo egin = to do well. Ongi is the other common word for well: ongi etorri = welcome. Opposite: gaizki (badly).",
       "example": {
         "basque": "Ondo nago eskerrik asko.",
         "english": "I am fine thank you."
@@ -243,7 +243,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "PEEN-choh-ah",
-      "notes": "Pintxoa = pintxo (plural: pintxoak). A small snack served on bread, skewered with a toothpick (pintxo). Similar to tapas but distinct. Basque pintxos are often elaborate works of art. Donostia is the pintxo capital.",
+      "notes": "Pintxoa = pintxo (plural: pintxoak). A small snack, often served on bread and held with a toothpick. The name comes from Spanish pincho, a spike. Donostia is especially known for them.",
       "example": {
         "basque": "Pintxoak jaten ditut.",
         "english": "I eat pintxos."
@@ -256,10 +256,10 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "bas-KAH-ree-ah",
-      "notes": "Lunch is the main meal. Basque restaurants serve a menua (set lunch menu), excellent value and quality.",
+      "notes": "Lunch is the main meal. Many restaurants serve an eguneko menua, a set lunch menu.",
       "example": {
         "basque": "Bazkaria egiten dugu.",
-        "english": "We are making lunch."
+        "english": "We make lunch."
       }
     },
     {
@@ -451,7 +451,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "OH-gay (h is silent)",
-      "notes": "Hogei = 20. The base of the Basque vigesimal counting system. All round numbers are multiples of hogei: berrogei=40, hirurogei=60, laurogei=80. Hogeiren bat = about twenty. Hogei urte = twenty years.",
+      "notes": "Hogei = 20. The base of the Basque vigesimal counting system. The even tens are multiples of hogei: berrogei=40, hirurogei=60, laurogei=80. Hogeiren bat = about twenty. Hogei urte = twenty years.",
       "example": {
         "basque": "Hogei lagun.",
         "english": "Twenty people."
@@ -1205,7 +1205,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "ai-reh-por-TOO-ah",
-      "notes": "Aireportua = airport. Aire = air + portu = port. Bilbo (Bilbao) airport is called Loiu. Donostia (San Sebastián) also has an airport.",
+      "notes": "Aireportua = airport. Aire = air + portu = port. Bilbo (Bilbao) airport is in Loiu. Donostia (San Sebastián) also has an airport.",
       "example": {
         "basque": "Aireportua urrun dago.",
         "english": "The airport is far."
@@ -1221,7 +1221,7 @@
       "notes": "Ostatua = inn or lodging, a Romance loan (compare Spanish hostal). A modern hotel is hotela. Also used for traditional rural guesthouses (casas rurales).",
       "example": {
         "basque": "Ostatua erosoa da.",
-        "english": "The hotel is comfortable."
+        "english": "The inn is comfortable."
       }
     },
     {
@@ -1322,7 +1322,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "lee-BOO-roo-ah",
-      "notes": "Liburua comes from Latin liber. Liburutegia = library (literally book-place). Books are central to Basque cultural identity.",
+      "notes": "Liburua comes from Latin liber. Liburutegia = library (literally book-place).",
       "example": {
         "basque": "Liburua interesgarria da.",
         "english": "The book is interesting."
@@ -1335,7 +1335,7 @@
       "cefr": "A1",
       "topic": "society",
       "pronunciation": "oo-nee-ber-tsee-TAH-teh-ah",
-      "notes": "Unibertsitatea = university. The University of the Basque Country (UPV/EHU) has over 45,000 students and teaches in both Basque and Spanish.",
+      "notes": "Unibertsitatea = university. The University of the Basque Country (UPV/EHU) is the public university and teaches in both Basque and Spanish.",
       "example": {
         "basque": "Unibertsitatea handia da.",
         "english": "The university is large."
@@ -1361,7 +1361,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "eus-kal-DOON-ah",
-      "notes": "Euskalduna defines identity through language, not blood. Anyone who speaks Basque is Euskaldun.",
+      "notes": "Literally one who has Basque. Anyone who speaks Basque is euskaldun.",
       "example": {
         "basque": "Euskalduna naiz.",
         "english": "I am a Basque speaker."
@@ -1374,7 +1374,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "EUS-kal ER-ree-ah",
-      "notes": "Euskal Herria = the Basque Country. Literally the Basque people's land (Euskal = Basque + Herria = people/land). Encompasses 7 territories across Spain and France. More than a geographic term, a statement of identity.",
+      "notes": "Euskal Herria = the Basque Country. Literally the country of Basque, the language (herria = country or people). It covers seven provinces across Spain and France.",
       "example": {
         "basque": "Euskal Herria ederra da.",
         "english": "The Basque Country is beautiful."
@@ -1815,7 +1815,7 @@
       "english": "Car",
       "cefr": "A2",
       "topic": "travel",
-      "pronunciation": "KOT-cheh-ah",
+      "pronunciation": "KOH-cheh-ah",
       "notes": "Kotxea comes from Spanish coche. Kotxea aparkatu = to park the car. Garaje = garage. Auto is also used in informal speech.",
       "example": {
         "basque": "Kotxea aparkatu dut.",
@@ -3405,7 +3405,7 @@
       "english": "Importance",
       "cefr": "B2",
       "topic": "society",
-      "pronunciation": "gar-rant-TSEE-ah",
+      "pronunciation": "gar-ran-TSEE-ah",
       "notes": "Garrantzia = importance. Garrantzitsua = important. Garrantzitsuena = the most important. Very commonly heard in news and formal speech.",
       "example": {
         "basque": "Garrantzia handia du.",
@@ -3549,7 +3549,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SER",
-      "notes": "Zer? = What? The most common question word in Basque. Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (what is the manner?). Zer berri? = What's new?",
+      "notes": "Zer? = What? The most common question word in Basque. Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (in what manner?). Zer berri? = What's new?",
       "example": {
         "basque": "Zer nahi duzu?",
         "english": "What do you want?"
@@ -3666,7 +3666,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "EETS EH-gheen (h is silent)",
-      "notes": "Hitz egin (to speak) vs mintzatu (to speak formally). Hitz literally means word, so hitz egin = to do words!",
+      "notes": "Mintzatu is another word for to speak. Hitz means word, so hitz egin is literally to make word.",
       "example": {
         "basque": "Euskaraz hitz egiten duzu?",
         "english": "Do you speak Basque?"
@@ -3938,7 +3938,7 @@
       "english": "Closed",
       "cefr": "A1",
       "topic": "travel",
-      "pronunciation": "EET-chee-ah",
+      "pronunciation": "EE-chee-ah",
       "notes": "Closed. Itxita dago = it is closed. Do not confuse with irekia (open).",
       "example": {
         "basque": "Denda itxita dago.",
@@ -4214,7 +4214,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ES-neh-ah",
-      "notes": "Milk. Esne = milk (root). Kafesnea = coffee with milk. Esne-gaina = cream. Common in traditional Basque breakfasts.",
+      "notes": "Milk. Esne = milk (root). Kafesnea = coffee with milk. Esnegaina = cream. Common in traditional Basque breakfasts.",
       "example": {
         "basque": "Esnea edan dut.",
         "english": "I drank milk."
@@ -4711,7 +4711,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "ee-koor-REE-nah",
-      "notes": "The Basque flag, a white cross over a green diagonal saltire on a red field. Designed in 1894 by the Arana brothers. Ikur = symbol. One of the most recognized regional flags in Europe.",
+      "notes": "The Basque flag, a white cross over a green diagonal saltire on a red field. Designed in 1894 by the Arana brothers. Ikur = symbol.",
       "example": {
         "basque": "Ikurrina etxean daukagu.",
         "english": "We have the Basque flag at home."
@@ -5022,7 +5022,7 @@
       "english": "Curious / Interesting",
       "cefr": "B1",
       "topic": "adjectives",
-      "pronunciation": "BEET-chee-ah",
+      "pronunciation": "BEE-chee-ah",
       "notes": "Curious, interesting or slightly odd, in a positive way. Bitxi = jewel (also!). Bitxikeriak = curiosities. More positive than arraroa. Zer bitxia! = How interesting! Common in conversation.",
       "example": {
         "basque": "Zer bitxia den hori!",
@@ -5685,7 +5685,7 @@
       "english": "Ancient / From long ago",
       "cefr": "B2",
       "topic": "adjectives",
-      "pronunciation": "ant-tsee-nah-TEH-koh-ah",
+      "pronunciation": "an-tsee-nah-TEH-koh-ah",
       "notes": "Ancient or from ancient times. Antzina = long ago. Antzinatekoa = of antiquity. The Basque language itself is often described as antzinatekoa, one of the oldest languages in Europe with no known relatives.",
       "example": {
         "basque": "Euskara hizkuntza antzinatekoa da.",
@@ -5712,7 +5712,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "poh-LEE-kee",
-      "notes": "Slowly or gently. Poliki hitz egin = speak slowly please. Poliki-poliki = very slowly/little by little. Also means nicely or gently. Poliki esaidazu = say it slowly to me. Essential for learners asking native speakers to slow down.",
+      "notes": "Slowly or gently. Poliki hitz egin = speak slowly. Poliki-poliki = very slowly/little by little. Also means nicely or gently. Poliki esaidazu = say it slowly to me. Essential for learners asking native speakers to slow down.",
       "example": {
         "basque": "Poliki hitz egin mesedez.",
         "english": "Please speak slowly."
@@ -6518,7 +6518,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "kee-ROH-lak",
-      "notes": "Kirolak = sports (plural). Kirola = sport (singular). Kirolaria = athlete/sportsperson. Kirol eguna = sports day. Basque rural sports (herri kirolak) include log-splitting, stone-lifting, and tug of war. Unique to Basque culture.",
+      "notes": "Kirolak = sports (plural). Kirola = sport (singular). Kirolaria = athlete/sportsperson. Kirol eguna = sports day. Basque rural sports (herri kirolak) include wood chopping, stone lifting and tug of war.",
       "example": {
         "basque": "Kirolak gustatzen zaizkit.",
         "english": "I like sports."
@@ -6531,10 +6531,10 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "foot-BOH-lah",
-      "notes": "Futbola = football. Athletic Club (Bilbao) is unique. It only signs players of Basque origin. La Real (Real Sociedad) is the other major Basque club. Futbol-zelaia = football pitch. Basques are passionate fans.",
+      "notes": "Futbola = football. Athletic Club (Bilbao) only fields players born or trained in the Basque Country. Real Sociedad, from Donostia, is another major Basque club. Futbol-zelaia = soccer field.",
       "example": {
         "basque": "Futbola ikusten dut.",
-        "english": "I watch football."
+        "english": "I watch soccer."
       }
     },
     {
@@ -6544,7 +6544,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "lee-boo-roo-TEH-ghee-ah",
-      "notes": "Liburutegia = library. Liburua = book + -tegi = place. Literally book-place. Basque public libraries (liburutegiak) are important centers of Basque culture. Koldo Mitxelena liburutegia in Donostia is famous.",
+      "notes": "Liburutegia = library. Liburua = book + -tegi = place. Literally book-place. The Koldo Mitxelena library is in Donostia.",
       "example": {
         "basque": "Liburutegia hurbil dago.",
         "english": "The library is nearby."
@@ -6570,7 +6570,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "see-NEH-mah",
-      "notes": "Zinema = cinema or film. Zinema-aretoa = cinema (hall). Zinemara joan = to go to the cinema. San Sebastián International Film Festival (Donostia Zinemaldia) is one of Europe's most prestigious film festivals.",
+      "notes": "Zinema = cinema or film. Zinema-aretoa = cinema (hall). Zinemara joan = to go to the cinema. The San Sebastián International Film Festival (Donostia Zinemaldia) is held every September.",
       "example": {
         "basque": "Zinema gustatzen zait.",
         "english": "I like cinema."
@@ -7272,7 +7272,7 @@
       "cefr": "A1",
       "topic": "society",
       "pronunciation": "lah-goon-AR-teh-ah",
-      "notes": "Lagunartea = circle of friends or community. Lagun = friend + artea = space between. Can refer to a close friend group or a broader community. Lagunartean = among friends/community. Auzolana is the related concept of community work. Very Basque concept of collective belonging.",
+      "notes": "Lagunartea = circle of friends or community. Lagun = friend + artea = space between. Can refer to a close friend group or a broader community. Lagunartean = among friends/community. Auzolana is the related concept of community work.",
       "example": {
         "basque": "Lagunartean ondo sentitzen naiz.",
         "english": "I feel good among friends."
@@ -7298,7 +7298,7 @@
       "cefr": "A1",
       "topic": "society",
       "pronunciation": "OW-soh-ah",
-      "notes": "Auzoa = neighborhood or small village. Auzo = neighborhood (root). Auzokoa = neighbor. Auzolan = community work (neighborhood work), the Basque tradition of collective voluntary labor. A beautiful concept: neighbors working together for the common good.",
+      "notes": "Auzoa = neighborhood or small village. Auzo = neighborhood (root). Auzokoa = neighbor. Auzolan = community work (neighborhood work), the Basque tradition of collective voluntary labor.",
       "example": {
         "basque": "Nire auzoa txikia da.",
         "english": "My neighborhood is small."
@@ -8637,7 +8637,7 @@
       "cefr": "A1",
       "topic": "work",
       "pronunciation": "eh-ree-SAI-nah",
-      "notes": "Nurse. Erizain = nurse (root). One of the most common professions. Erizain ona = good nurse. The Basque health system (Osakidetza) is well regarded.",
+      "notes": "Nurse. Erizain = nurse (root). Erizain ona = good nurse. Osakidetza is the Basque public health service.",
       "example": {
         "basque": "Erizainak ospitalean lan egiten du.",
         "english": "The nurse works in the hospital."
@@ -8650,7 +8650,7 @@
       "cefr": "A1",
       "topic": "work",
       "pronunciation": "soo-kal-DAH-ree-ah",
-      "notes": "Cook or chef. Sukalde (kitchen) + -aria (person who does). The Basque Country is world famous for its chefs, among them Arzak, Berasategui and Aduriz. Sukaldari handia = great chef.",
+      "notes": "Cook or chef. Sukalde (kitchen) + -ari (person who does). Arzak, Berasategui and Aduriz are well-known Basque chefs. Sukaldari handia = great chef.",
       "example": {
         "basque": "Sukaldariak jatetxean lan egiten du.",
         "english": "The chef works in the restaurant."
@@ -8662,10 +8662,10 @@
       "english": "Lawyer",
       "cefr": "A1",
       "topic": "work",
-      "pronunciation": "ah-boh-KAH-too",
+      "pronunciation": "ah-boh-KAH-too-ah",
       "notes": "Lawyer. From Spanish abogado. Abokatu ona = good lawyer. Abokatuarengana joan = to go to a lawyer. Common profession word needed for introductions.",
       "example": {
-        "basque": "Nire laguna abokatu da.",
+        "basque": "Nire laguna abokatua da.",
         "english": "My friend is a lawyer."
       }
     },
@@ -8676,7 +8676,7 @@
       "cefr": "A1",
       "topic": "work",
       "pronunciation": "ee-das-KAH-ree-ah",
-      "notes": "Secretary or administrator. Idatz (write) + -karia. Idazkari nagusia = head secretary. Common in office and government contexts.",
+      "notes": "Secretary or administrator. Idaz- (write) + -kari. Idazkari nagusia = head secretary. Common in office and government contexts.",
       "example": {
         "basque": "Idazkaria bulegoan dago.",
         "english": "The secretary is in the office."
@@ -9481,7 +9481,7 @@
       "english": "Family homestead / Ancestral home",
       "cefr": "B2",
       "topic": "family",
-      "pronunciation": "ET-cheh on-DAH-reh-ah",
+      "pronunciation": "EH-cheh on-DAH-reh-ah",
       "notes": "Family homestead or ancestral property. Etxe (house) + ondarea (heritage/legacy). In Basque culture the family home has its own name and is passed down through generations. Surnames like Etxeberria, Etxebarria come from homestead names.",
       "example": {
         "basque": "Gure etxe-ondareak mendeetan iraun du.",
@@ -10015,7 +10015,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "OR-doo BAH-tah dah",
-      "notes": "It is one o'clock. Ordu = hour/clock. Da = it is. Ordu bata = one o'clock. Ordu biak = two o'clock. Hirurak = three o'clock. Only one o'clock takes the singular da; the later hours are plural, so ordu biak dira = it is two o'clock.",
+      "notes": "It is one o'clock. Ordu = hour. Da = it is. Ordu bata = one o'clock. Ordu biak = two o'clock. Hirurak = three o'clock. Only one o'clock takes the singular da; the later hours are plural, so ordu biak dira = it is two o'clock.",
       "example": {
         "basque": "Ordu bata da orain.",
         "english": "It is one o'clock now."
@@ -10327,7 +10327,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "eh-gas-KEE-nah (h is silent)",
-      "notes": "Aeroplane or flight. Hegaz (flying) + -kina (machine). Hegazkin txartela = plane ticket. Hegazkin konpainia = airline. Bilbao Airport (Loiu) and San Sebastián Airport serve the Basque Country.",
+      "notes": "Airplane. Hegaz (flying) + -kin (instrument). Hegazkin txartela = plane ticket. Hegazkin konpainia = airline.",
       "example": {
         "basque": "Hegazkinez joango naiz Madrilera.",
         "english": "I will go to Madrid by plane."
@@ -10353,7 +10353,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "GEH-lah",
-      "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Komunak = bathroom. Gela bikoitza = double room. Gela bakarreko = single room. Essential hotel vocabulary.",
+      "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Komunak = bathroom. Gela bikoitza = double room. Essential hotel vocabulary.",
       "example": {
         "basque": "Gela bat nahi dut bi gauetarako.",
         "english": "I want a room for two nights."
@@ -10457,7 +10457,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "goh-SAL-doo",
-      "notes": "To have breakfast. Gosal (morning meal) + -du (verb suffix). Goizean gosaltzen dut = I have breakfast in the morning. Gosaria = breakfast (noun). The three meal verbs: gosaldu, bazkaldu, afaldu.",
+      "notes": "To have breakfast. Gosal-, the combining form of gosari, + -du (verb suffix). Goizean gosaltzen dut = I have breakfast in the morning. Gosaria = breakfast (noun). The three meal verbs: gosaldu, bazkaldu, afaldu.",
       "example": {
         "basque": "Goizean zazpietan gosaltzen dut.",
         "english": "I have breakfast at seven in the morning."
@@ -10470,7 +10470,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "bas-KAL-doo",
-      "notes": "To have lunch. Bazkal (lunch) + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture, often a three-course menua.",
+      "notes": "To have lunch. Bazkal-, the combining form of bazkari, + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture, often a three-course menua.",
       "example": {
         "basque": "Jatetxean bazkaldu dugu.",
         "english": "We had lunch at the restaurant."
@@ -10483,7 +10483,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "ah-FAL-doo",
-      "notes": "To have dinner. Afal (dinner) + -du. Gauean afaldu = to have dinner in the evening. Afaria = dinner (noun). Three essential meal verbs in one: gosaldu, bazkaldu, afaldu. Mirror the nouns gosaria, bazkaria, afaria.",
+      "notes": "To have dinner. Afal-, the combining form of afari, + -du. Gauean afaldu = to have dinner in the evening. Afaria = dinner (noun). The three meal verbs, gosaldu, bazkaldu and afaldu, mirror the nouns gosaria, bazkaria and afaria.",
       "example": {
         "basque": "Gaueko zortzietan afaltzen dugu.",
         "english": "We have dinner at eight in the evening."
@@ -11619,7 +11619,7 @@
       "cefr": "A1",
       "topic": "home",
       "pronunciation": "mah-EYE-ah",
-      "notes": "Mahaia sits at the heart of Basque social life, from family meals to txoko gastronomic societies. The h is silent, so it flows as one smooth word. Mahaia jarri = to set the table, and mahaikide = tablemate, someone you share a table with.",
+      "notes": "Mahaia = table. The h is silent. Mahaia jarri = to set the table, and mahaikide = tablemate, someone you share a table with.",
       "example": {
         "basque": "Mahaia jarri dut.",
         "english": "I have set the table."
@@ -11645,7 +11645,7 @@
       "cefr": "A1",
       "topic": "home",
       "pronunciation": "SOH-fah",
-      "notes": "Sofa is an international loanword, ultimately from Arabic suffa, and it already ends in -a, so no article is added. Sofa covers both sofa and the sofa. Sofan etzanda = lying on the sofa, a fine plan for a rainy Sunday.",
+      "notes": "Sofa is an international loanword, ultimately from Arabic suffa, and it already ends in -a, so no article is added. Sofa covers both sofa and the sofa. Sofan etzanda = lying on the sofa.",
       "example": {
         "basque": "Sofa oso erosoa da.",
         "english": "The sofa is very comfortable."
@@ -11684,7 +11684,7 @@
       "cefr": "A1",
       "topic": "home",
       "pronunciation": "lay-OH-ah",
-      "notes": "Leihoa flows smoothly because the h is silent in southern Basque. Leihotik begiratu = to look out the window, using the -tik ending (from, through).",
+      "notes": "Leihoa = window. The h is silent. Leihotik begiratu = to look out the window, using the -tik ending (from, through).",
       "example": {
         "basque": "Ireki leihoa, mesedez.",
         "english": "Open the window, please."
@@ -11697,7 +11697,7 @@
       "cefr": "A1",
       "topic": "home",
       "pronunciation": "AH-teh-ah",
-      "notes": "Atea = door, and atezain (door guard) means both doorkeeper and goalkeeper in soccer, a nice look at how Basque builds words with -zain (guardian). Ate joka = knocking at the door.",
+      "notes": "Atea = door, and atezain (door guard) means both doorkeeper and goalkeeper in soccer; -zain means guardian. Ate joka = knocking at the door.",
       "example": {
         "basque": "Atea itxita dago.",
         "english": "The door is closed."
