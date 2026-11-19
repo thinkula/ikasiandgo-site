@@ -6637,7 +6637,7 @@ var LESSONS=[
     id:"l5_food",
     num:10,
     title:"Food and Drink",
-    titleEu:"Janari eta edaria",
+    titleEu:"Janaria eta edaria",
     emoji:"\uD83C\uDF7D\uFE0F",
     blurb:"Order food and name what is on the table.",
     intro:"Basque food culture is famous, from pintxos on the bar to cider houses in the hills. These are the basics: what is on the table, and the two verbs for dealing with it.",
@@ -6652,7 +6652,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD53",
     blurb:"Talk about today, tomorrow, and when.",
     intro:"Talking about days lets you make plans and arrange to meet. These words anchor a conversation in the present, past, or future. Start with the everyday trio: gaur (today), bihar (tomorrow), atzo (yesterday).",
-    grammar:{title:"The week, and how often",body:"Asteburua is the weekend, aste plus buru, the head of the week, which is nearly the picture English draws with weekend. Both roots take -ero for how often a thing happens: egunero is every day, astero every week. Noiz asks when, and the answer is usually one of the words in this lesson."},
+    grammar:{title:"The week, and how often",body:"Asteburua is the weekend, aste plus buru, the head of the week, which is nearly the picture English draws with weekend. Egun and aste both take -ero for how often a thing happens: egunero is every day, astero every week. Noiz asks when, and the answer is usually one of the words in this lesson."},
     wordIds:["gaur","bihar","atzo","orain","gero","eguna","gaua","astea","asteburua","noiz"],
   },
   {
@@ -6684,7 +6684,7 @@ var LESSONS=[
     emoji:"\uD83D\uDE4B",
     blurb:"The -k that marks the one doing something.",
     intro:"Until now ni has just been ni, one shape whatever the sentence. English is less steady than that: I turns into me as soon as something is done to you. Basque has the same habit and points it the other way.",
-    grammar:{title:"The one doing it takes a -k",body:"Ni becomes nik, zu becomes zuk, hura becomes hark, gu becomes guk. A -k on the end, and that is the whole rule. Zuek and haiek never change, so there are only four to learn. The verb that goes with them is dut, which carries two things at once: that it was me, and that something was on the receiving end. Nik ogia jan dut is I have eaten the bread, with nik for the eater, ogia for the bread and dut tying the two together. Now look at which word got marked. English marks the receiver, at least on its pronouns, which is why I becomes me. Basque marks the doer and leaves the receiver alone, so ogia here is the same ogia you learned with the food."},
+    grammar:{title:"The one doing it takes a -k",body:"Ni becomes nik, zu becomes zuk, hura becomes hark, gu becomes guk. A -k on the end, and that is the whole rule. Zuek and haiek never change, so there are only four to learn. The verb that goes with nik is dut, which carries two things at once: that it was me, and that something was on the receiving end. Nik ogia jan dut is I have eaten the bread, with nik for the eater, ogia for the bread and dut tying the two together. Now look at which word got marked. English marks the receiver, at least on its pronouns, which is why I becomes me. Basque marks the doer and leaves the receiver alone, so ogia here is the same ogia you learned with the food."},
     wordIds:["nik","zuk","hark","guk","dut"],
   },
   {
@@ -6740,7 +6740,7 @@ var LESSONS=[
     emoji:"\uD83D\uDD0D",
     blurb:"Big, small, good, bad, and more.",
     intro:"Adjectives are what turn a list of nouns into a description. With words like handia (big), txikia (small), ona (good), and txarra (bad), you can describe almost anything around you. These are some of the most useful words in the whole language.",
-    grammar:{title:"Adjectives come after",body:"The adjective follows the noun exactly as the color did: a big house is etxe handia, a good book liburu ona. Gehiago shows the other half of describing. It is gehi plus -ago, the comparative ending, and that -ago goes on any adjective here: handiago is bigger, txikiago smaller."},
+    grammar:{title:"Adjectives come after",body:"The adjective follows the noun exactly as the color did: a big house is etxe handia, a good book liburu ona. Gehiago shows the other half of describing. It is gehi plus -ago, the comparative ending, and that -ago goes on most adjectives here: handiago is bigger, txikiago smaller. Ona is the exception: better is hobea."},
     wordIds:["handia","txikia","ona","txarra","zaharra","berria","ederra","gaztea","gehiago","zuzen"],
   },
   {
