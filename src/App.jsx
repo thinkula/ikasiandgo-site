@@ -3890,7 +3890,7 @@ function BasqueKitchenScreen(props){
       {instruction:"Pour in the oil",keyword:"olioa",hint:"Enough to coat the pan"},
       {instruction:"Season with salt",keyword:"gatz",hint:"Taste as you go"},
     ]},
-    {key:"ensalada_vasca",name:"Euskal entsalada",emoji:"🥗",desc:"Lettuce, tomato and a good oil",color:"#16A34A",dark:"#14532D",bg:"#F0FDF4",stages:[
+    {key:"ensalada_vasca",name:"Entsalada",emoji:"🥗",desc:"Lettuce, tomato and a good oil",color:"#16A34A",dark:"#14532D",bg:"#F0FDF4",stages:[
       {instruction:"Tear the lettuce",keyword:"letxuga",hint:"Use your hands, not a knife"},
       {instruction:"Slice the tomato",keyword:"tomatea",hint:"Ripe and red"},
       {instruction:"Grate the carrot",keyword:"azenarioa",hint:"Adds color and sweetness"},
@@ -3904,12 +3904,12 @@ function BasqueKitchenScreen(props){
       {instruction:"Serve with cheese",keyword:"gazta",hint:"Idiazabal, the Basque sheep's milk cheese"},
       {instruction:"The wider word for what is in the glass",keyword:"ardoa",hint:"Ardoa: wine. Txakolina is one kind, ardoa is all of them"},
     ]},
-    {key:"pollo_al_txakoli",name:"Oilaskoa txakolinarekin",emoji:"🍗",desc:"Chicken cooked in txakoli wine",color:"#D97706",dark:"#92400E",bg:"#FFFBEB",stages:[
+    {key:"oilaskoa_piperradarekin",name:"Oilaskoa piperradarekin",emoji:"🍗",desc:"Chicken simmered in peppers, tomato and onion",color:"#DC2626",dark:"#991B1B",bg:"#FFF1F2",stages:[
       {instruction:"Brown the chicken pieces",keyword:"oilaskoa",hint:"Cut into pieces first"},
-      {instruction:"Slice in garlic",keyword:"baratxuria",hint:"A few cloves"},
-      {instruction:"Pour in the wine the dish is named for",keyword:"txakolina",hint:"Txakolina: the dry Basque white wine"},
-      {instruction:"Let it cook down into this",keyword:"saltsa",hint:"Saltsa: sauce. The wine reduces around the chicken"},
-      {instruction:"The verb for all of it: to cook a dish",keyword:"prestatu",hint:"Prestatu: to prepare, and also to cook a dish. Afaria prestatu is to make dinner"},
+      {instruction:"Soften the onion",keyword:"tipula",hint:"The start of the sauce"},
+      {instruction:"Add red and green peppers",keyword:"piperra",hint:"The sauce is a piperrada, and the pepper is what it is named for"},
+      {instruction:"Add the tomatoes",keyword:"tomatea",hint:"Cooked down with the peppers"},
+      {instruction:"Simmer the chicken in it: the verb for cooking a dish",keyword:"prestatu",hint:"Prestatu: to prepare, and also to cook a dish. Afaria prestatu is to make dinner"},
     ]},
     {key:"alubias_de_tolosa",name:"Tolosako babarrunak",emoji:"🫘",desc:"The famous black beans of Tolosa",color:"#7F1D1D",dark:"#450A0A",bg:"#FFF1F2",stages:[
       {instruction:"Simmer the black beans slowly",keyword:"babarrunak",hint:"Tolosa beans are dark, almost black"},
