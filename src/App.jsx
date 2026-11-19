@@ -1298,6 +1298,16 @@ var _VOCAB=SEED_VOCAB;
 function getWC(){var o={};["A1","A2","B1","B2"].forEach(function(l){o[l]=_VOCAB.filter(function(w){return w.cefr===l;}).length;});return o;}
 var _WC=getWC();
 const ANT={gorria:"beltza",beltza:"gorria",handia:"txikia",txikia:"handia",zaharra:"berria",berria:"zaharra",ona:"txarra",txarra:"ona",argia:"iluna",iluna:"argia",beroa:"hotza",hotza:"beroa",garestia:"merkea",merkea:"garestia",erraza:"zaila",zaila:"erraza",ama:"aita",aita:"ama",amona:"aitona",aitona:"amona",semea:"alaba",alaba:"semea",anaia:"ahizpa",ahizpa:"anaia",senarra:"emaztea",emaztea:"senarra",mintzatu:"esan",esan:"mintzatu",belarria:"urtea",urtea:"belarria",ahoa:"hilabetea",hilabetea:"ahoa",ezkerra:"eskuina",eskuina:"ezkerra",irekia:"itxia",itxia:"irekia",burua:"eskua",eskua:"burua",iragana:"etorkizuna",etorkizuna:"iragana",ardoa:"esnea",esnea:"ardoa",kafea:"tea",tea:"kafea",gaua:"eguna",eguna:"gaua"};
+// A word by id: from the vocabulary in use, or failing that from the copy
+// bundled with the app. Lessons are compiled into the binary and name their
+// words by id, while the vocabulary in use may be one fetched or cached before
+// this build existed, and so may lack a word this build's lessons teach. The
+// games already resolve their keywords this way.
+function wordById(id){
+  for(var i=0;i<_VOCAB.length;i++){if(_VOCAB[i].id===id)return _VOCAB[i];}
+  if(_VOCAB!==SEED_VOCAB){for(var j=0;j<SEED_VOCAB.length;j++){if(SEED_VOCAB[j].id===id)return SEED_VOCAB[j];}}
+  return null;
+}
 function getPool(vocab,cefr,topic,cumul,isPro){var pro=isPro===true;var idx=CEFR_ORDER.indexOf(cefr);var lvls=cumul?CEFR_ORDER.slice(0,idx+1):[cefr];return vocab.filter(function(w){if(lvls.indexOf(w.cefr)===-1)return false;if(topic!=="all"&&w.topic!==topic)return false;if(!pro&&!isFreeWord(w))return false;return true;});}
 function shuffled(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 // Returns the core meaning of an English label, stripping any "(...)" qualifier.
@@ -1740,7 +1750,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="feedback"&&<FeedbackScreen onBack={function(){setScreen("menu");}}/>}
     {screen==="progress"&&<ProgressScreen onBack={function(){setScreen("home");}} srsData={srsData} srsStats={srsStats} streak={streak} longest={longest} totalSessions={totalSess} isPro={isProOrTrial} vocabVersion={vocabVersion}/>}
     {screen==="learn"&&<LearnScreen isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}} onBack={function(){setScreen("home");}} onPractice={function(wordIds){
-      var words=wordIds.map(function(id){return VOCABULARY.filter(function(w){return w.id===id;})[0];}).filter(Boolean);
+      var words=wordIds.map(wordById).filter(Boolean);
       if(!words.length){setScreen("home");return;}
       startCustomQuiz(words,"learn");
     }}/>}
@@ -7621,12 +7631,12 @@ function LearnScreen(props){
   }
 
   // Resolve a lesson's word ids to full vocab entries
+  // A lesson used to show "0 words to learn", and its Practice button used to
+  // drop the learner on the home screen with the lesson marked done, whenever
+  // the vocabulary in use was older than the lesson: an update opened offline,
+  // with last month's cache standing in for the words.
   function lessonWords(lesson){
-    var V=_VOCAB,out=[];
-    for(var i=0;i<lesson.wordIds.length;i++){
-      for(var j=0;j<V.length;j++){if(V[j].id===lesson.wordIds[i]){out.push(V[j]);break;}}
-    }
-    return out;
+    return lesson.wordIds.map(wordById).filter(Boolean);
   }
 
   // A lesson is unlocked if it is the first, or the previous lesson this
