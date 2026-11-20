@@ -1864,8 +1864,8 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
   function countToday(res){var today3=localDay();var countedSoFar=countDay.current===today3?todayCount:0;countDay.current=today3;if(todayIds.current.day!==today3)todayIds.current={day:today3,ids:{}};var seen=todayIds.current.ids,n=0;for(var i=0;i<res.length;i++){var r=res[i],id=r&&r.question&&r.question.word?r.question.word.id:null;if(r&&r.correct&&id&&!seen[id]){seen[id]=1;n++;}}if(!n)return;var newTodayCount=countedSoFar+n;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});STORE.set("today_words_"+today3,JSON.stringify(Object.keys(seen))).catch(function(){});}
   // Leaving a quiz early used to keep the answers up to the last multiple of
   // five in word memory, drop the rest, and count none of them toward the day.
-  function leaveQuiz(res){if(res&&res.length){countToday(res);updateSRS(res).catch(function(){});}if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}countToday(res);if(quizOrigin==="learn"&&lessonPending.current&&res.length>=lessonPending.current.n){completeLesson(lessonPending.current.id);lessonPending.current=null;setLessonJustDone(true);}var sc=scoreSession(res);var worthStreak=res.length>=5||res.length>=questions.length;
+  function leaveQuiz(res){if(res&&res.length){countToday(res);updateSRS(res).catch(function(){});}if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else if(quizOrigin==="browse"){setQuizOrigin(null);setScreen("browse");}else setScreen("home");}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else if(quizOrigin==="browse"){setQuizOrigin(null);setScreen("browse");}else setScreen("home");return;}countToday(res);if(quizOrigin==="learn"&&lessonPending.current&&res.length>=lessonPending.current.n){completeLesson(lessonPending.current.id);lessonPending.current=null;setLessonJustDone(true);}var sc=scoreSession(res);var worthStreak=res.length>=5||res.length>=questions.length;
     // "See score so far" ends a quiz part way. The answers are kept, but one
     // right answer out of one is not a perfect session: it used to get the
     // confetti and a 100% bar in the history, after which no quiz could be a
@@ -1918,7 +1918,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     )}
   {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} quizLabel={mistakesRound?"Practice mistakes":quizOrigin==="learn"?"Lesson practice":quizOrigin==="review"?"Review":cfg?null:"Practice"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} milestoneSeen={milestoneSeen.current} onMilestone={function(m){milestoneSeen.current=m;STORE.set("milestone_seen",String(m)).catch(function(){});}} memoryChanged={srsChanges.current>0} planned={partialRun} nextLabel={quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} milestoneSeen={milestoneSeen.current} onMilestone={function(m){milestoneSeen.current=m;STORE.set("milestone_seen",String(m)).catch(function(){});}} memoryChanged={srsChanges.current>0} planned={partialRun} nextLabel={quizOrigin==="browse"?"Practice again \u2192":quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else if(quizOrigin==="browse"){setQuizOrigin(null);setScreen("browse");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else if(quizOrigin==="browse"){setQuizOrigin(null);setScreen("browse");}else setScreen("home");}}} onHome={function(){var toBrowse=quizOrigin==="browse";setQuizOrigin(null);setScreen(toBrowse?"browse":"home");}} homeLabel={quizOrigin==="browse"?"Back to words":null} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
@@ -1937,7 +1937,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {screen==="ordutegi"&&<OrduegiScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="koloreak"&&<KoloreakScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="arbola"&&<ArbolaScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
-    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} initialWord={browseWord} onBack={function(){setBrowseWord(null);setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){startCustomQuiz(words,null);}}/>}
+    {screen==="browse"&&<BrowseScreen isPro={isProOrTrial} srsData={srsData} initialWord={browseWord} onBack={function(){_BROWSE_KEEP=null;setBrowseWord(null);setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onQuiz={function(words){setBrowseWord(null);startCustomQuiz(words,"browse");}}/>}
     {screen==="story"&&<StoryScreen isPro={isProOrTrial} onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}}/>}
     {screen==="menu"&&<MenuScreen onBack={function(){setScreen("home");}} onFeedback={function(){setScreen("feedback");}} onReplayIntro={function(){setScreen("home");setShowOnb(true);}}/>}
     {screen==="feedback"&&<FeedbackScreen onBack={function(){setScreen("menu");}}/>}
@@ -2750,7 +2750,7 @@ function ResultsScreen(props){
         ):(!isPro&&(score.genuinelyWrong>0||score.closeButWrong>0))?(
           <button style={{flex:1,backgroundColor:"#fff",color:"#333",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:15,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #CCC"}} onClick={function(){onUpgrade&&onUpgrade();}}>Upgrade</button>
         ):null}
-        <button style={{flex:1,backgroundColor:"#fff",color:"#555",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}} onClick={function(){onHome();}}>Home</button>
+        <button style={{flex:1,backgroundColor:"#fff",color:"#555",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}} onClick={function(){onHome();}}>{props.homeLabel||"Home"}</button>
         <button style={{flex:2,backgroundColor:"#19A85A",color:"#fff",border:"none",borderRadius:16,padding:"14px",fontSize:16,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40",letterSpacing:-0.3}} onClick={function(){if(isLesson){onBackToLessons&&onBackToLessons();}else{onRetry([]);}}}>{isLesson?"Back to lessons \u2192":props.nextLabel||"New quiz \u2192"}</button>
       </div>
     </div>
@@ -2830,13 +2830,18 @@ function LockedNote(props){
       React.createElement("span",{style:{backgroundColor:"#19A85A",color:"#fff",borderRadius:20,padding:"7px 16px",fontSize:12,fontWeight:800,boxShadow:"0 2px 8px rgba(0,0,0,0.18)"}},"🔒 Unlock note with Pro"))
   );
 }
+var _BROWSE_KEEP=null;
 function BrowseScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
   var isPro=props.isPro,srsData=props.srsData,onBack=props.onBack,onUpgrade=props.onUpgrade,onQuiz=props.onQuiz;
-  var _s0=useState("");var query=_s0[0];var setQuery=_s0[1];
-  var _s1=useState("all");var filterLvl=_s1[0];var setFilterLvl=_s1[1];
-  var _s2=useState("all");var filterTopic=_s2[0];var setFilterTopic=_s2[1];
+  // A quiz started from here comes back here, to the same search and filters.
+  // The screen is rebuilt on return, so what was showing is kept outside it
+  // and dropped when the learner leaves for the home screen.
+  var kept=_BROWSE_KEEP||{};
+  var _s0=useState(kept.query||"");var query=_s0[0];var setQuery=_s0[1];
+  var _s1=useState(kept.lvl||"all");var filterLvl=_s1[0];var setFilterLvl=_s1[1];
+  var _s2=useState(kept.topic||"all");var filterTopic=_s2[0];var setFilterTopic=_s2[1];
   var _s3=useState(null);var expanded=_s3[0];var setExpanded=_s3[1];
   var _s4=useState(false);var showAll=_s4[0];var setShowAll=_s4[1];
   var _s5b=useState(false);var groupByTopic=_s5b[0];var setGroupByTopic=_s5b[1];
@@ -2918,8 +2923,8 @@ function BrowseScreen(props){
         )}
         {quizzable.length>0&&(filterLvl!=="all"||filterTopic!=="all"||query)&&(
           <div style={{marginBottom:8,padding:"10px 14px",backgroundColor:"#F0FBF4",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"space-between",border:"1px solid #D4EDE0"}}>
-            <span style={{fontSize:13,color:"#19A85A",fontWeight:600}}>{quizzable.length} word{quizzable.length!==1?"s":""} match</span>
-            <button onClick={function(){if(onQuiz)onQuiz(quizzable);}} style={{backgroundColor:"#19A85A",border:"none",borderRadius:10,padding:"7px 14px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>
+            <span style={{fontSize:13,color:"#19A85A",fontWeight:600}}>{quizzable.length<filtered.length?quizzable.length+" of "+filtered.length+" unlocked":quizzable.length+" word"+(quizzable.length!==1?"s":"")+" match"}</span>
+            <button onClick={function(){_BROWSE_KEEP={query:query,lvl:filterLvl,topic:filterTopic};if(onQuiz)onQuiz(quizzable);}} style={{backgroundColor:"#19A85A",border:"none",borderRadius:10,padding:"7px 14px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>
               Quiz {Math.min(quizzable.length,20)}
             </button>
           </div>
