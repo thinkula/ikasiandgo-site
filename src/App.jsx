@@ -1619,6 +1619,11 @@ function App(){
   var _sCW=useState(null);var customQuizWords=_sCW[0];var setCustomQuizWords=_sCW[1];
   var customBase=useRef(null);
   var masteredBefore=useRef(0);
+  // How many words this quiz has changed in word memory, for the results box.
+  var srsChanges=useRef(0);
+  // What every quiz start resets. The quiz started straight from a purchase
+  // skipped all of it and could open labeled as the last quiz was.
+  function beginQuiz(){masteredBefore.current=srsStats.learned;srsChanges.current=0;setLessonJustDone(false);}
   var _sMR=useState(false);var mistakesRound=_sMR[0];var setMistakesRound=_sMR[1];
   var _sPR=useState(null);var partialRun=_sPR[0];var setPartialRun=_sPR[1];
   var _sLJ=useState(false);var lessonJustDone=_sLJ[0];var setLessonJustDone=_sLJ[1];
@@ -1688,7 +1693,7 @@ function App(){
       return new Date(srsData[a.id].nextReview)-new Date(srsData[b.id].nextReview);
     });
   },[srsData,isProOrTrial,vocabVersion,trialUntil,dayTick]);
-  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+SRS_SOON))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
+  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0,learned=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=1)learned++;if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+SRS_SOON))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,learned:learned,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
   useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data"),STORE.get("streak_freeze")]);var fz=readFreeze(rs[2]&&rs[2].value);setFreezeUntil(fz);if(!fz&&rs[2]&&rs[2].value)STORE.set("streak_freeze","").catch(function(){});if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value);setStreak(streakAlive(d.lastDay,fz)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
@@ -1794,7 +1799,7 @@ function App(){
     // minutes or days ago. It used to raise the score all the same, so
     // practicing one lesson four times in a row mastered every word in it and
     // put them sixty days out. Now it changes nothing. A miss still counts.
-    if(r2.correct&&nd[id2]&&nd[id2].nextReview&&new Date(nd[id2].nextReview)>new Date(now.getTime()+SRS_SOON))continue;var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
+    if(r2.correct&&nd[id2]&&nd[id2].nextReview&&new Date(nd[id2].nextReview)>new Date(now.getTime()+SRS_SOON))continue;var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;srsChanges.current++;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
   // Mark every fresh result as applied so later checkpoints skip them.
   for(var fi=0;fi<fresh.length;fi++){fresh[fi]._srsApplied=true;}
   setSrsData(function(){return nd;});try{await STORE.set("srs_data",JSON.stringify(nd)).catch(function(){});}catch(e){}return nd;}
@@ -1839,11 +1844,11 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
     var sess=buildMCSession(words);
     if(!sess.length)return;
     if(!isRetry)customBase.current=words;
-    masteredBefore.current=srsStats.mastered;
-    setMistakesRound(!!isRetry);setLessonJustDone(false);
+    beginQuiz();
+    setMistakesRound(!!isRetry);
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
-  function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;masteredBefore.current=srsStats.mastered;setMistakesRound(!!(missedOnly&&missedIds.length));setLessonJustDone(false);setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
+  function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;beginQuiz();setMistakesRound(!!(missedOnly&&missedIds.length));setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
   // The daily goal is in words, so a word answered right twice in one session
   // is one word. It used to count answers.
   var lessonPending=useRef(null);
@@ -1905,7 +1910,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     )}
   {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} quizLabel={mistakesRound?"Practice mistakes":quizOrigin==="learn"?"Lesson practice":quizOrigin==="review"?"Review":cfg?null:"Practice"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} planned={partialRun} nextLabel={quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} memoryChanged={srsChanges.current>0} planned={partialRun} nextLabel={quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
@@ -1915,7 +1920,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     onContinueFree={function(){setScreen("home");}}
     price={rcPrice}
     freeCount={VOCABULARY.filter(isFreeWord).length}
-    onStart={function(){doPurchase(function(){if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");});}}
+    onStart={function(){doPurchase(function(){if(cfg){var qs=buildSession(VOCABULARY,cfg.cefr,cfg.topic,cfg.cumulative,20,[],srsData,true);if(qs.length){beginQuiz();setMistakesRound(false);setQuizOrigin(null);setCustomQuizWords(null);setQs(qs);setResults([]);setScreen("quiz");return;}}setScreen("home");});}}
   />}
     {screen==="games"&&<GamesScreen onBack={function(){setScreen("home");}} onUpgrade={function(){setScreen("paywall");}} onPairs={function(){setScreen("pairs");}} onTap={function(){setScreen("tap");}} onTxoko={function(){setScreen("txoko");}} onOrdutegi={function(){setScreen("ordutegi");}} onKoloreak={function(){setScreen("koloreak");}} onArbola={function(){setScreen("arbola");}} isPro={isProOrTrial}/>}
     {screen==="pairs"&&<PairsScreen onBack={function(){setScreen("games");}} isPro={isProOrTrial} onUpgrade={function(){setScreen("paywall");}}/>}
@@ -2008,17 +2013,21 @@ function HomeScreen(props){
       React.createElement("p",{style:{margin:0,fontSize:12,color:"#888",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
     );
   } else if(srsLoaded){
-    var pct=srsStats.total>0?Math.round(srsStats.mastered/srsStats.total*100):0;
+    // The bar counts words learned: answered right at least once. Mastered
+    // takes four right answers on their review dates, a month at the least,
+    // and a bar that stays empty for a month reads as an app that is not
+    // keeping track. Mastered keeps its own tile below.
+    var pct=srsStats.total>0?Math.round(srsStats.learned/srsStats.total*100):0;
     var dueN=dueWords.length;var tiles=[{n:dueN,l:"Due",c:dueN>0?"#D97706":"#BBB",bg:dueN>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
-      React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.mastered+"/"+srsStats.total)),
+      React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.learned+"/"+srsStats.total)),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
-      React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.mastered+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
+      React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.learned+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
           React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
-      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):dueN>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(dueN,20)+" word"+(Math.min(dueN,20)===1?"":"s")):null
+      (!isPro&&srsStats.learned>0&&srsStats.learned===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):dueN>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(dueN,20)+" word"+(Math.min(dueN,20)===1?"":"s")):null
     );
   }
-  var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=4;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length,vocabVersion]);
+  var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=1;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length,vocabVersion]);
   var levelCards=["A1","A2","B1","B2"].map(function(key){var L2=CL[key];var active=lvl===key;var k=key;
     var actCard=function(){if(!isPro&&k!=="A1"){setModal(k);return;}setLvl(k);};
     return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
@@ -2030,7 +2039,7 @@ function HomeScreen(props){
       React.createElement("div",{style:{marginTop:4}},
   React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}},
     React.createElement("p",{style:{margin:0,fontSize:11,color:active?"rgba(255,255,255,0.75)":"#888"}},WC[key]+" words"+((!isPro&&key==="A1")?" free":"")),
-    React.createElement("p",{style:{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.6)":key==="A1"&&totalSessions===0?"#19A85A":"#BBB",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" mastered":""))
+    React.createElement("p",{style:{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.6)":key==="A1"&&totalSessions===0?"#19A85A":"#BBB",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" learned":""))
   ),
   React.createElement("div",{style:{height:3,backgroundColor:active?"rgba(255,255,255,0.25)":"#F0F0F0",borderRadius:2,overflow:"hidden"}},
     React.createElement("div",{style:{height:"100%",borderRadius:2,backgroundColor:active?"rgba(255,255,255,0.7)":L2.color,width:(masteredByLevel[key+"_total"]>0?Math.round(masteredByLevel[key]/masteredByLevel[key+"_total"]*100):0)+"%" }})
@@ -2598,7 +2607,7 @@ function ResultsScreen(props){
   var milestoneDays=nextMilestone>0?(nextMilestone-streak):0;
   var milestoneEl=nextMilestone>0?React.createElement("p",{style:{margin:0,fontSize:11,color:"#BBB",fontWeight:600}},milestoneDays+" day"+(milestoneDays!==1?"s":"")+" to "+nextMilestone+"-day streak"):null;
   var trendChart=sessionHistory.length>2&&last7.length>0?React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"12px 14px",border:"1px solid #F0F0F0",marginBottom:10}},React.createElement("p",{style:{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.5}},"Last "+last7.length+" sessions"),React.createElement("div",{style:{display:"flex",alignItems:"flex-end",gap:4,height:56}},last7.map(function(s,i){var h=Math.max(4,Math.round(((s.acc||0)/100)*56));var isLast=i===last7.length-1;return React.createElement("div",{key:i,style:{flex:1,height:h,borderRadius:3,backgroundColor:isLast?"#19A85A":(s.acc||0)>=80?"#74C69D":(s.acc||0)>=60?"#F59E0B":"#FFAAB4",transition:"height 0.5s ease",transitionDelay:(i*50)+"ms"}});})),React.createElement("div",{style:{display:"flex",justifyContent:"space-between",marginTop:4}},React.createElement("p",{style:{margin:0,fontSize:10,color:"#BBB"}},"Oldest"),React.createElement("p",{style:{margin:0,fontSize:10,color:"#19A85A",fontWeight:700}},"Today "+(last7[last7.length-1]?last7[last7.length-1].acc:0)+"%"))):null;
-  var masteredCount=srsStats?srsStats.mastered:0;
+  var masteredCount=srsStats?srsStats.learned:0;
   var milestones=[25,50,100,200,500];
   // A milestone is crossed when the count was under it before this quiz and is
   // at or over it now. It used to be guessed from the number of right answers,
@@ -2646,7 +2655,7 @@ function ResultsScreen(props){
       {hitMilestone&&(
         <div style={{backgroundColor:"#EDFAF3",borderRadius:14,padding:"12px 16px",marginBottom:12,border:"1px solid #C6EFD8",textAlign:"center"}}>
           <p style={{margin:"0 0 2px",fontSize:20}}>🏆</p>
-          <p style={{margin:"0 0 2px",fontSize:15,fontWeight:900,color:"#19A85A"}}>{hitMilestone} words mastered!</p>
+          <p style={{margin:"0 0 2px",fontSize:15,fontWeight:900,color:"#19A85A"}}>{hitMilestone} words learned!</p>
           <p style={{margin:0,fontSize:12,color:"#3D9970"}}>Amazing milestone. Keep it up!</p>
         </div>
       )}
@@ -2671,7 +2680,7 @@ function ResultsScreen(props){
           {trendChart}
   {srsStats&&(srsStats.mastered>0||srsStats.learning>0)&&(
             <div style={{backgroundColor:"#F0FBF4",borderRadius:14,padding:"12px 14px",border:"1px solid #D4EDE0"}}>
-              <p style={{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.5}}>Word Memory Updated</p>
+              <p style={{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.5}}>{props.memoryChanged?"Word Memory Updated":"Word Memory"}</p>
               <div style={{display:"flex",gap:6}}>
                 {[{n:srsStats.mastered,l:"mastered",c:"#19A85A"},{n:srsStats.learning,l:"learning",c:"#888"},{n:srsStats.due,l:"due",c:"#D97706"},{n:srsStats.unseen,l:"new",c:"#BBB"}].filter(function(s){return s.n>0;}).map(function(s,i){return(
                   <div key={i} style={{flex:1,textAlign:"center",padding:"8px 4px",borderRadius:10,backgroundColor:"#fff"}}>
