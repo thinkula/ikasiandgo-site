@@ -1338,10 +1338,9 @@ function baseMeaning(s){if(!s)return"";return s.replace(/\([^)]*\)/g,"").replace
 // any Basque being understood. Match on trailing punctuation, falling back to the
 // unfiltered pool when there are not enough same-shaped words to fill three slots.
 function endMark(t){var m=/([?!])\s*$/.exec(t||"");return m?m[1]:"";}
-function sameShape(pool,word){
-  var k=endMark(word.english)||endMark(word.basque);
-  var same=pool.filter(function(w2){return (endMark(w2.english)||endMark(w2.basque))===k;});
-  return same.length>=3?same:pool;
+function sameShape(pool,word,field){
+  var k=endMark(word[field||"english"]);
+  return pool.filter(function(w2){return endMark(w2[field||"english"])===k;});
 }
 // Drops any distractor a learner could defend as correct. Two ways that
 // happens: the same meaning under a different word, and the same word under a
@@ -1371,18 +1370,33 @@ function noMeaningClash(pool,word){
 // The three wrong answers for a word. There were three copies of this, in the
 // session builder, the snoozed-typing options and the lesson and retry quizzes,
 // and only the first left out the word's antonym.
-function pickDistractors(vocab,word){
+// The punctuation is matched on the side the learner sees: the English for a
+// meaning question, the Basque for a sentence. It used to be read off either,
+// so Osasuna! could sit among three choices with no exclamation mark. Only
+// three cards end in one, so when there are too few like-shaped words to fill
+// the slots, the ones that exist are used first and the answer is never alone.
+function pickDistractors(vocab,word,field){
   var dp=vocab.filter(function(w2){return w2.id!==word.id&&w2.id!==ANT[word.id];});
-  dp=noMeaningClash(dp,word);dp=sameShape(dp,word);
+  dp=noMeaningClash(dp,word);
+  var same=sameShape(dp,word,field),forced=[];
+  if(same.length>=3)dp=same;
+  else{forced=shuffled(same);dp=dp.filter(function(w2){return same.indexOf(w2)===-1;});}
+  var need=3-forced.length;
   var sl=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});
   var lv=dp.filter(function(w2){return w2.cefr===word.cefr;});
-  return shuffled(sl.length>=3?sl:lv.length>=3?lv:dp).slice(0,3);
+  return forced.concat(shuffled(sl.length>=need?sl:lv.length>=need?lv:dp).slice(0,need));
 }
 // What may follow the headword inside a fill-in-the-blank sentence and stay
 // visible after the blank: the endings the example sentences actually use.
 var FB_TAIL=/^(|k|n|z|ak|ek|an|en|ra|ko|go|ta|ri|ren|rik|tik|ten|tzen|rekin)$/i;
 function spaced(base,n){if(!base.length)return[];var gap=Math.min(3,base.length-1);var out=[],last={};while(out.length<n){var added=false;for(var i=0;i<base.length;i++){var w=base[i],li=last[w.id]!=null?last[w.id]:-99;if(out.length-li>gap||out.length<=gap){out.push(w);last[w.id]=out.length-1;added=true;if(out.length>=n)break;}}if(!added)break;}return out;}
-function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var due=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)<=new Date(now.getTime()+12*3600000)&&(srs[w.id].score||0)<4;});var unseen=f(function(w){return missedIds.indexOf(w.id)===-1&&!srs[w.id];});var learning=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&new Date(srs[w.id].nextReview)>now&&(srs[w.id].score||0)<4;});var mastered=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&(srs[w.id].score||0)>=4;});var active=due.concat(missed).concat(learning).concat(unseen);var base=active.length>=n?active:active.concat(mastered);var words=spaced(base,n);var sid=Math.random().toString(36).slice(2,8);var canFB=function(w){if(!w.example||!w.example.basque)return false;var fbExclude={numbers:1,family:1,emotions:1,colors:1,adjectives:1,body:1};if(fbExclude[w.topic])return false;var ex=w.example.basque.toLowerCase(),root=w.basque.toLowerCase().replace(/[?!]$/,"").trim();var stems=[root];if(root.endsWith("tu")||root.endsWith("du")){var stem=root.slice(0,-2);stems.push(stem+"tzen",stem+"ten",stem+"dakit",stem+"t");}if(root.endsWith("i")&&root.length>=5){stems.push(root.slice(0,-1),root.slice(0,-1)+"tzen",root.slice(0,-1)+"ten");}if(root.length>=6&&root.endsWith("a"))stems.push(root.slice(0,-1));if(root.indexOf(" ")!==-1){var parts=root.split(" ");parts.forEach(function(p){if(p.length>=3)stems.push(p);});}return stems.some(function(s){return s.length>=3&&ex.indexOf(s)!==-1;});};var modes=shuffled(Array(Math.ceil(words.length/2)).fill("multipleChoice").concat(Array(Math.floor(words.length/2)).fill("typing"))).slice(0,words.length);return words.map(function(word,i){var mode=modes[i];if(word.mcOnly&&mode==="typing")mode="multipleChoice";if(!word.mcOnly&&mode==="typing"&&canFB(word)&&i%3===0)mode="fillBlank";var dist=pickDistractors(vocab,word);if(mode==="fillBlank"){var wb=word.basque.replace(/[?!]$/,"");var escaped=wb.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");var exb=word.example.basque;var fm=new RegExp("\\b"+escaped+"(\\w*)","i").exec(exb);var blanked=fm&&FB_TAIL.test(fm[1])?(exb.slice(0,fm.index)+"___"+fm[1]+exb.slice(fm.index+fm[0].length)).trim():"";var fill=fm?fm[0].slice(0,fm[0].length-fm[1].length):wb;if(blanked.indexOf("___")===-1){mode="multipleChoice";var opts2b=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2b,correct:word.english};}var opts=shuffled([word.basque].concat(dist.map(function(w2){return w2.basque;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:blanked,promptLabel:"Fill in the blank",options:opts,correct:word.basque,fill:fill};}if(mode==="multipleChoice"){var opts2=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2,correct:word.english};}return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.english,promptLabel:"Translate to Basque",options:null,correct:word.basque};});}
+function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var soon=new Date(now.getTime()+12*3600000);var isDue=function(w){return srs[w.id]&&new Date(srs[w.id].nextReview)<=soon;};
+  // Words whose review date has come, then new words. A word that is not due
+  // yet only fills a session the first two cannot. It used to come before any
+  // new word, so the same twenty words filled four quizzes in a row, and a
+  // word answered right four times in one sitting was called mastered and
+  // never asked again. A mastered word now comes back when its date does.
+  var due=f(function(w){return missedIds.indexOf(w.id)===-1&&isDue(w);});var unseen=f(function(w){return missedIds.indexOf(w.id)===-1&&!srs[w.id];});var learning=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&!isDue(w)&&(srs[w.id].score||0)<4;});var mastered=f(function(w){return missedIds.indexOf(w.id)===-1&&srs[w.id]&&!isDue(w)&&(srs[w.id].score||0)>=4;});var active=due.concat(missed).concat(unseen);var base=active.length>=n?active:active.concat(learning).concat(mastered);var words=spaced(base,n);var sid=Math.random().toString(36).slice(2,8);var canFB=function(w){if(!w.example||!w.example.basque)return false;if(new RegExp("\\b"+w.basque.replace(/[?!]$/,"").replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\b","i").test(w.example.english||""))return false;var fbExclude={numbers:1,family:1,emotions:1,colors:1,adjectives:1,body:1};if(fbExclude[w.topic])return false;var ex=w.example.basque.toLowerCase(),root=w.basque.toLowerCase().replace(/[?!]$/,"").trim();var stems=[root];if(root.endsWith("tu")||root.endsWith("du")){var stem=root.slice(0,-2);stems.push(stem+"tzen",stem+"ten",stem+"dakit",stem+"t");}if(root.endsWith("i")&&root.length>=5){stems.push(root.slice(0,-1),root.slice(0,-1)+"tzen",root.slice(0,-1)+"ten");}if(root.length>=6&&root.endsWith("a"))stems.push(root.slice(0,-1));if(root.indexOf(" ")!==-1){var parts=root.split(" ");parts.forEach(function(p){if(p.length>=3)stems.push(p);});}return stems.some(function(s){return s.length>=3&&ex.indexOf(s)!==-1;});};var modes=shuffled(Array(Math.ceil(words.length/2)).fill("multipleChoice").concat(Array(Math.floor(words.length/2)).fill("typing"))).slice(0,words.length);return words.map(function(word,i){var mode=modes[i];if(word.mcOnly&&mode==="typing")mode="multipleChoice";if(!word.mcOnly&&mode==="typing"&&canFB(word)&&i%3===0)mode="fillBlank";var dist=pickDistractors(vocab,word);if(mode==="fillBlank"){var bare=function(t){return t.replace(/[?!]$/,"");};var distB=pickDistractors(vocab,word,"basque");var wb=word.basque.replace(/[?!]$/,"");var escaped=wb.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");var exb=word.example.basque;var fm=new RegExp("\\b"+escaped+"(\\w*)","i").exec(exb);var blanked=fm&&FB_TAIL.test(fm[1])?(exb.slice(0,fm.index)+"___"+fm[1]+exb.slice(fm.index+fm[0].length)).trim():"";var fill=fm?fm[0].slice(0,fm[0].length-fm[1].length):wb;if(blanked.indexOf("___")===-1){mode="multipleChoice";var opts2b=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2b,correct:word.english};}var opts=shuffled([bare(word.basque)].concat(distB.map(function(w2){return bare(w2.basque);})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:blanked,promptLabel:"Fill in the blank",options:opts,correct:bare(word.basque),fill:fill};}if(mode==="multipleChoice"){var opts2=shuffled([word.english].concat(dist.map(function(w2){return w2.english;})));return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts2,correct:word.english};}return{id:"q_"+sid+"_"+i,mode:mode,word:word,prompt:word.english,promptLabel:"Translate to Basque",options:null,correct:word.basque};});}
 function norm(s){
   s=s.trim().toLowerCase();
   var suffixes=["ak","an","ra","ko","ren","ri","rekin","tik","rako","ean"];
@@ -1433,12 +1447,16 @@ function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return
   // A two-letter bare form counts only when the card itself gives it: "ur" for
   // Ura, whose note says so. Without that, "et" would pass for Eta.
   var shortBare=/^[a-z\u00F1]{2}$/.test(p1)&&p1+"a"===p2&&new RegExp("\\b"+p1+"\\b","i").test((q.word&&q.word.notes)||"");
-  var bare=(p1.length>=3&&(p1+"a"===p2||p1===p2+"a"))||shortBare;
+  var bare=(p1.length>=3&&p1+"a"===p2)||shortBare;
+  // An article put on a card that has none is not that card: "gaura" passed
+  // for Gaur and "hemena" for Hemen. It is one letter out, so it reads as So
+  // close.
+  var addsArticle=!/a$/.test(p2)&&!/ak$/.test(p2)&&(p1===p2+"a"||p1===p2+"ak");
   // Question words and exclamations are fixed forms, so they get the
   // punctuation rule and nothing looser. Otherwise dropping the question mark
   // would let the article rule take "nora" (where to) for Nor? (who).
   var fixed=/[?!]/.test(q.correct);
-  var ok=exact||(!fixed&&(spellBasque(normArticle(p1))===spellBasque(normArticle(p2))||bare));var d=lev(n1,n2);var tol=n2.length<=4?1:2;
+  var ok=exact||(!fixed&&!addsArticle&&(spellBasque(normArticle(p1))===spellBasque(normArticle(p2))||bare));var d=lev(n1,n2);var tol=n2.length<=4?1:2;
   // The loose rules above (case endings, tz for ts, the article added) also
   // reach other cards: "hotza" (cold) normalised into Hotsa (sound), "gabon"
   // (good night) into Gabonak (Christmas), "etxean" (at home) into Etxea. A
@@ -1597,6 +1615,9 @@ function App(){
   var _s3=useState([]);var results=_s3[0];var setResults=_s3[1];
   var _sQO=useState(null);var quizOrigin=_sQO[0];var setQuizOrigin=_sQO[1];
   var _sCW=useState(null);var customQuizWords=_sCW[0];var setCustomQuizWords=_sCW[1];
+  var customBase=useRef(null);
+  var _sMR=useState(false);var mistakesRound=_sMR[0];var setMistakesRound=_sMR[1];
+  var _sLJ=useState(false);var lessonJustDone=_sLJ[0];var setLessonJustDone=_sLJ[1];
   var _s4=useState(false);var isPro=_s4[0];var setIsPro=_s4[1];
   var _s5=useState(false);var showOnb=_s5[0];var setShowOnb=_s5[1];
   var _s6=useState(0);var streak=_s6[0];var setStreak=_s6[1];
@@ -1631,6 +1652,10 @@ function App(){
   // iOS keeps the app suspended for days at a time, so "today" cannot be
   // something only read at launch: see the wake handler below.
   var countDay=useRef(localDay());
+  // The words already counted toward today's goal, so the same word answered
+  // right in a second quiz is not a second word.
+  var todayIds=useRef({day:null,ids:{}});
+  function loadTodayIds(day){todayIds.current={day:day,ids:{}};STORE.get("today_words_"+day).then(function(r){if(todayIds.current.day!==day||!r||!r.value)return;try{var a=JSON.parse(r.value);if(Array.isArray(a))a.forEach(function(id){todayIds.current.ids[id]=1;});}catch(e){}}).catch(function(){});}
   var _sDay=useState(0);var dayTick=_sDay[0];var setDayTick=_sDay[1];
   var _s18=useState(null);var freezeUntil=_s18[0];var setFreezeUntil=_s18[1];var streakFrozen=!!(freezeUntil&&new Date()<freezeUntil);
   var _s19=useState(null);var lastOpened=_s19[0];var setLastOpened=_s19[1];
@@ -1652,7 +1677,7 @@ function App(){
     var out=[];
     for(var i=0;i<words.length;i++){
       var d=srsData[words[i].id];
-      if(!d||(d.score||0)>=4)continue;
+      if(!d)continue;
       if(new Date(d.nextReview)<=cutoff)out.push(words[i]);
     }
     return out.sort(function(a,b){
@@ -1666,6 +1691,7 @@ function App(){
         try{var dg=await STORE.get("daily_goal");if(dg&&dg.value)setDailyGoal(parseInt(dg.value)||10);}catch(e){}
         try{var lo=await STORE.get("last_opened");var today2=localDay();setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
         try{var tc=await STORE.get("today_count_"+localDay());if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
+        loadTodayIds(localDay());
         try{var tr=await STORE.get("trial_until");if(tr&&tr.value){setTrialUsed(true);var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
         // Fetch vocabulary
         (async function(){
@@ -1704,6 +1730,7 @@ function App(){
       if(countDay.current===day)return;
       countDay.current=day;
       setTodayCount(0);
+      loadTodayIds(day);
       STORE.get("today_count_"+day).then(function(tc){if(countDay.current===day&&tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}).catch(function(){});
       Promise.all([STORE.get("streak_data"),STORE.get("streak_freeze")]).then(function(rs){
         var fz=readFreeze(rs[1]&&rs[1].value);setFreezeUntil(fz);
@@ -1758,7 +1785,7 @@ function App(){
   var bestByWord={};
   for(var i=0;i<fresh.length;i++){var r=fresh[i],id=r.question&&r.question.word?r.question.word.id:null;if(!id)continue;var prev=bestByWord[id];if(!prev||(!prev.correct&&(r.correct||(!r.wasClose&&prev.wasClose)))){bestByWord[id]=r;}}
   var changed=Object.keys(bestByWord);
-  for(var ci=0;ci<changed.length;ci++){var id2=changed[ci];var r2=bestByWord[id2];var cur=nd[id2]||{score:0};var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.wasClose?1:SRS_I[ns];nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
+  for(var ci=0;ci<changed.length;ci++){var id2=changed[ci];var r2=bestByWord[id2];var cur=nd[id2]||{score:0};var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
   // Mark every fresh result as applied so later checkpoints skip them.
   for(var fi=0;fi<fresh.length;fi++){fresh[fi]._srsApplied=true;}
   setSrsData(function(){return nd;});try{await STORE.set("srs_data",JSON.stringify(nd)).catch(function(){});}catch(e){}return nd;}
@@ -1796,22 +1823,26 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
       return{id:"q_"+sid+"_"+i,mode:"multipleChoice",word:word,prompt:word.basque,promptLabel:"What does this mean?",options:opts,correct:word.english};
     });
   }
-  function startCustomQuiz(words,origin){
+  // isRetry: a round of mistakes from a custom quiz. The set it came from is
+  // kept, so "New quiz" afterwards starts that set and not the mistakes again.
+  function startCustomQuiz(words,origin,isRetry){
     if(!words||!words.length)return;
     var sess=buildMCSession(words);
     if(!sess.length)return;
+    if(!isRetry)customBase.current=words;
+    setMistakesRound(!!isRetry);setLessonJustDone(false);
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
-  function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(missedOnly?null:config);setQs(qs);setResults([]);setScreen("quiz");}
+  function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setMistakesRound(!!(missedOnly&&missedIds.length));setLessonJustDone(false);setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
   // The daily goal is in words, so a word answered right twice in one session
   // is one word. It used to count answers.
   var lessonPending=useRef(null);
   function completeLesson(id){if(!id)return Promise.resolve();return STORE.get("lessons_done").then(function(r){var arr=[];try{if(r&&r.value){var a=JSON.parse(r.value);if(Array.isArray(a))arr=a;}}catch(e){}if(arr.indexOf(id)!==-1)return;arr.push(id);return STORE.set("lessons_done",JSON.stringify(arr));}).catch(function(){});}
-  function countToday(res){var today3=localDay();var countedSoFar=countDay.current===today3?todayCount:0;countDay.current=today3;var seen={},n=0;for(var i=0;i<res.length;i++){var r=res[i],id=r&&r.question&&r.question.word?r.question.word.id:null;if(r&&r.correct&&id&&!seen[id]){seen[id]=1;n++;}}if(!n)return;var newTodayCount=countedSoFar+n;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});}
+  function countToday(res){var today3=localDay();var countedSoFar=countDay.current===today3?todayCount:0;countDay.current=today3;if(todayIds.current.day!==today3)todayIds.current={day:today3,ids:{}};var seen=todayIds.current.ids,n=0;for(var i=0;i<res.length;i++){var r=res[i],id=r&&r.question&&r.question.word?r.question.word.id:null;if(r&&r.correct&&id&&!seen[id]){seen[id]=1;n++;}}if(!n)return;var newTodayCount=countedSoFar+n;setTodayCount(newTodayCount);STORE.set("today_count_"+today3,String(newTodayCount)).catch(function(){});STORE.set("today_words_"+today3,JSON.stringify(Object.keys(seen))).catch(function(){});}
   // Leaving a quiz early used to keep the answers up to the last multiple of
   // five in word memory, drop the rest, and count none of them toward the day.
   function leaveQuiz(res){if(res&&res.length){countToday(res);updateSRS(res).catch(function(){});}if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}countToday(res);if(quizOrigin==="learn"&&lessonPending.current&&res.length>=lessonPending.current.n){completeLesson(lessonPending.current.id);lessonPending.current=null;}var sc=scoreSession(res);var worthStreak=res.length>=5;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}countToday(res);if(quizOrigin==="learn"&&lessonPending.current&&res.length>=lessonPending.current.n){completeLesson(lessonPending.current.id);lessonPending.current=null;setLessonJustDone(true);}var sc=scoreSession(res);var worthStreak=res.length>=5||res.length>=questions.length;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabNet==="loading"&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
@@ -1856,9 +1887,9 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),null);}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
-    {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
+    {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} quizLabel={mistakesRound?"Practice mistakes":quizOrigin==="learn"?"Lesson practice":quizOrigin==="review"?"Review":cfg?null:"Practice"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
@@ -2295,22 +2326,27 @@ function QuizScreen(props){
       <button onClick={onExit} style={{border:"none",borderRadius:14,padding:"14px 28px",backgroundColor:"#19A85A",color:"#fff",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Go back</button>
     </div>
   );
-  var isSnoozed=snoozeUntil&&new Date()<snoozeUntil;
+  // Whether the banner shows, and whether this question is drawn as multiple
+  // choice. Once answered a question keeps the form it was answered in:
+  // tapping Resume used to redraw it as a typed one, with the choice shown as
+  // "You typed".
+  var snoozedNow=snoozeUntil&&new Date()<snoozeUntil;
+  var isSnoozed=result?!!result.snoozed:snoozedNow;
   var origType=q.mode;
   var effectiveType=isSnoozed&&origType==="typing"?"multipleChoice":origType;
   var isMC=effectiveType==="multipleChoice",isFB=effectiveType==="fillBlank",isType=effectiveType==="typing",isAnyMC=isMC||isFB;
   var lc=(CL[q.word.cefr]||CL.A1).color,ld=(CL[q.word.cefr]||CL.A1).dark;
   var ready=isAnyMC?!!sel:typed.trim().length>0;
-  function submit(ans){if(result)return;if(ans==="_SKIP_"){haptic("error");sfx("wrong");setResult({correct:false,wasClose:false,skipped:true});setCorrectStreak(0);setBurst("wrong");setTimeout(function(){setBurst(null);},700);var newLatest2=latest.current.concat([{question:q,correct:false,wasClose:false,skipped:true}]);latest.current=newLatest2;return;}var qForCheck=isSnoozed&&origType==="typing"?Object.assign({},q,{correct:snoozeCorrect,mode:"multipleChoice"}):q;var r=checkAnswer(qForCheck,ans);setResult(r);if(r.correct){var ns=correctStreak+1;setCorrectStreak(ns);haptic("success");sfx(ns>0&&ns%5===0?"streak":"correct");setBurst(ns>0&&ns%5===0?"streak":"correct");}else{setCorrectStreak(0);haptic("error");sfx("wrong");setBurst(r.wasClose?"close":"wrong");}setTimeout(function(){setBurst(null);},900);var newLatest=latest.current.concat([Object.assign({},r,{question:q})]);latest.current=newLatest;}
+  function submit(ans){if(result)return;if(ans==="_SKIP_"){haptic("error");sfx("wrong");setResult({correct:false,wasClose:false,skipped:true});setCorrectStreak(0);setBurst("wrong");setTimeout(function(){setBurst(null);},700);var newLatest2=latest.current.concat([{question:q,correct:false,wasClose:false,skipped:true}]);latest.current=newLatest2;return;}var qForCheck=isSnoozed&&origType==="typing"?Object.assign({},q,{correct:snoozeCorrect,mode:"multipleChoice"}):q;var r=checkAnswer(qForCheck,ans);r.snoozed=!!(isSnoozed&&origType==="typing");setResult(r);if(r.correct){var ns=correctStreak+1;setCorrectStreak(ns);haptic("success");sfx(ns>0&&ns%5===0?"streak":"correct");setBurst(ns>0&&ns%5===0?"streak":"correct");}else{setCorrectStreak(0);haptic("error");sfx("wrong");setBurst(r.wasClose?"close":"wrong");}setTimeout(function(){setBurst(null);},900);var newLatest=latest.current.concat([Object.assign({},r,{question:q})]);latest.current=newLatest;}
   var advancing=React.useRef(false);function advance(){if(advancing.current)return;advancing.current=true;setTimeout(function(){advancing.current=false;},2000);var delay=result&&result.correct?180:0;var currentLatest=latest.current;var nextIdx=idx+1;if(nextIdx>=questions.length){advancing.current=false;onFinish(currentLatest);}else{setTimeout(function(){setIdx(function(i){return i+1;});setSel(null);setTyped("");setResult(null);setShowNote(false);advancing.current=false;if(nextIdx%5===0&&nextIdx<questions.length){try{if(props.onAutoSave)props.onAutoSave(currentLatest);}catch(e){}}},delay);}}
   var snoozeMin=Math.floor(snoozeLeft/60);
   var snoozeSec=("0"+(snoozeLeft%60)).slice(-2);
   var snoozeDisplay=snoozeMin+":"+snoozeSec;
   var snoozeOpts=useMemo(function(){
-    if(!snoozeUntil||q.mode!=="typing")return[];
+    if(q.mode!=="typing")return[];
     var dist2=pickDistractors(VOCABULARY,q.word);
     return shuffled([q.word.english].concat(dist2.map(function(w){return w.english;})));
-  },[idx,snoozeUntil?1:0,q.id]);
+  },[idx,q.id]);
   var snoozeCorrect=isSnoozed&&origType==="typing"?q.word.english:q.correct;
   
   var correctMsg=result&&result.correct?CORRECT_MSGS[idx%CORRECT_MSGS.length]:"Correct!";
@@ -2367,7 +2403,7 @@ function QuizScreen(props){
           <div style={{height:"100%",borderRadius:3,background:"linear-gradient(90deg,"+ld+","+lc+")",width:(((idx+(result?1:0))/questions.length)*100)+"%",transition:"width 0.5s cubic-bezier(0.34,1.56,0.64,1)"}}/>
         </div>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-          <span style={{fontSize:10,fontWeight:700,color:lc}}>{props.quizLevel||questions[0].word.cefr} · {TL[props.quizTopic]||props.quizTopic||""}</span>
+          <span style={{fontSize:10,fontWeight:700,color:lc}}>{props.quizLabel||((props.quizLevel||questions[0].word.cefr)+" · "+(TL[props.quizTopic]||props.quizTopic||""))}</span>
           <span style={{fontSize:10,fontWeight:800,color:"#1A1A1A"}}>{idx+1}<span style={{color:"#C7C7CC"}}>/{questions.length}</span></span>
         </div>
       </div>
@@ -2379,7 +2415,7 @@ function QuizScreen(props){
       )}
     </div>
 
-    {isSnoozed&&(
+    {snoozedNow&&(
       <div style={{backgroundColor:"#FFF8F0",padding:"8px 16px",display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0,borderBottom:"1px solid #FCD34D"}}>
         <span style={{fontSize:12,fontWeight:600,color:"#D97706"}}>⏱️ Typing snoozed ({snoozeDisplay} left)</span>
         <button onClick={function(){setSnoozeUntil(null);}} style={{background:"none",border:"none",color:"#D97706",fontSize:11,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Resume</button>
@@ -2556,7 +2592,7 @@ function ResultsScreen(props){
     <div style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
       {/* Finishing a lesson is the moment worth marking. A plain practice
           session gets the ring alone, as before. */}
-      {isLesson&&<Lauburu size={34} color="rgba(255,255,255,0.92)"/>}
+      {isLesson&&props.lessonDone&&<Lauburu size={34} color="rgba(255,255,255,0.92)"/>}
       <Ring acc={acc} emoji={score.grade.emoji}/>
       <h1 style={{margin:"4px 0 3px",fontSize:26,fontWeight:900,color:"#fff",letterSpacing:-0.5,animation:acc===100?"popIn 0.5s 0.8s ease both":"none"}}>{score.grade.label}</h1>
       <p style={{margin:"0 0 20px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}}>{score.correct}/{score.total} correct - {isPersonalBest?"🌟 Personal best!":score.grade.sub}</p>
