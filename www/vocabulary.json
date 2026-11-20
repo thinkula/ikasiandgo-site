@@ -24,7 +24,7 @@
       "notes": "Agur is the standard farewell. In the ceremonial song Agur Jaunak it works as a respectful greeting, but in everyday speech agur means goodbye.",
       "example": {
         "basque": "Agur lagun!",
-        "english": "Goodbye friend!"
+        "english": "Goodbye, friend!"
       }
     },
     {
@@ -115,7 +115,7 @@
       "notes": "Ondo = well or fine (adverb, not adjective). Ondo nago = I am well. Ondo egin = to do well. Ongi is the other common word for well: ongi etorri = welcome. Opposite: gaizki (badly).",
       "example": {
         "basque": "Ondo nago eskerrik asko.",
-        "english": "I am fine thank you."
+        "english": "I am fine, thank you."
       }
     },
     {
@@ -141,7 +141,7 @@
       "notes": "Gabon is the standard after-dark greeting, whether you are arriving or leaving. It completes the day cycle: egun on (morning), arratsalde on (afternoon), gabon (night). Gabon gaua is Christmas Eve, Gabonak is the Christmas season, and Eguberri is Christmas Day.",
       "example": {
         "basque": "Gabon lagun.",
-        "english": "Good night friend."
+        "english": "Good night, friend."
       }
     },
     {
@@ -191,7 +191,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "AR-doh-ah",
-      "notes": "Ardoa = wine, but the Basque Country is famous for Txakoli, a dry, lightly sparkling white wine. Ardo beltza = red wine. Ardo zuria = white wine.",
+      "notes": "Ardoa = wine. The Basque Country is famous for Txakoli, a dry, lightly sparkling white wine. Ardo beltza = red wine. Ardo zuria = white wine.",
       "example": {
         "basque": "Ardoa ona da.",
         "english": "The wine is good."
@@ -364,7 +364,7 @@
       "notes": "Lau rhymes with the English word now. Laugarrena = fourth.",
       "example": {
         "basque": "Lau urteko umea.",
-        "english": "A four year old child."
+        "english": "A four-year-old child."
       }
     },
     {
@@ -2496,7 +2496,7 @@
       "cefr": "B1",
       "topic": "work",
       "pronunciation": "en-PREH-sah",
-      "notes": "Enpresa = company. Enpresaria = entrepreneur. Enpresa txikia = small business. Basque Country has a strong tradition of cooperatives (Mondragon).",
+      "notes": "Enpresa = company. Enpresaria = entrepreneur. Enpresa txikia = small business. The Basque Country has a strong tradition of cooperatives, such as Mondragon.",
       "example": {
         "basque": "Enpresa txikia da.",
         "english": "The company is small."
@@ -2811,7 +2811,7 @@
       "cefr": "B2",
       "topic": "society",
       "pronunciation": "eh-koh-NOH-mee-ah",
-      "notes": "Ekonomia = economy. Ekonomikoa = economic. The Basque Country has one of the highest GDPs per capita in Spain, a strong industrial economy.",
+      "notes": "Ekonomia = economy. Ekonomikoa = economic. The Basque Country has a strong industrial economy and one of the highest GDPs per capita in Spain.",
       "example": {
         "basque": "Ekonomia hazten da.",
         "english": "The economy grows."
@@ -3016,7 +3016,7 @@
       "cefr": "B2",
       "topic": "work",
       "pronunciation": "en-preh-SAH-ree-ah",
-      "notes": "Enpresaria = entrepreneur. Basque Country has the Mondragon Cooperative Corporation, one of the world's largest worker-owned cooperatives.",
+      "notes": "Enpresaria = entrepreneur. The Basque Country is home to the Mondragon Cooperative Corporation, one of the world's largest worker-owned cooperatives.",
       "example": {
         "basque": "Enpresaria da.",
         "english": "He/she is an entrepreneur."
@@ -3745,7 +3745,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "EH-men (h is silent)",
-      "notes": "Hemen = near speaker. Hor = near listener. Han = away from both. Spanish makes the same 3-way split (aquí/ahí/allí), so it maps neatly for Spanish speakers.",
+      "notes": "Hemen = near speaker. Hor = near listener. Han = away from both. Spanish makes the same 3-way split (aquí/ahí/allí), so it is easy for Spanish speakers.",
       "example": {
         "basque": "Hemen nago.",
         "english": "I am here."
@@ -3771,7 +3771,7 @@
       "cefr": "A1",
       "topic": "travel",
       "pronunciation": "OR (h is silent)",
-      "notes": "Basque has 3 heres/theres based on distance: hemen (near me), hor (near you), han (away from both). Like Japanese ko/so/a!",
+      "notes": "Basque has three words for here and there, based on distance: hemen (near me), hor (near you), han (away from both). Like Japanese ko/so/a!",
       "example": {
         "basque": "Hor dago.",
         "english": "It is there (near you)."
@@ -3852,7 +3852,7 @@
       "notes": "Beer. Garagar (barley) + ardoa (wine) = literally barley-wine. Garagardo bat mesedez = one beer please. Very popular in pintxo bars alongside txakoli.",
       "example": {
         "basque": "Garagardo bat mesedez.",
-        "english": "One beer please."
+        "english": "One beer, please."
       }
     },
     {
@@ -4136,7 +4136,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SEN-bat OOR-teh dee-TOO-soo",
-      "notes": "Literally how many years do you have? Basque uses have not be for age. Hogei urte ditut = I am twenty.",
+      "notes": "Literally how many years do you have? Basque uses have, not be, for age. Hogei urte ditut = I am twenty.",
       "mcOnly": true,
       "example": {
         "basque": "Zenbat urte dituzu orain?",
@@ -4569,7 +4569,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ee-roo-GAR-reh-nah (h is silent)",
-      "notes": "Third (ordinal). Hirugarren aldiz = for the third time. Hirugarren mailan = at the third level. The -garren suffix is very regular making Basque ordinals easy once you know the cardinals.",
+      "notes": "Third (ordinal). Hirugarren aldiz = for the third time. Hirugarren mailan = at the third level. The -garren suffix is very regular, so Basque ordinals are easy once you know the cardinals.",
       "example": {
         "basque": "Hirugarrena da.",
         "english": "It is third."
@@ -4702,7 +4702,7 @@
       "notes": "Take care, a farewell. Ondo = well + ibili = walk/go around. Literally walk well. Used among friends when parting.",
       "example": {
         "basque": "Ondo ibili lagun!",
-        "english": "Take care friend!"
+        "english": "Take care, friend!"
       }
     },
     {
@@ -4765,7 +4765,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "ah-BER-ree eh-GOON-ah",
-      "notes": "Basque Homeland Day, celebrated on Easter Sunday. Aberri = homeland + eguna = day. Major political and cultural celebration with demonstrations across the Basque Country and diaspora.",
+      "notes": "Basque Homeland Day, celebrated on Easter Sunday. Aberri = homeland + eguna = day. A major political and cultural celebration, with demonstrations across the Basque Country and the diaspora.",
       "example": {
         "basque": "Aberri Egunean manifestazioa dago.",
         "english": "There is a demonstration on Basque Homeland Day."
@@ -4921,7 +4921,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "OO-dah",
-      "notes": "Summer. Udan = in summer. Uda-oporretan = on summer vacation. Basque summers are mild, rarely very hot due to Atlantic influence.",
+      "notes": "Summer. Udan = in summer. Uda-oporretan = on summer vacation. Basque summers are mild and rarely very hot, because of the Atlantic.",
       "example": {
         "basque": "Udan itsasora joaten gara.",
         "english": "In summer we go to the sea."
@@ -4947,7 +4947,7 @@
       "cefr": "A2",
       "topic": "time",
       "pronunciation": "NEH-goo-ah",
-      "notes": "Winter. Neguan = in winter. Neguak = winters. Snow (elurra) in the mountains, rain on the coast. Ski resorts operate in the Pyrenees. Neguko jaiak = winter festivals.",
+      "notes": "Winter. Neguan = in winter. Neguak = winters. Winter brings snow (elurra) to the mountains and rain to the coast. Ski resorts operate in the Pyrenees. Neguko jaiak = winter festivals.",
       "example": {
         "basque": "Neguan hotza egiten du.",
         "english": "In winter it is cold."
@@ -5155,7 +5155,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ee-roo-ROH-gay-tah ah-MAR (h is silent)",
-      "notes": "70 = three-twenties + ten. Hirurogei (60) + ta (and) + hamar (10) = 70. The complete round numbers in Basque vigesimal: 20,40,60,80,100.",
+      "notes": "70 = three-twenties + ten. Hirurogei (60) + ta (and) + hamar (10) = 70. The round numbers of the Basque base-twenty system: 20, 40, 60, 80, 100.",
       "example": {
         "basque": "Hirurogeita hamar euro.",
         "english": "Seventy euros."
@@ -5220,7 +5220,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "eh-meh-REH-tsee (h is silent)",
-      "notes": "19 = hemeretzi. It does not follow the hamar + digit pattern. Compare French dix-neuf (10+9) vs Basque irregular hemeretzi.",
+      "notes": "19 = hemeretzi. It does not follow the hamar + digit pattern. Compare French dix-neuf (10+9) with the irregular Basque hemeretzi.",
       "example": {
         "basque": "Hemeretzi euro kostatzen da.",
         "english": "It costs nineteen euros."
@@ -5636,7 +5636,7 @@
       "cefr": "B1",
       "topic": "emotions",
       "pronunciation": "mai-tah-SOO-nah",
-      "notes": "Love (noun). Maitatu = to love. Maitea = loved one/beloved. Maite zaitut = I love you. Maitasunezko = of love/loving. Maitasuna is the abstract noun, compare with maite (the adjective/verb).",
+      "notes": "Love (noun). Maitatu = to love. Maitea = loved one/beloved. Maite zaitut = I love you. Maitasunezko = of love/loving. Maitasuna is the abstract noun. Compare maite (the adjective/verb).",
       "example": {
         "basque": "Maitasuna indartsua da.",
         "english": "Love is powerful."
@@ -6172,7 +6172,7 @@
       "notes": "Egia esan = to tell the truth, or as a filler: honestly/frankly. Egia esan, ez dakit = honestly, I don't know. Egia = truth. Esan = to say. Egiazki = truly/indeed.",
       "example": {
         "basque": "Egia esan ez dakit zer egin.",
-        "english": "Honestly I don't know what to do."
+        "english": "Honestly, I don't know what to do."
       }
     },
     {
@@ -6185,7 +6185,7 @@
       "notes": "Hala ere = nevertheless or even so. Hala = so/thus + ere = also/even. Zaila da; hala ere, saiatuko naiz = It is hard, but I will try anyway.",
       "example": {
         "basque": "Hala ere joango naiz.",
-        "english": "Even so I will go."
+        "english": "Even so, I will go."
       }
     },
     {
@@ -6260,7 +6260,7 @@
       "cefr": "B1",
       "topic": "adjectives",
       "pronunciation": "NAH-ghee-ah",
-      "notes": "Lazy. Nagi = lazy (adjective). Nagikeria = laziness (noun). Nagi egon = to be lazy. Nagi da = he/she is lazy. The adjective form is more useful in everyday speech.",
+      "notes": "Lazy. Nagi = lazy (adjective). Nagikeria = laziness (noun). Nagi egon = to be lazy. Nagi da = he/she is lazy. The adjective is the form you will use most in everyday speech.",
       "example": {
         "basque": "Ez izan nagi, lan egin!",
         "english": "Do not be lazy, get to work!"
@@ -7056,7 +7056,7 @@
       "notes": "Gainera = moreover, besides, or in addition. Gain = top/above + -era. Gainera, merkeagoa da = moreover it is cheaper.",
       "example": {
         "basque": "Gainera, oso polita da.",
-        "english": "Moreover it is very nice."
+        "english": "Moreover, it is very nice."
       }
     },
     {
@@ -7069,7 +7069,7 @@
       "notes": "Aldiz = on the other hand, however, or in contrast. Aldi = time/turn + -z. Ni aldiz ez noa = I on the other hand am not going. Baina (but) is the simpler word.",
       "example": {
         "basque": "Ni aldiz etxean geratuko naiz.",
-        "english": "I on the other hand will stay at home."
+        "english": "I, on the other hand, will stay at home."
       }
     },
     {
@@ -8185,7 +8185,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "BEE-sah",
-      "notes": "Visa. International term. Bisa eskatu = to apply for a visa. Schengen area means EU travel is visa-free for most Europeans.",
+      "notes": "Visa. International term. Bisa eskatu = to apply for a visa. Within the Schengen area most Europeans travel without a visa.",
       "example": {
         "basque": "Bisa behar dut herrialde horretara joateko.",
         "english": "I need a visa to travel to that country."
@@ -9342,7 +9342,7 @@
       "cefr": "B2",
       "topic": "travel",
       "pronunciation": "dee-AS-poh-rah",
-      "notes": "Diaspora. International term. Significant communities exist in Argentina, USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",
+      "notes": "Diaspora. International term. Significant communities exist in Argentina, the USA (Idaho, Nevada), Uruguay, Mexico and Australia. Euskal diaspora = Basque diaspora.",
       "example": {
         "basque": "Euskal diaspora mundu osoan sakabanatuta dago.",
         "english": "The Basque diaspora is scattered all over the world."
@@ -9930,7 +9930,7 @@
       "notes": "Thank you for everything. Mila esker (a thousand thanks) + denagatik (for everything). A warm closing phrase used at the end of events, emails or when parting from someone after a long time.",
       "example": {
         "basque": "Mila esker denagatik lagun.",
-        "english": "Thank you for everything friend."
+        "english": "Thank you for everything, friend."
       }
     },
     {
@@ -10070,7 +10070,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "say-GAR-reh-nah",
-      "notes": "Sixth. Sei (six) + -garrena (ordinal suffix). The ordinal suffix -garren/-garrena applies to all numbers. Learning the pattern: lehena=1st, bigarrena=2nd, hirugarrena=3rd, laugarrena=4th, bosgarrena=5th, seigarrena=6th.",
+      "notes": "Sixth. Sei (six) + -garrena (ordinal suffix). The ordinal suffix -garren/-garrena applies to all numbers. The pattern: lehena=1st, bigarrena=2nd, hirugarrena=3rd, laugarrena=4th, bosgarrena=5th, seigarrena=6th.",
       "example": {
         "basque": "Seigarrena iritsi zen lasterketan.",
         "english": "He arrived sixth in the race."
@@ -10174,7 +10174,7 @@
       "cefr": "B1",
       "topic": "numbers",
       "pronunciation": "eh-REH-nah (h is silent)",
-      "notes": "One third. Heren = third (as a fraction). Bi heren = two thirds. Hiru heren = three thirds = a whole. Paired with erdia (half) and laurdena (quarter) to complete basic fractions.",
+      "notes": "One third. Heren = third (as a fraction). Bi heren = two thirds. Hiru heren = three thirds = a whole. With erdia (half) and laurdena (quarter) it completes the basic fractions.",
       "example": {
         "basque": "Lurraren herena oihanez estalita dago.",
         "english": "A third of the land is covered by forest."
@@ -10515,7 +10515,7 @@
       "notes": "Egarri = thirst (root). Egarri naiz = I am thirsty. Egarri handia daukat = I am very thirsty. Gose-egarria = hunger and thirst (paired expression).",
       "example": {
         "basque": "Egarri naiz, ur pixka bat mesedez.",
-        "english": "I am thirsty, a little water please."
+        "english": "I am thirsty. A little water, please."
       }
     },
     {
@@ -11372,7 +11372,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "AH-lah",
-      "notes": "Ala is the or of questions offering a real choice: Kafea ala tea? expects you to pick one. Use edo in a question and it turns into a yes or no question about wanting either at all.",
+      "notes": "Ala is the or of questions offering a real choice: Kafea ala tea? expects you to pick one. With edo the same question asks whether you want either one at all.",
       "example": {
         "basque": "Kafea ala tea nahi duzu?",
         "english": "Do you want coffee or tea?"
@@ -11425,7 +11425,7 @@
       "cefr": "A1",
       "topic": "family",
       "pronunciation": "ghee-SOH-nah",
-      "notes": "Gizon (man) is the root of a whole word family: gizaki (human being), gizarte (society, from giza + arte, the space among people), and gizon-emakumeak (men and women). Handy pair to learn together with emakumea (woman).",
+      "notes": "Gizon (man) is the root of a whole word family: gizaki (human being), gizarte (society, from giza + arte, the space among people), and gizon-emakumeak (men and women). It is handy to learn together with emakumea (woman).",
       "example": {
         "basque": "Gizona altua da.",
         "english": "The man is tall."
@@ -12298,7 +12298,7 @@
       "cefr": "A1",
       "topic": "animals",
       "pronunciation": "ah-nee-MAH-lee-ah",
-      "notes": "Animal. From Latin animalia, so easy to remember. Native words split the idea: aberea is a farm animal or livestock, and piztia is a wild beast.",
+      "notes": "Animal. From Latin animalia, so it is easy to remember. Native words split the idea: aberea is a farm animal or livestock, and piztia is a wild beast.",
       "example": {
         "basque": "Baserrian animalia asko daude.",
         "english": "There are many animals on the farm."
@@ -14311,7 +14311,7 @@
               "we go."
             ]
           ],
-          "tr": "Today we go to the mountain."
+          "tr": "Today we are going to the mountain."
         },
         {
           "w": [
@@ -14336,7 +14336,7 @@
               "go."
             ]
           ],
-          "tr": "My friend and I go together."
+          "tr": "My friend and I are going together."
         },
         {
           "w": [
@@ -14688,7 +14688,7 @@
       "level": "B1",
       "cat": "folktale",
       "emoji": "👁️",
-      "intro": "A famous Basque legend about a one-eyed giant, retold simply. (Like the Cyclops.)",
+      "intro": "A famous Basque legend about a one-eyed giant, much like the Cyclops, retold simply.",
       "lines": [
         {
           "w": [
@@ -14713,7 +14713,7 @@
               "was."
             ]
           ],
-          "tr": "In the mountain lived a giant."
+          "tr": "A giant lived on the mountain."
         },
         {
           "w": [
@@ -14963,7 +14963,7 @@
               "do."
             ]
           ],
-          "tr": "Many people come out to the street."
+          "tr": "Many people come out into the street."
         },
         {
           "w": [
@@ -15017,7 +15017,7 @@
               "are."
             ]
           ],
-          "tr": "Beret on head, everyone is happy."
+          "tr": "With berets on their heads, everyone is happy."
         },
         {
           "w": [
@@ -15625,7 +15625,7 @@
               "(did)."
             ]
           ],
-          "tr": "In the mountain lived a man."
+          "tr": "A man lived on the mountain."
         },
         {
           "w": [
@@ -15814,7 +15814,7 @@
               "(do)."
             ]
           ],
-          "tr": "Today too the children wait."
+          "tr": "The children still wait today."
         }
       ]
     },
