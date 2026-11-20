@@ -1618,6 +1618,10 @@ function streakAlive(lastDay,frozen){return lastDay===dayAgo(0)||lastDay===dayAg
 function App(){
   useEffect(function(){document.title="Ikasi & Go™";},[]);
   var _s0=useState("home");var screen=_s0[0];var setScreen=_s0[1];
+  // Every screen opens at its top. The page kept its scroll position across
+  // screens, so opening the progress screen from low on the home screen showed
+  // it part-way down.
+  useEffect(function(){try{window.scrollTo(0,0);}catch(e){}},[screen]);
   var _s1=useState(null);var cfg=_s1[0];var setCfg=_s1[1];
   var _s2=useState([]);var questions=_s2[0];var setQs=_s2[1];
   var _s3=useState([]);var results=_s3[0];var setResults=_s3[1];
@@ -1701,12 +1705,13 @@ function App(){
       return new Date(srsData[a.id].nextReview)-new Date(srsData[b.id].nextReview);
     });
   },[srsData,isProOrTrial,vocabVersion,trialUntil,dayTick]);
-  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0,learned=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=1)learned++;if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+SRS_SOON))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,learned:learned,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
+  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0,learned=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=1)learned++;var nr=new Date(d.nextReview);if(nr<=new Date(now.getTime()+SRS_SOON)){due++;continue;}if((d.score||0)>=4)mastered++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,learned:learned,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
   useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data"),STORE.get("streak_freeze")]);var fz=readFreeze(rs[2]&&rs[2].value);setFreezeUntil(fz);if(!fz&&rs[2]&&rs[2].value)STORE.set("streak_freeze","").catch(function(){});if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value);setStreak(streakAlive(d.lastDay,fz)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
         try{var dg=await STORE.get("daily_goal");if(dg&&dg.value)setDailyGoal(parseInt(dg.value)||10);}catch(e){}
         try{var lo=await STORE.get("last_opened");var today2=localDay();setLastOpened(lo&&lo.value?lo.value:null);STORE.set("last_opened",today2).catch(function(){});}catch(e){}
+        try{var tcm=await STORE.get("today_count_migrated");if(!tcm||!tcm.value){var ldy=localDay(),udy=new Date().toISOString().slice(0,10);if(udy>ldy){var uv=await STORE.get("today_count_"+udy);if(uv&&uv.value&&parseInt(uv.value)>0){var lv0=await STORE.get("today_count_"+ldy);await STORE.set("today_count_"+ldy,String((parseInt(uv.value)||0)+(parseInt(lv0&&lv0.value)||0)));await STORE.set("today_count_"+udy,"0");}}await STORE.set("today_count_migrated","1");}}catch(e){}
         try{var tc=await STORE.get("today_count_"+localDay());if(tc&&tc.value)setTodayCount(parseInt(tc.value)||0);}catch(e){}
         loadTodayIds(localDay());
         try{var tr=await STORE.get("trial_until");if(tr&&tr.value){setTrialUsed(true);var td=new Date(tr.value);if(td>new Date())setTrialUntil(td);}}catch(e){}try{var ob=await STORE.get("onboarding_done");if(!ob||!ob.value)setShowOnb(true);}catch(e){setShowOnb(true);}}catch(e){}setStreakLoaded(true);setSrsLoaded(true);
@@ -1880,7 +1885,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     {isBooting&&(
       <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5"}}>
         {/* Header skeleton */}
-        <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 40%,#19A85A 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
+        <div data-hdr="1" style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 40%,#19A85A 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
           <div style={{display:"flex",alignItems:"center",gap:12,paddingBottom:20}}>
             <Logo size={32}/>
             <div style={{flex:1}}>
@@ -1950,6 +1955,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
       lessonPending.current={id:lessonId,n:Math.min(words.length,20)};
       startCustomQuiz(words,"learn");
     }}/>}
+    <StatusBarGuard watch={screen}/>
     {showOnb&&<OnboardingScreen onDone={function(){STORE.set("onboarding_done","1").catch(function(){});setShowOnb(false);}} onUpgrade={function(){STORE.set("onboarding_done","1").catch(function(){});setShowOnb(false);setScreen("paywall");}}/>}
   </div>);}
 function HomeScreen(props){
@@ -2069,7 +2075,7 @@ function HomeScreen(props){
   return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
 
     {/* ── Header ── */}
-    <div style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 45%,#19A85A 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0,flexShrink:0}}>
+    <div data-hdr="1" style={{background:"linear-gradient(160deg,#093D24 0%,#0E7A40 45%,#19A85A 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0,flexShrink:0}}>
       <div style={{display:"flex",alignItems:"center",gap:10,paddingBottom:14}}>
         <Logo size={30}/>
         <div style={{flex:1}}>
@@ -2438,7 +2444,7 @@ function QuizScreen(props){
   return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
     {/* ── Header ── */}
-    <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",flexShrink:0}}>
+    <div data-hdr="1" style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",flexShrink:0}}>
       <button style={{background:"#F2F2F7",border:"none",color:"#555",fontSize:14,cursor:"pointer",padding:0,fontFamily:"inherit",width:32,height:32,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}} onClick={function(){if(idx>0||latest.current.length>0)setConfirmExit(true);else onExit();}}>✕</button>
       <div style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
         <div role="progressbar" aria-label="Quiz progress" aria-valuenow={idx+1} aria-valuemin={1} aria-valuemax={questions.length} aria-valuetext={"Question "+(idx+1)+" of "+questions.length} style={{height:6,backgroundColor:"#E8E8EE",borderRadius:3,overflow:"hidden"}}>
@@ -2641,7 +2647,7 @@ function ResultsScreen(props){
   tabs.push(["all","All ("+results.length+")"]);
   return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
     {acc===100&&!props.planned&&<Confetti/>}
-    <div style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
+    <div data-hdr="1" style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
       {/* Finishing a lesson is the moment worth marking. A plain practice
           session gets the ring alone, as before. */}
       {isLesson&&props.lessonDone&&<Lauburu size={34} color="rgba(255,255,255,0.92)"/>}
@@ -2879,7 +2885,7 @@ function BrowseScreen(props){
   var quizzable=useMemo(function(){return filtered.filter(function(w){return isPro||isFreeWord(w);});},[filtered,isPro]);
   return(
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F6F6F6",animation:"fadeIn 0.2s ease"}}>
-      <div style={{background:"linear-gradient(155deg,#0E7A40 0%,#19A85A 100%)",paddingTop:"calc(20px + env(safe-area-inset-top,0px))",paddingLeft:16,paddingRight:16,paddingBottom:16,flexShrink:0}}>
+      <div data-hdr="1" style={{background:"linear-gradient(155deg,#0E7A40 0%,#19A85A 100%)",paddingTop:"calc(20px + env(safe-area-inset-top,0px))",paddingLeft:16,paddingRight:16,paddingBottom:16,flexShrink:0}}>
         <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
           <button style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontSize:18,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center"}} onClick={onBack}>{"<"}</button>
           <h1 style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",flex:1,letterSpacing:-0.3}}>Word Browser</h1>
@@ -3293,7 +3299,7 @@ function PairsScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* ── Header ── */}
-      <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:10,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0"),}}>
+      <div data-hdr="1" style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:10,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0"),}}>
         <button aria-label="Close" onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
         <div style={{flex:1}}>
           <p style={{margin:0,fontSize:15,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}}>🃏 Memory Pairs</p>
@@ -3584,7 +3590,7 @@ function GamesScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* Header */}
-      <div style={{background:"linear-gradient(160deg,#1A1A2E,#16213E,#0F3460)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,#1A1A2E,#16213E,#0F3460)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.12)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -3816,7 +3822,7 @@ function TapScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* ── Header ── */}
-      <div style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0")}}>
+      <div data-hdr="1" style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",borderBottom:"1px solid "+("#F0F0F0")}}>
         <button aria-label="Close" onClick={onBack} style={{background:"#F2F2F7",border:"none",color:"#555",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
         <div style={{flex:1}}>
           {/* The header bar is white in both states. These two used to turn
@@ -4647,7 +4653,7 @@ function BasqueKitchenScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
 
       {/* Warm kitchen header */}
-      <div style={{background:"linear-gradient(160deg,#92400E,#C2510E,#F97316)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,#92400E,#C2510E,#F97316)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -4772,7 +4778,7 @@ function BasqueKitchenScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
 
       {/* ── Dish header — tall, immersive ── */}
-      <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:18,position:"relative",overflow:"hidden"}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:18,position:"relative",overflow:"hidden"}}>
         {/* Subtle dot texture */}
         <div style={{position:"absolute",inset:0,opacity:0.06,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         {/* Nav row */}
@@ -5380,7 +5386,7 @@ function OrduegiScreen(props){
   // ── Menu screen ──
   if(!scenario){return(
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
-      <div style={{background:"linear-gradient(160deg,#0C4A6E,#0369A1,#0EA5E9)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,#0C4A6E,#0369A1,#0EA5E9)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -5457,7 +5463,7 @@ function OrduegiScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
 
       {/* Header */}
-      <div style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.05,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
           <button aria-label="Close" onClick={leaveScenario} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
@@ -5789,7 +5795,7 @@ function KoloreakScreen(props){
     {/* ── START SCREEN ── */}
     {(!active&&!won)&&(
       <div>
-      <div style={{background:"linear-gradient(160deg,#4C1D95,#6D28D9,#7C3AED)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,#4C1D95,#6D28D9,#7C3AED)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
         <div style={{display:"flex",alignItems:"center",gap:10,paddingBottom:16}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
           <div style={{flex:1}}>
@@ -5889,7 +5895,7 @@ function KoloreakScreen(props){
     {/* ── ACTIVE GAME ── */}
     {active&&question&&(
       <div>
-      <div style={{background:"linear-gradient(135deg,#4C1D95,#7C3AED)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14}}>
+      <div data-hdr="1" style={{background:"linear-gradient(135deg,#4C1D95,#7C3AED)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
           <button aria-label="Close" onClick={function(){setActive(false);setWon(false);}} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
           <div style={{flex:1}}>
@@ -6379,7 +6385,7 @@ function ArbolaScreen(props){
   // ── Menu screen ──
   if(!family){return(
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
-      <div style={{background:"linear-gradient(160deg,#134E4A,#0D9488,#14B8A6)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,#134E4A,#0D9488,#14B8A6)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
           <button aria-label="Close" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
@@ -6479,7 +6485,7 @@ function ArbolaScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",fontFamily:"Nunito,system-ui,sans-serif",backgroundColor:BG,transition:"background-color 0.4s ease"}}>
 
       {/* Header */}
-      <div style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
+      <div data-hdr="1" style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
           <button aria-label="Close" onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
@@ -8034,18 +8040,21 @@ var LESSONS=[
 // one by one, and the card and the home screen never moved off 15. Only when
 // no open lesson is left does it fall back to the first locked one, which is
 // where the path really does continue behind the purchase.
-// A strip the height of the status bar, shown once the colored header has
+// A strip the height of the status bar, shown once a screen's header has
 // scrolled away. Without it the page text ran under the clock and the two
-// overlapped. It measures its own height, which is the safe area inset, so it
-// is nothing at all in a browser.
+// overlapped. One sits at the root of the app and watches whichever header
+// is on screen: every screen marks its header with data-hdr. It measures its
+// own height, which is the safe area inset, so it is nothing in a browser,
+// and a screen with no marked header is left alone.
 function StatusBarGuard(props){
   var _on=useState(false);var on=_on[0];var setOn=_on[1];
   var ref=useRef(null);
   useEffect(function(){
-    function check(){var hd=document.getElementById(props.headerId);var h=ref.current?ref.current.offsetHeight:0;if(!hd||!h){setOn(false);return;}setOn(hd.getBoundingClientRect().bottom<=h+2);}
-    check();window.addEventListener("scroll",check,{passive:true});
-    return function(){window.removeEventListener("scroll",check);};
-  },[props.headerId]);
+    function check(){var h=ref.current?ref.current.offsetHeight:0;var hs=document.querySelectorAll("[data-hdr]");if(!h||!hs.length){setOn(false);return;}var gone=true;for(var i=0;i<hs.length;i++){if(hs[i].getBoundingClientRect().bottom>h+2){gone=false;break;}}setOn(gone);}
+    check();var t=setTimeout(check,150);
+    document.addEventListener("scroll",check,true);window.addEventListener("resize",check);
+    return function(){clearTimeout(t);document.removeEventListener("scroll",check,true);window.removeEventListener("resize",check);};
+  },[props.watch]);
   return React.createElement("div",{ref:ref,"aria-hidden":true,style:{position:"fixed",top:0,left:0,right:0,height:"env(safe-area-inset-top,0px)",backgroundColor:"#F2F2F7",zIndex:40,opacity:on?1:0,transition:"opacity 0.15s",pointerEvents:"none"}});
 }
 function firstUnfinishedLesson(doneLessons,isPro){
@@ -8171,9 +8180,8 @@ function LearnScreen(props){
     var words=lessonWords(lesson);
     var isDone=doneLessons.indexOf(lesson.id)!==-1;
     return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
-      React.createElement(StatusBarGuard,{headerId:"lesson-hdr"}),
       // Header
-      React.createElement("div",{id:"lesson-hdr",style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:22,paddingLeft:18,paddingRight:18}},
+      React.createElement("div",{"data-hdr":1,id:"lesson-hdr",style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:22,paddingLeft:18,paddingRight:18}},
         React.createElement("button",{"aria-label":"Back",onClick:function(){setSelLesson(null);window.scrollTo(0,0);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
         React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:4}},
           React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"rgba(255,255,255,0.22)",padding:"3px 10px",borderRadius:12}},"Lesson "+lesson.num),
@@ -8232,8 +8240,7 @@ function LearnScreen(props){
   });
   var currentChapter=(chapterStats.filter(function(cs){return cs.done<cs.total;})[0]||{}).chapter||null;
   return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
-    React.createElement(StatusBarGuard,{headerId:"learn-hdr"}),
-    React.createElement("div",{id:"learn-hdr",style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
+    React.createElement("div",{"data-hdr":1,id:"learn-hdr",style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
       React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
       React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Ikasbidea"),
       React.createElement("p",{style:{margin:"4px 0 14px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Your step-by-step path into Basque. Start at lesson one."),
@@ -8314,7 +8321,7 @@ function MenuScreen(props){
 
   return(
   <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
-    <div style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
+    <div data-hdr="1" style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
       <button onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",borderRadius:12,padding:"7px 13px",color:"#fff",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",marginBottom:10}}>← Back</button>
       <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Menu</p>
     </div>
@@ -8362,7 +8369,7 @@ function FeedbackScreen(props){
   ];
   return(
   <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
-    <div style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
+    <div data-hdr="1" style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
       <button onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",borderRadius:12,padding:"7px 13px",color:"#fff",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",marginBottom:10}}>← Back</button>
       <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Tell me</p>
       <p style={{margin:"3px 0 0",fontSize:13,color:"rgba(255,255,255,0.85)",fontWeight:600}}>This app is made by one person</p>
@@ -8419,7 +8426,7 @@ function ProgressScreen(props){
       if(!isPro&&!isFreeWord(w))continue;
       levels[w.cefr].t++;
       var d=srsData[w.id];
-      if(d&&(d.score||0)>=4)levels[w.cefr].m++;
+      if(d&&(d.score||0)>=1)levels[w.cefr].m++;
     }
     return levels;
   },[srsData,isPro,vocabVersion]);
@@ -8440,7 +8447,9 @@ function ProgressScreen(props){
   },[hist]);
 
   var maxCount=Math.max(1,week.reduce(function(a,d){return Math.max(a,d.count);},0));
-  var pct=srsStats.total>0?Math.round((srsStats.mastered||0)/srsStats.total*100):0;
+  // Counted in words learned, the same number the home screen shows.
+  // Mastered keeps its row in the breakdown below.
+  var pct=srsStats.total>0?Math.round((srsStats.learned||0)/srsStats.total*100):0;
   var LEVEL_C={A1:"#F97316",A2:"#0891B2",B1:"#9B5DE5",B2:"#F72585"};
 
   // Ring geometry for mastery overview
@@ -8458,7 +8467,7 @@ function ProgressScreen(props){
   function shareText(){
     var lines=["I'm learning Basque (Euskara) with Ikasi & Go! 🇪🇺"];
     if(streak>0)lines.push("🔥 "+streak+" day streak");
-    lines.push("📚 "+(srsStats.mastered||0)+" words mastered ("+pct+"%)");
+    lines.push("📚 "+(srsStats.learned||0)+" words learned ("+pct+"%)");
     if(storiesDone.length>0)lines.push("📖 "+storiesDone.length+" "+(storiesDone.length===1?"story":"stories")+" read");
     lines.push("");
     lines.push("Ikasi eta ikasi! #Euskara #Basque");
@@ -8496,9 +8505,9 @@ function ProgressScreen(props){
     // Two stats row
     x.textAlign="center";
     x.fillStyle="#19A85A";x.font="900 76px Nunito, sans-serif";
-    x.fillText(String(srsStats.mastered||0),330,800);
+    x.fillText(String(srsStats.learned||0),330,800);
     x.fillStyle="#8E8E93";x.font="700 28px Nunito, sans-serif";
-    x.fillText("words mastered",330,845);
+    x.fillText("words learned",330,845);
     x.fillStyle="#9B5DE5";x.font="900 76px Nunito, sans-serif";
     x.fillText(String(longest),750,800);
     x.fillStyle="#8E8E93";x.font="700 28px Nunito, sans-serif";
@@ -8570,8 +8579,8 @@ function ProgressScreen(props){
           React.createElement("div",{style:{height:1,backgroundColor:"#EEE",margin:"0 0 14px"}}),
           React.createElement("div",{style:{display:"flex",justifyContent:"space-around"}},
             React.createElement("div",null,
-              React.createElement("p",{style:{margin:0,fontSize:26,fontWeight:900,color:"#19A85A",lineHeight:1}},String(srsStats.mastered||0)),
-              React.createElement("p",{style:{margin:"2px 0 0",fontSize:11,fontWeight:700,color:"#8E8E93"}},"words mastered")
+              React.createElement("p",{style:{margin:0,fontSize:26,fontWeight:900,color:"#19A85A",lineHeight:1}},String(srsStats.learned||0)),
+              React.createElement("p",{style:{margin:"2px 0 0",fontSize:11,fontWeight:700,color:"#8E8E93"}},"words learned")
             ),
             React.createElement("div",null,
               React.createElement("p",{style:{margin:0,fontSize:26,fontWeight:900,color:"#9B5DE5",lineHeight:1}},String(longest)),
@@ -8590,7 +8599,7 @@ function ProgressScreen(props){
 
   return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
     shareOverlay,
-    React.createElement("div",{style:{background:"linear-gradient(135deg,#0E7A40,#19A85A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
+    React.createElement("div",{"data-hdr":1,style:{background:"linear-gradient(135deg,#0E7A40,#19A85A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
       React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
       React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Aurrerapena"),
       React.createElement("p",{style:{margin:"4px 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Your learning progress")
@@ -8615,7 +8624,7 @@ function ProgressScreen(props){
             ),
             React.createElement("div",{style:{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}},
               React.createElement("p",{style:{margin:0,fontSize:28,fontWeight:900,color:"#1A1A1A",letterSpacing:-1,lineHeight:1}},pct+"%"),
-              React.createElement("p",{style:{margin:"2px 0 0",fontSize:10,fontWeight:700,color:"#8E8E93"}},"mastered")
+              React.createElement("p",{style:{margin:"2px 0 0",fontSize:10,fontWeight:700,color:"#8E8E93"}},"learned")
             )
           ),
           // Legend
@@ -8642,7 +8651,7 @@ function ProgressScreen(props){
                 React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:LEVEL_C[lvl],padding:"2px 9px",borderRadius:10}},lvl),
                 React.createElement("span",{style:{fontSize:13,fontWeight:700,color:"#8E8E93"}},(CL[lvl]||{}).title||"")
               ),
-              React.createElement("span",{style:{fontSize:13,fontWeight:800,color:"#1A1A1A"}},lv.m+" / "+lv.t)
+              React.createElement("span",{style:{fontSize:13,fontWeight:800,color:lv.t>0?"#1A1A1A":"#C7C7CC"}},lv.t>0?lv.m+" / "+lv.t:"Pro")
             ),
             React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F2",borderRadius:4,overflow:"hidden"}},
               React.createElement("div",{style:{height:"100%",width:p+"%",backgroundColor:LEVEL_C[lvl],borderRadius:4,transition:"width 0.6s ease"}})
@@ -8773,7 +8782,7 @@ function StoryScreen(props){
     _STORIES.forEach(function(s){if(byLevel[s.level])byLevel[s.level].push(s);});
     return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
       // Header
-      React.createElement("div",{style:{background:"linear-gradient(135deg,#0D9488,#134E4A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18,position:"relative"}},
+      React.createElement("div",{"data-hdr":1,style:{background:"linear-gradient(135deg,#0D9488,#134E4A)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18,position:"relative"}},
         React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
         React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Irakurri"),
         React.createElement("p",{style:{margin:"4px 0 0",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Read short stories in Basque. Tap any word for its meaning.")
@@ -8823,7 +8832,7 @@ function StoryScreen(props){
   return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#FBFBFD",fontFamily:"Nunito,system-ui,sans-serif"}},
     wordPopup,
     // Reader header
-    React.createElement("div",{style:{background:"linear-gradient(135deg,"+cat.color+","+(cat.color==="#0D9488"?"#134E4A":cat.color==="#9B5DE5"?"#5B21B6":"#C2510E")+")",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:20,paddingLeft:18,paddingRight:18}},
+    React.createElement("div",{"data-hdr":1,style:{background:"linear-gradient(135deg,"+cat.color+","+(cat.color==="#0D9488"?"#134E4A":cat.color==="#9B5DE5"?"#5B21B6":"#C2510E")+")",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:20,paddingLeft:18,paddingRight:18}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}},
         React.createElement("button",{"aria-label":"Back",onClick:function(){setSelStory(null);setTappedWord(null);window.scrollTo(0,0);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center"}},"\u2190"),
         React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"rgba(255,255,255,0.22)",padding:"4px 11px",borderRadius:12}},st.level+" \u00B7 "+cat.label)
