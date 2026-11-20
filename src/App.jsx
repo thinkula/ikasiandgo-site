@@ -1417,20 +1417,6 @@ function spellBasque(s){
   return s;
 }
 function normBasque(s){return spellBasque(norm(s));}
-// The word with its article and plural taken off, and nothing else. norm()
-// above also strips case endings, which is right for judging how close an
-// answer is but wrong for judging it correct: "etxeko" (of the house) and
-// "etxeren" passed for Etxea, and "euskako", which is not a word, for Euskara.
-function normArticle(s){
-  s=s.trim().toLowerCase();
-  if(s.length>5&&s.endsWith("ak"))s=s.slice(0,-1);
-  if(s.length>=5&&s.endsWith("rra"))return s.slice(0,-3)+"r";
-  if(s.length>=5&&s.endsWith("lla"))return s.slice(0,-3)+"l";
-  if(s.length>=5&&s.endsWith("nna"))return s.slice(0,-3)+"n";
-  if(s.length>=5&&s.endsWith("tta"))return s.slice(0,-3)+"t";
-  if(s.length>=4&&s.endsWith("a"))return s.slice(0,-1);
-  return s;
-}
 function lev(a,b){var m=a.length,n=b.length,prev=[];for(var p=0;p<=n;p++)prev.push(p);for(var i=1;i<=m;i++){var cur=[i];for(var j=1;j<=n;j++){var c=a[i-1]===b[j-1]?0:1;cur.push(Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+c));}prev=cur;}return prev[n];}
 // What a typed answer is compared on. The card's own punctuation is not part of
 // the word: Nola? was only ever right with the question mark typed, so "nola"
@@ -1447,23 +1433,31 @@ function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return
   // A two-letter bare form counts only when the card itself gives it: "ur" for
   // Ura, whose note says so. Without that, "et" would pass for Eta.
   var shortBare=/^[a-z\u00F1]{2}$/.test(p1)&&p1+"a"===p2&&new RegExp("\\b"+p1+"\\b","i").test((q.word&&q.word.notes)||"");
-  var bare=(p1.length>=3&&p1+"a"===p2)||shortBare;
-  // An article put on a card that has none is not that card: "gaura" passed
-  // for Gaur and "hemena" for Hemen. It is one letter out, so it reads as So
-  // close.
-  var addsArticle=!/a$/.test(p2)&&!/ak$/.test(p2)&&(p1===p2+"a"||p1===p2+"ak");
+  // The forms that count as this card, listed, where they used to be whatever
+  // two normalisers happened to agree on. For a card with the article: the
+  // word, its plural, and its bare form (Elurra, elurrak, elur). For any other
+  // card, the word alone. Comparing normalised forms on both sides also took
+  // "elura" for Elurra, "tortila" for Tortilla, "zoriona" (happiness) for
+  // Zorionak (congratulations) and "gaura" for Gaur. Those are a letter out
+  // and read as So close. The English-speller's respellings (ch for tx, sh
+  // for x, a doubled l or s) are applied to what was typed and never to the
+  // card.
+  var forms=[p2];
+  if(/a$/.test(p2)){if(p2.length>=5)forms.push(p2+"k");var bareForm=/rra$/.test(p2)?p2.slice(0,-2):p2.slice(0,-1);if(bareForm.length>=3||shortBare)forms.push(bareForm);}
+  var typedForms=[p1,spellBasque(p1)];
+  var hit=function(list){return typedForms.some(function(t){return list.indexOf(t)!==-1;});};
   // Question words and exclamations are fixed forms, so they get the
   // punctuation rule and nothing looser. Otherwise dropping the question mark
   // would let the article rule take "nora" (where to) for Nor? (who).
   var fixed=/[?!]/.test(q.correct);
-  var ok=exact||(!fixed&&!addsArticle&&(spellBasque(normArticle(p1))===spellBasque(normArticle(p2))||bare));var d=lev(n1,n2);var tol=n2.length<=4?1:2;
+  var ok=exact||(!fixed&&hit(forms));var d=lev(n1,n2);var tol=n2.length<=4?1:2;
   // The loose rules above (case endings, tz for ts, the article added) also
   // reach other cards: "hotza" (cold) normalised into Hotsa (sound), "gabon"
   // (good night) into Gabonak (Christmas), "etxean" (at home) into Etxea. A
   // typed answer that is exactly another card's word is that word, so it is
   // wrong, and not "so close" either. Dropping this card's own article stays
   // right even when the bare form is a card too: "hori" for Horia (yellow).
-  var dropArticle=(p1.length>=3||shortBare)&&p1+"a"===p2;
+  var dropArticle=typeof bareForm==="string"&&forms.indexOf(bareForm)!==-1&&hit([bareForm]);
   if(ok&&!exact&&!dropArticle&&isOtherCard(p1,p2,q.word)){ok=false;return{correct:false,wasClose:false,userAnswer:ua};}
   // The prompt is the English, and some English belongs to two cards: Sick /
   // Ill is both Gaixoa and Gaixorik, and Kid / Child overlaps Child / Baby.
@@ -1616,7 +1610,9 @@ function App(){
   var _sQO=useState(null);var quizOrigin=_sQO[0];var setQuizOrigin=_sQO[1];
   var _sCW=useState(null);var customQuizWords=_sCW[0];var setCustomQuizWords=_sCW[1];
   var customBase=useRef(null);
+  var masteredBefore=useRef(0);
   var _sMR=useState(false);var mistakesRound=_sMR[0];var setMistakesRound=_sMR[1];
+  var _sPR=useState(null);var partialRun=_sPR[0];var setPartialRun=_sPR[1];
   var _sLJ=useState(false);var lessonJustDone=_sLJ[0];var setLessonJustDone=_sLJ[1];
   var _s4=useState(false);var isPro=_s4[0];var setIsPro=_s4[1];
   var _s5=useState(false);var showOnb=_s5[0];var setShowOnb=_s5[1];
@@ -1830,10 +1826,11 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
     var sess=buildMCSession(words);
     if(!sess.length)return;
     if(!isRetry)customBase.current=words;
+    masteredBefore.current=srsStats.mastered;
     setMistakesRound(!!isRetry);setLessonJustDone(false);
     setCustomQuizWords(words);setQuizOrigin(origin||null);setCfg(null);setQs(sess);setResults([]);setScreen("quiz");
   }
-  function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;setMistakesRound(!!(missedOnly&&missedIds.length));setLessonJustDone(false);setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
+  function startQuiz(config,missedIds,missedOnly){if(!srsLoaded){setToast("loading");setTimeout(function(){setToast(null);},1500);return;}if(!missedIds)missedIds=[];if(!isProOrTrial&&FREE.indexOf(config.cefr)===-1){setCfg(config);setScreen("paywall");return;}var qs;if(missedOnly&&missedIds.length){var mWords=VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;});qs=buildMCSession(mWords);}else{qs=buildSession(VOCABULARY,config.cefr,config.topic,config.cumulative,config.count||20,missedIds,srsData,isProOrTrial);}if(!qs.length)return;masteredBefore.current=srsStats.mastered;setMistakesRound(!!(missedOnly&&missedIds.length));setLessonJustDone(false);setQuizOrigin(null);setCustomQuizWords(missedOnly&&missedIds.length?VOCABULARY.filter(function(w){return missedIds.indexOf(w.id)!==-1;}):null);setCfg(config);setQs(qs);setResults([]);setScreen("quiz");}
   // The daily goal is in words, so a word answered right twice in one session
   // is one word. It used to count answers.
   var lessonPending=useRef(null);
@@ -1842,7 +1839,13 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
   // Leaving a quiz early used to keep the answers up to the last multiple of
   // five in word memory, drop the rest, and count none of them toward the day.
   function leaveQuiz(res){if(res&&res.length){countToday(res);updateSRS(res).catch(function(){});}if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}
-  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}countToday(res);if(quizOrigin==="learn"&&lessonPending.current&&res.length>=lessonPending.current.n){completeLesson(lessonPending.current.id);lessonPending.current=null;setLessonJustDone(true);}var sc=scoreSession(res);var worthStreak=res.length>=5||res.length>=questions.length;await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");maybeAskForRating(sc);}
+  async function finishQuiz(res){if(!res||res.length===0){if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");return;}countToday(res);if(quizOrigin==="learn"&&lessonPending.current&&res.length>=lessonPending.current.n){completeLesson(lessonPending.current.id);lessonPending.current=null;setLessonJustDone(true);}var sc=scoreSession(res);var worthStreak=res.length>=5||res.length>=questions.length;
+    // "See score so far" ends a quiz part way. The answers are kept, but one
+    // right answer out of one is not a perfect session: it used to get the
+    // confetti and a 100% bar in the history, after which no quiz could be a
+    // personal best.
+    var stoppedEarly=res.length<questions.length;setPartialRun(stoppedEarly?questions.length:null);
+    await Promise.all([worthStreak?recordSession():Promise.resolve(),updateSRS(res),stoppedEarly?Promise.resolve():saveSessionHistory(sc.accuracy,cfg?cfg.cefr:"A1",cfg?cfg.topic:"all")]);setResults(res);setScreen("results");if(!stoppedEarly)maybeAskForRating(sc);}
   var isBooting=!streakLoaded&&screen==="home";
   var isLoadingVocab=!isBooting&&vocabNet==="loading"&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
@@ -1889,7 +1892,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     )}
   {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} quizLabel={mistakesRound?"Practice mistakes":quizOrigin==="learn"?"Lesson practice":quizOrigin==="review"?"Review":cfg?null:"Practice"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} planned={partialRun} nextLabel={quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
@@ -1993,13 +1996,13 @@ function HomeScreen(props){
     );
   } else if(srsLoaded){
     var pct=srsStats.total>0?Math.round(srsStats.mastered/srsStats.total*100):0;
-    var tiles=[{n:srsStats.due,l:"Due",c:srsStats.due>0?"#D97706":"#BBB",bg:srsStats.due>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
+    var dueN=dueWords.length;var tiles=[{n:dueN,l:"Due",c:dueN>0?"#D97706":"#BBB",bg:dueN>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.mastered+"/"+srsStats.total)),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
       React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.mastered+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
           React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
-      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):srsStats.due>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(srsStats.due,20)+" word"+(Math.min(srsStats.due,20)===1?"":"s")):null
+      (!isPro&&srsStats.mastered>0&&srsStats.mastered===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):dueN>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(dueN,20)+" word"+(Math.min(dueN,20)===1?"":"s")):null
     );
   }
   var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=4;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length,vocabVersion]);
@@ -2580,22 +2583,26 @@ function ResultsScreen(props){
   var trendChart=sessionHistory.length>2&&last7.length>0?React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"12px 14px",border:"1px solid #F0F0F0",marginBottom:10}},React.createElement("p",{style:{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.5}},"Last "+last7.length+" sessions"),React.createElement("div",{style:{display:"flex",alignItems:"flex-end",gap:4,height:56}},last7.map(function(s,i){var h=Math.max(4,Math.round(((s.acc||0)/100)*56));var isLast=i===last7.length-1;return React.createElement("div",{key:i,style:{flex:1,height:h,borderRadius:3,backgroundColor:isLast?"#19A85A":(s.acc||0)>=80?"#74C69D":(s.acc||0)>=60?"#F59E0B":"#FFAAB4",transition:"height 0.5s ease",transitionDelay:(i*50)+"ms"}});})),React.createElement("div",{style:{display:"flex",justifyContent:"space-between",marginTop:4}},React.createElement("p",{style:{margin:0,fontSize:10,color:"#BBB"}},"Oldest"),React.createElement("p",{style:{margin:0,fontSize:10,color:"#19A85A",fontWeight:700}},"Today "+(last7[last7.length-1]?last7[last7.length-1].acc:0)+"%"))):null;
   var masteredCount=srsStats?srsStats.mastered:0;
   var milestones=[25,50,100,200,500];
-  var hitMilestone=milestones.find(function(m){return masteredCount>=m&&masteredCount-score.correct<m;});
+  // A milestone is crossed when the count was under it before this quiz and is
+  // at or over it now. It used to be guessed from the number of right answers,
+  // so with 30 words mastered "25 words mastered!" came up again after any quiz
+  // with six right.
+  var hitMilestone=milestones.find(function(m){return masteredCount>=m&&(props.masteredBefore||0)<m;});
   var bestAcc=sessionHistory.length>1?Math.max.apply(null,sessionHistory.slice(0,sessionHistory.length-1).map(function(s){return s.acc||s.accuracy||0;})):0;
-  var isPersonalBest=acc>0&&acc>=80&&acc>bestAcc&&sessionHistory.length>1;
+  var isPersonalBest=!props.planned&&acc>0&&acc>=80&&acc>bestAcc&&sessionHistory.length>1;
   var smsg=streak>=30?"You made it to 30 days! 🏆":streak>=14?"Two weeks strong 💪":streak>=7?"On fire! Keep it going 🔥":streak>=3?"Building a great habit!":streak===2?"Day 2, you're on a roll!":streak===1?"Great start! Come back tomorrow.":"Every session counts!";
   var tabs=[["summary","Summary"]];
   if(score.missedWords.length+score.closeWords.length>0)tabs.push(["missed","Missed"+(score.missedWords.length>0?" ("+score.missedWords.length+")":" ≈("+score.closeWords.length+")")]);
   tabs.push(["all","All ("+results.length+")"]);
   return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
-    {acc===100&&<Confetti/>}
+    {acc===100&&!props.planned&&<Confetti/>}
     <div style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
       {/* Finishing a lesson is the moment worth marking. A plain practice
           session gets the ring alone, as before. */}
       {isLesson&&props.lessonDone&&<Lauburu size={34} color="rgba(255,255,255,0.92)"/>}
       <Ring acc={acc} emoji={score.grade.emoji}/>
-      <h1 style={{margin:"4px 0 3px",fontSize:26,fontWeight:900,color:"#fff",letterSpacing:-0.5,animation:acc===100?"popIn 0.5s 0.8s ease both":"none"}}>{score.grade.label}</h1>
-      <p style={{margin:"0 0 20px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}}>{score.correct}/{score.total} correct - {isPersonalBest?"🌟 Personal best!":score.grade.sub}</p>
+      <h1 style={{margin:"4px 0 3px",fontSize:26,fontWeight:900,color:"#fff",letterSpacing:-0.5,animation:acc===100&&!props.planned?"popIn 0.5s 0.8s ease both":"none"}}>{props.planned?"Stopped early":score.grade.label}</h1>
+      <p style={{margin:"0 0 20px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}}>{score.correct}/{score.total} correct - {props.planned?score.total+" of "+props.planned+" answered":isPersonalBest?"🌟 Personal best!":score.grade.sub}</p>
       <div style={{display:"flex",backgroundColor:"rgba(255,255,255,0.2)",borderRadius:18,overflow:"hidden",width:"100%"}}>
         {[{n:score.correct,l:"Correct"},{n:score.closeButWrong,l:"Almost"},{n:score.genuinelyWrong,l:"Missed"}].map(function(item,i){return(
           <div key={item.l} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",padding:"12px 8px",borderLeft:i>0?"1px solid rgba(255,255,255,0.25)":"none"}}>
@@ -2699,7 +2706,7 @@ function ResultsScreen(props){
           <button style={{flex:1,backgroundColor:"#fff",color:"#333",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:15,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #CCC"}} onClick={function(){onUpgrade&&onUpgrade();}}>Upgrade</button>
         ):null}
         <button style={{flex:1,backgroundColor:"#fff",color:"#555",border:"1.5px solid #E8E8E8",borderRadius:14,padding:"14px",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}} onClick={function(){onHome();}}>Home</button>
-        <button style={{flex:2,backgroundColor:"#19A85A",color:"#fff",border:"none",borderRadius:16,padding:"14px",fontSize:16,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40",letterSpacing:-0.3}} onClick={function(){if(isLesson){onBackToLessons&&onBackToLessons();}else{onRetry([]);}}}>{isLesson?"Back to lessons \u2192":"New quiz \u2192"}</button>
+        <button style={{flex:2,backgroundColor:"#19A85A",color:"#fff",border:"none",borderRadius:16,padding:"14px",fontSize:16,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40",letterSpacing:-0.3}} onClick={function(){if(isLesson){onBackToLessons&&onBackToLessons();}else{onRetry([]);}}}>{isLesson?"Back to lessons \u2192":props.nextLabel||"New quiz \u2192"}</button>
       </div>
     </div>
   </div>);}
