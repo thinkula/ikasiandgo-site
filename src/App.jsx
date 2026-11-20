@@ -1386,6 +1386,12 @@ function pickDistractors(vocab,word,field){
   if(same.length>=3)dp=same;
   else{forced=shuffled(same);dp=dp.filter(function(w2){return same.indexOf(w2)===-1;});}
   var need=3-forced.length;
+  // A verb is glossed "To ...", and among three nouns that alone gives it
+  // away: Gosaldu was offered with To have breakfast, Menu, Egg and Pintxo.
+  // Verbs draw from verbs and everything else from everything else.
+  var isVerb=function(w){return /^to /i.test(w.english||"");};
+  var kind=dp.filter(function(w2){return isVerb(w2)===isVerb(word);});
+  if(kind.length>=need)dp=kind;
   var sl=dp.filter(function(w2){return w2.cefr===word.cefr&&w2.topic===word.topic;});
   var lv=dp.filter(function(w2){return w2.cefr===word.cefr;});
   return forced.concat(shuffled(sl.length>=need?sl:lv.length>=need?lv:dp).slice(0,need));
@@ -1619,6 +1625,8 @@ function App(){
   var _sCW=useState(null);var customQuizWords=_sCW[0];var setCustomQuizWords=_sCW[1];
   var customBase=useRef(null);
   var masteredBefore=useRef(0);
+  var milestoneSeen=useRef(0);
+  useEffect(function(){STORE.get("milestone_seen").then(function(r){if(r&&r.value)milestoneSeen.current=parseInt(r.value)||0;}).catch(function(){});},[]);
   // How many words this quiz has changed in word memory, for the results box.
   var srsChanges=useRef(0);
   // What every quiz start resets. The quiz started straight from a purchase
@@ -1910,7 +1918,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
     )}
   {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} quizLabel={mistakesRound?"Practice mistakes":quizOrigin==="learn"?"Lesson practice":quizOrigin==="review"?"Review":cfg?null:"Practice"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
-    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} memoryChanged={srsChanges.current>0} planned={partialRun} nextLabel={quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
+    {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} milestoneSeen={milestoneSeen.current} onMilestone={function(m){milestoneSeen.current=m;STORE.set("milestone_seen",String(m)).catch(function(){});}} memoryChanged={srsChanges.current>0} planned={partialRun} nextLabel={quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else setScreen("home");}}} onHome={function(){setQuizOrigin(null);setScreen("home");}} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
     trialAvailable={!trialUsed&&!isPro}
     trialDays={7}
@@ -2502,6 +2510,10 @@ function QuizScreen(props){
           {isType&&!result&&(
             <div style={{marginTop:12}}>
               <input ref={inputRef} aria-label="Type your answer in Basque" style={{width:"100%",border:"2px solid #E8E8E8",borderRadius:16,padding:"15px 18px",fontSize:18,fontWeight:600,color:"#1A1A1A",outline:"none",boxSizing:"border-box",fontFamily:"inherit",backgroundColor:"#F9F9F9"}} placeholder="Type in Basque…" value={typed} onChange={function(e){if(!result)setTyped(e.target.value);}} onKeyDown={function(e){if(e.key==="Enter"&&typed.trim()&&!result)submit(typed);}} autoFocus autoComplete="off" autoCapitalize="off" autoCorrect="off" enterKeyHint="go" spellCheck={false}/>
+              {/* Check sits under the field, where the keyboard cannot cover
+                  it. It used to be in the bottom bar, behind the keyboard, and
+                  the only way to answer was the keyboard's own arrow key. */}
+              <button style={{width:"100%",marginTop:10,border:"none",borderRadius:14,padding:"13px",fontSize:15,fontWeight:900,cursor:ready?"pointer":"default",background:ready?"linear-gradient(135deg,"+ld+","+lc+")":"#F2F2F7",color:ready?"#fff":"#C7C7CC",fontFamily:"inherit",boxShadow:ready?"0 3px 0 "+ld:"none",transition:"all 0.15s",letterSpacing:-0.2}} onClick={function(){if(typed.trim())submit(typed);}}>Check</button>
               <div style={{display:"flex",alignItems:"center",gap:8,marginTop:8}}>
                 <span style={{fontSize:11,fontWeight:700,color:"#C7C7CC"}}>Insert:</span>
                 <button aria-label="Insert ñ" onClick={function(){if(result)return;var el=inputRef.current;if(el&&typeof el.selectionStart==="number"){var s=el.selectionStart,e2=el.selectionEnd;var nv=typed.slice(0,s)+"ñ"+typed.slice(e2);setTyped(nv);setTimeout(function(){try{el.focus();el.setSelectionRange(s+1,s+1);}catch(err){}},0);}else{setTyped(typed+"ñ");}}} style={{border:"1.5px solid #E8E8E8",borderRadius:10,padding:"6px 16px",fontSize:17,fontWeight:700,color:"#1A1A1A",background:"#fff",cursor:"pointer",fontFamily:"inherit",lineHeight:1}}>ñ</button>
@@ -2538,10 +2550,6 @@ function QuizScreen(props){
 
       {isAnyMC&&feedbackJSX}
 
-      {/* Running score */}
-      {!result&&isAnyMC&&doneCount>0&&(
-        <p style={{textAlign:"center",fontSize:12,color:"#C7C7CC",fontWeight:700,margin:0}}>{correctCount} of {doneCount} correct so far</p>
-      )}
 
     </div>
 
@@ -2567,7 +2575,9 @@ function QuizScreen(props){
             {doneCount>0?correctCount+" of "+doneCount+" correct":"Tap an answer above"}
           </p>
         ):(
-          <button style={{width:"100%",border:"none",borderRadius:16,padding:"16px",fontSize:16,fontWeight:900,cursor:ready?"pointer":"default",background:ready?"linear-gradient(135deg,"+ld+","+lc+")":"#F2F2F7",color:ready?"#fff":"#C7C7CC",fontFamily:"inherit",boxShadow:ready?"0 4px 0 "+ld:"none",transition:"all 0.15s",letterSpacing:-0.2}} onClick={function(){if(typed.trim())submit(typed);}}>Check</button>
+          <p style={{textAlign:"center",fontSize:12,color:"#C7C7CC",fontWeight:700,margin:0}}>
+            {doneCount>0?correctCount+" of "+doneCount+" correct":"Type your answer above"}
+          </p>
         )
       ):(
         <button style={{width:"100%",border:"none",borderRadius:16,padding:"16px",fontSize:16,fontWeight:900,cursor:"pointer",background:result.correct?"linear-gradient(135deg,#0E7A40,#19A85A)":result.wasClose?"linear-gradient(135deg,#B45309,#F59E0B)":"linear-gradient(135deg,"+ld+","+lc+")",color:"#fff",fontFamily:"inherit",boxShadow:"0 4px 0 "+(result.correct?"#0B5C30":result.wasClose?"#92400E":ld),letterSpacing:-0.2,animation:"riseSoft 0.22s ease-out"}} onClick={function(){advance();}}>
@@ -2613,7 +2623,11 @@ function ResultsScreen(props){
   // at or over it now. It used to be guessed from the number of right answers,
   // so with 30 words mastered "25 words mastered!" came up again after any quiz
   // with six right.
-  var hitMilestone=milestones.find(function(m){return masteredCount>=m&&(props.masteredBefore||0)<m;});
+  // Worked out once, when the screen opens, and never for a milestone already
+  // shown: a learned word that is later missed leaves the count, so the count
+  // can dip under 25 and cross it again.
+  var _hm=useState(function(){return milestones.find(function(m){return masteredCount>=m&&(props.masteredBefore||0)<m&&m>(props.milestoneSeen||0);})||null;});var hitMilestone=_hm[0];
+  useEffect(function(){if(hitMilestone&&props.onMilestone)props.onMilestone(hitMilestone);},[]);
   var bestAcc=sessionHistory.length>1?Math.max.apply(null,sessionHistory.slice(0,sessionHistory.length-1).map(function(s){return s.acc||s.accuracy||0;})):0;
   var isPersonalBest=!props.planned&&acc>0&&acc>=80&&acc>bestAcc&&sessionHistory.length>1;
   var smsg=streak>=30?"You made it to 30 days! 🏆":streak>=14?"Two weeks strong 💪":streak>=7?"On fire! Keep it going 🔥":streak>=3?"Building a great habit!":streak===2?"Day 2, you're on a roll!":streak===1?"Great start! Come back tomorrow.":"Every session counts!";
