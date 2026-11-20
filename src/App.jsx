@@ -1916,7 +1916,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
         </div>
       </div>
     )}
-  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
+  {!isBooting&&screen==="home"&&<HomeScreen onStart={startQuiz} isPro={isProOrTrial} isTrialActive={isTrialActive} trialUntil={trialUntil} trialEnded={trialUsed&&!isTrialActive&&!isPro} trialAvailable={!trialUsed&&!isPro} streak={streak} longest={longest} streakLoaded={streakLoaded} dailyGoal={dailyGoal} todayCount={todayCount} streakFrozen={streakFrozen} lastOpened={lastOpened} onSetDailyGoal={function(g){setDailyGoal(g);STORE.set("daily_goal",String(g)).catch(function(){});}} onUseStreakFreeze={armStreakFreeze} srsStats={srsStats} srsLoaded={srsLoaded} dueWords={dueWords} onReview={function(){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");}} onBrowse={function(wordId){_BROWSE_KEEP=null;setBrowseWord(typeof wordId==="string"?wordId:null);setScreen("browse");}} onGames={function(){setScreen("games");}} onStories={function(){setScreen("story");}} onProgress={function(){setScreen("progress");}} onLearn={function(){setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} onReplayIntro={function(){setShowOnb(true);}} onFeedback={function(){setScreen("feedback");}} onMenu={function(){setScreen("menu");}} totalSessions={totalSess} srsData={srsData} vocabVersion={vocabVersion} offline={vocabNet==="offline"}/>}
     {screen==="quiz"&&<QuizScreen questions={questions} onFinish={finishQuiz} onExit={leaveQuiz} srsData={srsData} quizTopic={cfg?cfg.topic:"all"} quizLevel={cfg?cfg.cefr:null} quizLabel={mistakesRound?"Practice mistakes":quizOrigin==="learn"?"Lesson practice":quizOrigin==="review"?"Review":cfg?null:"Practice"} onAutoSave={function(res){updateSRS(res).catch(function(){});}}/>}
     {screen==="results"&&<ResultsScreen results={results} streak={streak} longest={longest} totalSessions={totalSess} srsStats={srsStats} isPro={isProOrTrial} sessionHistory={sessionHistory} isLesson={quizOrigin==="learn"} lessonDone={lessonJustDone} masteredBefore={masteredBefore.current} milestoneSeen={milestoneSeen.current} onMilestone={function(m){milestoneSeen.current=m;STORE.set("milestone_seen",String(m)).catch(function(){});}} memoryChanged={srsChanges.current>0} planned={partialRun} nextLabel={quizOrigin==="browse"?"Practice again \u2192":quizOrigin==="review"?(dueWords.length?"Review "+Math.min(dueWords.length,20)+" more \u2192":"Done \u2192"):null} onRetry={function(ids){if(ids&&ids.length){if(cfg){startQuiz(cfg,ids,true);}else if(customQuizWords&&customQuizWords.length){var filt=customQuizWords.filter(function(w){return ids.indexOf(w.id)!==-1;});if(filt.length)startCustomQuiz(filt,quizOrigin,true);else startCustomQuiz(customQuizWords,quizOrigin);}else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else if(quizOrigin==="browse"){setQuizOrigin(null);setScreen("browse");}else setScreen("home");}else{if(quizOrigin==="review"){if(dueWords.length)startCustomQuiz(dueWords.slice(0,20),"review");else{setQuizOrigin(null);setScreen("home");}}else if(cfg)startQuiz(cfg,[]);else if(customBase.current&&customBase.current.length)startCustomQuiz(customBase.current,quizOrigin);else if(customQuizWords&&customQuizWords.length)startCustomQuiz(customQuizWords,quizOrigin);else if(quizOrigin==="learn"){setQuizOrigin(null);setScreen("learn");}else if(quizOrigin==="browse"){setQuizOrigin(null);setScreen("browse");}else setScreen("home");}}} onHome={function(){var toBrowse=quizOrigin==="browse";setQuizOrigin(null);setScreen(toBrowse?"browse":"home");}} homeLabel={quizOrigin==="browse"?"Back to words":null} onBackToLessons={function(){setQuizOrigin(null);setScreen("learn");}} onUpgrade={function(){setScreen("paywall");}} streakFrozen={streakFrozen} onUseStreakFreeze={armStreakFreeze}/>}
     {screen==="paywall"&&<PaywallScreen
@@ -8034,6 +8034,20 @@ var LESSONS=[
 // one by one, and the card and the home screen never moved off 15. Only when
 // no open lesson is left does it fall back to the first locked one, which is
 // where the path really does continue behind the purchase.
+// A strip the height of the status bar, shown once the colored header has
+// scrolled away. Without it the page text ran under the clock and the two
+// overlapped. It measures its own height, which is the safe area inset, so it
+// is nothing at all in a browser.
+function StatusBarGuard(props){
+  var _on=useState(false);var on=_on[0];var setOn=_on[1];
+  var ref=useRef(null);
+  useEffect(function(){
+    function check(){var hd=document.getElementById(props.headerId);var h=ref.current?ref.current.offsetHeight:0;if(!hd||!h){setOn(false);return;}setOn(hd.getBoundingClientRect().bottom<=h+2);}
+    check();window.addEventListener("scroll",check,{passive:true});
+    return function(){window.removeEventListener("scroll",check);};
+  },[props.headerId]);
+  return React.createElement("div",{ref:ref,"aria-hidden":true,style:{position:"fixed",top:0,left:0,right:0,height:"env(safe-area-inset-top,0px)",backgroundColor:"#F2F2F7",zIndex:40,opacity:on?1:0,transition:"opacity 0.15s",pointerEvents:"none"}});
+}
 function firstUnfinishedLesson(doneLessons,isPro){
   var locked=null;
   for(var i=0;i<LESSONS.length;i++){
@@ -8157,8 +8171,9 @@ function LearnScreen(props){
     var words=lessonWords(lesson);
     var isDone=doneLessons.indexOf(lesson.id)!==-1;
     return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
+      React.createElement(StatusBarGuard,{headerId:"lesson-hdr"}),
       // Header
-      React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:22,paddingLeft:18,paddingRight:18}},
+      React.createElement("div",{id:"lesson-hdr",style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:22,paddingLeft:18,paddingRight:18}},
         React.createElement("button",{"aria-label":"Back",onClick:function(){setSelLesson(null);window.scrollTo(0,0);},style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
         React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:4}},
           React.createElement("span",{style:{fontSize:11,fontWeight:900,color:"#fff",backgroundColor:"rgba(255,255,255,0.22)",padding:"3px 10px",borderRadius:12}},"Lesson "+lesson.num),
@@ -8217,7 +8232,8 @@ function LearnScreen(props){
   });
   var currentChapter=(chapterStats.filter(function(cs){return cs.done<cs.total;})[0]||{}).chapter||null;
   return React.createElement("div",{style:{maxWidth:"var(--shell-wide)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}},
-    React.createElement("div",{style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
+    React.createElement(StatusBarGuard,{headerId:"learn-hdr"}),
+    React.createElement("div",{id:"learn-hdr",style:{background:"linear-gradient(135deg,#5B21B6,#7C3AED)",paddingTop:"calc(44px + env(safe-area-inset-top,0px))",paddingBottom:24,paddingLeft:18,paddingRight:18}},
       React.createElement("button",{"aria-label":"Back",onClick:onBack,style:{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}},"\u2190"),
       React.createElement("h1",{style:{margin:0,fontSize:30,fontWeight:900,color:"#fff",letterSpacing:-0.5}},"Ikasbidea"),
       React.createElement("p",{style:{margin:"4px 0 14px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}},"Your step-by-step path into Basque. Start at lesson one."),
@@ -8248,7 +8264,7 @@ function LearnScreen(props){
             React.createElement("p",{style:{margin:"1px 0 0",fontSize:16,fontWeight:900,color:"#1A1A1A",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}},nextLesson.title),
             React.createElement("p",{style:{margin:"1px 0 0",fontSize:12,color:"#8E8E93",fontWeight:600,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}},nextLesson.blurb)
           ),
-          React.createElement("span",{style:{backgroundColor:"#7C3AED",color:"#fff",borderRadius:11,padding:"9px 13px",fontSize:12.5,fontWeight:900,flexShrink:0,whiteSpace:"nowrap"}},(nextLesson.pro&&!isPro)?"Unlock →":"Continue →")
+          React.createElement("span",{style:{backgroundColor:"#7C3AED",color:"#fff",borderRadius:11,padding:"9px 13px",fontSize:12.5,fontWeight:900,flexShrink:0,whiteSpace:"nowrap"}},(nextLesson.pro&&!isPro)?"Unlock →":completedCount?"Continue →":"Start →")
         )
       ):React.createElement("div",{style:{backgroundColor:"#EDFAF3",border:"2px solid #19A85A",borderRadius:16,padding:"16px 14px",marginBottom:16,textAlign:"center"}},
         React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:"#0E7A40"}},"🎉 Path complete"),
