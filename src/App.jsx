@@ -234,6 +234,10 @@ const FREE_TOPICS=["greetings","food","numbers"];
 // FREE_TOPICS is retained only for legacy distractor-sourcing in games, not access.
 function isFreeWord(w){return !!w&&w.cefr==="A1";}
 const SRS_I=[1,3,7,21,60];
+// A word counts as due this far ahead of its review date. One figure, used by
+// the quiz builder, the Review button, the counts and the scoring. They used
+// to disagree (12 hours in one place, 24 in the others).
+const SRS_SOON=12*3600000;
 const SRS_L=["Struggling","Learning","Practicing","Solid","Mastered"];
 const SRS_C=["#FF8C94","#F59E0B","#F59E0B","#00B4D8","#19A85A"];
 const VOCAB_URL="https://ikasiandgo.com/vocabulary.json";
@@ -1390,7 +1394,7 @@ function pickDistractors(vocab,word,field){
 // visible after the blank: the endings the example sentences actually use.
 var FB_TAIL=/^(|k|n|z|ak|ek|an|en|ra|ko|go|ta|ri|ren|rik|tik|ten|tzen|rekin)$/i;
 function spaced(base,n){if(!base.length)return[];var gap=Math.min(3,base.length-1);var out=[],last={};while(out.length<n){var added=false;for(var i=0;i<base.length;i++){var w=base[i],li=last[w.id]!=null?last[w.id]:-99;if(out.length-li>gap||out.length<=gap){out.push(w);last[w.id]=out.length-1;added=true;if(out.length>=n)break;}}if(!added)break;}return out;}
-function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var soon=new Date(now.getTime()+12*3600000);var isDue=function(w){return srs[w.id]&&new Date(srs[w.id].nextReview)<=soon;};
+function buildSession(vocab,cefr,topic,cumul,n,missedIds,srs,isPro){if(!n)n=20;if(!missedIds)missedIds=[];if(!srs)srs={};var pool=getPool(vocab,cefr,topic,cumul,isPro!==false);if(!pool.length)return[];var now=new Date();var f=function(fn){return shuffled(pool.filter(fn));};var missed=pool.filter(function(w){return missedIds.indexOf(w.id)!==-1;});var soon=new Date(now.getTime()+SRS_SOON);var isDue=function(w){return srs[w.id]&&new Date(srs[w.id].nextReview)<=soon;};
   // Words whose review date has come, then new words. A word that is not due
   // yet only fills a session the first two cannot. It used to come before any
   // new word, so the same twenty words filled four quizzes in a row, and a
@@ -1466,7 +1470,11 @@ function checkAnswer(q,raw){var ua=(raw||"").trim();if(q.mode!=="typing"){return
   // "So close" is for a slip of the fingers. A different word that happens to
   // be spelled nearly the same is not one: "bat" (one) for Bai (yes), "ardia"
   // (sheep) for Ardoa (wine).
-  return{correct:ok,wasClose:!ok&&d<=tol&&n1.length>=3&&!isOtherCard(p1,p2,q.word),userAnswer:ua};}
+  // The plural of a short word (ogiak, aitak) is not accepted, because the
+  // same spelling rule would pass "etak" for Eta and "zarak" for Zara. It is
+  // the right word in another form all the same, so it is close, not wrong.
+  var shortPlural=!fixed&&/a$/.test(p2)&&p1===p2+"k";
+  return{correct:ok,wasClose:!ok&&((d<=tol&&n1.length>=3)||shortPlural)&&!isOtherCard(p1,p2,q.word),userAnswer:ua};}
 // Every card's word, and its form without the article, mapped to the cards it
 // belongs to. Rebuilt only when the vocabulary is swapped for a fetched one.
 var _cardForms={src:null,map:null};
@@ -1669,7 +1677,7 @@ function App(){
   // shuffles, so an unsorted list would review a random 20 of a large backlog.
   var dueWords=useMemo(function(){
     var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);
-    var cutoff=new Date(Date.now()+86400000);
+    var cutoff=new Date(Date.now()+SRS_SOON);
     var out=[];
     for(var i=0;i<words.length;i++){
       var d=srsData[words[i].id];
@@ -1680,7 +1688,7 @@ function App(){
       return new Date(srsData[a.id].nextReview)-new Date(srsData[b.id].nextReview);
     });
   },[srsData,isProOrTrial,vocabVersion,trialUntil,dayTick]);
-  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+86400000))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
+  var srsStats=useMemo(function(){var words=isProOrTrial?VOCABULARY:VOCABULARY.filter(isFreeWord);var now=new Date();var due=0,mastered=0,learning=0,unseen=0;for(var i=0;i<words.length;i++){var d=srsData[words[i].id];if(!d){unseen++;continue;}if((d.score||0)>=4){mastered++;continue;}var nr=new Date(d.nextReview);if(nr<=now)due++;else if(nr<=new Date(now.getTime()+SRS_SOON))due++;else learning++;}return{due:due,mastered:mastered,learning:learning,unseen:unseen,total:words.length};},[srsData,isPro,isProOrTrial,vocabVersion,trialUntil,dayTick]);
   useEffect(function(){async function load(){try{var rs=await Promise.all([STORE.get("streak_data"),STORE.get("srs_data"),STORE.get("streak_freeze")]);var fz=readFreeze(rs[2]&&rs[2].value);setFreezeUntil(fz);if(!fz&&rs[2]&&rs[2].value)STORE.set("streak_freeze","").catch(function(){});if(rs[0]&&rs[0].value){var d=JSON.parse(rs[0].value);setStreak(streakAlive(d.lastDay,fz)?(d.streak||0):0);setLongest(d.longest||0);setTotalSess(d.totalSessions||0);}if(rs[1]&&rs[1].value){try{var parsed=JSON.parse(rs[1].value);if(typeof parsed==="object"&&parsed!==null)setSrsData(parsed);}catch(e){console.warn("SRS data corrupted, resetting");}}
         try{var ph=await STORE.get("session_history");if(ph&&ph.value){var hist=JSON.parse(ph.value);setSessionHistory(hist);}}catch(e){}
         try{var pr=await STORE.get("pro_status");if(pr&&pr.value==="1")setIsPro(true);}catch(e){}
@@ -1781,7 +1789,12 @@ function App(){
   var bestByWord={};
   for(var i=0;i<fresh.length;i++){var r=fresh[i],id=r.question&&r.question.word?r.question.word.id:null;if(!id)continue;var prev=bestByWord[id];if(!prev||(!prev.correct&&(r.correct||(!r.wasClose&&prev.wasClose)))){bestByWord[id]=r;}}
   var changed=Object.keys(bestByWord);
-  for(var ci=0;ci<changed.length;ci++){var id2=changed[ci];var r2=bestByWord[id2];var cur=nd[id2]||{score:0};var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
+  for(var ci=0;ci<changed.length;ci++){var id2=changed[ci];var r2=bestByWord[id2];var cur=nd[id2]||{score:0};
+    // A right answer on a word that is not due yet proves little: it was seen
+    // minutes or days ago. It used to raise the score all the same, so
+    // practicing one lesson four times in a row mastered every word in it and
+    // put them sixty days out. Now it changes nothing. A miss still counts.
+    if(r2.correct&&nd[id2]&&nd[id2].nextReview&&new Date(nd[id2].nextReview)>new Date(now.getTime()+SRS_SOON))continue;var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
   // Mark every fresh result as applied so later checkpoints skip them.
   for(var fi=0;fi<fresh.length;fi++){fresh[fi]._srsApplied=true;}
   setSrsData(function(){return nd;});try{await STORE.set("srs_data",JSON.stringify(nd)).catch(function(){});}catch(e){}return nd;}
@@ -2347,10 +2360,14 @@ function QuizScreen(props){
   var snoozeDisplay=snoozeMin+":"+snoozeSec;
   var snoozeOpts=useMemo(function(){
     if(q.mode!=="typing")return[];
-    var dist2=pickDistractors(VOCABULARY,q.word);
-    return shuffled([q.word.english].concat(dist2.map(function(w){return w.english;})));
+    // A snoozed typing question keeps its direction: the English is the
+    // prompt and the choices are Basque. It used to flip to "what does this
+    // Basque word mean", and on the question where Switch to MC was tapped the
+    // English had just been on screen as the prompt.
+    var dist2=pickDistractors(VOCABULARY,q.word,"basque");
+    return shuffled([q.word.basque].concat(dist2.map(function(w){return w.basque;})));
   },[idx,q.id]);
-  var snoozeCorrect=isSnoozed&&origType==="typing"?q.word.english:q.correct;
+  var snz=!!(isSnoozed&&origType==="typing");var snoozeCorrect=snz?q.word.basque:q.correct;
   
   var correctMsg=result&&result.correct?CORRECT_MSGS[idx%CORRECT_MSGS.length]:"Correct!";
   var resLabel=result?(result.correct?correctMsg:result.wasClose?"So close!":"Not quite"):null;
@@ -2430,7 +2447,7 @@ function QuizScreen(props){
 
       {/* Mode chip */}
       <div style={{display:"flex",alignItems:"center",gap:6}}>
-        <span style={{fontSize:11,fontWeight:800,padding:"4px 12px",borderRadius:20,color:isFB?"#7C3AED":isMC?"#B45309":"#0D9488",backgroundColor:isFB?"#EDE9FE":isMC?"#FEF3C7":"#CCFBF1",letterSpacing:0.2}}>{isFB?"Complete the sentence":isMC?"Choose the meaning":"Type in Basque"}</span>
+        <span style={{fontSize:11,fontWeight:800,padding:"4px 12px",borderRadius:20,color:isFB?"#7C3AED":isMC?"#B45309":"#0D9488",backgroundColor:isFB?"#EDE9FE":isMC?"#FEF3C7":"#CCFBF1",letterSpacing:0.2}}>{isFB?"Complete the sentence":isMC?(snz?"Choose the Basque word":"Choose the meaning"):"Type in Basque"}</span>
         {isNewWord&&<span style={{fontSize:10,fontWeight:800,color:"#fff",backgroundColor:"#F59E0B",padding:"3px 8px",borderRadius:12}}>NEW</span>}
       </div>
 
@@ -2445,8 +2462,8 @@ function QuizScreen(props){
           {/* MC / Typing question */}
           {(isMC||isType||result)&&!isFB&&(
             <div style={{textAlign:"center"}}>
-              <h2 style={{margin:"0 0 10px",fontSize:isMC?(q.word.basque.length>14?26:q.word.basque.length>10?32:40):30,fontWeight:800,color:"#2A2A28",letterSpacing:-0.3,wordBreak:"break-word",lineHeight:1.2}}>{isMC?q.word.basque:q.prompt}</h2>
-              {isMC&&!result&&<p style={{margin:0,fontSize:12,color:"#B8B8C0",fontWeight:600,letterSpacing:0.2}}>What does this mean in English?</p>}
+              <h2 style={{margin:"0 0 10px",fontSize:isMC&&!snz?(q.word.basque.length>14?26:q.word.basque.length>10?32:40):30,fontWeight:800,color:"#2A2A28",letterSpacing:-0.3,wordBreak:"break-word",lineHeight:1.2}}>{isMC&&!snz?q.word.basque:q.prompt}</h2>
+              {isMC&&!result&&<p style={{margin:0,fontSize:12,color:"#B8B8C0",fontWeight:600,letterSpacing:0.2}}>{snz?"Which is the Basque word?":"What does this mean in English?"}</p>}
               {isType&&!result&&<p style={{margin:"4px 0 0",fontSize:11,color:lc,fontWeight:800,letterSpacing:0.5,textTransform:"uppercase"}}>→ type in Basque</p>}
               {result&&isMC&&<p style={{margin:"4px 0 0",fontSize:13,color:"#8E8E93",fontWeight:600,fontStyle:"italic"}}>{q.word.pronunciation}</p>}
               {result&&isType&&!result.correct&&<p style={{margin:"6px 0 0",fontSize:11,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.5}}>Answer</p>}
