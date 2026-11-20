@@ -243,6 +243,7 @@
       "cefr": "A1",
       "topic": "food",
       "pronunciation": "PEEN-choh-ah",
+      "mcOnly": true,
       "notes": "Pintxoa = pintxo (plural: pintxoak). A small snack, often served on bread and held with a toothpick. The name comes from Spanish pincho, a spike. Donostia is especially known for them.",
       "example": {
         "basque": "Pintxoak jaten ditut.",
@@ -4750,6 +4751,7 @@
       "cefr": "B1",
       "topic": "culture",
       "pronunciation": "chah-lah-PAR-tah",
+      "mcOnly": true,
       "notes": "A Basque percussion instrument. Two players strike wooden planks with sticks in interlocking rhythms. Traditionally played after the cider pressing, and now at festivals.",
       "example": {
         "basque": "Txalaparta entzutea ederra da.",
@@ -7415,6 +7417,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "CHOHTCH",
+      "mcOnly": true,
       "notes": "Txotx = the call shouted in a sagardotegi (cider house) when the barrel tap is opened and everyone rushes to fill their glass. The word itself is the name of the wooden peg (txotx) that plugs the barrel.",
       "example": {
         "basque": "Txotx! deitzen dutenean, korrika joaten gara.",
@@ -10492,7 +10495,7 @@
     {
       "id": "gosea",
       "basque": "Gosea",
-      "english": "Hunger (gose naiz = I am hungry)",
+      "english": "Hunger",
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "GOH-seh-ah",
@@ -10505,7 +10508,7 @@
     {
       "id": "egarria",
       "basque": "Egarria",
-      "english": "Thirst (egarri naiz = I am thirsty)",
+      "english": "Thirst",
       "cefr": "A1",
       "topic": "adjectives",
       "pronunciation": "eh-GAR-ree-ah",
@@ -12832,6 +12835,7 @@
       "cefr": "A1",
       "topic": "culture",
       "pronunciation": "oh-len-TSEH-roh",
+      "mcOnly": true,
       "notes": "A charcoal burner who comes down from the mountains on Christmas Eve to leave gifts. Ikazkina means charcoal burner, which is his trade and the reason he is always shown covered in soot. Towns carry a straw figure of him through the streets that night, in a beret and farm clothes with a pipe.",
       "example": {
         "basque": "Olentzero mendietan bizi da.",
