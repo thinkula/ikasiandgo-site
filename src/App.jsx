@@ -2370,8 +2370,11 @@ function QuizScreen(props){
   var isMC=effectiveType==="multipleChoice",isFB=effectiveType==="fillBlank",isType=effectiveType==="typing",isAnyMC=isMC||isFB;
   var lc=(CL[q.word.cefr]||CL.A1).color,ld=(CL[q.word.cefr]||CL.A1).dark;
   var ready=isAnyMC?!!sel:typed.trim().length>0;
-  function submit(ans){if(result)return;if(ans==="_SKIP_"){haptic("error");sfx("wrong");setResult({correct:false,wasClose:false,skipped:true});setCorrectStreak(0);setBurst("wrong");setTimeout(function(){setBurst(null);},700);var newLatest2=latest.current.concat([{question:q,correct:false,wasClose:false,skipped:true}]);latest.current=newLatest2;return;}var qForCheck=isSnoozed&&origType==="typing"?Object.assign({},q,{correct:snoozeCorrect,mode:"multipleChoice"}):q;var r=checkAnswer(qForCheck,ans);r.snoozed=!!(isSnoozed&&origType==="typing");setResult(r);if(r.correct){var ns=correctStreak+1;setCorrectStreak(ns);haptic("success");sfx(ns>0&&ns%5===0?"streak":"correct");setBurst(ns>0&&ns%5===0?"streak":"correct");}else{setCorrectStreak(0);haptic("error");sfx("wrong");setBurst(r.wasClose?"close":"wrong");}setTimeout(function(){setBurst(null);},900);var newLatest=latest.current.concat([Object.assign({},r,{question:q})]);latest.current=newLatest;}
-  var advancing=React.useRef(false);function advance(){if(advancing.current)return;advancing.current=true;setTimeout(function(){advancing.current=false;},2000);var delay=result&&result.correct?180:0;var currentLatest=latest.current;var nextIdx=idx+1;if(nextIdx>=questions.length){advancing.current=false;onFinish(currentLatest);}else{setTimeout(function(){setIdx(function(i){return i+1;});setSel(null);setTyped("");setResult(null);setShowNote(false);advancing.current=false;if(nextIdx%5===0&&nextIdx<questions.length){try{if(props.onAutoSave)props.onAutoSave(currentLatest);}catch(e){}}},delay);}}
+  // Word memory is saved after every answer. It used to be saved every fifth
+  // question, so a crash or a force-quit lost up to four answers.
+  function saveNow(){try{if(props.onAutoSave)props.onAutoSave(latest.current);}catch(e){}}
+  function submit(ans){if(result)return;if(ans==="_SKIP_"){haptic("error");sfx("wrong");setResult({correct:false,wasClose:false,skipped:true});setCorrectStreak(0);setBurst("wrong");setTimeout(function(){setBurst(null);},700);var newLatest2=latest.current.concat([{question:q,correct:false,wasClose:false,skipped:true}]);latest.current=newLatest2;saveNow();return;}var qForCheck=isSnoozed&&origType==="typing"?Object.assign({},q,{correct:snoozeCorrect,mode:"multipleChoice"}):q;var r=checkAnswer(qForCheck,ans);r.snoozed=!!(isSnoozed&&origType==="typing");setResult(r);if(r.correct){var ns=correctStreak+1;setCorrectStreak(ns);haptic("success");sfx(ns>0&&ns%5===0?"streak":"correct");setBurst(ns>0&&ns%5===0?"streak":"correct");}else{setCorrectStreak(0);haptic("error");sfx("wrong");setBurst(r.wasClose?"close":"wrong");}setTimeout(function(){setBurst(null);},900);var newLatest=latest.current.concat([Object.assign({},r,{question:q})]);latest.current=newLatest;saveNow();}
+  var advancing=React.useRef(false);function advance(){if(advancing.current)return;advancing.current=true;setTimeout(function(){advancing.current=false;},2000);var delay=result&&result.correct?180:0;var currentLatest=latest.current;var nextIdx=idx+1;if(nextIdx>=questions.length){advancing.current=false;onFinish(currentLatest);}else{setTimeout(function(){setIdx(function(i){return i+1;});setSel(null);setTyped("");setResult(null);setShowNote(false);advancing.current=false;},delay);}}
   var snoozeMin=Math.floor(snoozeLeft/60);
   var snoozeSec=("0"+(snoozeLeft%60)).slice(-2);
   var snoozeDisplay=snoozeMin+":"+snoozeSec;
@@ -2426,7 +2429,9 @@ function QuizScreen(props){
             </div>
   ) : null;
 
-  var isNewWord=!srsData[q.word.id];
+  // Read once per question. Word memory now updates the moment you answer,
+  // and the badge should not vanish while the answer is still on screen.
+  var isNewWord=useMemo(function(){return !srsData[q.word.id];},[q.id]);
   var doneCount=latest.current.length;
   var correctCount=latest.current.filter(function(r){return r.correct;}).length;
   var opts=q.options||snoozeOpts;
@@ -2640,7 +2645,7 @@ function ResultsScreen(props){
       {/* Finishing a lesson is the moment worth marking. A plain practice
           session gets the ring alone, as before. */}
       {isLesson&&props.lessonDone&&<Lauburu size={34} color="rgba(255,255,255,0.92)"/>}
-      <Ring acc={acc} emoji={score.grade.emoji}/>
+      <Ring acc={acc}/>
       <h1 style={{margin:"4px 0 3px",fontSize:26,fontWeight:900,color:"#fff",letterSpacing:-0.5,animation:acc===100&&!props.planned?"popIn 0.5s 0.8s ease both":"none"}}>{props.planned?"Stopped early":score.grade.label}</h1>
       <p style={{margin:"0 0 20px",fontSize:14,color:"rgba(255,255,255,0.85)",fontWeight:600}}>{score.correct}/{score.total} correct - {props.planned?score.total+" of "+props.planned+" answered":isPersonalBest?"🌟 Personal best!":score.grade.sub}</p>
       <div style={{display:"flex",backgroundColor:"rgba(255,255,255,0.2)",borderRadius:18,overflow:"hidden",width:"100%"}}>
