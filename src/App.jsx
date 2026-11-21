@@ -7656,8 +7656,8 @@ var LESSONS=[
     titleEu:"Udala eta herria",
     emoji:"\uD83C\uDFDB\uFE0F",
     blurb:"The council, the mayor, the stadium, and the pool.",
-    intro:"The institutions of a Basque town, and the people who run them. One pair of words here is easy to mix up, so it is worth separating them now.",
-    grammar:{title:"Leku and tegi, two words for place",body:"Igerilekua is igeri (swimming) plus leku (place), as plain as it looks, and leku does the same job as the -tegi you met in sagardotegia. Now the pair to keep apart: antzerkia is theater as an art form, while antzokia is the building you watch it in. Udala is strictly the municipality or the council rather than the building. Adinekoa, an elderly person, is adin (age) plus -eko, the one of age, and it is the polite word."},
+    intro:"The institutions of a town and the people who run them: government and politics, the council and the mayor, the theater, the stadium and the pool.",
+    grammar:{title:"Leku and tegi, two words for place",body:"Igerilekua, swimming pool, is igeri, swimming, plus leku, place, which does the same job as -tegi. Keep one pair apart: antzerkia is theater as an art, and antzokia is the building. Udala is the council, and its building is the udaletxea, the council house. Alkatea is the southern word for mayor, where the north says auzapeza. Adinekoa, an elderly person, is adin, age, plus -eko: the one of age, and the respectful word."},
     wordIds:["gobernua","politika","hizkuntz_komunitatea","alkatea","udala","antzokia","estadioa","igerilekua","adinekoa"],
   },
   {
