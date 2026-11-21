@@ -6928,8 +6928,8 @@ var LESSONS=[
     titleEu:"Hau, hori, hura",
     emoji:"\uD83D\uDC49",
     blurb:"Pointing in three steps, and the small words that join a sentence.",
-    intro:"Basque points in three steps where English manages two, and the three line up with the people in the conversation. The joining words are tiny and you will use them in nearly every sentence you build from here on.",
-    grammar:{title:"Three steps, and two ways to say or",body:"Hau is near me, hori is near you, hura is over there, which matches ni, zu and hura exactly. The demonstrative comes after its noun rather than before it, and it carries the plural for the whole phrase, so the noun itself stays bare. Two words mean or and they do not swap: edo is the or of statements, while ala offers a real choice in a question. The word eta is hiding inside numbers you have not met yet, because hogeita bat is hogei eta bat run together."},
+    intro:"Basque points in three steps where English has two: near me, near you, and away from both of us. This lesson also has the small joining words: and, or and but.",
+    grammar:{title:"Three steps, and two ways to say or",body:"Hau is this, near me. Hori is that, near you. Hura is that over there, away from both of us. The pointing word comes after its noun: etxe hau is this house. It also carries the plural, so the noun stays bare: lagun hauek is these friends. Two words mean or. Edo is the or of statements. Ala offers a real choice in a question: Kafea ala tea? expects you to pick one. Eta is and, and baina is but."},
     wordIds:["hau","hori","hauek","horiek","eta","edo","ala","baina"],
   },
   {
