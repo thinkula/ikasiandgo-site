@@ -7380,8 +7380,8 @@ var LESSONS=[
     titleEu:"Gozoak",
     emoji:"🍰",
     blurb:"Cake, ice cream, chestnuts, and the afternoon snack.",
-    intro:"The Basque afternoon has its own meal, the askaria, somewhere between lunch and dinner. These are the words for it, and for the sweet end of a menu.",
-    grammar:{title:"One word for sweet and for delicious",body:"Goxoa covers both. A cake is goxoa because it is sweet; a stew is goxoa because it tastes good. Basque does not make you choose, so you can praise almost any food with one adjective."},
+    intro:"The Basque afternoon has its own meal, the askaria, between lunch and dinner. It completes the series you know: gosaria, bazkaria, askaria, afaria. The rest is the sweet end of a menu: cake, a bun, ice cream, cream, chestnut, walnut, juice and a drink.",
+    grammar:{title:"Sweet, and three words to take apart",body:"Goxoa is both sweet and delicious, so it praises a cake and a stew alike. Its x is a sh sound. Izozkia, ice cream, is izotz, ice, plus -ki, the ending that makes a foodstuff. Esnegaina, cream, is esne, milk, plus gaina, top: the top of the milk. Edaria, drink, is edan plus -ari, just as janaria is built on jan."},
     wordIds:["goxoa","opila","pastela","izozkia","esnegaina","gaztaina","intxaurra","askaria","zukua","edaria"],
   },
   {
