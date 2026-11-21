@@ -7584,8 +7584,8 @@ var LESSONS=[
     titleEu:"Sentimenduak",
     emoji:"\uD83D\uDCAD",
     blurb:"Worry, shame, happiness, and naming a feeling rather than having it.",
-    intro:"This lesson covers the same ground as the last one, turned into nouns. Basque marks the difference clearly, and the endings that do it are ones you have seen before.",
-    grammar:{title:"From how you feel to what it is",body:"Alai is cheerful and alaitasuna is cheerfulness, using -tasuna, the ending that makes aske (free) into askatasuna (freedom). Harritu is to be surprised and harridura is the surprise itself. Kezkatu is to worry and kezka is the worry. Knowing both halves lets you say either that you are worried or that you have a worry, which are not quite the same thing in either language."},
+    intro:"The last lesson's feelings, now as things you have: excitement, shame, cheerfulness, worry, surprise and sorrow. As with beldurra, a feeling named as a thing takes have.",
+    grammar:{title:"From how you feel to what it is",body:"Kezka handia dut is I have a big worry. Kezka is the noun for kezkatu, to worry, and harridura, surprise, is the noun for harritu. Alaitasuna, cheerfulness, is alai, cheerful, plus -tasuna, the ending in askatasuna. Ilusioa means excitement, not illusion: ilusioa daukat is I am excited. Ze pena! is what a shame."},
     wordIds:["ilusioa","lotsa","alaitasuna","kezka","harridura","pena"],
   },
   {
