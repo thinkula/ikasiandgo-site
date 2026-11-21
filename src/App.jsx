@@ -7812,8 +7812,8 @@ var LESSONS=[
     titleEu:"Koloreen tonuak",
     emoji:"\uD83C\uDFA8",
     blurb:"Scarlet, jet black, bluish, and how Basque gets there.",
-    intro:"You know the colors. Basque changes their strength in two ways, one of which English has no equivalent for, and both are easy once you have seen them.",
-    grammar:{title:"Saying it twice, and saying it softly",body:"Repeating a color makes it absolute. Gorri is red and gorri-gorria is scarlet. Beltz-beltza is jet black, zuri-zuria is pure white. The ending -xka does the opposite and makes it approximate, so urdinxka is bluish. Otherwise a color takes a second word: more iluna is dark purple and hori argia is pale yellow, with iluna meaning dark and argia bright."},
+    intro:"You know the colors. Here are three ways to change their strength: say the color twice, add -xka, or follow it with argia or iluna. Gold, silver and cream are here too.",
+    grammar:{title:"Saying it twice, and saying it softly",body:"Repeating a color makes it absolute. Gorri-gorria is scarlet, beltz-beltza is jet black, and zuri-zuria is pure white. The ending -xka does the opposite: urdinxka is bluish, as berdexka was greenish. Argia and iluna still do their work: hori argia is pale yellow, and more iluna is dark purple. For a color named after a thing, add kolorea: zilar kolorea is silver, and krema kolorea is cream."},
     wordIds:["urrea","urdinaxka","gorrigorria","beltz_beltza","zuri_zuria","more_iluna","hori_argia","berde_iluna","zilarra_kolorea","krema_kolorea"],
   },
   {
