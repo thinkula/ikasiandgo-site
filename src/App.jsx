@@ -7332,8 +7332,8 @@ var LESSONS=[
     titleEu:"Urtaroak",
     emoji:"\uD83C\uDF42",
     blurb:"Spring, summer, autumn, winter, and the weather between them.",
-    intro:"Basque names the year from summer outward. Spring is the new summer and autumn is the end of summer. The weather words that go with them are the ones you will actually hear on the coast.",
-    grammar:{title:"The year revolves around summer",body:"Uda means summer. Udaberria (spring) is uda + berri, the new summer. Udazkena (autumn) is uda + azken, the end of summer. Only negua (winter) stands on its own."},
+    intro:"The four seasons, with cloud, fog, cold and hot. Basque names the year from summer outward: spring is the new summer, and autumn is the end of summer.",
+    grammar:{title:"Summer in the middle, and the weather",body:"Uda is summer. Udaberria, spring, is uda plus berri, new. Udazkena, autumn, is uda plus azken, last or end. Only negua, winter, stands on its own. Cold uses the pattern you know from rain: hotz egiten du is it is cold. Hodeitsua, cloudy, is hodei, cloud, plus the -tsu of eguzkitsua. Hodeia is the cloud in the sky, and lainoa is the low one that sits in the valleys."},
     wordIds:["urtaroak","udaberria","uda","udazkena","negua","hodeia","hodeitsu","lainoa","hotza","beroa"],
   },
   {
