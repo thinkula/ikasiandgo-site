@@ -7800,8 +7800,8 @@ var LESSONS=[
     titleEu:"Nolakoa den jendea",
     emoji:"\uD83D\uDE42",
     blurb:"Curious, lazy, tiring, kind-hearted, and the ending behind them.",
-    intro:"These describe people rather than things, and most of them are built rather than borrowed. One ending does a lot of the work.",
-    grammar:{title:"Garri, the ending that causes",body:"The -garri behind interesgarria turns a word into what causes that effect. Nekagarria, tiring, is neka plus -garri, so a tiring day is a day that causes tiredness. Harrigarria, amazing, is harri (stone) plus -garri: something so surprising it turns you to stone. Bihozbera, kind-hearted, joins bihotz (heart) and bera (soft), with the tz softening where the two meet."},
+    intro:"Words for what people and things are like: amazing, strange and curious, tiring, lazy, lively, bare and kind-hearted. One ending, -garri, builds two of them.",
+    grammar:{title:"Garri, the ending that causes",body:"The -garri of interesgarria means causing. Nekagarria, tiring, is what causes tiredness. Harrigarria, amazing, is harri, stone, plus -garri: so surprising it turns you to stone. Bihozbera, kind-hearted, is bihotz, heart, plus bera, soft. Arraroa and bitxia both mean unusual, but arraroa is the more negative. Bitxia is curious in a good way, and bitxi is also a jewel. Nagia is lazy, and nagikeria is laziness, with the -keria of harrokeria."},
     wordIds:["harrigarria","arraroa","bitxia","nekagarria","biluzia","bizia","nagi","bihotzbera"],
   },
   {
