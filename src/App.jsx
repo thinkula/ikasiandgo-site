@@ -7860,8 +7860,8 @@ var LESSONS=[
     titleEu:"Kultura eta ohiturak",
     emoji:"\uD83C\uDFB6",
     blurb:"Bertsolaris, the txalaparta, championships, and what they are for.",
-    intro:"Some of these words have no English equivalent because the thing itself has none. They are worth learning as they are rather than as translations.",
-    grammar:{title:"Txapela, and the contests named after it",body:"Txapelketa, a championship, is txapela (the beret) plus -keta, a contest, because the winner is crowned with the txapela. The bertsolari championship fills arenas: singers improvise verse in strict meter and rhyme on a subject handed to them moments earlier. Sukaldaritza, cuisine, is built on sukaldea, the kitchen. Herrialdea is a territory, and Euskal Herria counts seven of them."},
+    intro:"Some of these have no English equivalent, because the thing itself has none: the bertsolari, the txalaparta, the txapela. With them come cuisine, custom, ritual and sculpture, a championship, and the verb ikasi, to learn.",
+    grammar:{title:"Txapela, and the contests named after it",body:"Txapelketa, championship, is txapela, the beret, plus -keta, because the winner receives a txapela. A bertsolaria improvises sung verse in strict meter and rhyme on a given theme, and the national championship is held every four years. Sukaldaritza, cuisine, is built on sukaldea, the kitchen. Aberri Eguna, Basque Homeland Day, is aberri, homeland, plus eguna, day. Ikasi, to learn, is the word this app is named for."},
     wordIds:["sukaldaritza","errialdea","txapelketa","bertsolaria","ohitura","erritu","ikasi","txalaparta","aberri_eguna","eskultura","txapela"],
   },
   {
