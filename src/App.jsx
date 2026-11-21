@@ -7572,8 +7572,8 @@ var LESSONS=[
     titleEu:"Nola zauden",
     emoji:"\uD83D\uDE0C",
     blurb:"Calm, angry, nervous, bored, and how to say it about yourself.",
-    intro:"These are adjectives and participles for a state you are in right now. Several of them end the same way, and that pattern is the point of this lesson.",
-    grammar:{title:"Ta, the state a verb leaves behind",body:"Add -ta to a participle and you get the state it leaves you in. Aspertu is to get bored and aspertuta is bored; lotsatu is to be embarrassed and lotsatuta is embarrassed. You have met the ending already, on nekatuta. Harritu, to surprise, follows the same pattern: harrituta nago is I am surprised."},
+    intro:"Words for a state you are in right now: calm, angry, nervous, surprised, bored, embarrassed and glad. All of them go with egon, as every passing state does.",
+    grammar:{title:"Ta, the state a verb leaves behind",body:"Lasai nago is I am calm, haserre nago is I am angry, and urduri nago is I am nervous. Add -ta to a verb and you get the state it leaves you in, as in nekatuta. Aspertu, to get bored, gives aspertuta nago, I am bored. Lotsatu gives lotsatuta nago, I am embarrassed, and harritu gives harrituta nago, I am surprised. Poztu, to make happy, is the verb in pozten nau zu ezagutzeak."},
     wordIds:["lasaia","haserre","urduri","harritu","aspertuta","lotsatuta","poztu"],
   },
   {
