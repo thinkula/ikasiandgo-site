@@ -7227,9 +7227,9 @@ var LESSONS=[
     title:"Animals",
     titleEu:"Animaliak",
     emoji:"\uD83D\uDC15",
-    blurb:"Dogs, horses, and the animals hiding in Basque names.",
-    intro:"Animals are everywhere in Basque, and not only in the field. They turn up in surnames, in place names, and even in the word for a witches' gathering. Learn the animal and you often learn a name you have seen before.",
-    grammar:{title:"Animals inside names",body:"Otsoa (wolf) gave the surname Ochoa. Aker, the billy goat, sits inside akelarre, the word for a witches' gathering, from aker + larre (meadow)."},
+    blurb:"Dogs, horses, and the animals inside other Basque words.",
+    intro:"Ten animals, from the dog and the cat to the wolf and the goat. Several of them sit inside other words.",
+    grammar:{title:"Animals inside other words",body:"Otsoa, wolf, is in otsaila, February, the wolf month. Oiloa, hen, gives oilaskoa, the chicken on your plate. Saguzar, bat, is literally old mouse, from sagu. Aker is the billy goat, and akelarre, a witches' gathering, is aker plus larre, meadow. Kume is an animal's young, so txakurkumea is a puppy."},
     wordIds:["animalia","txakurra","katua","zaldia","oiloa","sagua","eulia","otsoa","ahuntza","untxia"],
   },
   {
