@@ -3704,6 +3704,11 @@ function TapScreen(props){
   function bestKey(){return 'tap_best_'+topic+'_'+diff+(dir==='eu'?'_eu':'');}
   // Words already asked this round, and whether the screen is still open.
   var askedRef=React.useRef([]);
+  // The words missed this round, wrong or out of time, for the results sheet.
+  var _missed=useState([]);var missed=_missed[0];var setMissed=_missed[1];
+  function noteMiss(w){setMissed(function(m){return m.some(function(x){return x.id===w.id;})?m:m.concat([w]);});}
+  // People who ask for less motion get a bar that steps once a second.
+  var reduceMotion=useMemo(function(){try{return !!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);}catch(e){return false;}},[]);
   var aliveRef=React.useRef(true);
 
   // Load best score from storage
@@ -3785,6 +3790,7 @@ function TapScreen(props){
       if(s<=0){
         clearInterval(timerRef.current);
         setSel("__timeout__");
+        haptic("error");sfx("wrong");noteMiss(word);
         setStreak(0);setShake(true);setTimeout(function(){setShake(false);},500);
         var nt=totalRef.current+1;totalRef.current=nt;setTotal(nt);
         setTimeout(function(){nextQuestion(nt,currentScore,0,currentCorrect);},950);
@@ -3794,7 +3800,7 @@ function TapScreen(props){
 
   function start(){
     clearInterval(timerRef.current);
-    totalRef.current=0;askedRef.current=[];
+    totalRef.current=0;askedRef.current=[];setMissed([]);
     setScore(0);setTotal(0);setStreak(0);setCorrect(0);setWon(false);setActive(true);
     setQuestion(null);setCombo(null);setShake(false);
     setTimeout(function(){nextQuestion(0,0,0,0);},50);
@@ -3818,7 +3824,7 @@ function TapScreen(props){
       var nt=totalRef.current+1;totalRef.current=nt;setTotal(nt);
       setTimeout(function(){nextQuestion(nt,sc,ns,nc);},600);
     }else{
-      haptic("error");sfx("wrong");
+      haptic("error");sfx("wrong");noteMiss(question);
       setStreak(0);setShake(true);setTimeout(function(){setShake(false);},500);
       var nw=totalRef.current+1;totalRef.current=nw;setTotal(nw);
       setTimeout(function(){nextQuestion(nw,currentScore,0,currentCorrect);},900);
@@ -3922,9 +3928,16 @@ function TapScreen(props){
         {/* ── Active question ── */}
         {active&&question&&(
           <div>
-            {/* Big timer bar */}
+            {/* Big timer bar. It runs as one animation from full to empty over
+                the question's whole time, restarted by the key on each
+                question and stopped when an answer is in. It used to step
+                once a second with a one-second ease, which kept it a second
+                behind: on Hard, time ran out with half the bar still showing. */}
+            <style>{"@keyframes tapDrain{from{width:100%}to{width:0%}}"}</style>
             <div style={{height:8,backgroundColor:"#F0F0F0",borderRadius:4,marginBottom:20,overflow:"hidden"}}>
-              <div style={{height:"100%",backgroundColor:timerColor,width:timerPct+"%",transition:"width 1s linear, background-color 0.3s",borderRadius:4,boxShadow:"0 0 8px "+timerColor+"88"}}/>
+              {reduceMotion
+                ?<div style={{height:"100%",backgroundColor:timerColor,width:timerPct+"%",borderRadius:4}}/>
+                :<div key={"bar-"+question.id} style={{height:"100%",backgroundColor:timerColor,width:"100%",animation:"tapDrain "+maxSecs+"s linear forwards",animationPlayState:sel?"paused":"running",transition:"background-color 0.3s",borderRadius:4,boxShadow:"0 0 8px "+timerColor+"88"}}/>}
             </div>
 
             {/* Combo badge */}
@@ -4009,10 +4022,26 @@ function TapScreen(props){
                   </div>
                 );})}
               </div>
+              {missed.length>0&&(
+                <div style={{textAlign:"left",marginBottom:16}}>
+                  <p style={{margin:"0 0 6px",fontSize:10,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.8}}>Missed this round</p>
+                  <div style={{maxHeight:150,overflowY:"auto",borderRadius:14,border:"1px solid #F0F0F0"}}>
+                    {missed.map(function(w,i){return(
+                      <div key={w.id} style={{display:"flex",justifyContent:"space-between",gap:10,padding:"8px 12px",borderTop:i?"1px solid #F4F4F4":"none"}}>
+                        <span style={{fontSize:13,fontWeight:800,color:"#1A1A1A"}}>{w.basque}</span>
+                        <span style={{fontSize:12,color:"#8E8E93",textAlign:"right"}}>{w.english}</span>
+                      </div>
+                    );})}
+                  </div>
+                </div>
+              )}
               <div style={{display:"flex",gap:10}}>
                 <button onClick={start} style={{flex:1,padding:"15px",borderRadius:18,border:"none",backgroundColor:"#F97316",color:"#fff",fontSize:15,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #C2510E"}}>Play again</button>
                 <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];setTopic(next);setWon(false);}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
               </div>
+              {/* The sheet covers the header, close button and all, so it
+                  needs its own way out. */}
+              <button onClick={onBack} style={{marginTop:12,background:"none",border:"none",color:"#8E8E93",fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit",padding:"6px 12px"}}>Back to games</button>
             </div>
           </div>
         </div>
