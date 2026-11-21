@@ -6950,8 +6950,8 @@ var LESSONS=[
     titleEu:"Irakurri eta idatzi",
     emoji:"\uD83D\uDCDA",
     blurb:"Four everyday verbs, the people who do them, and one very useful noun.",
-    intro:"These are four of the most common verbs in any language, and the lessons have not covered them until now. One short noun here turns up in more than one everyday phrase.",
-    grammar:{title:"Le, the one who does it",body:"Add -le to one of these verbs and you get the person who does it. Irakurri gives irakurlea, a reader. Idatzi gives idazlea, a writer. Entzun gives entzulea, a listener. Hitza means a word, and hitza eman, to give your word, is to make a promise. Hitz egin, literally to make word, is the ordinary way to say to speak."},
+    intro:"Four everyday verbs: to read, to write, to listen and to look. Three of them also give you the person who does it. The noun here is hitza, word, which sits inside two common phrases.",
+    grammar:{title:"-le, the one who does it",body:"Add -le to a verb and you get the person who does it. Irakurri gives irakurlea, a reader. Entzun gives entzulea, a listener. Idatzi shortens to idaz- first, so a writer is idazlea. Hitza is a word. Hitza eman, to give your word, is to promise. Hitz egin, literally to make word, means to speak."},
     wordIds:["irakurri","idatzi","entzun","begiratu","hitza","irakurlea","idazlea","entzulea"],
   },
   {
