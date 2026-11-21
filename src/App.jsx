@@ -7148,8 +7148,8 @@ var LESSONS=[
     titleEu:"Solasean",
     emoji:"\uD83D\uDCAC",
     blurb:"Question words and useful phrases.",
-    intro:"Real conversation needs more than nouns. These question words and short phrases let you ask, clarify, and keep a chat going. Nor (who), zer (what), and nola (how) are the building blocks of almost every question you will ask.",
-    grammar:{title:"The question words",body:"Question words sit right before the verb, usually at the front of the sentence, and they all begin with n or z. Two phrases here are worth more than any single word: ez dut ulertzen, I do not understand, and poliki, slowly, which asks the other person to slow down."},
+    intro:"Four question words: zer is what, nor is who, nola is how, and zenbat is how many or how much. With them come zer moduz, how are you, and its answer ondo. Then three things to say when you are lost: I do not understand, slowly, and help.",
+    grammar:{title:"The question words",body:"The question word sits right before the verb: nor da hori is who is that, and zer nahi duzu is what do you want. Nola duzu izena asks your name, literally how do you have your name. Zenbat da asks the price. When it goes too fast, say ez dut ulertzen, I do not understand, and poliki hitz egin mesedez, please speak slowly."},
     wordIds:["zer_moduz","ondo","nola","zer","nor","zenbat","hitz_egin","ez_dut_ulertzen","poliki","laguntza"],
   },
   {
