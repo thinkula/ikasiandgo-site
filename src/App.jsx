@@ -7126,8 +7126,8 @@ var LESSONS=[
     titleEu:"Hizkuntza eta kultura",
     emoji:"\uD83D\uDCD6",
     blurb:"Books, sports, and the Basque language.",
-    intro:"These words are close to the reason many people learn Basque. Euskara, the language, and Euskal Herria, the country, come first, and then the ordinary culture around them: books, movies, sports, song.",
-    grammar:{title:"Euskara and euskalduna",body:"Euskara is the Basque language itself. A euskalduna is a Basque speaker, literally one who has Basque. The -dun ending means one who has, a pattern you will meet again."},
+    intro:"Euskara is the language and Euskal Herria is the country. Around them come the flag, books and the library, film, sports, football and song.",
+    grammar:{title:"Named for the language",body:"Euskalduna is a Basque speaker, literally one who has Basque. Anyone who speaks it is euskaldun. Euskal Herria is literally the country of Basque, the language, and it covers seven provinces across Spain and France. Liburutegia, library, is liburu plus tegi, place: the same tegi as in lantegia."},
     wordIds:["euskara","euskalduna","euskal_herria","ikurrina","liburua","liburutegia","zinema","kirolak","futbola","abestia"],
   },
   {
