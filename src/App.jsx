@@ -2445,7 +2445,7 @@ function QuizScreen(props){
 
     {/* ── Header ── */}
     <div data-hdr="1" style={{display:"flex",alignItems:"center",gap:10,paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:12,backgroundColor:"#fff",flexShrink:0}}>
-      <button style={{background:"#F2F2F7",border:"none",color:"#555",fontSize:14,cursor:"pointer",padding:0,fontFamily:"inherit",width:32,height:32,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}} onClick={function(){if(idx>0||latest.current.length>0)setConfirmExit(true);else onExit();}}>✕</button>
+      <button style={{background:"#F2F2F7",border:"none",color:"#555",fontSize:15,cursor:"pointer",padding:0,fontFamily:"inherit",width:34,height:34,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}} onClick={function(){if(idx>0||latest.current.length>0)setConfirmExit(true);else onExit();}}>✕</button>
       <div style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
         <div role="progressbar" aria-label="Quiz progress" aria-valuenow={idx+1} aria-valuemin={1} aria-valuemax={questions.length} aria-valuetext={"Question "+(idx+1)+" of "+questions.length} style={{height:6,backgroundColor:"#E8E8EE",borderRadius:3,overflow:"hidden"}}>
           <div style={{height:"100%",borderRadius:3,background:"linear-gradient(90deg,"+ld+","+lc+")",width:(((idx+(result?1:0))/questions.length)*100)+"%",transition:"width 0.5s cubic-bezier(0.34,1.56,0.64,1)"}}/>
@@ -3361,7 +3361,7 @@ function PairsScreen(props){
       {/* ── Header ── */}
       <div data-hdr="1" style={{display:"flex",alignItems:"center",gap:10,background:"linear-gradient(160deg,#093D24,#0E7A40,#19A85A)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:14}}>
         {/* An arrow to go back to the games, a cross to quit a round partway. */}
-        <button aria-label={(started&&!won&&!failed)?"Close":"Back"} onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{(started&&!won&&!failed)?"✕":"←"}</button>
+        <button aria-label={(started&&!won&&!failed)?"Close":"Back"} onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{(started&&!won&&!failed)?"✕":"←"}</button>
         <div style={{flex:1}}>
           <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>🃏 Memory Pairs</p>
           <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.75)",fontWeight:600,textTransform:"capitalize"}}>
@@ -3377,7 +3377,7 @@ function PairsScreen(props){
             <p style={{margin:0,fontSize:15,fontWeight:900,color:timerDanger?"#EF4444":started?"#0E7A40":"rgba(255,255,255,0.7)",lineHeight:1,animation:timerDanger?"waitingDot 0.5s ease-in-out infinite":"none"}}>{started?timeStr:(isTimed?sizeCfg.timedSecs+"s":"--")}</p>
             <p style={{margin:0,fontSize:8,color:(timerDanger||started)?"#6B7280":"rgba(255,255,255,0.75)",fontWeight:700}}>{isTimed?"LEFT":"TIME"}</p>
           </div>
-          <button aria-label="Settings" onClick={openSettings} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>⚙️</button>
+          <button aria-label="Settings" onClick={openSettings} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>⚙️</button>
         </div>
       </div>
 
@@ -3669,7 +3669,7 @@ function GamesScreen(props){
       {/* Header */}
       <div data-hdr="1" style={{background:"linear-gradient(160deg,#1A1A2E,#16213E,#0F3460)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
-          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.12)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
+          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>Games</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque through play</p>
@@ -3935,7 +3935,7 @@ function TapScreen(props){
       {/* ── Header ── */}
       <div data-hdr="1" style={{display:"flex",alignItems:"center",gap:10,background:"linear-gradient(160deg,#9A3412,#C2410C,#F97316)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:14}}>
         {/* An arrow to go back to the games, a cross to quit a round partway. */}
-        <button aria-label={active?"Close":"Back"} onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{active?"✕":"←"}</button>
+        <button aria-label={active?"Close":"Back"} onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{active?"✕":"←"}</button>
         <div style={{flex:1}}>
           {/* The header is the game's own color in both states, like the
               other games, and the title and topic stay readable through a
@@ -4796,7 +4796,7 @@ function BasqueKitchenScreen(props){
       {/* Warm kitchen header */}
       <div data-hdr="1" style={{background:"linear-gradient(160deg,#92400E,#C2510E,#F97316)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
-          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
+          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>Basque Kitchen</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.7)",fontWeight:600}}>Cook classic Basque dishes</p>
@@ -4924,7 +4924,7 @@ function BasqueKitchenScreen(props){
         <div style={{position:"absolute",inset:0,opacity:0.06,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         {/* Nav row */}
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:16,position:"relative"}}>
-          <button aria-label="Close" onClick={function(){setDish(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={function(){setDish(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:16,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{dish.emoji} {dish.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontWeight:600,fontStyle:"italic"}}>{dish.desc}</p>
@@ -5529,7 +5529,7 @@ function OrduegiScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
       <div data-hdr="1" style={{background:"linear-gradient(160deg,#0C4A6E,#0369A1,#0EA5E9)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
-          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
+          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>🕐 Ordutegi</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:600}}>Numbers & time in real life</p>
@@ -5607,7 +5607,7 @@ function OrduegiScreen(props){
       <div data-hdr="1" style={{background:"linear-gradient(160deg,"+DARK+" 0%,"+COLOR+" 100%)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.05,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
-          <button aria-label="Close" onClick={leaveScenario} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={leaveScenario} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{scenario.emoji} {scenario.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontStyle:"italic"}}>{scenario.desc}</p>
@@ -5938,7 +5938,7 @@ function KoloreakScreen(props){
       <div>
       <div data-hdr="1" style={{background:"linear-gradient(160deg,#4C1D95,#6D28D9,#7C3AED)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:0}}>
         <div style={{display:"flex",alignItems:"center",gap:10,paddingBottom:16}}>
-          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>←</button>
+          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center"}}>←</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>Koloreak</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.6)",fontWeight:600}}>Colors in Basque</p>
@@ -6038,7 +6038,7 @@ function KoloreakScreen(props){
       <div>
       <div data-hdr="1" style={{background:"linear-gradient(135deg,#4C1D95,#7C3AED)",paddingTop:56,paddingLeft:14,paddingRight:14,paddingBottom:14}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
-          <button aria-label="Close" onClick={function(){setActive(false);setWon(false);}} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+          <button aria-label="Close" onClick={function(){setActive(false);setWon(false);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:14,fontWeight:900,color:"#fff"}}>🎨 Koloreak</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)"}}>{isSwatchMode?"See color, tap the word":"See word, tap the color"} · {level}</p>
@@ -6528,7 +6528,7 @@ function ArbolaScreen(props){
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
       <div data-hdr="1" style={{background:"linear-gradient(160deg,#134E4A,#0D9488,#14B8A6)",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 16px)",paddingRight:"calc(var(--bleed-ofs) + 16px)",paddingBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
-          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.15)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
+          <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>←</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:-0.5}}>🌳 Arbola Familiarra</p>
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.65)",fontWeight:600}}>Build your Basque family tree</p>
@@ -6629,7 +6629,7 @@ function ArbolaScreen(props){
       <div data-hdr="1" style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
-          <button aria-label="Close" onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:14,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{family.emoji} Familia {family.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontStyle:"italic"}}>{family.desc}</p>
