@@ -7115,8 +7115,8 @@ var LESSONS=[
     titleEu:"Lanbideak",
     emoji:"\uD83D\uDCBC",
     blurb:"Talk about what people do.",
-    intro:"Asking what someone does for work is part of any introduction. These cover the common professions and the workplace itself, plus one detail about how Basque states a job.",
-    grammar:{title:"Saying your job",body:"To say what someone does, Basque uses izan with the job: medikua naiz is I am a doctor. Watch the article. Basque says I am the doctor where English says a doctor, and that -a usually stays on the job word, whichever profession you put in."},
+    intro:"Seven jobs, with the words for work, the workplace and the boss. To say what you do, use izan: medikua naiz is I am a doctor.",
+    grammar:{title:"Saying your job",body:"In medikua naiz the job keeps its -a, where English says a. To work is lan egin, and several examples here use it: lantegian lan egiten dut is I work in the factory. The ending -ari names a person by what they do: sukaldaria, cook, is sukalde, kitchen, plus -ari. Lantegia is lan plus tegi, place: a workplace."},
     wordIds:["lana","lantegia","nagusia","medikua","erizaina","sukaldaria","abokatu","idazkaria","nekazaria","arkitektoa"],
   },
   {
