@@ -7740,8 +7740,8 @@ var LESSONS=[
     titleEu:"Sentimenduak",
     emoji:"💚",
     blurb:"Worried, proud, hopeful, and brave enough to keep going.",
-    intro:"Saying how you feel is where a language stops being a subject and starts being yours. These are the everyday feelings, including two that matter to anyone learning the language of their family.",
-    grammar:{title:"Why a state takes egon",body:"The -ta from the earlier feelings lesson is at work again: larritu (to stress) gives larrituta (stressed), and hunkitu (to move someone) gives hunkituta (moved). What is new is the verb they take. A state is a passing thing, so it goes with egon and not izan: larrituta nago, I am stressed, and never larrituta naiz."},
+    intro:"More feelings: worried, proud, stressed and moved, with hope, courage, pride, loneliness and love. Two verbs come with them: saiatu, to try, and sentitu, to feel.",
+    grammar:{title:"States, things, and one verb with two meanings",body:"The states take egon, as before: harro nago is I am proud, and kezkatuta nago is I am worried. The things take have: esperantza dut is I have hope. Harrotasuna, pride, and maitasuna, love, use the -tasuna of askatasuna. Keep harrotasuna apart from harrokeria, which is arrogance. Sentitzen dut means I feel, and it is also how you say I am sorry."},
     wordIds:["kezkatu","harro","esperantza","adorea","larrituta","hunkituta","saiatu","sentitu","harrotasuna","bakardadea","maitasuna"],
   },
   {
