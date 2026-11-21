@@ -7788,8 +7788,8 @@ var LESSONS=[
     titleEu:"Gozoa eta gazia",
     emoji:"\uD83E\uDDC2",
     blurb:"Sweet, salty, hard, stiff, and two words for a person's build.",
-    intro:"Adjectives that describe how something tastes or feels, and a few that describe a person's build. Several of them contain a noun, which makes them easier to remember.",
-    grammar:{title:"The salt inside the word",body:"Gazia, salty, comes from gatz, salt. Gatz gutxiko, low salt, is the same root with gutxi, little. Indartsua, strong, is indar (strength) plus the -tsu you have seen on eguzkitsua and osasuntsua, so literally full of strength. Gogorra covers hard in both senses, a hard stone and a hard year, which is worth remembering before you use it about a person."},
+    intro:"How a thing tastes or feels: sweet, salty and low-salt, whole, strong, hard and stiff. Then two words for a person's build, fat and thin.",
+    grammar:{title:"The salt inside the word",body:"Gazia, salty, is built on gatz, salt, and gatz gutxiko, low-salt, adds gutxi, little. Indartsua, strong, is indar, strength, plus the -tsu of eguzkitsua. Gozoa is sweet or delicious, like the goxoa you know. Osoa is whole, and oso, very, is the same word. Gogorra is hard as in tough: lan gogorra is hard work. Hard as in difficult is zaila."},
     wordIds:["gozoa","gazia","gatz_gutxiko","osoa","indartsu","gogorra","zurruna","gizena","argala"],
   },
   {
