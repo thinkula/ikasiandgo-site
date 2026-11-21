@@ -7548,8 +7548,8 @@ var LESSONS=[
     titleEu:"Baserriko animaliak",
     emoji:"\uD83E\uDECF",
     blurb:"Donkeys, deer, ducks, and a squirrel with a surprising name.",
-    intro:"The animals of the countryside and the farmyard. One of these shows how Basque names a thing by describing it.",
-    grammar:{title:"The red cat",body:"Katagorria, a squirrel, is katu (cat) plus gorri (red). A red cat. Basque names things this way all the time. Oilarra, a rooster, shares its root with oiloa, a hen, and oilaskoa, a chicken. Ahatea and antzara both came in from Latin, anatem and anser, which is a reminder that farm vocabulary travels with farming."},
+    intro:"The animals of the countryside and the farmyard: donkey, deer and squirrel, rat, pigeon, duck, goose and rooster.",
+    grammar:{title:"The red cat",body:"Katagorria, squirrel, is katu, cat, plus gorri, red: a red cat. Oilarra, rooster, shares its root with oiloa, hen, and oilaskoa, chicken. Ahatea, duck, and antzara, goose, both came from Latin, anatem and anser. Arratoia, rat, is a loan with a vowel added in front, because old Basque avoided words beginning with r. That is also why Rome is Erroma. Usoa is one word for both pigeon and dove."},
     wordIds:["astoa","oreina","katagorria","arratoia","usoa","ahatea","antzara","oilarra"],
   },
   {
