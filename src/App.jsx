@@ -7005,8 +7005,8 @@ var LESSONS=[
     titleEu:"Egunak eta ordua",
     emoji:"\uD83D\uDD53",
     blurb:"Talk about today, tomorrow, and when.",
-    intro:"Talking about days lets you make plans and arrange to meet. These words anchor a conversation in the present, past, or future. Start with the everyday trio: gaur (today), bihar (tomorrow), atzo (yesterday).",
-    grammar:{title:"The week, and how often",body:"Asteburua is the weekend: aste plus buru, which means head and also end, so the end of the week, just as in English. Egun and aste both take -ero for how often a thing happens: egunero is every day, astero every week. Noiz asks when, and the answer is usually one of the words in this lesson."},
+    intro:"Start with three: gaur is today, bihar is tomorrow, atzo is yesterday. Around them are now and later, day and night, the week and the weekend, and noiz, the word for when.",
+    grammar:{title:"The week, and how often",body:"Asteburua is the weekend: aste, week, plus buru, which means head and also end. Literally week-end. Add -ero for how often: egunero is every day, and astero is every week. Do not mix up bihar, tomorrow, with behar, need. They are one vowel apart."},
     wordIds:["gaur","bihar","atzo","orain","gero","eguna","gaua","astea","asteburua","noiz"],
   },
   {
