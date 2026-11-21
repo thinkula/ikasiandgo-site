@@ -6983,8 +6983,8 @@ var LESSONS=[
     titleEu:"Koloreak",
     emoji:"\uD83C\uDFA8",
     blurb:"Name the colors around you.",
-    intro:"Colors are among the first words you can actually use. The Basque flag, the ikurrina, is red, green and white, and all three are here.",
-    grammar:{title:"Where the -a goes",body:"The color comes after the thing it describes: etxe gorria is a red house, literally house red. Look at where the -a went. Etxea lost its article and gorria picked it up, because in Basque the article sits at the end of the whole phrase."},
+    intro:"Nine colors and the word for color itself. The Basque flag, the ikurrina, is red, green and white, and all three are here: gorria, berdea, zuria.",
+    grammar:{title:"Where the -a goes",body:"The color comes after the thing it describes: etxe gorria is the red house, literally house red. The -a has moved. Etxea drops its article and gorria carries it, because the article sits at the end of the whole phrase. Watch horia, yellow, beside hori, that: liburu horia is the yellow book, and liburu hori is that book."},
     wordIds:["gorria","urdina","berdea","zuria","beltza","horia","laranja","morea","arrosa","kolore"],
   },
   {
