@@ -7752,8 +7752,8 @@ var LESSONS=[
     titleEu:"Joan eta etorri",
     emoji:"\uD83D\uDEB6",
     blurb:"The verbs of movement, and the words for where they take you.",
-    intro:"Five verbs carry most of what anyone says about moving: going, coming, walking, carrying, continuing. They have appeared in these lessons all along without being taught. Here they are, with the words for the roads you travel on.",
-    grammar:{title:"Bide, the path hiding in other words",body:"Bide means road, and it builds nouns all through Basque. Ibilbidea is ibili (to walk) plus bidea, the walking path, so a route. Bidegurutzea is bidea plus gurutzea, the road cross, a crossroads. Helmuga joins heldu (to arrive) with muga (border or limit) into the arrival point, a destination. Joan and etorri pair up the same way: joan-etorri, go and come, is a round trip."},
+    intro:"Five verbs of movement: joan, to go, etorri, to come, ibili, to walk, eraman, to carry, and jarraitu, to continue. They have appeared in these lessons all along without being taught. With them come the route, the crossroads, the destination and a shelter.",
+    grammar:{title:"Which verb goes with a verb of movement",body:"Going, coming and walking put nothing on the receiving end, so they take naiz: joango naiz is I will go, and etorri naiz is I have come. Eraman, to carry, has a thing carried, so it takes dut: eramango dut is I will take it. Bide, the road in autobidea, builds two words here: ibilbidea, a route, and bidegurutzea, a crossroads. Helmuga, destination, is heldu, to arrive, plus muga, limit. Joan-etorri, go-come, is a round trip."},
     wordIds:["joan","etorri","ibili","eraman","jarraitu","ibilbidea","bidegurutzea","helmuga","aterpea","mugaldea","asegurua","zerbitzu_ordua"],
   },
   {
