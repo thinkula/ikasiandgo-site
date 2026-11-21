@@ -7262,8 +7262,8 @@ var LESSONS=[
     titleEu:"Familia osoa",
     emoji:"\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67",
     blurb:"Aunts, uncles, parents, and a sibling system that depends on you.",
-    intro:"The family words so far covered the household. This lesson widens the circle and introduces something Basque does that English does not.",
-    grammar:{title:"Whose sister you are",body:"Basque chooses the word for a sibling according to who is speaking. A man calls his sister arreba, while a woman calls her sister ahizpa. A woman calls her brother neba, while a man calls his brother anaia. Nothing about the sibling changes, only the person talking. Gizona, man, is the root of a larger family of words, including gizakia, a human being."},
+    intro:"You already have anaia and ahizpa. Here are the other two sibling words, with uncle and aunt, parents, man and woman, boy and girl, the everyday word for a kid, and person.",
+    grammar:{title:"Whose sister you are",body:"Basque picks the word for a sibling by who is speaking. A man calls his brother anaia and his sister arreba. A woman calls her sister ahizpa and her brother neba. Neba is mainly Bizkaian, and many speakers say anaia instead. Umea is the everyday word for a kid, where haurra is the more neutral one. Gizon, man, is the root of gizaki, a human being."},
     wordIds:["arreba","neba","osaba","izeba","gurasoak","gizona","emakumea","mutila","neska","umea","pertsona"],
   },
   {
