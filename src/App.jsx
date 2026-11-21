@@ -6896,8 +6896,8 @@ var LESSONS=[
     titleEu:"Lehen hitzak",
     emoji:"\uD83D\uDC4B",
     blurb:"Say hello, thank you, and be polite.",
-    intro:"Every conversation in Euskara starts here. Basque greetings are warm, and you use the same ones with everyone, from a close friend to a shopkeeper. One small word appears in two of them, and you will meet it again much later.",
-    grammar:{title:"The little word on",body:"On means good, and Basque puts it after the time word rather than before: egun (day) plus on gives egun on, and gau (night) plus on gives gau on. The same on closes a wish, so zorte on is good luck."},
+    intro:"These nine words carry a first exchange: hello and goodbye, yes and no, thank you, please and sorry. Kaixo works with anyone, a friend or a shopkeeper. Egun on is a little less casual, and people use it until around noon.",
+    grammar:{title:"The little word \"on\"",body:"\"On\" means good, and it comes second. Egun is day, so egun on is good day, which is how you say good morning. Gau is night, so gau on is good evening. After dark most people say gabon."},
     wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on","gau_on"],
   },
   {
