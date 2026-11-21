@@ -7632,8 +7632,8 @@ var LESSONS=[
     titleEu:"Festak eta sagardotegia",
     emoji:"\uD83E\uDD73",
     blurb:"Sagardotegis, pintxo-pote, theater, and where to find them.",
-    intro:"These are the places where people actually go. Two of them are institutions rather than places, and one ending builds two of the words in the lesson.",
-    grammar:{title:"Tegi, the place for a thing",body:"Sagardotegia is sagardo (cider) plus -tegi, the place for cider, and it is a season as much as a building: the houses open from January to April, and the cider comes straight from the barrel when somebody calls Txotx. Kiroldegia is kirol (sport) plus the same -tegi. The same -tegi builds egutegia, the day holder, and ardandegia, a wine cellar. Pintxo-pote is the practice of moving bar to bar with a pintxo and a small drink at each, common on Thursday and Friday evenings."},
+    intro:"Festival, cider house and pintxo-pote. Theater, painting and literature. And the sports center.",
+    grammar:{title:"Tegi, the place for a thing",body:"Sagardotegia, cider house, is sagardo, cider, plus -tegi, place: the same ending as in lantegia and liburutegia. The houses open from January to April, and the cider comes straight from the barrel when someone calls Txotx. Kiroldegia, sports center, is kirol, sport, plus the same ending, written -degi after the l. Pintxo-pote is going from bar to bar with a pintxo and a drink at each, common on Thursday and Friday evenings."},
     wordIds:["festa","sagardotegia","pintxo_pote","antzerkia","margolana","kiroldegi","literatura"],
   },
   {
