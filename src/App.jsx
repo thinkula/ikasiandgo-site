@@ -7273,8 +7273,8 @@ var LESSONS=[
     titleEu:"Gorputza osorik",
     emoji:"\uD83E\uDDB6",
     blurb:"Back, stomach, neck, hair, and the parts the first lesson skipped.",
-    intro:"This lesson gives you enough of the body to say where it hurts, which is the practical reason to learn these words. One of these words was probably borrowed from Latin a very long time ago.",
-    grammar:{title:"Corpus, borrowed a very long time ago",body:"Gorputza most likely comes from Latin corpus, borrowed so long ago that it no longer looks like a loan. Basque builds the rest from its own parts: lepokoa, a necklace, is simply the neck-thing, and the thumb is hatz lodia, the thick finger. Zapata is a Romance loan. Its final -a belongs to the word and is not the article, which is why it never doubles."},
+    intro:"More of the body: back, stomach, teeth, neck, hair and finger, the body itself, and a shoe. The pattern for saying where it hurts still works: bizkarreko mina dut is my back hurts.",
+    grammar:{title:"Old loans and plain names",body:"Gorputza, body, likely comes from Latin corpus, borrowed in Roman times. Some words here are built from plain parts: lepokoa, a necklace, is the neck-thing, and the thumb is hatz lodia, the thick finger. Zapata is a Romance loan, and its final -a belongs to the word, so it never takes a second one. For a toothache the same pattern gives hortzeko mina dut."},
     wordIds:["bizkarra","sabela","hortzak","lepoa","zapata","gorputza","ilea","hatza"],
   },
   {
