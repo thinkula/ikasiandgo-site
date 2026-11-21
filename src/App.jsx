@@ -7525,7 +7525,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD47",
     blurb:"First, second, third, and the ending that makes them.",
     intro:"You can count. Putting things in order is a separate job, and Basque does it by adding one ending to numbers you already know. Only the first of them is irregular.",
-    grammar:{title:"Garren, the ordinal ending",body:"Take a number and add -garren. Bi gives bigarrena, hiru gives hirugarrena, lau gives laugarrena, and so on. Only bost changes, losing its t in bosgarrena. Lehena, first, is the exception, as first usually is in any language. The ending also builds expressions of sequence, so hirugarren aldiz is for the third time."},
+    grammar:{title:"Garren, the ordinal ending",body:"Take a number and add -garren, then the -a: bi gives bigarrena, hiru gives hirugarrena, lau gives laugarrena. Bost drops its t: bosgarrena. First is the exception: lehena, not batgarrena. Unlike a describing word, the ordinal goes in front of its noun and hands it the -a: bosgarren solairua is the fifth floor, and hirugarren aldiz is for the third time."},
     wordIds:["lehena","bigarrena","hirugarrena","laurgarrena","bosgarrena","seigarrena","zazpigarrena","zortzigarrena","bederatzigarrena","hamargarrena"],
   },
   {
