@@ -6993,9 +6993,9 @@ var LESSONS=[
     title:"Food and Drink",
     titleEu:"Janaria eta edaria",
     emoji:"\uD83C\uDF7D\uFE0F",
-    blurb:"Order food and name what is on the table.",
-    intro:"Basque food culture is famous, from pintxos on the bar to cider houses in the hills. These are the basics: what is on the table, and the verbs for eating and drinking it.",
-    grammar:{title:"Eating and drinking",body:"Jan is to eat, and janaria, food, is built on it, so the verb and the noun share a root. Jan eta edan, eat and drink, is a set phrase you will hear as one piece. Ura shows the article at its plainest: ur is water, ura is the water."},
+    blurb:"Name what is on the table, and the verbs for eating and drinking.",
+    intro:"What is on the table: water, bread, coffee, fish, meat, fruit and cheese, with the verbs for eating and drinking. Ogia eta gazta, bread and cheese, is a classic pair.",
+    grammar:{title:"Eating and drinking",body:"Jan is to eat, and janaria is food. Edan is to drink, and edaria is a drink. The j in jan is a y sound. Jan eta edan is eat and drink. Ura shows the article plainly: ur is water, and ura is the water."},
     wordIds:["ura","ogia","kafea","janaria","arraina","haragia","fruta","gazta","jan","edan"],
   },
   {
