@@ -7071,8 +7071,8 @@ var LESSONS=[
     titleEu:"Natura",
     emoji:"\uD83C\uDFD4\uFE0F",
     blurb:"Mountains, sea, sun, and rain.",
-    intro:"The Basque Country is green and mountainous, with the sea on one side and peaks on the other. These words let you talk about the landscape and the weather. Eguzkia (sun) and euria (rain) come up often in conversation, given the Atlantic climate.",
-    grammar:{title:"Talking about weather",body:"To say what the weather is doing, Basque often pairs a nature word with a verb. Euria egiten du means it is raining, literally it makes rain. For now the nouns are enough: euria, elurra and haizea."},
+    intro:"Mountain, sea and river. Sun, rain, snow and wind. A tree, a flower and a bird. The Basque Country, and Bilbo most of all, is famous for rain.",
+    grammar:{title:"Talking about weather",body:"Basque says the weather makes rain. Euria egiten du is it is raining, literally it makes rain. Snow works the same way: elurra egiten du is it is snowing. Mendia, mountain, is inside many surnames and place names: Mendizabal is broad mountain."},
     wordIds:["mendia","itsasoa","ibaia","eguzkia","euria","elurra","haizea","zuhaitza","lorea","txoria"],
   },
   {
