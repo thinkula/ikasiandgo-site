@@ -7195,7 +7195,7 @@ var LESSONS=[
     emoji:"\uD83E\uDDED",
     blurb:"Three endings that put a word in motion.",
     intro:"You have been able to ask where something is since non dago. These are the other two: where it is going, and where it came from. In Basque all three are endings rather than separate words.",
-    grammar:{title:"The direction goes on the end",body:"English puts the small word in front: to the house, at the house, from the house. Basque attaches it to the end instead. Etxe takes -ra for to, -tik for from and -n for at: etxera, etxetik, etxean. The article comes off first, so all three build on etxe rather than on etxea. Now look at the question words, because they take the same endings. Non asks where something is, nora where it is going, nondik where it came from. Ask with the ending you want and the answer comes back carrying it. Hemen is the irregular one: from here is the regular hemendik, but to here is hona rather than hemenera."},
+    grammar:{title:"The direction goes on the end",body:"English puts the small word in front: to the house, from the house, at the house. Basque puts it on the end. Etxe takes -ra for to, -tik for from and -an for at: etxera, etxetik, etxean. The question words take the same endings: non is where, nora is where to, and nondik is where from. After n the -tik is written -dik, as in nondik and hemendik. Hemen bends once: from here is hemendik, but to here is hona, not hemenera."},
     wordIds:["nora","nondik","etxera","etxean","hemendik","hona"],
   },
   {
