@@ -7908,8 +7908,8 @@ var LESSONS=[
     titleEu:"Gure arbasoak",
     emoji:"🌳",
     blurb:"Ancestors, descendants, and the house that holds them.",
-    intro:"Basque family words reach past the household. They describe a line running through a house and a piece of land, which is a large part of why so many surnames are the names of farmhouses.",
-    grammar:{title:"Making abstract nouns with -tasun",body:"Ahaide is a relative; ahaidetasuna is kinship. The suffix -tasun turns a thing into the quality of being that thing, close to English -ness or -ship. You have already had it on berdintasuna, equality, and it is very common: aske, free, gives askatasuna, freedom."},
+    intro:"Ancestors and descendants, a generation, kinship, inheritance, the in-laws, and the house that holds them. In Basque culture the family home has its own name and is passed down, which is why so many surnames are the names of farmhouses.",
+    grammar:{title:"The line through the house",body:"Belaunaldia, generation, is belaun, knee, plus aldi, a period, the aldi of eguraldia. Belaunaldiz belaunaldi is from generation to generation. Ondorengoa, descendant, is built on ondoren, after. Ahaidetasuna, kinship, is ahaide, a relative, plus the -tasuna of askatasuna. Herentzia, inheritance, came from Spanish, and the native legal word is jaraunspena. In traditional Basque law the farmhouse went to one heir, to keep it whole."},
     wordIds:["arbasoak","ondorengoa","belaunaldia","etxea_ondarea","arbola","ahaidetasuna","heredentzia","senide_hurbilak","suhia","erraina"],
   },
   {
