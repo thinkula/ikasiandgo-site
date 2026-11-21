@@ -3088,6 +3088,29 @@ function PaywallScreen(props){
     </div>
   );
 }
+// A card's text, drawn at the largest size that fits the card and never
+// below `min`. The size used to be picked by counting letters, which put
+// anything over twelve letters at 7px on the Hard board whether or not
+// there was room: "I am (right now)" sat on one line in an empty card.
+// The size is set on the element here and kept out of the style prop, so
+// a re-render does not undo it.
+function FitText(props){
+  var ref=React.useRef(null);
+  React.useLayoutEffect(function(){
+    var el=ref.current;if(!el)return;
+    var wrap=el.parentNode;var card=el.closest?el.closest("[data-card]"):null;
+    if(!card)return;
+    var room=card.clientHeight-12;
+    var size=props.max;
+    // Measured with whole words first, so a long word shrinks the text
+    // before it is ever split.
+    el.style.wordBreak="normal";el.style.overflowWrap="normal";
+    el.style.fontSize=size+"px";
+    while(size>props.min&&(el.scrollWidth>el.clientWidth+1||wrap.offsetHeight>room)){size-=1;el.style.fontSize=size+"px";}
+    el.style.overflowWrap="anywhere";
+  },[props.text,props.max,props.min]);
+  return <p ref={ref} style={{margin:0,fontWeight:800,color:props.color,lineHeight:1.2}}>{props.text}</p>;
+}
 function PairsScreen(props){
   var VOCABULARY=_VOCAB;
   var onBack=props.onBack,isPro=props.isPro,onUpgrade=props.onUpgrade;
@@ -3115,6 +3138,13 @@ function PairsScreen(props){
   // so the sheet said "New personal best!" without saying best at what.
   var _newBest=useState(null);var newBest=_newBest[0];var setNewBest=_newBest[1];
   var _penalty=useState(false);var penalty=_penalty[0];var setPenalty=_penalty[1];
+  // The smallest a card's text is drawn, and the shape of a Hard card, which
+  // is taller than it is wide so the long glosses have the lines they need.
+  var FZ_MIN=10,HARD_RATIO="4/5";
+  function fmtT(n){var m=Math.floor(n/60);return m>0?m+"m "+("0"+(n%60)).slice(-2)+"s":n+"s";}
+  // Tea, Banana, Sofa and five more are spelled the same in both languages.
+  // As a pair they are two identical cards, so they are left off the board.
+  function sameBothWays(w){return (w.basque||"").trim().toLowerCase()===(w.english||"").trim().toLowerCase();}
   var timerRef=React.useRef(null);
   var chipRowRef=React.useRef(null);
   var boardKey=React.useRef(0);
@@ -3132,6 +3162,7 @@ function PairsScreen(props){
   var poolCount=VOCABULARY.filter(function(w){
     if(w.topic!==topic)return false;
     if(!isPro&&!isFreeWord(w))return false;
+    if(sameBothWays(w))return false;
     return true;
   }).length;
   var availSizes=SIZES.filter(function(s){return s.pairs<=poolCount;});
@@ -3164,11 +3195,18 @@ function PairsScreen(props){
     var pool=VOCABULARY.filter(function(w){
       if(w.topic!==topic)return false;
       if(!isPro&&!isFreeWord(w))return false;
+      if(sameBothWays(w))return false;
       return true;
     });
-    if(pool.length<4){pool=VOCABULARY.filter(function(w){return w.topic===topic&&w.cefr==="A1";});}
+    if(pool.length<4){pool=VOCABULARY.filter(function(w){return w.topic===topic&&w.cefr==="A1"&&!sameBothWays(w);});}
     var n=Math.min(sizeCfg.pairs,pool.length);
-    var chosen=shuffled(pool).slice(0,n);
+    // A board never holds two words whose meanings overlap. Gabon, "Good
+    // evening / Good night", and Gau on, "Good evening", could be dealt
+    // together, and picking the other Good evening counted as a miss. The
+    // second pass only runs if a topic cannot fill the board without one.
+    var order=shuffled(pool);var chosen=[];
+    order.forEach(function(w){if(chosen.length<n&&noMeaningClash(chosen,w).length===chosen.length)chosen.push(w);});
+    order.forEach(function(w){if(chosen.length<n&&chosen.indexOf(w)===-1)chosen.push(w);});
     var pc=chosen.length;
     var pairs=shuffled(
       chosen.map(function(w,i){return{uid:i,type:'basque',text:w.basque,pair:i};}).concat(
@@ -3222,7 +3260,9 @@ function PairsScreen(props){
     var next={moves:betterMoves?mv:prev.moves,time:betterTime?elapsed:prev.time};
     bestRef.current=next;
     setBestMoves(next.moves);setBestTime(next.time);
-    setNewBest(betterMoves&&betterTime?"both":betterMoves?"moves":"time");
+    // The first board played here has nothing to beat, so it is "first",
+    // which saves the record and gets no star.
+    setNewBest(!prev.moves&&!prev.time?"first":betterMoves&&betterTime?"both":betterMoves?"moves":"time");
     var key='pairs_best_'+topic+'_'+effSize+(isTimed?'_timed':'');
     try{STORE.set(key,JSON.stringify(next)).catch(function(){});}catch(e){}
   }
@@ -3249,19 +3289,26 @@ function PairsScreen(props){
       setLocked(true);
       if(a.pair===b.pair&&a.type!==b.type){
         haptic("success");sfx("correct");
+        // The board is won the moment its last pair is turned, so the clock
+        // stops here. It used to run on through the 0.4s the cards take to
+        // settle: turn the last pair in the final second and the time ran
+        // out first, so the fail sound played and the win sheet opened on
+        // top of "Time's up!". This also used to sit inside a state
+        // updater, which has to be pure.
+        var board=boardKey.current;
+        var newMatched=matched.concat([a.pair]);
+        var last=newMatched.length===pairCount;
+        var elapsed=0;
+        if(last){clearInterval(timerRef.current);elapsed=isTimed?sizeCfg.timedSecs-secsRef.current:secsRef.current;}
         setTimeout(function(){
-          setMatched(function(prev){
-            var newMatched=prev.concat([a.pair]);
-            if(newMatched.length===pairCount){
-              clearInterval(timerRef.current);
-              var elapsed=isTimed?sizeCfg.timedSecs-secsRef.current:secsRef.current;
-              setFinalSecs(elapsed);setWon(true);
-              haptic("success");sfx("complete");
-              recordResult(movesRef.current,elapsed);
-            }
-            return newMatched;
-          });
-          setFlipped([]);setLocked(false);
+          // Shuffle pressed while the cards were settling deals a new board.
+          if(boardKey.current!==board)return;
+          setMatched(newMatched);setFlipped([]);setLocked(false);
+          if(last){
+            setFinalSecs(elapsed);setWon(true);
+            haptic("success");sfx("complete");
+            recordResult(movesRef.current,elapsed);
+          }
         },400);
       }else{
         haptic("error");sfx("wrong");
@@ -3273,7 +3320,8 @@ function PairsScreen(props){
           setSecs(secsRef.current);
           setTimeout(function(){setPenalty(false);},600);
         }
-        setTimeout(function(){setMismatch(false);setFlipped([]);setLocked(false);},600);
+        var board2=boardKey.current;
+        setTimeout(function(){if(boardKey.current!==board2)return;setMismatch(false);setFlipped([]);setLocked(false);},600);
       }
     }
   }
@@ -3294,6 +3342,7 @@ function PairsScreen(props){
   var timerDanger=isTimed&&secs<=10&&started;
   var timerColor=timerDanger?"#EF4444":"#19A85A";
   var timerPct=isTimed?(secs/sizeCfg.timedSecs*100):100;
+  var starred=!!newBest&&newBest!=="first";
 
   return(
     <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F2F2F7",fontFamily:"Nunito,system-ui,sans-serif"}}>
@@ -3372,18 +3421,18 @@ function PairsScreen(props){
             var bg=isMatched?"#EDFAF3":isMismatched?"#FEF2F2":show?"#fff":"#1E3A5F";
             var border=isMatched?"#19A85A":isWaiting?"#F97316":isMismatched?"#EF4444":show?"#E0E0E0":"#162D4A";
             var shadow=isMatched?"inset 0 0 0 1px rgba(25,168,90,0.2)":isMismatched?"0 0 0 3px rgba(239,68,68,0.15)":isWaiting?"0 0 0 3px rgba(249,115,22,0.2), 0 8px 20px rgba(30,58,95,0.3)":isFlipped?"0 8px 20px rgba(0,0,0,0.15)":"0 3px 10px rgba(30,58,95,0.25)";
-            var fz=sizeCfg.pairs<=4?16:sizeCfg.pairs<=6?(card.text.length>14?8:card.text.length>10?10:card.text.length>7?12:14):(card.text.length>12?7:card.text.length>8?9:card.text.length>6?10:12);
+            var fzMax=sizeCfg.pairs<=4?17:sizeCfg.pairs<=6?14:13;
             return(
-              <div key={card.uid} onClick={function(){onFlip(idx);}}
+              <div key={card.uid} data-card="1" onClick={function(){onFlip(idx);}}
                 style={{
-                  aspectRatio:sizeCfg.pairs<=4?"5/3":"1",
+                  aspectRatio:sizeCfg.pairs<=4?"5/3":sizeCfg.pairs<=6?"1":HARD_RATIO,
                   borderRadius:18,
                   cursor:isMatched?"default":show?"default":"pointer",
                   transition:"transform 0.18s cubic-bezier(0.34,1.56,0.64,1), background-color 0.15s, box-shadow 0.2s, border-color 0.2s",
                   transform:isMatched?"scale(0.93)":isFlipped?"scale(1.06)":isMismatched?"scale(0.92)":"scale(1)",
                   backgroundColor:bg,border:"1.5px solid "+border,boxShadow:shadow,
                   display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",
-                  padding:6,userSelect:"none",WebkitUserSelect:"none",position:"relative",overflow:"hidden",
+                  padding:sizeCfg.pairs<=6?6:"6px 3px",userSelect:"none",WebkitUserSelect:"none",position:"relative",overflow:"hidden",
                   animation:isWaiting?"waitingPulse 1.4s ease-in-out infinite":(!show&&!isMatched?("cardIn 0.3s cubic-bezier(0.34,1.56,0.64,1) "+(idx*0.04)+"s both"):undefined)
                 }}>
                 {/* Face-down: subtle card pattern */}
@@ -3397,9 +3446,9 @@ function PairsScreen(props){
                 {isMismatched&&<div style={{position:"absolute",top:5,right:6,fontSize:12,color:"#EF4444",fontWeight:900}}>✗</div>}
                 {isWaiting&&<div style={{position:"absolute",top:6,left:6,width:6,height:6,borderRadius:"50%",backgroundColor:"#F97316",animation:"waitingDot 1s ease-in-out infinite"}}/>}
                 {show?(
-                  <div style={{textAlign:"center",width:"100%",padding:"0 4px"}}>
-                    <p style={{margin:0,fontSize:fz,fontWeight:800,color:isMatched?"#19A85A":isMismatched?"#EF4444":"#1A1A1A",lineHeight:1.3,wordBreak:"break-word"}}>{card.text}</p>
-                    <div style={{marginTop:4,fontSize:7,fontWeight:900,letterSpacing:0.5,color:isMatched?"#19A85A":isMismatched?"#EF4444":card.type==='basque'?"#19A85A":"#888",backgroundColor:isMatched?"rgba(25,168,90,0.12)":isMismatched?"rgba(239,68,68,0.1)":card.type==='basque'?"#EDFAF3":"#F0F0F0",borderRadius:5,padding:"2px 5px",display:"inline-block"}}>{card.type==='basque'?'BASQUE':'ENGLISH'}</div>
+                  <div style={{textAlign:"center",width:"100%",padding:sizeCfg.pairs<=6?"0 4px":"0 1px"}}>
+                    <FitText text={card.text} max={fzMax} min={FZ_MIN} color={isMatched?"#19A85A":isMismatched?"#EF4444":"#1A1A1A"}/>
+                    <div style={{marginTop:3,fontSize:8,fontWeight:900,letterSpacing:0.5,color:isMatched?"#19A85A":isMismatched?"#EF4444":card.type==='basque'?"#19A85A":"#888",backgroundColor:isMatched?"rgba(25,168,90,0.12)":isMismatched?"rgba(239,68,68,0.1)":card.type==='basque'?"#EDFAF3":"#F0F0F0",borderRadius:5,padding:"2px 5px",display:"inline-block"}}>{card.type==='basque'?'BASQUE':'ENGLISH'}</div>
                   </div>
                 ):(
                   <p style={{margin:0,fontSize:sizeCfg.pairs<=4?36:sizeCfg.pairs<=6?28:22,fontWeight:900,color:"rgba(255,255,255,0.4)",position:"relative",zIndex:1}}>?</p>
@@ -3446,6 +3495,8 @@ function PairsScreen(props){
                 <button onClick={function(){buildGame();}} style={{flex:1,padding:"15px",borderRadius:18,border:"none",backgroundColor:"#EF4444",color:"#fff",fontSize:15,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #991B1B"}}>Try again</button>
                 <button onClick={function(){setMode('classic');buildGame();}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Classic mode</button>
               </div>
+              {/* The sheet covers the header, close button and all. */}
+              <button onClick={onBack} style={{marginTop:12,background:"none",border:"none",color:"#8E8E93",fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit",padding:"6px 12px"}}>Back to games</button>
             </div>
           </div>
         </div>
@@ -3458,7 +3509,7 @@ function PairsScreen(props){
             {/* Drag handle */}
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
-              <div style={{width:72,height:72,borderRadius:"50%",background:newBest?"linear-gradient(135deg,#F97316,#FBBF24)":"linear-gradient(135deg,#19A85A,#22C070)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:newBest?"0 8px 24px rgba(249,115,22,0.35)":"0 8px 24px rgba(25,168,90,0.3)"}}>{newBest?"⭐":"🎉"}</div>
+              <div style={{width:72,height:72,borderRadius:"50%",background:starred?"linear-gradient(135deg,#F97316,#FBBF24)":"linear-gradient(135deg,#19A85A,#22C070)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:starred?"0 8px 24px rgba(249,115,22,0.35)":"0 8px 24px rgba(25,168,90,0.3)"}}>{starred?"⭐":"🎉"}</div>
               <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{newBest==="both"?"Best on both counts!":newBest==="moves"?"Fewest moves yet!":newBest==="time"?"Fastest yet!":"All matched!"}</p>
               <p style={{margin:"0 0 20px",fontSize:13,color:"#8E8E93",fontWeight:600,textTransform:"capitalize"}}>{topic} · {sizeCfg.label}{isTimed?" · ⏱️ Timed":""}</p>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginBottom:16}}>
@@ -3472,11 +3523,14 @@ function PairsScreen(props){
               {isTimed&&secs>0&&<div style={{backgroundColor:"#EDFAF3",borderRadius:12,padding:"9px 12px",marginBottom:12}}>
                 <p style={{margin:0,fontSize:13,fontWeight:800,color:"#19A85A"}}>⏱️ {secs}s to spare!</p>
               </div>}
-              {(bestMoves>0||bestTime>0)&&<p style={{margin:"0 0 16px",fontSize:12,color:"#C7C7CC",fontWeight:600}}>Best here: {bestMoves} moves · fastest {bestTime}s</p>}
+              {/* Left out when it would only repeat the numbers above it. */}
+              {(bestMoves>0||bestTime>0)&&newBest!=="first"&&newBest!=="both"&&<p style={{margin:"0 0 16px",fontSize:12,color:"#8E8E93",fontWeight:600}}>Best here: fewest {bestMoves} moves · fastest {fmtT(bestTime)}</p>}
               <div style={{display:"flex",gap:10}}>
                 <button onClick={function(){buildGame();}} style={{flex:1,padding:"15px",borderRadius:18,border:"none",backgroundColor:"#19A85A",color:"#fff",fontSize:15,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 #0E7A40"}}>Play again</button>
                 <button onClick={function(){var next=TOPICS_LIST[(TOPICS_LIST.indexOf(topic)+1)%TOPICS_LIST.length];setTopic(next);}} style={{flex:1,padding:"15px",borderRadius:18,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Next topic</button>
               </div>
+              {/* The sheet covers the header, close button and all. */}
+              <button onClick={onBack} style={{marginTop:12,background:"none",border:"none",color:"#8E8E93",fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit",padding:"6px 12px"}}>Back to games</button>
             </div>
           </div>
         </div>
@@ -3514,10 +3568,10 @@ function PairsScreen(props){
                   </button>
                 );})}
               </div>
-              {bestMoves>0&&(
-                <div style={{backgroundColor:"#F2F2F7",borderRadius:14,padding:"12px 14px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              {(bestMoves>0||bestTime>0)&&(
+                <div style={{backgroundColor:"#F2F2F7",borderRadius:14,padding:"12px 14px",display:"flex",justifyContent:"space-between",alignItems:"center",gap:10}}>
                   <span style={{fontSize:12,color:"#8E8E93",fontWeight:600,textTransform:"capitalize"}}>{topic} · {sizeCfg.label}</span>
-                  <span style={{fontSize:12,color:"#19A85A",fontWeight:800}}>{bestMoves} moves · {bestTime}s</span>
+                  <span style={{fontSize:12,color:"#19A85A",fontWeight:800,textAlign:"right"}}>Fewest {bestMoves} moves · fastest {fmtT(bestTime)}</span>
                 </div>
               )}
             </div>
