@@ -7037,8 +7037,8 @@ var LESSONS=[
     titleEu:"Nork?",
     emoji:"\uD83D\uDE4B",
     blurb:"The -k that marks the one doing something.",
-    intro:"Until now ni has always been ni, whatever the sentence. English is less steady: I turns into me as soon as something is done to you. Basque changes its pronouns too, but in the opposite direction.",
-    grammar:{title:"The one doing it takes a -k",body:"Ni becomes nik, zu becomes zuk, hura becomes hark, gu becomes guk. A -k on the end, and that is the whole rule. Zuek and haiek never change, so there are only four to learn. The verb that goes with nik is dut, which carries two things at once: that it was me, and that something was on the receiving end. Nik ogia jan dut is I have eaten the bread, with nik for the eater, ogia for the bread and dut tying the two together. Now look at which word got marked. English marks the receiver, at least on its pronouns, which is why I becomes me. Basque marks the doer and leaves the receiver alone, so ogia here is the same ogia you learned with the food."},
+    intro:"Until now ni has always been ni. English changes its pronoun when something is done to you: I becomes me. Basque changes its pronoun too, but it marks the one doing something.",
+    grammar:{title:"The one doing it takes a -k",body:"When someone does something to something, the doer takes a -k. Ni becomes nik, zu becomes zuk, gu becomes guk, and hura becomes hark. Zuek and haiek stay as they are. With izan and egon nothing is on the receiving end, so the pronoun stays bare: ni naiz, but nik ogia jan dut, I have eaten the bread. Dut is the verb that goes with nik. English marks the receiver, which is why I becomes me. Basque marks the doer and leaves the receiver alone, so ogia is the same ogia you learned with the food."},
     wordIds:["nik","zuk","hark","guk","dut"],
   },
   {
