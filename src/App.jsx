@@ -7476,8 +7476,8 @@ var LESSONS=[
     titleEu:"Etxeko gauzak",
     emoji:"🛏️",
     blurb:"Wardrobe, shelf, mirror, curtain, blanket.",
-    intro:"You know the rooms. These are the things inside them, the ones you end up pointing at when you cannot remember the word.",
-    grammar:{title:"Nothing here is masculine or feminine",body:"Basque has no grammatical gender at all. A lamp is not feminine and a mirror is not masculine; there is nothing to memorize alongside the noun. If you have studied Spanish or French, this is one place where Basque is simply easier."},
+    intro:"You know the rooms. These are the things inside them: wardrobe, ceiling and floor, shelf, lamp and mirror, curtain and rug, pillow and blanket.",
+    grammar:{title:"No gender, and four words that keep their -a",body:"Basque has no grammatical gender, so there is nothing to memorize alongside the noun. Four words here are loans that already end in -a and never add another: lanpara, gortina, alfonbra and manta. Burkoa, pillow, is from buru, head: the head thing, like lepokoa. Mind one vowel: zorua is the floor, and zoroa is the crazy one."},
     wordIds:["armairua","sabaia","zorua","apala","lanpara","ispilua","gortina","alfonbra","burkoa","manta"],
   },
   {
