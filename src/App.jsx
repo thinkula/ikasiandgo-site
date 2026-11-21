@@ -7320,8 +7320,8 @@ var LESSONS=[
     titleEu:"Hogeitik gora",
     emoji:"\uD83D\uDD22",
     blurb:"Teens, tens, and the twenty that holds them together.",
-    intro:"Basque counts in twenties. You already know hogei, twenty, from the clock. This lesson shows the two things the language does with it. Once you see that forty is two twenties and thirty is twenty and ten, you no longer need to memorize the big numbers one at a time.",
-    grammar:{title:"Twenty, doubled and extended",body:"Basque builds its big numbers on hogei, twenty, in two ways. It counts twenties, so berrogei (40) is two of them, hirurogei (60) is three, laurogei (80) is four. And it adds ten, so hogeita hamar (30) is twenty and ten, and that same ending turns forty into fifty and sixty into seventy. French kept a trace of the first habit in quatre-vingts, four twenties, for 80."},
+    intro:"The numbers from thirteen to eighty. The teens are hamar plus a digit. The tens are built on hogei, twenty, which you know from the clock.",
+    grammar:{title:"Ten plus a digit, then twenties",body:"A teen is hamar plus a digit: hamahiru is thirteen and hamasei is sixteen. Two do not follow it: hamaika, eleven, and hemeretzi, nineteen. Above twenty, Basque counts in twenties: berrogei, 40, is two of them, hirurogei, 60, is three, and laurogei, 80, is four. For the tens in between it adds ten: hogeita hamar, 30, is twenty and ten. French kept a trace in quatre-vingts, four twenties, for 80."},
     wordIds:["hamahiru","hamalau","hamabost","hamasei","hamazazpi","hamazortzi","hemeretzi","hogei","hogeitahamar","berrogei","hirurogei","laurogei"],
   },
   {

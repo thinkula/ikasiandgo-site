@@ -1,1 +1,0 @@
-import{i as e}from"./index-CAvoM2zt.js";var t=class extends e{async requestReview(){throw this.unimplemented(`Not implemented on web.`)}};export{t as InAppReviewWeb};
