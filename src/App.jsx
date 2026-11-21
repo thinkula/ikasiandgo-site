@@ -7452,8 +7452,8 @@ var LESSONS=[
     titleEu:"Zuhaitzak eta lurra",
     emoji:"🌳",
     blurb:"Beech, oak, meadow, lake and the sand on the shore.",
-    intro:"Two trees stand out here: the beech, which covers the hills, and the oak, the tree of Gernika.",
-    grammar:{title:"Long words come apart",body:"Mendilerroa is a mountain range: mendi (mountain) plus lerro (line), a line of mountains. Basque borrows freely, as the market and table lessons showed, but it builds new words just as readily. When a long word looks unfamiliar, try splitting it into its parts."},
+    intro:"Two trees stand out here: the beech, which covers the mountains, and the oak, the tree of Gernika. With them come the leaf, the meadow, the lake, the mountain range, and the beach with its sand and stone.",
+    grammar:{title:"Long words come apart",body:"Mendilerroa, mountain range, is mendi plus lerro, line: a line of mountains. Hondartza, beach, is hondar, sand, plus -tza, an ending of abundance: a place of plentiful sand. Harea is the other word for sand, from Latin arena. Larrea, meadow, is the larre in akelarre. Harritu, to be amazed, literally means turned to stone."},
     wordIds:["pagoa","haritza","hostoa","larrea","aintzira","mendilerroa","hondartza","harea","harria"],
   },
   {
