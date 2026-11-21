@@ -7537,7 +7537,7 @@ var LESSONS=[
     emoji:"\u2797",
     blurb:"Fifty, seventy, ninety, and three of the four operations.",
     intro:"Counting Past Twenty gave you the rule and the round numbers. These are the numbers in between that the rule produces, plus the words for arithmetic.",
-    grammar:{title:"The twenties, completed",body:"You already know that Basque adds ten to a multiple of twenty. Here is the rest of it: berrogeita hamar is forty and ten, fifty. Hirurogeita hamar is sixty and ten, seventy. Laurogeita hamar is eighty and ten, ninety. That completes the system. Nothing between twenty and a hundred needs to be memorized separately. The operations take the ending -keta on a short root: ken is minus and gives kenketa, bider is times and gives biderketa, zati is divided and gives zatiketa."},
+    grammar:{title:"The twenties, completed",body:"Fifty is forty and ten: berrogeita hamar. Seventy is sixty and ten: hirurogeita hamar. Ninety is eighty and ten: laurogeita hamar. The operations add -keta to a short word: ken, minus, gives kenketa, bider, times, gives biderketa, and zati, divided by, gives zatiketa. The short words do the sums: bost ken hiru, bi is five minus three is two, and bi bider hiru sei da is two times three is six."},
     wordIds:["berrogeita_hamar","hirurogeita_hamar","laurogeita_hamar","erdia","birritan","ken","biderketa","zatiketa"],
   },
   {
