@@ -7016,8 +7016,8 @@ var LESSONS=[
     titleEu:"Hara eta hona",
     emoji:"\uD83D\uDDFA\uFE0F",
     blurb:"Find your way around town.",
-    intro:"Whether you are catching a train or finding a restaurant, these words help you navigate a Basque town. Direction words like ezkerra (left) and eskuina (right) are essential, and so is knowing how to ask non dago (where is it).",
-    grammar:{title:"Asking where",body:"Basque splits where into two words. Non asks where something is, as in non dago, and nora asks where it is headed. English uses one word for both and lets the verb sort it out. Ezkerra and eskuina do a second job as well: like left and right in English, they are also the two wings of politics."},
+    intro:"Words for finding your way in a town: the street, the train, the bus, a restaurant, here and there, left and right. The question to learn is non dago, where is it.",
+    grammar:{title:"Where, here and there",body:"Non asks where something is: non dago trena is where is the train. Nora asks where to. English uses one word for both. Here and there follow the three steps you know from hau, hori and hura: hemen is here by me, hor is there by you, and han is there, away from us both. Jatetxea, restaurant, is jan, to eat, plus etxe, house: an eating house."},
     wordIds:["etxea","kalea","hiria","trena","autobusa","jatetxea","non","non_dago","hemen","han","ezkerra","eskuina"],
   },
   {
