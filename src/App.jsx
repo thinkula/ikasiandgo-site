@@ -8065,7 +8065,7 @@ var LESSONS=[
     emoji:"\uD83E\uDD1D",
     blurb:"Welcomes, toasts, apologies, and the word that ends them.",
     intro:"You have had kaixo and agur since the very beginning. These are the formal versions, the ones for a letter, a speech, or a raised glass.",
-    grammar:{title:"On, the good that ends a wish",body:"On means good, and it closes a whole family of wishes: egun on, gau on, zorte on. Good day, good night, good luck. Ongi etorri, welcome, is ongi (well) plus etorri (to come), so come well, using the etorri you met among the verbs of movement. Osasuna means health, and raised over a glass it is the Basque toast."},
+    grammar:{title:"\"On\", the good that ends a wish",body:"\"On\" means good, and it closes a whole family of wishes: egun on, gau on, zorte on. Good day, good night, good luck. Ongi etorri, welcome, is ongi (well) plus etorri (to come), so come well, using the etorri you met among the verbs of movement. Osasuna means health, and raised over a glass it is the Basque toast."},
     wordIds:["harrera_ona","agurra","adeitasuna","ongi_etorri","zorte_on","osasun","barkamen_eske"],
   },
   {
