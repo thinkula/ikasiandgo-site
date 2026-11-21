@@ -7824,8 +7824,8 @@ var LESSONS=[
     titleEu:"Lana eta bizibidea",
     emoji:"\uD83D\uDCBC",
     blurb:"Salaries, contracts, companies, and the paperwork around them.",
-    intro:"The vocabulary of working life, from the job offer to the pension. Basque built some of it from its own roots and borrowed the rest, and you can usually tell which is which.",
-    grammar:{title:"Lanbidea, the work path",body:"Lanbidea is lan (work) plus bide (path), the same bide that gives a route and a crossroads. To ask what someone does you say zein da zure lanbidea, literally which is your profession. Basque made txostena (report) and lan eskaintza (job offer) from its own words, while soldata, negozioa and erretiroa are loans. Erakundea is built on eratu, to form or organize."},
+    intro:"The vocabulary of working life, from the job offer to retirement: profession and salary, company and organization, industry, a deal, the report, the contract, the resume and the union.",
+    grammar:{title:"Lanbidea, the work path",body:"Lanbidea, profession, is lan plus bide, the path in ibilbidea: the work path. To ask what someone does, say zein da zure lanbidea? Lan eskaintza, a job offer, is lan plus eskaintza, offer. Erakundea, organization, is built on eratu, to form or organize. Soldata, negozioa and erretiroa are loans from Romance or Spanish."},
     wordIds:["lanbidea","soldata","enpresa","erakundea","industria","negozioa","txostena","kontratua","lan_eskaintza","curriculum","erretiroa","sindikatu"],
   },
   {
