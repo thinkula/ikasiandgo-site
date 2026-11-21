@@ -7392,8 +7392,8 @@ var LESSONS=[
     titleEu:"Janari gehiago",
     emoji:"🫘",
     blurb:"The everyday food behind the famous dishes.",
-    intro:"Behind the restaurant dishes is ordinary cooking: beans, mushrooms and pork, a glass and a cup to drink from, and the butter, flour, honey and cinnamon of home baking. These are the words a Basque kitchen uses every day.",
-    grammar:{title:"Some foods are usually plural",body:"Babarrunak is beans and onddoak is mushrooms, and both are usually said that way. The -ak ending is the plural article: babarruna would be a single bean, which is rarely what anyone means. Watch for -ak on things that naturally come in quantity."},
+    intro:"Ordinary cooking: beans, mushrooms and pork, pasta, a glass and a cup, and the butter, flour, honey and cinnamon of home baking.",
+    grammar:{title:"Plurals, meat and vessels",body:"Babarrunak, beans, and onddoak, mushrooms, are usually said in the plural, with -ak. Txerrikia, pork, is txerri, pig, plus the -ki you met in izozkia. Edalontzia, a glass, is edan plus ontzi, vessel, and itsasontzia, a ship, is a sea vessel. Use edalontzia for water and cold drinks, and katilua for coffee with milk or hot chocolate. Pasta and kanela end in an -a of their own."},
     wordIds:["babarrunak","onddo","txerria","txerrikia","pasta","edalontzia","katilua","gurina","irina","eztia","kanela"],
   },
   {
