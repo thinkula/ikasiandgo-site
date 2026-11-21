@@ -3319,8 +3319,11 @@ function PairsScreen(props){
         setMismatch(true);
         // Timed mode penalty: -5 seconds
         if(isTimed){
-          setPenalty(true);
-          secsRef.current=Math.max(1,secsRef.current-5);
+          // The clock never goes below 1s on a miss, so near the end fewer
+          // than five seconds come off. The flash says how many did.
+          var after=Math.max(1,secsRef.current-5);
+          setPenalty(secsRef.current-after);
+          secsRef.current=after;
           setSecs(secsRef.current);
           setTimeout(function(){setPenalty(false);},600);
         }
@@ -3369,7 +3372,7 @@ function PairsScreen(props){
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#1A1A1A",lineHeight:1}}>{moves}</p>
             <p style={{margin:0,fontSize:8,color:"#AAA",fontWeight:700}}>MOVES</p>
           </div>
-          <div style={{backgroundColor:timerDanger?"#FEF2F2":started?"#EDFAF3":"#F2F2F7",borderRadius:12,padding:"4px 10px",textAlign:"center",border:timerDanger?"1px solid #FCA5A5":started?"1px solid #BBF7D0":"none",transition:"all 0.3s"}}>
+          <div style={{backgroundColor:timerDanger?"#FEF2F2":started?"#EDFAF3":"#F2F2F7",borderRadius:12,padding:"4px 10px",textAlign:"center",border:"1px solid "+(timerDanger?"#FCA5A5":started?"#BBF7D0":"transparent"),transition:"all 0.3s"}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:timerDanger?"#EF4444":started?"#19A85A":"#CCC",lineHeight:1,animation:timerDanger?"waitingDot 0.5s ease-in-out infinite":"none"}}>{started?timeStr:(isTimed?sizeCfg.timedSecs+"s":"--")}</p>
             <p style={{margin:0,fontSize:8,color:"#AAA",fontWeight:700}}>{isTimed?"LEFT":"TIME"}</p>
           </div>
@@ -3412,7 +3415,7 @@ function PairsScreen(props){
         {isTimed&&(
           <div style={{height:26,marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center"}}>
             {penalty
-              ?<span key="pen" style={{fontSize:13,fontWeight:900,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"3px 14px",borderRadius:20,border:"1px solid #FECACA",animation:"popIn 0.2s ease"}}>⏱️ -5 seconds!</span>
+              ?<span key="pen" style={{fontSize:13,fontWeight:900,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"3px 14px",borderRadius:20,border:"1px solid #FECACA",animation:"popIn 0.2s ease"}}>⏱️ -{penalty} {penalty===1?"second":"seconds"}!</span>
               :<span key="rule" style={{fontSize:11,fontWeight:800,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"4px 14px",borderRadius:20,border:"1px solid #FECACA"}}>⏱️ Timed · {fmtT(sizeCfg.timedSecs)} · -5s per mismatch</span>}
           </div>
         )}
@@ -3425,6 +3428,9 @@ function PairsScreen(props){
             var isMismatched=mismatch&&flipped.indexOf(idx)!==-1&&!isMatched;
             var isWaiting=waitingForSecond&&isFlipped;
             var show=isFlipped||isMatched;
+            // A card is a button to a screen reader, with a label: every other
+            // game uses real buttons, and these were unlabelled boxes that read
+            // as "?" with nothing to say they could be turned.
             // The entrance animation below plays on a fresh board only. It used
             // to replay on every card turned back after a miss, each with its
             // dealing delay, so the last card on the board was an empty gap for
@@ -3435,7 +3441,10 @@ function PairsScreen(props){
             var shadow=isMatched?"inset 0 0 0 1px rgba(25,168,90,0.2)":isMismatched?"0 0 0 3px rgba(239,68,68,0.15)":isWaiting?"0 0 0 3px rgba(249,115,22,0.2), 0 8px 20px rgba(30,58,95,0.3)":isFlipped?"0 8px 20px rgba(0,0,0,0.15)":"0 3px 10px rgba(30,58,95,0.25)";
             var fzMax=sizeCfg.pairs<=4?17:sizeCfg.pairs<=6?14:13;
             return(
-              <div key={card.uid} data-card="1" onClick={function(){onFlip(idx);}}
+              <div key={card.uid} data-card="1" role="button" tabIndex={isMatched?-1:0} aria-disabled={isMatched}
+                aria-label={show?(card.text+", "+(card.type==='basque'?"Basque":"English")+(isMatched?", matched":"")):("Card "+(idx+1)+" of "+cards.length+", face down")}
+                onKeyDown={function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();onFlip(idx);}}}
+                onClick={function(){onFlip(idx);}}
                 style={{
                   aspectRatio:sizeCfg.pairs<=4?"5/3":sizeCfg.pairs<=6?"1":HARD_RATIO,
                   borderRadius:18,
@@ -3516,8 +3525,8 @@ function PairsScreen(props){
 
       {/* ── Win overlay ── */}
       {won&&(
-        <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){buildGame();}}>
-          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
+        <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}}>
+          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
             {/* Drag handle */}
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
