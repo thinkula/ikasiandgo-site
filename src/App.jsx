@@ -7692,8 +7692,8 @@ var LESSONS=[
     titleEu:"Nintzen eta nuen",
     emoji:"\uD83D\uDCDC",
     blurb:"The past of both verbs, and the two marks they carry.",
-    intro:"Every verb form you have met so far is a present one. These are the past forms of the two verbs that carry a Basque sentence. There is one ending to notice. After that it is mostly a matter of recognizing the forms.",
-    grammar:{title:"The past ends in -n",body:"Every past form here ends in -n, and that is the first thing to remember. Naiz becomes nintzen, da becomes zen, gara becomes ginen. The have-verb changes the same way: dut becomes nuen, du becomes zuen, dugu becomes genuen. There is a second thing to notice. The have-verb keeps its u in the past (nuen, zuen, genuen), while izan has no u anywhere (nintzen, zen, ginen). The u is what tells the two apart. The sentence around the verb does not move at all: ogia jan dut becomes ogia jan nuen and nothing else changes."},
+    intro:"Every verb form you have met so far is a present one. These are the past forms of izan and of the have-verb, the two that carry a Basque sentence. All six end in -n.",
+    grammar:{title:"The past ends in -n",body:"Every past form here ends in -n. Naiz becomes nintzen, da becomes zen, and gara becomes ginen. The have-verb changes the same way: dut becomes nuen, du becomes zuen, and dugu becomes genuen. The have-verb keeps its u in the past, while izan has no u anywhere. That u is what tells zen from zuen. The sentence around the verb does not move: ogia jan dut becomes ogia jan nuen, and nothing else changes."},
     wordIds:["nintzen","zen","ginen","nuen","zuen","genuen"],
   },
   {
