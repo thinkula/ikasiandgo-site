@@ -7608,8 +7608,8 @@ var LESSONS=[
     titleEu:"Eskola eta bulegoa",
     emoji:"\uD83C\uDFEB",
     blurb:"Teachers, students, meetings, and being out of work.",
-    intro:"This lesson covers work and study. It is mostly made of parts you already know, so it is a good test of how much word-building you have picked up.",
-    grammar:{title:"Le and gile, two ways to name a doer",body:"Ikaslea is ikasi (to learn) plus -le, a learner, the same -le that made irakurlea a reader. Irakaslea is built the same way on irakatsi, to teach. Langilea takes a different ending: lan (work) plus -gile, a maker, so a worker. Langabezia is lan plus gabezia, a lack of work. Hitzordua, an appointment, is hitz (word) plus ordua (hour), a word-time."},
+    intro:"Work and study: teacher and student, office and meeting, worker, appointment, employment, sick leave and unemployment. Most of these are made of parts you already know.",
+    grammar:{title:"Le and gile, two ways to name a doer",body:"Ikaslea, student, is ikasi, to learn, plus the -le of irakurlea. Irakaslea, teacher, is built the same way on irakatsi, to teach. Langilea, worker, is lan plus -gile, maker. Langabezia, unemployment, is lan plus gabezia, lack. Hitzordua, appointment, is hitz, word, plus ordua, hour. Maisua and andereñoa are a man and a woman who teach primary school, another rare gendered pair. Irakaslea covers everyone."},
     wordIds:["irakaslea","ikaslea","bulegoa","bilera","langilea","hitzordua","enplegua","baja","langabezia","maisua","anderenoa"],
   },
   {
