@@ -7872,8 +7872,8 @@ var LESSONS=[
     titleEu:"Poza eta nahigabea",
     emoji:"\uD83D\uDCA7",
     blurb:"The far ends of feeling, and how Basque builds them.",
-    intro:"A short lesson on the strongest feelings. Several of these words are made from a smaller word you already know, which is the quickest way to learn them.",
-    grammar:{title:"Poz, and the shapes it takes",body:"Poz is joy. Pozgarria is joy-causing, so pleasing, using the same -garri ending behind tiring and amazing. Pozez betea is filled with joy. Nahigabea goes the other way: nahi (to want) plus gabe (without), wanting without having, which falls somewhere between disappointment and sorrow. Atsekabea is heavier still, the word for real grief."},
+    intro:"A short lesson on the strongest feelings: joy and tears, disappointment and grief. Nahi, to want, is here too. It is the nahi in nahi dut.",
+    grammar:{title:"Poz, and the shapes it takes",body:"Poz is joy. Pozgarria, pleasing, is poz plus the -garri of nekagarria: joy-causing. Pozez betea, overjoyed, is literally filled with joy. Nahigabea, disappointment, is nahi, to want, plus gabe, without: lacking what you want. Atsekabea is heavier, the word for grief and mourning."},
     wordIds:["pozgarria","malkoak","poza_betea","nahigabea","atsekabea","nahi"],
   },
   {
