@@ -7500,8 +7500,8 @@ var LESSONS=[
     titleEu:"Elkarrizketan",
     emoji:"💬",
     blurb:"Questions, answers, agreement, and how to ask for a word.",
-    intro:"The most useful phrase in any language is the one that asks for the next word. These eleven keep a conversation alive when your vocabulary runs out, which at this stage it will.",
-    grammar:{title:"Question words come in two families",body:"Basque question words fall into two groups. The Z family asks about things: zer (what), zergatik (why), zenbat (how many), zein (which). The N family asks about place, time, manner and people: non (where), noiz (when), nola (how), nor (who). Hearing the first letter tells you what kind of answer is wanted."},
+    intro:"Eleven phrases for keeping a conversation going when your vocabulary runs out, which at this stage it will: asking why and which, agreeing, saying maybe, and asking how to say a thing.",
+    grammar:{title:"Asking for the word",body:"Nola esaten da hori euskaraz? asks how you say that in Basque. Zein da zure izena? is the standard way to ask a name. Ados nago is I agree. Mila esker, many thanks, is literally a thousand thanks. Zorionak, congratulations, is zori, fortune, plus on, good. Ondo ibili, take care, is literally walk well."},
     wordIds:["zer_berri","mila_esker","zergatik","zein","ados","agian","zorionak","ondo_ibili","galdera","erantzuna","nola_esaten_da"],
   },
   {
