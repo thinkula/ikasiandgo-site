@@ -3674,21 +3674,27 @@ function GamesScreen(props){
             <p style={{margin:0,fontSize:11,color:"rgba(255,255,255,0.55)",fontWeight:600}}>Learn Basque through play</p>
           </div>
         </div>
-        {/* Quick stats row */}
+        {/* One tile per game: its record, and a way in. They used to be a
+            scoreboard only, drawn like buttons, so tapping one did nothing,
+            and the game it named could be two swipes further down. Each goes
+            through the same door as its card below. */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr 1fr",gap:4}}>
           {[
-            {emoji:"🎨",label:"Koloreak",sub:kolBest||"·"},
-            {emoji:"👨‍🍳",label:"Kitchen",sub:txokoBest||"·"},
-            {emoji:"🌳",label:"Arbola",sub:arbolaBest||"·"},
-            {emoji:"⚡",label:"Tap",sub:tapBest||"·"},
-            {emoji:"🕐",label:"Ordutegi",sub:ordBest||"·"},
-            {emoji:"🃏",label:"Pairs",sub:pairsBest||"·"},
-          ].map(function(s){return(
-            <div key={s.label} style={{backgroundColor:"rgba(255,255,255,0.08)",borderRadius:10,padding:"7px 3px",textAlign:"center",border:"1px solid rgba(255,255,255,0.1)"}}>
+            {emoji:"🎨",label:"Koloreak",id:"koloreak",sub:kolBest||"·"},
+            {emoji:"👨‍🍳",label:"Kitchen",id:"txoko",sub:txokoBest||"·"},
+            {emoji:"🌳",label:"Arbola",id:"arbola",sub:arbolaBest||"·"},
+            {emoji:"⚡",label:"Tap",id:"tap",sub:tapBest||"·"},
+            {emoji:"🕐",label:"Ordutegi",id:"ordutegi",sub:ordBest||"·"},
+            {emoji:"🃏",label:"Pairs",id:"pairs",sub:pairsBest||"·"},
+          ].map(function(s){
+            var g=games.find(function(x){return x.id===s.id;});
+            var open=(!isPro&&g.pro)?onUpgrade:g.fn;
+            return(
+            <button key={s.label} onClick={open} aria-label={"Play "+g.title+(s.sub!=="·"?", "+s.sub:"")} style={{backgroundColor:"rgba(255,255,255,0.08)",borderRadius:10,padding:"7px 3px",textAlign:"center",border:"1px solid rgba(255,255,255,0.1)",cursor:"pointer",fontFamily:"inherit",color:"#fff",minWidth:0,display:"block",width:"100%"}}>
               <p style={{margin:0,fontSize:14,lineHeight:1}}>{s.emoji}</p>
               <p style={{margin:"3px 0 1px",fontSize:9,fontWeight:800,color:"#fff"}}>{s.label}</p>
               <p style={{margin:0,fontSize:9,color:"rgba(255,255,255,0.75)",fontWeight:700,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{s.sub}</p>
-            </div>
+            </button>
           );})}
         </div>
       </div>
@@ -3728,7 +3734,6 @@ function GamesScreen(props){
           </button>
         );})}
 
-        <p style={{textAlign:"center",fontSize:12,color:"#C7C7CC",fontWeight:600,marginTop:6}}>More games coming soon</p>
       </div>
     </div>
   );
