@@ -3660,7 +3660,9 @@ function GamesScreen(props){
 function TapScreen(props){
   var VOCABULARY=_VOCAB;
   var onBack=props.onBack,isPro=props.isPro,onUpgrade=props.onUpgrade;
-  var TOPICS_LIST=['greetings','food','numbers','family','colors','nature','body','time','travel','emotions','work','culture','society','adjectives'];
+  // Every topic in the app. Home, City and Animals were missing: the list was
+  // written before those topics had words above the beginner level.
+  var TOPICS_LIST=['greetings','food','numbers','family','colors','nature','body','time','travel','emotions','work','culture','society','adjectives','home','city','animals'];
   var DIFFICULTIES=[
     {key:'easy',label:'Easy',secs:6,levels:['A1'],color:'#19A85A'},
     {key:'medium',label:'Medium',secs:4,levels:['A1','A2'],color:'#F97316'},
@@ -3697,14 +3699,20 @@ function TapScreen(props){
   var ROUNDS=10;
 
   var diffCfg=DIFFICULTIES.find(function(d){return d.key===diff;})||DIFFICULTIES[0];
+  // The two directions are different games, so each keeps its own record.
+  // English to Basque keeps the key both used to share, so no record is lost.
+  function bestKey(){return 'tap_best_'+topic+'_'+diff+(dir==='eu'?'_eu':'');}
+  // Words already asked this round, and whether the screen is still open.
+  var askedRef=React.useRef([]);
+  var aliveRef=React.useRef(true);
 
   // Load best score from storage
   React.useEffect(function(){
     bestRef.current=0;setBest(0);setPrevBest(0);
-    try{STORE.get('tap_best_'+topic+'_'+diff).then(function(r){
+    try{STORE.get(bestKey()).then(function(r){
       if(r&&r.value){var n=parseInt(r.value)||0;bestRef.current=n;setBest(n);setPrevBest(n);}
     }).catch(function(){});}catch(e){}
-  },[topic,diff]);
+  },[topic,diff,dir]);
 
   function getPool(){
     var pool=VOCABULARY.filter(function(w){
@@ -3728,24 +3736,39 @@ function TapScreen(props){
 
   function nextQuestion(currentTotal,currentScore,currentStreak,currentCorrect){
     clearInterval(timerRef.current);
+    // Closing the game in the second after an answer left this call pending.
+    // It then ran the rest of the round unseen, timing out question after
+    // question, and could save the partial score as a record.
+    if(!aliveRef.current)return;
     if(currentTotal>=ROUNDS){
       setActive(false);setWon(true);
       var pb=bestRef.current;
       setPrevBest(pb);
       if(currentScore>pb){
         bestRef.current=currentScore;setBest(currentScore);
-        try{STORE.set('tap_best_'+topic+'_'+diff,String(currentScore)).catch(function(){});}catch(e){}
+        try{STORE.set(bestKey(),String(currentScore)).catch(function(){});}catch(e){}
       }
       setQuestion(null);return;
     }
     var pool=getPool();
     if(pool.length<4){setWon(true);setQuestion(null);return;}
-    var word=shuffled(pool)[0];
+    // A word is asked once a round. It used to be drawn fresh every time, so
+    // ten questions from a topic of twenty words repeated one more often than
+    // not. A topic with fewer than ten words has to come round again, and
+    // then only the word just asked is held back.
+    var asked=askedRef.current;
+    var fresh=pool.filter(function(w){return asked.indexOf(w.id)===-1;});
+    if(!fresh.length){var lastId=asked[asked.length-1];asked=askedRef.current=[];fresh=pool.filter(function(w){return w.id!==lastId;});}
+    var word=shuffled(fresh)[0];
+    askedRef.current=asked.concat([word.id]);
     // sameShape, as in the quiz: when the answer is a question (Nola?) and
     // enough of the pool are too, the wrong answers are questions as well.
     // Otherwise the one card ending in a question mark is the answer to the
     // one prompt ending in a question mark, with no Basque read.
-    var distractors=shuffled(sameShape(noMeaningClash(pool.filter(function(w){return w.id!==word.id;}),word),word)).slice(0,3);
+    // The quiz's own picker, on the side the cards show. Calling sameShape
+    // directly stopped being safe when it lost its fallback: Zenbat?, the
+    // only question in Numbers, was dealt as one card with no wrong answers.
+    var distractors=pickDistractors(pool,word,dir==='eu'?'english':'basque');
     var options=shuffled([word].concat(distractors));
     // Direction is user-controlled toggle, not random
     var t=getTimerSecs(currentTotal);
@@ -3771,7 +3794,7 @@ function TapScreen(props){
 
   function start(){
     clearInterval(timerRef.current);
-    totalRef.current=0;
+    totalRef.current=0;askedRef.current=[];
     setScore(0);setTotal(0);setStreak(0);setCorrect(0);setWon(false);setActive(true);
     setQuestion(null);setCombo(null);setShake(false);
     setTimeout(function(){nextQuestion(0,0,0,0);},50);
@@ -3802,7 +3825,7 @@ function TapScreen(props){
     }
   }
 
-  React.useEffect(function(){return function(){clearInterval(timerRef.current);};},[]);
+  React.useEffect(function(){aliveRef.current=true;return function(){aliveRef.current=false;clearInterval(timerRef.current);};},[]);
 
   var timerPct=maxSecs>0?secs/maxSecs*100:100;
   var timerColor=secs<=1?"#EF4444":secs<=2?"#F97316":"#4ADE80";
@@ -3839,7 +3862,10 @@ function TapScreen(props){
               <p style={{margin:0,fontSize:8,color:"#AAA",fontWeight:700}}>PTS</p>
             </div>
           )}
-          <button onClick={function(){setDir(function(d){return d==='en'?'eu':'en';});}} style={{fontSize:10,fontWeight:800,color:"#888",backgroundColor:"#F2F2F7",border:"1px solid "+("#E8E8E8"),borderRadius:16,padding:"4px 10px",cursor:"pointer",fontFamily:"inherit"}}>
+          {/* Locked during a round. Flipping it on a live question showed the
+              Basque answer as the prompt, with the English just read among
+              the cards. */}
+          <button disabled={active} aria-label="Switch direction" onClick={function(){if(active)return;setDir(function(d){return d==='en'?'eu':'en';});}} style={{fontSize:10,fontWeight:800,color:"#888",backgroundColor:"#F2F2F7",border:"1px solid "+("#E8E8E8"),borderRadius:16,padding:"4px 10px",cursor:active?"default":"pointer",fontFamily:"inherit",opacity:active?0.45:1}}>
             {dir==='en'?"EN→EU":"EU→EN"}
           </button>
         </div>
@@ -3866,6 +3892,7 @@ function TapScreen(props){
               </button>);
             })}
           </div>
+          {!isPro&&<p style={{margin:0,padding:"0 14px 7px",fontSize:10.5,color:"#8E8E93",fontWeight:600}}>All three speeds use beginner words. Medium and Hard add harder words in the full version.</p>}
         </div>
       )}
 
@@ -3933,7 +3960,10 @@ function TapScreen(props){
                 var bg=showResult?(isCorrectOpt?"#22C55E":isPicked?"#EF4444":"#F6F6F6"):"#fff";
                 var border=showResult?(isCorrectOpt?"#22C55E":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
                 var textColor=showResult?(isCorrectOpt?"#fff":isPicked?"#fff":"#CCC"):"#1A1A1A";
-                var displayText=isFlipped?word.english:word.basque;
+                // Cards are shown without a closing ? or !. Numbers has one question
+                // word, Zenbat?, and no other card to share its question mark, so
+                // the mark alone picked it out.
+                var displayText=(isFlipped?word.english:word.basque).replace(/[?!]\s*$/,"");
                 var sc=isPicked&&isCorrectOpt?"scale(1.04)":isPicked&&!isCorrectOpt?"scale(0.96)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
                 return(
                   <button key={word.id} onClick={function(){pick(word);}}
@@ -3962,8 +3992,8 @@ function TapScreen(props){
 
       {/* ── Win overlay (bottom sheet) ── */}
       {won&&(
-        <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.7)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={start}>
-          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
+        <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.7)",zIndex:200,display:"flex",alignItems:"flex-end"}}>
+          <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
               <div style={{width:72,height:72,borderRadius:"50%",background:isRecord?"linear-gradient(135deg,#C2510E,#F97316)":correct===ROUNDS?"linear-gradient(135deg,#059669,#22C55E)":"linear-gradient(135deg,#475569,#94A3B8)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:isRecord?"0 8px 24px rgba(249,115,22,0.35)":correct===ROUNDS?"0 8px 24px rgba(34,197,94,0.3)":"none"}}>
