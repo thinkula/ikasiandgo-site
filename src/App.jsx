@@ -5078,7 +5078,7 @@ function OrduegiScreen(props){
     ]},
     {key:"jatetxean",name:"Jatetxean",emoji:"🍽️",desc:"At the restaurant",color:"#B45309",dark:"#78350F",bg:"#FFFBEB",stages:[
       {instruction:"Book a table for 2. Say two",keyword:"bi",hint:"Bi: two, and also both. Bietan means in both"},
-      {instruction:"The menú del día costs 12 euros. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve, hamar (10) + bi (2). Every teen is built that way"},
+      {instruction:"The menu of the day costs 12 euros. Say twelve",keyword:"hamabi",hint:"Hamabi: twelve, hamar (10) + bi (2). Every teen is built that way"},
       {instruction:"You want to leave a tip. Ask for the percentage",keyword:"ehunekoa",hint:"Ehunekoa: percentage, from ehun (100) + -eko (of). Literally of-a-hundred"},
       {instruction:"You split the bill in half. Say half",keyword:"erdia",hint:"Erdia: half. Ordu erdia is half an hour, and erdiak is half past"},
       {instruction:"The waiter says it's quarter to the hour. How do you say that?",keyword:"laurden_gutxi",hint:"Laurden gutxi: quarter to, laurdena (quarter) + gutxi (less)"},
@@ -5113,7 +5113,7 @@ function OrduegiScreen(props){
     ]},
     {key:"telefonoz",name:"Telefonoz",emoji:"📱",desc:"On the phone",color:"#0891B2",dark:"#155E75",bg:"#ECFEFF",stages:[
       {instruction:"Your phone number starts with 6. Say six",keyword:"sei",hint:"Sei: six, and it sounds like the English say"},
-      {instruction:"The area code is 9 digits. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine, the longest of the single digits"},
+      {instruction:"The phone number has 9 digits. Say nine",keyword:"bederatzi",hint:"Bederatzi: nine, the longest of the single digits"},
       {instruction:"You wait on hold for 8 minutes. Say eight",keyword:"zortzi",hint:"Zortzi: eight. It turns up whole inside hamazortzi, ten-eight, eighteen"},
       {instruction:"Press option 1 for Basque. Say one",keyword:"bat",hint:"Bat: one, and also the word for a. Etxe bat is a house"},
       {instruction:"They call back in 20 minutes. Say twenty",keyword:"hogei",hint:"Hogei: twenty, the base Basque counts on. The even tens are multiples of it: berrogei 40, hirurogei 60, laurogei 80"},
@@ -5250,6 +5250,13 @@ function OrduegiScreen(props){
   // move with a setTimeout, and closing the scenario or starting another one
   // has to cancel those along with the countdown: see leaveScenario.
   var runRef=React.useRef(0);
+  // Whether the step on screen has been helped: the hint opened, a wrong
+  // card picked, or the time run out. Each of those shows the answer, so the
+  // step then earns no point and does not count toward a streak.
+  var helpedRef=React.useRef(false);
+  // Counts countdowns started, so the bar's animation restarts with each.
+  var _tk=useState(0);var timerKey=_tk[0];var setTimerKey=_tk[1];
+  var reduceMotion=useMemo(function(){try{return !!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);}catch(e){return false;}},[]);
   var MAX_SECS=8;
   var LIVES=3;
 
@@ -5385,7 +5392,7 @@ function OrduegiScreen(props){
   function startTimer(){
     clearInterval(timerRef.current);
     secsRef.current=MAX_SECS;
-    setTimerSecs(MAX_SECS);
+    setTimerSecs(MAX_SECS);setTimerKey(function(k){return k+1;});
     // The countdown runs off a ref. It used to call handleTimeout from inside
     // the setTimerSecs updater, which is not somewhere a state updater may
     // reach: React is free to run one twice.
@@ -5408,6 +5415,7 @@ function OrduegiScreen(props){
   // before the fix: three consecutive timeouts, still one life, still step 1.
   function handleTimeout(){
     haptic("error");sfx("wrong");
+    helpedRef.current=true;
     setStreak(0);setFlash('wrong');
     setTimeout(function(){setFlash(null);},500);
     var livesLeft=livesRef.current-1;
@@ -5440,6 +5448,8 @@ function OrduegiScreen(props){
   // buzz every eight seconds, a life gone each time, then the out-of-lives
   // sound, for a run nobody was playing.
   function leaveScenario(){
+    // The record is kept on the way out here too, not only on a finish.
+    saveBest();
     clearInterval(timerRef.current);
     runRef.current=runRef.current+1;
     setScenario(null);setDone(false);
@@ -5447,7 +5457,7 @@ function OrduegiScreen(props){
 
   function startScenario(idx){
     var s=SCENARIOS[idx];
-    scoreRef.current=0;
+    scoreRef.current=0;helpedRef.current=false;
     clearInterval(timerRef.current);
     runRef.current=runRef.current+1;
     setScenario(s);setScenIdx(idx);setStage(0);setSel(null);setDone(false);
@@ -5466,7 +5476,8 @@ function OrduegiScreen(props){
     setSel(word.id);
     if(isCorrect){
       haptic("light");sfx("correct");
-      var ns=streak+1;var pts=ns>=3?2:1;
+      var helped=helpedRef.current;
+      var ns=helped?0:streak+1;var pts=helped?0:(ns>=3?2:1);
       scoreRef.current=scoreRef.current+pts;
       setStreak(ns);setScore(scoreRef.current);setFlash('correct');
       setTimeout(function(){
@@ -5486,6 +5497,7 @@ function OrduegiScreen(props){
           setDone(true);
         }else if(live){
           setFlash(null);
+          helpedRef.current=false;
           setStage(next);setSel(null);setShowHint(false);
           setOpts(buildOptions(scenario,next));
           startTimer();
@@ -5493,6 +5505,7 @@ function OrduegiScreen(props){
       },750);
     }else{
       haptic("error");sfx("wrong");
+      helpedRef.current=true;
       setStreak(0);setFlash('wrong');
       setTimeout(function(){setFlash(null);},500);
       var livesLeft=livesRef.current-1;
@@ -5552,7 +5565,7 @@ function OrduegiScreen(props){
             </div>
           </div>
         )}
-        <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.55)",fontWeight:500}}>5 steps per scenario · {LIVES} lives · {MAX_SECS} seconds a step</p>
+        <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.7)",fontWeight:500}}>5 steps per scenario · {LIVES} lives · {MAX_SECS} seconds a step. A point for each step done without a hint, a miss or a timeout.</p>
       </div>
 
       <div style={{padding:"14px"}}>
@@ -5633,8 +5646,16 @@ function OrduegiScreen(props){
       </div>
 
       {/* Timer bar */}
+      {/* One animation from full to empty over the whole step, restarted by
+          the key each time the countdown starts and stopped when an answer
+          is in. It used to step once a second with a one-second ease, which
+          kept it a second behind, so an eighth of the bar was still showing
+          when the time ran out. */}
+      <style>{"@keyframes ordDrain{from{width:100%}to{width:0%}}"}</style>
       <div style={{height:5,backgroundColor:"rgba(0,0,0,0.08)"}}>
-        <div style={{height:"100%",backgroundColor:timerColor,width:timerPct+"%",transition:"width 1s linear, background-color 0.3s",borderRadius:"0 3px 3px 0",boxShadow:timerSecs<=3?"0 0 8px "+timerColor+"88":"none"}}/>
+        {reduceMotion
+          ?<div style={{height:"100%",backgroundColor:timerColor,width:timerPct+"%",borderRadius:"0 3px 3px 0"}}/>
+          :<div key={"bar-"+timerKey} style={{height:"100%",backgroundColor:timerColor,width:"100%",animation:"ordDrain "+MAX_SECS+"s linear forwards",animationPlayState:(sel||done)?"paused":"running",transition:"background-color 0.3s",borderRadius:"0 3px 3px 0",boxShadow:timerSecs<=3?"0 0 8px "+timerColor+"88":"none"}}/>}
       </div>
 
       <div style={{padding:"12px 14px",display:"flex",flexDirection:"column",gap:10}}>
@@ -5677,7 +5698,7 @@ function OrduegiScreen(props){
               <p style={{margin:0,fontSize:12,color:DARK,fontWeight:700}}>💡 {currentStage&&currentStage.hint}</p>
             </div>
           ):(
-            <button onClick={function(){setShowHint(true);}} style={{background:"none",border:"1.5px solid #E8E8E8",borderRadius:20,padding:"4px 14px",fontSize:11,fontWeight:700,color:"#AAA",cursor:"pointer",fontFamily:"inherit"}}>💡 Hint</button>
+            <button onClick={function(){helpedRef.current=true;setShowHint(true);}} style={{background:"none",border:"1.5px solid #E8E8E8",borderRadius:20,padding:"4px 14px",fontSize:11,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>💡 Hint · no point for this one</button>
           )}
         </div>
 
@@ -5691,6 +5712,7 @@ function OrduegiScreen(props){
         {/* Number options */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
           {opts.map(function(word,wi){
+            var anyLong=opts.some(function(o){return o.basque.length>12;});
             var isCorrectOpt=correctWord&&word.id===correctWord.id;
             var isPicked=sel===word.id;
             var showResult=sel!==null||timerSecs===0;
@@ -5700,11 +5722,11 @@ function OrduegiScreen(props){
             var subC=showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93";
             var numC=showResult?(isCorrectOpt?COLOR:isPicked?"#EF4444":"#D1D1D6"):COLOR;
             var sc=isPicked&&isCorrectOpt?"scale(1.05)":isPicked?"scale(0.94)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
-            // The big slot used to fall back to word.english, which printed the
-            // answer in English at 28px. A numeral is a referent and belongs
-            // there; a translation does not. Words with no numeral simply do
-            // without, and because every option in a question comes from one
-            // set, all four cards are alike either way.
+            // The numeral is held back until the answer is in, like the English.
+            // The prompt says "7am" and the card used to say "7" above Zazpi, so
+            // 53 of the 60 number steps could be done by matching digits without
+            // reading a word of Basque. Now the card shows the Basque alone, and
+            // the digit arrives with the result as confirmation.
             var numeral=NUMERAL[word.id]||"";
             return(
               <button key={word.id} onClick={function(){pick(word);}}
@@ -5712,12 +5734,10 @@ function OrduegiScreen(props){
                 {showResult&&isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#19A85A"}}/>}
                 {showResult&&isPicked&&!isCorrectOpt&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,backgroundColor:"#EF4444"}}/>}
                 {/* Big numeral, on the scenarios that have one */}
-                {numeral?<p style={{margin:0,fontSize:numeral.length>4?18:numeral.length>2?24:28,fontWeight:900,color:numC,lineHeight:1,letterSpacing:-1}}>{numeral}</p>:null}
+                {numeral&&showResult?<p style={{margin:0,fontSize:numeral.length>4?16:numeral.length>2?20:24,fontWeight:900,color:numC,lineHeight:1,letterSpacing:-1}}>{numeral}</p>:null}
                 {/* Basque word */}
-                <p style={{margin:"6px 0 0",fontSize:word.basque.length>12?11:13,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2}}>{word.basque}</p>
-                {/* Held until the answer is in, as in the kitchen and Arbola. The
-                    numeral above stays, because a digit is the thing itself and
-                    not an English word for it. */}
+                <p style={{margin:"6px 0 0",fontSize:anyLong?13:16,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2}}>{word.basque}</p>
+                {/* Held until the answer is in, as in the kitchen and Arbola. */}
                 <p style={{margin:"2px 0 0",fontSize:9,color:subC,fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 {isCorrectOpt&&showResult&&sel&&<p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:"#19A85A"}}>✓</p>}
                 {isPicked&&!isCorrectOpt&&showResult&&<p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:"#EF4444"}}>✗</p>}
