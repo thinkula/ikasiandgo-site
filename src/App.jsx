@@ -7171,8 +7171,8 @@ var LESSONS=[
     titleEu:"Zer ordu da?",
     emoji:"\u23F0",
     blurb:"The clock and bigger numbers.",
-    intro:"Once you can count, telling time is the next step. These words cover the clock and the larger numbers you need for it. Basque builds the hour out of the number, so ordu bata da is it is one o'clock.",
-    grammar:{title:"Hours and quarters",body:"To tell time, Basque names the hour: ordu bata da (it is one o'clock), ordu biak (two o'clock). For the quarters you add a phrase: eta laurdena is quarter past, laurden gutxi quarter to. Hamaika is worth a second look while you are here, because it also means countless, so hamaika aldiz is not eleven times but more times than you could count."},
+    intro:"The clock, and the bigger numbers it needs: eleven, twelve, fifteen and twenty, then a hundred and a thousand. The Basque title of this lesson is the question itself: zer ordu da, what time is it.",
+    grammar:{title:"Hours and quarters",body:"Ordu bata da is it is one o'clock. From two on the hour is plural, and so is the verb: ordu biak dira is it is two o'clock. Quarter past adds eta laurdenak: ordu bata eta laurdenak dira. Quarter to adds laurden gutxi: hirurak laurden gutxi dira is it is quarter to three. Hamaika, eleven, also means countless: hamaika aldiz is countless times."},
     wordIds:["hamaika","hamabi","hamabost","hogei","ehun","mila","minutua","ordu_bat","ordu_biak","eta_laurdena","laurden_gutxi"],
   },
   {
