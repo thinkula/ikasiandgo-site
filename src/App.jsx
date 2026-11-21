@@ -7440,8 +7440,8 @@ var LESSONS=[
     titleEu:"Gaixorik",
     emoji:"🩺",
     blurb:"Doctors, hospitals, coughs and headaches.",
-    intro:"Nobody wants this vocabulary until they need it urgently. These ten words let you explain what is wrong and find someone to help.",
-    grammar:{title:"Ko, the ending that means of",body:"Buruko mina is a headache, literally head-of pain: buru, the head with its article taken off, plus -ko. The suffix marks what something belongs to or comes from, so sabeleko mina is stomach pain by the same rule. Point at the part and add -ko mina."},
+    intro:"Health, the doctor, the hospital and the health center. Pain, a headache, a cough and a cold. And two words for being ill.",
+    grammar:{title:"What the doctor asks, and what you answer",body:"Non mina duzu? asks where it hurts, and you answer with the pattern you know: buruko mina, a headache, or sabeleko mina, stomach pain. Sendagilea, doctor, is from sendatu, to heal: the one who heals. Hotzeria, a cold, is hotz, cold, plus eri, sick. Gaixorik nago is I am sick, but gaixoa! on its own means poor thing. Osasuna, health, is also the toast."},
     wordIds:["osasuna","sendagilea","ospitalea","osasun_zentroa","mina_a2","gaixotasuna","eztula","buruko_mina","hotzeria","gaixoa"],
   },
   {
