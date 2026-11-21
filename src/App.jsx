@@ -7837,7 +7837,7 @@ var LESSONS=[
     emoji:"\uD83E\uDEC1",
     blurb:"Organs, muscles, and the words for when something is wrong.",
     intro:"The first body lessons covered what you can point at. This one goes under the skin, and adds the words you would need at a doctor's.",
-    grammar:{title:"Fire, flame and fever",body:"Sukarra, fever, is su (fire) plus gar (flame), which describes it well. Sendagaia, medicine, comes from sendatu, to heal, and the same root gives sendagilea, the healer, meaning a doctor. Some of these are always plural because the thing comes in pairs or in masses, so giltzurrunak is kidneys and tripak is guts. Gibela is the liver, and in the eastern dialects the same word means the back of something."},
+    grammar:{title:"Fire, flame and fever",body:"Sukarra, fever, is su, fire, plus gar, flame. Sendagaia, medicine, is from sendatu, to heal, like sendagilea, the doctor. Giltzurrunak, kidneys, and tripak, guts, are usually said in the plural. The hurts pattern still works: tripako mina dut is I have a stomach ache, and giltzadurako mina dut is I have joint pain. Gibela is the liver, and in eastern dialects gibel also means the back of something."},
     wordIds:["maskuria","gibela","birika","giltzurrunak","tripak","giltzadura","zauria","sukarra","sendagaia","muskulu","tendoia","azkura"],
   },
   {
