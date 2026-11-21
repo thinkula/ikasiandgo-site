@@ -7429,7 +7429,7 @@ var LESSONS=[
     emoji:"🦴",
     blurb:"The parts of the body you did not learn first.",
     intro:"You already know the head, hand and eye. These are the rest: the joints, the skin, the blood and the bone underneath.",
-    grammar:{title:"Bodies are built from other words",body:"Eskumuturra is the wrist, and it is esku (hand) plus mutur (end): the end of the hand. Basque names many body parts by where they sit rather than with a word of their own, so a long one is often two short ones you already know."},
+    grammar:{title:"Words inside the body words",body:"Eskumuturra, wrist, is esku, hand, plus mutur, tip: the tip of the hand. The hurts pattern has a plural: ukondoko mina dut is my elbow hurts, and belaunetako mina dut is my knees hurt. Belaun, knee, is also inside belaunaldi, generation. Odolkia, blood sausage, is odol, blood, plus the -ki of txerrikia. Azala is skin, and also a peel or the cover of a book."},
     wordIds:["sorbalda","belaunak","hatzak","ukondoa","eskumuturra","bularraldea","azala","odola","hezurra","arnasa"],
   },
   {
