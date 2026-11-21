@@ -6237,12 +6237,12 @@ function ArbolaScreen(props){
       {instruction:"Everyone born around the same time, one layer of the family",keyword:"belaunaldia",hint:"Belaunaldia: generation, from belaun, which is both knee and generation"},
       {instruction:"The years before you grew up",keyword:"haurtzaroa",hint:"Haurtzaroa: childhood, from haur (child)"},
       {instruction:"What gets passed down when someone dies",keyword:"heredentzia",hint:"Herentzia: inheritance. The native legal word is jaraunspena"},
-      {instruction:"All of it drawn out on one page, the family tree",keyword:"arbola",hint:"Arbola: tree. Familiaren arbola is the family tree"},
+      {instruction:"All of it drawn out on one page, in the shape of a tree",keyword:"arbola",hint:"Arbola: tree, a Romance loan beside the native zuhaitza. A family tree is usually zuhaitz genealogikoa"},
     ]},
     // Four families added in 1.8, one per level, built from the 23 family
     // words that no portrait asked for. Hints restate the word cards.
     {key:"arrieta",name:"Arrieta",emoji:"📸",desc:"A family photo, and who is in it",color:"#0891B2",dark:"#155E75",bg:"#ECFEFF",members:[
-      {instruction:"Everyone in the photo together, the whole family",keyword:"familia",hint:"Familia comes from Latin. The older Basque word for it was etxea, the house"},
+      {instruction:"Everyone in the photo together, the whole family",keyword:"familia",hint:"Familia: family. The word comes from Latin. Sendia is another Basque word for it"},
       {instruction:"A woman pointing at her brother in the photo",keyword:"neba",hint:"Neba: brother, as a woman says it. A man says anaia"},
       {instruction:"The boy at the front, grinning",keyword:"mutila",hint:"Mutila: boy. Mutil zaharra, literally old boy, means a bachelor"},
       {instruction:"The girl standing next to him",keyword:"neska",hint:"Neska: girl. Neska-mutilak means boys and girls"},
@@ -6251,7 +6251,7 @@ function ArbolaScreen(props){
     ]},
     {key:"uriarte",name:"Uriarte",emoji:"🏘️",desc:"The street they live on, and the people on it",color:"#CA8A04",dark:"#854D0E",bg:"#FEFCE8",members:[
       {instruction:"The woman next door, who has known the family for years",keyword:"bizilaguna",hint:"Bizilaguna: neighbor, from bizi (to live) + laguna (friend)"},
-      {instruction:"The oldest man on the street, not related to anyone here",keyword:"adinekoa",hint:"Adinekoa: elderly person, the respectful word, gentler than zaharra (old)"},
+      {instruction:"The oldest person on the street, well into his eighties and no relation to anyone here",keyword:"adinekoa",hint:"Adinekoa: elderly person, the respectful word, gentler than zaharra (old)"},
       {instruction:"A man waves from the bakery door",keyword:"gizona",hint:"Gizona: man. Gizarte, society, is built on the same root"},
       {instruction:"A woman waves back from her balcony",keyword:"emakumea",hint:"Emakumea: woman. Andrea, lady, is a respectful alternative"},
       {instruction:"All of their sister's children at once, nieces and nephews",keyword:"lobak",hint:"Lobak: nieces and nephews. One word covers both"},
@@ -6299,11 +6299,11 @@ function ArbolaScreen(props){
     "iloba":["haurra","alaba","semea"],
     "gurasoak":["familia","bikotea","senitartea"],
     "bikotea":["bikotekidea","ezkontidea","gurasoak"],
-    "bikotekidea":["bikotea","senarra","emaztea"],
+    "bikotekidea":["ezkontidea","senarra","emaztea"],
     "emaztea":["senarra","izeba","ama"],
     "senarra":["emaztea","osaba","aita"],
     "ezkontza":["ezkontidea","bikotea","dibortzioa"],
-    "guraso_bakarra":["gurasoak","ama","aita"],
+    "guraso_bakarra":["gurasoak","ama","seme_alaba_adoptatu"],
     "senitartea":["familia","gurasoak","ahaidetasuna"],
     "dibortziatua":["ezkongabea","alargun","ezkontza"],
     "ezkongabea":["dibortziatua","alargun","ezkontidea"],
@@ -6314,7 +6314,11 @@ function ArbolaScreen(props){
     "arbola":["belaunaldia","arbasoak","familia"],
     // 1.8. Each list leaves out any word that would also be a fair answer:
     // haurra beside umea, iloba beside lobak, senitartea beside familia
-    // zabala, senarra and emaztea beside suhia and erraina.
+    // zabala, senarra and emaztea beside suhia and erraina, bizilaguna and
+    // gizona beside adinekoa (the oldest man on the street is a neighbor and
+    // a man), and bikotea beside bikotekidea, since its own card reads
+    // "Couple / Partner". The four answers of two words each sit beside at
+    // least one other of two words, so the shape of the card is not the clue.
     "familia":["gurasoak","laguna","pertsona"],
     "neba":["anaia","ahizpa","semea"],
     "mutila":["neska","gizona","aitona"],
@@ -6322,7 +6326,7 @@ function ArbolaScreen(props){
     "umea":["gizona","emakumea","laguna"],
     "pertsona":["laguna","osaba","izeba"],
     "bizilaguna":["laguna","lehengusina","adinekoa"],
-    "adinekoa":["aitona","bizilaguna","osaba"],
+    "adinekoa":["aitona","mutila","osaba"],
     "gizona":["emakumea","mutila","aita"],
     "emakumea":["gizona","neska","ama"],
     "lobak":["lehengusua","gurasoak","senitartea"],
@@ -6331,13 +6335,13 @@ function ArbolaScreen(props){
     "adopzioa":["ezkontza","dibortzioa","seme_alaba_adoptatu"],
     "alargun":["dibortziatua","ezkongabea","guraso_bakarra"],
     "dibortzioa":["ezkontza","adopzioa","dibortziatua"],
-    "familia_zabala":["bikotea","belaunaldia","lobak"],
+    "familia_zabala":["guraso_bakarra","belaunaldia","lobak"],
     "suhia":["erraina","ondorengoa","lehengusua"],
     "erraina":["suhia","izeba","lehengusina"],
-    "etxea_ondarea":["heredentzia","arbasoak","ahaidetasuna"],
+    "etxea_ondarea":["heredentzia","senide_hurbilak","ahaidetasuna"],
     "ondorengoa":["arbasoak","belaunaldia","heredentzia"],
     "ahaidetasuna":["senide_hurbilak","belaunaldia","arbola"],
-    "senide_hurbilak":["ahaidetasuna","arbasoak","ondorengoa"],
+    "senide_hurbilak":["ahaidetasuna","familia_zabala","etxea_ondarea"],
   };
 
   var _family=useState(null);var family=_family[0];var setFamily=_family[1];
@@ -6358,6 +6362,14 @@ function ArbolaScreen(props){
   // Which level the menu shows; "all" lists every family grouped by level.
   var _alvl=useState("all");var lvlFilter=_alvl[0];var setLvlFilter=_alvl[1];
   var scoreRef=React.useRef(0);
+  // Whether the question on screen has been helped: the hint opened, or a
+  // wrong card picked, which lights up the right one. Either way the answer
+  // has been shown, so it earns no point and does not count toward a streak.
+  // Both used to be free, which left the score measuring very little.
+  var helpedRef=React.useRef(false);
+  // Which run the timers below belong to. Leaving a family or starting one
+  // moves it on, and a timer from the run before does nothing.
+  var runRef=React.useRef(0);
   // A family is as hard as the hardest word it asks for, the rule Kitchen and
   // Ordutegi use, so the badge is read off the words and cannot drift.
   var FAM_LEVELS=["A1","A2","B1","B2"];
@@ -6429,7 +6441,7 @@ function ArbolaScreen(props){
 
   function startFamily(idx){
     var f=FAMILIES[idx];
-    scoreRef.current=0;
+    scoreRef.current=0;helpedRef.current=false;runRef.current=runRef.current+1;
     setFamily(f);setFamIdx(idx);setStep(0);setSel(null);setDone(false);
     setShowHint(false);setScore(0);setLives(LIVES);setStreak(0);setFlash(null);
     setPortrait([]);
@@ -6462,41 +6474,54 @@ function ArbolaScreen(props){
     setSel(word.id);
     if(isCorrect){
       haptic("light");sfx("correct");
-      var ns=streak+1;var pts=ns>=3?2:1;
+      var helped=helpedRef.current;
+      var ns=helped?0:streak+1;var pts=helped?0:(ns>=3?2:1);
       scoreRef.current=scoreRef.current+pts;
       setStreak(ns);setScore(scoreRef.current);setFlash('correct');
       // Add member to portrait
       setPortrait(function(prev){return prev.concat([family.members[step]]);});
+      var run=runRef.current;
+      var next=step+1;
+      var last=next>=family.members.length;
+      if(last){
+        // Written now, not in the timer, so leaving in the 0.7s before the
+        // sheet opens still counts the portrait.
+        var doneNow=completed.indexOf(family.key)===-1?completed.concat([family.key]):completed;
+        setCompleted(doneNow);
+        try{STORE.set('arbola_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
+        saveBest();
+      }
       setTimeout(function(){
+        // Leaving and opening another family inside the 0.7s used to let
+        // this move the new family on a step, with the old one's cards.
+        if(runRef.current!==run)return;
         setFlash(null);
-        var next=step+1;
-        if(next>=family.members.length){
+        if(last){
           haptic("success");sfx("complete");
-          var doneNow=completed.indexOf(family.key)===-1?completed.concat([family.key]):completed;
-          setCompleted(doneNow);
-          try{STORE.set('arbola_done',JSON.stringify(doneNow)).catch(function(){});}catch(e){}
-          saveBest();
           setDone(true);
         }else{
+          helpedRef.current=false;
           setStep(next);setSel(null);setShowHint(false);
           setOpts(buildOptions(family,next));
         }
       },700);
     }else{
       haptic("error");sfx("wrong");
+      helpedRef.current=true;
+      var run2=runRef.current;
       setStreak(0);setFlash('wrong');
-      setTimeout(function(){setFlash(null);},500);
+      setTimeout(function(){if(runRef.current===run2)setFlash(null);},500);
       var livesLeft=lives-1;
       setLives(livesLeft);
       if(livesLeft<=0){
         sfx("fail");saveBest();
-        setTimeout(function(){setDone(true);},700);
+        setTimeout(function(){if(runRef.current===run2)setDone(true);},700);
       }else{
         // Clear the marking and open the hint so the question can be retried.
         // Only when there is a life left to retry it with: on the last life
         // this used to fire behind the results sheet and re-arm a question the
         // player could no longer answer.
-        setTimeout(function(){setSel(null);setShowHint(true);},900);
+        setTimeout(function(){if(runRef.current===run2){setSel(null);setShowHint(true);}},900);
       }
     }
   }
@@ -6508,7 +6533,7 @@ function ArbolaScreen(props){
   var BG=family?family.bg:"#F0FDFA";
   // Point "Next" at the nearest family still unbuilt, wrapping past the end,
   // so finishing the fifth portrait offers the sixth rather than one already
-  // marked Complete. Falls back to the plain next one once all six are done.
+  // marked Complete. Falls back to the plain next one once all ten are done.
   // It looks at the same level first, so a player working through the B1
   // families is not sent back to an A1 one.
   var nextIdx=(famIdx+1)%FAMILIES.length;
@@ -6551,7 +6576,7 @@ function ArbolaScreen(props){
             </div>
           </div>
         )}
-        <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.55)",fontWeight:500}}>5 or 6 members per family · {LIVES} lives · place each member correctly</p>
+        <p style={{margin:"8px 0 0",fontSize:12,color:"rgba(255,255,255,0.7)",fontWeight:500}}>5 or 6 members per family · {LIVES} lives · a point for each one placed without a hint or a miss</p>
       </div>
 
       <div style={{padding:"14px"}}>
@@ -6629,7 +6654,7 @@ function ArbolaScreen(props){
       <div data-hdr="1" style={{background:"linear-gradient(160deg,"+DARK+","+COLOR+")",paddingTop:56,marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingLeft:"calc(var(--bleed-ofs) + 14px)",paddingRight:"calc(var(--bleed-ofs) + 14px)",paddingBottom:14,position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,opacity:0.04,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"18px 18px",pointerEvents:"none"}}/>
         <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,position:"relative"}}>
-          <button aria-label="Close" onClick={function(){setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
+          <button aria-label="Close" onClick={function(){saveBest();runRef.current=runRef.current+1;setFamily(null);}} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✕</button>
           <div style={{flex:1}}>
             <p style={{margin:0,fontSize:15,fontWeight:900,color:"#fff",letterSpacing:-0.3}}>{family.emoji} Familia {family.name}</p>
             <p style={{margin:0,fontSize:10,color:"rgba(255,255,255,0.6)",fontStyle:"italic"}}>{family.desc}</p>
@@ -6699,7 +6724,7 @@ function ArbolaScreen(props){
                 </div>
                 <div style={{display:"flex",gap:8,marginBottom:lives>0?10:0}}>
                   <button onClick={function(){startFamily(famIdx);}} style={{flex:1,padding:"14px",borderRadius:16,border:"2px solid #E8E8E8",backgroundColor:"#fff",color:"#555",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Play again</button>
-                  <button onClick={function(){setFamily(null);setDone(false);}} style={{flex:1,padding:"14px",borderRadius:16,border:"none",backgroundColor:COLOR,color:"#fff",fontSize:14,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 "+DARK}}>Menu</button>
+                  <button onClick={function(){runRef.current=runRef.current+1;setFamily(null);setDone(false);}} style={{flex:1,padding:"14px",borderRadius:16,border:"none",backgroundColor:COLOR,color:"#fff",fontSize:14,fontWeight:900,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 4px 0 "+DARK}}>Menu</button>
                 </div>
                 {lives>0&&<button onClick={function(){startFamily(nextIdx);}} style={{width:"100%",padding:"13px",borderRadius:16,border:"1.5px solid "+nextFam.color,backgroundColor:nextFam.bg,color:nextFam.color,fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>
                   Next: {nextFam.emoji} {nextFam.name} →
@@ -6718,7 +6743,7 @@ function ArbolaScreen(props){
               <p style={{margin:0,fontSize:12,color:DARK,fontWeight:700}}>💡 {currentMember&&currentMember.hint}</p>
             </div>
           ):(
-            <button onClick={function(){setShowHint(true);}} style={{display:"block",margin:"0 auto",background:"none",border:"1.5px solid #E8E8E8",borderRadius:20,padding:"4px 14px",fontSize:11,fontWeight:700,color:"#AAA",cursor:"pointer",fontFamily:"inherit"}}>💡 Hint</button>
+            <button onClick={function(){helpedRef.current=true;setShowHint(true);}} style={{display:"block",margin:"0 auto",background:"none",border:"1.5px solid #E8E8E8",borderRadius:20,padding:"4px 14px",fontSize:11,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>💡 Hint · no point for this one</button>
           )}
         </div>
 
@@ -6732,6 +6757,9 @@ function ArbolaScreen(props){
         {/* Family word options — with emoji */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
           {opts.map(function(word,wi){
+            // One type size for all four cards. It used to be set per card, so
+            // a long answer among short words was the one in smaller type.
+            var anyLong=opts.some(function(o){return o.basque.length>12;});
             var isCorrectOpt=correctWord&&word.id===correctWord.id;
             var isPicked=sel===word.id;
             var showResult=sel!==null;
@@ -6756,7 +6784,7 @@ function ArbolaScreen(props){
                     stands for a single parent and a teddy bear for childhood. Those
                     teach nothing on their own, and the hint is what carries them. */}
                 <span style={{fontSize:30,lineHeight:1}}>{wordEmoji}</span>
-                <p style={{margin:"6px 0 0",fontSize:word.basque.length>12?12:15,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2}}>{word.basque}</p>
+                <p style={{margin:"6px 0 0",fontSize:anyLong?13:15,fontWeight:900,color:txtC,lineHeight:1.2,letterSpacing:-0.2}}>{word.basque}</p>
                 <p style={{margin:"2px 0 0",fontSize:10,color:subC,fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 {isCorrectOpt&&showResult&&word.pronunciation&&<p style={{margin:"2px 0 0",fontSize:9,fontWeight:700,color:"#19A85A",fontStyle:"italic"}}>{word.pronunciation}</p>}
                 {isPicked&&!isCorrectOpt&&showResult&&<span style={{fontSize:14,marginTop:2}}>✗</span>}
