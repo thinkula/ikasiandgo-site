@@ -7060,8 +7060,8 @@ var LESSONS=[
     titleEu:"Gorputza",
     emoji:"\uD83D\uDC4B",
     blurb:"Name the parts of the body.",
-    intro:"Knowing body parts helps at the doctor, at the gym, or when describing how you feel. Like most Basque nouns, these end in -a, so begia is the eye and eskua is the hand. Notice how many are short and easy to say.",
-    grammar:{title:"The -a ending again",body:"You have seen that -a carries the article on a Basque noun. Body parts follow the same rule: buru is the bare root, head, and burua is the head. The form on each word card already includes this -a. Hanka is the exception here: its -a belongs to the word itself, so hanka is both leg and the leg."},
+    intro:"Ten parts of the body, from the head to the foot. Each is shown with its -a, so begia is the eye and eskua is the hand. Hanka is the leg, and loosely the foot as well. Oina is the foot itself.",
+    grammar:{title:"Saying where it hurts",body:"Six of the examples in this lesson share one pattern: buruko mina dut, my head hurts. It is buru, head, plus -ko, of, then mina, pain, and dut, I have. Change the body part and it still works: begiko mina dut, oineko mina dut. Hanka is the one word here whose -a belongs to the word itself, so hanka is both leg and the leg."},
     wordIds:["burua","begia","ahoa","sudurra","belarria","eskua","besoa","hanka","oina","bihotza"],
   },
   {
