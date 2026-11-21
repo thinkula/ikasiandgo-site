@@ -6939,8 +6939,8 @@ var LESSONS=[
     titleEu:"Norbait ezagutzen",
     emoji:"\uD83E\uDD17",
     blurb:"The first questions, their answers, and the rest of the day's greetings.",
-    intro:"Three questions cover most first conversations, and the answers are patterns you can reuse all day. This lesson also finishes the greetings: the first one gave you the morning and the night, and here are the afternoon and the word most people use after dark.",
-    grammar:{title:"Having your years",body:"Zenbat urte dituzu is literally how many years do you have, because in Basque you have an age rather than being it. The answer follows the same shape. Nongoa zara is literally where are you of, and you answer by putting -koa on the place name, so Bilbokoa naiz is I am from Bilbao. Gero arte and bihar arte are built the same way, a time word plus arte, until. Through the day the greetings run egun on, arratsalde on, gabon. Gabon is gau on run together into one word, and it is the one most speakers use."},
+    intro:"Here are three questions for a first conversation: where you are from, how old you are, and whether you speak English. This lesson also finishes the day's greetings. The first lesson gave you the morning and the evening, and here are the afternoon and the word most people use after dark.",
+    grammar:{title:"How the answers are built",body:"Zenbat urte dituzu is literally how many years do you have, because Basque uses have, not be, for age. The answer keeps that shape: hogei urte ditut is I am twenty. Nongoa zara asks where you are from, and you answer by putting -koa on the place name: Bilbokoa naiz is I am from Bilbao. Gero arte and bihar arte are a time word plus arte, until: until later, until tomorrow. Through the day the greetings run egun on, arratsalde on, gabon."},
     wordIds:["pozten_nau","nongoa","zenbat_urte","ingelesez","pixka_bat","berriz","badakit","aspaldiko","gero_arte","bihar_arte","arratsalde_on","gabon"],
   },
   {
