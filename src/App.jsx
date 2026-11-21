@@ -7093,8 +7093,8 @@ var LESSONS=[
     titleEu:"Nolakoa da?",
     emoji:"\uD83D\uDD0D",
     blurb:"Big, small, good, bad, and more.",
-    intro:"Adjectives are what turn a list of nouns into a description. With words like handia (big), txikia (small), ona (good), and txarra (bad), you can describe almost anything around you. These are words you will use constantly.",
-    grammar:{title:"Adjectives come after",body:"The adjective follows the noun exactly as the color did: a big house is etxe handia, a good book liburu ona. Gehiago shows how to compare. It is gehi plus -ago, the comparative ending, and that -ago goes on most adjectives here: handiago is bigger, txikiago smaller. Ona is the exception: better is hobea."},
+    intro:"Describing words, mostly in pairs: handia and txikia, big and small. Ona and txarra, good and bad. Zaharra is old, berria is new and gaztea is young. Ederra is beautiful. Two more come along: gehiago, more, and zuzen, straight ahead.",
+    grammar:{title:"Adjectives come after",body:"The describing word follows the noun, as the color did: etxe handia is the big house. To compare, add -ago: handiago is bigger. Gehiago, more, is built the same way, from gehi plus -ago. Ona is the exception: better is hobea, and best is onena. Berria also means news, so zer berri? asks what is new."},
     wordIds:["handia","txikia","ona","txarra","zaharra","berria","ederra","gaztea","gehiago","zuzen"],
   },
   {
