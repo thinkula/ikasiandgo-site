@@ -7896,8 +7896,8 @@ var LESSONS=[
     titleEu:"Hizkuntza eta herria",
     emoji:"\uD83D\uDDE3\uFE0F",
     blurb:"Language policy, normalization, and the words for people in general.",
-    intro:"Basque is a language that has had to be argued for, and it has a precise vocabulary for that argument. These are words you will meet in any discussion of where Euskara stands.",
-    grammar:{title:"Giza, the human prefix",body:"Giza is the combining form meaning human. Gizakia is a human being and gizadia is humanity, the whole of it. Normalizazioa names a specific project rather than a vague aspiration: making Basque an ordinary choice again in shops, offices and schools after generations when it was not. Hizkuntza politika is the policy that decides how far that goes, and biztanlea, an inhabitant, comes from bizi, to live."},
+    intro:"Words for a language and the people who speak it: language policy, normalization and a social movement, the human being and humanity, an inhabitant, and war.",
+    grammar:{title:"Giza, the human prefix",body:"Giza is the joining form of gizon and means human. Gizakia is a human being, and gizadia is humanity. Gizarte, society, is giza plus arte, the space between, as in lagunartea. Normalizazioa is the process of making Basque normal in daily life. Hizkuntza politika, language policy, covers official status, the language of schooling and public signs. Biztanlea, inhabitant, is from bizi, to live."},
     wordIds:["hizkuntza_politika","normalizazioa","gizarte_mugimendua","gizakia","gizadia","gerra","biztanlea"],
   },
   {
