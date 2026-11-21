@@ -6961,8 +6961,8 @@ var LESSONS=[
     titleEu:"Bat, bi, hiru",
     emoji:"\uD83D\uDD22",
     blurb:"The numbers one through ten.",
-    intro:"Numbers are some of the most useful words to know early, for prices, ages, times, and quantities. Basque numbers are not related to Spanish or French, so they will feel new, but they are short and rhythmic. Try counting out loud.",
-    grammar:{title:"A base-twenty system",body:"Basque traditionally counts in twenties (like old French). Hogei is twenty, and larger numbers build from it. For now, ten (hamar) is far enough."},
+    intro:"The numbers one to ten, for prices, ages, times and amounts. Count them out loud: bat, bi, hiru, lau, bost, sei, zazpi, zortzi, bederatzi, hamar.",
+    grammar:{title:"How they sound, and what else they do",body:"Lau rhymes with the English now, and sei sounds like say. The z in zazpi and zortzi is a soft s, and the h in hiru and hamar is silent. Bat is one and also a: etxe bat is a house. Bederatzi is the longest of the ten. After hamar, Basque counts in twenties: hogei is 20, and hogeita hamar, twenty and ten, is 30."},
     wordIds:["bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar"],
   },
   {
