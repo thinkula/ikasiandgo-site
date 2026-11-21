@@ -7764,8 +7764,8 @@ var LESSONS=[
     titleEu:"Iragana eta etorkizuna",
     emoji:"\uD83D\uDD70\uFE0F",
     blurb:"Looking back, looking forward, and the words in between.",
-    intro:"Basque names the past and the future with ordinary verbs, not borrowed abstractions. Once you see where the two words come from, they are hard to forget.",
-    grammar:{title:"Etorkizuna, the time that is coming",body:"Etorkizuna, the future, is built on etorri, to come. It is the time that is coming toward you. Iragana, the past, comes from iragan, to pass, so it is the time that has gone by. Egutegia, a calendar, is egun (day) plus the ending -tegi, a place that holds something. Aldia is a period or a turn, and aldi berean means at the same time."},
+    intro:"The past and the future, a period or a turn, the calendar, and four ways to place something in time: at the same time, occasionally, half an hour, and within a month.",
+    grammar:{title:"Etorkizuna, the time that is coming",body:"Etorkizuna, the future, is etorri, to come, plus -kizun: that which will come. Egutegia, calendar, is egun, day, plus the -tegi of liburutegia. The -ko of buruko mina turns iragana into iraganeko, of the past. Barru means within, and it works with any time: hilabete bat barru is in a month, and aste bat barru is in a week. Aldia is a period or a turn: nire aldia da is it is my turn."},
     wordIds:["iragana","etorkizuna","aldia","egutegia","iraganeko","aldi_berean","noizbehinka","ordu_erdia","hilabete_bat_barru"],
   },
   {
