@@ -7049,8 +7049,8 @@ var LESSONS=[
     titleEu:"Dut, duzu, du",
     emoji:"\uD83E\uDD32",
     blurb:"The other five forms of to have, and the endings that make them.",
-    intro:"You can already say what you did. Here are the forms for the other five persons. They are built the same way: one base with a small ending. The endings are worth learning well, because they appear on other verbs too.",
-    grammar:{title:"One shape, six endings",body:"All six start with du and differ only in the ending. Dut is du plus -t, duzu is du plus -zu, dugu takes -gu, duzue takes -zue and dute takes -te. Du itself takes nothing at all. Set the endings beside the pronouns and the match is easy to see: -gu from gu, -zu from zu, -zue from zuek. All six are for a single object. Several things, such as a whole shelf of books, need a different set, which comes later."},
+    intro:"You can already say what you did, with dut. Here are the forms for the other five persons. They are built the same way: du, plus a small ending for who has it.",
+    grammar:{title:"One shape, six endings",body:"All six start with du. Dut, I have it, is du plus -t. Duzu, you have it, is du plus -zu. Du, he, she or it has it, takes no ending. Dugu is we have it, duzue is you all have it, and dute is they have it. Set the endings beside the pronouns and the match shows: -zu from zu, -gu from gu, -zue from zuek. All six are for one thing. Several things take a different set, which you have met once, in hogei urte ditut."},
     wordIds:["duzu","du","dugu","duzue","dute"],
   },
   {
