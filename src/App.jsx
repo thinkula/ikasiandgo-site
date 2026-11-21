@@ -7251,8 +7251,8 @@ var LESSONS=[
     titleEu:"Mahaia prestatzen",
     emoji:"\uD83C\uDF74",
     blurb:"What goes in the pan, and what you eat it with.",
-    intro:"This lesson covers seasonings, staples and the things you set a table with. One of these words is built from a farm tool.",
-    grammar:{title:"A little pitchfork",body:"Sardexka is the one to remember: sarde is a pitchfork and -xka makes a thing small, so a fork is a little pitchfork. The same -xka appears later, where it softens colors. Gatza, salt, is the root behind gazia, salty, and gazta, cheese, is popularly tied to it too. Labana came in from Spanish navaja; aizto is the older native word."},
+    intro:"What goes in the pan and on the table: salt, oil, pepper, sugar and rice, tea, vegetables and chocolate, then the plate, spoon, fork and knife.",
+    grammar:{title:"A little pitchfork",body:"Sardexka, fork, is sarde, a pitchfork, plus -xka, which makes a thing small: a little pitchfork. Many people say tenedorea, the Spanish loan. The same -xka appears later, where it softens colors. Gatza, salt, is behind gazia, salty. Gazta, cheese, is popularly linked to it, though that is uncertain. Labana, knife, came from Spanish navaja. The older native word is aiztoa."},
     wordIds:["gatz","olioa","piperra","azukrea","arroza","tea","barazkia","txokolatea","platera","koilara","sardexka","labana"],
   },
   {
