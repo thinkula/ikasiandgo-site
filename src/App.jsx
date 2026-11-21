@@ -7284,8 +7284,8 @@ var LESSONS=[
     titleEu:"Basoa eta zerua",
     emoji:"\uD83D\uDC11",
     blurb:"Forest, earth, sheep, cattle, and the way the day is going.",
-    intro:"This is rural vocabulary, which in the Basque Country is everyday vocabulary. Two of these words are small compounds that describe exactly what they mean.",
-    grammar:{title:"The day-period, and the full moon",body:"Eguraldia, weather, is egun (day) plus aldi (a period), so it is the way the day is going. Hilabetea, a month, is hil (moon) plus bete (full), one full cycle of the moon. Eguzkitsua is eguzki (sun) plus -tsu, full of, the ending you meet again in words like indartsua. Basoa means forest, and Basajaun, the lord of the forest, is a famous figure of Basque mythology."},
+    intro:"Forest, earth, sheep and cow. Weather, and the word for sunny. Then three measures of time: the second, the month and the year.",
+    grammar:{title:"Words you can take apart",body:"Eguraldia, weather, is egun, day, plus aldi, a period. Hilabetea, month, is hil, moon or month, plus bete, full: a full moon cycle. Eguzkitsua, sunny, is eguzki, sun, plus -tsu, full of. Urtebete, one full year, uses the same bete. Basoa is forest, and basa- means wild: Basajaun, lord of the forest, is a famous figure of Basque mythology."},
     wordIds:["basoa","lurra","ardia","behia","eguraldi","eguzkitsua","hilabetea","urtea","segundoa"],
   },
   {
