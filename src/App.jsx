@@ -7416,8 +7416,8 @@ var LESSONS=[
     titleEu:"Bidaiatzea",
     emoji:"🎫",
     blurb:"Passports, bookings, departures, and missing the train.",
-    intro:"The practical half of traveling: the paperwork, the booking, and the moment you realize the train has gone without you.",
-    grammar:{title:"Galdu, lost and missed at once",body:"Galdu is to lose and also to miss: trena galdu dut is both I have lost the train and I missed the train. English splits the two and Basque does not, a reminder not to translate word for word."},
+    intro:"The practical half of traveling: passport, plane ticket and booking, the invoice, the exit, and the moment you realize the train has gone without you.",
+    grammar:{title:"Galdu, and two things to ask for",body:"Galdu is to lose and also to miss. Pasaportea galdu dut is I have lost my passport, and trena galdu dut is I missed the train. With the -ta of a state it is about you: galduta nago is I am lost. A one-way ticket is joaneko txartela, and a round trip is joan-etorriko txartela. Faktura is a business invoice. In a restaurant, ask for the bill with kontua, mesedez."},
     wordIds:["pasaportea","hegazkin_txartela","ostatua_erreserbatu","faktura","turismoa","irteera","galdu","bidaia_egitea","itsasontzia","bizi_izan"],
   },
   {
