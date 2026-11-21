@@ -6918,8 +6918,8 @@ var LESSONS=[
     titleEu:"Izan",
     emoji:"\uD83D\uDCDB",
     blurb:"The first of the two verbs for to be, the one for who you are.",
-    intro:"Basque has two verbs where English makes do with one. This is the first, and it is the one that says what something is: a name, a job, a place you come from. The forms do not look much like one another, so it is easier to learn them as a set than one at a time.",
-    grammar:{title:"One verb, six shapes",body:"Izan is the to be of identity. Naiz is I am, zara is you are, da is he, she or it is, gara is we are, zarete is you all are, and dira is they are. Each form already names its own subject, which is why the pronouns are usually left out: naiz on its own is a whole sentence. Set them beside their pronouns and the pattern shows: ni naiz, zu zara, hura da, gu gara, zuek zarete, haiek dira. The pronoun is there only for emphasis. Da is the one you will meet most, because Basque puts its verb last and a great many sentences end by saying what something is. None of the six looks much like izan itself. That often happens to the verb a language uses most."},
+    intro:"Basque has two verbs for to be where English has one. This is the first, the one that says what something is: a name, a job, a place you come from. Its forms do not look much like one another, so it is easier to learn them as a set than one at a time.",
+    grammar:{title:"One verb, six shapes",body:"Izan is the to be for who and what you are. Naiz is I am, zara is you are, da is he, she or it is, gara is we are, zarete is you all are, and dira is they are. Each form already names its subject, so naiz on its own is a whole sentence. With their pronouns they pair up as ni naiz, zu zara, hura da, gu gara, zuek zarete, haiek dira. Da is one of the most common, because Basque puts its verb last and a great many sentences end by saying what something is: hau ura da, this is water."},
     wordIds:["izan","naiz","zara","da","gara","zarete","dira"],  },
   {
     id:"l03_pointing",
