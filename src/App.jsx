@@ -7104,8 +7104,8 @@ var LESSONS=[
     titleEu:"Urteko hilabeteak",
     emoji:"\uD83D\uDCC5",
     blurb:"January through December.",
-    intro:"Naming the months lets you talk about birthdays, seasons, and plans. Five of the twelve names come from Latin. The rest are Basque, and many connect to seasonal or agricultural roots, like uztaila (July) from uzta, the harvest.",
-    grammar:{title:"Months as a set",body:"The twelve names form a small vocabulary of their own, and one of them explains itself: urtarrila is usually read as urte (year) plus hil (month), the month the year starts in. To say in a month, Basque puts the ending on the name, so urtarrilean is in January."},
+    intro:"The twelve months. Five names come from Latin: martxoa, apirila, maiatza, abuztua and abendua. The rest are Basque, and several name the season's work or weather, like uztaila, July, from uzta, the harvest.",
+    grammar:{title:"Hil, and saying in a month",body:"Hil means month, and it closes three of the names. Urtarrila is urte, year, plus hil. Otsaila is otso, wolf, plus hil. Iraila is ira, fern, plus hil. These are the usual explanations. To say in a month, the name ends in -an or -ean: martxoan is in March, and urtarrilean is in January."},
     wordIds:["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua"],
   },
   {
