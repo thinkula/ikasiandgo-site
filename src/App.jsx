@@ -7082,8 +7082,8 @@ var LESSONS=[
     titleEu:"Sentimenduak",
     emoji:"\u2764\uFE0F",
     blurb:"Say how you feel.",
-    intro:"Four core feelings, and the words for being in them: poza (joy), tristura (sadness), beldurra (fear), haserrea (anger). Pair them with the verbs you already have and you can say how your day is going.",
-    grammar:{title:"Nouns and states",body:"Basque keeps the feeling and the state apart. Poza is joy, the thing itself; pozik is happy, the state you are in. The -ik ending makes the difference, and gaixorik works the same way. Nekatuta ends in -ta instead, the other way Basque marks a state, and you will meet that one again."},
+    intro:"Four feelings: poza is joy, tristura is sadness, beldurra is fear and haserrea is anger. With them come the words for being happy, sad, hungry, thirsty, tired and sick. Each kind takes one of the three verbs you already have.",
+    grammar:{title:"Have a feeling, be in a state",body:"A feeling named as a thing takes have: beldurra dut is I am afraid, literally I have fear. A state takes egon: pozik nago is I am happy, and nekatuta nago is I am tired. The -ik on pozik and gaixorik marks a state, and so does the -ta on nekatuta. Hunger and thirst go with izan: gose naiz is I am hungry, and egarri naiz is I am thirsty."},
     wordIds:["poza","tristura","beldurra","haserrea","pozik","triste","gosea","egarria","nekatuta","gaixorik"],
   },
   {
