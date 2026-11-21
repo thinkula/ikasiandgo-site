@@ -6907,8 +6907,8 @@ var LESSONS=[
     titleEu:"Ni, zu, gu",
     emoji:"\uD83E\uDDCD",
     blurb:"The pronouns, and why Basque so often leaves them out.",
-    intro:"Basque has a full set of pronouns but mostly leaves them out, because the verb already says who is acting. You use them for emphasis and contrast. One of them is also a way to point at something across the room.",
-    grammar:{title:"The verb already said it",body:"Naiz is the ni form of izan, one of the two verbs Basque uses where English has only to be, and it means I am on its own. Adding the pronoun, as in ni naiz, stresses the I: I am, not someone else. Izan is the verb for who and what you are. Egon, the other one, is for where you are and how you feel, and it has its own separate forms. Zu has a history worth knowing: it started as the plural you, exactly as English you did, then softened into a polite singular, and ended up as the ordinary one. That left Basque short a plural, so it built zuek on top of zu. Hi is the old intimate singular, still alive between close friends and siblings. Hura covers he, she and that one over there at once, because Basque never had a third person pronoun of its own."},
+    intro:"Basque has a full set of pronouns and mostly leaves them out, because the verb already shows who is acting. You bring one in for emphasis or contrast. Hura does double duty: it is he, she or it, and it also points at something far from both speakers.",
+    grammar:{title:"Ni, zu, hi and hura",body:"Naiz means I am on its own, so ni naiz stresses the I: I am, not someone else. Zu began as the plural you, just as English you did. It shifted to a polite singular and then became the everyday one, so Basque made a new plural, zuek. Hi is the intimate you, used with close friends and siblings in some regions and families. It can feel too familiar if misjudged, so stay with zu. Hura covers he, she and that one over there, because Basque has no separate third person pronoun. Haiek is its plural."},
     wordIds:["ni","zu","hi","gu","zuek","hura","haiek"],
   },
   {
