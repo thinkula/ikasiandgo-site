@@ -7027,8 +7027,8 @@ var LESSONS=[
     titleEu:"Egon",
     emoji:"\uD83D\uDCCD",
     blurb:"The other verb for to be, the one for where and how you are.",
-    intro:"English says I am tired and I am a teacher with the same verb. Basque does not. One of its two verbs is for what you are, and this is the other one, for where you are and how you feel at this moment. With both of them you can say where anything is and how anyone is doing today.",
-    grammar:{title:"Two verbs, one dividing line",body:"Egon is the to be of place and passing state. Its forms run nago, zaude, dago, gaude, zaudete, daude: I am, you are, he or she is, we are, you all are, they are, each carrying the sense of at this moment. The line between the two verbs is clean. Nongoa zara asks where you are from, a fact about you that does not change, so it takes izan. Non zaude asks where you are right now, which does change, so it takes egon. You have already been saying non dago without knowing which verb it came from. Egon also means to stay, which is just being somewhere for a while."},
+    intro:"English says I am tired and I am a teacher with the same verb. Basque does not. Izan is for what you are. This is the other verb, egon, for where you are and how you feel at this moment.",
+    grammar:{title:"Two verbs, one dividing line",body:"Egon is the to be for a place or a passing state. Nago is I am, zaude is you are, dago is he, she or it is, gaude is we are, zaudete is you all are, and daude is they are, each with the sense of right now. Nongoa zara asks where you are from, which does not change, so it takes izan. Non zaude asks where you are right now, so it takes egon. You have already been using dago, in non dago. Egon also means to stay."},
     wordIds:["egon","nago","zaude","dago","gaude","zaudete","daude"],  },
   {
     id:"l77_ergative",
