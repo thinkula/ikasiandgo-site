@@ -7560,8 +7560,8 @@ var LESSONS=[
     titleEu:"Itsasoa eta zerua",
     emoji:"\uD83D\uDC0B",
     blurb:"Whales, octopus, eagles, and the water pig.",
-    intro:"Animals of the sea and the air. One of these animals shares a root with a very different creature you have already met.",
-    grammar:{title:"Izurdea, the water pig",body:"Izurdea, a dolphin, comes from an old root iz, water, plus urde, pig. A water pig. You have met urde before in basurdea, the wild boar, which is basa (wild) plus the same urde. Balea is worth knowing for the history behind it: Basque sailors were among the first commercial whalers in Europe, hunting from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s. Arranoa, the eagle, is the arrano beltza of the old Kingdom of Navarre."},
+    intro:"Animals of the sea and the air: eagle and butterfly, dolphin and whale, octopus, crab and shrimp, and the word for a pet.",
+    grammar:{title:"Izurdea, the water pig",body:"Izurdea, dolphin, is usually explained as an old root iz, water, plus urde, pig: a water pig. You met urde in basurdea, the wild boar, and the same iz is in izotz, ice. Basque sailors were among the first commercial whalers in Europe, hunting balea from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s. The arrano beltza, the black eagle, was a seal of the kings of Navarre."},
     wordIds:["arranoa","tximeleta","izurdea","balea","olagarroa","karramarroa","ganba","maskota"],
   },
   {
