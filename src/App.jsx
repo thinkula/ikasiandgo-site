@@ -3115,7 +3115,11 @@ function PairsScreen(props){
   var VOCABULARY=_VOCAB;
   var onBack=props.onBack,isPro=props.isPro,onUpgrade=props.onUpgrade;
   var TOPICS_LIST=['greetings','food','numbers','family','colors','nature','body','time','travel','emotions','work','culture','society','adjectives','home','city','animals'];
-  var SIZES=[{key:'small',label:'Easy',pairs:4,timedSecs:90},{key:'medium',label:'Medium',pairs:6,timedSecs:60},{key:'large',label:'Hard',pairs:8,timedSecs:45}];
+  // The time allowed grows with the board. It used to shrink, 90s for four
+  // pairs down to 45s for eight, and with 5s off for every miss, first looks
+  // included, a player who never forgot a card and took two seconds a move
+  // won the Hard board about one time in eleven.
+  var SIZES=[{key:'small',label:'Easy',pairs:4,timedSecs:60},{key:'medium',label:'Medium',pairs:6,timedSecs:90},{key:'large',label:'Hard',pairs:8,timedSecs:120}];
   var _t=useState('greetings');var topic=_t[0];var setTopic=_t[1];
   var _sz=useState('medium');var size=_sz[0];var setSize=_sz[1];
   var _mode=useState('classic');var mode=_mode[0];var setMode=_mode[1];
@@ -3329,6 +3333,11 @@ function PairsScreen(props){
   React.useEffect(function(){return function(){clearInterval(timerRef.current);};},[]);
 
   var _showSettings=useState(false);var showSettings=_showSettings[0];var setShowSettings=_showSettings[1];
+  // The clock waits while the sheet is open: it covers the board, so no card
+  // can be turned. Choosing a different mode or size deals a new board, which
+  // stops the clock again on its own.
+  function openSettings(){clearInterval(timerRef.current);setShowSettings(true);}
+  function closeSettings(){setShowSettings(false);if(started&&!won&&!failed)startTimer();}
 
   // Display values
   var displaySecs=secs;
@@ -3337,7 +3346,6 @@ function PairsScreen(props){
   var fmins=Math.floor(finalSecs/60);var fss=('0'+(finalSecs%60)).slice(-2);
   var finalTimeStr=fmins>0?fmins+'m '+fss+'s':finalSecs+'s';
   var cols=sizeCfg.pairs<=4?'repeat(2,1fr)':sizeCfg.pairs<=6?'repeat(3,1fr)':'repeat(4,1fr)';
-  var accuracy=moves>0?Math.round((matched.length/moves)*100):100;
   var waitingForSecond=flipped.length===1&&!locked;
   var timerDanger=isTimed&&secs<=10&&started;
   var timerColor=timerDanger?"#EF4444":"#19A85A";
@@ -3353,7 +3361,7 @@ function PairsScreen(props){
         <div style={{flex:1}}>
           <p style={{margin:0,fontSize:15,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3}}>🃏 Memory Pairs</p>
           <p style={{margin:0,fontSize:10,color:"#AAA",fontWeight:600,textTransform:"capitalize"}}>
-            {started&&moves>0?accuracy+"% · "+matched.length+"/"+pairCount+" matched":topic+" · "+sizeCfg.label}
+            {started&&moves>0?matched.length+"/"+pairCount+" matched":topic+" · "+sizeCfg.label}
           </p>
         </div>
         <div style={{display:"flex",gap:5,alignItems:"center"}}>
@@ -3365,7 +3373,7 @@ function PairsScreen(props){
             <p style={{margin:0,fontSize:15,fontWeight:900,color:timerDanger?"#EF4444":started?"#19A85A":"#CCC",lineHeight:1,animation:timerDanger?"waitingDot 0.5s ease-in-out infinite":"none"}}>{started?timeStr:(isTimed?sizeCfg.timedSecs+"s":"--")}</p>
             <p style={{margin:0,fontSize:8,color:"#AAA",fontWeight:700}}>{isTimed?"LEFT":"TIME"}</p>
           </div>
-          <button aria-label="Settings" onClick={function(){setShowSettings(true);}} style={{background:"#F2F2F7",border:"none",color:"#888",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>⚙️</button>
+          <button aria-label="Settings" onClick={openSettings} style={{background:"#F2F2F7",border:"none",color:"#888",width:32,height:32,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15}}>⚙️</button>
         </div>
       </div>
 
@@ -3375,18 +3383,20 @@ function PairsScreen(props){
           <div style={{height:"100%",backgroundColor:timerColor,width:timerPct+"%",transition:"width 1s linear, background-color 0.3s",borderRadius:"0 2px 2px 0",boxShadow:timerDanger?"0 0 8px rgba(239,68,68,0.5)":"none"}}/>
         </div>
       ):(
-        <div style={{height:3,backgroundColor:"#E8E8EE"}}>
+        <div style={{height:4,backgroundColor:"#E8E8EE"}}>
           <div style={{height:"100%",backgroundColor:"#19A85A",width:(matched.length/pairCount*100)+"%",transition:"width 0.5s cubic-bezier(0.34,1.56,0.64,1)",borderRadius:"0 2px 2px 0"}}/>
         </div>
       )}
 
-      {/* ── Topic scroll — hide during active game ── */}
-      {!started&&(
-        <div className="hscroll" ref={chipRowRef} style={{display:"flex",gap:5,overflowX:"auto",padding:"8px 14px",WebkitOverflowScrolling:"touch",backgroundColor:"#fff",borderBottom:"1px solid #F0F0F0"}}>
+      {/* Topic row. It stays where it is during a game, dimmed and switched
+          off. It used to be removed on the first card turned, which slid
+          the whole board up by a third of a card under the player's finger. */}
+      {(
+        <div className="hscroll" ref={chipRowRef} aria-disabled={started} style={{display:"flex",gap:5,overflowX:"auto",padding:"8px 14px",WebkitOverflowScrolling:"touch",backgroundColor:"#fff",borderBottom:"1px solid #F0F0F0",opacity:started?0.4:1,pointerEvents:started?"none":"auto",transition:"opacity 0.2s"}}>
           {TOPICS_LIST.map(function(t){
             var active=t===topic;var isFree=true;// depth-gate: games run on A1, all topics free
             return(
-              <button key={t} data-active={active?"true":"false"} onClick={function(){if(!isFree){onUpgrade();return;}setTopic(t);}}
+              <button key={t} disabled={started} data-active={active?"true":"false"} onClick={function(){if(started)return;if(!isFree){onUpgrade();return;}setTopic(t);}}
                 style={{flexShrink:0,fontSize:11,padding:"4px 11px",borderRadius:20,border:"1.5px solid "+(active?"#19A85A":"#E8E8E8"),backgroundColor:active?"#19A85A":"#fff",color:active?"#fff":isFree?"#555":"#CCC",cursor:"pointer",fontWeight:700,fontFamily:"inherit",transition:"all 0.15s"}}>
                 {!isFree?"🔒 ":""}{t.charAt(0).toUpperCase()+t.slice(1)}
               </button>
@@ -3396,16 +3406,14 @@ function PairsScreen(props){
       )}
 
       <div style={{padding:"10px 12px 0",backgroundColor:"transparent"}}>
-        {/* Timed mode penalty flash */}
-        {penalty&&(
-          <div style={{textAlign:"center",marginBottom:8,animation:"popIn 0.2s ease"}}>
-            <span style={{fontSize:13,fontWeight:900,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"4px 14px",borderRadius:20,border:"1px solid #FECACA"}}>⏱️ -5 seconds!</span>
-          </div>
-        )}
-        {/* Timed mode badge */}
-        {isTimed&&!started&&(
-          <div style={{textAlign:"center",marginBottom:8}}>
-            <span style={{fontSize:11,fontWeight:800,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"4px 14px",borderRadius:20,border:"1px solid #FECACA"}}>⏱️ Timed · {sizeCfg.timedSecs}s · -5s per mismatch</span>
+        {/* Timed mode: one line of fixed height above the board. It shows the
+            rule, and the penalty for a moment after a miss. These used to be
+            two lines that came and went, each one moving the board. */}
+        {isTimed&&(
+          <div style={{height:26,marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center"}}>
+            {penalty
+              ?<span key="pen" style={{fontSize:13,fontWeight:900,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"3px 14px",borderRadius:20,border:"1px solid #FECACA",animation:"popIn 0.2s ease"}}>⏱️ -5 seconds!</span>
+              :<span key="rule" style={{fontSize:11,fontWeight:800,color:"#EF4444",backgroundColor:"#FEF2F2",padding:"4px 14px",borderRadius:20,border:"1px solid #FECACA"}}>⏱️ Timed · {fmtT(sizeCfg.timedSecs)} · -5s per mismatch</span>}
           </div>
         )}
 
@@ -3417,6 +3425,10 @@ function PairsScreen(props){
             var isMismatched=mismatch&&flipped.indexOf(idx)!==-1&&!isMatched;
             var isWaiting=waitingForSecond&&isFlipped;
             var show=isFlipped||isMatched;
+            // The entrance animation below plays on a fresh board only. It used
+            // to replay on every card turned back after a miss, each with its
+            // dealing delay, so the last card on the board was an empty gap for
+            // half a second while the board was already open for the next turn.
             // Navy back, white front
             var bg=isMatched?"#EDFAF3":isMismatched?"#FEF2F2":show?"#fff":"#1E3A5F";
             var border=isMatched?"#19A85A":isWaiting?"#F97316":isMismatched?"#EF4444":show?"#E0E0E0":"#162D4A";
@@ -3433,7 +3445,7 @@ function PairsScreen(props){
                   backgroundColor:bg,border:"1.5px solid "+border,boxShadow:shadow,
                   display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",
                   padding:sizeCfg.pairs<=6?6:"6px 3px",userSelect:"none",WebkitUserSelect:"none",position:"relative",overflow:"hidden",
-                  animation:isWaiting?"waitingPulse 1.4s ease-in-out infinite":(!show&&!isMatched?("cardIn 0.3s cubic-bezier(0.34,1.56,0.64,1) "+(idx*0.04)+"s both"):undefined)
+                  animation:isWaiting?"waitingPulse 1.4s ease-in-out infinite":(!started&&!show?("cardIn 0.3s cubic-bezier(0.34,1.56,0.64,1) "+(idx*0.04)+"s both"):undefined)
                 }}>
                 {/* Face-down: subtle card pattern */}
                 {!show&&(
@@ -3513,7 +3525,7 @@ function PairsScreen(props){
               <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{newBest==="both"?"Best on both counts!":newBest==="moves"?"Fewest moves yet!":newBest==="time"?"Fastest yet!":"All matched!"}</p>
               <p style={{margin:"0 0 20px",fontSize:13,color:"#8E8E93",fontWeight:600,textTransform:"capitalize"}}>{topic} · {sizeCfg.label}{isTimed?" · ⏱️ Timed":""}</p>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginBottom:16}}>
-                {[{v:moves,l:"Moves",c:"#1A1A1A"},{v:finalTimeStr,l:isTimed?"Used":"Time",c:"#19A85A"},{v:accuracy+"%",l:"Accuracy",c:"#F97316"}].map(function(s){return(
+                {[{v:moves,l:"Moves",c:"#1A1A1A"},{v:finalTimeStr,l:isTimed?"Used":"Time",c:"#19A85A"},{v:pairCount,l:"Pairs",c:"#F97316"}].map(function(s){return(
                   <div key={s.l} style={{backgroundColor:"#F2F2F7",borderRadius:14,padding:"12px 8px"}}>
                     <p style={{margin:0,fontSize:22,fontWeight:900,color:s.c,lineHeight:1}}>{s.v}</p>
                     <p style={{margin:"3px 0 0",fontSize:10,color:"#8E8E93",fontWeight:700}}>{s.l}</p>
@@ -3538,19 +3550,19 @@ function PairsScreen(props){
 
       {/* ── Settings sheet ── */}
       {showSettings&&(
-        <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.4)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){setShowSettings(false);}}>
+        <div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.4)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={closeSettings}>
           <div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}} onClick={function(e){e.stopPropagation();}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 16px"}}/>
             <div style={{padding:"0 20px"}}>
               <p style={{margin:"0 0 10px",fontSize:16,fontWeight:900,color:"#1A1A1A"}}>Mode</p>
               <div style={{display:"flex",gap:8,marginBottom:20}}>
-                <button onClick={function(){setMode('classic');setShowSettings(false);}}
+                <button onClick={function(){setMode('classic');closeSettings();}}
                   style={{flex:1,padding:"12px 8px",borderRadius:14,border:"2px solid "+(mode==='classic'?"#19A85A":"#E8E8E8"),backgroundColor:mode==='classic'?"#EDFAF3":"#F2F2F7",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
                   <p style={{margin:0,fontSize:18}}>🃏</p>
                   <p style={{margin:"4px 0 0",fontSize:12,fontWeight:900,color:mode==='classic'?"#19A85A":"#555"}}>Classic</p>
                   <p style={{margin:"1px 0 0",fontSize:9,color:"#8E8E93"}}>No time limit</p>
                 </button>
-                <button onClick={function(){setMode('timed');setShowSettings(false);}}
+                <button onClick={function(){setMode('timed');closeSettings();}}
                   style={{flex:1,padding:"12px 8px",borderRadius:14,border:"2px solid "+(mode==='timed'?"#EF4444":"#E8E8E8"),backgroundColor:mode==='timed'?"#FEF2F2":"#F2F2F7",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
                   <p style={{margin:0,fontSize:18}}>⏱️</p>
                   <p style={{margin:"4px 0 0",fontSize:12,fontWeight:900,color:mode==='timed'?"#EF4444":"#555"}}>Timed</p>
@@ -3560,7 +3572,7 @@ function PairsScreen(props){
               <p style={{margin:"0 0 10px",fontSize:16,fontWeight:900,color:"#1A1A1A"}}>Difficulty</p>
               <div style={{display:"flex",gap:10,marginBottom:20}}>
                 {availSizes.map(function(s){var act=s.key===effSize;return(
-                  <button key={s.key} onClick={function(){setSize(s.key);setShowSettings(false);}}
+                  <button key={s.key} onClick={function(){setSize(s.key);closeSettings();}}
                     style={{flex:1,padding:"14px 8px",borderRadius:16,border:"2px solid "+(act?"#19A85A":"#E8E8E8"),backgroundColor:act?"#EDFAF3":"#F2F2F7",cursor:"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.15s"}}>
                     <p style={{margin:0,fontSize:20,fontWeight:900,color:act?"#19A85A":"#1A1A1A"}}>{s.pairs}</p>
                     <p style={{margin:"2px 0 0",fontSize:11,color:act?"#19A85A":"#8E8E93",fontWeight:700}}>{s.label}</p>
@@ -3598,19 +3610,20 @@ function GamesScreen(props){
     // Pairs keeps a record per topic, board size and mode, which is over a
     // hundred keys. This card used to read one hardcoded greetings/medium key,
     // so a player who never touched that exact combination saw no best at all.
-    // Take the fewest moves and the fastest time across everything stored.
+    // It then showed the fewest moves from any board beside the fastest time
+    // from any board, an Easy record next to a Hard one as if it were a
+    // result. It now counts the boards that have been cleared.
     try{STORE.list('pairs_best_').then(function(r){
       var keys=(r&&r.keys)||[];
       if(!keys.length)return;
       return Promise.all(keys.map(function(k){return STORE.get(k).catch(function(){return null;});})).then(function(rows){
-        var mv=0,tm=0;
+        var n=0;
         rows.forEach(function(x){
           if(!x||!x.value)return;
           var d;try{d=JSON.parse(x.value);}catch(e){return;}
-          if(d&&d.moves&&(!mv||d.moves<mv))mv=d.moves;
-          if(d&&d.time&&(!tm||d.time<tm))tm=d.time;
+          if(d&&(d.moves||d.time))n++;
         });
-        if(mv||tm)setPairsBest((mv||"-")+"mv · "+(tm||"-")+"s");
+        if(n)setPairsBest(n+(n===1?" board":" boards"));
       });
     }).catch(function(){});}catch(e){}
     // Tap keeps a separate record per topic and difficulty, 42 of them. This
@@ -3637,7 +3650,7 @@ function GamesScreen(props){
     {id:"arbola",emoji:"🌳",title:"Arbola Familiarra",desc:"Build ten Basque family portraits by adding the right family members one by one",tag:"Family",color:"#0D9488",dark:"#134E4A",fn:onArbola,best:arbolaBest,stats:["10 families","5 or 6 members","A1-B2"],pro:false},
     {id:"tap",emoji:"⚡",title:"Tap the Word",desc:"Tap the right translation before the timer runs out. Speed increases every 3 rounds",tag:"Speed",color:"#F97316",dark:"#C2510E",fn:onTap,best:tapBest,stats:["10 rounds","Gets faster","Combo points"],pro:false},
     {id:"ordutegi",emoji:"🕐",title:"Ordutegi",desc:"Plan your day in Basque, use numbers and times to navigate real-life scenarios",tag:"Numbers",color:"#0369A1",dark:"#0C4A6E",fn:onOrdutegi,best:ordBest,stats:["23 scenarios","Numbers & time","A1-B2"],pro:false},
-    {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,stats:["4-8 pairs","Timed","All topics"],pro:false},
+    {id:"pairs",emoji:"🃏",title:"Memory Pairs",desc:"Flip cards to match Basque words with their English translations",tag:"Memory",color:"#19A85A",dark:"#0E7A40",fn:onPairs,best:pairsBest,bestLabel:"Cleared",stats:["4-8 pairs","Timed","All topics"],pro:false},
   ];
 
   return(
@@ -3665,7 +3678,7 @@ function GamesScreen(props){
             <div key={s.label} style={{backgroundColor:"rgba(255,255,255,0.08)",borderRadius:10,padding:"7px 3px",textAlign:"center",border:"1px solid rgba(255,255,255,0.1)"}}>
               <p style={{margin:0,fontSize:14,lineHeight:1}}>{s.emoji}</p>
               <p style={{margin:"3px 0 1px",fontSize:9,fontWeight:800,color:"#fff"}}>{s.label}</p>
-              <p style={{margin:0,fontSize:7,color:"rgba(255,255,255,0.4)",fontWeight:600,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{s.sub}</p>
+              <p style={{margin:0,fontSize:9,color:"rgba(255,255,255,0.75)",fontWeight:700,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{s.sub}</p>
             </div>
           );})}
         </div>
@@ -3700,7 +3713,7 @@ function GamesScreen(props){
             {g.best&&(
               <div style={{backgroundColor:g.color+"18",padding:"6px 18px",borderTop:"1px solid "+g.color+"22",display:"flex",alignItems:"center",gap:6}}>
                 <span style={{fontSize:10}}>⭐</span>
-                <p style={{margin:0,fontSize:10,fontWeight:800,color:g.dark}}>Personal best: {g.best}</p>
+                <p style={{margin:0,fontSize:10,fontWeight:800,color:g.dark}}>{g.bestLabel||"Personal best"}: {g.best}</p>
               </div>
             )}
           </button>
