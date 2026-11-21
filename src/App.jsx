@@ -7296,8 +7296,8 @@ var LESSONS=[
     titleEu:"Jaia eta sentimendua",
     emoji:"\uD83C\uDF84",
     blurb:"Olentzero, Christmas, and three words for how you feel about people.",
-    intro:"A short lesson about celebration, with the words for liking, loving and being worn out afterwards.",
-    grammar:{title:"Olentzero comes down from the hills",body:"Olentzero is the Basque Christmas figure, a charcoal burner who comes down from the mountains on Christmas Eve carrying presents. Gabonak, Christmas, is built on gabon, the good night you say after dark, so the season is literally the good nights. Maite means dear or beloved, and maite zaitut is I love you. Nekea, tiredness, gives nekatuta nago, I am tired."},
+    intro:"A short lesson about celebration: the festival, Olentzero and Christmas, with the words for liking, loving and being worn out afterwards.",
+    grammar:{title:"Olentzero comes down from the hills",body:"Olentzero is a charcoal burner who comes down from the mountains on Christmas Eve to leave gifts. Gabonak, Christmas, is always plural. Its singular is gabon, the greeting you know, from gau, night, and on, good. Jaia is mostly heard in the plural too: herriko jaiak are the town festivals. Atsegin dut is I like it, and maite zaitut is I love you. Nekea, tiredness, is the noun behind nekatuta nago."},
     wordIds:["jaia","olentzero","gabonak","maite","maite_izatea","nekea","atsegin"],
   },
   {
