@@ -7205,8 +7205,8 @@ var LESSONS=[
     titleEu:"Herrian",
     emoji:"\uD83C\uDFD8\uFE0F",
     blurb:"School, people, and the community.",
-    intro:"These are the places and the people that make up a town. Auzoa, the neighborhood, and jendea, people, come up whenever you talk about where you live, and two of the words here are built out of parts you can see.",
-    grammar:{title:"Community words",body:"Lagunartea is lagun (friend) plus arte (the space between), so it is literally the space among friends. Auzoa is the neighborhood, and auzolana, the work a neighborhood does together, is built on it. Auzapeza, the mayor, is the same auzo plus apez, priest."},
+    intro:"The places and people of a town: school and university, the neighborhood, the mayor and the police, people, friends, the community and the world.",
+    grammar:{title:"Community words",body:"Lagunartea is lagun, friend, plus arte, the space between: the space among friends. Laguna shares its root with lagundu, to help. Auzoa is the neighborhood, and auzolan is the work a neighborhood does together. Auzapeza, mayor, is auzo plus apez, priest. It is the northern word. In the south the word is alkatea."},
     wordIds:["eskola","unibertsitatea","jendea","mundua","auzoa","lagunartea","auzapeza","laguna","komunitatea","polizia"],
   },
   {
