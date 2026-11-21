@@ -7704,8 +7704,8 @@ var LESSONS=[
     titleEu:"Lokailuak",
     emoji:"🔗",
     blurb:"The small words that turn sentences into speech.",
-    intro:"You can say things. Now join them. These are the words that let you add, contrast, conclude and soften, and they do most of the work of turning phrasebook sentences into real speech.",
-    grammar:{title:"Where a connector sits",body:"Lokailuak usually open the sentence they belong to: Hala ere, ez dut ulertzen means even so, I do not understand. Begin by putting them first and you will be understood. One exception worth knowing is ere (too), which follows the word it adds to rather than opening the sentence."},
+    intro:"You can say things. Now join them. These words add, contrast and conclude: even so, therefore, moreover, on the other hand. With them come three phrases for a conversation: honestly, I mean, and you are right.",
+    grammar:{title:"Where a connector sits",body:"Most of these open their sentence: hala ere joango naiz is even so, I will go, and gainera, oso polita da is moreover, it is very nice. Aldiz is the exception. It comes after the first word: ni aldiz etxean geratuko naiz is I, on the other hand, will stay at home. Beraz and hortaz both mean therefore. Arrazoia duzu, you are right, is literally you have the reason. Esan nahi dut, I mean, is literally I want to say."},
     wordIds:["hala_ere","hortaz","beraz","gainera","aldiz","egia_esan","esan_nahi_dut","arrazoia_duzu","esaldi"],
   },
   {
