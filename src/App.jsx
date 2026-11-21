@@ -7644,8 +7644,8 @@ var LESSONS=[
     titleEu:"Kolore gehiago",
     emoji:"\uD83C\uDF08",
     blurb:"Silver, brown, gray, and light against dark.",
-    intro:"This is the middle range of color vocabulary, plus the two words that make any color lighter or darker without a new word each time.",
-    grammar:{title:"Argi and ilun, light and dark",body:"Put argia or iluna after a color and you have shaded it: urdin argia is sky blue, urdin iluna dark blue, hori iluna a dark yellow close to gold. The pair works on anything, including the general kolore argia and kolore iluna. Berdexka uses -xka for approximation, greenish rather than green, the same ending that made a fork a little pitchfork."},
+    intro:"Silver, brown and gray, with the two words that make any color lighter or darker: argia and iluna.",
+    grammar:{title:"Argi and ilun, light and dark",body:"Put argia or iluna after a color and you have shaded it: urdin argia is light blue, and urdin iluna is dark blue. The color drops its -a and the shade carries it, as with any describing word. Two colors can also join: zuri-horia, white-yellow, is cream. Berdexka is greenish, with the -xka that made a fork a little pitchfork. Marroia and grisa both came from Spanish."},
     wordIds:["zilarra","urdina_iluna","urdin_argia","hori_iluna","berdexka","zuri_horia","marroia","gris","kolore_argia","kolore_iluna"],
   },
   {
