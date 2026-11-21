@@ -7848,8 +7848,8 @@ var LESSONS=[
     titleEu:"Familia aldatzen denean",
     emoji:"\uD83D\uDC8D",
     blurb:"Marriage, widowhood, divorce, adoption, and growing up.",
-    intro:"The earlier family lessons named who people are to each other. This one covers what happens to families over a lifetime, which is where some of the most useful word-building in Basque shows up.",
-    grammar:{title:"Gabe, the word for without",body:"Ezkongabea, single, is ezkondu (to marry) plus the gabe you met among the small words, so literally without marrying. Gabe can attach to almost any word. Alarguna covers both widow and widower with one word, as Basque often does where English splits by gender. Haurtzaroa is haur (child) plus the ending -tzaro, the period of something, so the time of being a child."},
+    intro:"The earlier family lessons named who people are to each other. This one covers what happens to a family over a lifetime: wedding and divorce, widowhood, adoption, single parents, the extended family, and childhood.",
+    grammar:{title:"Gabe, the word for without",body:"Ezkongabea, single, is ezkondu, to marry, plus the gabe you met among the small words: without marrying. Seme-alaba, a child of either sex, simply joins semea and alaba. Familia zabala, extended family, is literally wide family, and guraso bakarra is a parent alone. Alarguna is one word for widow and widower. Haurtzaroa, childhood, is haur, child, plus -tzaro, the period of something."},
     wordIds:["ezkontza","alargun","adopzioa","dibortzioa","ezkongabea","dibortziatua","familia_zabala","haurtzaroa","guraso_bakarra","seme_alaba_adoptatu"],
   },
   {
