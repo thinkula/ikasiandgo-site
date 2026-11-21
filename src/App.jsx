@@ -7356,8 +7356,8 @@ var LESSONS=[
     titleEu:"Aurkakoak",
     emoji:"\u2696\uFE0F",
     blurb:"Light and dark, cheap and expensive, easy and hard.",
-    intro:"Adjectives are easiest to remember in pairs. These five pairs cover most of what you need to describe a thing, a price, or a room, and they all follow the rule you learned earlier: the adjective comes after the noun.",
-    grammar:{title:"Adjectives still come second",body:"Basque puts the adjective after the noun: etxe handia is house-big, not big-house. These pairs work the same way. Liburu erraza = easy book. Gela iluna = dark room. The -a on the end is the article, so the adjective carries it rather than the noun."},
+    intro:"Five pairs: argia and iluna, light and dark. Azkarra and motela, fast and slow. Garestia and merkea, expensive and cheap. Erraza and zaila, easy and difficult. Ozena and isila, loud and quiet.",
+    grammar:{title:"Second meanings, and the form without -a",body:"Three of these also describe people. Argia is bright and also clever. Azkarra is fast and also quick-witted. Motela is slow and also dull. Take off the -a and several say how a thing is done: erraz is easily, ozen is loudly, and motel is slowly. Merkea, cheap, is from the same Latin family as merkatua, market."},
     wordIds:["argia","iluna","azkarra","motela","garestia","merkea","erraza","zaila","ozena","isila"],
   },
   {
