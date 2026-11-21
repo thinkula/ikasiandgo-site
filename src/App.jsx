@@ -7404,8 +7404,8 @@ var LESSONS=[
     titleEu:"Errepidean",
     emoji:"🚗",
     blurb:"Roads, stations, cars, and public transportation.",
-    intro:"Getting around the Basque Country means narrow roads, short distances and good buses. These are the words you will read on signs and schedules.",
-    grammar:{title:"-toki and -leku build places",body:"Geltokia is a station, from gelditu (to stop) plus toki (place): a stopping-place. Igerilekua is a swimming pool, from igeri (swim) plus leku (place). Both words mean place, and once you spot one you can usually work out the whole word."},
+    intro:"Road, map and station. Car, truck and highway. Public transportation, a journey, the traveler, and the word for an entrance or a ticket.",
+    grammar:{title:"Bide, the road inside the words",body:"Bidea is the road, and it runs through this lesson. Autobidea, highway, is auto plus bide, though many people say autopista. Bidaia is a journey, and bidaiaria, a traveler, adds the -ari of sukaldaria. Geltokia, station, is from gelditu, to stop: the stopping place. Sarrera is an entrance and also a ticket, and its opposite is irteera, exit."},
     wordIds:["bidea","mapa","geltokia","kotxea","kamioia","autopista","garraio_publikoa","bidaia","bidaiari","sarrera"],
   },
   {
