@@ -7680,8 +7680,8 @@ var LESSONS=[
     titleEu:"Aditz nagusiak",
     emoji:"🗣️",
     blurb:"Ten verbs that carry most of a conversation.",
-    intro:"Until now you have mostly learned things. These are actions, and they are the ten you will reach for most often. Learn them and you can begin saying what you do rather than only what you see.",
-    grammar:{title:"The form you learn is the participle",body:"Basque lists a verb in the form you see here: ulertu is both understood and to understand. To say I understand it you use ulertzen dut, the verb plus a small helper that carries who is acting and on what. Learn the participle first; the helpers come with practice."},
+    intro:"Ten verbs: to speak, understand, help and think, to give and take, to say, know, need and see. Several are already inside phrases you use, such as ez dut ulertzen and ez dakit.",
+    grammar:{title:"The form you learn is the participle",body:"A verb is listed in one form: ulertu is to understand, and also understood. For what you do now the ending changes and a verb you know follows: ulertzen dut is I understand. That is the ulertzen in ez dut ulertzen. Two examples here look ahead with -ko: lagunduko dizut is I will help you, and ikusiko dugu is we will see. Esan is to say a particular thing, and mintzatu is to speak in general. Jakin, to know, is behind badakit and ez dakit."},
     wordIds:["mintzatu","ulertu","lagundu","pentsatu","eman","hartu","esan","jakin","behar","ikusi"],
   },
   {
