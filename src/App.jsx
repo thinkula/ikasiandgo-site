@@ -7216,8 +7216,8 @@ var LESSONS=[
     titleEu:"Etxean",
     emoji:"\uD83C\uDFE0",
     blurb:"The rooms you live in, and what is in them.",
-    intro:"Basque names rooms plainly. Once you know that gela means room, half the house follows: the sleep room, the staying room, the bath room. The kitchen is the exception: its name comes from the hearth.",
-    grammar:{title:"Rooms are built from gela",body:"Gela means room, and Basque puts the purpose in front of it: lo (sleep) + gela = logela, the bedroom. Egon (to stay) + gela = egongela, the living room. Bainu (bath) + gela = bainugela. Sukaldea breaks the pattern: su (fire) + alde (side), the fire side of the house, where the hearth of the old farmhouse stood."},
+    intro:"The rooms of a house and what is in them: table, chair, sofa, bed, window and door. Three of the rooms are built on gela, room, which you already have.",
+    grammar:{title:"Rooms are built from gela",body:"Basque puts the purpose in front of gela. Lo, sleep, plus gela is logela, the bedroom. Egon, to stay, plus gela is egongela, the living room. Bainu, bath, plus gela is bainugela. Sukaldea breaks the pattern: it is su, fire, plus alde, side, the fire side of the house. Sukaldaria, the cook, is built on it."},
     wordIds:["logela","sukaldea","egongela","bainugela","mahaia","aulkia","sofa","ohea","leihoa","atea"],
   },
   {
