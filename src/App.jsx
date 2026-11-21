@@ -7777,7 +7777,7 @@ var LESSONS=[
     emoji:"\uD83D\uDCCA",
     blurb:"Fractions, percentages, and the numbers in news reports.",
     intro:"You can count. This is the vocabulary for what people do with numbers: halves and thirds, percentages, amounts, and the way figures get reported.",
-    grammar:{title:"Ehuneko, out of a hundred",body:"Ehunekoa is ehun (a hundred) plus the same -ko behind buruko mina, so literally of a hundred, a percentage. Put any number after it and you have that percentage, so ehuneko berrogeita hamar is fifty percent. The fractions have their own roots: laurdena is a quarter, from lau, and herena is a third. Bikoitza, double, is bi plus -koitz, a fold."},
+    grammar:{title:"Ehuneko, out of a hundred",body:"Ehunekoa, percentage, is ehun, a hundred, plus the -ko of buruko mina: of a hundred. The number comes after it, so ehuneko berrogeita hamar is fifty percent and ehuneko hogei is twenty. Laurdena, a quarter, is the word you know from the clock, built on four. Herena is a third. Bikoitza, double, is bi plus -koitz, fold. Batuketa, addition, completes the four operations, built with -keta like the other three."},
     wordIds:["bikoitza","ehunekoa","laurdena","herena","milioia","milioiak","ehun_mila","neurria","kopurua","zenbakiketa","batuketak","ehuneko_berrogeita_hamar","azken_urtean","aldaketa_ehunekoa"],
   },
   {
