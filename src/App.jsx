@@ -7489,7 +7489,7 @@ var LESSONS=[
     emoji:"👪",
     blurb:"The wider family, and the people who live next door.",
     intro:"The family words so far covered the house you grew up in. This one covers everyone else: the spouse, the cousins, the nieces and nephews, and the neighbor who counts as family anyway.",
-    grammar:{title:"-kide means the one you share it with",body:"Kide is a member or companion. Add it and you get the person you share the thing with: bikotekidea is your partner (bikote, couple), lankidea is your colleague (lan, work), ezkontidea is your spouse (ezkon, marriage). The ending forms a great many words."},
+    grammar:{title:"-kide means the one you share it with",body:"Kide is a member or companion, and it names the person you share something with. Bikotekidea, partner, is bikote, couple, plus kide. Lankidea, colleague, is lan, work, plus kide. Ezkontidea, spouse, is built the same way and is the formal word. Bizilaguna, neighbor, is bizi, to live, plus laguna, friend. Lehengusua and lehengusina are a rare pair: one of the few places Basque has a separate feminine form."},
     wordIds:["senarra","emaztea","bikotea","bikotekidea","bizilaguna","lankidea","iloba","lehengusua","lehengusina","senitartea","lobak","ezkontidea"],
   },
   {
