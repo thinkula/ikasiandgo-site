@@ -7620,8 +7620,8 @@ var LESSONS=[
     titleEu:"Musika eta dantza",
     emoji:"\uD83C\uDFB5",
     blurb:"Singers, dancers, players, and the ending they share.",
-    intro:"Basque music, dance and pelota have their own institutions. The people who take part are all named the same way, and that is the point of this lesson.",
-    grammar:{title:"Ari, the one who does it",body:"The ending -ari, which becomes -lari after some roots, names the practitioner. Dantza gives dantzaria, a dancer. Abestu, to sing, gives abeslaria, a singer. Pilota gives pilotaria, and bertsoa gives bertsolaria, the singer who improvises verse. Basque has several of these agent endings, -ari here, -le behind irakurlea and -gile behind langilea, and you learn which one a word takes along with the word."},
+    intro:"Music, dance, pelota and improvised verse, with the people who do them. They are all named with one ending, -ari.",
+    grammar:{title:"Ari, the one who does it",body:"The ending -ari names the one who does a thing, as it did in sukaldaria. Dantza gives dantzaria, a dancer, and pilota gives pilotaria, a player. Sometimes an l comes first: abestu, to sing, gives abeslaria, and bertsoa gives bertsolaria, who improvises sung verse. To dance is dantza egin, with the egin of lan egin. An instrument takes jo: musika tresna bat jotzen duzu? is do you play an instrument?"},
     wordIds:["musika","dantza","dantzaria","abeslaria","musika_tresna","pilota","bertsoa"],
   },
   {
