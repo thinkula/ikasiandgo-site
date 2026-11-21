@@ -7160,8 +7160,8 @@ var LESSONS=[
     titleEu:"Ez",
     emoji:"\uD83D\uDE45",
     blurb:"The word for not, and what it does to the rest of the sentence.",
-    intro:"Saying no turns out to be a lesson in word order. Basque has one word for not, and the interesting part is not the word but what it does to the words after it.",
-    grammar:{title:"Ez pulls the verb forward",body:"Nik ogia jan dut is I have eaten the bread. Put ez in front and dut comes forward to meet it: nik ez dut ogia jan. The ez and the verb stay side by side, and the participle drops to the end. That is the whole rule, and it is why ez dut ulertzen looked like a fixed phrase a lesson ago. It was never fixed. It is ez, then the verb, then whatever is left. Some verbs need no second word at all, and those do something simpler: badakit carries a ba- that belongs to the affirmative alone, and the negative just drops it, leaving ez dakit. On their own, ezer ez and inor ez are whole answers. Inside a sentence the ez goes with the verb instead, so ez dut ezer jan is I have eaten nothing, two negatives adding up to one."},
+    intro:"Basque has one word for not: ez. The word is easy. What it does to the order of the sentence is the lesson.",
+    grammar:{title:"Ez pulls the verb forward",body:"Ez goes in front of the verb. With izan and egon nothing else moves: ez naiz, ez nago. With dut, the verb comes forward to stand beside ez and the participle drops to the end: nik ogia jan dut becomes nik ez dut ogia jan. That is why ez dut ulertzen has the order it has. Badakit loses its ba- in the negative: ez dakit. On their own, ezer ez, nothing, and inor ez, nobody, are whole answers. Inside a sentence the verb keeps its own ez: ez dut ezer jan is I have eaten nothing."},
     wordIds:["ez_naiz","ez_da","ez_dut","ez_dakit","ezer_ez","inor_ez"],
   },
   {
