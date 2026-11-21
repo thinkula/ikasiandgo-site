@@ -6972,8 +6972,8 @@ var LESSONS=[
     titleEu:"Familia",
     emoji:"\uD83D\uDC6A",
     blurb:"The people closest to you.",
-    intro:"Family words come early in any language, because they are the ones you reach for first. These cover the household: the parents, the grandparents, a brother and a sister, the children. Two of them change depending on who is speaking. A later lesson covers that.",
-    grammar:{title:"The article on the end",body:"Basque has no separate word the; it attaches -a to the end of the noun instead, so seme is son and semea is the son, haur is child and haurra the child. Ama and aita already end in -a, so they look the same either way. You will see this ending on almost every noun from here on."},
+    intro:"The household: mother and father, grandmother and grandfather, a brother, a sister, a son, a daughter and a child. Two of the words depend on who is speaking. Anaia is a brother as a man says it, and ahizpa is a sister as a woman says it.",
+    grammar:{title:"The article on the end",body:"Basque has no separate word for the. It adds -a to the end of the noun: seme is son, and semea is the son. Ama and aita already end in -a, so they look the same either way. Amona is ama plus ona, good, and aitona is aita plus ona: literally good mother and good father."},
     wordIds:["ama","aita","anaia","ahizpa","semea","alaba","amona","aitona","familia","haurra"],
   },
   {
