@@ -7716,8 +7716,8 @@ var LESSONS=[
     titleEu:"Sukaldean",
     emoji:"🍲",
     blurb:"How food is cooked, three dishes worth knowing, and one shout.",
-    intro:"Basque cooking has a vocabulary of its own, and some of it has crossed into other languages. These are the methods you will see on a menu, three dishes that are Basque rather than borrowed, and the call you hear in a cider house.",
-    grammar:{title:"A cooking word is also an adjective",body:"Erre is both to grill and grilled. Egosi is both to boil and boiled. The participle doubles as the describing word, so arrain errea is grilled fish and arrain egosia is boiled fish. Menus are full of this, and once you see it you can read most of them."},
+    intro:"How food is cooked: grilled, boiled, fried and baked. Then spice and bacon, three Basque dishes, and Txotx, the call you hear in a cider house.",
+    grammar:{title:"A cooking word is also an adjective",body:"Erre is to grill, and also grilled: txuleta errea is grilled steak. Egosi works the same way, so arrautza egosia is a boiled egg, and frijitu gives arrautza frijitua, a fried egg. Baked is labean egina, literally made in the oven, with the egin you know. Erre also means to burn. Txotx is the call when a barrel is opened, and the name of the wooden peg that plugs it."},
     wordIds:["erre","egosi","frijitu","labean_egina","espezia","urdaia","mamia","intxaursaltsa","piperrada","txotx"],
   },
   {
