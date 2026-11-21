@@ -7513,7 +7513,7 @@ var LESSONS=[
     emoji:"📅",
     blurb:"Monday through Sunday, and when things happen.",
     intro:"You can already say today and tomorrow. These are the days themselves. Three of them are built from aste, the word for week, which makes them easier to remember than they look.",
-    grammar:{title:"Three days built from the week",body:"Astelehena is aste (week) plus lehen (first). Asteartea is aste plus arte (between). Asteazkena is aste plus azken (last). That last one names Wednesday rather than the end of the week, and why it does is still debated. The remaining days come from older roots."},
+    grammar:{title:"Three days built from the week",body:"Astelehena, Monday, is aste, week, plus lehen, first. Asteartea, Tuesday, is aste plus arte, between. Asteazkena, Wednesday, is aste plus azken, last, usually explained as the last day of an old three-day week. The origins of the other four are uncertain. On a day ends in -an: astelehenean is on Monday. Every takes the -ero you know: ostegunero is every Thursday."},
     wordIds:["astelehenea","asteartea","asteazkena","osteguna","ostirala","larunbata","igandea","goizean","arratsaldean","beti"],
   },
   {
