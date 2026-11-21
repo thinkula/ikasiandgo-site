@@ -7368,8 +7368,8 @@ var LESSONS=[
     titleEu:"Menua",
     emoji:"🍽️",
     blurb:"Cod, steak, hake, anchovy, and what comes with them.",
-    intro:"A Basque menu is mostly nouns: the fish or the cut, then how it was cooked. Learn these ten and you can order in most of the Basque Country without pointing.",
-    grammar:{title:"Taking the -a back off",body:"Bakailao is cod and bakailaoa is the cod, the same article you have had since the family lesson. Now practice the reverse: take the -a off to find the bare word. The bare form is what goes into compounds, just as etxea drops its -a in etxe gorria."},
+    intro:"Ten words from a menu: cod, hake and anchovy, steak and fillet, omelette, olive and sauce, txakoli wine, and the verb to prepare.",
+    grammar:{title:"How a dish is named",body:"A dish is the main thing, then what it comes in, ending in -an for in: legatza saltsa berdean is hake in green sauce, and antxoa olioan is anchovy in oil. Txuleta is the thick rib steak grilled over charcoal. Xerra is a fillet or a slice of meat. Five of these words end in an -a of their own: txuleta, tortilla, oliba, saltsa and antxoa. That -a is not the article, so it stays: tortilla bat, saltsa berdea."},
     wordIds:["bacalaoa","txuleta","merluzea","antxoa","xerra","tortilla","oliba","saltsa","txakolina","prestatu"],
   },
   {
