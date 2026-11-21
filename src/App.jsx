@@ -8422,8 +8422,7 @@ function LearnScreen(props){
           chapterHeader(cs),
           cs.lessons.map(renderLesson)
         );
-      }),
-      React.createElement("p",{style:{margin:"8px 4px 0",fontSize:12,color:"#C7C7CC",textAlign:"center",fontWeight:600}},"More lessons coming soon.")
+      })
     )
   );
 }
