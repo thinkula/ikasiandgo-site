@@ -7001,8 +7001,8 @@ var LESSONS=[
   {
     id:"l6_time",
     num:11,
-    title:"Days and Time",
-    titleEu:"Egunak eta ordua",
+    title:"Days and Weeks",
+    titleEu:"Egunak eta asteak",
     emoji:"\uD83D\uDD53",
     blurb:"Talk about today, tomorrow, and when.",
     intro:"Start with three: gaur is today, bihar is tomorrow, atzo is yesterday. Around them are now and later, day and night, the week and the weekend, and noiz, the word for when.",
