@@ -7884,8 +7884,8 @@ var LESSONS=[
     titleEu:"Demokrazia eta eskubideak",
     emoji:"\uD83D\uDDF3\uFE0F",
     blurb:"Elections, law, parties, and the words a ballot needs.",
-    intro:"This is political vocabulary that appears in any Basque newspaper. The words themselves are descriptive rather than partisan, and two of them are built from parts you already know.",
-    grammar:{title:"Eskubideak, the hand path",body:"Eskubideak, rights, is esku (hand) plus bide (path), the same bide as in a route and a profession. Hauteskundeak, elections, is built on hautatu, to choose, which means much the same as aukeratu. Berdintasuna is berdin (equal) plus -tasun, an ending that turns a quality into a noun. A later lesson covers it. Both rights and elections are plural words in Basque."},
+    intro:"Political vocabulary: democracy, elections, equality and rights, the law and the party. With them come three verbs: aukeratu, to choose, aldatu, to change, and lortu, to achieve.",
+    grammar:{title:"Eskubideak, the hand path",body:"Eskubideak, rights, is esku, hand, plus bide, path, the bide of ibilbidea and lanbidea. Hauteskundeak, elections, is built on hautatu, to choose. Both words are said in the plural. Berdintasuna, equality, is berdin, equal, plus the -tasuna of askatasuna. Lortu dut! is I did it."},
     wordIds:["demokrazia","hauteskundeak","berdintasuna","eskubideak","legea","alderdia","aukeratu","aldatu","lortu"],
   },
   {
