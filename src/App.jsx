@@ -7464,8 +7464,8 @@ var LESSONS=[
     titleEu:"Eguraldia eta animaliak",
     emoji:"⛈️",
     blurb:"Storms, lightning, the moon, and what lives in the woods.",
-    intro:"Weather on this coast arrives fast and leaves fast. These are the words for it, along with the animals you might meet on a walk in the hills.",
-    grammar:{title:"Weather is something the day does",body:"Basque has the weather do something rather than be something. Euria egiten du is it makes rain, with euria as the thing being made, and elurra egiten du is the same for snow. Euria ari du is the other way to say it, where ari marks something still going on. Both are common, but egin covers more cases."},
+    intro:"Storm, lightning and temperature, a sound, the moon and a star. Then five animals of the hills and woods: bear, bat, frog, snake and wild boar.",
+    grammar:{title:"Parts you already know",body:"Several words here are built from ones you have. Saguzarra, bat, is sagu, mouse, plus zahar, old. Basurdea, wild boar, is basa, wild, plus urde, pig. Sugegorria, viper, is literally red snake. Ilargia, moon, may be hil, month, plus argi, light, though that is debated. Keep hotsa, sound, apart from hotza, cold: one has ts and the other tz."},
     wordIds:["tenperatura","tximista","ekaitza","hotsa","ilargia","izarra","hartza","saguzarra","igela","sugea","txerri_basatia"],
   },
   {
