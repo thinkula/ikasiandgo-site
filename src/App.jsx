@@ -7596,8 +7596,8 @@ var LESSONS=[
     titleEu:"Nolakoa den",
     emoji:"\uD83E\uDDFC",
     blurb:"Everyday qualities, and two words for measuring how much.",
-    intro:"These are everyday describing words you will use constantly. Two of them are built with endings you have already met, and one falls between two words you know.",
-    grammar:{title:"Between hot and cold",body:"Epela is lukewarm, the temperature between beroa and hotza, and it describes a welcome as readily as a drink. Osasuntsua is osasun (health) plus -tsu, full of health, the same -tsu that made eguzkitsua sunny. Interesgarria ends in -garri, which means causing: a thing that causes interest. Gutxiago is gutxi plus the comparative -ago from handiago, so it means less."},
+    intro:"Everyday describing words: interesting, clean, normal and cheerful, lukewarm and healthy, wide and narrow, smooth and full. With them come less and enough.",
+    grammar:{title:"Between hot and cold",body:"Epela is lukewarm, between beroa and hotza: ur epela is lukewarm water, and eguraldi epela is mild weather. Osasuntsua, healthy, is osasun, health, plus the -tsu of eguzkitsua. Interesgarria ends in -garri, causing: a thing that causes interest. Gutxiago, less, is gutxi plus -ago, and it is the opposite of gehiago. Beterik nago is I am full, with the state ending of gaixorik."},
     wordIds:["interesgarria","garbia","normala","alaia","epela","osasuntsua","gutxiago","nahikoa","zabala","estua","leuna","beterik"],
   },
   {
