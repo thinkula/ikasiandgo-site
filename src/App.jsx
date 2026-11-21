@@ -7728,8 +7728,8 @@ var LESSONS=[
     titleEu:"Lurra eta itsasoa",
     emoji:"🌊",
     blurb:"Cliffs, coastline, horizon, and the countryside between.",
-    intro:"In the Basque Country the mountains meet the sea within a very short distance, and the language has precise words for that edge. Several of them are built from the word for sea.",
-    grammar:{title:"itsas-, the joining form of itsasoa",body:"When itsasoa (the sea) joins another word it shortens to itsas-. Itsasertza is sea plus edge, the coastline. Itsasontzia is sea plus vessel, a ship. Itsas maila is sea level. Spotting the joining form lets you read compounds you have never met."},
+    intro:"The edge where land meets sea: coastline, cliffs and the horizon. With them come nature and the environment, the countryside and the scrub, an ecosystem, and the formal word for a bird.",
+    grammar:{title:"itsas-, the joining form of itsasoa",body:"When itsasoa, the sea, joins another word it shortens to itsas-. Itsasertza, coastline, is sea plus ertz, edge, and itsasontzia, the ship you know, is sea plus vessel. Zerumuga, horizon, is zeru, sky, plus muga, border. Haitzak are cliffs or rocks, and labarrak are sea cliffs. Hegaztia is the formal word for a bird, where txoria is the everyday one. Hegan egin, to fly, is literally to do flying."},
     wordIds:["natura","ingurumena","zerumuga","itsasertza","haitzak","labarrak","sasia","landa","ekosistema","hegaztia"],
   },
   {
