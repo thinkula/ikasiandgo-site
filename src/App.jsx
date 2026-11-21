@@ -7344,8 +7344,8 @@ var LESSONS=[
     titleEu:"Herria",
     emoji:"\uD83E\uDD1D",
     blurb:"Language, culture, freedom, and the word that ties them together.",
-    intro:"One word does an enormous amount of work in Basque: herri. It means the people, the town, and the nation at once, which is why Euskal Herria is hard to translate in a single phrase. The rest of this lesson is the vocabulary around it.",
-    grammar:{title:"Herri, and the words built on it",body:"Herri means people, town, or nation. Euskal Herria is the Basque homeland, herritar is a citizen, herrialde is a country or territory. A second root does similar work: elkar means each other, giving elkartea (association or club) and elkartasuna (solidarity)."},
+    intro:"Herri is one word for the people, the town and the nation. Around it come language, culture, history, freedom, solidarity and peace, with the words for a country, its inhabitants and an association.",
+    grammar:{title:"Herri, and the words built on it",body:"Herritar is a citizen, and herrialdea is a country. Herrialde is also the word for each of the seven historical territories of Euskal Herria. Elkar means each other. It gives elkartea, an association or club, and elkartasuna, solidarity. Askatasuna, freedom, is built on aske, free, with the same ending."},
     wordIds:["herria","herrialdea","hizkuntza","kultura","historia","askatasuna","elkartasuna","bakea","biztanleak","elkartea"],
   },
   {
