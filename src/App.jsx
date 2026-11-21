@@ -7182,8 +7182,8 @@ var LESSONS=[
     titleEu:"Aireportuan",
     emoji:"\u2708\uFE0F",
     blurb:"Travel, hotels, and finding your way.",
-    intro:"Traveling brings its own vocabulary. These words help at the airport, the hotel, and when you need to find something. Pairing non dago (where is...?) with these places lets you ask for directions to almost anywhere.",
-    grammar:{title:"Here and there",body:"You learned hemen (here) and han (there). Basque has a third: hor, meaning there but nearer to the listener. So Basque points at three distances: hemen (by me), hor (by you), han (over there). This three-way system runs through the language."},
+    intro:"The airport, the plane, a place to stay and a room, a taxi and the restrooms. Open and closed are here too, and hor, the there that is near you.",
+    grammar:{title:"Asking, and reading the door",body:"Komunak, restrooms, is plural, so the question takes daude: komunak non daude is where are the restrooms. A door shows a state, with the same -ta as nekatuta: irekita dago is it is open, and itxita dago is it is closed. The x in taxia is a sh sound. Hor completes the set you began with hemen and han: hor dago is it is there, near you."},
     wordIds:["aireportua","hegazkina","ostatua","gela","taxia","komunak","irekia","itxia","han","hor"],
   },
   {
