@@ -7137,8 +7137,8 @@ var LESSONS=[
     titleEu:"Janaria eta edaria II",
     emoji:"\uD83C\uDF77",
     blurb:"Drinks, meals, and Basque specialties.",
-    intro:"Building on the food words you already have, these add the drinks and dishes you will meet in any Basque bar or kitchen. Sagardoa (cider) and pintxoa (the famous bar snack) are cornerstones of Basque food culture, worth knowing before any visit.",
-    grammar:{title:"Each meal has its verb",body:"The three meals come with three verbs, and each pair shares a root: gosaria and gosaldu, bazkaria and bazkaldu, afaria and afaldu. Learn one half and the other is almost free. Basque builds a great deal of its vocabulary this way, so the habit of looking for the shared root pays off early."},
+    intro:"Three drinks, three meals with their verbs, and a few things to eat: the pintxo, chicken, egg and milk. Bazkaria, lunch, is the main meal, and many restaurants serve an eguneko menua, a set lunch menu.",
+    grammar:{title:"Wine inside, and a verb for each meal",body:"Ardoa is wine, and it sits inside the other two drinks. Sagardoa, cider, is sagar, apple, plus ardoa. Garagardoa, beer, is garagar, barley, plus ardoa. Each meal has its verb: gosaria and gosaldu, bazkaria and bazkaldu, afaria and afaldu. Gosaria starts from gose, the hunger you already know."},
     wordIds:["ardoa","sagardoa","garagardoa","pintxoa","gosaria","bazkaria","afaria","gosaldu","bazkaldu","afaldu","oilaskoa","arrautza","esnea","menua"],
   },
   {
