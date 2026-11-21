@@ -7239,9 +7239,9 @@ var LESSONS=[
     title:"At the Market",
     titleEu:"Azokan",
     emoji:"\uD83E\uDD55",
-    blurb:"Fruit, vegetables and fish, as you would ask for them.",
-    intro:"The food words so far covered what you eat. This lesson covers what you buy. It is a different list, and it is the one you need at a market stall.",
-    grammar:{title:"Where the vegetables came from",body:"Many of these names arrived with the thing itself. Tomatea and patata came in from Spanish, and azenarioa from an older Spanish form of zanahoria. Tipula goes back to Latin cepulla, a little onion, which makes Spanish cebolla its cousin rather than its parent. Sagarra is native, and it is the first half of sagardoa, cider, which is apple plus wine."},
+    blurb:"Fruit, vegetables and a fish, and where their names came from.",
+    intro:"What goes in the basket at the market: tomato, potato, onion, carrot, lettuce and garlic, apple and banana, parsley and albacore tuna.",
+    grammar:{title:"Where the names came from",body:"Several of these names came from Spanish: tomatea from tomate, letxuga from lechuga, and azenarioa from an older form of zanahoria. Patata is the same word as in Spanish. Tipula goes back to Latin cepulla, little onion, so Spanish cebolla is its cousin, not its source. Sagarra, apple, is the sagar you met inside sagardoa. Perrexila, parsley, is what turns saltsa berdea, green sauce, green."},
     wordIds:["tomatea","patata","tipula","azenarioa","letxuga","baratxuria","sagarra","banana","perrexila","hegaluzea"],
   },
   {
