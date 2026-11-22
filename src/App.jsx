@@ -7980,8 +7980,8 @@ var LESSONS=[
     titleEu:"Enpresa eta estrategia",
     emoji:"\uD83D\uDCC8",
     blurb:"Goals, budgets, investment, and the words a plan is written in.",
-    intro:"This is the language of running an organization. Much of it is borrowed, as business vocabulary usually is, but the two most useful words here were built out of Basque parts.",
-    grammar:{title:"Helburua, the head of the road",body:"Helburua, a goal, is heldu (to arrive) plus buru (head): the point you are heading for. You have met heldu before inside helmuga, a destination. Aukera means opportunity, and aukeratu, to choose, is built on it, so choosing is taking the opportunity in front of you. Negoziaketa ends in -keta, the ending for a process, the same one behind zenbaketa."},
+    intro:"The language of running an organization: the entrepreneur, a goal, an opportunity, a condition, the budget, an investment, a negotiation and a strategy.",
+    grammar:{title:"Helburua, the head you are heading to",body:"Helburua, goal, is heldu, to arrive, plus buru, head: the head you are heading to. You met heldu inside helmuga, destination. Aukera is an opportunity, and aukeratu, to choose, is built on it. Enpresaria, entrepreneur, adds -ari to enpresa. Negoziaketa, negotiation, ends in the -keta of batuketa. Baldintzarik gabe, without conditions, is unconditionally."},
     wordIds:["enpresaria","helburua","aukera","baldintza","aurrekontua","inbertsioa","negoziaketa","estrategia"],
   },
   {
