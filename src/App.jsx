@@ -8040,8 +8040,8 @@ var LESSONS=[
     titleEu:"Garaiak eta epeak",
     emoji:"\u23F3",
     blurb:"Centuries, decades, durations, and the edge of a deadline.",
-    intro:"These are longer stretches of time than the lessons have used so far, and the words for the limits set on them. Two familiar roots do most of the building.",
-    grammar:{title:"Epe and muga, a stretch and its edge",body:"Epea is a stretch of time and muga is a limit, so epemuga is a deadline, the edge of the stretch. You have met muga twice already, in helmuga and mugaldea. Iraupena, duration, comes from iraun, to last, and the same root gives iraunkorra, lasting. Hamarkada is hamar (ten) plus -kada, so a decade, and mendea is a century."},
+    intro:"These are the words for long stretches of time and their limits: an era, a century, a decade, a period and its deadline, duration and expiration, a schedule, and a chronology.",
+    grammar:{title:"Epe and muga, a period and its limit",body:"Epea is a period and muga is a limit, so epemuga is a deadline. It is the same muga as in helmuga and zerumuga. Iraupena, duration, is iraun, to last, plus -pena. Iraungitzea, expiration, is from a different verb, iraungi, to expire. Hamarkada is hamar, ten, plus -kada. Ordutegia is ordu, hour, plus -tegi, as in egutegia. Garaian is at the time. For on time the word is garaiz."},
     wordIds:["epea","iraungitzea","garaian","iraupena","garaia","mendea","hamarkada","ordutegia","muga_epea","kronologia","iraganeko_geroa"],
   },
   {
