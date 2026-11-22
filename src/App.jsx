@@ -8028,8 +8028,8 @@ var LESSONS=[
     titleEu:"Gastronomia",
     emoji:"\uD83C\uDF73",
     blurb:"Txokos, tasting menus, pil-pil, and where ingredients come from.",
-    intro:"Food was an early lesson. This is food as the Basque Country debates it, a subject with its own vocabulary and one institution that has no translation.",
-    grammar:{title:"Where the wine is kept",body:"Ardandegia is ardo (wine) plus the -tegi you met at the cider house, the ending for a place that holds a thing. A txoko is a private gastronomic society where members cook for one another. Pil-pil is named for its sound: salt cod swirled slowly in olive oil until the sauce thickens into an emulsion."},
+    intro:"Food was an early lesson. This is the vocabulary of Basque gastronomy: the txoko, the recipe and its ingredients, pil-pil, a tasting, a cooking technique, local products, reserving a table, and the wine cellar.",
+    grammar:{title:"Where the wine is kept",body:"Ardandegia, wine cellar, is ardo, wine, plus -tegi, written -degi here as in kiroldegia. Txokoa is a private gastronomic society where members cook and eat together. Pil-pil is named for the sound of its gentle bubbling: salt cod swirled slowly in olive oil and garlic until it emulsifies. Dastaketa, a tasting, is dastatu, to taste, plus -keta. Mahaia erreserbatu is to reserve a table."},
     wordIds:["gastronomia","txoko","errezeta","pil_pil","mahaia_erreserbatu","dastaketa","osagai","sukalde_teknika","bertako_produktua","ardandegi"],
   },
   {
