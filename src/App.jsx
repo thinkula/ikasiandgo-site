@@ -7920,8 +7920,8 @@ var LESSONS=[
     titleEu:"Joatea eta itzultzea",
     emoji:"✈️",
     blurb:"The vocabulary of leaving, and of coming back.",
-    intro:"For generations, leaving was an ordinary part of a Basque life. These are the words for that, and for the return that some made and others never did.",
-    grammar:{title:"Building a long word, one piece at a time",body:"Aberri is homeland. Add -ra for direction and you have aberrira, to the homeland. Add -tze to turn that action into a noun and you have aberriratzea, the act of returning home. Basque builds this way constantly, so a long word is usually readable if you take it apart from the left."},
+    intro:"The words for leaving and for coming back: diaspora, exile and the return home, a long road, a border, and the embassy, visa and customs on the way. Basque communities settled in Argentina, the United States, Uruguay, Mexico and Australia.",
+    grammar:{title:"Building a long word, one piece at a time",body:"Aberri is homeland. Add -ra, to, and you have aberrira, to the homeland. Add -tze, which makes a noun of an action, and you have aberriratzea, the return home. Mugitzea, moving, ends the same way. Mugarik gabe, without borders, is muga, border, with the gabe you know. Bide is here twice more: bide luzea is a long road, and bidezidorra is a narrow path or shortcut."},
     wordIds:["diaspora","erbesteratua","aberriratze","mugitzea","bide_luzea","mugarik_gabe","enbaxada","bisa","aduana","bidezidor"],
   },
   {
