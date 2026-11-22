@@ -7992,8 +7992,8 @@ var LESSONS=[
     titleEu:"Langileen mundua",
     emoji:"\uD83D\uDEE0\uFE0F",
     blurb:"Strikes, unions, cooperatives, and the economy around them.",
-    intro:"Basque industry has a particular history, and the vocabulary reflects it. These are words you will meet in any discussion of how work is organized here.",
-    grammar:{title:"Mondragon, and the words around it",body:"Kooperatiba is not an abstraction in the Basque Country. The Mondragon Corporation, founded in Arrasate in 1956, grew into the largest worker cooperative in the world. Lehiakortasuna is lehia (competition) plus -kor, which marks a tendency, and then the -tasun that makes it a quality: the tendency to compete. Konpetentzia means both competition between businesses and competence in a person, and only the sentence around it tells you which."},
+    intro:"Strike and unionism, the cooperative, productivity, competition and competitiveness, and statistics.",
+    grammar:{title:"Mondragon, and the words around it",body:"The Mondragon Corporation, founded in the Basque Country in 1956, is the world's largest worker cooperative. ELA and LAB are the main Basque unions. To go on strike is grebara joan. Lehiakortasuna, competitiveness, is lehia, competition, plus -kortasuna. Konpetentzia means competition between businesses and also competence in a person, and the sentence tells you which."},
     wordIds:["greba","sindikalismoa","kooperatiba","produktibitatea","konpetentzia","lehiakortasuna","estatistika"],
   },
   {
