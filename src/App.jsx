@@ -7944,8 +7944,8 @@ var LESSONS=[
     titleEu:"Gizartea",
     emoji:"⚖️",
     blurb:"The words for living together: rights, debate, consequences.",
-    intro:"To read a Basque newspaper you need the vocabulary of public life. These are the civic words, the ones about how people live alongside each other and argue about how to do it better.",
-    grammar:{title:"Gizartea, the space among people",body:"Gizarte, society, is the giza- from the language lesson plus arte, among: the space among people. Giza eskubideak is human rights. Once you recognize giza- you can usually guess a word built on it, which is a good habit for the long abstract nouns that fill the news."},
+    intro:"The civic words, for how people live alongside each other: society, power and justice, citizenship, a minority, human rights, debate, a solution, a consequence and an influence.",
+    grammar:{title:"Long words from parts you have",body:"Gizartea, society, is giza plus arte, as you saw. Giza eskubideak, human rights, joins giza to the eskubideak you know. Herritartasuna, citizenship, is herritar, citizen, plus -tasuna. Konponbidea, solution, is konpondu, to fix, plus bide: the fixing path. Gutxiengoa, minority, is built on gutxien, fewest."},
     wordIds:["gizartea","boterea","justizia","herritartasuna","gutxiengoa","giza_eskubideak","eztabaida","konponbidea","ondorioa","eragina"],
   },
   {
