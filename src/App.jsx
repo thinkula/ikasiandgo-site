@@ -8016,8 +8016,8 @@ var LESSONS=[
     titleEu:"Gorputzaren sistemak",
     emoji:"\uD83E\uDE7B",
     blurb:"Breathing, digestion, surgery, and the words a diagnosis uses.",
-    intro:"This is medical vocabulary, where Basque uses two kinds of words side by side. Some are international terms borrowed whole, and some are native compounds that describe the thing plainly.",
-    grammar:{title:"Living pain, and the sick house",body:"Minbizia, cancer, is min (pain) plus bizi (living), a living pain. Erietxea is eri (a sick person) plus etxea (house), the sick house, a native word that sits alongside the borrowed ospitalea. Ebakuntza, surgery, comes from ebaki, to cut. Arnasketa is arnasa (breath) plus -keta, the same ending for a process."},
+    intro:"Medical vocabulary: surgery, blood pressure, digestion and breathing, the immune and nervous systems, cancer and diabetes, and physical activity. Some of these are international terms, and some are plain Basque compounds.",
+    grammar:{title:"Living pain, and the sick house",body:"Minbizia, cancer, is min, pain, plus bizi, living: a living pain. Erietxea, hospital, is eri, a sick person, plus etxea, house. It is a native word but rare in everyday speech, where people say ospitalea. The same eri is in hotzeria, a cold. Ebakuntza, surgery, is from ebaki, to cut. Arnasketa, breathing, is arnasa, breath, plus -keta."},
     wordIds:["ebakuntza","immunitate_sistema","odol_presioa","digestioa","arnasaketa","nerbio_sistema","minbizia","diabetesa","erietxea","jarduera_fisikoa"],
   },
   {
