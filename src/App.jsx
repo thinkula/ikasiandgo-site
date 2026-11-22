@@ -8064,8 +8064,8 @@ var LESSONS=[
     titleEu:"Adeitasuna",
     emoji:"\uD83E\uDD1D",
     blurb:"Welcomes, toasts, apologies, and the word that ends them.",
-    intro:"You have had kaixo and agur since the very beginning. These are the formal versions, the ones for a letter, a speech, or a raised glass.",
-    grammar:{title:"\"On\", the good that ends a wish",body:"\"On\" means good, and it closes a whole family of wishes: egun on, gau on, zorte on. Good day, good night, good luck. Ongi etorri, welcome, is ongi (well) plus etorri (to come), so come well, using the etorri you met among the verbs of movement. Osasuna means health, and raised over a glass it is the Basque toast."},
+    intro:"You have had kaixo, agur, and barkatu since the first lesson. These are the words for more formal moments: a warm welcome, a greeting sent to someone, a formal apology, a wish of good luck, and a toast.",
+    grammar:{title:"\"On\", the good that ends a wish",body:"\"On\" means good, and it ends a wish: egun on, good day, and zorte on, good luck. Gabon is from gau, night, and \"on\". Ongi etorri, welcome, is ongi, well, plus etorri, to come. Osasuna means health, and said over a raised glass it is the toast. Topa! is the other common one. Agur is the word you say, and agurra is the noun, a greeting or a farewell. Barkamen eske is more formal and serious than barkatu."},
     wordIds:["harrera_ona","agurra","adeitasuna","ongi_etorri","zorte_on","osasun","barkamen_eske"],
   },
   {
