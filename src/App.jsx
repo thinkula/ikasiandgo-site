@@ -8004,8 +8004,8 @@ var LESSONS=[
     titleEu:"Zenbakiak eta datuak",
     emoji:"\uD83D\uDD22",
     blurb:"Averages, variables, proportions, and one false friend worth knowing.",
-    intro:"This is the vocabulary of figures as they appear in reports and news. One of these words means something different from what an English speaker expects, and getting it wrong changes a number by a factor of a thousand.",
-    grammar:{title:"Batez beste, one with another",body:"Batez bestekoa, an average, comes from the set phrase batez beste, literally one with another, which describes an average well. Gutxi gora-behera, approximately, is gutxi (little) with gora-behera (up and down), so give or take. Now the warning: bilioia is a million millions, as in Spanish, not the American billion. For that, Basque says mila milioi, a thousand million."},
+    intro:"The vocabulary of figures in reports: number, zero and whole number, a calculation and a formula, proportion, data, an index, a variable, an average and a standard deviation. One word here is a false friend: bilioia.",
+    grammar:{title:"Bilioia, and batez beste",body:"Bilioia is a million millions, as in Spanish, not the American billion. For that, Basque says mila milioi, a thousand million. Batez bestekoa, average, comes from the phrase batez beste, literally one with another. Gutxi gora-behera, approximately, is gutxi, little, plus gora-behera, up and down. Zenbakia, number, is from zenbat, how many, and zenbaki osoa, a whole number, uses the osoa you know."},
     wordIds:["zenbakia","bilioia","zerozero","zenbaki_osoa","kalkulua","formula","proportzioa","gutxi_gora_behera","datuak","indizea","aldagai","batez_bestekoa","desbideratze_estandarra"],
   },
   {
