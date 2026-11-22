@@ -8052,8 +8052,8 @@ var LESSONS=[
     titleEu:"Ñabardurak",
     emoji:"\uD83D\uDD8C\uFE0F",
     blurb:"Indigo, turquoise, garnet, and the word for a shade itself.",
-    intro:"This is the last of the color vocabulary, and the most specialized. One of these is a native Basque word where English borrowed from French.",
-    grammar:{title:"Gabe again, and ñabar",body:"Koloregabea is kolore plus gabe, without color, the same gabe you met in ezkongabea. Distiratsua is distira (shine) plus -tsu, full of shine, the same -tsu as indartsua. Ñabardura, a nuance, is the interesting one: it comes from ñabar, meaning variegated or many-colored, so Basque names a shade of meaning with a word about color."},
+    intro:"This is the last of the color vocabulary: indigo, turquoise, garnet, olive green, and beige, then vivid, colorless, shiny, and faded. With them comes ñabardura, the word for a shade.",
+    grammar:{title:"Gabe again, and ñabar",body:"Ñabardura, a nuance or a shade of color, is a native Basque word: ñabar, variegated or many-colored, plus -dura. It is also used for a subtle difference in meaning. Koloregabea is kolore plus gabea, without, the same gabe as in ezkongabea. Distiratsua is distira, shine, plus -tsu, full of, as in indartsua. Kolorea galdu, to fade, is literally to lose color. Bizia in kolore biziak also means alive."},
     wordIds:["kolorea_galdu","ñabardura","indigo","turkoisa","granatea","oliba_berdea","beixa","kolore_biziak","koloregabea","distiratsua"],
   },
   {
