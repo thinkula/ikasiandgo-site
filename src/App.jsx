@@ -7932,8 +7932,8 @@ var LESSONS=[
     titleEu:"Gure hizkuntza",
     emoji:"📖",
     blurb:"Standard Basque, the dialects, and what carries them.",
-    intro:"Euskara is one language with many local forms. From 1968 the Basque Language Academy shaped a shared written standard, so that a book published in Bilbo could be read in Baiona. The standard and the dialects are both alive, and most speakers use both.",
-    grammar:{title:"Batua and euskalkia are not rivals",body:"Euskara Batua is the written standard agreed from 1968 onward, used in schools, books and broadcasting. A euskalkia is a regional variety, spoken long before the standard existed and spoken still. Most people write in batua and talk at home in their own euskalkia."},
+    intro:"Euskara is one language with many local forms. In 1968, at Arantzazu, the Basque language academy, Euskaltzaindia, created a single written standard. Around those two come heritage, identity, tradition and modernity, the lauburu, Basque literature and cinema, and Bilbo's Great Week.",
+    grammar:{title:"Batua and euskalkia",body:"Euskara Batua is Unified Basque. Batua is from batu, to unite, the verb behind batuketa, and it is now taught in all schools. Euskalkia is a dialect, and Koldo Zuazo's 1998 classification names six. Lauburua, the Basque cross, is lau, four, plus buru, heads, and its original meaning is not known. The first book printed in Basque was by Bernat Etxepare, in 1545."},
     wordIds:["euskara_batua","euskalkia","ondarea","identitatea","tradizioa","modernitatea","lauburu","euskal_literatura","euskal_zinema","aste_nagusia"],
   },
   {
