@@ -7968,8 +7968,8 @@ var LESSONS=[
     titleEu:"Mundu bizia",
     emoji:"🌍",
     blurb:"Climate, habitat, wildlife, and the words for when it goes wrong.",
-    intro:"This vocabulary belongs to the modern world: climate, biodiversity, and the language of a coast that floods and a land that shakes. These are the words a Basque news bulletin uses now.",
-    grammar:{title:"Modern terms are built from two words",body:"Many modern terms are two words set side by side: klima aldaketa is climate change, itsas maila is sea level, espazio naturala is a natural space. They are written as two words and read as one idea, so take them apart when a long term looks unfamiliar."},
+    intro:"Climate change, biodiversity and habitat. Wildlife and a nature reserve. Earthquake, floods and drought. A temperate climate, and sea level.",
+    grammar:{title:"Two words side by side, and three joined",body:"Many of these are two words set side by side. Klima aldaketa, climate change, has the aldaketa of aldatu, and itsas maila, sea level, has the itsas- you know. Klima epela, a temperate climate, uses epela, lukewarm. Others are joined into one. Lurrikara, earthquake, is lurra, earth, plus ikara, trembling. Basabizitza, wildlife, is basa, wild, plus bizitza, life. Lehortea, drought, is built on lehor, dry."},
     wordIds:["klima_aldaketa","biodibertsitatea","habitat","espazio_naturala","basabizitza","lurrikara","uholdeak","lehortea","klima_epela","itsas_maila"],
   },
   {
