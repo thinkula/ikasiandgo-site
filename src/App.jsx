@@ -8076,8 +8076,8 @@ var LESSONS=[
     titleEu:"Aberatsa eta pobrea",
     emoji:"\u2696\uFE0F",
     blurb:"Adjectives that come as opposites and are easier to learn in pairs.",
-    intro:"Most of these come with their opposite attached, which is the easiest way to learn them. Two of them carry more meanings in Basque than their English translation suggests.",
-    grammar:{title:"Words that come in pairs",body:"Learn these two at a time: aberatsa and pobrea, ahula and sendoa. Zuzena is the one to watch, because it covers correct, just and straight all at once, and zuzendu means both to correct and to direct. Okerra is its opposite in every one of those senses, wrong and crooked together. Zehatza is precise, and zehatz-mehatz means precisely."},
+    intro:"Most of these come with their opposite, which is the easiest way to learn them: rich and poor, weak and strong, correct and wrong. The seventh is zehatza, precise.",
+    grammar:{title:"Words that come in pairs",body:"Learn these two at a time: aberatsa and pobrea, ahula and sendoa, zuzena and okerra. You met zuzen as straight ahead. With the article, zuzena also means correct or just, and zuzendu is to correct or to direct. Okerra is both wrong and crooked. Pobrea is from Spanish, and the Basque word txiroa is also used. Sendoa also means healthy or solid. Zehatz-mehatz means precisely."},
     wordIds:["aberatsa","pobrea","zuzena","okerra","ahula","sendoa","zehatza"],
   },
   {
