@@ -7956,8 +7956,8 @@ var LESSONS=[
     titleEu:"Sentimendu gogorrak",
     emoji:"🕊️",
     blurb:"Regret, longing, compassion, and the weight of missing something.",
-    intro:"Every language needs words for the difficult things. Some of these are useful to everyone. Nostalgia and melankolia will be familiar to anyone who has felt the pull of a place their family left.",
-    grammar:{title:"Two layers in one list",body:"Look at where these words come from. Nostalgia, melankolia and jelosia are international borrowings that Basque spells its own way. Damua, errukia, sumindura and gorrotoa are older Basque words. Most languages have both layers. In Basque the difference is easy to see, and neither set is more correct than the other."},
+    intro:"Words for the difficult feelings: nostalgia and melancholy, heartache, regret, despair, compassion, frustration, hatred, jealousy and a fit of anger. One lighter phrase closes the list: atsegin dut, I like it.",
+    grammar:{title:"Feelings you can take apart",body:"Bihotz-mina, heartache, is bihotz, heart, plus mina, pain. Haserrealdia, a fit of anger, is haserre plus aldi, a period. Etsipena, despair, is the opposite of esperantza. Damu naiz is I am sorry, and it means real remorse, deeper than barkatu. Nostalgia, melankolia and jelosia are loans, and nostalgia is the same word as in English."},
     wordIds:["nostalgia","melankoliia","mina","damua","etsipena","errukia","sumindura","gorrotoa","jelosia","haserrealdi","atsegin_dut"],
   },
   {
