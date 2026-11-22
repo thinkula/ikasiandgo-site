@@ -8088,8 +8088,8 @@ var LESSONS=[
     titleEu:"Ezinezkoa",
     emoji:"\uD83E\uDDE9",
     blurb:"Unbearable, essential, contradictory, and the word for cannot.",
-    intro:"These are abstract adjectives, the kind an opinion piece is built from. Most of them are assembled from parts, and one small word does most of the work.",
-    grammar:{title:"Ezin, the word for cannot",body:"Ezin means cannot, and Basque builds adjectives by saying what is impossible. Jasanezina is jasan (to endure) plus ezin, so cannot be endured, unbearable. Ezinbestekoa is ezin plus beste (other): it cannot be otherwise, which is how Basque says essential. Eztabaidagarria uses -garri in its other sense, not causing but worth: worth debating. Iraunkorra comes from iraun, to last, so sustainable is simply what keeps going."},
+    intro:"These are abstract adjectives: unbearable, essential, ancient, complex, controversial, sustainable, and contradictory. Two of them are built on ezin, cannot.",
+    grammar:{title:"Ezin, the word for cannot",body:"Ezin means cannot. Jasanezina is jasan, to endure, plus ezin: cannot be endured. Its opposite is jasangarria, bearable. Ezinbestekoa is ezin plus beste, other: it cannot be otherwise. Eztabaidagarria is eztabaida, debate, plus -garri. You met -garri as causing, in nekagarria. Here it means worthy of. Kontraesankorra is kontraesan, contradiction, plus -korra, and iraunkorra, lasting, has the same ending. For ancient, antzinakoa is the more common form."},
     wordIds:["jasanezina","ezinbestekoa","antzinatekoa","konplexua","eztabaidagarria","iraunkorra","kontraesankorra"],
   },
   {
