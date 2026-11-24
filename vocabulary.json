@@ -1651,7 +1651,7 @@
       "notes": "Bakailaoa = cod, most often eaten salted. Bakailaoa pil-pilean and bakailaoa bizkaitar erara are two well-known dishes. Euskara Batua spelling is bakailaoa, from Spanish bacalao.",
       "example": {
         "basque": "Bakailaoa ohikoa da.",
-        "english": "Cod is traditional."
+        "english": "Cod is common."
       }
     },
     {
@@ -1755,7 +1755,7 @@
       "notes": "The Basque beret, a symbol of cultural identity worn by men and women. Txapelketa = championship (literally beret-contest, since the winner receives a txapela). Comes in many colors though black is traditional.",
       "example": {
         "basque": "Txapela janztea ohikoa da.",
-        "english": "Wearing the beret is traditional."
+        "english": "Wearing the beret is customary."
       }
     },
     {
@@ -5261,8 +5261,8 @@
       "pronunciation": "CHER-ree-ah",
       "notes": "Pig or pork. Txerri haragia = pork. Txistorra = a thin Basque sausage of pork and paprika.",
       "example": {
-        "basque": "Txistorra txerri-haragiarekin egiten da.",
-        "english": "Txistorra is made from pork."
+        "basque": "Txerria baserrian dago.",
+        "english": "The pig is on the farm."
       }
     },
     {
@@ -8005,8 +8005,8 @@
       "pronunciation": "koh-oh-peh-rah-TEE-bah",
       "notes": "Cooperative. The Mondragon Corporation is the world's largest worker cooperative, founded in the Basque Country in 1956.",
       "example": {
-        "basque": "Mondragon kooperatiba handiena da munduan.",
-        "english": "Mondragon is the largest cooperative in the world."
+        "basque": "Mondragon kooperatiba handi bat da.",
+        "english": "Mondragon is a large cooperative."
       }
     },
     {
@@ -8564,8 +8564,8 @@
       "pronunciation": "gah-RAI-an",
       "notes": "At the time or in due time. Garai (era/period) + -an (in). For 'on time' the more common word is garaiz (e.g. garaiz iritsi = to arrive on time).",
       "example": {
-        "basque": "Garai hartan dena ezberdina zen.",
-        "english": "At that time everything was different."
+        "basque": "Bere garaian azaldu nuen arazo hori.",
+        "english": "I explained that problem at the time."
       }
     },
     {
@@ -10566,8 +10566,8 @@
       "pronunciation": "oh-deh-ee-TSOO-ah (h is silent)",
       "notes": "Cloudy. Hodei (cloud) + -tsu (full of). Hodeitsu dago = it is cloudy. The Basque Country has an oceanic climate. Clouds and rain are frequent. Hodei iluna = dark cloud.",
       "example": {
-        "basque": "Hodeitsu dago gaur, beharbada euria egingo du.",
-        "english": "It is cloudy today, maybe it will rain."
+        "basque": "Hodeitsu dago gaur.",
+        "english": "It is cloudy today."
       }
     },
     {
@@ -11832,8 +11832,8 @@
       "pronunciation": "PLAH-sah",
       "notes": "Herriko plaza = the town square. Festivals, markets, and dance all happen here, and the fronton for pilota often stands right on it. From Spanish plaza. Plazan = in the square.",
       "example": {
-        "basque": "Plaza herriaren erdian dago.",
-        "english": "The square is in the middle of the town."
+        "basque": "Plaza handia da.",
+        "english": "The square is big."
       }
     },
     {
@@ -11949,8 +11949,8 @@
       "pronunciation": "eh-LEE-sah",
       "notes": "From Latin ecclesia, one of the many early Latin loanwords in Basque. Villages often grew around the eliza, and the covered portico (elizpea) long served as a meeting place for village assemblies. In many towns the church wall doubled as the first pilota court.",
       "example": {
-        "basque": "Eliza herriko plazan dago.",
-        "english": "The church is on the town square."
+        "basque": "Eliza plazan dago.",
+        "english": "The church is on the square."
       }
     },
     {
