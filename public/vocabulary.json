@@ -11138,7 +11138,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "NIGHS",
-      "notes": "Naiz is the ni form of izan. The verb already carries the person, so naiz by itself is a complete I am and ni is added only for emphasis. Use it for what you are and where you are from: Bilbokoa naiz, I am from Bilbao. For how you feel right now, Basque switches to egon and nago.",
+      "notes": "Naiz is the form of izan for ni, I. The verb already carries the person, so naiz by itself is a complete I am and ni is added only for emphasis. Use it for what you are and where you are from: Bilbokoa naiz, I am from Bilbao. For how you feel right now, Basque switches to egon and nago.",
       "example": {
         "basque": "Ane naiz.",
         "english": "I am Ane."
@@ -11151,7 +11151,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SAH-rah",
-      "notes": "Zara is the zu form of izan. It looks like a plural because zu was once the plural you, and the verb kept the older shape. Nongoa zara asks where you are from. For where you are standing at this moment, egon takes over with zaude.",
+      "notes": "Zara is the form of izan for zu, you. It looks like a plural because zu was once the plural you, and the verb kept the older shape. Nongoa zara asks where you are from. For where you are standing at this moment, egon takes over with zaude.",
       "example": {
         "basque": "Nongoa zara?",
         "english": "Where are you from?"
@@ -11164,7 +11164,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DAH",
-      "notes": "Da is the hura form of izan and one of the most common verb forms in Basque. It ends a great many sentences, because the verb goes last: hau ura da, this is water. Its egon counterpart is dago.",
+      "notes": "Da is the form of izan for hura, he, she, or it. It is one of the most common verb forms in Basque. It ends a great many sentences, because the verb goes last: hau ura da, this is water. Its egon counterpart is dago.",
       "example": {
         "basque": "Hau ura da.",
         "english": "This is water."
@@ -11177,7 +11177,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "GAH-rah",
-      "notes": "Gara is the gu form of izan. Gu gara is we are, with the pronoun there only for emphasis. Its egon counterpart is gaude.",
+      "notes": "Gara is the form of izan for gu, we. Gu gara is we are, with the pronoun there only for emphasis. Its egon counterpart is gaude.",
       "example": {
         "basque": "Lagunak gara.",
         "english": "We are friends."
@@ -11190,7 +11190,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "sah-REH-teh",
-      "notes": "Zarete is the zuek form of izan. Basque built it when it needed a new plural you, after zu had drifted into the singular. Its egon counterpart is zaudete.",
+      "notes": "Zarete is the form of izan for zuek, you all. Basque built it when it needed a new plural you, after zu had drifted into the singular. Its egon counterpart is zaudete.",
       "example": {
         "basque": "Zuek ikasleak zarete.",
         "english": "You all are students."
@@ -11203,7 +11203,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DEE-rah",
-      "notes": "Dira is the haiek form of izan and the plural of da. Basque marks the plural on the verb as well as on the noun. Its egon counterpart is daude.",
+      "notes": "Dira is the form of izan for haiek, they. It is the plural of da. Basque marks the plural on the verb as well as on the noun. Its egon counterpart is daude.",
       "example": {
         "basque": "Haiek anaiak dira.",
         "english": "They are brothers."
@@ -11216,7 +11216,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "NAH-goh",
-      "notes": "Nago is the ni form of egon, the to be that covers where you are and how you are. Nekatuta nago is I am tired and hemen nago is I am here. For who you are, Basque uses izan and naiz instead.",
+      "notes": "Nago is the form of egon for ni, I. Egon is the to be that covers where you are and how you are. Nekatuta nago is I am tired and hemen nago is I am here. For who you are, Basque uses izan and naiz instead.",
       "example": {
         "basque": "Nekatuta nago.",
         "english": "I am tired."
@@ -11229,7 +11229,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "SOW-deh",
-      "notes": "Zaude is the zu form of egon. Non zaude asks where you are at this moment, while nongoa zara asks where you are from. The two to be verbs divide along exactly that line.",
+      "notes": "Zaude is the form of egon for zu, you. Non zaude asks where you are at this moment, while nongoa zara asks where you are from. The two to be verbs divide along exactly that line.",
       "example": {
         "basque": "Non zaude?",
         "english": "Where are you?"
@@ -11242,7 +11242,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DAH-goh",
-      "notes": "Dago is the hura form of egon, and the form most learners meet first, inside non dago, where is it. It answers with a place: han dago, it is over there. Its izan counterpart is da.",
+      "notes": "Dago is the form of egon for hura, he, she, or it. It is the form most learners meet first, inside non dago, where is it. It answers with a place: han dago, it is over there. Its izan counterpart is da.",
       "example": {
         "basque": "Jatetxea han dago.",
         "english": "The restaurant is over there."
@@ -11255,7 +11255,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "GOW-deh",
-      "notes": "Gaude is the gu form of egon. Hemen gaude is we are here. Its izan counterpart is gara, which is for what a group is rather than where it is.",
+      "notes": "Gaude is the form of egon for gu, we. Hemen gaude is we are here. Its izan counterpart is gara, which is for what a group is rather than where it is.",
       "example": {
         "basque": "Hemen gaude.",
         "english": "We are here."
@@ -11268,7 +11268,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "sow-DEH-teh",
-      "notes": "Zaudete is the zuek form of egon and the plural of zaude. Its izan counterpart is zarete.",
+      "notes": "Zaudete is the form of egon for zuek, you all. It is the plural of zaude. Its izan counterpart is zarete.",
       "example": {
         "basque": "Non zaudete?",
         "english": "Where are you all?"
@@ -11281,7 +11281,7 @@
       "cefr": "A1",
       "topic": "greetings",
       "pronunciation": "DOW-deh",
-      "notes": "Daude is the haiek form of egon and the plural of dago. Its izan counterpart is dira.",
+      "notes": "Daude is the form of egon for haiek, they. It is the plural of dago. Its izan counterpart is dira.",
       "example": {
         "basque": "Haiek etxean daude.",
         "english": "They are at home."
