@@ -6897,7 +6897,7 @@ var LESSONS=[
     emoji:"\uD83D\uDC4B",
     blurb:"Say hello, thank you, and be polite.",
     intro:"These nine words carry a first exchange: hello and goodbye, yes and no, thank you, please and sorry. Kaixo works with anyone, a friend or a shopkeeper. Egun on is a little less casual, and people use it until around noon.",
-    grammar:{title:"The little word \"on\"",body:"\"On\" means good, and it comes second. Egun is day, so egun on is good day, which is how you say good morning. Gau is night, so gau on is good evening. After dark most people say gabon."},
+    grammar:{title:"The little word \"on\"",body:"\"On\" means good, and it comes second. Egun is day, so egun on is good day, which is how you say good morning. Gau is night, so gau on is good evening. After dark the usual greeting is gabon."},
     wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on","gau_on"],
   },
   {
