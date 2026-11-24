@@ -6711,14 +6711,14 @@
     {
       "id": "helmuga",
       "basque": "Helmuga",
-      "english": "Destination",
+      "english": "Finish line / Goal",
       "cefr": "B1",
       "topic": "travel",
       "pronunciation": "el-MOO-gah (h is silent)",
-      "notes": "Helmuga = destination. Heldu = to arrive + muga = limit/border. Literally the arrival-point. Helmugara iritsi = to reach the destination. Also used in sports: helmuga = finish line.",
+      "notes": "Helmuga is heldu, to arrive, plus muga, limit: the finish line of a race. It also means a goal or aim. Helmugara iritsi = to reach the finish line.",
       "example": {
         "basque": "Helmugara iritsi gara.",
-        "english": "We have reached our destination."
+        "english": "We have reached the finish line."
       }
     },
     {
@@ -14032,7 +14032,7 @@
       "cefr": "B1",
       "topic": "food",
       "pronunciation": "oh-DOL-kee-ah",
-      "notes": "Odolkia = blood sausage, made with the blood (odol) of the pig or the lamb. Boiled, it is one of the sides served with Tolosa beans.",
+      "notes": "Odolkia = blood sausage, made with pig's blood (odol). Boiled, it is one of the sides served with Tolosa beans.",
       "example": {
         "basque": "Odolkia jan dut.",
         "english": "I ate blood sausage."
