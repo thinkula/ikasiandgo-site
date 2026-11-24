@@ -3526,8 +3526,8 @@
       "pronunciation": "NON",
       "notes": "Non? = Where? Non dago? = Where is it? Non bizi zara? = Where do you live? Non jaio zinen? = Where were you born? Nondik = from where? Nora = to where? Basque distinguishes location (non) from direction (nora).",
       "example": {
-        "basque": "Non dago trena?",
-        "english": "Where is the train?"
+        "basque": "Non? Hemen?",
+        "english": "Where? Here?"
       }
     },
     {
@@ -3604,8 +3604,8 @@
       "pronunciation": "EH-gon",
       "notes": "Egon is the second Basque verb for to be, the one for a place or a passing state: where something is, and how someone is right now. Its present forms are nago, zaude, dago, gaude, zaudete and daude. It also means to stay. The other to be is izan, which is for who and what you are, so Bilbon nago is I am in Bilbao and Bilbokoa naiz is I am from Bilbao.",
       "example": {
-        "basque": "Gaur hemen nago.",
-        "english": "I am here today."
+        "basque": "Hemen nago.",
+        "english": "I am here."
       }
     },
     {
@@ -3747,8 +3747,8 @@
       "pronunciation": "EH-men (h is silent)",
       "notes": "Hemen = near speaker. Hor = near listener. Han = away from both. Spanish makes the same 3-way split (aquí/ahí/allí), so it is easy for Spanish speakers.",
       "example": {
-        "basque": "Trena hemen dago.",
-        "english": "The train is here."
+        "basque": "Ane hemen dago.",
+        "english": "Ane is here."
       }
     },
     {
@@ -4363,8 +4363,8 @@
       "notes": "Non dago geltokia? = Where is the station? Non daude komunak? = Where are the restrooms?",
       "mcOnly": true,
       "example": {
-        "basque": "Non dago jatetxea?",
-        "english": "Where is the restaurant?"
+        "basque": "Non dago Ane?",
+        "english": "Where is Ane?"
       }
     },
     {
@@ -11244,8 +11244,8 @@
       "pronunciation": "DAH-goh",
       "notes": "Dago is the form of egon for hura, he, she, or it. It is the form most learners meet first, inside non dago, where is it. It answers with a place: han dago, it is over there. Its izan counterpart is da.",
       "example": {
-        "basque": "Jatetxea han dago.",
-        "english": "The restaurant is over there."
+        "basque": "Mikel han dago.",
+        "english": "Mikel is over there."
       }
     },
     {
