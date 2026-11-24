@@ -413,7 +413,7 @@
       "cefr": "A1",
       "topic": "numbers",
       "pronunciation": "SOR-tsee",
-      "notes": "Zortzi reappears whole inside hamazortzi (18), literally ten-eight.",
+      "notes": "Zortzi reappears inside hemezortzi, eighteen.",
       "example": {
         "basque": "Zazpi, zortzi, bederatzi.",
         "english": "Seven, eight, nine."
@@ -1817,7 +1817,7 @@
       "cefr": "A2",
       "topic": "travel",
       "pronunciation": "KOH-cheh-ah",
-      "notes": "Kotxea comes from Spanish coche. Kotxea aparkatu = to park the car. Garaje = garage. Autoa is the other common word for car.",
+      "notes": "Kotxea comes from Spanish coche, and it is common in everyday speech. In writing, the Basque Language Academy recommends autoa instead. Kotxea aparkatu = to park the car.",
       "example": {
         "basque": "Kotxea aparkatu dut.",
         "english": "I parked the car."
@@ -5181,7 +5181,7 @@
       "cefr": "A2",
       "topic": "numbers",
       "pronunciation": "ah-mah-EE-roo (h is silent)",
-      "notes": "Hamar (10) + hiru (3) = 13. The teen numbers follow this pattern: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16, hamazazpi=17, hamazortzi=18. Two are irregular: 11 (hamaika) and 19 (hemeretzi).",
+      "notes": "Hamar (10) + hiru (3) = 13. The teen numbers follow this pattern: hamabi=12, hamahiru=13, hamalau=14, hamabost=15, hamasei=16, hamazazpi=17. Three are irregular: 11 (hamaika), 18 (hemezortzi) and 19 (hemeretzi).",
       "example": {
         "basque": "Hamahiru urte ditu.",
         "english": "He is thirteen years old."
@@ -5267,14 +5267,14 @@
     },
     {
       "id": "hamazortzi",
-      "basque": "Hamazortzi",
+      "basque": "Hemezortzi",
       "english": "Eighteen",
       "cefr": "A2",
       "topic": "numbers",
-      "pronunciation": "ah-mah-SOR-tsee (h is silent)",
-      "notes": "Hamar (10) + zortzi (8) = 18. Hamazortzi is the longest teen number.",
+      "pronunciation": "eh-meh-SOR-tsee (h is silent)",
+      "notes": "Hemezortzi is the standard form. Like hemeretzi, nineteen, it does not follow the hamar pattern. You may also hear hamazortzi.",
       "example": {
-        "basque": "Hamazortzi urte ditut.",
+        "basque": "Hemezortzi urte ditut.",
         "english": "I am eighteen years old."
       }
     },
