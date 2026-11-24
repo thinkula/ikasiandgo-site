@@ -8052,7 +8052,7 @@ var LESSONS=[
     intro:"A short lesson on the strongest feelings: joy and tears, disappointment and grief.",
     grammar:{title:"Poz, and the shapes it takes",body:"Poz is joy. Pozgarria, pleasing, is poz plus the -garri of nekagarria: joy-causing. Pozez betea, overjoyed, is literally filled with joy. Nahigabea, disappointment, is nahi, to want, plus gabe, without: lacking what you want. Atsekabea is heavier, the word for grief and mourning."},
     wordIds:["pozgarria","malkoak","poza_betea","nahigabea","atsekabea"],
-    tip:[["note","Poz is joy."],["note","Pozgarria, pleasing, is poz plus the -garri of nekagarria: joy-causing."],["note","Pozez betea, overjoyed, is literally filled with joy."],["build",[["nahi","to want"],["gabe","without"]],"nahigabea","disappointment"],["note","Literally: lacking what you want."],["note","Atsekabea is heavier, the word for grief and mourning."]],
+    tip:[["note","Poz is joy."],["build",[["poz","joy"],["-garri",""]],"pozgarria","pleasing"],["note","Literally joy-causing, with the -garri of nekagarria."],["say","pozez betea","overjoyed","Literally filled with joy."],["build",[["nahi","to want"],["gabe","without"]],"nahigabea","disappointment"],["note","Literally lacking what you want. Atsekabea is heavier, the word for grief and mourning."]],
   },
   {
     id:"l56_democracy",
@@ -8065,7 +8065,7 @@ var LESSONS=[
     intro:"Political vocabulary: democracy, elections, equality and rights, the law and the party. With them come three verbs: aukeratu, to choose, aldatu, to change, and lortu, to achieve.",
     grammar:{title:"Eskubideak, the hand path",body:"Eskubideak, rights, is esku, hand, plus bide, path, the bide of ibilbidea and lanbidea. Hauteskundeak, elections, is built on hautatu, to choose. Both words are said in the plural. Berdintasuna, equality, is berdin, equal, plus the -tasuna of askatasuna. Lortu dut! is I did it."},
     wordIds:["demokrazia","hauteskundeak","berdintasuna","eskubideak","legea","alderdia","aukeratu","aldatu","lortu"],
-    tip:[["note","Eskubideak, rights, is esku, hand, plus bide, path, the bide of ibilbidea and lanbidea."],["note","Hauteskundeak, elections, is built on hautatu, to choose. Both words are said in the plural."],["note","Berdintasuna, equality, is berdin, equal, plus the -tasuna of askatasuna."],["note","Lortu dut! is I did it."]],
+    tip:[["build",[["esku","hand"],["bide","path"]],"eskubideak","rights"],["note","It is the bide of ibilbidea and lanbidea."],["note","Hauteskundeak, elections, is built on hautatu, to choose. Both words are said in the plural."],["build",[["berdin","equal"],["-tasuna",""]],"berdintasuna","equality"],["note","The same -tasuna as in askatasuna."],["say","Lortu dut!","I did it!"]],
   },
   {
     id:"l57_peoples",
@@ -8078,7 +8078,7 @@ var LESSONS=[
     intro:"Words for a language and the people who speak it: language policy, normalization and a social movement, the human being and humanity, an inhabitant, and war.",
     grammar:{title:"Giza, the human prefix",body:"Giza is the joining form of gizon and means human. Gizakia is a human being, and gizadia is humanity. Gizarte, society, is giza plus arte, the space between, as in lagunartea. Normalizazioa is the process of making Basque normal in daily life. Hizkuntza politika, language policy, covers official status, the language of schooling and public signs. Biztanlea, inhabitant, is from bizi, to live."},
     wordIds:["hizkuntza_politika","normalizazioa","gizarte_mugimendua","gizakia","gizadia","gerra","biztanlea"],
-    tip:[["note","Giza is the joining form of gizon and means human."],["note","Gizakia is a human being, and gizadia is humanity."],["note","Gizarte, society, is giza plus arte, the space between, as in lagunartea."],["note","Normalizazioa is the process of making Basque normal in daily life."],["note","Hizkuntza politika, language policy, covers official status, the language of schooling and public signs."],["note","Biztanlea, inhabitant, is from bizi, to live."]],
+    tip:[["note","Giza is the joining form of gizon and means human."],["pair",["gizakia","a human being"],["gizadia","humanity"]],["build",[["giza","human"],["arte","the space between"]],"gizarte","society"],["note","The same arte as in lagunartea."],["note","Normalizazioa is the process of making Basque normal in daily life."],["note","Hizkuntza politika, language policy, covers official status, the language of schooling and public signs."],["note","Biztanlea, inhabitant, is from bizi, to live."]],
   },
   {
     id:"l76_streets",
@@ -8091,7 +8091,7 @@ var LESSONS=[
     intro:"Kalea is any street. These are its parts and what is on it: the sidewalk, the road, the avenue, the bike path, the pedestrian, the traffic, and the garbage.",
     grammar:{title:"Bide, the way inside three of these",body:"Bidea is a way or a path. Errepidea is a built road for vehicles. Etorbidea, avenue, is etorri, to come, plus bide. Bidegorria, bike path, is bide plus gorri, red, for the red surface they are paved with. Oinezkoa, pedestrian, is from oin, foot. Trafikoa also carries the sense of smuggling."},
     wordIds:["espaloia","errepidea","etorbidea","bidegorria","oinezkoa","trafikoa","zaborra"],
-    tip:[["note","Bidea is a way or a path."],["note","Errepidea is a built road for vehicles."],["build",[["etorri","to come"],["bide",""]],"etorbidea","avenue"],["note","Bidegorria, bike path, is bide plus gorri, red, for the red surface they are paved with."],["note","Oinezkoa, pedestrian, is from oin, foot."],["note","Trafikoa also carries the sense of smuggling."]],
+    tip:[["pair",["bidea","a way or a path"],["errepidea","a built road for vehicles"]],["build",[["etorri","to come"],["bide","way"]],"etorbidea","avenue"],["build",[["bide","way"],["gorri","red"]],"bidegorria","bike path"],["note","It is named for the red surface they are paved with."],["note","Oinezkoa, pedestrian, is from oin, foot."],["note","Trafikoa also carries the sense of smuggling."]],
   },
   {
     id:"l77_oldtown",
@@ -8104,7 +8104,7 @@ var LESSONS=[
     intro:"These are the buildings of an old town: the castle, the tower, the town hall, the school, and the cemetery. The sixth word is azoka, the fair.",
     grammar:{title:"Etxea hides inside the names of buildings",body:"Udaletxea, town hall, is udal, town council, plus etxe, house. Ikastetxea, a school as a building or institution, is ikasi, to learn, plus etxe. Jatetxea, the eating house, is built the same way. Hilerria is hil, dead, plus herri, town. This is not the hil of hilabetea, which means moon or month. An azoka is a fair or periodic market, and merkatua is the everyday one. Basque towns kept dorretxeak, fortified tower houses, through the clan wars."},
     wordIds:["hilerria","gaztelua","dorrea","azoka","udaletxea","ikastetxea"],
-    tip:[["build",[["udal","town council"],["etxe","house"]],"udaletxea","town hall"],["build",[["ikasi","to learn"],["etxe",""]],"ikastetxea","a school as a building or institution"],["note","Jatetxea, the eating house, is built the same way."],["build",[["hil","dead"],["herri","town"]],"hilerria","cemetery"],["warn","This is not the hil of hilabetea, which means moon or month."],["note","An azoka is a fair or periodic market, and merkatua is the everyday one."],["note","Basque towns kept dorretxeak, fortified tower houses, through the clan wars."]],
+    tip:[["build",[["udal","town council"],["etxe","house"]],"udaletxea","town hall"],["build",[["ikasi","to learn"],["etxe","house"]],"ikastetxea","a school as a building or institution"],["note","Jatetxea, the eating house, is built the same way."],["build",[["hil","dead"],["herri","town"]],"hilerria","cemetery"],["warn","This is not the hil of hilabetea, which means moon or month."],["pair",["azoka","a fair or periodic market"],["merkatua","the everyday one"]],["note","Basque towns kept dorretxeak, fortified tower houses, through the clan wars."]],
   },
   {
     id:"l78_cityrun",
@@ -8117,7 +8117,7 @@ var LESSONS=[
     intro:"This is the vocabulary of how a town is run: urban planning, infrastructure, construction, and trade, then the firefighter and the municipal police. The seventh word is the rest area on a highway.",
     grammar:{title:"Long words are usually short words stacked up",body:"Most of these are built on words you have. Hirigintza, urban planning, is from hiri, the city. Eraikuntza, construction, shares its root with eraikina, a building. Merkataritza, trade, shares its root with merkatua, the market. Udaltzaingoa, the municipal police, is from udal, the town council, as in udaletxea. Azpiegitura is literally the structure underneath. In suhiltzailea, su is fire, and the rest of the word is the one who kills it."},
     wordIds:["hirigintza","azpiegitura","eraikuntza","merkataritza","zerbitzugunea","suhiltzailea","udaltzaingoa"],
-    tip:[["note","Most of these are built on words you have."],["note","Hirigintza, urban planning, is from hiri, the city."],["note","Eraikuntza, construction, shares its root with eraikina, a building."],["note","Merkataritza, trade, shares its root with merkatua, the market."],["note","Udaltzaingoa, the municipal police, is from udal, the town council, as in udaletxea."],["note","Azpiegitura is literally the structure underneath."],["note","In suhiltzailea, su is fire, and the rest of the word is the one who kills it."]],
+    tip:[["note","Most of these are built on words you have."],["forms",[["hirigintza","urban planning","from hiri, the city"],["eraikuntza","construction","shares its root with eraikina, a building"],["merkataritza","trade","shares its root with merkatua, the market"],["udaltzaingoa","the municipal police","from udal, the town council, as in udaletxea"]]],["note","Azpiegitura is literally the structure underneath."],["note","In suhiltzailea, su is fire, and the rest of the word is the one who kills it."]],
   },
   {
     id:"l79_house",
@@ -8130,7 +8130,7 @@ var LESSONS=[
     intro:"You have the rooms already. This is the building around them: the roof, the wall, the stairs, the balcony, the attic, the entrance hall, the chimney, the garden, and the key. With them comes baserria, the Basque farmhouse.",
     grammar:{title:"Why so many Basque surnames are houses",body:"A baserria is the Basque farmhouse, house and farm together. Countless Basque surnames are the name of a baserri, which is why so many families are named after a house. Etxeberria just means the new house. Lorategia is lore, flower, plus -tegi: the flower place. Several of these words have a second meaning. Eskailera is also a ladder, giltza is also a wrench, and ataria is also a threshold. Horma means ice in several dialects."},
     wordIds:["teilatua","horma","eskailera","balkoia","lorategia","baserria","ganbara","ataria","tximinia","giltza"],
-    tip:[["note","A baserria is the Basque farmhouse, house and farm together."],["note","Countless Basque surnames are the name of a baserri, which is why so many families are named after a house."],["note","Etxeberria just means the new house."],["build",[["lore","flower"],["-tegi",""]],"lorategia","the flower place"],["note","Several of these words have a second meaning."],["note","Eskailera is also a ladder, giltza is also a wrench, and ataria is also a threshold."],["note","Horma means ice in several dialects."]],
+    tip:[["note","A baserria is the Basque farmhouse, house and farm together."],["note","Countless Basque surnames are the name of a baserri, which is why so many families are named after a house. Etxeberria just means the new house."],["build",[["lore","flower"],["-tegi",""]],"lorategia","garden"],["note","Literally the flower place."],["note","Several of these words have a second meaning."],["forms",[["eskailera","also a ladder"],["giltza","also a wrench"],["ataria","also a threshold"]]],["note","Horma means ice in several dialects."]],
   },
   {
     id:"l80_fittings",
@@ -8143,7 +8143,7 @@ var LESSONS=[
     intro:"Four of these are built on gailu, device: the refrigerator, the heater, the washing machine, and the elevator. The other six are the oven, the shower, the bathtub, the lock, the doorbell, and furniture.",
     grammar:{title:"Gailua means device, and it builds appliances",body:"Hozkailua is hotz, cold, plus gailu, written with a k here. Berogailua is bero, hot, plus gailu. Garbigailua is garbi, clean, plus gailu. Igogailua is igo, to go up, plus gailu. Bainuontzia is bainu, bath, plus ontzi, vessel. It is the bainu of bainugela. The giltza goes in the sarraila. Mahaia, aulkia, and ohea are all altzariak."},
     wordIds:["hozkailua","labea","dutxa","igogailua","garbigailua","berogailua","sarraila","txirrina","altzaria","bainuontzia"],
-    tip:[["build",[["hotz","cold"],["gailu",""]],"hozkailua","refrigerator"],["note","Gailu is written with a k here."],["build",[["bero","hot"],["gailu",""]],"berogailua","heater"],["build",[["garbi","clean"],["gailu",""]],"garbigailua","washing machine"],["build",[["igo","to go up"],["gailu",""]],"igogailua","elevator"],["build",[["bainu","bath"],["ontzi","vessel"]],"bainuontzia","bathtub"],["note","It is the bainu of bainugela."],["note","The giltza goes in the sarraila."],["note","Mahaia, aulkia, and ohea are all altzariak."]],
+    tip:[["build",[["hotz","cold"],["gailu","device"]],"hozkailua","refrigerator"],["note","Gailu is written with a k here."],["build",[["bero","hot"],["gailu","device"]],"berogailua","heater"],["build",[["garbi","clean"],["gailu","device"]],"garbigailua","washing machine"],["build",[["igo","to go up"],["gailu","device"]],"igogailua","elevator"],["build",[["bainu","bath"],["ontzi","vessel"]],"bainuontzia","bathtub"],["note","It is the bainu of bainugela."],["note","The giltza goes in the sarraila."],["note","Mahaia, aulkia, and ohea are all altzariak."]],
   },
   {
     id:"l81_wild",
@@ -8156,7 +8156,7 @@ var LESSONS=[
     intro:"These are the animals outside the farmyard: the bee, the fox, the hare, the owl, the crow, the seagull, and the lizard. With them come the nest, the shepherd, and the flock.",
     grammar:{title:"Ardia is inside artaldea",body:"Artaldea, a flock of sheep, is ardi, sheep, plus talde, group. Artzaina is the shepherd. Basque shepherds took their latxa sheep to the high pastures each summer, and many emigrated to herd in the American West. Untxia is the rabbit, and erbia is the hare, the bigger, wilder one. Azeria used as an adjective means sly. In some dialects muskerra is also the color green."},
     wordIds:["erlea","azeria","erbia","hontza","belea","kaioa","muskerra","habia","artzaina","artaldea"],
-    tip:[["build",[["ardi","sheep"],["talde","group"]],"artaldea","a flock of sheep"],["note","Artzaina is the shepherd."],["note","Basque shepherds took their latxa sheep to the high pastures each summer, and many emigrated to herd in the American West."],["note","Untxia is the rabbit, and erbia is the hare, the bigger, wilder one."],["note","Azeria used as an adjective means sly."],["note","In some dialects muskerra is also the color green."]],
+    tip:[["build",[["ardi","sheep"],["talde","group"]],"artaldea","a flock of sheep"],["note","Artzaina is the shepherd. Basque shepherds took their latxa sheep to the high pastures each summer, and many emigrated to herd in the American West."],["pair",["untxia","the rabbit"],["erbia","the hare, the bigger, wilder one"]],["note","Azeria used as an adjective means sly."],["note","In some dialects muskerra is also the color green."]],
   },
   {
     id:"l82_classes",
@@ -8169,7 +8169,7 @@ var LESSONS=[
     intro:"These words sort the animals you already know into groups: mammal, reptile, amphibian, and insect. With them come species, carnivore, herbivore, wild, and abeltzaintza, livestock farming.",
     grammar:{title:"The ending that marks the eater",body:"Haragijalea is the meat eater and belarjalea is the grass eater: haragi is meat and belar is grass. Now sort the animals you have. Balea and izurdea are ugaztunak. Sugea and muskerra are narrastiak. Igela is an anfibioa. Eulia and erlea are intsektuak. Basatia, wild, has basoa, the forest, in its root. Its opposite is maskota, a pet."},
     wordIds:["ugaztuna","narrastia","anfibioa","intsektua","espeziea","haragijalea","belarjalea","abeltzaintza","basatia"],
-    tip:[["note","Haragijalea is the meat eater and belarjalea is the grass eater: haragi is meat and belar is grass. Now sort the animals you have."],["note","Balea and izurdea are ugaztunak."],["note","Sugea and muskerra are narrastiak."],["note","Igela is an anfibioa."],["note","Eulia and erlea are intsektuak."],["note","Basatia, wild, has basoa, the forest, in its root. Its opposite is maskota, a pet."]],
+    tip:[["pair",["haragijalea","the meat eater: haragi is meat"],["belarjalea","the grass eater: belar is grass"]],["note","Now sort the animals you have."],["forms",[["ugaztunak","balea and izurdea"],["narrastiak","sugea and muskerra"],["anfibioa","igela"],["intsektuak","eulia and erlea"]]],["note","Basatia, wild, has basoa, the forest, in its root. Its opposite is maskota, a pet."]],
   },
   {
     id:"l30_lineage",
@@ -8182,7 +8182,7 @@ var LESSONS=[
     intro:"Ancestors and descendants, a generation, kinship, inheritance, the in-laws, and the house that holds them. In Basque culture the family home has its own name and is passed down, which is why so many surnames are the names of farmhouses.",
     grammar:{title:"The line through the house",body:"Belaunaldia, generation, is belaun, knee, plus aldi, a period, the aldi of eguraldia. Belaunaldiz belaunaldi is from generation to generation. Ondorengoa, descendant, is built on ondoren, after. Ahaidetasuna, kinship, is ahaide, a relative, plus the -tasuna of askatasuna. Herentzia, inheritance, came from Spanish, and the native legal word is jaraunspena. In traditional Basque law the farmhouse went to one heir, to keep it whole."},
     wordIds:["arbasoak","ondorengoa","belaunaldia","etxea_ondarea","arbola","ahaidetasuna","heredentzia","senide_hurbilak","suhia","erraina"],
-    tip:[["note","Belaunaldia, generation, is belaun, knee, plus aldi, a period, the aldi of eguraldia."],["note","Belaunaldiz belaunaldi is from generation to generation."],["note","Ondorengoa, descendant, is built on ondoren, after."],["note","Ahaidetasuna, kinship, is ahaide, a relative, plus the -tasuna of askatasuna."],["note","Herentzia, inheritance, came from Spanish, and the native legal word is jaraunspena."],["note","In traditional Basque law the farmhouse went to one heir, to keep it whole."]],
+    tip:[["build",[["belaun","knee"],["aldi","a period"]],"belaunaldia","generation"],["note","It is the aldi of eguraldia."],["say","belaunaldiz belaunaldi","from generation to generation"],["note","Ondorengoa, descendant, is built on ondoren, after."],["build",[["ahaide","a relative"],["-tasuna",""]],"ahaidetasuna","kinship"],["note","The same -tasuna as in askatasuna."],["pair",["herentzia","inheritance, from Spanish"],["jaraunspena","the native legal word"]],["note","In traditional Basque law the farmhouse went to one heir, to keep it whole."]],
   },
   {
     id:"l31_leaving",
@@ -8195,7 +8195,7 @@ var LESSONS=[
     intro:"The words for leaving and for coming back: diaspora, exile and the return home, a long road, a border, and the embassy, visa and customs on the way. Basque communities settled in Argentina, the United States, Uruguay, Mexico and Australia.",
     grammar:{title:"Building a long word, one piece at a time",body:"Aberri is homeland. Add -ra, to, and you have aberrira, to the homeland. Add -tze, which makes a noun of an action, and you have aberriratzea, the return home. Mugitzea, moving, ends the same way. Mugarik gabe, without borders, is muga, border, with the gabe you know. Bide is here twice more: bide luzea is a long road, and bidezidorra is a narrow path or shortcut."},
     wordIds:["diaspora","erbesteratua","aberriratze","mugitzea","bide_luzea","mugarik_gabe","enbaxada","bisa","aduana","bidezidor"],
-    tip:[["note","Aberri is homeland."],["note","Add -ra, to, and you have aberrira, to the homeland."],["note","Add -tze, which makes a noun of an action, and you have aberriratzea, the return home."],["note","Mugitzea, moving, ends the same way."],["note","Mugarik gabe, without borders, is muga, border, with the gabe you know."],["note","Bide is here twice more: bide luzea is a long road, and bidezidorra is a narrow path or shortcut."]],
+    tip:[["note","Building a long word, one piece at a time. Aberri is homeland."],["forms",[["aberri","homeland"],["aberrira","to the homeland: add -ra, to"],["aberriratzea","the return home: add -tze, which makes a noun of an action"]]],["note","Mugitzea, moving, ends the same way."],["say","mugarik gabe","without borders","Muga, border, with the gabe you know."],["note","Bide is here twice more."],["pair",["bide luzea","a long road"],["bidezidorra","a narrow path or shortcut"]]],
   },
   {
     id:"l32_language",
@@ -8208,7 +8208,7 @@ var LESSONS=[
     intro:"Euskara is one language with many local forms. In 1968, at Arantzazu, the Basque language academy, Euskaltzaindia, created a single written standard. Around those two come heritage, identity, tradition and modernity, the lauburu, Basque literature and cinema, and Bilbo's Great Week.",
     grammar:{title:"Batua and euskalkia",body:"Euskara Batua is Unified Basque. Batua is from batu, to unite, the verb behind batuketa, and it is now taught in all schools. Euskalkia is a dialect, and Koldo Zuazo's 1998 classification names six. Lauburua, the Basque cross, is lau, four, plus buru, heads, and its original meaning is not known. The first book printed in Basque was by Bernat Etxepare, in 1545."},
     wordIds:["euskara_batua","euskalkia","ondarea","identitatea","tradizioa","modernitatea","lauburu","euskal_literatura","euskal_zinema","aste_nagusia"],
-    tip:[["note","Euskara Batua is Unified Basque."],["note","Batua is from batu, to unite, the verb behind batuketa, and it is now taught in all schools."],["note","Euskalkia is a dialect, and Koldo Zuazo's 1998 classification names six."],["note","Lauburua, the Basque cross, is lau, four, plus buru, heads, and its original meaning is not known."],["note","The first book printed in Basque was by Bernat Etxepare, in 1545."]],
+    tip:[["note","Euskara Batua is Unified Basque. Batua is from batu, to unite, the verb behind batuketa, and it is now taught in all schools."],["note","Euskalkia is a dialect, and Koldo Zuazo's 1998 classification names six."],["build",[["lau","four"],["buru","heads"]],"lauburua","the Basque cross"],["note","Its original meaning is not known."],["note","The first book printed in Basque was by Bernat Etxepare, in 1545."]],
   },
   {
     id:"l36_society",
@@ -8221,7 +8221,7 @@ var LESSONS=[
     intro:"The civic words, for how people live alongside each other: society, power and justice, citizenship, a minority, human rights, debate, a solution, a consequence and an influence.",
     grammar:{title:"Long words from parts you have",body:"Gizartea, society, is giza plus arte, as you saw. Giza eskubideak, human rights, joins giza to the eskubideak you know. Herritartasuna, citizenship, is herritar, citizen, plus -tasuna. Konponbidea, solution, is konpondu, to fix, plus bide: the fixing path. Gutxiengoa, minority, is built on gutxien, fewest."},
     wordIds:["gizartea","boterea","justizia","herritartasuna","gutxiengoa","giza_eskubideak","eztabaida","konponbidea","ondorioa","eragina"],
-    tip:[["build",[["giza",""],["arte",""]],"gizartea","society"],["note","You have seen arte before, in lagunartea."],["note","Giza eskubideak, human rights, joins giza to the eskubideak you know."],["build",[["herritar","citizen"],["-tasuna",""]],"herritartasuna","citizenship"],["build",[["konpondu","to fix"],["bide",""]],"konponbidea","solution"],["note","Literally: the fixing path."],["note","Gutxiengoa, minority, is built on gutxien, fewest."]],
+    tip:[["build",[["giza","human"],["arte","the space between"]],"gizartea","society"],["note","You have seen both parts before."],["note","Giza eskubideak, human rights, joins giza to the eskubideak you know."],["build",[["herritar","citizen"],["-tasuna",""]],"herritartasuna","citizenship"],["build",[["konpondu","to fix"],["bide","path"]],"konponbidea","solution"],["note","Literally the fixing path."],["note","Gutxiengoa, minority, is built on gutxien, fewest."]],
   },
   {
     id:"l37_feelings2",
@@ -8234,7 +8234,7 @@ var LESSONS=[
     intro:"Words for the difficult feelings: nostalgia and melancholy, heartache, regret, despair, compassion, frustration, hatred, jealousy and a fit of anger. One lighter phrase closes the list: atsegin dut, I like it.",
     grammar:{title:"Feelings you can take apart",body:"Bihotz-mina, heartache, is bihotz, heart, plus mina, pain. Haserrealdia, a fit of anger, is haserre plus aldi, a period. Etsipena, despair, is the opposite of esperantza. Damu naiz is I am sorry, and it means real remorse, deeper than barkatu. Nostalgia, melankolia and jelosia are loans, and nostalgia is the same word as in English."},
     wordIds:["nostalgia","melankoliia","mina","damua","etsipena","errukia","sumindura","gorrotoa","jelosia","haserrealdi","atsegin_dut"],
-    tip:[["build",[["bihotz","heart"],["mina","pain"]],"bihotz-mina","heartache"],["build",[["haserre",""],["aldi","a period"]],"haserrealdia","a fit of anger"],["note","Etsipena, despair, is the opposite of esperantza."],["note","Damu naiz is I am sorry, and it means real remorse, deeper than barkatu."],["note","Nostalgia, melankolia and jelosia are loans, and nostalgia is the same word as in English."]],
+    tip:[["build",[["bihotz","heart"],["mina","pain"]],"bihotz-mina","heartache"],["build",[["haserre","angry"],["aldi","a period"]],"haserrealdia","a fit of anger"],["note","Etsipena, despair, is the opposite of esperantza."],["say","Damu naiz.","I am sorry.","It means real remorse, deeper than barkatu."],["note","Nostalgia, melankolia and jelosia are loans, and nostalgia is the same word as in English."]],
   },
   {
     id:"l38_world",
@@ -8247,7 +8247,7 @@ var LESSONS=[
     intro:"Climate change, biodiversity and habitat. Wildlife and a nature reserve. Earthquake, floods and drought. A temperate climate, and sea level.",
     grammar:{title:"Two words side by side, and three joined",body:"Many of these are two words set side by side. Klima aldaketa, climate change, has the aldaketa of aldatu, and itsas maila, sea level, has the itsas- you know. Klima epela, a temperate climate, uses epela, lukewarm. Others are joined into one. Lurrikara, earthquake, is lurra, earth, plus ikara, trembling. Basabizitza, wildlife, is basa, wild, plus bizitza, life. Lehortea, drought, is built on lehor, dry."},
     wordIds:["klima_aldaketa","biodibertsitatea","habitat","espazio_naturala","basabizitza","lurrikara","uholdeak","lehortea","klima_epela","itsas_maila"],
-    tip:[["note","Many of these are two words set side by side."],["note","Klima aldaketa, climate change, has the aldaketa of aldatu, and itsas maila, sea level, has the itsas- you know."],["note","Klima epela, a temperate climate, uses epela, lukewarm."],["note","Others are joined into one."],["build",[["lurra","earth"],["ikara","trembling"]],"lurrikara","earthquake"],["build",[["basa","wild"],["bizitza","life"]],"basabizitza","wildlife"],["note","Lehortea, drought, is built on lehor, dry."]],
+    tip:[["note","Many of these are two words set side by side."],["forms",[["klima aldaketa","climate change","has the aldaketa of aldatu"],["itsas maila","sea level","has the itsas- you know"],["klima epela","a temperate climate","uses epela, lukewarm"]]],["note","Others are joined into one."],["build",[["lurra","earth"],["ikara","trembling"]],"lurrikara","earthquake"],["build",[["basa","wild"],["bizitza","life"]],"basabizitza","wildlife"],["note","Lehortea, drought, is built on lehor, dry."]],
   },
   {
     id:"l64_enterprise",
@@ -8260,7 +8260,7 @@ var LESSONS=[
     intro:"The language of running an organization: the entrepreneur, a goal, an opportunity, a condition, the budget, an investment, a negotiation and a strategy.",
     grammar:{title:"Helburua, the head you are heading to",body:"Helburua, goal, is heldu, to arrive, plus buru, head: the head you are heading to. You met heldu inside helmuga, destination. Aukera is an opportunity, and aukeratu, to choose, is built on it. Enpresaria, entrepreneur, adds -ari to enpresa. Negoziaketa, negotiation, ends in the -keta of batuketa. Baldintzarik gabe, without conditions, is unconditionally."},
     wordIds:["enpresaria","helburua","aukera","baldintza","aurrekontua","inbertsioa","negoziaketa","estrategia"],
-    tip:[["build",[["heldu","to arrive"],["buru","head"]],"helburua","goal"],["note","Literally: the head you are heading to."],["note","You met heldu inside helmuga, destination."],["note","Aukera is an opportunity, and aukeratu, to choose, is built on it."],["note","Enpresaria, entrepreneur, adds -ari to enpresa."],["note","Negoziaketa, negotiation, ends in the -keta of batuketa."],["note","Baldintzarik gabe, without conditions, is unconditionally."]],
+    tip:[["build",[["heldu","to arrive"],["buru","head"]],"helburua","goal"],["note","Literally the head you are heading to. You met heldu inside helmuga, destination."],["pair",["aukera","an opportunity"],["aukeratu","to choose, built on it"]],["note","Enpresaria, entrepreneur, adds -ari to enpresa."],["note","Negoziaketa, negotiation, ends in the -keta of batuketa."],["say","baldintzarik gabe","unconditionally","Literally without conditions."]],
   },
   {
     id:"l65_labor",
@@ -8273,7 +8273,7 @@ var LESSONS=[
     intro:"Strike and unionism, the cooperative, productivity, competition and competitiveness, and statistics.",
     grammar:{title:"Mondragon, and the words around it",body:"The Mondragon Corporation, founded in the Basque Country in 1956, is the world's largest worker cooperative. ELA and LAB are the main Basque unions. To go on strike is grebara joan. Lehiakortasuna, competitiveness, is lehia, competition, plus -kortasuna. Konpetentzia means competition between businesses and also competence in a person, and the sentence tells you which."},
     wordIds:["greba","sindikalismoa","kooperatiba","produktibitatea","konpetentzia","lehiakortasuna","estatistika"],
-    tip:[["note","The Mondragon Corporation, founded in the Basque Country in 1956, is the world's largest worker cooperative."],["note","ELA and LAB are the main Basque unions."],["note","To go on strike is grebara joan."],["build",[["lehia","competition"],["-kortasuna",""]],"lehiakortasuna","competitiveness"],["note","Konpetentzia means competition between businesses and also competence in a person, and the sentence tells you which."]],
+    tip:[["note","The Mondragon Corporation, founded in the Basque Country in 1956, is the world's largest worker cooperative."],["note","ELA and LAB are the main Basque unions."],["say","grebara joan","to go on strike"],["build",[["lehia","competition"],["-kortasuna",""]],"lehiakortasuna","competitiveness"],["warn","Konpetentzia means competition between businesses and also competence in a person, and the sentence tells you which."]],
   },
   {
     id:"l66_data",
@@ -8286,7 +8286,7 @@ var LESSONS=[
     intro:"The vocabulary of figures in reports: number, zero and whole number, a calculation and a formula, proportion, data, an index, a variable, an average and a standard deviation. One word here is a false friend: bilioia.",
     grammar:{title:"Bilioia, and batez beste",body:"Bilioia is a million millions, as in Spanish, not the American billion. For that, Basque says mila milioi, a thousand million. Batez bestekoa, average, comes from the phrase batez beste, literally one with another. Gutxi gora-behera, approximately, is gutxi, little, plus gora-behera, up and down. Zenbakia, number, is from zenbat, how many, and zenbaki osoa, a whole number, uses the osoa you know."},
     wordIds:["zenbakia","bilioia","zerozero","zenbaki_osoa","kalkulua","formula","proportzioa","gutxi_gora_behera","datuak","indizea","aldagai","batez_bestekoa","desbideratze_estandarra"],
-    tip:[["note","Bilioia is a million millions, as in Spanish, not the American billion."],["note","For that, Basque says mila milioi, a thousand million."],["note","Batez bestekoa, average, comes from the phrase batez beste, literally one with another."],["note","Gutxi gora-behera, approximately, is gutxi, little, plus gora-behera, up and down."],["note","Zenbakia, number, is from zenbat, how many, and zenbaki osoa, a whole number, uses the osoa you know."]],
+    tip:[["warn","Bilioia is a million millions, as in Spanish, not the American billion. For that, Basque says mila milioi, a thousand million."],["note","Batez bestekoa, average, comes from the phrase batez beste, literally one with another."],["build",[["gutxi","little"],["gora-behera","up and down"]],"gutxi gora-behera","approximately"],["note","Zenbakia, number, is from zenbat, how many, and zenbaki osoa, a whole number, uses the osoa you know."]],
   },
   {
     id:"l67_systems",
@@ -8299,7 +8299,7 @@ var LESSONS=[
     intro:"Medical vocabulary: surgery, blood pressure, digestion and breathing, the immune and nervous systems, cancer and diabetes, and physical activity. Some of these are international terms, and some are plain Basque compounds.",
     grammar:{title:"Living pain, and the sick house",body:"Minbizia, cancer, is min, pain, plus bizi, living: a living pain. Erietxea, hospital, is eri, a sick person, plus etxea, house. It is a native word but rare in everyday speech, where people say ospitalea. The same eri is in hotzeria, a cold. Ebakuntza, surgery, is from ebaki, to cut. Arnasketa, breathing, is arnasa, breath, plus -keta."},
     wordIds:["ebakuntza","immunitate_sistema","odol_presioa","digestioa","arnasaketa","nerbio_sistema","minbizia","diabetesa","erietxea","jarduera_fisikoa"],
-    tip:[["build",[["min","pain"],["bizi","living"]],"minbizia","cancer"],["note","Literally: a living pain."],["build",[["eri","a sick person"],["etxea","house"]],"erietxea","hospital"],["note","It is a native word but rare in everyday speech, where people say ospitalea. The same eri is in hotzeria, a cold."],["note","Ebakuntza, surgery, is from ebaki, to cut."],["build",[["arnasa","breath"],["-keta",""]],"arnasketa","breathing"]],
+    tip:[["build",[["min","pain"],["bizi","living"]],"minbizia","cancer"],["note","Literally a living pain."],["build",[["eri","a sick person"],["etxea","house"]],"erietxea","hospital"],["note","It is a native word but rare in everyday speech, where people say ospitalea. The same eri is in hotzeria, a cold."],["note","Ebakuntza, surgery, is from ebaki, to cut."],["build",[["arnasa","breath"],["-keta",""]],"arnasketa","breathing"]],
   },
   {
     id:"l68_gastronomy",
@@ -8312,7 +8312,7 @@ var LESSONS=[
     intro:"Food was an early lesson. This is the vocabulary of Basque gastronomy: the txoko, the recipe and its ingredients, pil-pil, a tasting, a cooking technique, local products, reserving a table, and the wine cellar.",
     grammar:{title:"Where the wine is kept",body:"Ardandegia, wine cellar, is ardo, wine, plus -tegi, written -degi here as in kiroldegia. Txokoa is a private gastronomic society where members cook and eat together. Pil-pil is named for the sound of its gentle bubbling: salt cod swirled slowly in olive oil and garlic until it emulsifies. Dastaketa, a tasting, is dastatu, to taste, plus -keta. Mahaia erreserbatu is to reserve a table."},
     wordIds:["gastronomia","txoko","errezeta","pil_pil","mahaia_erreserbatu","dastaketa","osagai","sukalde_teknika","bertako_produktua","ardandegi"],
-    tip:[["build",[["ardo","wine"],["-tegi",""]],"ardandegia","wine cellar"],["note","-tegi is written -degi here, as in kiroldegia."],["note","Txokoa is a private gastronomic society where members cook and eat together."],["note","Pil-pil is named for the sound of its gentle bubbling: salt cod swirled slowly in olive oil and garlic until it emulsifies."],["build",[["dastatu","to taste"],["-keta",""]],"dastaketa","a tasting"],["note","Mahaia erreserbatu is to reserve a table."]],
+    tip:[["build",[["ardo","wine"],["-tegi",""]],"ardandegia","wine cellar"],["note","-tegi is written -degi here, as in kiroldegia."],["note","Txokoa is a private gastronomic society where members cook and eat together."],["note","Pil-pil is named for the sound of its gentle bubbling: salt cod swirled slowly in olive oil and garlic until it emulsifies."],["build",[["dastatu","to taste"],["-keta",""]],"dastaketa","a tasting"],["say","mahaia erreserbatu","to reserve a table"]],
   },
   {
     id:"l69_eras",
@@ -8325,7 +8325,7 @@ var LESSONS=[
     intro:"These are the words for long stretches of time and their limits: an era, a century, a decade, a period and its deadline, duration and expiration, a schedule, and a chronology.",
     grammar:{title:"Epe and muga, a period and its limit",body:"Epea is a period and muga is a limit, so epemuga is a deadline. It is the same muga as in helmuga and zerumuga. Iraupena, duration, is iraun, to last, plus -pena. Iraungitzea, expiration, is from a different verb, iraungi, to expire. Hamarkada is hamar, ten, plus -kada. Ordutegia is ordu, hour, plus -tegi, as in egutegia. Garaian is at the time. For on time the word is garaiz."},
     wordIds:["epea","iraungitzea","garaian","iraupena","garaia","mendea","hamarkada","ordutegia","muga_epea","kronologia","iraganeko_geroa"],
-    tip:[["note","Epea is a period and muga is a limit, so epemuga is a deadline. It is the same muga as in helmuga and zerumuga."],["build",[["iraun","to last"],["-pena",""]],"iraupena","duration"],["note","Iraungitzea, expiration, is from a different verb, iraungi, to expire."],["build",[["hamar","ten"],["-kada",""]],"hamarkada","decade"],["build",[["ordu","hour"],["-tegi",""]],"ordutegia","schedule"],["note","The same -tegi as in egutegia."],["note","Garaian is at the time. For on time the word is garaiz."]],
+    tip:[["build",[["epe","a period"],["muga","a limit"]],"epemuga","a deadline"],["note","It is the same muga as in helmuga and zerumuga."],["build",[["iraun","to last"],["-pena",""]],"iraupena","duration"],["warn","Iraungitzea, expiration, is from a different verb, iraungi, to expire."],["build",[["hamar","ten"],["-kada",""]],"hamarkada","decade"],["build",[["ordu","hour"],["-tegi",""]],"ordutegia","schedule"],["note","The same -tegi as in egutegia."],["pair",["garaian","at the time"],["garaiz","on time"]]],
   },
   {
     id:"l70_nuance",
@@ -8338,7 +8338,7 @@ var LESSONS=[
     intro:"This is the last of the color vocabulary: indigo, turquoise, garnet, olive green, and beige, then vivid, colorless, shiny, and faded. With them comes ñabardura, the word for a shade.",
     grammar:{title:"Gabe again, and ñabar",body:"Ñabardura, a nuance or a shade of color, is a native Basque word: ñabar, variegated or many-colored, plus -dura. It is also used for a subtle difference in meaning. Koloregabea is kolore plus gabea, without, the same gabe as in ezkongabea. Distiratsua is distira, shine, plus -tsu, full of, as in indartsua. Kolorea galdu, to fade, is literally to lose color. Bizia in kolore biziak also means alive."},
     wordIds:["kolorea_galdu","ñabardura","indigo","turkoisa","granatea","oliba_berdea","beixa","kolore_biziak","koloregabea","distiratsua"],
-    tip:[["note","Ñabardura, a nuance or a shade of color, is a native Basque word: ñabar, variegated or many-colored, plus -dura. It is also used for a subtle difference in meaning."],["note","Koloregabea is kolore plus gabea, without, the same gabe as in ezkongabea."],["note","Distiratsua is distira, shine, plus -tsu, full of, as in indartsua."],["note","Kolorea galdu, to fade, is literally to lose color."],["note","Bizia in kolore biziak also means alive."]],
+    tip:[["build",[["ñabar","variegated or many-colored"],["-dura",""]],"ñabardura","a nuance or a shade of color"],["note","It is a native Basque word, and it is also used for a subtle difference in meaning."],["build",[["kolore","color"],["gabea","without"]],"koloregabea","colorless"],["note","The same gabe as in ezkongabea."],["build",[["distira","shine"],["-tsu","full of"]],"distiratsua","shiny"],["note","As in indartsua."],["say","kolorea galdu","to fade","Literally to lose color."],["note","Bizia in kolore biziak also means alive."]],
   },
   {
     id:"l71_courtesy",
@@ -8351,7 +8351,7 @@ var LESSONS=[
     intro:"You have had kaixo, agur, and barkatu since the first lesson. These are the words for more formal moments: a warm welcome, a greeting sent to someone, a formal apology, a wish of good luck, and a toast.",
     grammar:{title:"\"On\", the good that ends a wish",body:"\"On\" means good, and it ends a wish: egun on, good day, and zorte on, good luck. Gabon is from gau, night, and \"on\". Ongi etorri, welcome, is ongi, well, plus etorri, to come. Osasuna means health, and said over a raised glass it is the toast. Topa! is the other common one. Agur is the word you say, and agurra is the noun, a greeting or a farewell. Barkamen eske is more formal and serious than barkatu."},
     wordIds:["harrera_ona","agurra","adeitasuna","ongi_etorri","zorte_on","osasun","barkamen_eske"],
-    tip:[["note","\"On\" means good, and it ends a wish: egun on, good day, and zorte on, good luck."],["note","Gabon is from gau, night, and \"on\"."],["build",[["ongi","well"],["etorri","to come"]],"ongi etorri","welcome"],["note","Osasuna means health, and said over a raised glass it is the toast."],["note","Topa! is the other common one."],["note","Agur is the word you say, and agurra is the noun, a greeting or a farewell."],["note","Barkamen eske is more formal and serious than barkatu."]],
+    tip:[["note","\"On\" means good, and it ends a wish."],["pair",["egun on","good day"],["zorte on","good luck"]],["build",[["gau","night"],["on","good"]],"gabon","good evening, good night"],["build",[["ongi","well"],["etorri","to come"]],"ongi etorri","welcome"],["note","Osasuna means health, and said over a raised glass it is the toast. Topa! is the other common one."],["pair",["agur","the word you say"],["agurra","the noun: a greeting or a farewell"]],["note","Barkamen eske is more formal and serious than barkatu."]],
   },
   {
     id:"l72_pairs",
@@ -8364,7 +8364,7 @@ var LESSONS=[
     intro:"Most of these come with their opposite, which is the easiest way to learn them: rich and poor, weak and strong, correct and wrong. The seventh is zehatza, precise.",
     grammar:{title:"Words that come in pairs",body:"Learn these two at a time: aberatsa and pobrea, ahula and sendoa, zuzena and okerra. You met zuzen as straight ahead. With the article, zuzena also means correct or just, and zuzendu is to correct or to direct. Okerra is both wrong and crooked. Pobrea is from Spanish, and the Basque word txiroa is also used. Sendoa also means healthy or solid. Zehatz-mehatz means precisely."},
     wordIds:["aberatsa","pobrea","zuzena","okerra","ahula","sendoa","zehatza"],
-    tip:[["note","Learn these two at a time: aberatsa and pobrea, ahula and sendoa, zuzena and okerra."],["note","You met zuzen as straight ahead."],["note","With the article, zuzena also means correct or just, and zuzendu is to correct or to direct."],["note","Okerra is both wrong and crooked."],["note","Pobrea is from Spanish, and the Basque word txiroa is also used."],["note","Sendoa also means healthy or solid."],["note","Zehatz-mehatz means precisely."]],
+    tip:[["note","Learn these two at a time."],["forms",[["aberatsa","pobrea"],["ahula","sendoa"],["zuzena","okerra"]]],["note","You met zuzen as straight ahead. With the article, zuzena also means correct or just, and zuzendu is to correct or to direct."],["note","Okerra is both wrong and crooked."],["note","Pobrea is from Spanish, and the Basque word txiroa is also used."],["note","Sendoa also means healthy or solid."],["say","zehatz-mehatz","precisely"]],
   },
   {
     id:"l73_cannot",
@@ -8377,7 +8377,7 @@ var LESSONS=[
     intro:"These are abstract adjectives: unbearable, essential, ancient, complex, controversial, sustainable, and contradictory. Two of them are built on ezin, cannot.",
     grammar:{title:"Ezin, the word for cannot",body:"Ezin means cannot. Jasanezina is jasan, to endure, plus ezin: cannot be endured. Its opposite is jasangarria, bearable. Ezinbestekoa is ezin plus beste, other: it cannot be otherwise. Eztabaidagarria is eztabaida, debate, plus -garri. You met -garri as causing, in nekagarria. Here it means worthy of. Kontraesankorra is kontraesan, contradiction, plus -korra, and iraunkorra, lasting, has the same ending. For ancient, antzinakoa is the more common form."},
     wordIds:["jasanezina","ezinbestekoa","antzinatekoa","konplexua","eztabaidagarria","iraunkorra","kontraesankorra"],
-    tip:[["note","Ezin means cannot."],["build",[["jasan","to endure"],["ezin",""]],"jasanezina","cannot be endured"],["note","Its opposite is jasangarria, bearable."],["build",[["ezin",""],["beste","other"]],"ezinbestekoa","it cannot be otherwise"],["build",[["eztabaida","debate"],["-garri",""]],"eztabaidagarria","controversial"],["note","You met -garri as causing, in nekagarria."],["note","Here it means worthy of."],["note","Kontraesankorra is kontraesan, contradiction, plus -korra, and iraunkorra, lasting, has the same ending."],["note","For ancient, antzinakoa is the more common form."]],
+    tip:[["note","Ezin means cannot."],["build",[["jasan","to endure"],["ezin","cannot"]],"jasanezina","unbearable"],["note","Literally cannot be endured. Its opposite is jasangarria, bearable."],["build",[["ezin","cannot"],["beste","other"]],"ezinbestekoa","essential"],["note","Literally it cannot be otherwise."],["build",[["eztabaida","debate"],["-garri",""]],"eztabaidagarria","controversial"],["note","You met -garri as causing, in nekagarria. Here it means worthy of."],["note","Kontraesankorra is kontraesan, contradiction, plus -korra, and iraunkorra, lasting, has the same ending."],["note","For ancient, antzinakoa is the more common form."]],
   },
   {
     id:"l74_nation",
@@ -8390,7 +8390,7 @@ var LESSONS=[
     intro:"These words are common in Basque public life, and people who disagree with each other all use them: patriot, nationalism, self-determination, sovereignty, coexistence, cultural diversity. With them come three everyday words: economy, importance, and problem.",
     grammar:{title:"Aberri, and the words built on it",body:"Aberri means homeland, as in Aberri Eguna. Abertzalea, a patriot, is aberri plus -zalea, lover of. Abertzaletasuna is the specifically Basque term, beside the international nazionalismoa. Burujabetza, sovereignty, is buru, head, plus jabetza, ownership. Elkarbizitza is elkar, each other, plus bizitza, life. One caution: bortxa is violence or force, but the verb bortxatu today mainly means to rape."},
     wordIds:["ekonomia","abertzalea","nazionalismoa","autodeterminazioa","garrantzia","arazo","bortxa","burujabetza","abertzaletasuna","kultura_aniztasuna","elkarbizitza"],
-    tip:[["note","Aberri means homeland, as in Aberri Eguna."],["build",[["aberri",""],["-zalea","lover of"]],"abertzalea","a patriot"],["note","Abertzaletasuna is the specifically Basque term, beside the international nazionalismoa."],["build",[["buru","head"],["jabetza","ownership"]],"burujabetza","sovereignty"],["build",[["elkar","each other"],["bizitza","life"]],"elkarbizitza","coexistence"],["warn","One caution: bortxa is violence or force, but the verb bortxatu today mainly means to rape."]],
+    tip:[["note","Aberri means homeland, as in Aberri Eguna."],["build",[["aberri","homeland"],["-zalea","lover of"]],"abertzalea","a patriot"],["pair",["abertzaletasuna","the specifically Basque term"],["nazionalismoa","the international one"]],["build",[["buru","head"],["jabetza","ownership"]],"burujabetza","sovereignty"],["build",[["elkar","each other"],["bizitza","life"]],"elkarbizitza","coexistence"],["warn","One caution: bortxa is violence or force, but the verb bortxatu today mainly means to rape."]],
   },
 ];
 
