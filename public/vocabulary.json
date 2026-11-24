@@ -167,8 +167,8 @@
       "pronunciation": "OH-ghee-ah",
       "notes": "Ogia = bread, the staple of Basque meals. Ogia eta gazta = bread and cheese is a classic combination. Okindegia = bakery.",
       "example": {
-        "basque": "Ogia gozo dago.",
-        "english": "The bread is delicious."
+        "basque": "Ogia eta gazta, mesedez.",
+        "english": "Bread and cheese, please."
       }
     },
     {
@@ -180,8 +180,8 @@
       "pronunciation": "OO-rah",
       "notes": "Ur (water, no article) vs ura (the water).",
       "example": {
-        "basque": "Ura edan nahi dut.",
-        "english": "I want to drink water."
+        "basque": "Ura, mesedez.",
+        "english": "Water, please."
       }
     },
     {
@@ -4230,8 +4230,8 @@
       "pronunciation": "KAH-feh-ah",
       "notes": "Coffee. Kafesnea = coffee with milk. Ebakia = espresso cut with a little milk (Spanish cortado). Kafea hartu = to have a coffee.",
       "example": {
-        "basque": "Kafea hartu nahi dut.",
-        "english": "I want to have a coffee."
+        "basque": "Kafe bat, mesedez.",
+        "english": "A coffee, please."
       }
     },
     {
@@ -4269,8 +4269,8 @@
       "pronunciation": "FROO-tah",
       "notes": "Fruit. Frutak = fruits (plural). The Basque Country is known for its apples (sagarrak) used to make sagardoa (cider).",
       "example": {
-        "basque": "Fruta freskoa da.",
-        "english": "The fruit is fresh."
+        "basque": "Fruta gorria da.",
+        "english": "The fruit is red."
       }
     },
     {
@@ -5248,8 +5248,8 @@
       "pronunciation": "ah-RAH-ghee-ah (h is silent)",
       "notes": "Meat. Haragi = meat (root). Txuleta = steak (a Basque specialty). Txerri haragia = pork. Behi haragia = beef. Haragia erretzea = grilling meat. Txuleta is the main course at a sagardotegi (cider house).",
       "example": {
-        "basque": "Haragia gustatzen zait.",
-        "english": "I like meat."
+        "basque": "Haragia ala arraina?",
+        "english": "Meat or fish?"
       }
     },
     {
@@ -5352,8 +5352,8 @@
       "pronunciation": "YAN",
       "notes": "To eat. Zer jan duzu? = What did you eat? Jaten ari naiz = I am eating. Jan eta edan = eat and drink. The j is a y sound.",
       "example": {
-        "basque": "Zer jan nahi duzu?",
-        "english": "What do you want to eat?"
+        "basque": "Jan eta edan!",
+        "english": "Eat and drink!"
       }
     },
     {
@@ -5365,8 +5365,8 @@
       "pronunciation": "EH-dan",
       "notes": "To drink. Zer edan nahi duzu? = What do you want to drink? Edaten ari naiz = I am drinking. Jan eta edan = eat and drink. Edaria = drink (noun). Edateko ura = drinking water.",
       "example": {
-        "basque": "Zer edan nahi duzu?",
-        "english": "What do you want to drink?"
+        "basque": "Ura edan, mesedez.",
+        "english": "Drink water, please."
       }
     },
     {
