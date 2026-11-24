@@ -8208,8 +8208,8 @@ var LESSONS=[
     titleEu:"Lapikoan",
     emoji:"🍲",
     blurb:"Clams, cabbage, chili and the rest of what the classic dishes are made of.",
-    intro:"The famous Basque dishes are short lists of ingredients, and these are the ones the lists were missing: the clams in green sauce, the cabbage and sausages beside Tolosa beans, the almond and cherry in the Basque cake.",
-    grammar:{title:"The ending that makes it food",body:"Behi is a cow and behikia is beef. Txerri is a pig and txerrikia is pork. The ending -ki turns the animal into what is on the plate, and it is the same ending as in izozkia, ice cream, from izotz, ice."},
+    intro:"These are ingredients of the classic Basque dishes: the clams in hake in green sauce, the cabbage, chorizo, and blood sausage served with Tolosa beans, and the almond and cherry of the Basque cake. With them come lemon, beef, chili, paprika, vinegar, and quince.",
+    grammar:{title:"The ending that makes it food",body:"Behi is a cow and behikia is beef. Txerri is a pig and txerrikia is pork. The ending -ki makes the food, and it is the same ending as in izozkia, ice cream, from izotz, ice. Odolkia, blood sausage, is made with odol, blood. Two of these words change by region. In the north lemon is zitroina, and in the south many say almendra for almond. Ozpinetako describes something pickled in vinegar."},
     wordIds:["txirla","aza","limoia","gerezia","behikia","pipermina","piperrautsa","ozpina","odolkia","txorizoa","arbendola","irasagarra"],
   },
 
