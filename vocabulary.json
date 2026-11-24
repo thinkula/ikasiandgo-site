@@ -545,8 +545,8 @@
       "pronunciation": "ar-REH-bah",
       "notes": "Arreba = sister as said by a male speaker (a man's sister). A female speaker says ahizpa for her sister. Basque picks the sibling word by the speaker's gender.",
       "example": {
-        "basque": "Nire arreba gaztea da.",
-        "english": "My sister is young."
+        "basque": "Arreba gaztea da.",
+        "english": "The sister is young."
       }
     },
     {
@@ -558,8 +558,8 @@
       "pronunciation": "NEH-bah",
       "notes": "Neba = brother as said by a female speaker (a woman's brother). Mainly Bizkaian; many speakers use anaia instead. A male speaker says anaia for his brother.",
       "example": {
-        "basque": "Nire neba Bilbon bizi da.",
-        "english": "My brother lives in Bilbao."
+        "basque": "Neba medikua da.",
+        "english": "The brother is a doctor."
       }
     },
     {
@@ -1091,8 +1091,8 @@
       "pronunciation": "ee-lah-BEH-teh-ah (h is silent)",
       "notes": "Hilabetea = month. Hil = moon or month + bete = full. Literally a full moon cycle.",
       "example": {
-        "basque": "Hilabetea igaro da.",
-        "english": "A month has passed."
+        "basque": "Hamabi hilabete.",
+        "english": "Twelve months."
       }
     },
     {
@@ -3981,8 +3981,8 @@
       "pronunciation": "bees-KAR-rah",
       "notes": "The back. Bizkarreko mina dut = I have back pain.",
       "example": {
-        "basque": "Bizkarreko mina dut.",
-        "english": "My back hurts."
+        "basque": "Hau bizkarra da.",
+        "english": "This is the back."
       }
     },
     {
@@ -3994,8 +3994,8 @@
       "pronunciation": "sah-BEH-lah",
       "notes": "Sabela = stomach or belly. Sabeleko mina dut = I have a stomach ache. Sabelalde = abdominal area. Sabelaldi = litter (of animals). Sabela bete = to fill one's belly.",
       "example": {
-        "basque": "Sabeleko mina dut.",
-        "english": "My stomach hurts."
+        "basque": "Sabela handia da.",
+        "english": "The belly is big."
       }
     },
     {
@@ -4007,8 +4007,8 @@
       "pronunciation": "OR-tsak (h is silent)",
       "notes": "Teeth (plural). Singular: hortza. Hortzeko mina dut = I have a toothache (colloquially often hagineko mina).",
       "example": {
-        "basque": "Hortzak garbitu.",
-        "english": "Brush your teeth."
+        "basque": "Hortzak zuriak dira.",
+        "english": "The teeth are white."
       }
     },
     {
@@ -5391,8 +5391,8 @@
       "pronunciation": "LEH-poh-ah",
       "notes": "Neck. Lepo = neck (root). Lepokoa = necklace (neck-thing). Lepora hartu = to put on one's shoulders (to take responsibility). Leporaino nago = I'm up to my neck (swamped/fed up).",
       "example": {
-        "basque": "Lepoko mina dut.",
-        "english": "My neck hurts."
+        "basque": "Hau lepoa da.",
+        "english": "This is the neck."
       }
     },
     {
@@ -5482,8 +5482,8 @@
       "pronunciation": "AR-dee-ah",
       "notes": "Sheep. Ardi = sheep (root). Idiazabal cheese (Idiazabal gazta) is made from sheep's milk. Artzaina = shepherd.",
       "example": {
-        "basque": "Ardiak mendian daude.",
-        "english": "The sheep are in the mountains."
+        "basque": "Ardiak zuriak dira.",
+        "english": "The sheep are white."
       }
     },
     {
@@ -5495,8 +5495,8 @@
       "pronunciation": "BEH-ee-ah",
       "notes": "Cow. Behi = cow (root). Behi esnea = cow's milk. Behi haragia = beef. Dairy farms with behiak are typical of the green Basque valleys.",
       "example": {
-        "basque": "Behiak belardian daude.",
-        "english": "The cows are in the meadow."
+        "basque": "Behia handia da.",
+        "english": "The cow is big."
       }
     },
     {
@@ -5573,8 +5573,8 @@
       "pronunciation": "goo-RAH-soh-ak",
       "notes": "Parents (plural). Guraso = parent (singular). Gurasoek = the parents, as the ones doing something. Gurasoen etxea = the parents' house.",
       "example": {
-        "basque": "Nire gurasoak Gasteizen bizi dira.",
-        "english": "My parents live in Gasteiz (Vitoria)."
+        "basque": "Gurasoak hemen daude.",
+        "english": "The parents are here."
       }
     },
     {
@@ -7211,8 +7211,8 @@
       "pronunciation": "seh-GOON-doh-ah",
       "notes": "Segundoa = second (unit of time). From Spanish segundo. Segundo bat = one second. Segundoak igarotzen dira = seconds pass.",
       "example": {
-        "basque": "Segundo bat itxaron.",
-        "english": "Wait one second."
+        "basque": "Segundo bat, mesedez.",
+        "english": "One second, please."
       }
     },
     {
@@ -10592,8 +10592,8 @@
       "pronunciation": "eh-goos-KEE-tsoo-ah",
       "notes": "Sunny. Eguzki (sun) + -tsu (full of). Eguzkitsu dago = it is sunny. Eguzki argitsua = bright sunshine.",
       "example": {
-        "basque": "Eguzkitsu dago gaur eta parkera joango gara.",
-        "english": "It is sunny today and we will go to the park."
+        "basque": "Eguzkitsu dago gaur.",
+        "english": "It is sunny today."
       }
     },
     {
@@ -11440,8 +11440,8 @@
       "pronunciation": "eh-mah-KOO-meh-ah",
       "notes": "Emakume is often explained as eme (female) + kume (offspring), though the exact origin is debated. Andrea (lady) is a common alternative, used as a respectful term and in names like Andre Maria (the Virgin Mary).",
       "example": {
-        "basque": "Emakumea irakaslea da.",
-        "english": "The woman is a teacher."
+        "basque": "Emakumea medikua da.",
+        "english": "The woman is a doctor."
       }
     },
     {
@@ -11453,8 +11453,8 @@
       "pronunciation": "moo-TEE-lyah",
       "notes": "Mutil likely comes from Latin putillus (little boy) and historically also meant farmhand or apprentice. Mutil zaharra, literally old boy, is the standard word for a bachelor.",
       "example": {
-        "basque": "Mutila parkean dago.",
-        "english": "The boy is in the park."
+        "basque": "Mutila han dago.",
+        "english": "The boy is over there."
       }
     },
     {
@@ -11466,8 +11466,8 @@
       "pronunciation": "NES-kah",
       "notes": "Neska already ends in -a, so the article form stays Neska, never neskaa. Neska-mutilak means boys and girls, and neskato or neskatila are affectionate words for a little girl.",
       "example": {
-        "basque": "Neskak liburu bat irakurtzen du.",
-        "english": "The girl reads a book."
+        "basque": "Neska irakurlea da.",
+        "english": "The girl is a reader."
       }
     },
     {
@@ -12616,8 +12616,8 @@
       "pronunciation": "sah-PAH-tah",
       "notes": "Zapata is a Romance loan, cousin of Spanish zapato, and its final -a is part of the word itself, so it never takes a second article. Usually plural: zapatak, a pair of shoes. The native umbrella word is oinetakoak (footwear), from oin = foot, and a zapatari is a shoemaker.",
       "example": {
-        "basque": "Zapata berriak erosi ditut.",
-        "english": "I bought new shoes."
+        "basque": "Zapatak berriak dira.",
+        "english": "The shoes are new."
       }
     },
     {
@@ -12681,8 +12681,8 @@
       "pronunciation": "gor-POO-tsah",
       "notes": "Gorputz likely comes from Latin corpus, borrowed in Roman times. Gorputz eta arima = body and soul. Gorputz adarrak = limbs (literally body branches).",
       "example": {
-        "basque": "Gorputz osoa mugitzen dut.",
-        "english": "I move my whole body."
+        "basque": "Gorputza handia da.",
+        "english": "The body is big."
       }
     },
     {
@@ -12694,8 +12694,8 @@
       "pronunciation": "EE-lyeh-ah",
       "notes": "Ile is the root; after i the l softens to a ly sound in most dialects. Ile-apaindegia = hair salon (hair tidying place), and ileapaintzailea = hairdresser. Ile horia = blond hair.",
       "example": {
-        "basque": "Ile luzea du.",
-        "english": "She has long hair."
+        "basque": "Ilea beltza da.",
+        "english": "The hair is black."
       }
     },
     {
@@ -12707,8 +12707,8 @@
       "pronunciation": "AH-tsah (h is silent)",
       "notes": "Hatz = finger. Hatz lodia = thumb (the thick finger), and hatz markak = fingerprints. In many regions behatz is used instead, and it can also mean toe.",
       "example": {
-        "basque": "Hatzeko mina dut.",
-        "english": "My finger hurts."
+        "basque": "Hamar hatz.",
+        "english": "Ten fingers."
       }
     },
     {
@@ -12877,8 +12877,8 @@
       "pronunciation": "mer-kah-TOO-ah",
       "notes": "Merkatua: market. Merkataritza, trade or commerce, is built on the same root.",
       "example": {
-        "basque": "Merkatua plazan dago.",
-        "english": "The market is in the square."
+        "basque": "Non dago merkatua?",
+        "english": "Where is the market?"
       }
     },
     {
@@ -12903,8 +12903,8 @@
       "pronunciation": "oh-keen-DEH-ghee-ah",
       "notes": "Okindegia: bakery. Okin (baker) + -tegi (place for), the same ending as liburutegia and ardandegia.",
       "example": {
-        "basque": "Okindegia kalean dago.",
-        "english": "The bakery is on the street."
+        "basque": "Okindegia han dago.",
+        "english": "The bakery is over there."
       }
     },
     {
