@@ -8183,9 +8183,9 @@ var LESSONS=[
     title:"Wild Neighbors",
     titleEu:"Animalia basatiak",
     emoji:"🦊",
-    blurb:"The fox, the hare, the owl, and the shepherd who walks behind the flock.",
-    intro:"These are the animals you meet outside the farmyard, with the words for the shepherd and the flock.",
-    grammar:{title:"Ardia is inside artaldea",body:"Artaldea, a flock of sheep, has ardia inside it. The artzaina is the one who walks behind it. Basque shepherds drove their flocks up to the high summer pastures, and through the nineteenth and twentieth centuries many of them took that same work to Nevada, Idaho and California."},
+    blurb:"The fox, the hare, the owl, and the shepherd with the flock.",
+    intro:"These are the animals outside the farmyard: the bee, the fox, the hare, the owl, the crow, the seagull, and the lizard. With them come the nest, the shepherd, and the flock.",
+    grammar:{title:"Ardia is inside artaldea",body:"Artaldea, a flock of sheep, is ardi, sheep, plus talde, group. Artzaina is the shepherd. Basque shepherds took their latxa sheep to the high pastures each summer, and many emigrated to herd in the American West. Untxia is the rabbit, and erbia is the hare, the bigger, wilder one. Azeria used as an adjective means sly. In some dialects muskerra is also the color green."},
     wordIds:["erlea","azeria","erbia","hontza","belea","kaioa","muskerra","habia","artzaina","artaldea"],
   },
   {
