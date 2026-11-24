@@ -6907,6 +6907,7 @@ var LESSONS=[
     intro:"These nine words carry a first exchange: hello and goodbye, yes and no, thank you, please and sorry. Kaixo works with anyone, a friend or a shopkeeper. Egun on is a little less casual, and people use it until around noon.",
     grammar:{title:"The little word \"on\"",body:"\"On\" means good, and it comes second. Egun is day, so egun on is good day, which is how you say good morning. Gau is night, so gau on is good evening. After dark the usual greeting is gabon."},
     wordIds:["kaixo","agur","bai","ez","eskerrik_asko","mesedez","barkatu","egun_on","gau_on"],
+    tip:[["note","\"On\" means good, and it comes second."],["build",[["egun","day"],["on","good"]],"egun on","good morning"],["build",[["gau","night"],["on","good"]],"gau on","good evening"],["note","After dark the usual greeting is gabon."]],
   },
   {
     id:"l02_pronouns",
@@ -6918,6 +6919,7 @@ var LESSONS=[
     intro:"These are the pronouns: ni is I, zu is you, gu is we, zuek is you all, hura is he, she, or it, and haiek is they. Basque mostly leaves them out, because the verb already shows who is acting. You bring one in for emphasis or contrast.",
     grammar:{title:"Ni, zu, hi and hura",body:"Naiz means I am on its own, so ni naiz stresses the I: I am, not someone else. Zu began as the plural you, just as English you did. It became the everyday singular, so Basque made a new plural, zuek. Hi is the intimate you, used with close friends and siblings in some regions and families. It can feel too familiar if misjudged, so stay with zu. Hura is also that one over there, because Basque has no separate third person pronoun. Haiek is its plural."},
     wordIds:["ni","zu","hi","gu","zuek","hura","haiek"],
+    tip:[["forms",[["ni","I"],["zu","you"],["hi","you, intimate"],["gu","we"],["zuek","you all"],["hura","he, she, it"],["haiek","they"]]],["say","Ni naiz.","I am, not someone else.","Naiz means I am on its own, so adding ni stresses the I."],["note","Zu began as the plural you, just as English you did. It became the everyday singular, so Basque made a new plural, zuek."],["warn","Hi is the intimate you, used with close friends and siblings in some regions and families. It can feel too familiar if misjudged, so stay with zu."],["note","Hura is also that one over there, because Basque has no separate third person pronoun. Haiek is its plural."]],
   },
   {
     id:"l75_izan",
@@ -6928,7 +6930,8 @@ var LESSONS=[
     blurb:"The first of the two verbs for to be, the one for who you are.",
     intro:"Basque has two verbs for to be where English has one. This is the first, the one that says what something is: a name, a job, a place you come from. Its forms do not look much like one another, so it is easier to learn them as a set than one at a time.",
     grammar:{title:"One verb, six shapes",body:"Izan is the to be for who and what you are. Naiz is I am, zara is you are, da is he, she or it is, gara is we are, zarete is you all are, and dira is they are. Each form already names its subject, so naiz on its own is a whole sentence. With their pronouns they pair up as ni naiz, zu zara, hura da, gu gara, zuek zarete, haiek dira. Da is one of the most common, because Basque puts its verb last and a great many sentences end by saying what something is: hau ura da, this is water."},
-    wordIds:["izan","naiz","zara","da","gara","zarete","dira"],  },
+    wordIds:["izan","naiz","zara","da","gara","zarete","dira"],
+    tip:[["note","Izan is the to be for who and what you are."],["forms",[["ni","naiz","I am"],["zu","zara","you are"],["hura","da","he, she, it is"],["gu","gara","we are"],["zuek","zarete","you all are"],["haiek","dira","they are"]]],["note","Each form already names its subject, so naiz on its own is a whole sentence."],["say","Hau ura da.","This is water.","Da is one of the most common forms, because Basque puts its verb last."]],  },
   {
     id:"l84_herethere",
     num:4,
@@ -6939,6 +6942,7 @@ var LESSONS=[
     intro:"Four words for saying where something is: non is where, hemen is here, han is there, and non dago asks where something is.",
     grammar:{title:"Where, here and there",body:"Non asks where something is: non dago Ane is where is Ane. Hemen is here, by me. Han is there, away from us both. Between them is hor, there by you. The answer keeps the same dago: Ane hemen dago is Ane is here. Nora asks where to, and English uses where for both."},
     wordIds:["non","non_dago","hemen","han"],
+    tip:[["say","Non dago Ane?","Where is Ane?","Non asks where something is."],["forms",[["hemen","here, by me"],["hor","there, by you"],["han","there, away from us both"]]],["say","Ane hemen dago.","Ane is here.","The answer keeps the same dago."],["note","Nora asks where to, and English uses where for both."]],
   },
   {
     id:"l76_egon",
@@ -6949,7 +6953,8 @@ var LESSONS=[
     blurb:"The other verb for to be, the one for where and how you are.",
     intro:"English says I am tired and I am a teacher with the same verb. Basque does not. Izan is for what you are. This is the other verb, egon, for where you are and how you feel at this moment.",
     grammar:{title:"Two verbs, one dividing line",body:"Egon is the to be for a place or a passing state. Nago is I am, zaude is you are, dago is he, she or it is, gaude is we are, zaudete is you all are, and daude is they are, each with the sense of right now. Nongoa zara asks where you are from, which does not change, so it takes izan. Non zaude asks where you are right now, so it takes egon. You have already been using dago, in non dago. Egon also means to stay."},
-    wordIds:["egon","nago","zaude","dago","gaude","zaudete","daude"],  },
+    wordIds:["egon","nago","zaude","dago","gaude","zaudete","daude"],
+    tip:[["note","Egon is the to be for a place or a passing state. Each form has the sense of right now."],["forms",[["ni","nago","I am"],["zu","zaude","you are"],["hura","dago","he, she, it is"],["gu","gaude","we are"],["zuek","zaudete","you all are"],["haiek","daude","they are"]]],["pair",["Nongoa zara?","Where are you from? That does not change, so it takes izan."],["Non zaude?","Where are you right now? So it takes egon."]],["note","You have already been using dago, in non dago. Egon also means to stay."]],  },
   {
     id:"l03_pointing",
     num:6,
@@ -6960,6 +6965,7 @@ var LESSONS=[
     intro:"Basque points in three steps where English has two: near me, near you, and away from both of us. This lesson also has the small joining words: and, or and but.",
     grammar:{title:"Three steps, and two ways to say or",body:"Hau is this, near me. Hori is that, near you. Hura is that over there, away from both of us. These are the same steps as hemen, here, and han, there. The pointing word comes after its noun: etxe hau is this house. It also carries the plural, so the noun stays bare: lagun hauek is these friends. Two words mean or. Edo is the or of statements. Ala offers a real choice in a question: Kafea ala tea? expects you to pick one. Eta is and, and baina is but."},
     wordIds:["hau","hori","hauek","horiek","eta","edo","ala","baina"],
+    tip:[["forms",[["hau","this, near me"],["hori","that, near you"],["hura","that over there, away from both of us"]]],["note","These are the same steps as hemen, here, and han, there."],["say","etxe hau","this house","The pointing word comes after its noun."],["say","lagun hauek","these friends","It also carries the plural, so the noun stays bare."],["pair",["edo","the or of statements"],["ala","offers a real choice in a question"]],["say","Kafea ala tea?","Coffee or tea?","Ala expects you to pick one."],["note","Eta is and, and baina is but."]],
   },
   {
     id:"l04_meeting",
@@ -6971,6 +6977,7 @@ var LESSONS=[
     intro:"Here are three questions for a first conversation: where you are from, how old you are, and whether you speak English. With them come nice to meet you, a little, again, and I know.",
     grammar:{title:"How the answers are built",body:"Zenbat urte dituzu is literally how many years do you have, because Basque uses have, not be, for age. The answer keeps that shape: hogei urte ditut is I am twenty. Nongoa zara asks where you are from, and you answer by putting -koa on the place name: Bilbokoa naiz is I am from Bilbao. Pixka bat, a little, is the modest answer to ingelesez hitz egiten duzu."},
     wordIds:["pozten_nau","nongoa","zenbat_urte","ingelesez","pixka_bat","berriz","badakit"],
+    tip:[["say","Zenbat urte dituzu?","How old are you?","Literally how many years do you have, because Basque uses have, not be, for age."],["say","Hogei urte ditut.","I am twenty.","The answer keeps that shape."],["say","Bilbokoa naiz.","I am from Bilbao.","Nongoa zara asks where you are from. You answer by putting -koa on the place name."],["note","Pixka bat, a little, is the modest answer to ingelesez hitz egiten duzu."]],
   },
   {
     id:"l85_seeyou",
@@ -6982,6 +6989,7 @@ var LESSONS=[
     intro:"You have the greetings for the morning and the evening. Here are the afternoon and the one for after dark, two goodbyes that say when you will meet again, and a greeting for someone you have not seen in a long time.",
     grammar:{title:"Until later, until tomorrow",body:"Gero arte and bihar arte are a time word plus arte, until: until later, until tomorrow. Through the day the greetings run egun on, arratsalde on, gabon. Gabon is from gau, night, and on, good. Aspaldiko is for someone you have not seen in ages, almost always as Kaixo, aspaldiko!"},
     wordIds:["aspaldiko","gero_arte","bihar_arte","arratsalde_on","gabon"],
+    tip:[["build",[["gero","later"],["arte","until"]],"gero arte","see you later"],["build",[["bihar","tomorrow"],["arte","until"]],"bihar arte","see you tomorrow"],["note","Through the day the greetings run egun on, arratsalde on, gabon."],["build",[["gau","night"],["on","good"]],"gabon","good evening, good night"],["say","Kaixo, aspaldiko!","Hello, long time no see!","Aspaldiko is for someone you have not seen in ages."]],
   },
   {
     id:"l05_reading",
@@ -6993,6 +7001,7 @@ var LESSONS=[
     intro:"Four everyday verbs: to read, to write, to listen and to look. Three of them also give you the person who does it. The noun here is hitza, word, which sits inside two common phrases.",
     grammar:{title:"-le, the one who does it",body:"Add -le to a verb and you get the person who does it. Irakurri gives irakurlea, a reader. Entzun gives entzulea, a listener. Idatzi shortens to idaz- first, so a writer is idazlea. Hitza is a word. Hitza eman, to give your word, is to promise. Hitz egin, literally to make word, means to speak."},
     wordIds:["irakurri","idatzi","entzun","begiratu","hitza","irakurlea","idazlea","entzulea"],
+    tip:[["note","Add -le to a verb and you get the person who does it."],["build",[["irakurri","to read"],["-le",""]],"irakurlea","a reader"],["build",[["entzun","to listen"],["-le",""]],"entzulea","a listener"],["build",[["idatzi","to write"],["-le",""]],"idazlea","a writer"],["note","Idatzi shortens to idaz- first."],["say","hitza eman","to promise","Literally to give your word."],["say","hitz egin","to speak","Literally to make word."]],
   },
   {
     id:"l2_numbers",
@@ -7004,6 +7013,7 @@ var LESSONS=[
     intro:"The numbers one to ten, for prices, ages, times and amounts. Count them out loud: bat, bi, hiru, lau, bost, sei, zazpi, zortzi, bederatzi, hamar.",
     grammar:{title:"How they sound, and what else they do",body:"Lau rhymes with the English now, and sei sounds like say. The z in zazpi and zortzi is a soft s, and the h in hiru and hamar is silent. Bat is one and also a: etxe bat is a house. Bederatzi is the longest of the ten. After hamar, Basque counts in twenties: hogei is 20, and hogeita hamar, twenty and ten, is 30."},
     wordIds:["bat","bi","hiru","lau","bost","sei","zazpi","zortzi","bederatzi","hamar"],
+    tip:[["pair",["lau","rhymes with the English now"],["sei","sounds like say"]],["note","The z in zazpi and zortzi is a soft s, and the h in hiru and hamar is silent."],["say","etxe bat","a house","Bat is one and also a."],["note","Bederatzi is the longest of the ten."],["note","After hamar, Basque counts in twenties: hogei is 20, and hogeita hamar, twenty and ten, is 30."]],
   },
   {
     id:"l3_family",
@@ -7015,6 +7025,7 @@ var LESSONS=[
     intro:"The household: mother and father, grandmother and grandfather, a brother, a sister, a son, a daughter and a child. Two of the words depend on who is speaking. Anaia is a brother as a man says it, and ahizpa is a sister as a woman says it.",
     grammar:{title:"The article on the end",body:"Basque has no separate word for the. It adds -a to the end of the noun: seme is son, and semea is the son. Ama and aita already end in -a, so they look the same either way. Amona is ama plus ona, good, and aitona is aita plus ona: literally good mother and good father."},
     wordIds:["ama","aita","anaia","ahizpa","semea","alaba","amona","aitona","familia","haurra"],
+    tip:[["note","Basque has no separate word for the. It adds -a to the end of the noun."],["pair",["seme","son"],["semea","the son"]],["note","Ama and aita already end in -a, so they look the same either way."],["build",[["ama","mother"],["ona","good"]],"amona","grandmother"],["build",[["aita","father"],["ona","good"]],"aitona","grandfather"]],
   },
   {
     id:"l86_mine",
@@ -7026,6 +7037,7 @@ var LESSONS=[
     intro:"These are the words for whose something is: nire is my, zure is your, gure is our, and bere is his or her. With them comes izena, name, so you can say who you are.",
     grammar:{title:"They go in front",body:"Nire, zure, gure and bere go before the noun and never change: nire ama is my mother, and nire lagunak is my friends. Bere is his, her or its, because Basque does not mark he or she. Nire izena Ane da is my name is Ane. Aita Gurea, the Our Father, has gure in it."},
     wordIds:["nire","zure","gure","bere","izena"],
+    tip:[["note","Nire, zure, gure and bere go before the noun and never change."],["pair",["nire ama","my mother"],["nire lagunak","my friends"]],["note","Bere is his, her or its, because Basque does not mark he or she."],["say","Nire izena Ane da.","My name is Ane."],["note","Aita Gurea, the Our Father, has gure in it."]],
   },
   {
     id:"l4_colors",
@@ -7037,6 +7049,7 @@ var LESSONS=[
     intro:"Nine colors and the word for color itself. The Basque flag, the ikurrina, is red, green and white, and all three are here: gorria, berdea, zuria.",
     grammar:{title:"Where the -a goes",body:"The color comes after the thing it describes: etxe gorria is the red house, literally house red. The -a has moved. Etxea drops its article and gorria carries it, because the article sits at the end of the whole phrase. Watch horia, yellow, beside hori, that: liburu horia is the yellow book, and liburu hori is that book."},
     wordIds:["gorria","urdina","berdea","zuria","beltza","horia","laranja","morea","arrosa","kolore"],
+    tip:[["say","etxe gorria","the red house","The color comes after the thing it describes: literally house red."],["note","The -a has moved. Etxea drops its article and gorria carries it, because the article sits at the end of the whole phrase."],["warn","Watch horia, yellow, beside hori, that."],["pair",["liburu horia","the yellow book"],["liburu hori","that book"]]],
   },
   {
     id:"l5_food",
@@ -7048,6 +7061,7 @@ var LESSONS=[
     intro:"What is on the table: water, bread, coffee, fish, meat, fruit and cheese, with the verbs for eating and drinking. Ogia eta gazta, bread and cheese, is a classic pair.",
     grammar:{title:"Eating and drinking",body:"Jan is to eat, and janaria is food. Edan is to drink, and edaria is a drink. The j in jan is a y sound. Jan eta edan is eat and drink. Ura shows the article plainly: ur is water, and ura is the water."},
     wordIds:["ura","ogia","kafea","janaria","arraina","haragia","fruta","gazta","jan","edan"],
+    tip:[["pair",["jan","to eat"],["janaria","food"]],["pair",["edan","to drink"],["edaria","a drink"]],["note","The j in jan is a y sound."],["say","Jan eta edan.","Eat and drink."],["pair",["ur","water"],["ura","the water"]]],
   },
   {
     id:"l6_time",
@@ -8325,6 +8339,70 @@ function firstUnfinishedLesson(doneLessons,isPro){
   return locked;
 }
 
+// The tip box, drawn from typed pieces instead of one paragraph. A lesson
+// that has a tip array uses this; one that does not still shows grammar.body.
+// The body stays in the data either way: it is what check-lessons reads and
+// what a lesson falls back to.
+//   ["note", text]                      a plain line
+//   ["warn", text]                      a caution, set apart
+//   ["say", basque, english, note?]     a phrase with its meaning
+//   ["pair", [a, gloss], [b, gloss]]    two things side by side
+//   ["build", [[part, gloss]...], word, gloss]   a word made of parts
+//   ["forms", [[...2 or 3 cells]...]]   a small table
+function TipParts(props){
+  var E=React.createElement;var parts=props.parts||[];
+  var ink="#4C1D95",soft="#6B5CA5",dark="#1A1A1A";
+  var chip={backgroundColor:"#E4DDFD",color:"#4C1D95",borderRadius:8,padding:"2px 8px",fontSize:14,fontWeight:800,whiteSpace:"nowrap"};
+  var small={fontSize:12.5,color:soft,fontWeight:600};
+  function row(i,kids,extra){var st={padding:i===0?"0 0 9px":"9px 0",borderTop:i===0?"none":"1px solid #E4DDFD"};if(extra)for(var k in extra)st[k]=extra[k];return E("div",{key:i,style:st},kids);}
+  return E("div",null,parts.map(function(p,i){
+    var kind=p[0];
+    if(kind==="note")return row(i,E("p",{style:{margin:0,fontSize:14,color:ink,lineHeight:1.55,fontWeight:500}},p[1]));
+    if(kind==="warn")return row(i,E("div",{style:{display:"flex",gap:8,alignItems:"flex-start",backgroundColor:"#FEF3C7",borderRadius:12,padding:"9px 11px"}},
+      E("span",{style:{fontSize:13,fontWeight:900,color:"#92400E",flexShrink:0,lineHeight:1.5}},"!"),
+      E("p",{style:{margin:0,fontSize:13.5,color:"#92400E",lineHeight:1.5,fontWeight:600}},p[1])));
+    if(kind==="say")return row(i,[
+      E("p",{key:"b",style:{margin:0,fontSize:15.5,color:dark,fontWeight:900,lineHeight:1.35}},p[1]),
+      E("p",{key:"e",style:{margin:"1px 0 0",fontSize:13,color:soft,fontStyle:"italic",fontWeight:600}},p[2]),
+      p[3]?E("p",{key:"n",style:{margin:"5px 0 0",fontSize:13.5,color:ink,lineHeight:1.5,fontWeight:500}},p[3]):null]);
+    if(kind==="pair")return row(i,E("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}},[p[1],p[2]].map(function(c,j){
+      return E("div",{key:j,style:{minWidth:0}},
+        E("p",{style:{margin:0,fontSize:15,color:dark,fontWeight:900,lineHeight:1.35,overflowWrap:"anywhere"}},c[0]),
+        E("p",{style:{margin:"1px 0 0",fontSize:12.5,color:soft,fontWeight:600,lineHeight:1.4}},c[1]));})));
+    if(kind==="build"){
+      // Each part travels with its gloss, and the result with its meaning, so
+      // a line break never leaves a gloss on its own.
+      var unit={display:"inline-flex",alignItems:"center",gap:6};
+      var kids=[];
+      p[1].forEach(function(c,j){
+        kids.push(E("span",{key:"u"+j,style:unit},
+          j>0?E("span",{style:{color:soft,fontWeight:800,fontSize:14}},"+"):null,
+          E("span",{style:chip},c[0]),
+          c[1]?E("span",{style:small},c[1]):null));
+      });
+      kids.push(E("span",{key:"r",style:{display:"inline-flex",alignItems:"baseline",gap:6,flexWrap:"wrap"}},
+        E("span",{style:{color:soft,fontWeight:800,fontSize:14}},"="),
+        E("span",{style:{fontSize:15,color:dark,fontWeight:900}},p[2]),
+        p[3]?E("span",{style:small},p[3]):null));
+      return row(i,E("div",{style:{display:"flex",flexWrap:"wrap",alignItems:"center",gap:"6px 8px"}},kids));
+    }
+    if(kind==="forms"){
+      var three=p[1][0].length===3;
+      return row(i,E("div",{style:{display:"grid",gridTemplateColumns:three?"minmax(52px,auto) minmax(64px,auto) 1fr":"minmax(64px,auto) 1fr",columnGap:14,rowGap:5,alignItems:"baseline"}},
+        p[1].reduce(function(acc,r,j){
+          if(three){
+            acc.push(E("span",{key:j+"a",style:{fontSize:13.5,color:soft,fontWeight:700}},r[0]));
+            acc.push(E("span",{key:j+"b",style:{fontSize:15,color:dark,fontWeight:900}},r[1]));
+            acc.push(E("span",{key:j+"c",style:{fontSize:13,color:ink,fontWeight:500}},r[2]));
+          }else{
+            acc.push(E("span",{key:j+"a",style:{fontSize:15,color:dark,fontWeight:900}},r[0]));
+            acc.push(E("span",{key:j+"b",style:{fontSize:13,color:ink,fontWeight:500,lineHeight:1.4}},r[1]));
+          }
+          return acc;},[])));
+    }
+    return null;
+  }));
+}
 function LearnScreen(props){
   var isPro=props.isPro,onUpgrade=props.onUpgrade;
   var onBack=props.onBack,onPractice=props.onPractice;
@@ -8464,7 +8542,7 @@ function LearnScreen(props){
             React.createElement("span",{style:{fontSize:16}},"\uD83D\uDCA1"),
             React.createElement("p",{style:{margin:0,fontSize:14,fontWeight:900,color:"#6D28D9"}},lesson.grammar.title)
           ),
-          React.createElement("p",{style:{margin:0,fontSize:14,color:"#4C1D95",lineHeight:1.6,fontWeight:500}},lesson.grammar.body)
+          lesson.tip?React.createElement(TipParts,{parts:lesson.tip}):React.createElement("p",{style:{margin:0,fontSize:14,color:"#4C1D95",lineHeight:1.6,fontWeight:500}},lesson.grammar.body)
         ),
         // Vocab section heading
         React.createElement("p",{style:{margin:"0 0 10px 4px",fontSize:13,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.5}},words.length+" words to learn"),

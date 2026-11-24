@@ -173,7 +173,7 @@ console.log("\ncheck-lessons: what the prose promises");
   let unreachable = [], falseClaims = [], unglossed = [];
 
   for (const l of lessons) {
-    const prose = [l.blurb, l.intro, l.gtitle, l.gbody].filter(Boolean).join("  ");
+    const prose = [l.blurb, l.intro, l.gtitle, l.gbody, l.tipText].filter(Boolean).join("  ");
     if (!prose) continue;
     let left = prose.toLowerCase();
 
@@ -228,7 +228,7 @@ console.log("\ncheck-lessons: what the prose promises");
   const titles = lessons.map(l => l.title).filter(t => t.length > 6);
   let namedClaims = [];
   for (const l of lessons) {
-    const prose = [l.blurb, l.intro, l.gtitle, l.gbody].filter(Boolean).join("  ");
+    const prose = [l.blurb, l.intro, l.gtitle, l.gbody, l.tipText].filter(Boolean).join("  ");
     for (const sentence of prose.split(/(?<=\.)\s+/)) {
       if (!CLAIMS_PRIOR.test(sentence)) continue;
       const other = titles.find(t => t !== l.title && sentence.includes(t));
@@ -300,7 +300,7 @@ console.log("\ncheck-lessons: notes against the word cards");
 
   let wrong = [];
   for (const l of lessons) {
-    const prose = [l.intro, l.gtitle, l.gbody].filter(Boolean).join("  ");
+    const prose = [l.intro, l.gtitle, l.gbody, l.tipText].filter(Boolean).join("  ");
     for (const m of prose.matchAll(GLOSSED)) {
       const cards = byGloss.get(norm(m[2]));
       if (!cards) continue;
@@ -357,7 +357,7 @@ console.log("\ncheck-lessons: house style");
   for (const l of lessons) {
     const w = "L" + l.num + " " + l.title;
     english.push([w, "title", l.title], [w, "blurb", l.blurb], [w, "intro", l.intro],
-                 [w, "note", l.gtitle + " " + l.gbody]);
+                 [w, "note", l.gtitle + " " + l.gbody + " " + l.tipText]);
   }
   for (const v of vocab) {
     english.push([v.id, "english", v.english], [v.id, "notes", v.notes || ""],

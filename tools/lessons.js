@@ -66,6 +66,29 @@ function readLessons(appPath) {
     const w = /wordIds:\[([^\]]*)\]/.exec(chunk);
     if (!w) throw new Error("lesson " + id[1] + " has no wordIds");
     const g = /grammar:\{title:"((?:[^"\\]|\\.)*)",body:"((?:[^"\\]|\\.)*)"\}/.exec(chunk);
+    // The typed tip, when a lesson has one. It is flattened to sentences of
+    // the form "x is y" so the prose gates read it the same way they read
+    // the paragraph, and a word glossed in a row counts as glossed.
+    let tipText = "";
+    const tAt = chunk.indexOf("\n    tip:[");
+    if (tAt !== -1) {
+      const from = tAt + "\n    tip:[".length;
+      const raw = "[" + chunk.slice(from, matchBracket(chunk, from, "[", "]", "the tip of lesson " + id[1])) + "]";
+      let tip;
+      try { tip = JSON.parse(raw); }
+      catch (e) { throw new Error("the tip of lesson " + id[1] + " is not valid JSON: " + e.message); }
+      const is = (a, b) => (b ? a + " is " + b + "." : "");
+      const out = [];
+      for (const p of tip) {
+        if (p[0] === "note" || p[0] === "warn") out.push(p[1]);
+        else if (p[0] === "say") { out.push(is(p[1].replace(/[.!?]+$/, ""), p[2].replace(/[.!?]+$/, ""))); if (p[3]) out.push(p[3]); }
+        else if (p[0] === "pair") { out.push(is(p[1][0], p[1][1].replace(/[.!?]+$/, ""))); out.push(is(p[2][0], p[2][1].replace(/[.!?]+$/, ""))); }
+        else if (p[0] === "build") { for (const c of p[1]) out.push(is(c[0], c[1])); out.push(is(p[2], p[3])); }
+        else if (p[0] === "forms") { for (const r of p[1]) out.push(r.length === 3 ? is(r[0] + " " + r[1], r[2]) : is(r[0], r[1])); }
+        else throw new Error("the tip of lesson " + id[1] + " has an unknown piece: " + p[0]);
+      }
+      tipText = out.filter(Boolean).join(" ");
+    }
     lessons.push({
       id: id[1],
       num: parseInt(num[1], 10),
@@ -76,6 +99,7 @@ function readLessons(appPath) {
       intro: field(chunk, "intro"),
       gtitle: g ? unescape(g[1]) : "",
       gbody: g ? unescape(g[2]) : "",
+      tipText: tipText,
       wordIds: (w[1].match(/"([^"]+)"/g) || []).map(s => s.slice(1, -1)),
     });
   }
