@@ -636,8 +636,8 @@
       "pronunciation": "lah-GOON-ah",
       "notes": "Laguna = friend or companion. Adiskidea is also used for friend. Lagunartea = circle of friends. Lagundu = to help or accompany (same root). Nire laguna = my friend.",
       "example": {
-        "basque": "Laguna etorri da.",
-        "english": "The friend has come."
+        "basque": "Ane laguna da.",
+        "english": "Ane is a friend."
       }
     },
     {
@@ -1312,8 +1312,8 @@
       "pronunciation": "es-KOH-lah",
       "notes": "Eskola comes from Greek via Latin schola. Ikastola is the Basque-language school, a key institution in language revival.",
       "example": {
-        "basque": "Eskola hurbil dago.",
-        "english": "The school is nearby."
+        "basque": "Non dago eskola?",
+        "english": "Where is the school?"
       }
     },
     {
@@ -3968,8 +3968,8 @@
       "pronunciation": "poh-lee-SEE-ah",
       "notes": "Police. The Basque Country's own regional police force is the Ertzaintza; town police are udaltzainak.",
       "example": {
-        "basque": "Polizia deitu behar dut.",
-        "english": "I need to call the police."
+        "basque": "Non dago polizia?",
+        "english": "Where are the police?"
       }
     },
     {
@@ -5274,8 +5274,8 @@
       "pronunciation": "oh-LEE-oh-ah",
       "notes": "Oil. Oliba olioa = olive oil. Olioa berotzea = to heat the oil. Olio = oil root. Used in pil-pil sauce, the famous Basque emulsified cod dish.",
       "example": {
-        "basque": "Oliba olioa erabiltzen dut.",
-        "english": "I use olive oil."
+        "basque": "Olioa eta gatza.",
+        "english": "Oil and salt."
       }
     },
     {
@@ -5300,8 +5300,8 @@
       "pronunciation": "pee-PER-rah",
       "notes": "Pepper. Piperrak = peppers (plural). Piper gorria = red pepper. Piper berdea = green pepper. The piperrada (Basque pepper and tomato stew) is a classic dish. Gernikako piperrak = Gernika peppers, small green peppers from Gernika.",
       "example": {
-        "basque": "Piperra gustuko dut.",
-        "english": "I like pepper."
+        "basque": "Piper gorria ala berdea?",
+        "english": "Red pepper or green?"
       }
     },
     {
@@ -5326,8 +5326,8 @@
       "pronunciation": "ar-ROH-sah",
       "notes": "Rice. From Arabic ar-ruzz via Spanish arroz. Arrozarekin = with rice. Arroz-esnea = rice pudding.",
       "example": {
-        "basque": "Arraina arrozarekin jan dut.",
-        "english": "I ate the fish with rice."
+        "basque": "Arroza jan dut.",
+        "english": "I have eaten rice."
       }
     },
     {
@@ -5794,8 +5794,8 @@
       "pronunciation": "GAH-tsah",
       "notes": "Gatza = salt. Gatz = salt (root). Gazia = salty. Gazta (cheese) is popularly linked to gatz, though the etymology is uncertain. Gatzontzia = salt cellar. The salt valley of Añana, in Araba, is still worked.",
       "example": {
-        "basque": "Gatza gehitu behar diozu.",
-        "english": "You need to add salt to it."
+        "basque": "Gatza, mesedez.",
+        "english": "Salt, please."
       }
     },
     {
@@ -5807,8 +5807,8 @@
       "pronunciation": "ah-SOO-kreh-ah",
       "notes": "Azukrea = sugar. From Arabic as-sukkar via Spanish azúcar. Azukre = sugar (root). Azukre gehiegi = too much sugar. Gozoa = sweet.",
       "example": {
-        "basque": "Kafean azukrea nahi duzu?",
-        "english": "Do you want sugar in your coffee?"
+        "basque": "Kafea eta azukrea.",
+        "english": "Coffee and sugar."
       }
     },
     {
@@ -6990,8 +6990,8 @@
       "pronunciation": "choh-koh-LAH-teh-ah",
       "notes": "Txokolatea = chocolate. The Basque Country has a strong chocolate tradition, especially in Baiona (Bayonne, where chocolate-making entered France) and Mendaro; Tolosa is famous for confectionery. Txokolate beltza = dark chocolate. Txokolatezko pastela = chocolate cake.",
       "example": {
-        "basque": "Txokolatea gustatzen zait.",
-        "english": "I like chocolate."
+        "basque": "Txokolatea ona da.",
+        "english": "Chocolate is good."
       }
     },
     {
@@ -7276,8 +7276,8 @@
       "pronunciation": "lah-goon-AR-teh-ah",
       "notes": "Lagunartea = circle of friends or community. Lagun = friend + artea = space between. Can refer to a close friend group or a broader community. Lagunartean = among friends/community. Auzolana is the related concept of community work.",
       "example": {
-        "basque": "Lagunartean ondo sentitzen naiz.",
-        "english": "I feel good among friends."
+        "basque": "Lagunartea handia da.",
+        "english": "The circle of friends is big."
       }
     },
     {
@@ -7302,8 +7302,8 @@
       "pronunciation": "OW-soh-ah",
       "notes": "Auzoa = neighborhood or small village. Auzo = neighborhood (root). Auzokoa = neighbor. Auzolan = community work (neighborhood work), the Basque tradition of collective voluntary labor.",
       "example": {
-        "basque": "Nire auzoa txikia da.",
-        "english": "My neighborhood is small."
+        "basque": "Auzoa txikia da.",
+        "english": "The neighborhood is small."
       }
     },
     {
@@ -8707,8 +8707,8 @@
       "pronunciation": "ow-sah-PEH-sah",
       "notes": "Mayor. Auzo (neighborhood) + apez (priest). The word first meant an abbot or a senior council member. This is the usual term in the northern Basque Country; in the south alkatea is used.",
       "example": {
-        "basque": "Auzapeza herriko bileran dago.",
-        "english": "The mayor is at the town meeting."
+        "basque": "Auzapeza hemen dago.",
+        "english": "The mayor is here."
       }
     },
     {
@@ -9669,8 +9669,8 @@
       "pronunciation": "koh-moo-nee-TAH-teh-ah",
       "notes": "Community. From Spanish comunidad. Komunitate txikia = small community. Euskal komunitatea = the Basque community.",
       "example": {
-        "basque": "Gure komunitatea indartsua da.",
-        "english": "Our community is strong."
+        "basque": "Komunitatea handia da.",
+        "english": "The community is big."
       }
     },
     {
@@ -11585,8 +11585,8 @@
       "pronunciation": "soo-KAL-deh-ah",
       "notes": "Sukaldea comes from su (fire) + alde (side): the fire side of the house. In the traditional baserri farmhouse the kitchen hearth was the center of family life. Sukaldaria = cook, sukaldatu = to cook.",
       "example": {
-        "basque": "Ama sukaldean dago.",
-        "english": "Mom is in the kitchen."
+        "basque": "Sukaldea berria da.",
+        "english": "The kitchen is new."
       }
     },
     {
@@ -11624,8 +11624,8 @@
       "pronunciation": "mah-EYE-ah",
       "notes": "Mahaia = table. The h is silent. Mahaia jarri = to set the table, and mahaikide = tablemate, someone you share a table with.",
       "example": {
-        "basque": "Mahaia jarri dut.",
-        "english": "I have set the table."
+        "basque": "Mahai bat eta lau aulki.",
+        "english": "One table and four chairs."
       }
     },
     {
@@ -11637,8 +11637,8 @@
       "pronunciation": "OWL-kee-ah (owl like the bird)",
       "notes": "Aulkia pairs with eseri (to sit): Eseri aulkian = sit on the chair, using the -n location ending. A related word is jarleku (seat), built from jarri (to sit down) + leku (place).",
       "example": {
-        "basque": "Eseri aulkian, mesedez.",
-        "english": "Sit on the chair, please."
+        "basque": "Aulki bat, mesedez.",
+        "english": "A chair, please."
       }
     },
     {
@@ -11650,8 +11650,8 @@
       "pronunciation": "SOH-fah",
       "notes": "Sofa is an international loanword, ultimately from Arabic suffa, and it already ends in -a, so no article is added. Sofa covers both sofa and the sofa. Sofan etzanda = lying on the sofa.",
       "example": {
-        "basque": "Sofa oso erosoa da.",
-        "english": "The sofa is very comfortable."
+        "basque": "Sofa berria da.",
+        "english": "The sofa is new."
       }
     },
     {
@@ -11663,8 +11663,8 @@
       "pronunciation": "oh-EH-ah",
       "notes": "Ohea is an old native Basque word. The h is silent. Ohera joan = to go to bed, and oheratu is a verb meaning to turn in. Ohe bikoitza = double bed, useful at hotels.",
       "example": {
-        "basque": "Ohera noa. Gabon!",
-        "english": "I am going to bed. Good night!"
+        "basque": "Ohea handia da.",
+        "english": "The bed is big."
       }
     },
     {
@@ -12391,8 +12391,8 @@
       "pronunciation": "plah-TEH-rah",
       "notes": "Platera = plate, a Romance loan (compare Spanish plato). Like its neighbors it also means a dish or course: plater nagusia = main course.",
       "example": {
-        "basque": "Platera mahai gainean dago.",
-        "english": "The plate is on the table."
+        "basque": "Plater bat, mesedez.",
+        "english": "A plate, please."
       }
     },
     {
@@ -12430,8 +12430,8 @@
       "pronunciation": "koh-LYAH-rah",
       "notes": "Koilara shares a Latin root (cochlearium) with Spanish cuchara. Dialects also say goilara or kutxara. Koilarakada = a spoonful.",
       "example": {
-        "basque": "Koilara bat behar dut zopa jateko.",
-        "english": "I need a spoon to eat the soup."
+        "basque": "Koilara bat, mesedez.",
+        "english": "A spoon, please."
       }
     },
     {
@@ -12443,8 +12443,8 @@
       "pronunciation": "sar-DESH-kah",
       "notes": "Sardexka = sarde (pitchfork or hayfork) + the diminutive -xka: literally a little pitchfork. In everyday speech many people say tenedorea, the Spanish loan.",
       "example": {
-        "basque": "Sardexka eta labana mahaian daude.",
-        "english": "The fork and the knife are on the table."
+        "basque": "Sardexka bat eta labana bat, mesedez.",
+        "english": "A fork and a knife, please."
       }
     },
     {
