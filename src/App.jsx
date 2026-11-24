@@ -8160,8 +8160,8 @@ var LESSONS=[
     titleEu:"Baserria eta etxea",
     emoji:"🏡",
     blurb:"Roof, walls, stairs, and the farmhouse a great many surnames came from.",
-    intro:"You have the rooms already. This is the building around them, and the one building that matters more than any other in Basque: the baserria.",
-    grammar:{title:"Why so many Basque surnames are houses",body:"A baserria is the farmhouse and its land taken together, and it carried a name of its own. Families were known by the name of the house rather than the house by the name of the family. That is why Etxeberria, the new house, is a surname and not only a description."},
+    intro:"You have the rooms already. This is the building around them: the roof, the wall, the stairs, the balcony, the attic, the entrance hall, the chimney, the garden, and the key. With them comes baserria, the Basque farmhouse.",
+    grammar:{title:"Why so many Basque surnames are houses",body:"A baserria is the Basque farmhouse, house and farm together. Countless Basque surnames are the name of a baserri, which is why so many families are named after a house. Etxeberria just means the new house. Lorategia is lore, flower, plus -tegi: the flower place. Several of these words have a second meaning. Eskailera is also a ladder, giltza is also a wrench, and ataria is also a threshold. Horma means ice in several dialects."},
     wordIds:["teilatua","horma","eskailera","balkoia","lorategia","baserria","ganbara","ataria","tximinia","giltza"],
   },
   {
