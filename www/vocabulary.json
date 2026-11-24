@@ -1299,8 +1299,8 @@
       "pronunciation": "LAH-nah",
       "notes": "Lan egin = to work. Langile = worker. Lantegia = factory/workplace.",
       "example": {
-        "basque": "Lana gogorra da, baina merezi du.",
-        "english": "Work is hard, but it is worth it."
+        "basque": "Lana ona da.",
+        "english": "The work is good."
       }
     },
     {
@@ -3916,8 +3916,8 @@
       "pronunciation": "SOO-sen",
       "notes": "Straight ahead. Zuzen-zuzen = perfectly straight. With the article, zuzena, it also means correct or just.",
       "example": {
-        "basque": "Zuzen jarraitu.",
-        "english": "Go straight ahead."
+        "basque": "Zuzen ala eskuinera?",
+        "english": "Straight ahead or to the right?"
       }
     },
     {
@@ -4714,8 +4714,8 @@
       "pronunciation": "ee-koor-REE-nah",
       "notes": "The Basque flag, a white cross over a green diagonal saltire on a red field. Designed in 1894 by the Arana brothers. Ikur = symbol.",
       "example": {
-        "basque": "Ikurrina etxean daukagu.",
-        "english": "We have the Basque flag at home."
+        "basque": "Ikurrina gorria, berdea eta zuria da.",
+        "english": "The Basque flag is red, green and white."
       }
     },
     {
@@ -5599,8 +5599,8 @@
       "pronunciation": "GAS-teh-ah",
       "notes": "Young or a young person. Gazte = young (root). Gazteak = young people. Gazteria = youth (collective). Gaztetxea = youth center (young-house). Gaztetan = in one's youth / when young. Gaztetasuna = youth/youthfulness.",
       "example": {
-        "basque": "Nire anaia gaztea da.",
-        "english": "My brother is young."
+        "basque": "Anaia gaztea da.",
+        "english": "The brother is young."
       }
     },
     {
@@ -6340,8 +6340,8 @@
       "pronunciation": "geh-YAH-goh",
       "notes": "Gehiago = more. Gehi = plus/more (root) + -ago (comparative suffix). Gehiegi = too much. Gehiago nahi dut = I want more. Gehiago ez = no more. Pixka bat gehiago = a little more.",
       "example": {
-        "basque": "Gehiago nahi dut.",
-        "english": "I want more."
+        "basque": "Gehiago, mesedez.",
+        "english": "More, please."
       }
     },
     {
@@ -6522,8 +6522,8 @@
       "pronunciation": "kee-ROH-lak",
       "notes": "Kirolak = sports (plural). Kirola = sport (singular). Kirolaria = athlete/sportsperson. Basque rural sports (herri kirolak) include wood chopping, stone lifting and tug of war.",
       "example": {
-        "basque": "Kirolak gustatzen zaizkit.",
-        "english": "I like sports."
+        "basque": "Kirolak onak dira.",
+        "english": "Sports are good."
       }
     },
     {
@@ -6535,8 +6535,8 @@
       "pronunciation": "foot-BOH-lah",
       "notes": "Futbola = football. Athletic Club (Bilbao) only fields players born or trained in the Basque Country. Real Sociedad, from Donostia, is another major Basque club. Futbol-zelaia = soccer field.",
       "example": {
-        "basque": "Futbola ikusten dut.",
-        "english": "I watch soccer."
+        "basque": "Futbola kirol bat da.",
+        "english": "Soccer is a sport."
       }
     },
     {
@@ -6548,8 +6548,8 @@
       "pronunciation": "lee-boo-roo-TEH-ghee-ah",
       "notes": "Liburutegia = library. Liburua = book + -tegi = place. Literally book-place. The Koldo Mitxelena library is in Donostia.",
       "example": {
-        "basque": "Liburutegia hurbil dago.",
-        "english": "The library is nearby."
+        "basque": "Non dago liburutegia?",
+        "english": "Where is the library?"
       }
     },
     {
@@ -6574,8 +6574,8 @@
       "pronunciation": "see-NEH-mah",
       "notes": "Zinema = cinema or film. Zinema-aretoa = movie theater. Zinemara joan = to go to the movies. The San Sebastián International Film Festival (Donostia Zinemaldia) is held every September.",
       "example": {
-        "basque": "Zinema gustatzen zait.",
-        "english": "I like movies."
+        "basque": "Non dago zinema?",
+        "english": "Where is the cinema?"
       }
     },
     {
@@ -7745,8 +7745,8 @@
       "pronunciation": "oor-TAR-ree-lah",
       "notes": "January. Usually analyzed as urte (year) + hil (month), the month that starts the year.",
       "example": {
-        "basque": "Urtarrilean jaio nintzen.",
-        "english": "I was born in January."
+        "basque": "Urtarrila, otsaila, martxoa.",
+        "english": "January, February, March."
       }
     },
     {
@@ -7862,8 +7862,8 @@
       "pronunciation": "OOR-ree-ah",
       "notes": "October. Urri means scarce. Usually explained as the month when summer abundance ends.",
       "example": {
-        "basque": "Urrian hostoak erortzen dira.",
-        "english": "Leaves fall in October."
+        "basque": "Iraila, urria, azaroa.",
+        "english": "September, October, November."
       }
     },
     {
@@ -7888,8 +7888,8 @@
       "pronunciation": "ah-BEN-doo-ah",
       "notes": "December. From Latin adventus, Advent. Gabonak (Christmas) is a major celebration.",
       "example": {
-        "basque": "Abenduan Gabonak ospatzen ditugu.",
-        "english": "We celebrate Christmas in December."
+        "basque": "Abenduan Gabonak dira.",
+        "english": "Christmas is in December."
       }
     },
     {
@@ -8252,8 +8252,8 @@
       "pronunciation": "lan-TEH-ghee-ah",
       "notes": "Workplace or factory. Lan (work) + tegi (place). The Basque Country has a strong industrial tradition in steel, shipbuilding and machine tools.",
       "example": {
-        "basque": "Lantegian lan egiten dut.",
-        "english": "I work in the factory."
+        "basque": "Lantegia handia da.",
+        "english": "The factory is big."
       }
     },
     {
@@ -8265,8 +8265,8 @@
       "pronunciation": "nah-GOO-see-ah",
       "notes": "Boss or manager. Nagusi = main/chief (root). Also means the main one or the important one. Aste Nagusia = Great Week (main week).",
       "example": {
-        "basque": "Nire nagusia ona da.",
-        "english": "My boss is good."
+        "basque": "Nagusia ona da.",
+        "english": "The boss is good."
       }
     },
     {
@@ -8629,8 +8629,8 @@
       "pronunciation": "meh-DEE-koo-ah",
       "notes": "Doctor or physician. From Latin medicus. Medikuarengana joan = to go to the doctor. Medikua naiz = I am a doctor.",
       "example": {
-        "basque": "Medikua naiz eta ospitalean lan egiten dut.",
-        "english": "I am a doctor and I work in the hospital."
+        "basque": "Medikua naiz.",
+        "english": "I am a doctor."
       }
     },
     {
@@ -8642,8 +8642,8 @@
       "pronunciation": "eh-ree-SAI-nah",
       "notes": "Nurse. Erizain = nurse (root). Erizain ona = good nurse. Osakidetza is the Basque public health service.",
       "example": {
-        "basque": "Erizainak ospitalean lan egiten du.",
-        "english": "The nurse works in the hospital."
+        "basque": "Ama erizaina da.",
+        "english": "Mother is a nurse."
       }
     },
     {
@@ -8655,8 +8655,8 @@
       "pronunciation": "soo-kal-DAH-ree-ah",
       "notes": "Cook or chef. Sukalde (kitchen) + -ari (person who does). Arzak, Berasategui and Aduriz are well-known Basque chefs. Sukaldari handia = great chef.",
       "example": {
-        "basque": "Sukaldariak jatetxean lan egiten du.",
-        "english": "The chef works in the restaurant."
+        "basque": "Aita sukaldaria da.",
+        "english": "Father is a cook."
       }
     },
     {
@@ -8668,8 +8668,8 @@
       "pronunciation": "ah-boh-KAH-too-ah",
       "notes": "Lawyer. From Spanish abogado. Abokatu ona = good lawyer. Abokatuarengana joan = to go to a lawyer.",
       "example": {
-        "basque": "Nire laguna abokatua da.",
-        "english": "My friend is a lawyer."
+        "basque": "Ane abokatua da.",
+        "english": "Ane is a lawyer."
       }
     },
     {
@@ -8681,8 +8681,8 @@
       "pronunciation": "ee-das-KAH-ree-ah",
       "notes": "Secretary or administrator. Idaz- (write) + -kari. Idazkari nagusia = head secretary.",
       "example": {
-        "basque": "Idazkaria bulegoan dago.",
-        "english": "The secretary is in the office."
+        "basque": "Idazkaria hemen dago.",
+        "english": "The secretary is here."
       }
     },
     {
@@ -8694,8 +8694,8 @@
       "pronunciation": "neh-kah-SAH-ree-ah",
       "notes": "Farmer. Neke (toil) + -zari, a form of the occupation ending -ari. The baserri (farmhouse) and its farmer are central to Basque rural identity. Many Basque surnames come from farmhouse names.",
       "example": {
-        "basque": "Nekazariak baserrian lan egiten du.",
-        "english": "The farmer works on the farm."
+        "basque": "Aitona nekazaria da.",
+        "english": "Grandfather is a farmer."
       }
     },
     {
@@ -9643,8 +9643,8 @@
       "pronunciation": "ar-kee-TEK-toh-ah",
       "notes": "Architect. From Greek via Spanish arquitecto. The Guggenheim Bilbao, designed by Frank Gehry, made the city famous for architecture. Arkitektura = architecture.",
       "example": {
-        "basque": "Arkitektoak etxeak diseinatzen ditu.",
-        "english": "The architect designs houses."
+        "basque": "Arkitektoa gaztea da.",
+        "english": "The architect is young."
       }
     },
     {
