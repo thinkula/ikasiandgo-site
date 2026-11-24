@@ -8148,8 +8148,8 @@ var LESSONS=[
     titleEu:"Hiriko zerbitzuak",
     emoji:"🏗️",
     blurb:"Planning, building, trade, and the two uniforms you hope not to need.",
-    intro:"The abstract half of a city: who plans it, who builds it, who trades in it, and who turns up when something goes wrong. These are the words a local newspaper uses.",
-    grammar:{title:"Long words are usually short words stacked up",body:"Hirigintza is built on hiria, the city. Udaltzaingoa is built on udala, the town council. Eraikuntza and eraikina, the building, come from one root. Basque often assembles a word out of parts you already have."},
+    intro:"This is the vocabulary of how a town is run: urban planning, infrastructure, construction, and trade, then the firefighter and the municipal police. The seventh word is the rest area on a highway.",
+    grammar:{title:"Long words are usually short words stacked up",body:"Most of these are built on words you have. Hirigintza, urban planning, is from hiri, the city. Eraikuntza, construction, shares its root with eraikina, a building. Merkataritza, trade, shares its root with merkatua, the market. Udaltzaingoa, the municipal police, is from udal, the town council, as in udaletxea. Azpiegitura is literally the structure underneath. In suhiltzailea, su is fire, and the rest of the word is the one who kills it."},
     wordIds:["hirigintza","azpiegitura","eraikuntza","merkataritza","zerbitzugunea","suhiltzailea","udaltzaingoa"],
   },
   {
