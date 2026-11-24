@@ -1026,8 +1026,8 @@
       "pronunciation": "GOWR",
       "notes": "Gaur goizean = this morning. Gaur arratsaldean = this afternoon.",
       "example": {
-        "basque": "Gaur eguraldi ona dago.",
-        "english": "Today the weather is good."
+        "basque": "Gaur ala bihar?",
+        "english": "Today or tomorrow?"
       }
     },
     {
@@ -1039,8 +1039,8 @@
       "pronunciation": "BEE-ar",
       "notes": "Do not confuse bihar (tomorrow) with behar (need): one vowel apart. Biharko = for tomorrow.",
       "example": {
-        "basque": "Bihar ikusiko dugu.",
-        "english": "We will see tomorrow."
+        "basque": "Bihar, mesedez.",
+        "english": "Tomorrow, please."
       }
     },
     {
@@ -1052,8 +1052,8 @@
       "pronunciation": "AH-tsoh",
       "notes": "Herenegun = the day before yesterday. Atzo arratsaldean = yesterday afternoon.",
       "example": {
-        "basque": "Atzo etorri zen.",
-        "english": "He came yesterday."
+        "basque": "Atzo, gaur eta bihar.",
+        "english": "Yesterday, today and tomorrow."
       }
     },
     {
@@ -1065,8 +1065,8 @@
       "pronunciation": "OH-rine",
       "notes": "Orain = now. Oraintxe = right now. Oraindik = still. Orain arte = until now.",
       "example": {
-        "basque": "Orain joango naiz.",
-        "english": "I will go now."
+        "basque": "Orain ala gero?",
+        "english": "Now or later?"
       }
     },
     {
@@ -1078,8 +1078,8 @@
       "pronunciation": "GEH-roh",
       "notes": "Gero = later, then, or after. Gero eta gehiago = more and more. Eta gero? = And then? Gerora = afterwards. Lehenago = earlier. Geroago = later on. Gero arte! = See you later!",
       "example": {
-        "basque": "Gero hitz egingo dugu.",
-        "english": "We will talk later."
+        "basque": "Gero, mesedez.",
+        "english": "Later, please."
       }
     },
     {
@@ -1117,8 +1117,8 @@
       "pronunciation": "eh-GOON-ah",
       "notes": "Eguna = the day. Egun = day (root). Egunero = every day. Eguneroko = daily. Egunsentia = dawn.",
       "example": {
-        "basque": "Eguna ederra da.",
-        "english": "The day is beautiful."
+        "basque": "Bi egun eta gau bat.",
+        "english": "Two days and one night."
       }
     },
     {
@@ -1130,8 +1130,8 @@
       "pronunciation": "GOW-ah",
       "notes": "Gaua = the night. Gau = night (root). Gauean = at night. Gaueko = of the night. Gauerdia = midnight (night-half).",
       "example": {
-        "basque": "Gaua luzea da.",
-        "english": "The night is long."
+        "basque": "Gaua beltza da.",
+        "english": "The night is black."
       }
     },
     {
@@ -3539,8 +3539,8 @@
       "pronunciation": "NOYS",
       "notes": "Noiz? = When? Noiz etorriko zara? = When will you come? Noiz arte? = Until when? Noizbehinka = occasionally (when-once). Noizean behin = from time to time. Noiznahi = whenever.",
       "example": {
-        "basque": "Noiz etorriko zara?",
-        "english": "When will you come?"
+        "basque": "Noiz? Orain?",
+        "english": "When? Now?"
       }
     },
     {
@@ -7224,8 +7224,8 @@
       "pronunciation": "as-teh-BOO-roo-ah",
       "notes": "Asteburua = weekend. Aste = week + burua = head/end. Literally week-end. Asteburuan = on the weekend. Asteburuko planak = weekend plans. Larunbata eta igandea = Saturday and Sunday.",
       "example": {
-        "basque": "Asteburuan zer egingo duzu?",
-        "english": "What will you do on the weekend?"
+        "basque": "Asteburu on!",
+        "english": "Have a good weekend!"
       }
     },
     {
@@ -7263,8 +7263,8 @@
       "pronunciation": "AS-teh-ah",
       "notes": "Astea = week. Aste = week (root). Aste honetan = this week. Astero = every week. Astebete = one week (week-full). Asteburua = weekend (week-end). Astelehenean = on Monday. The word for week gives the first three day names: astelehena (Monday), asteartea (Tuesday), asteazkena (Wednesday).",
       "example": {
-        "basque": "Astebete barru.",
-        "english": "In one week."
+        "basque": "Aste bat edo bi.",
+        "english": "One week or two."
       }
     },
     {
