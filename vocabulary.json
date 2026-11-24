@@ -206,8 +206,8 @@
       "pronunciation": "sah-gar-DOH-ah",
       "notes": "Sagardoa = cider (from sagar=apple + ardoa=wine). Basque cider houses (sagardotegi) are a winter tradition. Txotx! is the call to pour.",
       "example": {
-        "basque": "Sagardoa ala ardoa?",
-        "english": "Cider or wine?"
+        "basque": "Sagardoa gustatzen zait.",
+        "english": "I like cider."
       }
     },
     {
@@ -545,8 +545,8 @@
       "pronunciation": "ar-REH-bah",
       "notes": "Arreba = sister as said by a male speaker (a man's sister). A female speaker says ahizpa for her sister. Basque picks the sibling word by the speaker's gender.",
       "example": {
-        "basque": "Arreba gaztea da.",
-        "english": "The sister is young."
+        "basque": "Nire arreba gaztea da.",
+        "english": "My sister is young."
       }
     },
     {
@@ -558,8 +558,8 @@
       "pronunciation": "NEH-bah",
       "notes": "Neba = brother as said by a female speaker (a woman's brother). Mainly Bizkaian; many speakers use anaia instead. A male speaker says anaia for his brother.",
       "example": {
-        "basque": "Neba medikua da.",
-        "english": "The brother is a doctor."
+        "basque": "Nire neba medikua da.",
+        "english": "My brother is a doctor."
       }
     },
     {
@@ -636,8 +636,8 @@
       "pronunciation": "lah-GOON-ah",
       "notes": "Laguna = friend or companion. Adiskidea is also used for friend. Lagunartea = circle of friends. Lagundu = to help or accompany (same root). Nire laguna = my friend.",
       "example": {
-        "basque": "Ane laguna da.",
-        "english": "Ane is a friend."
+        "basque": "Ane nire laguna da.",
+        "english": "Ane is my friend."
       }
     },
     {
@@ -1312,8 +1312,8 @@
       "pronunciation": "es-KOH-lah",
       "notes": "Eskola comes from Greek via Latin schola. Ikastola is the Basque-language school, a key institution in language revival.",
       "example": {
-        "basque": "Non dago eskola?",
-        "english": "Where is the school?"
+        "basque": "Haurra eskolan dago.",
+        "english": "The child is at school."
       }
     },
     {
@@ -3617,8 +3617,8 @@
       "pronunciation": "SER",
       "notes": "Zer? = What? Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (in what manner?). Zer berri? = What's new?",
       "example": {
-        "basque": "Zer da hori?",
-        "english": "What is that?"
+        "basque": "Zer nahi duzu?",
+        "english": "What do you want?"
       }
     },
     {
@@ -3903,8 +3903,8 @@
       "pronunciation": "TAH-shee-ah",
       "notes": "Taxi. In Basque x = sh sound, so taxia sounds like TAH-shee-ah not \"taxi\". Taxi bat nahi dut = I want a taxi.",
       "example": {
-        "basque": "Taxi bat, mesedez.",
-        "english": "A taxi, please."
+        "basque": "Taxi bat nahi dut.",
+        "english": "I want a taxi."
       }
     },
     {
@@ -4269,8 +4269,8 @@
       "pronunciation": "ar-ROW-tsah",
       "notes": "Egg. Arrautzak = eggs (plural). Arrautza frijitua = fried egg. Arrautzopila = omelette.",
       "example": {
-        "basque": "Arrautza bat, mesedez.",
-        "english": "An egg, please."
+        "basque": "Arrautza bat nahi dut.",
+        "english": "I want an egg."
       }
     },
     {
@@ -5534,8 +5534,8 @@
       "pronunciation": "CHOH-ree-ah",
       "notes": "Bird. Txori = bird (root). Txoria txori, the song sung by Mikel Laboa (words by Joxean Artze), is about a bird and freedom. Txoritegi = aviary. Txori kantua = birdsong.",
       "example": {
-        "basque": "Txoria han dago.",
-        "english": "The bird is over there."
+        "basque": "Txoria zuhaitzean dago.",
+        "english": "The bird is in the tree."
       }
     },
     {
@@ -5547,8 +5547,8 @@
       "pronunciation": "AR-dee-ah",
       "notes": "Sheep. Ardi = sheep (root). Idiazabal cheese (Idiazabal gazta) is made from sheep's milk. Artzaina = shepherd.",
       "example": {
-        "basque": "Ardiak zuriak dira.",
-        "english": "The sheep are white."
+        "basque": "Ardiak mendian daude.",
+        "english": "The sheep are in the mountains."
       }
     },
     {
@@ -5638,8 +5638,8 @@
       "pronunciation": "goo-RAH-soh-ak",
       "notes": "Parents (plural). Guraso = parent (singular). Gurasoek = the parents, as the ones doing something. Gurasoen etxea = the parents' house.",
       "example": {
-        "basque": "Gurasoak hemen daude.",
-        "english": "The parents are here."
+        "basque": "Nire gurasoak etxean daude.",
+        "english": "My parents are at home."
       }
     },
     {
@@ -5664,8 +5664,8 @@
       "pronunciation": "GAS-teh-ah",
       "notes": "Young or a young person. Gazte = young (root). Gazteak = young people. Gazteria = youth (collective). Gaztetxea = youth center (young-house). Gaztetan = in one's youth / when young. Gaztetasuna = youth/youthfulness.",
       "example": {
-        "basque": "Anaia gaztea da.",
-        "english": "The brother is young."
+        "basque": "Nire anaia gaztea da.",
+        "english": "My brother is young."
       }
     },
     {
@@ -5872,8 +5872,8 @@
       "pronunciation": "ah-SOO-kreh-ah",
       "notes": "Azukrea = sugar. From Arabic as-sukkar via Spanish azúcar. Azukre = sugar (root). Azukre gehiegi = too much sugar. Gozoa = sweet.",
       "example": {
-        "basque": "Kafea eta azukrea.",
-        "english": "Coffee and sugar."
+        "basque": "Kafean azukrea nahi duzu?",
+        "english": "Do you want sugar in your coffee?"
       }
     },
     {
@@ -6405,8 +6405,8 @@
       "pronunciation": "geh-YAH-goh",
       "notes": "Gehiago = more. Gehi = plus/more (root) + -ago (comparative suffix). Gehiegi = too much. Gehiago nahi dut = I want more. Gehiago ez = no more. Pixka bat gehiago = a little more.",
       "example": {
-        "basque": "Gehiago, mesedez.",
-        "english": "More, please."
+        "basque": "Gehiago nahi dut.",
+        "english": "I want more."
       }
     },
     {
@@ -6587,8 +6587,8 @@
       "pronunciation": "kee-ROH-lak",
       "notes": "Kirolak = sports (plural). Kirola = sport (singular). Kirolaria = athlete/sportsperson. Basque rural sports (herri kirolak) include wood chopping, stone lifting and tug of war.",
       "example": {
-        "basque": "Kirolak onak dira.",
-        "english": "Sports are good."
+        "basque": "Kirolak gustatzen zaizkit.",
+        "english": "I like sports."
       }
     },
     {
@@ -6613,8 +6613,8 @@
       "pronunciation": "lee-boo-roo-TEH-ghee-ah",
       "notes": "Liburutegia = library. Liburua = book + -tegi = place. Literally book-place. The Koldo Mitxelena library is in Donostia.",
       "example": {
-        "basque": "Non dago liburutegia?",
-        "english": "Where is the library?"
+        "basque": "Liburutegian nago.",
+        "english": "I am at the library."
       }
     },
     {
@@ -6639,8 +6639,8 @@
       "pronunciation": "see-NEH-mah",
       "notes": "Zinema = cinema or film. Zinema-aretoa = movie theater. Zinemara joan = to go to the movies. The San Sebastián International Film Festival (Donostia Zinemaldia) is held every September.",
       "example": {
-        "basque": "Non dago zinema?",
-        "english": "Where is the cinema?"
+        "basque": "Zinema gustatzen zait.",
+        "english": "I like movies."
       }
     },
     {
@@ -7055,8 +7055,8 @@
       "pronunciation": "choh-koh-LAH-teh-ah",
       "notes": "Txokolatea = chocolate. The Basque Country has a strong chocolate tradition, especially in Baiona (Bayonne, where chocolate-making entered France) and Mendaro; Tolosa is famous for confectionery. Txokolate beltza = dark chocolate. Txokolatezko pastela = chocolate cake.",
       "example": {
-        "basque": "Txokolatea ona da.",
-        "english": "Chocolate is good."
+        "basque": "Txokolatea gustatzen zait.",
+        "english": "I like chocolate."
       }
     },
     {
@@ -7367,8 +7367,8 @@
       "pronunciation": "OW-soh-ah",
       "notes": "Auzoa = neighborhood or small village. Auzo = neighborhood (root). Auzokoa = neighbor. Auzolan = community work (neighborhood work), the Basque tradition of collective voluntary labor.",
       "example": {
-        "basque": "Auzoa txikia da.",
-        "english": "The neighborhood is small."
+        "basque": "Nire auzoa txikia da.",
+        "english": "My neighborhood is small."
       }
     },
     {
@@ -8317,8 +8317,8 @@
       "pronunciation": "lan-TEH-ghee-ah",
       "notes": "Workplace or factory. Lan (work) + tegi (place). The Basque Country has a strong industrial tradition in steel, shipbuilding and machine tools.",
       "example": {
-        "basque": "Lantegia handia da.",
-        "english": "The factory is big."
+        "basque": "Aita lantegian dago.",
+        "english": "Father is at the factory."
       }
     },
     {
@@ -8330,8 +8330,8 @@
       "pronunciation": "nah-GOO-see-ah",
       "notes": "Boss or manager. Nagusi = main/chief (root). Also means the main one or the important one. Aste Nagusia = Great Week (main week).",
       "example": {
-        "basque": "Nagusia ona da.",
-        "english": "The boss is good."
+        "basque": "Nire nagusia ona da.",
+        "english": "My boss is good."
       }
     },
     {
@@ -8707,8 +8707,8 @@
       "pronunciation": "eh-ree-SAI-nah",
       "notes": "Nurse. Erizain = nurse (root). Erizain ona = good nurse. Osakidetza is the Basque public health service.",
       "example": {
-        "basque": "Ama erizaina da.",
-        "english": "Mother is a nurse."
+        "basque": "Nire ama erizaina da.",
+        "english": "My mother is a nurse."
       }
     },
     {
@@ -8720,8 +8720,8 @@
       "pronunciation": "soo-kal-DAH-ree-ah",
       "notes": "Cook or chef. Sukalde (kitchen) + -ari (person who does). Arzak, Berasategui and Aduriz are well-known Basque chefs. Sukaldari handia = great chef.",
       "example": {
-        "basque": "Aita sukaldaria da.",
-        "english": "Father is a cook."
+        "basque": "Nire aita sukaldaria da.",
+        "english": "My father is a cook."
       }
     },
     {
@@ -8759,8 +8759,8 @@
       "pronunciation": "neh-kah-SAH-ree-ah",
       "notes": "Farmer. Neke (toil) + -zari, a form of the occupation ending -ari. The baserri (farmhouse) and its farmer are central to Basque rural identity. Many Basque surnames come from farmhouse names.",
       "example": {
-        "basque": "Aitona nekazaria da.",
-        "english": "Grandfather is a farmer."
+        "basque": "Nire aitona nekazaria da.",
+        "english": "My grandfather is a farmer."
       }
     },
     {
@@ -9734,8 +9734,8 @@
       "pronunciation": "koh-moo-nee-TAH-teh-ah",
       "notes": "Community. From Spanish comunidad. Komunitate txikia = small community. Euskal komunitatea = the Basque community.",
       "example": {
-        "basque": "Komunitatea handia da.",
-        "english": "The community is big."
+        "basque": "Gure komunitatea handia da.",
+        "english": "Our community is big."
       }
     },
     {
@@ -10423,8 +10423,8 @@
       "pronunciation": "GEH-lah",
       "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Bainugela = bathroom. Gela bikoitza = double room.",
       "example": {
-        "basque": "Gela bat, mesedez.",
-        "english": "A room, please."
+        "basque": "Gela bat nahi dut.",
+        "english": "I want a room."
       }
     },
     {
@@ -10540,8 +10540,8 @@
       "pronunciation": "bas-KAL-doo",
       "notes": "To have lunch. Bazkal-, the combining form of bazkari, + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture.",
       "example": {
-        "basque": "Bazkaldu dut.",
-        "english": "I have had lunch."
+        "basque": "Jatetxean bazkaldu dugu.",
+        "english": "We had lunch at the restaurant."
       }
     },
     {
@@ -11034,8 +11034,8 @@
       "pronunciation": "ES DAH",
       "notes": "Ez da is the negative of da, and it is the negative you will hear most, since da itself is the form you meet most.",
       "example": {
-        "basque": "Hura ez da Ane.",
-        "english": "She is not Ane."
+        "basque": "Ez da nire ama.",
+        "english": "She is not my mother."
       }
     },
     {
@@ -11074,8 +11074,8 @@
       "mcOnly": true,
       "notes": "Ezer ez is nothing, and on its own it is a whole answer. Inside a sentence the verb keeps its own ez as well, so ez dut ezer jan is I have eaten nothing, with two negatives adding up to one.",
       "example": {
-        "basque": "Zer da hori? Ezer ez.",
-        "english": "What is that? Nothing."
+        "basque": "Zer nahi duzu? Ezer ez.",
+        "english": "What do you want? Nothing."
       }
     },
     {
@@ -11088,8 +11088,8 @@
       "mcOnly": true,
       "notes": "Inor ez is nobody and it behaves like ezer ez: the verb in the sentence keeps its own ez too.",
       "example": {
-        "basque": "Nor dago hemen? Inor ez.",
-        "english": "Who is here? Nobody."
+        "basque": "Nor dago etxean? Inor ez.",
+        "english": "Who is at home? Nobody."
       }
     },
     {
@@ -11715,8 +11715,8 @@
       "pronunciation": "soo-KAL-deh-ah",
       "notes": "Sukaldea comes from su (fire) + alde (side): the fire side of the house. In the traditional baserri farmhouse the kitchen hearth was the center of family life. Sukaldaria = cook, sukaldatu = to cook.",
       "example": {
-        "basque": "Sukaldea berria da.",
-        "english": "The kitchen is new."
+        "basque": "Ama sukaldean dago.",
+        "english": "Mom is in the kitchen."
       }
     },
     {
@@ -11793,8 +11793,8 @@
       "pronunciation": "oh-EH-ah",
       "notes": "Ohea is an old native Basque word. The h is silent. Ohera joan = to go to bed, and oheratu is a verb meaning to turn in. Ohe bikoitza = double bed, useful at hotels.",
       "example": {
-        "basque": "Ohea handia da.",
-        "english": "The bed is big."
+        "basque": "Ohera noa. Gabon!",
+        "english": "I am going to bed. Good night!"
       }
     },
     {
@@ -12560,8 +12560,8 @@
       "pronunciation": "koh-LYAH-rah",
       "notes": "Koilara shares a Latin root (cochlearium) with Spanish cuchara. Dialects also say goilara or kutxara. Koilarakada = a spoonful.",
       "example": {
-        "basque": "Koilara bat, mesedez.",
-        "english": "A spoon, please."
+        "basque": "Koilara bat nahi dut.",
+        "english": "I want a spoon."
       }
     },
     {
@@ -12746,8 +12746,8 @@
       "pronunciation": "sah-PAH-tah",
       "notes": "Zapata is a Romance loan, cousin of Spanish zapato, and its final -a is part of the word itself, so it never takes a second article. Usually plural: zapatak, a pair of shoes. The native umbrella word is oinetakoak (footwear), from oin = foot, and a zapatari is a shoemaker.",
       "example": {
-        "basque": "Zapatak berriak dira.",
-        "english": "The shoes are new."
+        "basque": "Nire zapatak berriak dira.",
+        "english": "My shoes are new."
       }
     },
     {
@@ -12824,8 +12824,8 @@
       "pronunciation": "EE-lyeh-ah",
       "notes": "Ile is the root; after i the l softens to a ly sound in most dialects. Ile-apaindegia = hair salon (hair tidying place), and ileapaintzailea = hairdresser. Ile horia = blond hair.",
       "example": {
-        "basque": "Ilea beltza da.",
-        "english": "The hair is black."
+        "basque": "Nire ilea beltza da.",
+        "english": "My hair is black."
       }
     },
     {
@@ -13033,8 +13033,8 @@
       "pronunciation": "oh-keen-DEH-ghee-ah",
       "notes": "Okindegia: bakery. Okin (baker) + -tegi (place for), the same ending as liburutegia and ardandegia.",
       "example": {
-        "basque": "Okindegia han dago.",
-        "english": "The bakery is over there."
+        "basque": "Okindegia kalean dago.",
+        "english": "The bakery is on the street."
       }
     },
     {
