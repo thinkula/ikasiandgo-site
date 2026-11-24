@@ -8100,8 +8100,8 @@ var LESSONS=[
     titleEu:"Herria eta burujabetza",
     emoji:"\uD83D\uDD4A\uFE0F",
     blurb:"The vocabulary of a debate that is still going on.",
-    intro:"These words appear constantly in Basque public life, used by people who disagree with each other. They are listed here for what they mean and where they come from, so that you can follow the argument rather than take a side in it.",
-    grammar:{title:"Aberri, and the words built on it",body:"Aberri means homeland, and you met it in Aberri Eguna. Abertzalea is aberri plus -zalea, one who loves a thing, so a patriot. Abertzaletasuna names that attachment as a thing in itself. Burujabetza is buru (head) plus jabetza (ownership), owning your own head, which is how Basque says sovereignty. Elkarbizitza is elkar (each other) plus bizitza (life): living alongside one another."},
+    intro:"These words are common in Basque public life, and people who disagree with each other all use them: patriot, nationalism, self-determination, sovereignty, coexistence, cultural diversity. With them come three everyday words: economy, importance, and problem.",
+    grammar:{title:"Aberri, and the words built on it",body:"Aberri means homeland, as in Aberri Eguna. Abertzalea, a patriot, is aberri plus -zalea, lover of. Abertzaletasuna is the specifically Basque term, beside the international nazionalismoa. Burujabetza, sovereignty, is buru, head, plus jabetza, ownership. Elkarbizitza is elkar, each other, plus bizitza, life. One caution: bortxa is violence or force, but the verb bortxatu today mainly means to rape."},
     wordIds:["ekonomia","abertzalea","nazionalismoa","autodeterminazioa","garrantzia","arazo","bortxa","burujabetza","abertzaletasuna","kultura_aniztasuna","elkarbizitza"],
   },
 
