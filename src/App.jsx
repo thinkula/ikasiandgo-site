@@ -8172,8 +8172,8 @@ var LESSONS=[
     titleEu:"Etxeko gailuak",
     emoji:"🔌",
     blurb:"The cold one, the hot one, the one that washes and the one that lifts.",
-    intro:"Four of these words are the same word with a different front half. Learn the pattern once and you get all four.",
-    grammar:{title:"Gailua means device, and it builds appliances",body:"Hozkailua is the cold device, from hotza. Berogailua is the hot device, from beroa. Garbigailua is the cleaning device, from garbia. Igogailua is the one that takes you up. The pattern is still in use: when Basque needs a word for a new machine, this is usually how it makes one."},
+    intro:"Four of these are built on gailu, device: the refrigerator, the heater, the washing machine, and the elevator. The other six are the oven, the shower, the bathtub, the lock, the doorbell, and furniture.",
+    grammar:{title:"Gailua means device, and it builds appliances",body:"Hozkailua is hotz, cold, plus gailu, written with a k here. Berogailua is bero, hot, plus gailu. Garbigailua is garbi, clean, plus gailu. Igogailua is igo, to go up, plus gailu. Bainuontzia is bainu, bath, plus ontzi, vessel. It is the bainu of bainugela. The giltza goes in the sarraila. Mahaia, aulkia, and ohea are all altzariak."},
     wordIds:["hozkailua","labea","dutxa","igogailua","garbigailua","berogailua","sarraila","txirrina","altzaria","bainuontzia"],
   },
   {
