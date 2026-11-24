@@ -8117,7 +8117,7 @@ var LESSONS=[
     intro:"This is the vocabulary of how a town is run: urban planning, infrastructure, construction, and trade, then the firefighter and the municipal police. The seventh word is the rest area on a highway.",
     grammar:{title:"Long words are usually short words stacked up",body:"Most of these are built on words you have. Hirigintza, urban planning, is from hiri, the city. Eraikuntza, construction, shares its root with eraikina, a building. Merkataritza, trade, shares its root with merkatua, the market. Udaltzaingoa, the municipal police, is from udal, the town council, as in udaletxea. Azpiegitura is literally the structure underneath. In suhiltzailea, su is fire, and the rest of the word is the one who kills it."},
     wordIds:["hirigintza","azpiegitura","eraikuntza","merkataritza","zerbitzugunea","suhiltzailea","udaltzaingoa"],
-    tip:[["note","Most of these are built on words you have."],["forms",[["urban planning","hirigintza","from hiri, the city"],["construction","eraikuntza","shares its root with eraikina, a building"],["trade","merkataritza","shares its root with merkatua, the market"],["the municipal police","udaltzaingoa","from udal, the town council, as in udaletxea"]]],["note","Azpiegitura is literally the structure underneath."],["note","In suhiltzailea, su is fire, and the rest of the word is the one who kills it."]],
+    tip:[["note","Most of these are built on words you have."],["say","hirigintza","urban planning","From hiri, the city."],["say","eraikuntza","construction","It shares its root with eraikina, a building."],["say","merkataritza","trade","It shares its root with merkatua, the market."],["say","udaltzaingoa","the municipal police","From udal, the town council, as in udaletxea."],["note","Azpiegitura is literally the structure underneath."],["note","In suhiltzailea, su is fire, and the rest of the word is the one who kills it."]],
   },
   {
     id:"l79_house",
@@ -8247,7 +8247,7 @@ var LESSONS=[
     intro:"Climate change, biodiversity and habitat. Wildlife and a nature reserve. Earthquake, floods and drought. A temperate climate, and sea level.",
     grammar:{title:"Two words side by side, and three joined",body:"Many of these are two words set side by side. Klima aldaketa, climate change, has the aldaketa of aldatu, and itsas maila, sea level, has the itsas- you know. Klima epela, a temperate climate, uses epela, lukewarm. Others are joined into one. Lurrikara, earthquake, is lurra, earth, plus ikara, trembling. Basabizitza, wildlife, is basa, wild, plus bizitza, life. Lehortea, drought, is built on lehor, dry."},
     wordIds:["klima_aldaketa","biodibertsitatea","habitat","espazio_naturala","basabizitza","lurrikara","uholdeak","lehortea","klima_epela","itsas_maila"],
-    tip:[["note","Many of these are two words set side by side."],["forms",[["climate change","klima aldaketa","has the aldaketa of aldatu"],["sea level","itsas maila","has the itsas- you know"],["a temperate climate","klima epela","uses epela, lukewarm"]]],["note","Others are joined into one."],["build",[["lurra","earth"],["ikara","trembling"]],"lurrikara","earthquake"],["build",[["basa","wild"],["bizitza","life"]],"basabizitza","wildlife"],["note","Lehortea, drought, is built on lehor, dry."]],
+    tip:[["note","Many of these are two words set side by side."],["say","klima aldaketa","climate change","It has the aldaketa of aldatu."],["say","itsas maila","sea level","It has the itsas- you know."],["say","klima epela","a temperate climate","It uses epela, lukewarm."],["note","Others are joined into one."],["build",[["lurra","earth"],["ikara","trembling"]],"lurrikara","earthquake"],["build",[["basa","wild"],["bizitza","life"]],"basabizitza","wildlife"],["note","Lehortea, drought, is built on lehor, dry."]],
   },
   {
     id:"l64_enterprise",
@@ -8486,7 +8486,7 @@ function TipParts(props){
           E("span",{style:chip},c[0]),
           c[1]?E("span",{style:small},c[1]):null));
       });
-      kids.push(E("span",{key:"r",style:{display:"inline-flex",alignItems:"baseline",gap:6,flexWrap:"wrap"}},
+      kids.push(E("span",{key:"r",style:{display:"flex",flexBasis:"100%",alignItems:"baseline",gap:6,flexWrap:"wrap"}},
         E("span",{style:{color:soft,fontWeight:800,fontSize:14}},"="),
         E("span",{style:{fontSize:15,color:dark,fontWeight:900}},p[2]),
         p[3]?E("span",{style:small},p[3]):null));
