@@ -10683,8 +10683,8 @@
       "pronunciation": "SOO",
       "notes": "Zu was originally the plural you, just like English you. It shifted to a polite singular and then became the everyday standard, which is why its verb forms still look plural (zara, zaude). The gap it left was filled by a brand new plural, zuek.",
       "example": {
-        "basque": "Zu irakaslea zara.",
-        "english": "You are the teacher."
+        "basque": "Zu Mikel zara.",
+        "english": "You are Mikel."
       }
     },
     {
@@ -10696,8 +10696,8 @@
       "pronunciation": "EE (h is silent)",
       "notes": "Hi is the intimate you (hika), used with close friends and siblings in some regions and families, and it takes its own verb forms: hi haiz = you are. Usage varies widely and can feel too familiar if misjudged, so learners should default to zu.",
       "example": {
-        "basque": "Hi nire laguna haiz.",
-        "english": "You are my friend."
+        "basque": "Hi Jon haiz.",
+        "english": "You are Jon."
       }
     },
     {
@@ -10709,8 +10709,8 @@
       "pronunciation": "GOO",
       "notes": "Gu is behind gure (our) and guri (to us). Verb agreement: gu gara with izan, gu gaude with egon, and with transitive verbs the ergative form guk: guk egin dugu = we did it.",
       "example": {
-        "basque": "Gu pozik gaude.",
-        "english": "We are happy."
+        "basque": "Gu Ane eta Mikel gara.",
+        "english": "We are Ane and Mikel."
       }
     },
     {
@@ -10722,8 +10722,8 @@
       "pronunciation": "SOO-ek",
       "notes": "Zuek is a rebuilt plural: once zu had shifted from plural to polite singular, Basque added the plural -ek to create a new you all. Its verbs get their own endings: zuek zarete (you all are), zuek zaudete.",
       "example": {
-        "basque": "Zuek lagunak zarete.",
-        "english": "You all are friends."
+        "basque": "Zuek zarete.",
+        "english": "You all are."
       }
     },
     {
@@ -10735,8 +10735,8 @@
       "pronunciation": "OO-rah (h is silent)",
       "notes": "Hura does double duty as he, she, or it and as the far demonstrative, because Basque has no separate third person pronoun. It is step three of a distance system keyed to the speakers: hau (near me), hori (near you), hura (away from both), like Spanish este, ese, aquel. Plural: haiek.",
       "example": {
-        "basque": "Hura nire ama da.",
-        "english": "She is my mother."
+        "basque": "Hura Miren da.",
+        "english": "She is Miren."
       }
     },
     {
@@ -10748,8 +10748,8 @@
       "pronunciation": "EYE-ek (h is silent)",
       "notes": "Haiek is the plural of hura, so it means both they and those over there. The ergative plural happens to look the same: haiek etorri dira (they came) and haiek egin dute (they did it). Like all demonstratives it follows the noun: etxe haiek = those houses.",
       "example": {
-        "basque": "Haiek euskaldunak dira.",
-        "english": "They are Basque."
+        "basque": "Haiek Jon eta Miren dira.",
+        "english": "They are Jon and Miren."
       }
     },
     {
