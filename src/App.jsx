@@ -6907,8 +6907,8 @@ var LESSONS=[
     titleEu:"Ni, zu, gu",
     emoji:"\uD83E\uDDCD",
     blurb:"The pronouns, and why Basque so often leaves them out.",
-    intro:"Basque has a full set of pronouns and mostly leaves them out, because the verb already shows who is acting. You bring one in for emphasis or contrast. Hura does double duty: it is he, she or it, and it also points at something far from both speakers.",
-    grammar:{title:"Ni, zu, hi and hura",body:"Naiz means I am on its own, so ni naiz stresses the I: I am, not someone else. Zu began as the plural you, just as English you did. It shifted to a polite singular and then became the everyday one, so Basque made a new plural, zuek. Hi is the intimate you, used with close friends and siblings in some regions and families. It can feel too familiar if misjudged, so stay with zu. Hura covers he, she and that one over there, because Basque has no separate third person pronoun. Haiek is its plural."},
+    intro:"These are the pronouns: ni is I, zu is you, gu is we, zuek is you all, hura is he, she, or it, and haiek is they. Basque mostly leaves them out, because the verb already shows who is acting. You bring one in for emphasis or contrast.",
+    grammar:{title:"Ni, zu, hi and hura",body:"Naiz means I am on its own, so ni naiz stresses the I: I am, not someone else. Zu began as the plural you, just as English you did. It became the everyday singular, so Basque made a new plural, zuek. Hi is the intimate you, used with close friends and siblings in some regions and families. It can feel too familiar if misjudged, so stay with zu. Hura is also that one over there, because Basque has no separate third person pronoun. Haiek is its plural."},
     wordIds:["ni","zu","hi","gu","zuek","hura","haiek"],
   },
   {
