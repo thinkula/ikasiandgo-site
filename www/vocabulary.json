@@ -493,8 +493,8 @@
       "pronunciation": "AH-mah",
       "notes": "Ama appears in compounds and titles like Amalur (Mother Earth) and Ama Birjina (the Virgin Mary).",
       "example": {
-        "basque": "Nire ama medikua da.",
-        "english": "My mother is a doctor."
+        "basque": "Eskerrik asko, ama!",
+        "english": "Thank you, Mother!"
       }
     },
     {
@@ -506,8 +506,8 @@
       "pronunciation": "AI-tah",
       "notes": "Aita is also used in religious contexts. Aita Gurea = Our Father (the Lord's Prayer in Basque).",
       "example": {
-        "basque": "Nire aita Bilbon bizi da.",
-        "english": "My father lives in Bilbao."
+        "basque": "Kaixo, aita!",
+        "english": "Hello, Father!"
       }
     },
     {
@@ -519,8 +519,8 @@
       "pronunciation": "ah-NAI-ah",
       "notes": "Anaia = brother as said by a male speaker (a man's brother). Basque picks the sibling word by the speaker's gender: a woman says neba for her brother. The collective term for siblings is anai-arrebak.",
       "example": {
-        "basque": "Anaia gaztea da.",
-        "english": "The brother is young."
+        "basque": "Bi anaia gara.",
+        "english": "We are two brothers."
       }
     },
     {
@@ -532,8 +532,8 @@
       "pronunciation": "ah-EES-pah",
       "notes": "Ahizpa = sister as said by a female speaker (a woman's sister). A male speaker says arreba for his sister. Basque distinguishes sibling terms by the speaker's gender, not the sibling's.",
       "example": {
-        "basque": "Nire ahizpa Donostian bizi da.",
-        "english": "My sister lives in Donostia."
+        "basque": "Hiru ahizpa dira.",
+        "english": "They are three sisters."
       }
     },
     {
@@ -571,8 +571,8 @@
       "pronunciation": "SEH-meh-ah",
       "notes": "The -a at the end is the definite article. Seme = son (indefinite), semea = the son.",
       "example": {
-        "basque": "Semea eskolan dago.",
-        "english": "The son is at school."
+        "basque": "Jon semea da.",
+        "english": "Jon is the son."
       }
     },
     {
@@ -584,8 +584,8 @@
       "pronunciation": "ah-LAH-bah",
       "notes": "Do not confuse alaba (daughter) with Araba (Álava), the Basque province: similar sound, different word.",
       "example": {
-        "basque": "Alaba etxean dago.",
-        "english": "The daughter is at home."
+        "basque": "Miren alaba da.",
+        "english": "Miren is the daughter."
       }
     },
     {
@@ -597,8 +597,8 @@
       "pronunciation": "ah-MOH-nah",
       "notes": "Amona combines ama (mother) + ona (good). Literally good mother.",
       "example": {
-        "basque": "Amona zaharra da.",
-        "english": "The grandmother is old."
+        "basque": "Egun on, amona!",
+        "english": "Good morning, Grandmother!"
       }
     },
     {
@@ -610,8 +610,8 @@
       "pronunciation": "ai-TOH-nah",
       "notes": "Aitona combines aita (father) + ona (good). Literally good father.",
       "example": {
-        "basque": "Aitona mendian dago.",
-        "english": "The grandfather is on the mountain."
+        "basque": "Gabon, aitona.",
+        "english": "Good night, Grandfather."
       }
     },
     {
@@ -623,8 +623,8 @@
       "pronunciation": "fah-MEE-lee-ah",
       "notes": "Familia comes from Latin/Spanish. Sendia is another Basque word for family.",
       "example": {
-        "basque": "Familia handia dut.",
-        "english": "I have a big family."
+        "basque": "Familia bat gara.",
+        "english": "We are a family."
       }
     },
     {
@@ -5586,8 +5586,8 @@
       "pronunciation": "OWR-rah (h is silent)",
       "notes": "Child or baby. Haur = child (root). Haurtzaro = childhood. Haurra zaintzea = to look after a child. Haur eskola = preschool. Haurrak = children (plural).",
       "example": {
-        "basque": "Haurra lo dago.",
-        "english": "The child is sleeping."
+        "basque": "Hura haurra da.",
+        "english": "She is a child."
       }
     },
     {
