@@ -6756,8 +6756,8 @@
       "pronunciation": "ee-rah-KOOR-ree",
       "notes": "Irakurri = to read. Irakurtzen dut = I read. Irakurketa = reading (noun). Irakurle = reader. Irakurgarria = readable/worth reading.",
       "example": {
-        "basque": "Liburua irakurtzen dut.",
-        "english": "I read the book."
+        "basque": "Irakurri, mesedez.",
+        "english": "Read, please."
       }
     },
     {
@@ -6769,8 +6769,8 @@
       "pronunciation": "ee-DAH-tsee",
       "notes": "Idatzi = to write. Idazten dut = I write. Idazlea = writer/author. Idazketa = writing (noun). Idazki = written document. Idatzia = written (adjective).",
       "example": {
-        "basque": "Gutun bat idazten dut.",
-        "english": "I write a letter."
+        "basque": "Idatzi, mesedez.",
+        "english": "Write, please."
       }
     },
     {
@@ -6782,8 +6782,8 @@
       "pronunciation": "en-TSOON",
       "notes": "Entzun = to listen or hear. Entzuten dut = I hear/I listen. Entzule = listener. Entzungarria = audible. Entzun! = Listen! Entzun al duzu? = Did you hear?",
       "example": {
-        "basque": "Musika entzuten dut.",
-        "english": "I listen to music."
+        "basque": "Entzun, Ane!",
+        "english": "Listen, Ane!"
       }
     },
     {
@@ -6847,8 +6847,8 @@
       "pronunciation": "beh-ghee-RAH-too",
       "notes": "Begiratu = to look at or watch (intentional). Begiratzen dut = I look. Begiratu! = Look! Ikusi is to see; begiratu is the deliberate act of looking. Begirale = observer/watcher. Begi = eye (root).",
       "example": {
-        "basque": "Begiratu ezazu.",
-        "english": "Look at it."
+        "basque": "Begiratu, Mikel!",
+        "english": "Look, Mikel!"
       }
     },
     {
@@ -12564,8 +12564,8 @@
       "pronunciation": "EE-tsah (h is silent)",
       "notes": "Hitza eman means to give your word, to promise. Hitz egin, literally to make word, means to speak. Several local Basque-language newspapers are named Hitza.",
       "example": {
-        "basque": "Hitz berri bat ikasi dut gaur.",
-        "english": "I learned a new word today."
+        "basque": "Bai, hori da hitza!",
+        "english": "Yes, that is the word!"
       }
     },
     {
@@ -12577,8 +12577,8 @@
       "pronunciation": "ee-rah-KOOR-leh-ah",
       "notes": "Irakurlea = irakurri (to read) plus -le, the ending that names the one who does something. Irakurle ona = a good reader. Irakurketa = reading, the activity. The same -le gives idazlea and entzulea.",
       "example": {
-        "basque": "Irakurle ona zara.",
-        "english": "You are a good reader."
+        "basque": "Ane irakurlea da.",
+        "english": "Ane is a reader."
       }
     },
     {
@@ -12590,8 +12590,8 @@
       "pronunciation": "ee-DAHS-leh-ah",
       "notes": "Idazlea = idatzi (to write) plus -le. The verb shortens to idaz- before the ending. Idazle handia = a great writer. Idazkaria, a secretary, grows from the same root.",
       "example": {
-        "basque": "Idazle euskaldun bat ezagutu dut.",
-        "english": "I met a Basque writer."
+        "basque": "Mikel idazlea da.",
+        "english": "Mikel is a writer."
       }
     },
     {
@@ -12603,8 +12603,8 @@
       "pronunciation": "en-TSOO-leh-ah",
       "notes": "Entzulea = entzun (to listen) plus -le. Entzuleak means the audience, literally the listeners. Entzumena = hearing.",
       "example": {
-        "basque": "Entzule asko zeuden gelan.",
-        "english": "There were many listeners in the room."
+        "basque": "Entzulea naiz.",
+        "english": "I am a listener."
       }
     },
     {
