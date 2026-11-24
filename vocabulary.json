@@ -140,8 +140,8 @@
       "pronunciation": "gah-BON",
       "notes": "Gabon is the standard after-dark greeting, whether you are arriving or leaving. It completes the day cycle: egun on (morning), arratsalde on (afternoon), gabon (night). Gabon gaua is Christmas Eve, Gabonak is the Christmas season, and Eguberri is Christmas Day.",
       "example": {
-        "basque": "Gabon lagun.",
-        "english": "Good night, friend."
+        "basque": "Gabon, Jon.",
+        "english": "Good night, Jon."
       }
     },
     {
@@ -4112,8 +4112,8 @@
       "notes": "A full phrase: Pozten nau zu ezagutzeak = Knowing you pleases me = Nice to meet you. Poztu = to please. Nau = me (it pleases me). Zu = you. Ezagutzeak = knowing (verbal noun). The phrase is worth memorizing whole.",
       "mcOnly": true,
       "example": {
-        "basque": "Pozten nau zurekin hitz egiteak.",
-        "english": "Talking with you makes me happy."
+        "basque": "Kaixo, Ane. Pozten nau zu ezagutzeak.",
+        "english": "Hello, Ane. Nice to meet you."
       }
     },
     {
@@ -4139,8 +4139,8 @@
       "notes": "Literally how many years do you have? Basque uses have, not be, for age. Hogei urte ditut = I am twenty.",
       "mcOnly": true,
       "example": {
-        "basque": "Zenbat urte dituzu orain?",
-        "english": "How old are you now?"
+        "basque": "Zenbat urte dituzu, Mikel?",
+        "english": "How old are you, Mikel?"
       }
     },
     {
@@ -4349,8 +4349,8 @@
       "notes": "Euskaraz hitz egiten duzu? = Do you speak Basque? Al is an optional marker of yes or no questions. The -z suffix means in that language.",
       "mcOnly": true,
       "example": {
-        "basque": "Ingelesez hitz egiten al duzu?",
-        "english": "Do you speak English?"
+        "basque": "Barkatu, ingelesez hitz egiten duzu?",
+        "english": "Excuse me, do you speak English?"
       }
     },
     {
@@ -5703,8 +5703,8 @@
       "pronunciation": "PEESH-kah bat",
       "notes": "A little or a bit. Pixka = small amount. Pixka bat gehiago = a little more. Euskara pixka bat badakit = I know a little Basque.",
       "example": {
-        "basque": "Euskara pixka bat badakit.",
-        "english": "I know a little Basque."
+        "basque": "Bai, pixka bat.",
+        "english": "Yes, a little."
       }
     },
     {
@@ -5729,8 +5729,8 @@
       "pronunciation": "BER-rees",
       "notes": "Again or once more. Berriz esan = say again. Berriz etorri = come again. Berriz ere = once again/yet again. Berriro = again (variant).",
       "example": {
-        "basque": "Berriz esan mesedez.",
-        "english": "Please say it again."
+        "basque": "Berriz, mesedez.",
+        "english": "Again, please."
       }
     },
     {
@@ -5742,8 +5742,8 @@
       "pronunciation": "bah-DAH-keet",
       "notes": "I know. Ba- is an affirmative prefix + dakit (I know, from jakin). Ez dakit = I don't know. Badakizu? = Do you know? Bai, badakit = Yes, I know. The ba- prefix adds affirmation.",
       "example": {
-        "basque": "Badakit non dagoen.",
-        "english": "I know where it is."
+        "basque": "Bai, badakit.",
+        "english": "Yes, I know."
       }
     },
     {
@@ -11520,8 +11520,8 @@
       "pronunciation": "ar-rah-TSAL-deh ON",
       "notes": "The standard afternoon greeting, used from around midday until dark: egun on in the morning, arratsalde on in the afternoon, gabon at night. Arratsalde combines arrats (dusk, evening) and alde (part), the evening part of the day.",
       "example": {
-        "basque": "Arratsalde on! Zer moduz?",
-        "english": "Good afternoon! How are you?"
+        "basque": "Arratsalde on, Miren!",
+        "english": "Good afternoon, Miren!"
       }
     },
     {
@@ -11559,8 +11559,8 @@
       "pronunciation": "GEH-roh AR-teh",
       "notes": "Gero (later) + arte (until): literally until later, the everyday see you later. Kids love the rhyming reply Gero arte, Bonaparte, the Basque cousin of see you later, alligator.",
       "example": {
-        "basque": "Banoa, gero arte!",
-        "english": "I am off, see you later!"
+        "basque": "Gero arte, Ane!",
+        "english": "See you later, Ane!"
       }
     },
     {
