@@ -13157,27 +13157,27 @@
     {
       "id": "azoka",
       "basque": "Azoka",
-      "english": "Fair",
+      "english": "Market / Fair",
       "cefr": "B2",
       "topic": "city",
       "pronunciation": "ah-SOH-kah",
-      "notes": "Azoka: a fair or periodic market, as opposed to merkatua, the everyday one.",
+      "notes": "Azoka: a market. It is also a fair for particular goods, such as a record fair.",
       "example": {
-        "basque": "Azoka hirian dago.",
-        "english": "The fair is in the city."
+        "basque": "Azoka eguna zen Gernikan.",
+        "english": "It was market day in Gernika."
       }
     },
     {
       "id": "zerbitzugunea",
       "basque": "Zerbitzugunea",
-      "english": "Rest area",
+      "english": "Service station",
       "cefr": "B2",
       "topic": "city",
       "pronunciation": "ser-bee-tsoo-GOO-neh-ah",
-      "notes": "Zerbitzugunea: a rest area or service area on a highway.",
+      "notes": "Zerbitzugunea: a service station, where cars fill up with fuel.",
       "example": {
-        "basque": "Zerbitzugunea errepidean dago.",
-        "english": "The rest area is on the road."
+        "basque": "Iruñeko harresiaren magalean bada zerbitzugune bat egunero 24 orduz irekita egoten dena.",
+        "english": "At the foot of Pamplona's walls there is a service station that is open 24 hours every day."
       }
     },
     {
