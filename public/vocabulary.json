@@ -10,8 +10,8 @@
       "pronunciation": "KAI-shoh",
       "notes": "Kaixo is universal, used with friends, strangers, shopkeepers, anyone. More casual than egun on. Often followed by Zer moduz? (How are you?)",
       "example": {
-        "basque": "Kaixo! Zer moduz?",
-        "english": "Hello! How are you?"
+        "basque": "Kaixo, Ane!",
+        "english": "Hello, Ane!"
       }
     },
     {
@@ -23,8 +23,8 @@
       "pronunciation": "AH-goor",
       "notes": "Agur is the standard farewell. In the ceremonial song Agur Jaunak it works as a respectful greeting, but in everyday speech agur means goodbye.",
       "example": {
-        "basque": "Agur lagun!",
-        "english": "Goodbye, friend!"
+        "basque": "Agur, Mikel!",
+        "english": "Goodbye, Mikel!"
       }
     },
     {
@@ -36,8 +36,8 @@
       "pronunciation": "BYE",
       "notes": "It is pronounced like the English word eye with a b in front.",
       "example": {
-        "basque": "Bai, ondo dago.",
-        "english": "Yes, that is fine."
+        "basque": "Bai, eskerrik asko.",
+        "english": "Yes, thank you."
       }
     },
     {
@@ -62,8 +62,8 @@
       "pronunciation": "es-KER-reek AS-koh",
       "notes": "Eskerrik asko = many thanks. Esker = thanks + -ik (partitive suffix) + asko = much/many. The partitive -ik expresses an indefinite quantity of thanks: indefinitely many thanks.",
       "example": {
-        "basque": "Eskerrik asko laguntzeagatik.",
-        "english": "Thank you for helping."
+        "basque": "Eskerrik asko, Miren.",
+        "english": "Thank you, Miren."
       }
     },
     {
@@ -75,8 +75,8 @@
       "pronunciation": "meh-SEH-des",
       "notes": "Mesedez = mesede (favor, from Spanish merced) + the instrumental -z: literally as a favor. Common in both formal requests and everyday politeness.",
       "example": {
-        "basque": "Mesedez, ekarri ura.",
-        "english": "Please bring water."
+        "basque": "Bai, mesedez.",
+        "english": "Yes, please."
       }
     },
     {
@@ -88,8 +88,8 @@
       "pronunciation": "bar-KAH-too",
       "notes": "Barkatu = sorry or excuse me. Used both for apologies (Barkatu, oker nengoen = Sorry, I was wrong) and to get attention (Barkatu, non dago...? = Excuse me, where is...?). From Latin parcere (to spare, forgive).",
       "example": {
-        "basque": "Barkatu, non dago trena?",
-        "english": "Excuse me, where is the train?"
+        "basque": "Barkatu, Jon.",
+        "english": "Sorry, Jon."
       }
     },
     {
@@ -127,8 +127,8 @@
       "pronunciation": "EH-goon ON",
       "notes": "Egun on literally means good day. Egun = day (same root as eguna). Used until around noon.",
       "example": {
-        "basque": "Egun on, zer moduz zaude?",
-        "english": "Good morning, how are you?"
+        "basque": "Egun on, Amaia!",
+        "english": "Good morning, Amaia!"
       }
     },
     {
@@ -154,8 +154,8 @@
       "mcOnly": true,
       "notes": "Gau (night) + on (good). You will hear it in the evening, but gabon is the usual after-dark greeting, arriving or parting. Learners can safely stick to gabon.",
       "example": {
-        "basque": "Gau on denoi.",
-        "english": "Good evening everyone."
+        "basque": "Gau on, Ane.",
+        "english": "Good evening, Ane."
       }
     },
     {
