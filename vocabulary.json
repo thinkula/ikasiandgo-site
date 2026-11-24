@@ -337,8 +337,8 @@
       "pronunciation": "BEE",
       "notes": "Biak = both. Bietan = in both. Basque numbers are base-20: hogei=20, berrogei=40 (two twenties).",
       "example": {
-        "basque": "Bi lagun daude.",
-        "english": "There are two friends."
+        "basque": "Bi hitz.",
+        "english": "Two words."
       }
     },
     {
@@ -350,8 +350,8 @@
       "pronunciation": "EE-roo (h is silent)",
       "notes": "Hiru = three. Hirugarrena = third. Hiruko = trio.",
       "example": {
-        "basque": "Hiru katu ditut.",
-        "english": "I have three cats."
+        "basque": "Hiru gara.",
+        "english": "There are three of us."
       }
     },
     {
@@ -363,8 +363,8 @@
       "pronunciation": "LOW (rhymes with now)",
       "notes": "Lau rhymes with the English word now. Laugarrena = fourth.",
       "example": {
-        "basque": "Lau urteko umea.",
-        "english": "A four-year-old child."
+        "basque": "Lau idazle dira.",
+        "english": "They are four writers."
       }
     },
     {
@@ -389,8 +389,8 @@
       "pronunciation": "SAY",
       "notes": "Sei = six. Seina = six each. Seigarrena = sixth. Basque numbers: bat=1, bi=2, hiru=3, lau=4, bost=5, sei=6. Sei sounds like English \"say\".",
       "example": {
-        "basque": "Sei ordu.",
-        "english": "Six hours."
+        "basque": "Bost edo sei gara.",
+        "english": "There are five or six of us."
       }
     },
     {
@@ -415,8 +415,8 @@
       "pronunciation": "SOR-tsee",
       "notes": "Zortzi reappears whole inside hamazortzi (18), literally ten-eight.",
       "example": {
-        "basque": "Zortzi ordu lo egin.",
-        "english": "Sleep eight hours."
+        "basque": "Zazpi, zortzi, bederatzi.",
+        "english": "Seven, eight, nine."
       }
     },
     {
