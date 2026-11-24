@@ -1862,10 +1862,17 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
   }
   // isRetry: a round of mistakes from a custom quiz. The set it came from is
   // kept, so "New quiz" afterwards starts that set and not the mistakes again.
-  function startCustomQuiz(words,origin,isRetry){
+  // review: words in this quiz that come from earlier lessons. Their question
+  // carries a small label, so a learner is not puzzled by a word the lesson
+  // did not show.
+  function startCustomQuiz(words,origin,isRetry,review){
     if(!words||!words.length)return;
     var sess=buildMCSession(words);
     if(!sess.length)return;
+    if(review&&review.length){
+      var rid={};review.forEach(function(w){rid[w.id]=true;});
+      sess.forEach(function(q){if(rid[q.word.id])q.review=true;});
+    }
     if(!isRetry)customBase.current=words;
     beginQuiz();
     setMistakesRound(!!isRetry);
@@ -1962,8 +1969,11 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
       // No words to practice means nothing to finish, and a lesson that can
       // never be finished would wall off every lesson after it.
       if(!words.length){completeLesson(lessonId);setScreen("home");return;}
-      lessonPending.current={id:lessonId,n:Math.min(words.length,20)};
-      startCustomQuiz(words,"learn");
+      // The lesson's own words, plus a few from earlier lessons that are due.
+      var review=lessonReviewWords(lessonId,srsData,isProOrTrial);
+      var all=words.concat(review);
+      lessonPending.current={id:lessonId,n:Math.min(all.length,20)};
+      startCustomQuiz(all,"learn",false,review);
     }}/>}
     <StatusBarGuard watch={screen}/>
     {showOnb&&<OnboardingScreen onDone={function(){STORE.set("onboarding_done","1").catch(function(){});setShowOnb(false);}} onUpgrade={function(){STORE.set("onboarding_done","1").catch(function(){});setShowOnb(false);setScreen("paywall");}}/>}
@@ -2500,6 +2510,7 @@ function QuizScreen(props){
           {/* MC / Typing question */}
           {(isMC||isType||result)&&!isFB&&(
             <div style={{textAlign:"center"}}>
+              {q.review&&<p style={{display:"inline-block",margin:"0 0 12px",padding:"3px 11px",borderRadius:20,backgroundColor:"#F5F3FF",color:"#6D28D9",fontSize:12,fontWeight:800,letterSpacing:0.2}}>From an earlier lesson</p>}
               <h2 style={{margin:"0 0 10px",fontSize:isMC&&!snz?(q.word.basque.length>14?26:q.word.basque.length>10?32:40):30,fontWeight:800,color:"#2A2A28",letterSpacing:-0.3,wordBreak:"break-word",lineHeight:1.2}}>{isMC&&!snz?q.word.basque:q.prompt}</h2>
               {isMC&&!result&&<p style={{margin:0,fontSize:12,color:"#B8B8C0",fontWeight:600,letterSpacing:0.2}}>{snz?"Which is the Basque word?":"What does this mean in English?"}</p>}
               {isType&&!result&&<p style={{margin:"4px 0 0",fontSize:11,color:lc,fontWeight:800,letterSpacing:0.5,textTransform:"uppercase"}}>→ type in Basque</p>}
@@ -8424,6 +8435,38 @@ function StatusBarGuard(props){
     return function(){clearTimeout(t);document.removeEventListener("scroll",check,true);window.removeEventListener("resize",check);};
   },[props.watch]);
   return React.createElement("div",{ref:ref,"aria-hidden":true,style:{position:"fixed",top:0,left:0,right:0,height:"env(safe-area-inset-top,0px)",backgroundColor:"#F2F2F7",zIndex:40,opacity:on?1:0,transition:"opacity 0.15s",pointerEvents:"none"}});
+}
+// Words from earlier lessons to mix into a lesson's practice. Before 1.9 a
+// lesson quizzed only its own words, so nothing came back unless the learner
+// went looking for the review quiz. These are words the learner has already
+// answered at least once (they have a review record), from lessons earlier
+// in the path, with the ones whose review date has come round first and the
+// soonest-due after them. Nothing the learner cannot open, nothing from the
+// lesson itself, and none at all for the first lesson.
+var LESSON_REVIEW_MAX=4;
+function lessonReviewWords(lessonId,srs,isPro,now){
+  srs=srs||{};now=now||new Date();
+  var at=-1;for(var i=0;i<LESSONS.length;i++){if(LESSONS[i].id===lessonId){at=i;break;}}
+  if(at<=0)return[];
+  var own={};LESSONS[at].wordIds.forEach(function(id){own[id]=true;});
+  var seen={},cands=[];
+  for(var j=0;j<at;j++){
+    LESSONS[j].wordIds.forEach(function(id){
+      if(own[id]||seen[id]||!srs[id])return;seen[id]=true;
+      var w=wordById(id);if(!w)return;
+      if(!isPro&&!isFreeWord(w))return;
+      var t=new Date(srs[id].nextReview).getTime();if(isNaN(t))t=0;
+      cands.push({w:w,t:t,score:srs[id].score||0});
+    });
+  }
+  var nowT=now.getTime();
+  cands.sort(function(a,b){
+    var ad=a.t<=nowT?0:1,bd=b.t<=nowT?0:1;
+    if(ad!==bd)return ad-bd;
+    if(a.t!==b.t)return a.t-b.t;
+    return a.score-b.score;
+  });
+  return cands.slice(0,LESSON_REVIEW_MAX).map(function(c){return c.w;});
 }
 // 1.9 split two lessons in two. A learner who finished the original has
 // already practiced the words that moved, so the new lesson counts as done
