@@ -5287,8 +5287,8 @@
       "pronunciation": "bah-rah-CHOO-ree-ah",
       "notes": "Garlic. Baratxuri = garlic (root). Used in saltsa berdea, pil-pil and many other sauces. Baratxuri-atal bat = one clove of garlic. Often fried in oil first to flavor a dish.",
       "example": {
-        "basque": "Baratxuria gehitu dut saltsan.",
-        "english": "I have added garlic to the sauce."
+        "basque": "Baratxuria eta olioa.",
+        "english": "Garlic and oil."
       }
     },
     {
@@ -5313,8 +5313,8 @@
       "pronunciation": "pah-TAH-tah",
       "notes": "Potato. The same word as Spanish patata. Patata tortilla = potato omelette, ubiquitous in Basque bars. Patata frijituak = fried potatoes.",
       "example": {
-        "basque": "Tortilla patatarekin egiten da.",
-        "english": "The omelette is made with potato."
+        "basque": "Bi patata eta tipula bat.",
+        "english": "Two potatoes and one onion."
       }
     },
     {
@@ -5508,8 +5508,8 @@
       "pronunciation": "OH-tsoh-ah",
       "notes": "Wolf. Otso = wolf (root). Otsaila (February) is usually explained as otso + hil (month), the wolf month.",
       "example": {
-        "basque": "Otsoa basoan bizi da.",
-        "english": "The wolf lives in the forest."
+        "basque": "Otsoa mendian dago.",
+        "english": "The wolf is on the mountain."
       }
     },
     {
@@ -6886,8 +6886,8 @@
       "pronunciation": "bah-NAH-nah",
       "notes": "Same word as Spanish and English, though in everyday stores you will often hear platanoa, from Spanish plátano. Bananondoa = banana tree.",
       "example": {
-        "basque": "Banana jan nahi dut.",
-        "english": "I want to eat a banana."
+        "basque": "Banana horia da.",
+        "english": "The banana is yellow."
       }
     },
     {
@@ -6899,8 +6899,8 @@
       "pronunciation": "tee-POO-lah",
       "notes": "Tipula = onion. From Latin cepulla (little onion); Spanish cebolla is a cousin, not the source. Tipula betea = stuffed onion. Tipula-saltsa = onion sauce.",
       "example": {
-        "basque": "Tipula txikitu behar dut.",
-        "english": "I need to chop the onion."
+        "basque": "Tipula zuria da.",
+        "english": "The onion is white."
       }
     },
     {
@@ -6912,8 +6912,8 @@
       "pronunciation": "ah-seh-nah-REE-oh-ah",
       "notes": "Azenarioa = carrot. From Spanish zanahoria (older form azanoria). Azenarioak = carrots (plural). Common in Basque vegetable soups and stews. Azenario salda = carrot broth.",
       "example": {
-        "basque": "Azenarioak osasuntsuak dira.",
-        "english": "Carrots are healthy."
+        "basque": "Azenarioa laranja da.",
+        "english": "The carrot is orange."
       }
     },
     {
@@ -8239,8 +8239,8 @@
       "pronunciation": "NEH-keh-ah",
       "notes": "Tiredness or fatigue. Neke = tiredness (root). Nekatuta nago = I am tired. Nekagarria = tiring.",
       "example": {
-        "basque": "Nekea sentitzen dut gauero lanaren ondoren.",
-        "english": "I feel tiredness every evening after work."
+        "basque": "Nekea handia da.",
+        "english": "The tiredness is great."
       }
     },
     {
@@ -9630,8 +9630,8 @@
       "pronunciation": "ah-TSEH-gheen",
       "notes": "Pleasure or liking. Atsegin dut = I like it. Atsegin handiz = with great pleasure. More formal than gustatu. Atsegingarria = pleasant.",
       "example": {
-        "basque": "Atsegin dut euskara ikastea.",
-        "english": "I like learning Basque."
+        "basque": "Kafea atsegin dut.",
+        "english": "I like coffee."
       }
     },
     {
@@ -10865,8 +10865,8 @@
       "pronunciation": "doo-SOO-eh",
       "notes": "Duzue is du plus -zue, which sits next to zuek the way -zu sits next to zu. Zuek stays as it is in front of it, since it never takes the -k.",
       "example": {
-        "basque": "Zuek liburua duzue.",
-        "english": "You all have the book."
+        "basque": "Zuek etxe bat duzue.",
+        "english": "You all have a house."
       }
     },
     {
@@ -10904,8 +10904,8 @@
       "pronunciation": "ES DAH",
       "notes": "Ez da is the negative of da, and it is the negative you will hear most, since da itself is the form you meet most.",
       "example": {
-        "basque": "Ez da nire ama.",
-        "english": "She is not my mother."
+        "basque": "Hura ez da Ane.",
+        "english": "She is not Ane."
       }
     },
     {
@@ -10930,8 +10930,8 @@
       "pronunciation": "ES DAH-keet",
       "notes": "Ez dakit is the negative of badakit. The ba- on the front of badakit belongs to the affirmative only, so the negative simply drops it.",
       "example": {
-        "basque": "Ez dakit non dagoen.",
-        "english": "I do not know where it is."
+        "basque": "Ez, ez dakit.",
+        "english": "No, I do not know."
       }
     },
     {
@@ -10944,8 +10944,8 @@
       "mcOnly": true,
       "notes": "Ezer ez is nothing, and on its own it is a whole answer. Inside a sentence the verb keeps its own ez as well, so ez dut ezer jan is I have eaten nothing, with two negatives adding up to one.",
       "example": {
-        "basque": "Zer nahi duzu? Ezer ez.",
-        "english": "What do you want? Nothing."
+        "basque": "Zer da hori? Ezer ez.",
+        "english": "What is that? Nothing."
       }
     },
     {
@@ -10958,8 +10958,8 @@
       "mcOnly": true,
       "notes": "Inor ez is nobody and it behaves like ezer ez: the verb in the sentence keeps its own ez too.",
       "example": {
-        "basque": "Nor dago etxean? Inor ez.",
-        "english": "Who is at home? Nobody."
+        "basque": "Nor dago hemen? Inor ez.",
+        "english": "Who is here? Nobody."
       }
     },
     {
@@ -12014,8 +12014,8 @@
       "pronunciation": "ah-OON-tsah",
       "notes": "Ahuntz = goat (root). Aker = billy goat, and akelarre, the word for a witch gathering made infamous by the Basque witch trials, comes from aker + larre, the billy goat meadow. Ahuntz-gazta = goat cheese.",
       "example": {
-        "basque": "Ahuntzak belarra jaten du.",
-        "english": "The goat eats grass."
+        "basque": "Ahuntza beltza da.",
+        "english": "The goat is black."
       }
     },
     {
@@ -12053,8 +12053,8 @@
       "pronunciation": "OON-chee-ah",
       "notes": "Untxi = rabbit (root), ultimately from Latin cuniculus, the same source as Spanish conejo. Kume = animal young, so untxikume = baby rabbit.",
       "example": {
-        "basque": "Untxiak azenarioa jaten du.",
-        "english": "The rabbit eats the carrot."
+        "basque": "Untxia zuria da.",
+        "english": "The rabbit is white."
       }
     },
     {
@@ -12157,8 +12157,8 @@
       "pronunciation": "OH-lyoh-ah",
       "notes": "Oilo = hen (root). Oilar = rooster and oilasko = chicken (the one on your plate). Oilo-ipurdia = goosebumps, literally hen bottom.",
       "example": {
-        "basque": "Oiloak arrautzak erruten ditu.",
-        "english": "The hen lays eggs."
+        "basque": "Oiloa eta arrautza.",
+        "english": "The hen and the egg."
       }
     },
     {
@@ -12300,8 +12300,8 @@
       "pronunciation": "ah-nee-MAH-lee-ah",
       "notes": "Animal. From Latin animalia, so it is easy to remember. Native words split the idea: aberea is a farm animal or livestock, and piztia is a wild beast.",
       "example": {
-        "basque": "Baserrian animalia asko daude.",
-        "english": "There are many animals on the farm."
+        "basque": "Txakurra animalia bat da.",
+        "english": "The dog is an animal."
       }
     },
     {
@@ -12851,8 +12851,8 @@
       "pronunciation": "gah-BOH-nak",
       "notes": "Always plural, so it names the season rather than a single day. The singular gabon is the ordinary way to say good evening, from gau (night) and on (good). Gabon gaua is Christmas Eve and Eguberri is Christmas Day. Zorionak serves as the greeting throughout.",
       "example": {
-        "basque": "Gabonak familiarekin ospatzen ditugu.",
-        "english": "We celebrate Christmas with family."
+        "basque": "Abenduan Gabonak dira.",
+        "english": "Christmas is in December."
       }
     },
     {
