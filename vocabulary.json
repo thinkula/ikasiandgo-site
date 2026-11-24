@@ -3284,6 +3284,58 @@
       }
     },
     {
+      "id": "noa",
+      "basque": "Noa",
+      "english": "I go / I am going",
+      "cefr": "A1",
+      "topic": "travel",
+      "pronunciation": "NOH-ah",
+      "notes": "Noa is the form of joan, to go, for ni, I. The place takes -ra, to: etxera noa is I am going home.",
+      "example": {
+        "basque": "Jatetxera noa.",
+        "english": "I am going to the restaurant."
+      }
+    },
+    {
+      "id": "zoaz",
+      "basque": "Zoaz",
+      "english": "You go / You are going",
+      "cefr": "A1",
+      "topic": "travel",
+      "pronunciation": "SOH-ahs",
+      "notes": "Zoaz is the form of joan, to go, for zu, you. Nora zoaz? asks where you are going.",
+      "example": {
+        "basque": "Nora zoaz?",
+        "english": "Where are you going?"
+      }
+    },
+    {
+      "id": "doa",
+      "basque": "Doa",
+      "english": "He / She / It goes",
+      "cefr": "A1",
+      "topic": "travel",
+      "pronunciation": "DOH-ah",
+      "notes": "Doa is the form of joan, to go, for hura, he, she, or it.",
+      "example": {
+        "basque": "Ane etxera doa.",
+        "english": "Ane is going home."
+      }
+    },
+    {
+      "id": "goaz",
+      "basque": "Goaz",
+      "english": "We go / We are going",
+      "cefr": "A1",
+      "topic": "travel",
+      "pronunciation": "GOH-ahs",
+      "notes": "Goaz is the form of joan, to go, for gu, we.",
+      "example": {
+        "basque": "Etxera goaz.",
+        "english": "We are going home."
+      }
+    },
+    {
       "id": "ikusi",
       "basque": "Ikusi",
       "english": "To see",
@@ -3326,13 +3378,26 @@
       "id": "nahi",
       "basque": "Nahi",
       "english": "To want",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "emotions",
       "pronunciation": "NAH-ee",
       "notes": "Nahi = to want/will. Nahi dut = I want. Nahi gabe = unwillingly. Nahikoa = enough (as much as wanted). Nahi eta nahi ez = whether you want or not.",
       "example": {
-        "basque": "Etxera joan nahi dut.",
-        "english": "I want to go home."
+        "basque": "Kafe bat nahi dut.",
+        "english": "I want a coffee."
+      }
+    },
+    {
+      "id": "gustatzen_zait",
+      "basque": "Gustatzen zait",
+      "english": "I like it",
+      "cefr": "A1",
+      "topic": "emotions",
+      "pronunciation": "goos-TAH-tsen SIGHT",
+      "notes": "Literally it is pleasing to me. The thing you like is the subject: kafea gustatzen zait is I like coffee. For more than one thing the verb becomes zaizkit: sagarrak gustatzen zaizkit, I like apples.",
+      "example": {
+        "basque": "Kafea gustatzen zait.",
+        "english": "I like coffee."
       }
     },
     {
@@ -10753,6 +10818,71 @@
       }
     },
     {
+      "id": "nire",
+      "basque": "Nire",
+      "english": "My",
+      "cefr": "A1",
+      "topic": "family",
+      "pronunciation": "NEE-reh",
+      "notes": "Nire is my: nire ama is my mother. It goes before the noun and does not change for the plural: nire lagunak is my friends.",
+      "example": {
+        "basque": "Nire izena Ane da.",
+        "english": "My name is Ane."
+      }
+    },
+    {
+      "id": "zure",
+      "basque": "Zure",
+      "english": "Your",
+      "cefr": "A1",
+      "topic": "family",
+      "pronunciation": "SOO-reh",
+      "notes": "Zure is your, for the zu you: zure izena is your name.",
+      "example": {
+        "basque": "Zure aita hemen dago.",
+        "english": "Your father is here."
+      }
+    },
+    {
+      "id": "gure",
+      "basque": "Gure",
+      "english": "Our",
+      "cefr": "A1",
+      "topic": "family",
+      "pronunciation": "GOO-reh",
+      "notes": "Gure is our: gure familia is our family. Aita Gurea is the Our Father.",
+      "example": {
+        "basque": "Hau gure ama da.",
+        "english": "This is our mother."
+      }
+    },
+    {
+      "id": "bere",
+      "basque": "Bere",
+      "english": "His / Her / Its",
+      "cefr": "A1",
+      "topic": "family",
+      "pronunciation": "BEH-reh",
+      "notes": "Bere is his, her or its. Basque does not mark he or she, so one word serves for all three.",
+      "example": {
+        "basque": "Bere izena Mikel da.",
+        "english": "His name is Mikel."
+      }
+    },
+    {
+      "id": "izena",
+      "basque": "Izena",
+      "english": "Name",
+      "cefr": "A1",
+      "topic": "greetings",
+      "pronunciation": "ee-SEH-nah",
+      "notes": "Izena is name. To ask someone's name, say Zein da zure izena? or Nola duzu izena?",
+      "example": {
+        "basque": "Izena, mesedez.",
+        "english": "Name, please."
+      }
+    },
+    {
       "id": "nik",
       "basque": "Nik",
       "english": "I (doing something)",
@@ -10966,7 +11096,7 @@
       "id": "nora",
       "basque": "Nora?",
       "english": "Where to?",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "travel",
       "pronunciation": "NOH-rah",
       "notes": "Nora asks where something is headed, where non asks where it already is. The -ra on the end is the same -ra that turns etxe into etxera.",
@@ -10979,7 +11109,7 @@
       "id": "nondik",
       "basque": "Nondik?",
       "english": "Where from?",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "travel",
       "pronunciation": "NON-deek",
       "notes": "Nondik asks where something is coming from, and it ends in the same -tik that makes etxetik and hemendik. Keep it apart from nongoa, which asks what place you belong to rather than which way you came.",
@@ -10992,7 +11122,7 @@
       "id": "etxera",
       "basque": "Etxera",
       "english": "To home / Homewards",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "travel",
       "pronunciation": "eh-CHEH-rah",
       "notes": "Etxera is etxe plus -ra. The article -a comes off first, so it is built on the bare etxe rather than on etxea.",
@@ -11005,7 +11135,7 @@
       "id": "etxean",
       "basque": "Etxean",
       "english": "At home",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "travel",
       "pronunciation": "eh-CHEH-ahn",
       "notes": "Etxean is etxe with the ending for being somewhere. Etxean nago is I am at home, and it takes egon rather than izan, because being somewhere is a passing state.",
@@ -11018,7 +11148,7 @@
       "id": "hemendik",
       "basque": "Hemendik",
       "english": "From here",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "travel",
       "pronunciation": "eh-MEN-deek (h is silent)",
       "notes": "Hemendik is hemen plus -tik, and it is regular. Handik is the same thing built on han, from there.",
@@ -11031,7 +11161,7 @@
       "id": "hona",
       "basque": "Hona",
       "english": "To here",
-      "cefr": "A2",
+      "cefr": "A1",
       "topic": "travel",
       "pronunciation": "OH-nah (h is silent)",
       "notes": "Hona is the one that bends. To here is hona, not hemenera, and to there is hara rather than hanera. The from forms stay regular.",
