@@ -8196,8 +8196,8 @@ var LESSONS=[
     titleEu:"Ugaztunak eta narrastiak",
     emoji:"🐾",
     blurb:"Mammal, reptile, amphibian, insect, and what eats what.",
-    intro:"These are the words a nature program uses. They sort animals you already know into the groups a biologist would put them in, and two of them say plainly what the animal eats.",
-    grammar:{title:"The ending that marks the eater",body:"Haragijalea is the meat eater and belarjalea is the grass eater. The ending does the work that -vore does in English, and it attaches to whatever is eaten: haragia is meat. Basatia is the opposite of maskota, the pet."},
+    intro:"These words sort the animals you already know into groups: mammal, reptile, amphibian, and insect. With them come species, carnivore, herbivore, wild, and abeltzaintza, livestock farming.",
+    grammar:{title:"The ending that marks the eater",body:"Haragijalea is the meat eater and belarjalea is the grass eater: haragi is meat and belar is grass. Now sort the animals you have. Balea and izurdea are ugaztunak. Sugea and muskerra are narrastiak. Igela is an anfibioa. Eulia and erlea are intsektuak. Basatia, wild, has basoa, the forest, in its root. Its opposite is maskota, a pet."},
     wordIds:["ugaztuna","narrastia","anfibioa","intsektua","espeziea","haragijalea","belarjalea","abeltzaintza","basatia"],
   },
   {
