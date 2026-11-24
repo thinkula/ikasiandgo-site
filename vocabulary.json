@@ -13085,8 +13085,8 @@
       "pronunciation": "es-pah-LOY-ah",
       "notes": "Espaloia: sidewalk, the raised part of the street for people on foot.",
       "example": {
-        "basque": "Espaloia garbia da.",
-        "english": "The sidewalk is clean."
+        "basque": "Espaloirik gabeko kalea.",
+        "english": "A street with no sidewalk."
       }
     },
     {
@@ -13098,8 +13098,8 @@
       "pronunciation": "er-reh-PEE-deh-ah",
       "notes": "Errepidea: road. Bidea is any way or path; an errepide is a built road for vehicles.",
       "example": {
-        "basque": "Errepidea zabala da.",
-        "english": "The road is wide."
+        "basque": "Donostiarako errepidean.",
+        "english": "On the road to Donostia."
       }
     },
     {
@@ -13124,8 +13124,8 @@
       "pronunciation": "bee-deh-GOR-ree-ah",
       "notes": "Bidegorria: bike path. Bide (way) + gorri (red), for the red surface they are paved with.",
       "example": {
-        "basque": "Bidegorria berria da.",
-        "english": "The bike path is new."
+        "basque": "Bidegorria hiriaz haratago luzatzeko asmoa dute.",
+        "english": "They plan to extend the bike path beyond the city."
       }
     },
     {
@@ -13137,8 +13137,8 @@
       "pronunciation": "oy-NES-koh-ah",
       "notes": "Oinezkoa: a pedestrian, someone on foot. From oin, the foot.",
       "example": {
-        "basque": "Oinezkoa espaloian dago.",
-        "english": "The pedestrian is on the sidewalk."
+        "basque": "Oinezkoentzako kaleak.",
+        "english": "Streets for pedestrians."
       }
     },
     {
@@ -13150,8 +13150,8 @@
       "pronunciation": "trah-FEE-koh-ah",
       "notes": "Trafikoa: traffic. The same word also carries the sense of smuggling.",
       "example": {
-        "basque": "Trafikoa motela da.",
-        "english": "The traffic is slow."
+        "basque": "Ordu horretan ez da trafiko handirik izaten.",
+        "english": "There is not much traffic at that hour."
       }
     },
     {
@@ -13163,8 +13163,8 @@
       "pronunciation": "sah-BOR-rah",
       "notes": "Zaborra: garbage or waste. Also used figuratively, as garbage is in English.",
       "example": {
-        "basque": "Zaborra kalean dago.",
-        "english": "The garbage is in the street."
+        "basque": "Etxeko zaborrak.",
+        "english": "Household garbage."
       }
     },
     {
@@ -13176,8 +13176,8 @@
       "pronunciation": "ee-ler-REE-ah (h is silent)",
       "notes": "Hilerria: cemetery. Hil (dead) + herri (town): the town of the dead.",
       "example": {
-        "basque": "Hilerria isila da.",
-        "english": "The cemetery is quiet."
+        "basque": "Hiriak hilerri handi bat zirudien.",
+        "english": "The city looked like one big cemetery."
       }
     },
     {
@@ -13189,8 +13189,8 @@
       "pronunciation": "gahs-teh-LOO-ah",
       "notes": "Gaztelua: castle.",
       "example": {
-        "basque": "Gaztelua zaharra da.",
-        "english": "The castle is old."
+        "basque": "Erdi Aroko gazteluak.",
+        "english": "Castles of the Middle Ages."
       }
     },
     {
@@ -13202,8 +13202,8 @@
       "pronunciation": "DOR-reh-ah",
       "notes": "Dorrea: tower. Basque towns kept dorretxeak, fortified tower houses, through the clan wars.",
       "example": {
-        "basque": "Dorrea handia da.",
-        "english": "The tower is big."
+        "basque": "Gazteluko dorre nagusian.",
+        "english": "In the main tower of the castle."
       }
     },
     {
@@ -13215,8 +13215,8 @@
       "pronunciation": "ee-ree-GHEEN-tsah (h is silent)",
       "notes": "Hirigintza: urban planning. From hiri, the city.",
       "example": {
-        "basque": "Hirigintza zaila da.",
-        "english": "Urban planning is difficult."
+        "basque": "Udaleko Hirigintza Batzordea.",
+        "english": "The council's Urban Planning Commission."
       }
     },
     {
@@ -13228,8 +13228,8 @@
       "pronunciation": "ahs-pee-eh-ghee-TOO-rah",
       "notes": "Azpiegitura: infrastructure, literally the structure underneath.",
       "example": {
-        "basque": "Azpiegitura berria da.",
-        "english": "The infrastructure is new."
+        "basque": "Burdinbidea ezartzeko azpiegitura lanak.",
+        "english": "Infrastructure works for laying the railway."
       }
     },
     {
@@ -13241,8 +13241,8 @@
       "pronunciation": "eh-rye-KOON-tsah",
       "notes": "Eraikuntza: construction. Eraikina, a building, comes from the same root.",
       "example": {
-        "basque": "Eraikuntza ozena da.",
-        "english": "The construction is loud."
+        "basque": "Eraikuntzan erabiltzen diren ekaiak.",
+        "english": "The materials used in construction."
       }
     },
     {
@@ -13254,8 +13254,8 @@
       "pronunciation": "mer-kah-tah-REE-tsah",
       "notes": "Merkataritza: trade or commerce. Merkatua, the market, shares its root.",
       "example": {
-        "basque": "Merkataritza garrantzitsua da.",
-        "english": "Trade is important."
+        "basque": "Hiritarrak merkataritzatik bizi ziren.",
+        "english": "The townspeople lived from trade."
       }
     },
     {
@@ -13267,8 +13267,8 @@
       "pronunciation": "oo-dah-LEH-cheh-ah",
       "notes": "Udaletxea: town hall. Udal (town council) + etxe (house), the council's house.",
       "example": {
-        "basque": "Udaletxea plazan dago.",
-        "english": "The town hall is in the square."
+        "basque": "Udaletxeko batzar aretoan.",
+        "english": "In the assembly hall of the town hall."
       }
     },
     {
@@ -13280,34 +13280,34 @@
       "pronunciation": "ee-kahs-TEH-cheh-ah",
       "notes": "Ikastetxea: a school as a building or institution. Ikasi (to learn) + etxe (house). An ikastola is a school that teaches in Basque.",
       "example": {
-        "basque": "Ikastetxea itxita dago.",
-        "english": "The school is closed."
+        "basque": "Ikastetxeko zuzendari eta irakasleak.",
+        "english": "The school's director and teachers."
       }
     },
     {
       "id": "azoka",
       "basque": "Azoka",
-      "english": "Fair",
+      "english": "Market / Fair",
       "cefr": "B2",
       "topic": "city",
       "pronunciation": "ah-SOH-kah",
-      "notes": "Azoka: a fair or periodic market, as opposed to merkatua, the everyday one.",
+      "notes": "Azoka: a market. It is also a fair for particular goods, such as a record fair.",
       "example": {
-        "basque": "Azoka hirian dago.",
-        "english": "The fair is in the city."
+        "basque": "Azoka eguna zen Gernikan.",
+        "english": "It was market day in Gernika."
       }
     },
     {
       "id": "zerbitzugunea",
       "basque": "Zerbitzugunea",
-      "english": "Rest area",
+      "english": "Service station",
       "cefr": "B2",
       "topic": "city",
       "pronunciation": "ser-bee-tsoo-GOO-neh-ah",
-      "notes": "Zerbitzugunea: a rest area or service area on a highway.",
+      "notes": "Zerbitzugunea: a service station, where cars fill up with fuel.",
       "example": {
-        "basque": "Zerbitzugunea errepidean dago.",
-        "english": "The rest area is on the road."
+        "basque": "Iruñeko harresiaren magalean bada zerbitzugune bat egunero 24 orduz irekita egoten dena.",
+        "english": "At the foot of Pamplona's walls there is a service station that is open 24 hours every day."
       }
     },
     {
@@ -13319,8 +13319,8 @@
       "pronunciation": "soo-eel-tsai-LEH-ah",
       "notes": "Suhiltzailea: firefighter. Su is fire, and the rest of the word is the one who kills it.",
       "example": {
-        "basque": "Suhiltzailea azkarra da.",
-        "english": "The firefighter is fast."
+        "basque": "Suhiltzaileei deitu.",
+        "english": "To call the firefighters."
       }
     },
     {
@@ -13332,8 +13332,8 @@
       "pronunciation": "oo-dahl-TSAIN-goh-ah",
       "notes": "Udaltzaingoa: the municipal police, the town's own force. From udal, the town council.",
       "example": {
-        "basque": "Udaltzaingoa udaletxean dago.",
-        "english": "The municipal police are at the town hall."
+        "basque": "Donostiako Udaltzaingora deitu zuten erasoaren berri emateko.",
+        "english": "They called the Donostia municipal police to report the attack."
       }
     },
     {
@@ -13345,8 +13345,8 @@
       "pronunciation": "tay-LAH-too-ah",
       "notes": "Teilatua: roof, properly a tiled one.",
       "example": {
-        "basque": "Teilatua gorria da.",
-        "english": "The roof is red."
+        "basque": "Teilatu gainetik inguru guztiari begira egon nintzen.",
+        "english": "I stood on the roof looking at everything around."
       }
     },
     {
@@ -13358,8 +13358,8 @@
       "pronunciation": "OR-mah (h is silent)",
       "notes": "Horma: wall. The same word means ice in several dialects, so context decides.",
       "example": {
-        "basque": "Horma zuria da.",
-        "english": "The wall is white."
+        "basque": "Elizako horma zaharrak.",
+        "english": "The old walls of the church."
       }
     },
     {
@@ -13371,8 +13371,8 @@
       "pronunciation": "es-kai-LEH-rah",
       "notes": "Eskailera: stairs, and also a ladder.",
       "example": {
-        "basque": "Eskailera estua da.",
-        "english": "The staircase is narrow."
+        "basque": "Eskaileretan behera jaitsi.",
+        "english": "To go down the stairs."
       }
     },
     {
@@ -13384,8 +13384,8 @@
       "pronunciation": "bahl-KOY-ah",
       "notes": "Balkoia: balcony.",
       "example": {
-        "basque": "Balkoia txikia da.",
-        "english": "The balcony is small."
+        "basque": "Udaletxeko balkoi nagusian.",
+        "english": "On the main balcony of the town hall."
       }
     },
     {
@@ -13397,8 +13397,8 @@
       "pronunciation": "loh-rah-TEH-ghee-ah",
       "notes": "Lorategia: garden. Lore (flower) + -tegi (place for), the flower place.",
       "example": {
-        "basque": "Lorategia ederra da.",
-        "english": "The garden is beautiful."
+        "basque": "Bilboko parke eta lorategiak.",
+        "english": "The parks and gardens of Bilbao."
       }
     },
     {
@@ -13410,8 +13410,8 @@
       "pronunciation": "ohs-kai-LOO-ah (h is silent)",
       "notes": "Hozkailua: refrigerator. Hotz (cold) + gailu (device), the cold device.",
       "example": {
-        "basque": "Hozkailua hotza da.",
-        "english": "The refrigerator is cold."
+        "basque": "Hozkailuaren izozkailua.",
+        "english": "The refrigerator's freezer."
       }
     },
     {
@@ -13423,8 +13423,8 @@
       "pronunciation": "LAH-beh-ah",
       "notes": "Labea: oven, and also a furnace. Labean egina means oven-baked.",
       "example": {
-        "basque": "Labea beroa da.",
-        "english": "The oven is hot."
+        "basque": "Labetik atera berriak.",
+        "english": "Fresh out of the oven."
       }
     },
     {
@@ -13436,8 +13436,8 @@
       "pronunciation": "GHEEL-tsah",
       "notes": "Giltza: key. The same word is a wrench, and in music a clef.",
       "example": {
-        "basque": "Non dago giltza?",
-        "english": "Where is the key?"
+        "basque": "Etxeko giltza.",
+        "english": "The house key."
       }
     },
     {
@@ -13449,8 +13449,8 @@
       "pronunciation": "DOO-chah",
       "notes": "Dutxa: shower. Bainugela is the room it stands in.",
       "example": {
-        "basque": "Dutxa hotza da.",
-        "english": "The shower is cold."
+        "basque": "Dutxa hotza hartu.",
+        "english": "To take a cold shower."
       }
     },
     {
@@ -13462,8 +13462,8 @@
       "pronunciation": "bah-ser-REE-ah",
       "notes": "Baserria: the Basque farmhouse, house and farm together. Countless Basque surnames are the name of a baserri, which is why so many families are named after a house.",
       "example": {
-        "basque": "Baserria mendian dago.",
-        "english": "The farmhouse is in the mountains."
+        "basque": "Etxejaunaren ametsa baserria osorik uztea izaten da.",
+        "english": "The master of the house dreams of handing on the farmhouse whole."
       }
     },
     {
@@ -13475,8 +13475,8 @@
       "pronunciation": "ee-goh-gai-LOO-ah",
       "notes": "Igogailua: elevator. Igo (to go up) + gailu (device), the going-up device.",
       "example": {
-        "basque": "Igogailua motela da.",
-        "english": "The elevator is slow."
+        "basque": "Igogailua solairu guztietan gelditzen zen.",
+        "english": "The elevator stopped at every floor."
       }
     },
     {
@@ -13488,8 +13488,8 @@
       "pronunciation": "gahn-BAH-rah",
       "notes": "Ganbara: attic or storage room, the space under the roof.",
       "example": {
-        "basque": "Ganbara iluna da.",
-        "english": "The attic is dark."
+        "basque": "Etxeak hiru solairu ditu, sotoa eta ganbara alde batera utzita.",
+        "english": "The house has three floors, not counting the cellar and the attic."
       }
     },
     {
@@ -13501,8 +13501,8 @@
       "pronunciation": "gar-bee-gai-LOO-ah",
       "notes": "Garbigailua: washing machine. Garbi (clean) + gailu (device). The same gailu ending builds hozkailua and igogailua.",
       "example": {
-        "basque": "Garbigailua berria da.",
-        "english": "The washing machine is new."
+        "basque": "Garbigailuan erabiltzeko garbigarria.",
+        "english": "Detergent for the washing machine."
       }
     },
     {
@@ -13527,8 +13527,8 @@
       "pronunciation": "sar-RAI-lah",
       "notes": "Sarraila: lock. The giltza goes in it.",
       "example": {
-        "basque": "Sarraila zaharra da.",
-        "english": "The lock is old."
+        "basque": "Giltza sarrailan sartu.",
+        "english": "To put the key in the lock."
       }
     },
     {
@@ -13540,8 +13540,8 @@
       "pronunciation": "cheer-REE-nah",
       "notes": "Txirrina: doorbell or bell.",
       "example": {
-        "basque": "Txirrina ozena da.",
-        "english": "The doorbell is loud."
+        "basque": "Etxeko txirrina behin eta berriz entzuten da.",
+        "english": "The doorbell rings again and again."
       }
     },
     {
@@ -13553,8 +13553,8 @@
       "pronunciation": "ahl-tsah-REE-ah",
       "notes": "Altzaria: furniture. Mahaia, aulkia and ohea are all altzariak.",
       "example": {
-        "basque": "Altzaria garestia da.",
-        "english": "The furniture is expensive."
+        "basque": "Oheak, aulkiak, armairuak eta gainerako altzariak.",
+        "english": "Beds, chairs, wardrobes and the rest of the furniture."
       }
     },
     {
@@ -13566,8 +13566,8 @@
       "pronunciation": "bai-noo-ON-tsee-ah",
       "notes": "Bainuontzia: bathtub. Bainu (bath) + ontzi (vessel), the bath vessel.",
       "example": {
-        "basque": "Bainuontzia handia da.",
-        "english": "The bathtub is big."
+        "basque": "Bainugelan sartu eta bainuontziko txorrota ireki zuen.",
+        "english": "He went into the bathroom and turned on the bathtub tap."
       }
     },
     {
@@ -13579,8 +13579,8 @@
       "pronunciation": "ah-TAH-ree-ah",
       "notes": "Ataria: the doorway or entrance hall of a building. It also means a threshold, and on the internet a portal.",
       "example": {
-        "basque": "Ataria iluna da.",
-        "english": "The entrance hall is dark."
+        "basque": "Udaletxeko atarian bertan.",
+        "english": "Right in the entrance of the town hall."
       }
     },
     {
@@ -13592,8 +13592,8 @@
       "pronunciation": "chee-mee-NEE-ah",
       "notes": "Tximinia: chimney. Over a baserri kitchen it carried the smoke of the open hearth.",
       "example": {
-        "basque": "Tximinia zaharra da.",
-        "english": "The chimney is old."
+        "basque": "Fabriketako tximinia luzeak.",
+        "english": "The tall chimneys of the factories."
       }
     },
     {
@@ -13618,8 +13618,8 @@
       "pronunciation": "ah-seh-REE-ah",
       "notes": "Azeria: fox. Used as an adjective it means sly or astute, as in English.",
       "example": {
-        "basque": "Azeria azkarra da.",
-        "english": "The fox is fast."
+        "basque": "Sartu zen zango punten gainean, azeria oilategian bezala.",
+        "english": "He came in on tiptoe, like a fox in the henhouse."
       }
     },
     {
@@ -13631,8 +13631,8 @@
       "pronunciation": "ER-bee-ah",
       "notes": "Erbia: hare. Untxia is the rabbit, erbia the bigger, wilder one.",
       "example": {
-        "basque": "Erbia azkarra da.",
-        "english": "The hare is fast."
+        "basque": "Erbia baino arinago.",
+        "english": "Faster than a hare."
       }
     },
     {
@@ -13644,8 +13644,8 @@
       "pronunciation": "ON-tsah (h is silent)",
       "notes": "Hontza: owl. It hunts at night, like the saguzarra.",
       "example": {
-        "basque": "Hontza gauez ikusten dut.",
-        "english": "I see the owl at night."
+        "basque": "Hontzaren ulua aditu zenuen.",
+        "english": "You heard the owl's hoot."
       }
     },
     {
@@ -13670,8 +13670,8 @@
       "pronunciation": "KAI-oh-ah",
       "notes": "Kaioa: seagull.",
       "example": {
-        "basque": "Kaioak itsasoan daude.",
-        "english": "The seagulls are at the sea."
+        "basque": "Kaioen garrasiak.",
+        "english": "The cries of the seagulls."
       }
     },
     {
@@ -13683,8 +13683,8 @@
       "pronunciation": "moos-KER-rah",
       "notes": "Muskerra: lizard. In some dialects the same word is used for the color green.",
       "example": {
-        "basque": "Muskerra berdea da.",
-        "english": "The lizard is green."
+        "basque": "Muskerra bezain berdea.",
+        "english": "As green as a lizard."
       }
     },
     {
@@ -13696,8 +13696,8 @@
       "pronunciation": "ar-TSAI-nah",
       "notes": "Artzaina: shepherd. Basque shepherds took their latxa sheep to the high pastures each summer, and many emigrated to herd in the American West.",
       "example": {
-        "basque": "Artzaina mendian dago.",
-        "english": "The shepherd is in the mountains."
+        "basque": "Artaldeak artzainari jarraitzen dio.",
+        "english": "The flock follows the shepherd."
       }
     },
     {
@@ -13709,8 +13709,8 @@
       "pronunciation": "AH-bee-ah (h is silent)",
       "notes": "Habia: a bird's nest.",
       "example": {
-        "basque": "Habia zuhaitzean dago.",
-        "english": "The nest is in the tree."
+        "basque": "Udaberrian habia bila joaten ginen.",
+        "english": "In spring we used to go looking for nests."
       }
     },
     {
@@ -13722,8 +13722,8 @@
       "pronunciation": "oo-gahs-TOO-nah",
       "notes": "Ugaztuna: mammal. Izurdea and balea are ugaztunak too, not fish.",
       "example": {
-        "basque": "Balea ugaztuna da.",
-        "english": "The whale is a mammal."
+        "basque": "Behiak eta zaldiak ugaztunak dira.",
+        "english": "Cows and horses are mammals."
       }
     },
     {
@@ -13735,8 +13735,8 @@
       "pronunciation": "nar-ras-TEE-ah",
       "notes": "Narrastia: reptile. Sugea and muskerra are narrastiak.",
       "example": {
-        "basque": "Sugea narrastia da.",
-        "english": "The snake is a reptile."
+        "basque": "Sugeak narrastiak dira, eta orobat muskerrak.",
+        "english": "Snakes are reptiles, and so are lizards."
       }
     },
     {
@@ -13748,8 +13748,8 @@
       "pronunciation": "ahn-fee-BEE-oh-ah",
       "notes": "Anfibioa: amphibian. Igela and apoa are anfibioak.",
       "example": {
-        "basque": "Igela anfibioa da.",
-        "english": "The frog is an amphibian."
+        "basque": "Igela eta apoa anfibioak dira.",
+        "english": "The frog and the toad are amphibians."
       }
     },
     {
@@ -13774,8 +13774,8 @@
       "pronunciation": "es-peh-SEE-eh-ah",
       "notes": "Espeziea: species, in the sense biology uses.",
       "example": {
-        "basque": "Espezie berria da.",
-        "english": "It is a new species."
+        "basque": "Mundu osoko anfibioen espezieen heren bat desagertzeko zorian da.",
+        "english": "A third of the world's amphibian species are close to disappearing."
       }
     },
     {
@@ -13787,8 +13787,8 @@
       "pronunciation": "ah-rah-ghee-yah-LEH-ah (h is silent)",
       "notes": "Haragijalea: carnivore. Haragi is meat.",
       "example": {
-        "basque": "Otsoa haragijalea da.",
-        "english": "The wolf is a carnivore."
+        "basque": "Ugaztun haragijaleak.",
+        "english": "Carnivorous mammals."
       }
     },
     {
@@ -13800,8 +13800,8 @@
       "pronunciation": "beh-lar-yah-LEH-ah",
       "notes": "Belarjalea: herbivore. Belar is grass.",
       "example": {
-        "basque": "Behia belarjalea da.",
-        "english": "The cow is a herbivore."
+        "basque": "Ardia, zaldia eta behia belarjaleak dira.",
+        "english": "The sheep, the horse and the cow are herbivores."
       }
     },
     {
@@ -13813,8 +13813,8 @@
       "pronunciation": "ah-bel-TSAIN-tsah",
       "notes": "Abeltzaintza: livestock farming, the keeping of animals. It and nekazaritza, agriculture, are the two halves of the baserri economy.",
       "example": {
-        "basque": "Abeltzaintza garrantzitsua da.",
-        "english": "Livestock farming is important."
+        "basque": "Galiziako klima hezeak lur langintza eta abeltzaintza bereziak sortu ditu.",
+        "english": "Galicia's damp climate has produced its own kind of farming and livestock raising."
       }
     },
     {
@@ -13826,8 +13826,8 @@
       "pronunciation": "ar-tahl-DEH-ah",
       "notes": "Artaldea: a flock of sheep. Ardi (sheep) + talde (group).",
       "example": {
-        "basque": "Artaldea mendian dago.",
-        "english": "The flock is in the mountains."
+        "basque": "Artzaina bere artaldearekin.",
+        "english": "The shepherd with his flock."
       }
     },
     {
@@ -13839,8 +13839,8 @@
       "pronunciation": "bah-sah-TEE-ah",
       "notes": "Basatia: wild, as against maskota, a pet. Basoa, the forest, is in the root.",
       "example": {
-        "basque": "Basurdea basatia da.",
-        "english": "The wild boar is wild."
+        "basque": "Piztia basatiak.",
+        "english": "Wild beasts."
       }
     },
     {
