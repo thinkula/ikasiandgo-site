@@ -8136,8 +8136,8 @@ var LESSONS=[
     titleEu:"Alde zaharra",
     emoji:"🏰",
     blurb:"The castle, the tower, the fair, and the buildings a town is run from.",
-    intro:"Nearly every Basque town has an old quarter with the same handful of buildings in it, and a tower somewhere that was once somebody's stronghold.",
-    grammar:{title:"Etxea hides inside the names of buildings",body:"Udaletxea is the house of the udala, the town council. Ikastetxea is the house of learning, built on ikasi, to learn. Basque names a building by saying whose house it is, so when a long word ends in -etxea you already know half of what it means."},
+    intro:"These are the buildings of an old town: the castle, the tower, the town hall, the school, and the cemetery. The sixth word is azoka, the fair.",
+    grammar:{title:"Etxea hides inside the names of buildings",body:"Udaletxea, town hall, is udal, town council, plus etxe, house. Ikastetxea, a school as a building or institution, is ikasi, to learn, plus etxe. Jatetxea, the eating house, is built the same way. Hilerria is hil, dead, plus herri, town. This is not the hil of hilabetea, which means moon or month. An azoka is a fair or periodic market, and merkatua is the everyday one. Basque towns kept dorretxeak, fortified tower houses, through the clan wars."},
     wordIds:["hilerria","gaztelua","dorrea","azoka","udaletxea","ikastetxea"],
   },
   {
