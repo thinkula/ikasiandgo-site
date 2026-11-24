@@ -7675,7 +7675,7 @@ var LESSONS=[
     intro:"Counting Past Twenty gave you the rule and the round numbers. These are the numbers in between that the rule produces, plus the words for arithmetic.",
     grammar:{title:"The twenties, completed",body:"Fifty is forty and ten: berrogeita hamar. Seventy is sixty and ten: hirurogeita hamar. Ninety is eighty and ten: laurogeita hamar. The operations add -keta to a short word: ken, minus, gives kenketa, bider, times, gives biderketa, and zati, divided by, gives zatiketa. The short words do the sums: bost ken hiru, bi is five minus three is two, and bi bider hiru sei da is two times three is six."},
     wordIds:["berrogeita_hamar","hirurogeita_hamar","laurogeita_hamar","erdia","birritan","ken","biderketa","zatiketa"],
-    tip:[["note","Fifty is forty and ten: berrogeita hamar."],["note","Seventy is sixty and ten: hirurogeita hamar."],["note","Ninety is eighty and ten: laurogeita hamar."],["note","The operations add -keta to a short word: ken, minus, gives kenketa, bider, times, gives biderketa, and zati, divided by, gives zatiketa."],["note","The short words do the sums: bost ken hiru, bi is five minus three is two, and bi bider hiru sei da is two times three is six."]],
+    tip:[["forms",[["50","berrogeita hamar","forty and ten"],["70","hirurogeita hamar","sixty and ten"],["90","laurogeita hamar","eighty and ten"]]],["note","The operations add -keta to a short word."],["forms",[["ken","minus","kenketa"],["bider","times","biderketa"],["zati","divided by","zatiketa"]]],["note","The short words do the sums."],["say","Bost ken hiru, bi.","Five minus three is two."],["say","Bi bider hiru sei da.","Two times three is six."]],
   },
   {
     id:"l52_farm",
@@ -7688,7 +7688,7 @@ var LESSONS=[
     intro:"The animals of the countryside and the farmyard: donkey, deer and squirrel, rat, pigeon, duck, goose and rooster.",
     grammar:{title:"The red cat",body:"Katagorria, squirrel, is katu, cat, plus gorri, red: a red cat. Oilarra, rooster, shares its root with oiloa, hen, and oilaskoa, chicken. Ahatea, duck, and antzara, goose, both came from Latin, anatem and anser. Arratoia, rat, is a loan with a vowel added in front, because old Basque avoided words beginning with r. That is also why Rome is Erroma. Usoa is one word for both pigeon and dove."},
     wordIds:["astoa","oreina","katagorria","arratoia","usoa","ahatea","antzara","oilarra"],
-    tip:[["build",[["katu","cat"],["gorri","red"]],"katagorria","squirrel"],["note","Literally: a red cat."],["note","Oilarra, rooster, shares its root with oiloa, hen, and oilaskoa, chicken."],["note","Ahatea, duck, and antzara, goose, both came from Latin, anatem and anser."],["note","Arratoia, rat, is a loan with a vowel added in front, because old Basque avoided words beginning with r. That is also why Rome is Erroma."],["note","Usoa is one word for both pigeon and dove."]],
+    tip:[["build",[["katu","cat"],["gorri","red"]],"katagorria","squirrel"],["note","Literally a red cat."],["note","Oilarra, rooster, shares its root with oiloa, hen, and oilaskoa, chicken."],["pair",["ahatea","duck, from Latin anatem"],["antzara","goose, from Latin anser"]],["note","Arratoia, rat, is a loan with a vowel added in front, because old Basque avoided words beginning with r. That is also why Rome is Erroma."],["note","Usoa is one word for both pigeon and dove."]],
   },
   {
     id:"l53_sea",
@@ -7701,7 +7701,7 @@ var LESSONS=[
     intro:"Animals of the sea and the air: eagle and butterfly, dolphin and whale, octopus, crab and shrimp, and the word for a pet.",
     grammar:{title:"Izurdea, the water pig",body:"Izurdea, dolphin, is usually explained as an old root iz, water, plus urde, pig: a water pig. You met urde in basurdea, the wild boar, and the same iz is in izotz, ice. Basque sailors were among the first commercial whalers in Europe, hunting balea from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s. The arrano beltza, the black eagle, was a seal of the kings of Navarre."},
     wordIds:["arranoa","tximeleta","izurdea","balea","olagarroa","karramarroa","ganba","maskota"],
-    tip:[["note","Izurdea, dolphin, is usually explained as an old root iz, water, plus urde, pig: a water pig."],["note","You met urde in basurdea, the wild boar, and the same iz is in izotz, ice."],["note","Basque sailors were among the first commercial whalers in Europe, hunting balea from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s."],["note","The arrano beltza, the black eagle, was a seal of the kings of Navarre."]],
+    tip:[["build",[["iz","water, an old root"],["urde","pig"]],"izurdea","dolphin"],["note","This is the usual explanation: a water pig. You met urde in basurdea, the wild boar, and the same iz is in izotz, ice."],["note","Basque sailors were among the first commercial whalers in Europe, hunting balea from coastal watchtowers in the Middle Ages and reaching Newfoundland by the 1500s."],["note","The arrano beltza, the black eagle, was a seal of the kings of Navarre."]],
   },
   {
     id:"l54_feeling",
@@ -7714,7 +7714,7 @@ var LESSONS=[
     intro:"Words for a state you are in right now: calm, angry, nervous, surprised, bored, embarrassed and glad. All of them go with egon, as every passing state does.",
     grammar:{title:"Ta, the state a verb leaves behind",body:"Lasai nago is I am calm, haserre nago is I am angry, and urduri nago is I am nervous. Add -ta to a verb and you get the state it leaves you in, as in nekatuta. Aspertu, to get bored, gives aspertuta nago, I am bored. Lotsatu gives lotsatuta nago, I am embarrassed, and harritu gives harrituta nago, I am surprised. Poztu, to make happy, is the verb in pozten nau zu ezagutzeak."},
     wordIds:["lasaia","haserre","urduri","harritu","aspertuta","lotsatuta","poztu"],
-    tip:[["note","Lasai nago is I am calm, haserre nago is I am angry, and urduri nago is I am nervous."],["note","Add -ta to a verb and you get the state it leaves you in, as in nekatuta."],["note","Aspertu, to get bored, gives aspertuta nago, I am bored."],["note","Lotsatu gives lotsatuta nago, I am embarrassed, and harritu gives harrituta nago, I am surprised."],["note","Poztu, to make happy, is the verb in pozten nau zu ezagutzeak."]],
+    tip:[["forms",[["lasai nago","I am calm"],["haserre nago","I am angry"],["urduri nago","I am nervous"]]],["note","Add -ta to a verb and you get the state it leaves you in, as in nekatuta."],["forms",[["aspertu","aspertuta nago","I am bored"],["lotsatu","lotsatuta nago","I am embarrassed"],["harritu","harrituta nago","I am surprised"]]],["note","Aspertu is to get bored. Poztu, to make happy, is the verb in pozten nau zu ezagutzeak."]],
   },
   {
     id:"l55_feelingnouns",
@@ -7727,7 +7727,7 @@ var LESSONS=[
     intro:"The last lesson's feelings, now as things you have: excitement, shame, cheerfulness, worry, surprise and sorrow. As with beldurra, a feeling named as a thing takes have.",
     grammar:{title:"From how you feel to what it is",body:"Kezka handia dut is I have a big worry. Kezka is the noun for kezkatu, to worry, and harridura, surprise, is the noun for harritu. Alaitasuna, cheerfulness, is alai, cheerful, plus -tasuna, the ending in askatasuna. Ilusioa means excitement, not illusion: ilusioa daukat is I am excited. Ze pena! is what a shame."},
     wordIds:["ilusioa","lotsa","alaitasuna","kezka","harridura","pena"],
-    tip:[["note","Kezka handia dut is I have a big worry."],["note","Kezka is the noun for kezkatu, to worry, and harridura, surprise, is the noun for harritu."],["build",[["alai","cheerful"],["-tasuna",""]],"alaitasuna","cheerfulness"],["note","-tasuna is the ending in askatasuna."],["note","Ilusioa means excitement, not illusion: ilusioa daukat is I am excited."],["note","Ze pena! is what a shame."]],
+    tip:[["say","Kezka handia dut.","I have a big worry."],["pair",["kezka","the noun for kezkatu, to worry"],["harridura","surprise, the noun for harritu"]],["build",[["alai","cheerful"],["-tasuna",""]],"alaitasuna","cheerfulness"],["note","-tasuna is the ending in askatasuna."],["warn","Ilusioa means excitement, not illusion."],["say","Ilusioa daukat.","I am excited."],["say","Ze pena!","What a shame!"]],
   },
   {
     id:"l56_qualities",
@@ -7740,7 +7740,7 @@ var LESSONS=[
     intro:"Everyday describing words: interesting, clean, normal and cheerful, lukewarm and healthy, wide and narrow, smooth and full. With them come less and enough.",
     grammar:{title:"Between hot and cold",body:"Epela is lukewarm, between beroa and hotza: ur epela is lukewarm water, and eguraldi epela is mild weather. Osasuntsua, healthy, is osasun, health, plus the -tsu of eguzkitsua. Interesgarria ends in -garri, causing: a thing that causes interest. Gutxiago, less, is gutxi plus -ago, and it is the opposite of gehiago. Beterik nago is I am full, with the state ending of gaixorik."},
     wordIds:["interesgarria","garbia","normala","alaia","epela","osasuntsua","gutxiago","nahikoa","zabala","estua","leuna","beterik"],
-    tip:[["note","Epela is lukewarm, between beroa and hotza: ur epela is lukewarm water, and eguraldi epela is mild weather."],["note","Osasuntsua, healthy, is osasun, health, plus the -tsu of eguzkitsua."],["note","Interesgarria ends in -garri, causing: a thing that causes interest."],["build",[["gutxi",""],["-ago",""]],"gutxiago","less"],["note","It is the opposite of gehiago."],["note","Beterik nago is I am full, with the state ending of gaixorik."]],
+    tip:[["note","Epela is lukewarm, between beroa and hotza."],["pair",["ur epela","lukewarm water"],["eguraldi epela","mild weather"]],["build",[["osasun","health"],["-tsu",""]],"osasuntsua","healthy"],["note","The same -tsu as in eguzkitsua."],["note","Interesgarria ends in -garri, causing: a thing that causes interest."],["build",[["gutxi","little"],["-ago",""]],"gutxiago","less"],["note","It is the opposite of gehiago."],["say","Beterik nago.","I am full.","With the state ending of gaixorik."]],
   },
   {
     id:"l57_school",
@@ -7753,7 +7753,7 @@ var LESSONS=[
     intro:"Work and study: teacher and student, office and meeting, worker, appointment, employment, sick leave and unemployment. Most of these are made of parts you already know.",
     grammar:{title:"Le and gile, two ways to name a doer",body:"Ikaslea, student, is ikasi, to learn, plus the -le of irakurlea. Irakaslea, teacher, is built the same way on irakatsi, to teach. Langilea, worker, is lan plus -gile, maker. Langabezia, unemployment, is lan plus gabezia, lack. Hitzordua, appointment, is hitz, word, plus ordua, hour. Maisua and andereñoa are a man and a woman who teach primary school, another rare gendered pair. Irakaslea covers everyone."},
     wordIds:["irakaslea","ikaslea","bulegoa","bilera","langilea","hitzordua","enplegua","baja","langabezia","maisua","anderenoa"],
-    tip:[["note","Ikaslea, student, is ikasi, to learn, plus the -le of irakurlea."],["note","Irakaslea, teacher, is built the same way on irakatsi, to teach."],["build",[["lan",""],["-gile","maker"]],"langilea","worker"],["build",[["lan",""],["gabezia","lack"]],"langabezia","unemployment"],["build",[["hitz","word"],["ordua","hour"]],"hitzordua","appointment"],["note","Maisua and andereñoa are a man and a woman who teach primary school, another rare gendered pair."],["note","Irakaslea covers everyone."]],
+    tip:[["build",[["ikasi","to learn"],["-le",""]],"ikaslea","student"],["note","The same -le as in irakurlea. Irakaslea, teacher, is built the same way on irakatsi, to teach."],["build",[["lan","work"],["-gile","maker"]],"langilea","worker"],["build",[["lan","work"],["gabezia","lack"]],"langabezia","unemployment"],["build",[["hitz","word"],["ordua","hour"]],"hitzordua","appointment"],["note","Maisua and andereñoa are a man and a woman who teach primary school, another rare gendered pair. Irakaslea covers everyone."]],
   },
   {
     id:"l58_music",
@@ -7766,7 +7766,7 @@ var LESSONS=[
     intro:"Music, dance, pelota and improvised verse, with the people who do them. They are all named with one ending, -ari.",
     grammar:{title:"Ari, the one who does it",body:"The ending -ari names the one who does a thing, as it did in sukaldaria. Dantza gives dantzaria, a dancer, and pilota gives pilotaria, a player. Sometimes an l comes first: abestu, to sing, gives abeslaria, and bertsoa gives bertsolaria, who improvises sung verse. To dance is dantza egin, with the egin of lan egin. An instrument takes jo: musika tresna bat jotzen duzu? is do you play an instrument?"},
     wordIds:["musika","dantza","dantzaria","abeslaria","musika_tresna","pilota","bertsoa"],
-    tip:[["note","The ending -ari names the one who does a thing, as it did in sukaldaria."],["note","Dantza gives dantzaria, a dancer, and pilota gives pilotaria, a player."],["note","Sometimes an l comes first: abestu, to sing, gives abeslaria, and bertsoa gives bertsolaria, who improvises sung verse."],["note","To dance is dantza egin, with the egin of lan egin."],["note","An instrument takes jo: musika tresna bat jotzen duzu? is do you play an instrument?"]],
+    tip:[["note","The ending -ari names the one who does a thing, as it did in sukaldaria."],["forms",[["dantza","dantzaria","a dancer"],["pilota","pilotaria","a player"]]],["note","Sometimes an l comes first."],["forms",[["abestu","abeslaria","to sing gives the singer"],["bertsoa","bertsolaria","who improvises sung verse"]]],["note","To dance is dantza egin, with the egin of lan egin."],["say","Musika tresna bat jotzen duzu?","Do you play an instrument?","An instrument takes jo."]],
   },
   {
     id:"l59_festival",
@@ -7779,7 +7779,7 @@ var LESSONS=[
     intro:"Festival, cider house and pintxo-pote. Theater, painting and literature. And the sports center.",
     grammar:{title:"Tegi, the place for a thing",body:"Sagardotegia, cider house, is sagardo, cider, plus -tegi, place: the same ending as in lantegia and liburutegia. The houses open from January to April, and the cider comes straight from the barrel when someone calls Txotx. Kiroldegia, sports center, is kirol, sport, plus the same ending, written -degi after the l. Pintxo-pote is going from bar to bar with a pintxo and a drink at each, common on Thursday and Friday evenings."},
     wordIds:["festa","sagardotegia","pintxo_pote","antzerkia","margolana","kiroldegi","literatura"],
-    tip:[["build",[["sagardo","cider"],["-tegi","place"]],"sagardotegia","cider house"],["note","The same ending as in lantegia and liburutegia."],["note","The houses open from January to April, and the cider comes straight from the barrel when someone calls Txotx."],["note","Kiroldegia, sports center, is kirol, sport, plus the same ending, written -degi after the l."],["note","Pintxo-pote is going from bar to bar with a pintxo and a drink at each, common on Thursday and Friday evenings."]],
+    tip:[["build",[["sagardo","cider"],["-tegi","place"]],"sagardotegia","cider house"],["note","The same ending as in lantegia and liburutegia."],["note","The houses open from January to April, and the cider comes straight from the barrel when someone calls Txotx."],["build",[["kirol","sport"],["-tegi",""]],"kiroldegia","sports center"],["note","Here the ending is written -degi, after the l."],["note","Pintxo-pote is going from bar to bar with a pintxo and a drink at each, common on Thursday and Friday evenings."]],
   },
   {
     id:"l60_colors3",
@@ -7792,7 +7792,7 @@ var LESSONS=[
     intro:"Silver, brown and gray, with the two words that make any color lighter or darker: argia and iluna.",
     grammar:{title:"Argi and ilun, light and dark",body:"Put argia or iluna after a color and you have shaded it: urdin argia is light blue, and urdin iluna is dark blue. The color drops its -a and the shade carries it, as with any describing word. Two colors can also join: zuri-horia, white-yellow, is cream. Berdexka is greenish, with the -xka that made a fork a little pitchfork. Marroia and grisa both came from Spanish."},
     wordIds:["zilarra","urdina_iluna","urdin_argia","hori_iluna","berdexka","zuri_horia","marroia","gris","kolore_argia","kolore_iluna"],
-    tip:[["note","Put argia or iluna after a color and you have shaded it: urdin argia is light blue, and urdin iluna is dark blue."],["note","The color drops its -a and the shade carries it, as with any describing word."],["note","Two colors can also join: zuri-horia, white-yellow, is cream."],["note","Berdexka is greenish, with the -xka that made a fork a little pitchfork."],["note","Marroia and grisa both came from Spanish."]],
+    tip:[["note","Put argia or iluna after a color and you have shaded it."],["pair",["urdin argia","light blue"],["urdin iluna","dark blue"]],["note","The color drops its -a and the shade carries it, as with any describing word."],["say","zuri-horia","cream","Two colors can also join: literally white-yellow."],["note","Berdexka is greenish, with the -xka that made a fork a little pitchfork."],["note","Marroia and grisa both came from Spanish."]],
   },
   {
     id:"l61_town",
@@ -7805,7 +7805,7 @@ var LESSONS=[
     intro:"The institutions of a town and the people who run them: government and politics, the council and the mayor, the theater, the stadium and the pool.",
     grammar:{title:"Leku and tegi, two words for place",body:"Igerilekua, swimming pool, is igeri, swimming, plus leku, place, which does the same job as -tegi. Keep one pair apart: antzerkia is theater as an art, and antzokia is the building. Udala is the council, and its building is the udaletxea, the council house. Alkatea is the southern word for mayor, where the north says auzapeza. Adinekoa, an elderly person, is adin, age, plus -eko: the one of age, and the respectful word."},
     wordIds:["gobernua","politika","hizkuntz_komunitatea","alkatea","udala","antzokia","estadioa","igerilekua","adinekoa"],
-    tip:[["note","Igerilekua, swimming pool, is igeri, swimming, plus leku, place, which does the same job as -tegi."],["note","Keep one pair apart: antzerkia is theater as an art, and antzokia is the building."],["note","Udala is the council, and its building is the udaletxea, the council house."],["note","Alkatea is the southern word for mayor, where the north says auzapeza."],["build",[["adin","age"],["-eko",""]],"adinekoa","an elderly person"],["note","The one of age, and the respectful word."]],
+    tip:[["build",[["igeri","swimming"],["leku","place"]],"igerilekua","swimming pool"],["note","Leku does the same job as -tegi."],["warn","Keep one pair apart: antzerkia is theater as an art, and antzokia is the building."],["note","Udala is the council, and its building is the udaletxea, the council house."],["pair",["alkatea","mayor, the southern word"],["auzapeza","what the north says"]],["build",[["adin","age"],["-eko",""]],"adinekoa","an elderly person"],["note","Literally the one of age, and the respectful word."]],
   },
   {
     id:"l62_smallwords",
@@ -7818,7 +7818,7 @@ var LESSONS=[
     intro:"Small words that make a conversation sound like one: without, exactly, a mistake, I am not sure, ever and never. With them come egin, to do or make, and four ways to place a thing in time: at one o'clock, half past, etzi, the day after tomorrow, and herenegun, the day before yesterday.",
     grammar:{title:"Egin, the verb that helps the others",body:"Egin means to do or make, and it builds verbs out of nouns. You have seen lan egin, to work, and hitz egin, to speak. Barre egin is to laugh, and negar egin is to cry. Gabe, without, comes after its word: zu gabe is without you. Inoiz is ever, and with ez it is never. Sekula is a stronger never. Half past joins the quarters you know: ordu bata eta erdiak dira is it is half past one."},
     wordIds:["egin","gabe","hori_da","akatsa","ziur_ez_nago","mila_esker_denagatik","nongoa_origin","inoiz","sekula","ordu_batean","eta_erdia","etzi","herenegun"],
-    tip:[["note","Egin means to do or make, and it builds verbs out of nouns."],["note","You have seen lan egin, to work, and hitz egin, to speak."],["note","Barre egin is to laugh, and negar egin is to cry."],["note","Gabe, without, comes after its word: zu gabe is without you."],["note","Inoiz is ever, and with ez it is never."],["note","Sekula is a stronger never."],["note","Half past joins the quarters you know: ordu bata eta erdiak dira is it is half past one."]],
+    tip:[["note","Egin means to do or make, and it builds verbs out of nouns."],["forms",[["lan egin","to work"],["hitz egin","to speak"],["barre egin","to laugh"],["negar egin","to cry"]]],["say","zu gabe","without you","Gabe, without, comes after its word."],["pair",["inoiz","ever, and with ez it is never"],["sekula","a stronger never"]],["say","Ordu bata eta erdiak dira.","It is half past one.","Half past joins the quarters you know."]],
   },
   {
     id:"l28_verbs",
@@ -7831,7 +7831,7 @@ var LESSONS=[
     intro:"Ten verbs: to speak, understand, help and think, to give and take, to say, know, need and see. Several are already inside phrases you use, such as ez dut ulertzen and ez dakit.",
     grammar:{title:"The form you learn is the participle",body:"A verb is listed in one form: ulertu is to understand, and also understood. For what you do now the ending changes and a verb you know follows: ulertzen dut is I understand. That is the ulertzen in ez dut ulertzen. Two examples here look ahead with -ko: lagunduko dizut is I will help you, and ikusiko dugu is we will see. Esan is to say a particular thing, and mintzatu is to speak in general. Jakin, to know, is behind badakit and ez dakit."},
     wordIds:["mintzatu","ulertu","lagundu","pentsatu","eman","hartu","esan","jakin","behar","ikusi"],
-    tip:[["note","A verb is listed in one form: ulertu is to understand, and also understood."],["note","For what you do now the ending changes and a verb you know follows: ulertzen dut is I understand. That is the ulertzen in ez dut ulertzen."],["note","Two examples here look ahead with -ko: lagunduko dizut is I will help you, and ikusiko dugu is we will see."],["note","Esan is to say a particular thing, and mintzatu is to speak in general."],["note","Jakin, to know, is behind badakit and ez dakit."]],
+    tip:[["note","A verb is listed in one form: ulertu is to understand, and also understood."],["say","Ulertzen dut.","I understand.","For what you do now the ending changes and a verb you know follows. That is the ulertzen in ez dut ulertzen."],["note","Two examples here look ahead with -ko."],["pair",["lagunduko dizut","I will help you"],["ikusiko dugu","we will see"]],["pair",["esan","to say a particular thing"],["mintzatu","to speak in general"]],["note","Jakin, to know, is behind badakit and ez dakit."]],
   },
   {
     id:"l81_past",
@@ -7857,7 +7857,7 @@ var LESSONS=[
     intro:"You can say things. Now join them. These words add, contrast and conclude: even so, therefore, moreover, on the other hand. With them come three phrases for a conversation: honestly, I mean, and you are right.",
     grammar:{title:"Where a connector sits",body:"Most of these open their sentence: hala ere joango naiz is even so, I will go, and gainera, oso polita da is moreover, it is very nice. Aldiz is the exception. It comes after the first word: ni aldiz etxean geratuko naiz is I, on the other hand, will stay at home. Beraz and hortaz both mean therefore. Arrazoia duzu, you are right, is literally you have the reason. Esan nahi dut, I mean, is literally I want to say."},
     wordIds:["hala_ere","hortaz","beraz","gainera","aldiz","egia_esan","esan_nahi_dut","arrazoia_duzu","esaldi"],
-    tip:[["note","Most of these open their sentence: hala ere joango naiz is even so, I will go, and gainera, oso polita da is moreover, it is very nice."],["note","Aldiz is the exception. It comes after the first word: ni aldiz etxean geratuko naiz is I, on the other hand, will stay at home."],["note","Beraz and hortaz both mean therefore."],["note","Arrazoia duzu, you are right, is literally you have the reason."],["note","Esan nahi dut, I mean, is literally I want to say."]],
+    tip:[["note","Most of these open their sentence."],["say","Hala ere joango naiz.","Even so, I will go."],["say","Gainera, oso polita da.","Moreover, it is very nice."],["warn","Aldiz is the exception. It comes after the first word."],["say","Ni aldiz etxean geratuko naiz.","I, on the other hand, will stay at home."],["note","Beraz and hortaz both mean therefore."],["say","Arrazoia duzu.","You are right.","Literally you have the reason."],["say","Esan nahi dut.","I mean.","Literally I want to say."]],
   },
   {
     id:"l33_kitchen",
@@ -7870,7 +7870,7 @@ var LESSONS=[
     intro:"How food is cooked: grilled, boiled, fried and baked. Then spice and bacon, three Basque dishes, and Txotx, the call you hear in a cider house.",
     grammar:{title:"A cooking word is also an adjective",body:"Erre is to grill, and also grilled: txuleta errea is grilled steak. Egosi works the same way, so arrautza egosia is a boiled egg, and frijitu gives arrautza frijitua, a fried egg. Baked is labean egina, literally made in the oven, with the egin you know. Erre also means to burn. Txotx is the call when a barrel is opened, and the name of the wooden peg that plugs it."},
     wordIds:["erre","egosi","frijitu","labean_egina","espezia","urdaia","mamia","intxaursaltsa","piperrada","txotx"],
-    tip:[["note","Erre is to grill, and also grilled: txuleta errea is grilled steak."],["note","Egosi works the same way, so arrautza egosia is a boiled egg, and frijitu gives arrautza frijitua, a fried egg."],["note","Baked is labean egina, literally made in the oven, with the egin you know."],["note","Erre also means to burn."],["note","Txotx is the call when a barrel is opened, and the name of the wooden peg that plugs it."]],
+    tip:[["note","A cooking word is also an adjective. Erre is to grill, and also grilled."],["forms",[["erre","txuleta errea","grilled steak"],["egosi","arrautza egosia","a boiled egg"],["frijitu","arrautza frijitua","a fried egg"]]],["say","labean egina","baked","Literally made in the oven, with the egin you know."],["note","Erre also means to burn."],["note","Txotx is the call when a barrel is opened, and the name of the wooden peg that plugs it."]],
   },
   {
     id:"l83_pot",
@@ -7883,7 +7883,7 @@ var LESSONS=[
     intro:"These are ingredients of the classic Basque dishes: the clams in hake in green sauce, the cabbage, chorizo, and blood sausage served with Tolosa beans, and the almond and cherry of the Basque cake. With them come lemon, beef, chili, paprika, vinegar, and quince.",
     grammar:{title:"The ending that makes it food",body:"Behi is a cow and behikia is beef. Txerri is a pig and txerrikia is pork. The ending -ki makes the food, and it is the same ending as in izozkia, ice cream, from izotz, ice. Odolkia, blood sausage, is made with odol, blood. Two of these words change by region. In the north lemon is zitroina, and in the south many say almendra for almond. Ozpinetako describes something pickled in vinegar."},
     wordIds:["txirla","aza","limoia","gerezia","behikia","pipermina","piperrautsa","ozpina","odolkia","txorizoa","arbendola","irasagarra"],
-    tip:[["note","Behi is a cow and behikia is beef."],["note","Txerri is a pig and txerrikia is pork."],["note","The ending -ki makes the food, and it is the same ending as in izozkia, ice cream, from izotz, ice."],["note","Odolkia, blood sausage, is made with odol, blood."],["note","Two of these words change by region."],["note","In the north lemon is zitroina, and in the south many say almendra for almond."],["note","Ozpinetako describes something pickled in vinegar."]],
+    tip:[["pair",["behi","a cow"],["behikia","beef"]],["pair",["txerri","a pig"],["txerrikia","pork"]],["note","The ending -ki makes the food, and it is the same ending as in izozkia, ice cream, from izotz, ice."],["note","Odolkia, blood sausage, is made with odol, blood."],["note","Two of these words change by region."],["pair",["zitroina","lemon, in the north"],["almendra","almond, as many say in the south"]],["note","Ozpinetako describes something pickled in vinegar."]],
   },
   {
     id:"l34_land",
@@ -7896,7 +7896,7 @@ var LESSONS=[
     intro:"The edge where land meets sea: coastline, cliffs and the horizon. With them come nature and the environment, the countryside and the scrub, an ecosystem, and the formal word for a bird.",
     grammar:{title:"itsas-, the joining form of itsasoa",body:"When itsasoa, the sea, joins another word it shortens to itsas-. Itsasertza, coastline, is sea plus ertz, edge, and itsasontzia, the ship you know, is sea plus vessel. Zerumuga, horizon, is zeru, sky, plus muga, border. Haitzak are cliffs or rocks, and labarrak are sea cliffs. Hegaztia is the formal word for a bird, where txoria is the everyday one. Hegan egin, to fly, is literally to do flying."},
     wordIds:["natura","ingurumena","zerumuga","itsasertza","haitzak","labarrak","sasia","landa","ekosistema","hegaztia"],
-    tip:[["note","When itsasoa, the sea, joins another word it shortens to itsas-."],["note","Itsasertza, coastline, is sea plus ertz, edge, and itsasontzia, the ship you know, is sea plus vessel."],["build",[["zeru","sky"],["muga","border"]],"zerumuga","horizon"],["note","Haitzak are cliffs or rocks, and labarrak are sea cliffs."],["note","Hegaztia is the formal word for a bird, where txoria is the everyday one."],["note","Hegan egin, to fly, is literally to do flying."]],
+    tip:[["note","When itsasoa, the sea, joins another word it shortens to itsas-."],["build",[["itsas-","sea"],["ertz","edge"]],"itsasertza","coastline"],["build",[["itsas-","sea"],["ontzi","vessel"]],"itsasontzia","the ship you know"],["build",[["zeru","sky"],["muga","border"]],"zerumuga","horizon"],["pair",["haitzak","cliffs or rocks"],["labarrak","sea cliffs"]],["pair",["hegaztia","the formal word for a bird"],["txoria","the everyday one"]],["note","Hegan egin, to fly, is literally to do flying."]],
   },
   {
     id:"l35_feelings",
@@ -7909,7 +7909,7 @@ var LESSONS=[
     intro:"More feelings: worried, proud, stressed and moved, with hope, courage, pride, loneliness and love. Two verbs come with them: saiatu, to try, and sentitu, to feel.",
     grammar:{title:"States, things, and one verb with two meanings",body:"The states take egon, as before: harro nago is I am proud, and kezkatuta nago is I am worried. The things take have: esperantza dut is I have hope. Harrotasuna, pride, and maitasuna, love, use the -tasuna of askatasuna. Keep harrotasuna apart from harrokeria, which is arrogance. Sentitzen dut means I feel, and it is also how you say I am sorry."},
     wordIds:["kezkatu","harro","esperantza","adorea","larrituta","hunkituta","saiatu","sentitu","harrotasuna","bakardadea","maitasuna"],
-    tip:[["note","The states take egon, as before: harro nago is I am proud, and kezkatuta nago is I am worried."],["note","The things take have: esperantza dut is I have hope."],["note","Harrotasuna, pride, and maitasuna, love, use the -tasuna of askatasuna."],["note","Keep harrotasuna apart from harrokeria, which is arrogance."],["note","Sentitzen dut means I feel, and it is also how you say I am sorry."]],
+    tip:[["note","The states take egon, as before."],["pair",["harro nago","I am proud"],["kezkatuta nago","I am worried"]],["say","Esperantza dut.","I have hope.","The things take have."],["note","Harrotasuna, pride, and maitasuna, love, use the -tasuna of askatasuna."],["warn","Keep harrotasuna apart from harrokeria, which is arrogance."],["say","Sentitzen dut.","I feel. Also: I am sorry.","One verb with two meanings."]],
   },
   {
     id:"l45_motion",
@@ -7922,7 +7922,7 @@ var LESSONS=[
     intro:"Five verbs of movement: joan, to go, etorri, to come, ibili, to walk, eraman, to carry, and jarraitu, to continue. They have appeared in these lessons all along without being taught. With them come the route, the crossroads, the destination and a shelter.",
     grammar:{title:"Which verb goes with a verb of movement",body:"Going, coming and walking put nothing on the receiving end, so they take naiz: joango naiz is I will go, and etorri naiz is I have come. Eraman, to carry, has a thing carried, so it takes dut: eramango dut is I will take it. Bide, the road in autobidea, builds two words here: ibilbidea, a route, and bidegurutzea, a crossroads. Helmuga, destination, is heldu, to arrive, plus muga, limit. Joan-etorri, go-come, is a round trip."},
     wordIds:["joan","etorri","ibili","eraman","jarraitu","ibilbidea","bidegurutzea","helmuga","aterpea","mugaldea","asegurua","zerbitzu_ordua"],
-    tip:[["note","Going, coming and walking put nothing on the receiving end, so they take naiz: joango naiz is I will go, and etorri naiz is I have come."],["note","Eraman, to carry, has a thing carried, so it takes dut: eramango dut is I will take it."],["note","Bide, the road in autobidea, builds two words here: ibilbidea, a route, and bidegurutzea, a crossroads."],["build",[["heldu","to arrive"],["muga","limit"]],"helmuga","destination"],["note","Joan-etorri, go-come, is a round trip."]],
+    tip:[["note","Going, coming and walking put nothing on the receiving end, so they take naiz."],["pair",["joango naiz","I will go"],["etorri naiz","I have come"]],["say","Eramango dut.","I will take it.","Eraman, to carry, has a thing carried, so it takes dut."],["note","Bide, the road in autobidea, builds two words here."],["pair",["ibilbidea","a route"],["bidegurutzea","a crossroads"]],["build",[["heldu","to arrive"],["muga","limit"]],"helmuga","destination"],["note","Joan-etorri, go-come, is a round trip."]],
   },
   {
     id:"l46_pastfuture",
@@ -7935,7 +7935,7 @@ var LESSONS=[
     intro:"The past and the future, a period or a turn, the calendar, and four ways to place something in time: at the same time, occasionally, half an hour, and within a month.",
     grammar:{title:"Etorkizuna, the time that is coming",body:"Etorkizuna, the future, is etorri, to come, plus -kizun: that which will come. Egutegia, calendar, is egun, day, plus the -tegi of liburutegia. The -ko of buruko mina turns iragana into iraganeko, of the past. Barru means within, and it works with any time: hilabete bat barru is in a month, and aste bat barru is in a week. Aldia is a period or a turn: nire aldia da is it is my turn."},
     wordIds:["iragana","etorkizuna","aldia","egutegia","iraganeko","aldi_berean","noizbehinka","ordu_erdia","hilabete_bat_barru"],
-    tip:[["build",[["etorri","to come"],["-kizun",""]],"etorkizuna","the future"],["note","Literally: that which will come."],["note","Egutegia, calendar, is egun, day, plus the -tegi of liburutegia."],["note","The -ko of buruko mina turns iragana into iraganeko, of the past."],["note","Barru means within, and it works with any time: hilabete bat barru is in a month, and aste bat barru is in a week."],["note","Aldia is a period or a turn: nire aldia da is it is my turn."]],
+    tip:[["build",[["etorri","to come"],["-kizun",""]],"etorkizuna","the future"],["note","Literally that which will come."],["build",[["egun","day"],["-tegi",""]],"egutegia","calendar"],["note","The same -tegi as in liburutegia."],["note","The -ko of buruko mina turns iragana into iraganeko, of the past."],["note","Barru means within, and it works with any time."],["pair",["hilabete bat barru","in a month"],["aste bat barru","in a week"]],["say","Nire aldia da.","It is my turn.","Aldia is a period or a turn."]],
   },
   {
     id:"l47_measuring",
@@ -7948,7 +7948,7 @@ var LESSONS=[
     intro:"You can count. This is the vocabulary for what people do with numbers: halves and thirds, percentages, amounts, and the way figures get reported.",
     grammar:{title:"Ehuneko, out of a hundred",body:"Ehunekoa, percentage, is ehun, a hundred, plus the -ko of buruko mina: of a hundred. The number comes after it, so ehuneko berrogeita hamar is fifty percent and ehuneko hogei is twenty. Laurdena, a quarter, is the word you know from the clock, built on four. Herena is a third. Bikoitza, double, is bi plus -koitz, fold. Batuketa, addition, completes the four operations, built with -keta like the other three."},
     wordIds:["bikoitza","ehunekoa","laurdena","herena","milioia","milioiak","ehun_mila","neurria","kopurua","zenbakiketa","batuketak","ehuneko_berrogeita_hamar","azken_urtean","aldaketa_ehunekoa"],
-    tip:[["note","Ehunekoa, percentage, is ehun, a hundred, plus the -ko of buruko mina: of a hundred."],["note","The number comes after it, so ehuneko berrogeita hamar is fifty percent and ehuneko hogei is twenty."],["note","Laurdena, a quarter, is the word you know from the clock, built on four."],["note","Herena is a third."],["build",[["bi",""],["-koitz","fold"]],"bikoitza","double"],["note","Batuketa, addition, completes the four operations, built with -keta like the other three."]],
+    tip:[["build",[["ehun","a hundred"],["-ko",""]],"ehunekoa","percentage"],["note","The -ko of buruko mina: of a hundred. The number comes after it."],["pair",["ehuneko berrogeita hamar","fifty percent"],["ehuneko hogei","twenty percent"]],["note","Laurdena, a quarter, is the word you know from the clock, built on four. Herena is a third."],["build",[["bi","two"],["-koitz","fold"]],"bikoitza","double"],["note","Batuketa, addition, completes the four operations, built with -keta like the other three."]],
   },
   {
     id:"l48_taste",
@@ -7961,7 +7961,7 @@ var LESSONS=[
     intro:"How a thing tastes or feels: sweet, salty and low-salt, whole, strong, hard and stiff. Then two words for a person's build, fat and thin.",
     grammar:{title:"The salt inside the word",body:"Gazia, salty, is built on gatz, salt, and gatz gutxiko, low-salt, adds gutxi, little. Indartsua, strong, is indar, strength, plus the -tsu of eguzkitsua. Gozoa is sweet or delicious, like the goxoa you know. Osoa is whole, and oso, very, is the same word. Gogorra is hard as in tough: lan gogorra is hard work. Hard as in difficult is zaila."},
     wordIds:["gozoa","gazia","gatz_gutxiko","osoa","indartsu","gogorra","zurruna","gizena","argala"],
-    tip:[["note","Gazia, salty, is built on gatz, salt, and gatz gutxiko, low-salt, adds gutxi, little."],["note","Indartsua, strong, is indar, strength, plus the -tsu of eguzkitsua."],["note","Gozoa is sweet or delicious, like the goxoa you know."],["note","Osoa is whole, and oso, very, is the same word."],["note","Gogorra is hard as in tough: lan gogorra is hard work."],["note","Hard as in difficult is zaila."]],
+    tip:[["note","Gazia, salty, is built on gatz, salt, and gatz gutxiko, low-salt, adds gutxi, little."],["build",[["indar","strength"],["-tsu",""]],"indartsua","strong"],["note","The same -tsu as in eguzkitsua."],["note","Gozoa is sweet or delicious, like the goxoa you know."],["pair",["osoa","whole"],["oso","very: the same word"]],["pair",["gogorra","hard as in tough"],["zaila","hard as in difficult"]],["say","lan gogorra","hard work"]],
   },
   {
     id:"l49_character",
@@ -7974,7 +7974,7 @@ var LESSONS=[
     intro:"Words for what people and things are like: amazing, strange and curious, tiring, lazy, lively, bare and kind-hearted. One ending, -garri, builds two of them.",
     grammar:{title:"Garri, the ending that causes",body:"The -garri of interesgarria means causing. Nekagarria, tiring, is what causes tiredness. Harrigarria, amazing, is harri, stone, plus -garri: so surprising it turns you to stone. Bihozbera, kind-hearted, is bihotz, heart, plus bera, soft. Arraroa and bitxia both mean unusual, but arraroa is the more negative. Bitxia is curious in a good way, and bitxi is also a jewel. Nagia is lazy, and nagikeria is laziness, with the -keria of harrokeria."},
     wordIds:["harrigarria","arraroa","bitxia","nekagarria","biluzia","bizia","nagi","bihotzbera"],
-    tip:[["note","The -garri of interesgarria means causing."],["note","Nekagarria, tiring, is what causes tiredness."],["build",[["harri","stone"],["-garri",""]],"harrigarria","amazing"],["note","So surprising it turns you to stone."],["build",[["bihotz","heart"],["bera","soft"]],"bihozbera","kind-hearted"],["note","Arraroa and bitxia both mean unusual, but arraroa is the more negative."],["note","Bitxia is curious in a good way, and bitxi is also a jewel."],["note","Nagia is lazy, and nagikeria is laziness, with the -keria of harrokeria."]],
+    tip:[["note","The -garri of interesgarria means causing."],["note","Nekagarria, tiring, is what causes tiredness."],["build",[["harri","stone"],["-garri",""]],"harrigarria","amazing"],["note","So surprising it turns you to stone."],["build",[["bihotz","heart"],["bera","soft"]],"bihozbera","kind-hearted"],["pair",["arraroa","unusual, and the more negative"],["bitxia","curious in a good way"]],["note","Bitxi is also a jewel."],["note","Nagia is lazy, and nagikeria is laziness, with the -keria of harrokeria."]],
   },
   {
     id:"l50_shades",
@@ -7987,7 +7987,7 @@ var LESSONS=[
     intro:"You know the colors. Here are three ways to change their strength: say the color twice, add -xka, or follow it with argia or iluna. Gold, silver and cream are here too.",
     grammar:{title:"Saying it twice, and saying it softly",body:"Repeating a color makes it absolute. Gorri-gorria is scarlet, beltz-beltza is jet black, and zuri-zuria is pure white. The ending -xka does the opposite: urdinxka is bluish, as berdexka was greenish. Argia and iluna still do their work: hori argia is pale yellow, and more iluna is dark purple. For a color named after a thing, add kolorea: zilar kolorea is silver, and krema kolorea is cream."},
     wordIds:["urrea","urdinaxka","gorrigorria","beltz_beltza","zuri_zuria","more_iluna","hori_argia","berde_iluna","zilarra_kolorea","krema_kolorea"],
-    tip:[["note","Repeating a color makes it absolute."],["note","Gorri-gorria is scarlet, beltz-beltza is jet black, and zuri-zuria is pure white."],["note","The ending -xka does the opposite: urdinxka is bluish, as berdexka was greenish."],["note","Argia and iluna still do their work: hori argia is pale yellow, and more iluna is dark purple."],["note","For a color named after a thing, add kolorea: zilar kolorea is silver, and krema kolorea is cream."]],
+    tip:[["note","Repeating a color makes it absolute."],["forms",[["gorri-gorria","scarlet"],["beltz-beltza","jet black"],["zuri-zuria","pure white"]]],["note","The ending -xka does the opposite: urdinxka is bluish, as berdexka was greenish."],["note","Argia and iluna still do their work."],["pair",["hori argia","pale yellow"],["more iluna","dark purple"]],["note","For a color named after a thing, add kolorea."],["pair",["zilar kolorea","silver"],["krema kolorea","cream"]]],
   },
   {
     id:"l51_working",
@@ -8000,7 +8000,7 @@ var LESSONS=[
     intro:"The vocabulary of working life, from the job offer to retirement: profession and salary, company and organization, industry, a deal, the report, the contract, the resume and the union.",
     grammar:{title:"Lanbidea, the work path",body:"Lanbidea, profession, is lan plus bide, the path in ibilbidea: the work path. To ask what someone does, say zein da zure lanbidea? Lan eskaintza, a job offer, is lan plus eskaintza, offer. Erakundea, organization, is built on eratu, to form or organize. Soldata, negozioa and erretiroa are loans from Romance or Spanish."},
     wordIds:["lanbidea","soldata","enpresa","erakundea","industria","negozioa","txostena","kontratua","lan_eskaintza","curriculum","erretiroa","sindikatu"],
-    tip:[["build",[["lan",""],["bide",""]],"lanbidea","profession"],["note","Bide is the path in ibilbidea."],["note","Literally: the work path."],["note","To ask what someone does, say zein da zure lanbidea?"],["build",[["lan",""],["eskaintza","offer"]],"lan eskaintza","a job offer"],["note","Erakundea, organization, is built on eratu, to form or organize."],["note","Soldata, negozioa and erretiroa are loans from Romance or Spanish."]],
+    tip:[["build",[["lan","work"],["bide","path"]],"lanbidea","profession"],["note","Literally the work path. Bide is the path in ibilbidea."],["say","Zein da zure lanbidea?","What is your profession?","To ask what someone does."],["build",[["lan","work"],["eskaintza","offer"]],"lan eskaintza","a job offer"],["note","Erakundea, organization, is built on eratu, to form or organize."],["note","Soldata, negozioa and erretiroa are loans from Romance or Spanish."]],
   },
   {
     id:"l52_insidebody",
@@ -8013,7 +8013,7 @@ var LESSONS=[
     intro:"The first body lessons covered what you can point at. This one goes under the skin, and adds the words you would need at a doctor's.",
     grammar:{title:"Fire, flame and fever",body:"Sukarra, fever, is su, fire, plus gar, flame. Sendagaia, medicine, is from sendatu, to heal, like sendagilea, the doctor. Giltzurrunak, kidneys, and tripak, guts, are usually said in the plural. The hurts pattern still works: tripako mina dut is I have a stomach ache, and giltzadurako mina dut is I have joint pain. Gibela is the liver, and in eastern dialects gibel also means the back of something."},
     wordIds:["maskuria","gibela","birika","giltzurrunak","tripak","giltzadura","zauria","sukarra","sendagaia","muskulu","tendoia","azkura"],
-    tip:[["build",[["su","fire"],["gar","flame"]],"sukarra","fever"],["note","Sendagaia, medicine, is from sendatu, to heal, like sendagilea, the doctor."],["note","Giltzurrunak, kidneys, and tripak, guts, are usually said in the plural."],["note","The hurts pattern still works: tripako mina dut is I have a stomach ache, and giltzadurako mina dut is I have joint pain."],["note","Gibela is the liver, and in eastern dialects gibel also means the back of something."]],
+    tip:[["build",[["su","fire"],["gar","flame"]],"sukarra","fever"],["note","Sendagaia, medicine, is from sendatu, to heal, like sendagilea, the doctor."],["note","Giltzurrunak, kidneys, and tripak, guts, are usually said in the plural."],["note","The hurts pattern still works."],["pair",["tripako mina dut","I have a stomach ache"],["giltzadurako mina dut","I have joint pain"]],["note","Gibela is the liver, and in eastern dialects gibel also means the back of something."]],
   },
   {
     id:"l53_familychanges",
@@ -8026,7 +8026,7 @@ var LESSONS=[
     intro:"The earlier family lessons named who people are to each other. This one covers what happens to a family over a lifetime: wedding and divorce, widowhood, adoption, single parents, the extended family, and childhood.",
     grammar:{title:"Gabe, the word for without",body:"Ezkongabea, single, is ezkondu, to marry, plus the gabe you met among the small words: without marrying. Seme-alaba, a child of either sex, simply joins semea and alaba. Familia zabala, extended family, is literally wide family, and guraso bakarra is a parent alone. Alarguna is one word for widow and widower. Haurtzaroa, childhood, is haur, child, plus -tzaro, the period of something."},
     wordIds:["ezkontza","alargun","adopzioa","dibortzioa","ezkongabea","dibortziatua","familia_zabala","haurtzaroa","guraso_bakarra","seme_alaba_adoptatu"],
-    tip:[["note","Ezkongabea, single, is ezkondu, to marry, plus the gabe you met among the small words: without marrying."],["note","Seme-alaba, a child of either sex, simply joins semea and alaba."],["note","Familia zabala, extended family, is literally wide family, and guraso bakarra is a parent alone."],["note","Alarguna is one word for widow and widower."],["build",[["haur","child"],["-tzaro","the period of something"]],"haurtzaroa","childhood"]],
+    tip:[["build",[["ezkondu","to marry"],["gabe","without"]],"ezkongabea","single"],["note","Literally without marrying. It is the gabe you met among the small words."],["note","Seme-alaba, a child of either sex, simply joins semea and alaba."],["pair",["familia zabala","extended family: literally wide family"],["guraso bakarra","a parent alone"]],["note","Alarguna is one word for widow and widower."],["build",[["haur","child"],["-tzaro","the period of something"]],"haurtzaroa","childhood"]],
   },
   {
     id:"l54_tradition",
