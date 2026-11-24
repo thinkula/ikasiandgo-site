@@ -8112,8 +8112,8 @@ var LESSONS=[
     titleEu:"Dendak eta tabernak",
     emoji:"🛒",
     blurb:"The five places you actually stop at, and the light that stops you.",
-    intro:"These are the errands of a town: where the bread is, where the meat is, and where everyone ends up standing with a drink.",
-    grammar:{title:"The -tegi ending marks the place for something",body:"Okindegia, harategia and gasolindegia all end in -tegi, the same ending you met in liburutegia, the library. It marks the place where a thing is kept, made or sold. Find the root in front of it and the word explains itself."},
+    intro:"These are the errands of a town: the market, the bakery, the butcher shop, the gas station, and the bar. The sixth word is the traffic light.",
+    grammar:{title:"The -tegi ending marks the place for something",body:"Okindegia, harategia, and gasolindegia all carry -tegi, the place for something, as in liburutegia. After n it is written -degi. Okindegia is okin, baker, plus -tegi. Harategia is haragi, meat, plus -tegi. A denda is a store you buy from. A taberna is where you stand and eat."},
     wordIds:["merkatua","taberna","okindegia","harategia","semaforoa","gasolindegia"],
   },
   {
