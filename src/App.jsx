@@ -8124,8 +8124,8 @@ var LESSONS=[
     titleEu:"Kaleak eta trafikoa",
     emoji:"🚦",
     blurb:"Crossing town on foot, on a bike, or stuck behind everyone else.",
-    intro:"Kalea is any street. These are the parts of it: the raised edge you walk along, the red lane you cycle in, and the word for the person doing the walking.",
-    grammar:{title:"Bidea is the root of half of these",body:"Bidea means a way or a path. Errepidea is a built road, etorbidea is an avenue, and bidegorria is a bike path, named for gorria, the red surface they are paved with. Once you can see bide inside a word, you know it is about going somewhere."},
+    intro:"Kalea is any street. These are its parts and what is on it: the sidewalk, the road, the avenue, the bike path, the pedestrian, the traffic, and the garbage.",
+    grammar:{title:"Bide, the way inside three of these",body:"Bidea is a way or a path. Errepidea is a built road for vehicles. Etorbidea, avenue, is etorri, to come, plus bide. Bidegorria, bike path, is bide plus gorri, red, for the red surface they are paved with. Oinezkoa, pedestrian, is from oin, foot. Trafikoa also carries the sense of smuggling."},
     wordIds:["espaloia","errepidea","etorbidea","bidegorria","oinezkoa","trafikoa","zaborra"],
   },
   {
