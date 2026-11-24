@@ -3604,8 +3604,8 @@
       "pronunciation": "EH-gon",
       "notes": "Egon is the second Basque verb for to be, the one for a place or a passing state: where something is, and how someone is right now. Its present forms are nago, zaude, dago, gaude, zaudete and daude. It also means to stay. The other to be is izan, which is for who and what you are, so Bilbon nago is I am in Bilbao and Bilbokoa naiz is I am from Bilbao.",
       "example": {
-        "basque": "Gaur etxean nago.",
-        "english": "I am at home today."
+        "basque": "Gaur hemen nago.",
+        "english": "I am here today."
       }
     },
     {
@@ -10800,8 +10800,8 @@
       "pronunciation": "GOOK",
       "notes": "Guk is gu plus -k. Zuek and haiek stay as they are, so of the six pronouns only four ever show the -k.",
       "example": {
-        "basque": "Guk euskara ikasi dugu.",
-        "english": "We have learned Basque."
+        "basque": "Guk ogia jan dugu.",
+        "english": "We have eaten the bread."
       }
     },
     {
@@ -10813,8 +10813,8 @@
       "pronunciation": "DOOT",
       "notes": "Dut is the have-verb: liburu bat dut is I have a book. It is also the form that carries who acted, so behind a participle it gives nik ogia jan dut, I have eaten the bread. Five more forms fill out the set, one for each person.",
       "example": {
-        "basque": "Liburu bat dut.",
-        "english": "I have a book."
+        "basque": "Etxe bat dut.",
+        "english": "I have a house."
       }
     },
     {
@@ -11283,8 +11283,8 @@
       "pronunciation": "DOW-deh",
       "notes": "Daude is the form of egon for haiek, they. It is the plural of dago. Its izan counterpart is dira.",
       "example": {
-        "basque": "Haiek etxean daude.",
-        "english": "They are at home."
+        "basque": "Haiek han daude.",
+        "english": "They are over there."
       }
     },
     {
