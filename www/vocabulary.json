@@ -844,8 +844,8 @@
       "pronunciation": "eh-GOOS-kee-ah",
       "notes": "Eguzkia = the sun. Usually linked to egun (day). In Basque mythology the sun is Eguzki Amandrea, Grandmother Sun.",
       "example": {
-        "basque": "Euria gelditu da eta eguzkia atera da.",
-        "english": "The rain has stopped and the sun has come out."
+        "basque": "Eguzkia horia da.",
+        "english": "The sun is yellow."
       }
     },
     {
@@ -857,8 +857,8 @@
       "pronunciation": "eh-LOOR-rah",
       "notes": "The Pyrenees get heavy snow. Elurra egiten du = it is snowing.",
       "example": {
-        "basque": "Elurra ederra da.",
-        "english": "The snow is beautiful."
+        "basque": "Elurra zuria da.",
+        "english": "The snow is white."
       }
     },
     {
@@ -935,8 +935,8 @@
       "pronunciation": "BOO-roo-ah",
       "notes": "Buru also means mind or intelligence. Burutsua = clever (full of head). Buru onekoa = sensible.",
       "example": {
-        "basque": "Buruko mina dut.",
-        "english": "My head hurts."
+        "basque": "Hau burua da.",
+        "english": "This is the head."
       }
     },
     {
@@ -948,8 +948,8 @@
       "pronunciation": "ES-koo-ah",
       "notes": "Esku is the root. Eskua = the hand. Eskuak = hands. Eskubidea = a right, as in human rights (literally hand-way).",
       "example": {
-        "basque": "Eskua garbi dago.",
-        "english": "The hand is clean."
+        "basque": "Bi esku eta bi oin.",
+        "english": "Two hands and two feet."
       }
     },
     {
@@ -961,8 +961,8 @@
       "pronunciation": "OY-nah",
       "notes": "Oina = foot (specifically the foot, not the leg). Hanka = leg or foot more generally. Oinez = on foot/walking. Oinetakoak = shoes (foot-things).",
       "example": {
-        "basque": "Oineko mina dut.",
-        "english": "My foot hurts."
+        "basque": "Hau oina da.",
+        "english": "This is the foot."
       }
     },
     {
@@ -974,8 +974,8 @@
       "pronunciation": "bee-OH-tsah",
       "notes": "Bihotz is used in many expressions. Bihotz oneko = kind-hearted. Bihotzez = from the heart, sincerely.",
       "example": {
-        "basque": "Bihotza ona du.",
-        "english": "He has a good heart."
+        "basque": "Bihotza gorria da.",
+        "english": "The heart is red."
       }
     },
     {
@@ -987,8 +987,8 @@
       "pronunciation": "AH-oh-ah",
       "notes": "Ahoa = the mouth. Aho = mouth (root). Ahobete = a mouthful. Aho batez = unanimously (with one mouth). Ahoz = orally.",
       "example": {
-        "basque": "Ahoa itxi.",
-        "english": "Close your mouth."
+        "basque": "Aho bat eta bi begi.",
+        "english": "One mouth and two eyes."
       }
     },
     {
@@ -1000,8 +1000,8 @@
       "pronunciation": "soo-DOOR-rah",
       "notes": "Sudurra = the nose. Sudur = nose (root). Sudurra sartu = to poke your nose in (to meddle).",
       "example": {
-        "basque": "Sudurra handia du.",
-        "english": "He has a big nose."
+        "basque": "Sudurra gorria da.",
+        "english": "The nose is red."
       }
     },
     {
@@ -1013,8 +1013,8 @@
       "pronunciation": "beh-LAR-ree-ah",
       "notes": "Belarria = ear. Belarri = ear (root). Do not confuse with belarra (grass): belarria vs belarra, one letter apart. Belarria eman = to lend an ear.",
       "example": {
-        "basque": "Belarriko mina dut.",
-        "english": "My ear hurts."
+        "basque": "Bi belarri eta sudur bat.",
+        "english": "Two ears and one nose."
       }
     },
     {
@@ -1247,8 +1247,8 @@
       "pronunciation": "POH-sah",
       "notes": "Poza = joy (noun). Pozik = happy (adjective). Poztu = to make happy. Zer poza! = What joy!",
       "example": {
-        "basque": "Poza sentitzen dut.",
-        "english": "I feel joy."
+        "basque": "Zer poza!",
+        "english": "What joy!"
       }
     },
     {
@@ -1286,8 +1286,8 @@
       "pronunciation": "ah-ser-REH-ah (h is silent)",
       "notes": "Haserrea is the noun. Haserre is the adjective. Haserre nago = I am angry. Haserretu = to get angry.",
       "example": {
-        "basque": "Haserrea sentitzen dut.",
-        "english": "I feel anger."
+        "basque": "Haserre nago.",
+        "english": "I am angry."
       }
     },
     {
@@ -4282,8 +4282,8 @@
       "pronunciation": "BEH-soh-ah",
       "notes": "Arm. Beso = arm (root). Besarkada = hug. Besoa luzatu = to extend the arm.",
       "example": {
-        "basque": "Besoko mina dut.",
-        "english": "My arm hurts."
+        "basque": "Bi beso eta bi hanka.",
+        "english": "Two arms and two legs."
       }
     },
     {
@@ -4295,8 +4295,8 @@
       "pronunciation": "AN-kah (h is silent)",
       "notes": "Leg or foot. Hanka = leg/foot (root). Hankak = legs. Do not confuse with oina (foot specifically). Hanka sartu = to put your foot in it (to blunder).",
       "example": {
-        "basque": "Hankako mina dut.",
-        "english": "My leg hurts."
+        "basque": "Lau hanka.",
+        "english": "Four legs."
       }
     },
     {
@@ -5378,8 +5378,8 @@
       "pronunciation": "BEH-ghee-ah",
       "notes": "Eye (singular). Begiak = eyes (plural). Begi urdin = blue eye. Begiratu = to look. Begikoa = attractive/pleasing. Begi onez ikusi = to look favorably on something.",
       "example": {
-        "basque": "Begiko mina dut.",
-        "english": "My eye hurts."
+        "basque": "Begia urdina da.",
+        "english": "The eye is blue."
       }
     },
     {
@@ -5469,8 +5469,8 @@
       "pronunciation": "CHOH-ree-ah",
       "notes": "Bird. Txori = bird (root). Txoria txori, the song sung by Mikel Laboa (words by Joxean Artze), is about a bird and freedom. Txoritegi = aviary. Txori kantua = birdsong.",
       "example": {
-        "basque": "Txoria zuhaitzean dago.",
-        "english": "The bird is in the tree."
+        "basque": "Txoria han dago.",
+        "english": "The bird is over there."
       }
     },
     {
@@ -10501,8 +10501,8 @@
       "pronunciation": "GOH-seh-ah",
       "notes": "Gose = hunger (root). Gose naiz = I am hungry. Gose handia daukat = I am very hungry. Gose-egarria = hunger and thirst.",
       "example": {
-        "basque": "Gose naiz, zer jan dezakegu?",
-        "english": "I am hungry, what can we eat?"
+        "basque": "Gose naiz.",
+        "english": "I am hungry."
       }
     },
     {
