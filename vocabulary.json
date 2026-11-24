@@ -1143,8 +1143,8 @@
       "pronunciation": "EH-cheh-ah",
       "notes": "Etxea = house or home. Many Basque surnames are really house names: Etxeberria just means the new house. Etxera = home (going home). Etxean = at home. Baserria = farmhouse.",
       "example": {
-        "basque": "Etxea ederra da.",
-        "english": "The house is beautiful."
+        "basque": "Etxea zuria da.",
+        "english": "The house is white."
       }
     },
     {
@@ -1156,8 +1156,8 @@
       "pronunciation": "KAH-leh-ah",
       "notes": "Kalea = the street. Kale = street (root). Kalera = to the street. Kaletar = city-dweller. Bilbo (Bilbao)'s old town is full of narrow kaleak.",
       "example": {
-        "basque": "Kalea luzea da.",
-        "english": "The street is long."
+        "basque": "Hau kalea da.",
+        "english": "This is the street."
       }
     },
     {
@@ -1169,8 +1169,8 @@
       "pronunciation": "EE-ree-ah (h is silent)",
       "notes": "Hiria = city. Hiri = city (root). Hiritarra = city-dweller/urban. Hiriburua = capital city (city-head). Hiri handia = big city.",
       "example": {
-        "basque": "Hiria handia da.",
-        "english": "The city is large."
+        "basque": "Bilbo hiri bat da.",
+        "english": "Bilbao is a city."
       }
     },
     {
@@ -1182,8 +1182,8 @@
       "pronunciation": "TREH-nah",
       "notes": "Trena = train. From Spanish tren. Euskotren is the Basque regional train network. Trena gelditzen da = the train stops.",
       "example": {
-        "basque": "Trena berandu dabil.",
-        "english": "The train is late."
+        "basque": "Trena ala autobusa?",
+        "english": "Train or bus?"
       }
     },
     {
@@ -1195,8 +1195,8 @@
       "pronunciation": "ow-toh-BOO-sah",
       "notes": "Autobusa = bus. From Spanish autobús. Autobusera igo = to get on the bus.",
       "example": {
-        "basque": "Autobusa etorri da.",
-        "english": "The bus has arrived."
+        "basque": "Non dago autobusa?",
+        "english": "Where is the bus?"
       }
     },
     {
@@ -1234,8 +1234,8 @@
       "pronunciation": "yah-TEH-cheh-ah",
       "notes": "Jatetxea = restaurant. Jan = to eat + etxe = house: eating house.",
       "example": {
-        "basque": "Jatetxea beteta dago.",
-        "english": "The restaurant is full."
+        "basque": "Jatetxea han dago.",
+        "english": "The restaurant is there."
       }
     },
     {
@@ -3747,8 +3747,8 @@
       "pronunciation": "EH-men (h is silent)",
       "notes": "Hemen = near speaker. Hor = near listener. Han = away from both. Spanish makes the same 3-way split (aquí/ahí/allí), so it is easy for Spanish speakers.",
       "example": {
-        "basque": "Hemen nago.",
-        "english": "I am here."
+        "basque": "Trena hemen dago.",
+        "english": "The train is here."
       }
     },
     {
@@ -3890,8 +3890,8 @@
       "pronunciation": "es-KER-rah",
       "notes": "Left direction. Ezkerrera = to the left. Ezkerra also means left-wing in politics.",
       "example": {
-        "basque": "Ezkerrera joan.",
-        "english": "Go left."
+        "basque": "Ezkerrera ala eskuinera?",
+        "english": "To the left or to the right?"
       }
     },
     {
@@ -3903,8 +3903,8 @@
       "pronunciation": "es-KWEE-nah",
       "notes": "Right direction. Eskuinera = to the right. Eskuina also means right-wing in politics.",
       "example": {
-        "basque": "Eskuinera joan.",
-        "english": "Go right."
+        "basque": "Eskuinera, mesedez.",
+        "english": "To the right, please."
       }
     },
     {
