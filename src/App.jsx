@@ -7450,9 +7450,9 @@ var LESSONS=[
     emoji:"\uD83D\uDD22",
     blurb:"Teens, tens, and the twenty that holds them together.",
     intro:"The numbers from thirteen to eighty. The teens are hamar plus a digit. The tens are built on hogei, twenty, which you know from the clock.",
-    grammar:{title:"Ten plus a digit, then twenties",body:"A teen is hamar plus a digit: hamahiru is thirteen and hamasei is sixteen. Two do not follow it: hamaika, eleven, and hemeretzi, nineteen. Above twenty, Basque counts in twenties: berrogei, 40, is two of them, hirurogei, 60, is three, and laurogei, 80, is four. For the tens in between it adds ten: hogeita hamar, 30, is twenty and ten. French kept a trace in quatre-vingts, four twenties, for 80."},
+    grammar:{title:"Ten plus a digit, then twenties",body:"A teen is hamar plus a digit: hamahiru is thirteen and hamasei is sixteen. Three do not follow it: hamaika, eleven, hemezortzi, eighteen, and hemeretzi, nineteen. Above twenty, Basque counts in twenties: berrogei, 40, is two of them, hirurogei, 60, is three, and laurogei, 80, is four. For the tens in between it adds ten: hogeita hamar, 30, is twenty and ten. French kept a trace in quatre-vingts, four twenties, for 80."},
     wordIds:["hamahiru","hamalau","hamabost","hamasei","hamazazpi","hamazortzi","hemeretzi","hogei","hogeitahamar","berrogei","hirurogei","laurogei"],
-    tip:[["note","A teen is hamar plus a digit."],["pair",["hamahiru","thirteen"],["hamasei","sixteen"]],["warn","Two do not follow it: hamaika, eleven, and hemeretzi, nineteen."],["note","Above twenty, Basque counts in twenties."],["forms",[["40","berrogei","two twenties"],["60","hirurogei","three"],["80","laurogei","four"]]],["say","hogeita hamar","30: twenty and ten","For the tens in between it adds ten."],["note","French kept a trace in quatre-vingts, four twenties, for 80."]],
+    tip:[["note","A teen is hamar plus a digit."],["pair",["hamahiru","thirteen"],["hamasei","sixteen"]],["warn","Three do not follow it: hamaika, eleven, hemezortzi, eighteen, and hemeretzi, nineteen."],["note","Above twenty, Basque counts in twenties."],["forms",[["40","berrogei","two twenties"],["60","hirurogei","three"],["80","laurogei","four"]]],["say","hogeita hamar","30: twenty and ten","For the tens in between it adds ten."],["note","French kept a trace in quatre-vingts, four twenties, for 80."]],
   },
   {
     id:"l24_seasons",
@@ -7736,9 +7736,9 @@ var LESSONS=[
     emoji:"\uD83D\uDCAD",
     blurb:"Worry, shame, happiness, and naming a feeling rather than having it.",
     intro:"The last lesson's feelings, now as things you have: excitement, shame, cheerfulness, worry, surprise and sorrow. As with beldurra, a feeling named as a thing takes have.",
-    grammar:{title:"From how you feel to what it is",body:"Kezka handia dut is I have a big worry. Kezka is the noun for kezkatu, to worry, and harridura, surprise, is the noun for harritu. Alaitasuna, cheerfulness, is alai, cheerful, plus -tasuna, the ending in askatasuna. Ilusioa means excitement, not illusion: ilusioa daukat is I am excited. Ze pena! is what a shame."},
+    grammar:{title:"From how you feel to what it is",body:"Kezka handia dut is I have a big worry. Kezka is the noun for kezkatu, to worry, and harridura, surprise, is the noun for harritu. Alaitasuna, cheerfulness, is alai, cheerful, plus -tasuna, the ending in askatasuna. Ilusioa usually means excitement or eager hope, not illusion, though it can mean that too: ilusioa daukat is I am excited. Ze pena! is what a shame."},
     wordIds:["ilusioa","lotsa","alaitasuna","kezka","harridura","pena"],
-    tip:[["say","Kezka handia dut.","I have a big worry."],["pair",["kezka","the noun for kezkatu, to worry"],["harridura","surprise, the noun for harritu"]],["build",[["alai","cheerful"],["-tasuna",""]],"alaitasuna","cheerfulness"],["note","-tasuna is the ending in askatasuna."],["warn","Ilusioa means excitement, not illusion."],["say","Ilusioa daukat.","I am excited."],["say","Ze pena!","What a shame!"]],
+    tip:[["say","Kezka handia dut.","I have a big worry."],["pair",["kezka","the noun for kezkatu, to worry"],["harridura","surprise, the noun for harritu"]],["build",[["alai","cheerful"],["-tasuna",""]],"alaitasuna","cheerfulness"],["note","-tasuna is the ending in askatasuna."],["warn","Ilusioa usually means excitement or eager hope, not illusion, though it can mean that too."],["say","Ilusioa daukat.","I am excited."],["say","Ze pena!","What a shame!"]],
   },
   {
     id:"l56_qualities",
