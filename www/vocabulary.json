@@ -206,8 +206,8 @@
       "pronunciation": "sah-gar-DOH-ah",
       "notes": "Sagardoa = cider (from sagar=apple + ardoa=wine). Basque cider houses (sagardotegi) are a winter tradition. Txotx! is the call to pour.",
       "example": {
-        "basque": "Sagardoa edaten dugu.",
-        "english": "We drink cider."
+        "basque": "Sagardoa ala ardoa?",
+        "english": "Cider or wine?"
       }
     },
     {
@@ -246,8 +246,8 @@
       "mcOnly": true,
       "notes": "Pintxoa = pintxo (plural: pintxoak). A small snack, often served on bread and held with a toothpick. The name comes from Spanish pincho, a spike. Donostia is especially known for them.",
       "example": {
-        "basque": "Pintxoak jaten ditut.",
-        "english": "I eat pintxos."
+        "basque": "Bi pintxo, mesedez.",
+        "english": "Two pintxos, please."
       }
     },
     {
@@ -259,8 +259,8 @@
       "pronunciation": "bas-KAH-ree-ah",
       "notes": "Lunch is the main meal. Many restaurants serve an eguneko menua, a set lunch menu.",
       "example": {
-        "basque": "Bazkaria egiten dugu.",
-        "english": "We make lunch."
+        "basque": "Bazkaria jan dut.",
+        "english": "I have eaten lunch."
       }
     },
     {
@@ -272,8 +272,8 @@
       "pronunciation": "ah-FAH-ree-ah",
       "notes": "Dinner in Basque culture is typically lighter than lunch. The related verb is afaldu = to have dinner. Afalordua = dinnertime.",
       "example": {
-        "basque": "Gauean afaria prestatuko dut etxean.",
-        "english": "I will prepare dinner at home tonight."
+        "basque": "Afaria ona da.",
+        "english": "The dinner is good."
       }
     },
     {
@@ -298,8 +298,8 @@
       "pronunciation": "oy-LAS-koh-ah",
       "notes": "Oilaskoa = chicken. Oilasko errea = roast chicken. Oilasko saltsan = chicken in sauce. Oilasko salda = chicken broth.",
       "example": {
-        "basque": "Oilaskoa erretzen ari da.",
-        "english": "The chicken is roasting."
+        "basque": "Oilaskoa ala arraina?",
+        "english": "Chicken or fish?"
       }
     },
     {
@@ -454,8 +454,8 @@
       "pronunciation": "OH-gay (h is silent)",
       "notes": "Hogei = 20. The base of the Basque vigesimal counting system. The even tens are multiples of hogei: berrogei=40, hirurogei=60, laurogei=80. Hogeiren bat = about twenty. Hogei urte = twenty years.",
       "example": {
-        "basque": "Hogei lagun.",
-        "english": "Twenty people."
+        "basque": "Hogei urte.",
+        "english": "Twenty years."
       }
     },
     {
@@ -1208,8 +1208,8 @@
       "pronunciation": "ai-reh-por-TOO-ah",
       "notes": "Aireportua = airport. Aire = air + portu = port. Bilbo (Bilbao) airport is in Loiu. Donostia (San Sebastián) also has an airport.",
       "example": {
-        "basque": "Aireportua urrun dago.",
-        "english": "The airport is far."
+        "basque": "Non dago aireportua?",
+        "english": "Where is the airport?"
       }
     },
     {
@@ -3552,8 +3552,8 @@
       "pronunciation": "SER",
       "notes": "Zer? = What? Zer da hori? = What is that? Zer nahi duzu? = What do you want? Zer moduz? = How are you? (in what manner?). Zer berri? = What's new?",
       "example": {
-        "basque": "Zer nahi duzu?",
-        "english": "What do you want?"
+        "basque": "Zer da hori?",
+        "english": "What is that?"
       }
     },
     {
@@ -3838,8 +3838,8 @@
       "pronunciation": "TAH-shee-ah",
       "notes": "Taxi. In Basque x = sh sound, so taxia sounds like TAH-shee-ah not \"taxi\". Taxi bat nahi dut = I want a taxi.",
       "example": {
-        "basque": "Taxi bat nahi dut.",
-        "english": "I want a taxi."
+        "basque": "Taxi bat, mesedez.",
+        "english": "A taxi, please."
       }
     },
     {
@@ -3864,8 +3864,8 @@
       "pronunciation": "MEH-noo-ah",
       "notes": "The menu. Eguneko menua = the set lunch menu.",
       "example": {
-        "basque": "Menua ekar iezadazu.",
-        "english": "Bring me the menu."
+        "basque": "Menua, mesedez.",
+        "english": "The menu, please."
       }
     },
     {
@@ -3929,8 +3929,8 @@
       "pronunciation": "ee-REH-kee-ah",
       "notes": "Open. Irekita dago = it is open. The opposite is itxia (closed).",
       "example": {
-        "basque": "Denda irekita dago?",
-        "english": "Is the store open?"
+        "basque": "Jatetxea irekita dago?",
+        "english": "Is the restaurant open?"
       }
     },
     {
@@ -3942,8 +3942,8 @@
       "pronunciation": "EE-chee-ah",
       "notes": "Closed. Itxita dago = it is closed. The opposite is irekia (open).",
       "example": {
-        "basque": "Denda itxita dago.",
-        "english": "The store is closed."
+        "basque": "Jatetxea itxita dago.",
+        "english": "The restaurant is closed."
       }
     },
     {
@@ -4033,8 +4033,8 @@
       "pronunciation": "ah-MAH-bee (h is silent)",
       "notes": "Hamar (10) + bi (2) = 12. Basque builds teen numbers as ten+number. Hamahiru=13, hamalau=14, hamabost=15.",
       "example": {
-        "basque": "Hamabi hilabete urtean.",
-        "english": "Twelve months in a year."
+        "basque": "Hamabi egun.",
+        "english": "Twelve days."
       }
     },
     {
@@ -4204,8 +4204,8 @@
       "pronunciation": "ar-ROW-tsah",
       "notes": "Egg. Arrautzak = eggs (plural). Arrautza frijitua = fried egg. Arrautzopila = omelette.",
       "example": {
-        "basque": "Arrautza bat nahi dut.",
-        "english": "I want an egg."
+        "basque": "Arrautza bat, mesedez.",
+        "english": "An egg, please."
       }
     },
     {
@@ -10332,8 +10332,8 @@
       "pronunciation": "eh-gas-KEE-nah (h is silent)",
       "notes": "Airplane. Hegaz (flying) + -kin (instrument). Hegazkin txartela = plane ticket. Hegazkin konpainia = airline.",
       "example": {
-        "basque": "Hegazkinez joango naiz Madrilera.",
-        "english": "I will go to Madrid by plane."
+        "basque": "Hegazkina handia da.",
+        "english": "The airplane is big."
       }
     },
     {
@@ -10358,8 +10358,8 @@
       "pronunciation": "GEH-lah",
       "notes": "Room. Logela = bedroom (lo=sleep + gela). Sukaldea = kitchen. Egongela = living room. Bainugela = bathroom. Gela bikoitza = double room.",
       "example": {
-        "basque": "Gela bat nahi dut bi gauetarako.",
-        "english": "I want a room for two nights."
+        "basque": "Gela bat, mesedez.",
+        "english": "A room, please."
       }
     },
     {
@@ -10462,8 +10462,8 @@
       "pronunciation": "goh-SAL-doo",
       "notes": "To have breakfast. Gosal-, the combining form of gosari, + -du (verb suffix). Goizean gosaltzen dut = I have breakfast in the morning. Gosaria = breakfast (noun). The three meal verbs: gosaldu, bazkaldu, afaldu.",
       "example": {
-        "basque": "Goizean zazpietan gosaltzen dut.",
-        "english": "I have breakfast at seven in the morning."
+        "basque": "Gosaldu dut.",
+        "english": "I have had breakfast."
       }
     },
     {
@@ -10475,8 +10475,8 @@
       "pronunciation": "bas-KAL-doo",
       "notes": "To have lunch. Bazkal-, the combining form of bazkari, + -du. Eguerdian bazkaldu = to have lunch at midday. Bazkaria = lunch (noun). Lunch is the main meal in Basque culture.",
       "example": {
-        "basque": "Jatetxean bazkaldu dugu.",
-        "english": "We had lunch at the restaurant."
+        "basque": "Bazkaldu dut.",
+        "english": "I have had lunch."
       }
     },
     {
@@ -10488,8 +10488,8 @@
       "pronunciation": "ah-FAL-doo",
       "notes": "To have dinner. Afal-, the combining form of afari, + -du. Gauean afaldu = to have dinner in the evening. Afaria = dinner (noun). The three meal verbs, gosaldu, bazkaldu and afaldu, mirror the nouns gosaria, bazkaria and afaria.",
       "example": {
-        "basque": "Gaueko zortzietan afaltzen dugu.",
-        "english": "We have dinner at eight in the evening."
+        "basque": "Afaldu dut.",
+        "english": "I have had dinner."
       }
     },
     {
