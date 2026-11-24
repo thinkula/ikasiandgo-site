@@ -11127,8 +11127,8 @@
       "pronunciation": "EE-sahn",
       "notes": "Izan is one of the two Basque verbs for to be, the one for identity: who you are, where you are from, what you do. Its present forms are naiz, zara, da, gara, zarete and dira, and each stands on its own without a pronoun. The other to be is egon, which covers where you are and how you feel at this moment.",
       "example": {
-        "basque": "Irakaslea naiz.",
-        "english": "I am a teacher."
+        "basque": "Mikel naiz.",
+        "english": "I am Mikel."
       }
     },
     {
@@ -11153,8 +11153,8 @@
       "pronunciation": "SAH-rah",
       "notes": "Zara is the form of izan for zu, you. It looks like a plural because zu was once the plural you, and the verb kept the older shape. Nongoa zara asks where you are from. For where you are standing at this moment, egon takes over with zaude.",
       "example": {
-        "basque": "Nongoa zara?",
-        "english": "Where are you from?"
+        "basque": "Miren zara?",
+        "english": "Are you Miren?"
       }
     },
     {
@@ -11166,8 +11166,8 @@
       "pronunciation": "DAH",
       "notes": "Da is the form of izan for hura, he, she, or it. It is one of the most common verb forms in Basque. It ends a great many sentences, because the verb goes last: hau ura da, this is water. Its egon counterpart is dago.",
       "example": {
-        "basque": "Hau ura da.",
-        "english": "This is water."
+        "basque": "Hura Jon da.",
+        "english": "He is Jon."
       }
     },
     {
@@ -11192,8 +11192,8 @@
       "pronunciation": "sah-REH-teh",
       "notes": "Zarete is the form of izan for zuek, you all. Basque built it when it needed a new plural you, after zu had drifted into the singular. Its egon counterpart is zaudete.",
       "example": {
-        "basque": "Zuek ikasleak zarete.",
-        "english": "You all are students."
+        "basque": "Zuek Ane eta Jon zarete.",
+        "english": "You are Ane and Jon."
       }
     },
     {
