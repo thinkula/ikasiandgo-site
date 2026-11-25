@@ -1921,7 +1921,7 @@ async function recordSession(){var today=dayAgo(0),yest=dayAgo(1),ns=streak;try{
   var isLoadingVocab=!isBooting&&vocabNet==="loading"&&vocabVersion===0&&screen==="home";
 return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backgroundColor:"#F8F7F5",minHeight:"100vh"}}>
     {isLoadingVocab&&<div style={{position:"fixed",top:0,left:0,right:0,height:3,zIndex:9998,background:"linear-gradient(90deg,#19A85A,#22C070,#19A85A)",backgroundSize:"200% 100%",animation:"shimmer 1.5s infinite"}}/>}
-    {toast&&<div style={{position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",zIndex:9999,backgroundColor:toast==="offline"?"#555":toast==="loading"?"#888":"#19A85A",color:"#fff",fontSize:13,fontWeight:700,padding:"10px 20px",borderRadius:24,boxShadow:"0 4px 16px rgba(0,0,0,0.2)",whiteSpace:"nowrap",pointerEvents:"none"}}>{toast==="offline"?"Offline. Showing saved words.":toast==="loading"?"Loading...":"Vocabulary updated!"}</div>}
+    {toast&&<div style={{position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",zIndex:9999,backgroundColor:toast==="offline"?"#555":toast==="loading"?"#8E8E93":"#19A85A",color:"#fff",fontSize:13,fontWeight:700,padding:"10px 20px",borderRadius:24,boxShadow:"0 4px 16px rgba(0,0,0,0.2)",whiteSpace:"nowrap",pointerEvents:"none"}}>{toast==="offline"?"Offline. Showing saved words.":toast==="loading"?"Loading...":"Vocabulary updated!"}</div>}
     {isBooting&&(
       <div style={{maxWidth:"var(--shell)",margin:"0 auto",minHeight:"100vh",backgroundColor:"#F8F7F5"}}>
         {/* Header skeleton */}
@@ -1935,7 +1935,7 @@ return(<div style={{fontFamily:"Nunito,system-ui,-apple-system,sans-serif",backg
             <div style={{width:44,height:44,backgroundColor:"rgba(255,255,255,0.15)",borderRadius:14,animation:"pulse 1.4s ease-in-out infinite"}}/>
           </div>
           <svg viewBox="0 0 420 40" style={{display:"block",width:"100%",height:40,marginTop:-1}} preserveAspectRatio="none">
-            <path d="M0,40 C140,0 280,0 420,40 L420,40 L0,40 Z" fill="#F6F6F6"/>
+            <path d="M0,40 C140,0 280,0 420,40 L420,40 L0,40 Z" fill="#F2F2F7"/>
           </svg>
         </div>
         {/* Content skeleton */}
@@ -2067,7 +2067,7 @@ function HomeScreen(props){
     // tracker", which explain nothing.
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
       React.createElement("p",{style:{margin:"0 0 4px",fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),
-      React.createElement("p",{style:{margin:0,fontSize:12,color:"#888",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
+      React.createElement("p",{style:{margin:0,fontSize:12,color:"#8E8E93",lineHeight:1.45}},"Nothing here yet. Once you start, we bring each word back just before you would forget it.")
     );
   } else if(srsLoaded){
     // The bar counts words learned: answered right at least once. Mastered
@@ -2075,11 +2075,11 @@ function HomeScreen(props){
     // and a bar that stays empty for a month reads as an app that is not
     // keeping track. Mastered keeps its own tile below.
     var pct=srsStats.total>0?Math.round(srsStats.learned/srsStats.total*100):0;
-    var dueN=dueWords.length;var tiles=[{n:dueN,l:"Due",c:dueN>0?"#D97706":"#BBB",bg:dueN>0?"#FFF8F0":"#F6F6F6"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#F0FBF4"},{n:srsStats.learning,l:"Learning",c:"#888",bg:"#F6F6F6"},{n:srsStats.unseen,l:"New",c:"#BBB",bg:"#F6F6F6"}];
+    var dueN=dueWords.length;var tiles=[{n:dueN,l:"Due",c:dueN>0?"#D97706":"#AEAEB2",bg:dueN>0?"#FFF8F0":"#F2F2F7"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#EDFAF3"},{n:srsStats.learning,l:"Learning",c:"#8E8E93",bg:"#F2F2F7"},{n:srsStats.unseen,l:"New",c:"#AEAEB2",bg:"#F2F2F7"}];
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
-      React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#888",fontWeight:600}},srsStats.learned+"/"+srsStats.total)),
+      React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#8E8E93",fontWeight:600}},srsStats.learned+"/"+srsStats.total)),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
-      React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#888",fontWeight:500}},srsStats.learned+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
+      React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#8E8E93",fontWeight:500}},srsStats.learned+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
           React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
       (!isPro&&srsStats.learned>0&&srsStats.learned===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):dueN>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(dueN,20)+" word"+(Math.min(dueN,20)===1?"":"s")):null
     );
@@ -2095,8 +2095,8 @@ function HomeScreen(props){
       React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:active?"#fff":"#1A1A1A",letterSpacing:-0.2}},L2.title),
       React.createElement("div",{style:{marginTop:4}},
   React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}},
-    React.createElement("p",{style:{margin:0,fontSize:11,color:active?"rgba(255,255,255,0.75)":"#888"}},WC[key]+" words"+((!isPro&&key==="A1")?" free":"")),
-    React.createElement("p",{style:{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.6)":key==="A1"&&totalSessions===0?"#19A85A":"#BBB",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" learned":""))
+    React.createElement("p",{style:{margin:0,fontSize:11,color:active?"rgba(255,255,255,0.75)":"#8E8E93"}},WC[key]+" words"+((!isPro&&key==="A1")?" free":"")),
+    React.createElement("p",{style:{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.6)":key==="A1"&&totalSessions===0?"#19A85A":"#AEAEB2",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" learned":""))
   ),
   React.createElement("div",{style:{height:3,backgroundColor:active?"rgba(255,255,255,0.25)":"#F0F0F0",borderRadius:2,overflow:"hidden"}},
     React.createElement("div",{style:{height:"100%",borderRadius:2,backgroundColor:active?"rgba(255,255,255,0.7)":L2.color,width:(masteredByLevel[key+"_total"]>0?Math.round(masteredByLevel[key]/masteredByLevel[key+"_total"]*100):0)+"%" }})
@@ -2114,7 +2114,7 @@ function HomeScreen(props){
   var wotd=freeWords.length>0?freeWords[dayNum%freeWords.length]:null;
   var _ml=modal&&CL[modal]?CL[modal]:null;
   function onClose(){setModal(null);}
-  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F6F6F6",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#888",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 1px 3px rgba(0,0,0,0.10)",fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
+  var modalJSX=_ml?(<div style={{position:"fixed",inset:0,backgroundColor:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-end"}} onClick={function(){onClose();}}><div style={{backgroundColor:"#fff",borderTopLeftRadius:28,borderTopRightRadius:28,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",overflow:"hidden"}} onClick={function(e){e.stopPropagation();}}><div style={{backgroundColor:_ml.color,padding:"20px 20px 16px"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontSize:28,fontWeight:900,color:"rgba(255,255,255,0.9)"}}>{modal}</span><div style={{flex:1}}><p style={{margin:0,fontSize:18,fontWeight:900,color:"#fff"}}>{_ml.title}</p><p style={{margin:"2px 0 0",fontSize:12,color:"rgba(255,255,255,0.8)"}}>{_ml.tagline}</p></div><button aria-label="Close" style={{background:"rgba(255,255,255,0.2)",border:"none",color:"#fff",width:30,height:30,borderRadius:"50%",cursor:"pointer",fontSize:14,fontFamily:"inherit"}} onClick={function(){onClose();}}>✕</button></div></div><div style={{padding:"16px 20px 32px",maxHeight:"70vh",overflowY:"auto"}}><p style={{margin:"0 0 10px",fontSize:11,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.8}}>At this level you can...</p>{_ml.canDo.map(function(c,i){return(<div key={i} style={{display:"flex",gap:10,marginBottom:8}}><span style={{fontSize:12,fontWeight:800,color:"#fff",backgroundColor:_ml.color,width:18,height:18,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1}}>✓</span><p style={{margin:0,fontSize:13,color:"#1A1A1A",fontWeight:500,lineHeight:1.4}}>{c}</p></div>);})}<div style={{backgroundColor:_ml.bg,borderRadius:12,padding:"12px 14px",marginTop:12,border:"1.5px solid rgba(0,0,0,0.1)"}}><p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>Tip: {_ml.tip}</p></div><div style={{display:"flex",gap:8,marginTop:12}}><div style={{flex:1,backgroundColor:"#F2F2F7",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:16,fontWeight:900,color:_ml.color}}>{WC[modal]}</p><p style={{margin:0,fontSize:10,color:"#8E8E93",fontWeight:600}}>WORDS</p></div><div style={{flex:1,backgroundColor:"#F2F2F7",borderRadius:12,padding:"10px",textAlign:"center"}}><p style={{margin:0,fontSize:12,fontWeight:800,color:"#1A1A1A"}}>{_ml.studyHours}</p><p style={{margin:0,fontSize:10,color:"#8E8E93",fontWeight:600}}>GUIDED STUDY</p></div></div><button style={{width:"100%",marginTop:14,border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"#fff",cursor:"pointer",backgroundColor:_ml.color,boxShadow:"0 1px 3px rgba(0,0,0,0.10)",fontFamily:"inherit"}} onClick={function(){if(!isPro&&modal!=="A1"){onClose();onUpgrade();return;}setLvl(modal);onClose();}}>{!isPro&&modal!=="A1"?"Unlock "+modal+" words":"Study "+modal+" words"}</button></div></div></div>):null;
   return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
 
     {/* ── Header ── */}
@@ -2326,7 +2326,7 @@ function HomeScreen(props){
             <p style={{margin:"4px 0 5px",fontSize:9,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.8}}>✨ Today's word</p>
             <p style={{margin:"0 0 2px",fontSize:18,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.3,lineHeight:1.1}}>{wotd.basque}</p>
             <p style={{margin:"0 0 3px",fontSize:12,color:"#555",fontWeight:600}}>{wotd.english}</p>
-            <p style={{margin:"0 0 4px",fontSize:9,color:"#AAA",fontWeight:600,letterSpacing:0.2}}>{wotd.pronunciation}</p>
+            <p style={{margin:"0 0 4px",fontSize:9,color:"#AEAEB2",fontWeight:600,letterSpacing:0.2}}>{wotd.pronunciation}</p>
             <p style={{margin:0,fontSize:10,color:"#19A85A",fontWeight:800}}>Read the story →</p>
           </button>
         )}
@@ -2404,7 +2404,7 @@ function QuizScreen(props){
     <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100vh",padding:24,textAlign:"center"}}>
       <p style={{fontSize:32,marginBottom:12}}>🤔</p>
       <p style={{fontSize:18,fontWeight:800,color:"#1A1A1A",margin:"0 0 8px"}}>No words available</p>
-      <p style={{fontSize:14,color:"#888",margin:"0 0 24px"}}>Try a different topic or level.</p>
+      <p style={{fontSize:14,color:"#8E8E93",margin:"0 0 24px"}}>Try a different topic or level.</p>
       <button onClick={onExit} style={{border:"none",borderRadius:14,padding:"14px 28px",backgroundColor:"#19A85A",color:"#fff",fontSize:15,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Go back</button>
     </div>
   );
@@ -2447,7 +2447,7 @@ function QuizScreen(props){
   var feedbackJSX = result ? (
             <div role="status" aria-live="polite" style={{marginTop:14}}>
               {/* Result banner with animated icon */}
-              <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FFF1F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, riseSoft 0.22s ease-out"}}>
+              <div style={{borderRadius:14,padding:"12px 14px",marginBottom:10,backgroundColor:result.correct?"#EDFAF3":result.wasClose?"#FFFBF0":"#FEF2F2",border:"1.5px solid "+(result.correct?"#6EE7B7":result.wasClose?"#FCD34D":"#FECACA"),display:"flex",alignItems:"center",gap:12,animation:(result.correct?"correctGlow":"wrongGlow")+" 0.7s ease, riseSoft 0.22s ease-out"}}>
                 <div style={{width:38,height:38,borderRadius:"50%",backgroundColor:result.correct?"#19A85A":result.wasClose?"#F59E0B":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.05s both"}}>
                   <span style={{fontSize:20,fontWeight:900,color:"#fff",lineHeight:1}}>{result.correct?"✓":result.wasClose?"≈":"✕"}</span>
                 </div>
@@ -2595,7 +2595,7 @@ function QuizScreen(props){
 
       {/* ── MC options (after answer) ── */}
       {isAnyMC&&result&&opts.map(function(opt,i){var isC=opt===snoozeCorrect,isW=opt===sel&&!result.correct;return(
-        <div key={i} style={{display:"flex",alignItems:"center",gap:12,border:"2px solid "+(isC?"#19A85A":isW?"#EF4444":"#E8E8E8"),borderRadius:16,padding:"15px 16px",backgroundColor:isC?"#EDFAF3":isW?"#FFF1F2":"#F9FAFB",transition:"all 0.2s",transform:isC?"scale(1.015)":"scale(1)"}}>
+        <div key={i} style={{display:"flex",alignItems:"center",gap:12,border:"2px solid "+(isC?"#19A85A":isW?"#EF4444":"#E8E8E8"),borderRadius:16,padding:"15px 16px",backgroundColor:isC?"#EDFAF3":isW?"#FEF2F2":"#F2F2F7",transition:"all 0.2s",transform:isC?"scale(1.015)":"scale(1)"}}>
           <span style={{fontSize:12,fontWeight:900,color:isC?"#fff":isW?"#EF4444":"#D1D1D6",width:28,height:28,borderRadius:"50%",backgroundColor:isC?"#19A85A":"transparent",display:"inline-flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{String.fromCharCode(65+i)}</span>
           <span style={{flex:1,fontSize:15,color:isC?"#19A85A":isW?"#EF4444":"#C7C7CC",fontWeight:isC||isW?800:400}}>{opt}</span>
           {isC&&<span style={{color:"#19A85A",fontWeight:900,fontSize:20,animation:"badgeBounce 0.4s cubic-bezier(0.34,1.56,0.64,1) both"}}>✓</span>}
@@ -2655,7 +2655,7 @@ function QuizScreen(props){
     )}
   </div>);}
 function Ring(props){var acc=props.acc||0;var _s0=useState(0);var d=_s0[0];var setD=_s0[1];useEffect(function(){if(acc===0){setD(0);return;}var st=null,fr=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/800,1);setD(Math.round(p*acc));if(p<1)fr=requestAnimationFrame(step);}fr=requestAnimationFrame(step);return function(){cancelAnimationFrame(fr);};},[acc]);var r=52,circ=2*Math.PI*r,off=circ-(d/100)*circ,rc=acc>=80?"#19A85A":acc>=50?"#F59E0B":"#FF7B89";return(<div style={{position:"relative",width:136,height:136,marginBottom:8}}><svg width="136" height="136" viewBox="-3 -3 116 116"><circle cx="55" cy="55" r={r} fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="9"/><circle cx="55" cy="55" r={r} fill="none" stroke={rc} strokeWidth="9" strokeDasharray={circ} strokeDashoffset={off} strokeLinecap="round" transform="rotate(-90 55 55)" style={{transition:"stroke-dashoffset 0.05s linear"}}/></svg><div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>{props.emoji&&<span style={{fontSize:18,lineHeight:1,marginBottom:1}}>{props.emoji}</span>}<span style={{fontSize:props.emoji?16:22,fontWeight:900,color:"#fff",lineHeight:1}}>{d}%</span><span style={{fontSize:10,color:"rgba(255,255,255,0.7)",textTransform:"uppercase",letterSpacing:0.8,fontWeight:600}}>score</span></div></div>);}
-function MCard(props){var word=props.word,result=props.result;var _s0=useState(false);var open=_s0[0];var setOpen=_s0[1];return(<div style={{backgroundColor:"#fff",borderRadius:14,marginBottom:8,border:"1px solid #F0F0F0",overflow:"hidden"}}><div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px"}}><div style={{flex:1,minWidth:0}}><p style={{margin:0,fontSize:15,fontWeight:800,color:"#1A1A1A"}}>{word.basque}</p><p style={{margin:"1px 0 0",fontSize:12,color:"#888"}}>{word.english}</p></div>{result&&result.userAnswer&&<span style={{fontSize:10,color:"#888",backgroundColor:"#F6F6F6",padding:"2px 8px",borderRadius:10,flexShrink:0,fontWeight:600}}>"{result.userAnswer}"</span>}{(word.notes||word.example)&&<button style={{padding:"9px 12px",borderRadius:8,backgroundColor:open?"#EDFAF3":"#F6F6F6",border:"none",color:open?"#19A85A":"#888",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}} onClick={function(){setOpen(function(o){return !o;});}}>{open?"▲":"▼"}</button>}</div>{open&&(<div style={{padding:"8px 14px 12px",borderTop:"1px solid #F4F4F4"}}>{word.example&&<div style={{backgroundColor:"#F0FBF4",borderRadius:8,padding:"8px 10px",marginBottom:6}}><p style={{margin:0,fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{word.example.basque}</p><p style={{margin:"2px 0 0",fontSize:12,color:"#888",fontStyle:"italic"}}>{word.example.english}</p></div>}{word.notes&&<p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.5}}>{word.notes}</p>}</div>)}</div>);}
+function MCard(props){var word=props.word,result=props.result;var _s0=useState(false);var open=_s0[0];var setOpen=_s0[1];return(<div style={{backgroundColor:"#fff",borderRadius:14,marginBottom:8,border:"1px solid #F0F0F0",overflow:"hidden"}}><div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px"}}><div style={{flex:1,minWidth:0}}><p style={{margin:0,fontSize:15,fontWeight:800,color:"#1A1A1A"}}>{word.basque}</p><p style={{margin:"1px 0 0",fontSize:12,color:"#8E8E93"}}>{word.english}</p></div>{result&&result.userAnswer&&<span style={{fontSize:10,color:"#8E8E93",backgroundColor:"#F2F2F7",padding:"2px 8px",borderRadius:10,flexShrink:0,fontWeight:600}}>"{result.userAnswer}"</span>}{(word.notes||word.example)&&<button style={{padding:"9px 12px",borderRadius:8,backgroundColor:open?"#EDFAF3":"#F2F2F7",border:"none",color:open?"#19A85A":"#8E8E93",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}} onClick={function(){setOpen(function(o){return !o;});}}>{open?"▲":"▼"}</button>}</div>{open&&(<div style={{padding:"8px 14px 12px",borderTop:"1px solid #F2F2F7"}}>{word.example&&<div style={{backgroundColor:"#EDFAF3",borderRadius:8,padding:"8px 10px",marginBottom:6}}><p style={{margin:0,fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{word.example.basque}</p><p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}}>{word.example.english}</p></div>}{word.notes&&<p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.5}}>{word.notes}</p>}</div>)}</div>);}
 function ResultsScreen(props){
   var VOCABULARY=_VOCAB;
   var WC=_WC;
@@ -2670,8 +2670,8 @@ function ResultsScreen(props){
   var last7=sessionHistory.slice(-7);
   var nextMilestone=streak<3?3:streak<7?7:streak<14?14:streak<30?30:0;
   var milestoneDays=nextMilestone>0?(nextMilestone-streak):0;
-  var milestoneEl=nextMilestone>0?React.createElement("p",{style:{margin:0,fontSize:11,color:"#BBB",fontWeight:600}},milestoneDays+" day"+(milestoneDays!==1?"s":"")+" to "+nextMilestone+"-day streak"):null;
-  var trendChart=sessionHistory.length>2&&last7.length>0?React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"12px 14px",border:"1px solid #F0F0F0",marginBottom:10}},React.createElement("p",{style:{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#888",textTransform:"uppercase",letterSpacing:0.5}},"Last "+last7.length+" sessions"),React.createElement("div",{style:{display:"flex",alignItems:"flex-end",gap:4,height:56}},last7.map(function(s,i){var h=Math.max(4,Math.round(((s.acc||0)/100)*56));var isLast=i===last7.length-1;return React.createElement("div",{key:i,style:{flex:1,height:h,borderRadius:3,backgroundColor:isLast?"#19A85A":(s.acc||0)>=80?"#74C69D":(s.acc||0)>=60?"#F59E0B":"#FFAAB4",transition:"height 0.5s ease",transitionDelay:(i*50)+"ms"}});})),React.createElement("div",{style:{display:"flex",justifyContent:"space-between",marginTop:4}},React.createElement("p",{style:{margin:0,fontSize:10,color:"#BBB"}},"Oldest"),React.createElement("p",{style:{margin:0,fontSize:10,color:"#19A85A",fontWeight:700}},"Today "+(last7[last7.length-1]?last7[last7.length-1].acc:0)+"%"))):null;
+  var milestoneEl=nextMilestone>0?React.createElement("p",{style:{margin:0,fontSize:11,color:"#AEAEB2",fontWeight:600}},milestoneDays+" day"+(milestoneDays!==1?"s":"")+" to "+nextMilestone+"-day streak"):null;
+  var trendChart=sessionHistory.length>2&&last7.length>0?React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:14,padding:"12px 14px",border:"1px solid #F0F0F0",marginBottom:10}},React.createElement("p",{style:{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.5}},"Last "+last7.length+" sessions"),React.createElement("div",{style:{display:"flex",alignItems:"flex-end",gap:4,height:56}},last7.map(function(s,i){var h=Math.max(4,Math.round(((s.acc||0)/100)*56));var isLast=i===last7.length-1;return React.createElement("div",{key:i,style:{flex:1,height:h,borderRadius:3,backgroundColor:isLast?"#19A85A":(s.acc||0)>=80?"#74C69D":(s.acc||0)>=60?"#F59E0B":"#FFAAB4",transition:"height 0.5s ease",transitionDelay:(i*50)+"ms"}});})),React.createElement("div",{style:{display:"flex",justifyContent:"space-between",marginTop:4}},React.createElement("p",{style:{margin:0,fontSize:10,color:"#AEAEB2"}},"Oldest"),React.createElement("p",{style:{margin:0,fontSize:10,color:"#19A85A",fontWeight:700}},"Today "+(last7[last7.length-1]?last7[last7.length-1].acc:0)+"%"))):null;
   var masteredCount=srsStats?srsStats.learned:0;
   var milestones=[25,50,100,200,500];
   // A milestone is crossed when the count was under it before this quiz and is
@@ -2711,13 +2711,13 @@ function ResultsScreen(props){
       <span style={{fontSize:streak>=7?36:28,filter:streak>=7?"drop-shadow(0 0 8px rgba(255,140,0,0.6))":"none",transition:"all 0.3s"}}>{streak>=7?"🔥":streak>=3?"⚡":streak>=1?"⭐":"😴"}</span>
       <div style={{flex:1}}>
         <p style={{margin:0,fontSize:14,fontWeight:800,color:"#1A1A1A"}}>{streak} day streak {streak===longest&&streak>1?" ⭐ best!":""}</p>
-        <p style={{margin:0,fontSize:12,color:"#888"}}>{totalSessions===1?"Welcome to Ikasi & Go! Great first session!":smsg}</p>
+        <p style={{margin:0,fontSize:12,color:"#8E8E93"}}>{totalSessions===1?"Welcome to Ikasi & Go! Great first session!":smsg}</p>
         {milestoneEl}
         {isPro&&streak>=3&&!props.streakFrozen&&(
-          <button onClick={function(){if(props.onUseStreakFreeze)props.onUseStreakFreeze();}} style={{marginTop:6,background:"none",border:"1px solid #E8E8E8",borderRadius:20,padding:"4px 12px",fontSize:11,fontWeight:700,color:"#888",cursor:"pointer",fontFamily:"inherit"}}>❄️ Use streak freeze</button>
+          <button onClick={function(){if(props.onUseStreakFreeze)props.onUseStreakFreeze();}} style={{marginTop:6,background:"none",border:"1px solid #E8E8E8",borderRadius:20,padding:"4px 12px",fontSize:11,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>❄️ Use streak freeze</button>
         )}
         {props.streakFrozen&&<p style={{margin:"4px 0 0",fontSize:11,color:"#0891B2",fontWeight:700}}>❄️ Streak freeze active</p>}
-        {totalSessions>0&&<p style={{margin:0,fontSize:11,color:"#BBB",fontWeight:600}}>Session {totalSessions} - {score.total} words practiced</p>}
+        {totalSessions>0&&<p style={{margin:0,fontSize:11,color:"#AEAEB2",fontWeight:600}}>Session {totalSessions} - {score.total} words practiced</p>}
       </div>
     </div>
     <div style={{padding:"14px 16px calc(100px + env(safe-area-inset-bottom, 0px))",minHeight:"50vh"}}>
@@ -2730,7 +2730,7 @@ function ResultsScreen(props){
       )}
       <div style={{display:"flex",gap:8,marginBottom:14}}>
         {tabs.map(function(t){var key=t[0],label=t[1];return(
-          <button key={key} style={{flex:1,border:"1.5px solid",borderRadius:12,padding:"9px 4px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",color:tab===key?"#19A85A":"#888",borderColor:tab===key?"#19A85A":"#E8E8E8",backgroundColor:tab===key?"#F0FBF4":"#fff"}} onClick={function(){setTab(key);}}>
+          <button key={key} style={{flex:1,border:"1.5px solid",borderRadius:12,padding:"9px 4px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",color:tab===key?"#19A85A":"#8E8E93",borderColor:tab===key?"#19A85A":"#E8E8E8",backgroundColor:tab===key?"#EDFAF3":"#fff"}} onClick={function(){setTab(key);}}>
             {label}
           </button>
         );})}
@@ -2743,15 +2743,15 @@ function ResultsScreen(props){
               <div style={{flex:1,height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden"}}>
                 <div style={{height:"100%",borderRadius:4,width:row.pct+"%",backgroundColor:row.pct>=80?"#19A85A":row.pct>=50?"#74C69D":"#FFAAB4",transition:"width 0.8s ease",transitionDelay:(i*60+200)+"ms"}}/>
               </div>
-              <span style={{fontSize:12,fontWeight:700,color:"#888",width:32,textAlign:"right"}}>{row.pct}%</span>
+              <span style={{fontSize:12,fontWeight:700,color:"#8E8E93",width:32,textAlign:"right"}}>{row.pct}%</span>
             </div>
           );})}
           {trendChart}
   {srsStats&&(srsStats.mastered>0||srsStats.learning>0)&&(
-            <div style={{backgroundColor:"#F0FBF4",borderRadius:14,padding:"12px 14px",border:"1px solid #D4EDE0"}}>
+            <div style={{backgroundColor:"#EDFAF3",borderRadius:14,padding:"12px 14px",border:"1px solid #D4EDE0"}}>
               <p style={{margin:"0 0 8px",fontSize:11,fontWeight:800,color:"#19A85A",textTransform:"uppercase",letterSpacing:0.5}}>{props.memoryChanged?"Word Memory Updated":"Word Memory"}</p>
               <div style={{display:"flex",gap:6}}>
-                {[{n:srsStats.mastered,l:"mastered",c:"#19A85A"},{n:srsStats.learning,l:"learning",c:"#888"},{n:srsStats.due,l:"due",c:"#D97706"},{n:srsStats.unseen,l:"new",c:"#BBB"}].filter(function(s){return s.n>0;}).map(function(s,i){return(
+                {[{n:srsStats.mastered,l:"mastered",c:"#19A85A"},{n:srsStats.learning,l:"learning",c:"#8E8E93"},{n:srsStats.due,l:"due",c:"#D97706"},{n:srsStats.unseen,l:"new",c:"#AEAEB2"}].filter(function(s){return s.n>0;}).map(function(s,i){return(
                   <div key={i} style={{flex:1,textAlign:"center",padding:"8px 4px",borderRadius:10,backgroundColor:"#fff"}}>
                     <p style={{margin:0,fontSize:18,fontWeight:900,color:s.c}}>{s.n}</p>
                     <p style={{margin:0,fontSize:10,color:s.c,fontWeight:600}}>{s.l}</p>
@@ -2764,7 +2764,7 @@ function ResultsScreen(props){
             <button onClick={onUpgrade} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:14,padding:"12px 16px",cursor:"pointer",fontFamily:"inherit",width:"100%"}}>
               <div style={{textAlign:"left"}}>
                 <p style={{margin:0,fontSize:13,fontWeight:800,color:"#D97706"}}>Unlock A2, B1 and B2 words</p>
-                <p style={{margin:0,fontSize:11,color:"#888"}}>Retry missed words and more with Pro</p>
+                <p style={{margin:0,fontSize:11,color:"#8E8E93"}}>Retry missed words and more with Pro</p>
               </div>
               <span style={{color:"#D97706",fontWeight:900,fontSize:16,flexShrink:0}}>{"›"}</span>
             </button>
@@ -2784,10 +2784,10 @@ function ResultsScreen(props){
               <span style={{fontSize:14,fontWeight:800,color:r.correct?"#19A85A":r.wasClose?"#D97706":"#C85070"}}>{r.correct?"✓":r.wasClose?"≈":"✗"}</span>
               <div style={{flex:1,minWidth:0}}>
                 <p style={{margin:0,fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{r.question&&r.question.word?r.question.word.basque:""}</p>
-                <p style={{margin:0,fontSize:11,color:"#888"}}>{r.question&&r.question.word?r.question.word.english:""}</p>
+                <p style={{margin:0,fontSize:11,color:"#8E8E93"}}>{r.question&&r.question.word?r.question.word.english:""}</p>
               </div>
-              {r.question&&<span style={{fontSize:10,fontWeight:700,color:"#BBB",backgroundColor:"#F6F6F6",padding:"2px 6px",borderRadius:8,flexShrink:0,marginRight:4}}>{r.question.mode==="multipleChoice"?"MC":r.question.mode==="fillBlank"?"FB":"Type"}</span>}
-              {!r.correct&&r.userAnswer&&<span style={{fontSize:10,color:"#AAA",flexShrink:0}}>"{r.userAnswer}"</span>}
+              {r.question&&<span style={{fontSize:10,fontWeight:700,color:"#AEAEB2",backgroundColor:"#F2F2F7",padding:"2px 6px",borderRadius:8,flexShrink:0,marginRight:4}}>{r.question.mode==="multipleChoice"?"MC":r.question.mode==="fillBlank"?"FB":"Type"}</span>}
+              {!r.correct&&r.userAnswer&&<span style={{fontSize:10,color:"#AEAEB2",flexShrink:0}}>"{r.userAnswer}"</span>}
             </div>
           );})}
         </div>
@@ -2840,7 +2840,7 @@ function OnboardingScreen(props){
           {slides.map(function(_,i){return(<div key={i} style={{width:i===slide?32:8,height:8,borderRadius:4,backgroundColor:i===slide?"#19A85A":"#E8E8E8",transition:"all 0.3s ease"}}/>);})}
         </div>
         <div style={{textAlign:"center",marginBottom:28}}>
-          <div style={{fontSize:48,marginBottom:16,lineHeight:1,width:80,height:80,borderRadius:"50%",backgroundColor:"#F0FBF4",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 16px"}}>{s.emoji}</div>
+          <div style={{fontSize:48,marginBottom:16,lineHeight:1,width:80,height:80,borderRadius:"50%",backgroundColor:"#EDFAF3",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 16px"}}>{s.emoji}</div>
           <h2 style={{margin:"0 0 14px",fontSize:22,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5,lineHeight:1.25}}>{s.title}</h2>
           <p style={{margin:0,fontSize:15,color:"#555",lineHeight:1.7,fontWeight:500}}>{s.body}</p>
         </div>
@@ -2853,7 +2853,7 @@ function OnboardingScreen(props){
           </button>
         )}
         {!isLast&&(
-          <button style={{display:"block",margin:"14px auto 0",background:"none",border:"none",color:"#AAA",fontSize:13,cursor:"pointer",fontFamily:"inherit",padding:"6px 16px"}} onClick={onDone}>
+          <button style={{display:"block",margin:"14px auto 0",background:"none",border:"none",color:"#AEAEB2",fontSize:13,cursor:"pointer",fontFamily:"inherit",padding:"6px 16px"}} onClick={onDone}>
             Skip
           </button>
         )}
@@ -2940,25 +2940,25 @@ function BrowseScreen(props){
         </div>
         <div style={{position:"relative"}}>
           <input style={{width:"100%",border:"none",borderRadius:12,padding:"11px 40px 11px 14px",fontSize:15,fontWeight:500,color:"#1A1A1A",outline:"none",boxSizing:"border-box",backgroundColor:"rgba(255,255,255,0.95)"}} placeholder="Search Basque or English..." value={query} onChange={function(e){setQuery(e.target.value);setExpanded(null);setShowAll(false);}} autoComplete="off" spellCheck={false}/>
-          {query.length>0&&<button onClick={function(){setQuery("");}} style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",background:"none",border:"none",color:"#AAA",fontSize:18,cursor:"pointer",padding:4,fontFamily:"inherit"}}>x</button>}
+          {query.length>0&&<button onClick={function(){setQuery("");}} style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",background:"none",border:"none",color:"#AEAEB2",fontSize:18,cursor:"pointer",padding:4,fontFamily:"inherit"}}>x</button>}
         </div>
       </div>
       <svg viewBox="0 0 420 40" style={{display:"block",width:"100%",height:30,marginTop:-1,flexShrink:0}} preserveAspectRatio="none">
-        <path d="M0,20 C80,40 200,0 300,25 C370,40 400,15 420,20 L420,40 L0,40 Z" fill="#F6F6F6"/>
+        <path d="M0,20 C80,40 200,0 300,25 C370,40 400,15 420,20 L420,40 L0,40 Z" fill="#F2F2F7"/>
       </svg>
       <div style={{backgroundColor:"#fff",borderBottom:"1px solid #E8E8E8",padding:"10px 16px",flexShrink:0}}>
         <div className="hscroll" style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,overflowX:"auto",WebkitMaskImage:"linear-gradient(to right,transparent 0,black 20px,black calc(100% - 20px),transparent 100%)"}}>
-          <span style={{fontSize:10,fontWeight:800,color:"#AAA",textTransform:"uppercase",flexShrink:0}}>Level</span>
+          <span style={{fontSize:10,fontWeight:800,color:"#AEAEB2",textTransform:"uppercase",flexShrink:0}}>Level</span>
           {["all","A1","A2","B1","B2"].map(function(lv){var active=filterLvl===lv;var lk=lv;return(
-            <button key={lv} onClick={function(){setFilterLvl(lk);setExpanded(null);setShowAll(false);}} style={{flexShrink:0,border:"1.5px solid",borderRadius:20,padding:"8px 14px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",backgroundColor:active?(lv==="all"?"#19A85A":(CL[lv]?CL[lv].color:"#19A85A")):"#fff",color:active?"#fff":"#888",borderColor:active?(lv==="all"?"#0E7A40":(CL[lv]?CL[lv].dark:"#0E7A40")):"#E8E8E8"}}>
+            <button key={lv} onClick={function(){setFilterLvl(lk);setExpanded(null);setShowAll(false);}} style={{flexShrink:0,border:"1.5px solid",borderRadius:20,padding:"8px 14px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",backgroundColor:active?(lv==="all"?"#19A85A":(CL[lv]?CL[lv].color:"#19A85A")):"#fff",color:active?"#fff":"#8E8E93",borderColor:active?(lv==="all"?"#0E7A40":(CL[lv]?CL[lv].dark:"#0E7A40")):"#E8E8E8"}}>
               {lv==="all"?"All":lv}
             </button>
           );})}
         </div>
         <div className="hscroll" style={{display:"flex",alignItems:"center",gap:8,overflowX:"auto",paddingBottom:2,WebkitMaskImage:"linear-gradient(to right,transparent 0,black 20px,black calc(100% - 20px),transparent 100%)"}}>
-          <span style={{fontSize:10,fontWeight:800,color:"#AAA",textTransform:"uppercase",flexShrink:0}}>Topic</span>
+          <span style={{fontSize:10,fontWeight:800,color:"#AEAEB2",textTransform:"uppercase",flexShrink:0}}>Topic</span>
           {[{key:"all",label:"All"}].concat(TOPICS.filter(function(t){return t.key!=="all";})).map(function(t){var active=filterTopic===t.key;var tk=t.key;return(
-            <button key={t.key} onClick={function(){setFilterTopic(filterTopic===tk&&tk!=="all"?"all":tk);setExpanded(null);setShowAll(false);}} style={{flexShrink:0,border:"1.5px solid",borderRadius:20,padding:"8px 14px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",backgroundColor:active?"#19A85A":"#fff",color:active?"#fff":"#888",borderColor:active?"#0E7A40":"#E8E8E8"}}>
+            <button key={t.key} onClick={function(){setFilterTopic(filterTopic===tk&&tk!=="all"?"all":tk);setExpanded(null);setShowAll(false);}} style={{flexShrink:0,border:"1.5px solid",borderRadius:20,padding:"8px 14px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",backgroundColor:active?"#19A85A":"#fff",color:active?"#fff":"#8E8E93",borderColor:active?"#0E7A40":"#E8E8E8"}}>
               {t.key==="all"?"All":t.label.split(" ")[0]}
             </button>
           );})}
@@ -2966,22 +2966,22 @@ function BrowseScreen(props){
       </div>
       <div style={{flex:1,overflowY:"auto",padding:"8px 12px calc(32px + env(safe-area-inset-bottom, 0px))"}}>
         {visible.length===0&&(
-          <div style={{textAlign:"center",padding:"48px 16px",color:"#AAA"}}>
+          <div style={{textAlign:"center",padding:"48px 16px",color:"#AEAEB2"}}>
             <p style={{fontSize:32,margin:"0 0 8px"}}>?</p>
             <p style={{fontSize:15,fontWeight:600,margin:0}}>No words found</p>
           </div>
         )}
         {quizzable.length>0&&(filterLvl!=="all"||filterTopic!=="all"||query)&&(
-          <div style={{marginBottom:8,padding:"10px 14px",backgroundColor:"#F0FBF4",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"space-between",border:"1px solid #D4EDE0"}}>
+          <div style={{marginBottom:8,padding:"10px 14px",backgroundColor:"#EDFAF3",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"space-between",border:"1px solid #D4EDE0"}}>
             <span style={{fontSize:13,color:"#19A85A",fontWeight:600}}>{quizzable.length<filtered.length?quizzable.length+" of "+filtered.length+" unlocked":quizzable.length+" word"+(quizzable.length!==1?"s":"")+" match"}</span>
             <button onClick={function(){_BROWSE_KEEP={query:query,lvl:filterLvl,topic:filterTopic};if(onQuiz)onQuiz(quizzable);}} style={{backgroundColor:"#19A85A",border:"none",borderRadius:10,padding:"7px 14px",fontSize:12,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}}>
               Quiz {Math.min(quizzable.length,20)}
             </button>
           </div>
         )}
-        {visible.map(function(word,wi){var prevTopic=wi>0?visible[wi-1].topic:null;var topicHeader=groupByTopic&&word.topic!==prevTopic?React.createElement("p",{key:"h"+word.topic,style:{margin:"14px 0 4px 2px",fontSize:11,fontWeight:800,color:"#AAA",textTransform:"uppercase",letterSpacing:0.8}},TOPICS.find(function(t){return t.key===word.topic;})?TOPICS.find(function(t){return t.key===word.topic;}).label:word.topic):null;var srs=srsData[word.id];var sc=srs&&srs.score!=null?srs.score:-1;
+        {visible.map(function(word,wi){var prevTopic=wi>0?visible[wi-1].topic:null;var topicHeader=groupByTopic&&word.topic!==prevTopic?React.createElement("p",{key:"h"+word.topic,style:{margin:"14px 0 4px 2px",fontSize:11,fontWeight:800,color:"#AEAEB2",textTransform:"uppercase",letterSpacing:0.8}},TOPICS.find(function(t){return t.key===word.topic;})?TOPICS.find(function(t){return t.key===word.topic;}).label:word.topic):null;var srs=srsData[word.id];var sc=srs&&srs.score!=null?srs.score:-1;
           var srsLabel=sc>=0?SRS_L[Math.min(sc,4)]:"Unseen";
-          var srsColor=sc>=0?SRS_C[Math.min(sc,4)]:"#BBB";
+          var srsColor=sc>=0?SRS_C[Math.min(sc,4)]:"#AEAEB2";
           var lvl=CL[word.cefr];var isOpen=expanded===word.id;var locked=!isPro&&!isFreeWord(word);
           return React.createElement(React.Fragment,{key:word.id},topicHeader,(
             <div key={word.id} style={{backgroundColor:"#fff",borderRadius:14,marginBottom:8,border:"1px solid #E8E8E8",overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",borderLeft:"3px solid "+(locked?"#F59E0B":srsColor)}}>
@@ -2989,9 +2989,9 @@ function BrowseScreen(props){
                 <div style={{flex:1,minWidth:0}}>
                   <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:2}}>
                     <span style={{fontSize:16,fontWeight:800,color:"#1A1A1A"}}>{word.basque}</span>
-                    <span style={{fontSize:10,fontWeight:800,color:"#fff",backgroundColor:lvl?lvl.color:"#888",padding:"2px 7px",borderRadius:20}}>{word.cefr}</span>
+                    <span style={{fontSize:10,fontWeight:800,color:"#fff",backgroundColor:lvl?lvl.color:"#8E8E93",padding:"2px 7px",borderRadius:20}}>{word.cefr}</span>
                   </div>
-                  <span style={{fontSize:13,color:"#888",fontWeight:500}}>{word.english}</span>
+                  <span style={{fontSize:13,color:"#8E8E93",fontWeight:500}}>{word.english}</span>
                 </div>
                 <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:4,flexShrink:0}}>
                   {locked?<span style={{fontSize:10,fontWeight:800,color:"#D97706",backgroundColor:"#FFF8F0",padding:"2px 8px",borderRadius:10}}>🔒 PRO</span>:<span style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:10,fontWeight:700,color:srsColor}}><span style={{width:6,height:6,borderRadius:"50%",backgroundColor:srsColor,display:"inline-block",flexShrink:0}}/>{srsLabel}</span>}
@@ -2999,16 +2999,16 @@ function BrowseScreen(props){
                 </div>
               </button>
               {isOpen&&(locked?(
-                <div style={{padding:"10px 14px 14px",borderTop:"1px solid #F4F4F4"}}>
+                <div style={{padding:"10px 14px 14px",borderTop:"1px solid #F2F2F7"}}>
                   <LockedNote text={word.notes} onUpgrade={onUpgrade}/>
                 </div>
               ):(
-                <div style={{padding:"10px 14px 14px",borderTop:"1px solid #F4F4F4"}}>
-                  <p style={{margin:"0 0 8px",fontSize:12,color:"#888",fontWeight:600,letterSpacing:0.2}}>{word.pronunciation}</p>
+                <div style={{padding:"10px 14px 14px",borderTop:"1px solid #F2F2F7"}}>
+                  <p style={{margin:"0 0 8px",fontSize:12,color:"#8E8E93",fontWeight:600,letterSpacing:0.2}}>{word.pronunciation}</p>
                   {word.example&&(
-                    <div style={{backgroundColor:"#F0FBF4",borderRadius:10,padding:"9px 12px",marginBottom:8,border:"1px solid #D4EDE0"}}>
+                    <div style={{backgroundColor:"#EDFAF3",borderRadius:10,padding:"9px 12px",marginBottom:8,border:"1px solid #D4EDE0"}}>
                       <p style={{margin:0,fontSize:13,fontWeight:700,color:"#1A1A1A"}}>{word.example.basque}</p>
-                      <p style={{margin:"2px 0 0",fontSize:12,color:"#888",fontStyle:"italic"}}>{word.example.english}</p>
+                      <p style={{margin:"2px 0 0",fontSize:12,color:"#8E8E93",fontStyle:"italic"}}>{word.example.english}</p>
                     </div>
                   )}
                   {word.notes&&<p style={{margin:0,fontSize:13,color:"#555",lineHeight:1.55,fontWeight:500}}>{word.notes}</p>}
@@ -3022,14 +3022,14 @@ function BrowseScreen(props){
           );
         })}
         {!showAll&&filtered.length>60&&(
-          <button onClick={function(){setShowAll(true);}} style={{width:"100%",margin:"4px 0 8px",backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:12,padding:"12px",fontSize:13,fontWeight:700,color:"#888",cursor:"pointer",fontFamily:"inherit"}}>
+          <button onClick={function(){setShowAll(true);}} style={{width:"100%",margin:"4px 0 8px",backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:12,padding:"12px",fontSize:13,fontWeight:700,color:"#8E8E93",cursor:"pointer",fontFamily:"inherit"}}>
             Show all {filtered.length} words
           </button>
         )}
         {!isPro&&(
           <div style={{backgroundColor:"#fff",borderRadius:16,padding:"18px",border:"1.5px solid #F59E0B",marginTop:8,textAlign:"center"}}>
             <p style={{margin:"0 0 4px",fontSize:15,fontWeight:800,color:"#1A1A1A"}}>Unlock more words</p>
-            <p style={{margin:"0 0 14px",fontSize:13,color:"#888"}}>A2, B1 and B2 levels with Pro</p>
+            <p style={{margin:"0 0 14px",fontSize:13,color:"#8E8E93"}}>A2, B1 and B2 levels with Pro</p>
             <button style={{border:"none",borderRadius:14,padding:"12px 28px",backgroundColor:"#19A85A",color:"#fff",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit",boxShadow:"0 3px 0 #0E7A40"}} onClick={onUpgrade}>Upgrade to Pro</button>
           </div>
         )}
@@ -3071,7 +3071,7 @@ function PaywallScreen(props){
           );})}
         </div>
         <svg viewBox="0 0 420 40" style={{display:"block",width:"100vw",height:32,marginTop:20,marginLeft:"calc(50% - 50vw)"}} preserveAspectRatio="none">
-          <path d="M0,20 C80,40 200,0 300,25 C370,40 400,15 420,20 L420,40 L0,40 Z" fill="#F6F6F6"/>
+          <path d="M0,20 C80,40 200,0 300,25 C370,40 400,15 420,20 L420,40 L0,40 Z" fill="#F2F2F7"/>
         </svg>
       </div>
       <div style={{flex:1,padding:"4px 20px calc(40px + env(safe-area-inset-bottom, 0px))",overflowY:"auto"}}>
@@ -3080,7 +3080,7 @@ function PaywallScreen(props){
         <div style={{backgroundColor:"#fff",borderRadius:18,border:"2px solid #19A85A",boxShadow:"0 0 0 3px rgba(25,168,90,0.15)",padding:"18px 16px",margin:"12px 0 14px",textAlign:"center",position:"relative"}}>
           <span style={{position:"absolute",top:-9,left:"50%",transform:"translateX(-50%)",fontSize:9,fontWeight:900,color:"#fff",backgroundColor:"#F97316",padding:"2px 10px",borderRadius:20,whiteSpace:"nowrap",letterSpacing:0.3}}>⭐ LIFETIME</span>
           <p style={{margin:"4px 0 1px",fontSize:34,fontWeight:900,color:"#19A85A"}}>{price}</p>
-          <p style={{margin:0,fontSize:12,color:"#888",fontWeight:700}}>one-time purchase</p>
+          <p style={{margin:0,fontSize:12,color:"#8E8E93",fontWeight:700}}>one-time purchase</p>
         </div>
 
         {/* ── Lifetime callout ── */}
@@ -3095,11 +3095,11 @@ function PaywallScreen(props){
         {/* ── Feature list ── */}
         <div style={{backgroundColor:"#fff",borderRadius:18,border:"1px solid #E8E8E8",marginBottom:20,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.05)"}}>
           {features.map(function(f,i){return(
-            <div key={i} style={{display:"flex",alignItems:"center",gap:14,padding:"14px 18px",borderBottom:i<features.length-1?"1px solid #F4F4F4":"none"}}>
+            <div key={i} style={{display:"flex",alignItems:"center",gap:14,padding:"14px 18px",borderBottom:i<features.length-1?"1px solid #F2F2F7":"none"}}>
               <span style={{fontSize:13,fontWeight:900,color:"#fff",backgroundColor:"#19A85A",width:20,height:20,borderRadius:"50%",display:"inline-flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>✓</span>
               <div>
                 <p style={{margin:0,fontSize:14,fontWeight:700,color:"#1A1A1A"}}>{f.label}</p>
-                <p style={{margin:0,fontSize:12,color:"#888",fontWeight:500}}>{f.sub}</p>
+                <p style={{margin:0,fontSize:12,color:"#8E8E93",fontWeight:500}}>{f.sub}</p>
               </div>
             </div>
           );})}
@@ -3114,13 +3114,13 @@ function PaywallScreen(props){
         <button style={{width:"100%",border:"none",borderRadius:18,padding:"17px",fontSize:17,fontWeight:900,color:"#fff",cursor:"pointer",backgroundColor:"#F97316",boxShadow:"0 5px 0 #C2510E",fontFamily:"inherit",marginBottom:12}} onClick={onStart}>
           {"Unlock Lifetime: "+price}
         </button>
-        <button style={{width:"100%",backgroundColor:"transparent",border:"none",color:"#888",fontSize:13,cursor:"pointer",fontFamily:"inherit",padding:"10px",fontWeight:500}} onClick={onContinueFree}>
+        <button style={{width:"100%",backgroundColor:"transparent",border:"none",color:"#8E8E93",fontSize:13,cursor:"pointer",fontFamily:"inherit",padding:"10px",fontWeight:500}} onClick={onContinueFree}>
           Continue with free A1 words
         </button>
-        <button style={{width:"100%",backgroundColor:"transparent",border:"none",color:"#BBB",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px"}} onClick={onSubscribe}>
+        <button style={{width:"100%",backgroundColor:"transparent",border:"none",color:"#AEAEB2",fontSize:11,cursor:"pointer",fontFamily:"inherit",padding:"6px"}} onClick={onSubscribe}>
           Restore purchases
         </button>
-        <p style={{textAlign:"center",fontSize:11,color:"#BBB",margin:"8px 0 0",lineHeight:1.5}}>
+        <p style={{textAlign:"center",fontSize:11,color:"#AEAEB2",margin:"8px 0 0",lineHeight:1.5}}>
           {freeCount+" A1 words always free. One purchase unlocks the rest, forever."}
         </p>
         <div style={{display:"flex",justifyContent:"center",gap:16,marginTop:16}}>
@@ -3514,7 +3514,7 @@ function PairsScreen(props){
                 {show?(
                   <div style={{textAlign:"center",width:"100%",padding:sizeCfg.pairs<=6?"0 4px":"0 1px"}}>
                     <FitText text={card.text} max={fzMax} min={FZ_MIN} color={isMatched?"#19A85A":isMismatched?"#EF4444":"#1A1A1A"}/>
-                    <div style={{marginTop:3,fontSize:8,fontWeight:900,letterSpacing:0.5,color:isMatched?"#19A85A":isMismatched?"#EF4444":card.type==='basque'?"#19A85A":"#888",backgroundColor:isMatched?"rgba(25,168,90,0.12)":isMismatched?"rgba(239,68,68,0.1)":card.type==='basque'?"#EDFAF3":"#F0F0F0",borderRadius:5,padding:"2px 5px",display:"inline-block"}}>{card.type==='basque'?'BASQUE':'ENGLISH'}</div>
+                    <div style={{marginTop:3,fontSize:8,fontWeight:900,letterSpacing:0.5,color:isMatched?"#19A85A":isMismatched?"#EF4444":card.type==='basque'?"#19A85A":"#8E8E93",backgroundColor:isMatched?"rgba(25,168,90,0.12)":isMismatched?"rgba(239,68,68,0.1)":card.type==='basque'?"#EDFAF3":"#F0F0F0",borderRadius:5,padding:"2px 5px",display:"inline-block"}}>{card.type==='basque'?'BASQUE':'ENGLISH'}</div>
                   </div>
                 ):(
                   <p style={{margin:0,fontSize:sizeCfg.pairs<=4?36:sizeCfg.pairs<=6?28:22,fontWeight:900,color:"rgba(255,255,255,0.4)",position:"relative",zIndex:1}}>?</p>
@@ -4019,7 +4019,7 @@ function TapScreen(props){
             {DIFFICULTIES.map(function(d){
               var act=d.key===diff;
               return(<button key={d.key} onClick={function(){setDiff(d.key);setWon(false);clearInterval(timerRef.current);}}
-                style={{fontSize:11,padding:"3px 10px",borderRadius:20,border:"1.5px solid "+(act?d.color:"#E8E8E8"),backgroundColor:act?d.color:"#F2F2F7",color:act?"#fff":"#888",cursor:"pointer",fontWeight:800,fontFamily:"inherit",transition:"all 0.15s"}}>
+                style={{fontSize:11,padding:"3px 10px",borderRadius:20,border:"1.5px solid "+(act?d.color:"#E8E8E8"),backgroundColor:act?d.color:"#F2F2F7",color:act?"#fff":"#8E8E93",cursor:"pointer",fontWeight:800,fontFamily:"inherit",transition:"all 0.15s"}}>
                 {d.label} {d.secs}s
               </button>);
             })}
@@ -4075,14 +4075,14 @@ function TapScreen(props){
 
             {/* Prompt card */}
             <div style={{backgroundColor:"#fff",borderRadius:22,padding:"24px 20px",marginBottom:14,textAlign:"center",border:"1px solid #E8E8E8",animation:shake?"shake 0.4s ease":"none"}}>
-              <p style={{margin:"0 0 6px",fontSize:10,fontWeight:800,color:isFlipped?"#19A85A":"#888",textTransform:"uppercase",letterSpacing:1}}>
+              <p style={{margin:"0 0 6px",fontSize:10,fontWeight:800,color:isFlipped?"#19A85A":"#8E8E93",textTransform:"uppercase",letterSpacing:1}}>
                 {isFlipped?"Basque → tap English":"English → tap Basque"}
               </p>
               <p style={{margin:0,fontSize:(isFlipped?question.basque:question.english).length>18?20:(isFlipped?question.basque:question.english).length>12?24:28,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5,lineHeight:1.2}}>
                 {isFlipped?question.basque:question.english}
               </p>
               {sel&&(
-                <p style={{margin:"10px 0 0",fontSize:11,color:"#AAA",fontWeight:600}}>
+                <p style={{margin:"10px 0 0",fontSize:11,color:"#AEAEB2",fontWeight:600}}>
                   {question.pronunciation}
                   {sel==="__timeout__"&&<span style={{color:"#EF4444",fontWeight:800,marginLeft:6}}>time's up</span>}
                 </p>
@@ -4096,8 +4096,8 @@ function TapScreen(props){
                 var isPicked=sel===word.id;
                 var isTimeout=sel==="__timeout__";
                 var showResult=sel!==null;
-                var bg=showResult?(isCorrectOpt?"#22C55E":isPicked?"#EF4444":"#F6F6F6"):"#fff";
-                var border=showResult?(isCorrectOpt?"#22C55E":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
+                var bg=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#F2F2F7"):"#fff";
+                var border=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
                 var textColor=showResult?(isCorrectOpt?"#fff":isPicked?"#fff":"#CCC"):"#1A1A1A";
                 // Cards are shown without a closing ? or !. Numbers has one question
                 // word, Zenbat?, and no other card to share its question mark, so
@@ -4135,7 +4135,7 @@ function TapScreen(props){
           <div style={{backgroundColor:"#fff",borderTopLeftRadius:32,borderTopRightRadius:32,width:"100%",maxWidth:"var(--shell)",margin:"0 auto",paddingBottom:40}}>
             <div style={{width:36,height:4,backgroundColor:"#E0E0E0",borderRadius:2,margin:"12px auto 0"}}/>
             <div style={{padding:"20px 24px 0",textAlign:"center"}}>
-              <div style={{width:72,height:72,borderRadius:"50%",background:isRecord?"linear-gradient(135deg,#C2510E,#F97316)":correct===ROUNDS?"linear-gradient(135deg,#059669,#22C55E)":"linear-gradient(135deg,#475569,#94A3B8)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:isRecord?"0 8px 24px rgba(249,115,22,0.35)":correct===ROUNDS?"0 8px 24px rgba(34,197,94,0.3)":"none"}}>
+              <div style={{width:72,height:72,borderRadius:"50%",background:isRecord?"linear-gradient(135deg,#C2510E,#F97316)":correct===ROUNDS?"linear-gradient(135deg,#0E7A40,#19A85A)":"linear-gradient(135deg,#475569,#94A3B8)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 14px",fontSize:34,boxShadow:isRecord?"0 8px 24px rgba(249,115,22,0.35)":correct===ROUNDS?"0 8px 24px rgba(34,197,94,0.3)":"none"}}>
                 {correct===ROUNDS?"🏆":isRecord?"⭐":"⚡"}
               </div>
               <p style={{margin:"0 0 2px",fontSize:24,fontWeight:900,color:"#1A1A1A",letterSpacing:-0.5}}>{correct===ROUNDS?"Perfect!":isRecord?"New best!":"Round done"}</p>
@@ -4153,7 +4153,7 @@ function TapScreen(props){
                   <p style={{margin:"0 0 6px",fontSize:10,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.8}}>Missed this round</p>
                   <div style={{maxHeight:150,overflowY:"auto",borderRadius:14,border:"1px solid #F0F0F0"}}>
                     {missed.map(function(w,i){return(
-                      <div key={w.id} style={{display:"flex",justifyContent:"space-between",gap:10,padding:"8px 12px",borderTop:i?"1px solid #F4F4F4":"none"}}>
+                      <div key={w.id} style={{display:"flex",justifyContent:"space-between",gap:10,padding:"8px 12px",borderTop:i?"1px solid #F2F2F7":"none"}}>
                         <span style={{fontSize:13,fontWeight:800,color:"#1A1A1A"}}>{w.basque}</span>
                         <span style={{fontSize:12,color:"#8E8E93",textAlign:"right"}}>{w.english}</span>
                       </div>
@@ -5042,7 +5042,7 @@ function BasqueKitchenScreen(props){
               <p style={{margin:0,fontSize:12,color:DARK,fontWeight:700}}>💡 {currentStage&&currentStage.hint}</p>
             </div>
           ):(
-            <button onClick={function(){setShowHint(true);}} style={{background:"none",border:"1.5px solid #E8E8E8",borderRadius:20,padding:"4px 14px",fontSize:11,fontWeight:700,color:"#AAA",cursor:"pointer",fontFamily:"inherit"}}>💡 Hint</button>
+            <button onClick={function(){setShowHint(true);}} style={{background:"none",border:"1.5px solid #E8E8E8",borderRadius:20,padding:"4px 14px",fontSize:11,fontWeight:700,color:"#AEAEB2",cursor:"pointer",fontFamily:"inherit"}}>💡 Hint</button>
           )}
         </div>
 
@@ -5059,9 +5059,9 @@ function BasqueKitchenScreen(props){
             var isCorrectOpt=correctWord&&word.id===correctWord.id;
             var isPicked=sel===word.id;
             var showResult=sel!==null;
-            var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F9FAFB"):"#fff";
+            var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F2F2F7"):"#fff";
             var borderCol=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
-            var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#BBB"):"#1A1A1A";
+            var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#AEAEB2"):"#1A1A1A";
             var subC=showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93";
             var sc=isPicked&&isCorrectOpt?"scale(1.05)":isPicked?"scale(0.94)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
             var pron=isCorrectOpt&&showResult&&correctWord&&correctWord.pronunciation;
@@ -5760,9 +5760,9 @@ function OrduegiScreen(props){
             var isCorrectOpt=correctWord&&word.id===correctWord.id;
             var isPicked=sel===word.id;
             var showResult=sel!==null||timerSecs===0;
-            var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F9FAFB"):"#fff";
+            var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F2F2F7"):"#fff";
             var borderCol=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
-            var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#BBB"):"#1A1A1A";
+            var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#AEAEB2"):"#1A1A1A";
             var subC=showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93";
             var numC=showResult?(isCorrectOpt?COLOR:isPicked?"#EF4444":"#D1D1D6"):COLOR;
             var sc=isPicked&&isCorrectOpt?"scale(1.05)":isPicked?"scale(0.94)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
@@ -6056,7 +6056,7 @@ function KoloreakScreen(props){
           <p style={{margin:"0 0 8px",fontSize:12,fontWeight:800,color:"#8E8E93",textTransform:"uppercase",letterSpacing:0.5}}>Questions</p>
           <div style={{display:"flex",gap:8}}>
             {[10,20,30].map(function(n){var act=rounds===n;return(
-              <button key={n} onClick={function(){setRounds(n);}} style={{flex:1,padding:"9px",borderRadius:12,border:"2px solid "+(act?"#7C3AED":"#E8E8E8"),backgroundColor:act?"#F5F3FF":"#F9FAFB",cursor:"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.12s"}}>
+              <button key={n} onClick={function(){setRounds(n);}} style={{flex:1,padding:"9px",borderRadius:12,border:"2px solid "+(act?"#7C3AED":"#E8E8E8"),backgroundColor:act?"#F5F3FF":"#F2F2F7",cursor:"pointer",fontFamily:"inherit",textAlign:"center",transition:"all 0.12s"}}>
                 <p style={{margin:0,fontSize:14,fontWeight:900,color:act?"#7C3AED":"#555"}}>{n}</p>
                 <p style={{margin:0,fontSize:9,color:act?"#7C3AED":"#8E8E93",fontWeight:600}}>rounds</p>
               </button>
@@ -6124,7 +6124,7 @@ function KoloreakScreen(props){
       </div>
       <div style={{padding:"14px",display:"flex",flexDirection:"column",gap:12}}>
         {isSwatchMode?(
-          <div style={{borderRadius:24,overflow:"hidden",boxShadow:"0 8px 32px rgba(0,0,0,0.15)",height:140,backgroundColor:qColor||"#888",display:"flex",alignItems:"flex-end",justifyContent:"center",position:"relative",transition:"background-color 0.3s ease"}}>
+          <div style={{borderRadius:24,overflow:"hidden",boxShadow:"0 8px 32px rgba(0,0,0,0.15)",height:140,backgroundColor:qColor||"#8E8E93",display:"flex",alignItems:"flex-end",justifyContent:"center",position:"relative",transition:"background-color 0.3s ease"}}>
             <div style={{position:"absolute",inset:0,boxShadow:"inset 0 0 60px rgba(0,0,0,0.12)"}}/>
             {streak>=3&&(
               <div style={{position:"absolute",top:12,right:12,animation:"popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)"}}>
@@ -6155,9 +6155,9 @@ function KoloreakScreen(props){
             {opts.map(function(word,wi){
               var isCorrectOpt=word.id===question.id;
               var isPicked=sel===word.id;
-              var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F9FAFB"):"#fff";
+              var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F2F2F7"):"#fff";
               var border=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
-              var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#BBB"):"#1A1A1A";
+              var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#AEAEB2"):"#1A1A1A";
               var sc=isPicked&&isCorrectOpt?"scale(1.04)":isPicked?"scale(0.95)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
               return(
                 <button key={word.id} onClick={function(){pick(word);}}
@@ -6171,10 +6171,10 @@ function KoloreakScreen(props){
                       of the word keeps the word centered and still parks the
                       swatch beside it, with nothing moving on the reveal. */}
                   <div style={{position:"relative",display:"inline-flex",alignItems:"center"}}>
-                    <div style={{position:"absolute",right:"100%",marginRight:6,top:"50%",transform:"translateY(-50%)",width:12,height:12,borderRadius:"50%",backgroundColor:COLOR_HEX[word.id]||"#888",border:"1px solid rgba(0,0,0,0.1)",opacity:showResult?1:0,transition:"opacity 0.25s ease"}}/>
+                    <div style={{position:"absolute",right:"100%",marginRight:6,top:"50%",transform:"translateY(-50%)",width:12,height:12,borderRadius:"50%",backgroundColor:COLOR_HEX[word.id]||"#8E8E93",border:"1px solid rgba(0,0,0,0.1)",opacity:showResult?1:0,transition:"opacity 0.25s ease"}}/>
                     <p style={{margin:0,fontSize:word.basque.length>12?11:14,fontWeight:900,color:txtC,letterSpacing:-0.2}}>{word.basque}</p>
                   </div>
-                  <p style={{margin:0,fontSize:10,color:showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93",fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
+                  <p style={{margin:0,fontSize:10,color:showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93",fontWeight:600,opacity:showResult?1:0,transition:"opacity 0.25s ease"}}>{word.english}</p>
                 </button>
               );
             })}
@@ -6184,7 +6184,7 @@ function KoloreakScreen(props){
             {opts.map(function(word,wi){
               var isCorrectOpt=word.id===question.id;
               var isPicked=sel===word.id;
-              var hex=COLOR_HEX[word.id]||"#888";
+              var hex=COLOR_HEX[word.id]||"#8E8E93";
               var border=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"transparent"):"transparent";
               var sc=isPicked&&isCorrectOpt?"scale(1.05)":isPicked?"scale(0.95)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
               return(
@@ -6827,9 +6827,9 @@ function ArbolaScreen(props){
             var isCorrectOpt=correctWord&&word.id===correctWord.id;
             var isPicked=sel===word.id;
             var showResult=sel!==null;
-            var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F9FAFB"):"#fff";
+            var bg=showResult?(isCorrectOpt?"#EDFAF3":isPicked?"#FEF2F2":"#F2F2F7"):"#fff";
             var borderCol=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#E8E8E8"):"#E8E8E8";
-            var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#BBB"):"#1A1A1A";
+            var txtC=showResult?(isCorrectOpt?"#19A85A":isPicked?"#EF4444":"#AEAEB2"):"#1A1A1A";
             var subC=showResult?(isCorrectOpt?"#059669":isPicked?"#EF4444":"#D1D1D6"):"#8E8E93";
             var sc=isPicked&&isCorrectOpt?"scale(1.05)":isPicked?"scale(0.94)":isCorrectOpt&&showResult?"scale(1.02)":"scale(1)";
             var wordEmoji=roleEmoji(word.id);
@@ -8827,7 +8827,7 @@ function MenuScreen(props){
   }
 
   return(
-  <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
+  <div style={{minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
     <div data-hdr="1" style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
       <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:10}}>←</button>
       <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Menu</p>
@@ -8875,7 +8875,7 @@ function FeedbackScreen(props){
      body:""}
   ];
   return(
-  <div style={{minHeight:"100vh",backgroundColor:"#F6F6F6"}}>
+  <div style={{minHeight:"100vh",backgroundColor:"#F2F2F7"}}>
     <div data-hdr="1" style={{background:"linear-gradient(135deg,#0E7A40,#19A85A)",padding:"calc(var(--sat) + 10px) 16px 18px"}}>
       <button aria-label="Back" onClick={onBack} style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontFamily:"inherit",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:10}}>←</button>
       <p style={{margin:0,fontSize:22,fontWeight:900,color:"#fff",letterSpacing:-0.4}}>Tell me</p>
