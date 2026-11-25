@@ -2087,7 +2087,7 @@ function HomeScreen(props){
   var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=1;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length,vocabVersion]);
   var levelCards=["A1","A2","B1","B2"].map(function(key){var L2=CL[key];var active=lvl===key;var k=key;
     var actCard=function(){if(!isPro&&k!=="A1"){setModal(k);return;}setLvl(k);};
-    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.color:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.bg:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
+    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.color:"#F0F0F0"),backgroundColor:active?L2.bg:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
       React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}},
         React.createElement("span",{style:{fontSize:10,fontWeight:800,color:L2.color,backgroundColor:active?"#fff":L2.bg,padding:"2px 8px",borderRadius:12,border:"1px solid rgba(0,0,0,0.1)"}},key),
         (!isPro&&key!=="A1")?React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.8)":"#F59E0B",backgroundColor:active?"rgba(255,255,255,0.2)":"#FFF8F0",padding:"2px 6px",borderRadius:12}},"PRO"):null
@@ -3960,7 +3960,7 @@ function TapScreen(props){
   React.useEffect(function(){aliveRef.current=true;return function(){aliveRef.current=false;clearInterval(timerRef.current);};},[]);
 
   var timerPct=maxSecs>0?secs/maxSecs*100:100;
-  var timerColor=secs<=1?"#EF4444":secs<=2?"#F97316":"#4ADE80";
+  var timerColor=secs<=1?"#EF4444":secs<=2?"#F97316":"#19A85A";
   var isFlipped=dir==='eu';
   // Read the speed caption off the clock instead of off the round number, so
   // it can only say the timer sped up when the timer actually did. On Hard it
