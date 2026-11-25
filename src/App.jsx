@@ -2076,9 +2076,9 @@ function HomeScreen(props){
     // keeping track. Mastered keeps its own tile below.
     var pct=srsStats.total>0?Math.round(srsStats.learned/srsStats.total*100):0;
     var dueN=dueWords.length;var tiles=[{n:dueN,l:"Due",c:dueN>0?"#D97706":"#AEAEB2",bg:dueN>0?"#FFF8F0":"#F2F2F7"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#EDFAF3"},{n:srsStats.learning,l:"Learning",c:"#8E8E93",bg:"#F2F2F7"},{n:srsStats.unseen,l:"New",c:"#AEAEB2",bg:"#F2F2F7"}];
-    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
+    srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory")),
-      React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
+      React.createElement("div",{style:{height:8,backgroundColor:"#F2F2F7",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
       React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#8E8E93",fontWeight:500}},srsStats.learned+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
           React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
       (!isPro&&srsStats.learned>0&&srsStats.learned===srsStats.total)?React.createElement("div",{style:{marginTop:10,backgroundColor:"#FFF8F0",border:"1.5px solid #F59E0B",borderRadius:12,padding:"10px 12px"}},React.createElement("p",{style:{margin:0,fontSize:12,fontWeight:800,color:"#D97706"}},"A1 complete! Unlock A2, B1 and B2 to keep going."),React.createElement("button",{onClick:onUpgrade,style:{marginTop:8,backgroundColor:"#F59E0B",border:"none",borderRadius:12,padding:"6px 12px",fontSize:11,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit"}},"Upgrade to Pro")):dueN>0?React.createElement("button",{onClick:function(){if(onReview)onReview();},style:{width:"100%",marginTop:10,backgroundColor:"#19A85A",border:"none",borderRadius:12,padding:"11px",fontSize:13,fontWeight:800,color:"#fff",cursor:"pointer",fontFamily:"inherit",boxShadow:"0 1px 3px rgba(0,0,0,0.12)"}},"Review "+Math.min(dueN,20)+" word"+(Math.min(dueN,20)===1?"":"s")):null
@@ -2087,22 +2087,22 @@ function HomeScreen(props){
   var masteredByLevel=useMemo(function(){var o={};["A1","A2","B1","B2"].forEach(function(lv){var lvlWords=VOCABULARY.filter(function(w){return w.cefr===lv;});o[lv]=lvlWords.filter(function(w){return srsData[w.id]&&(srsData[w.id].score||0)>=1;}).length;o[lv+"_total"]=lvlWords.length;});return o;},[srsData,_VOCAB.length,vocabVersion]);
   var levelCards=["A1","A2","B1","B2"].map(function(key){var L2=CL[key];var active=lvl===key;var k=key;
     var actCard=function(){if(!isPro&&k!=="A1"){setModal(k);return;}setLvl(k);};
-    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.dark:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.color:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
+    return React.createElement("div",{key:key,role:"button",tabIndex:0,onClick:actCard,onKeyDown:function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();actCard();}},style:{borderRadius:16,padding:"14px 12px",display:"flex",flexDirection:"column",gap:5,cursor:"pointer",border:"2px solid "+(active?L2.color:(!isPro&&k!=="A1")?"#F0F0F0":"#E8E8E8"),backgroundColor:active?L2.bg:(!isPro&&k!=="A1")?"#FAFAFA":"#fff",boxShadow:active?"0 1px 3px rgba(0,0,0,0.10)":"0 1px 2px rgba(0,0,0,0.05)",transform:"none",textAlign:"left",fontFamily:"inherit",transition:"all 0.18s ease",opacity:(!isPro&&k!=="A1")?0.75:1}},
       React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}},
-        React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.9)":L2.color,backgroundColor:active?"rgba(255,255,255,0.25)":L2.bg,padding:"2px 8px",borderRadius:12,border:"1px solid "+(active?"rgba(255,255,255,0.3)":"rgba(0,0,0,0.1)")}},key),
+        React.createElement("span",{style:{fontSize:10,fontWeight:800,color:L2.color,backgroundColor:active?"#fff":L2.bg,padding:"2px 8px",borderRadius:12,border:"1px solid rgba(0,0,0,0.1)"}},key),
         (!isPro&&key!=="A1")?React.createElement("span",{style:{fontSize:10,fontWeight:800,color:active?"rgba(255,255,255,0.8)":"#F59E0B",backgroundColor:active?"rgba(255,255,255,0.2)":"#FFF8F0",padding:"2px 6px",borderRadius:12}},"PRO"):null
       ),
-      React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:active?"#fff":"#1A1A1A",letterSpacing:-0.2}},L2.title),
+      React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A",letterSpacing:-0.2}},L2.title),
       React.createElement("div",{style:{marginTop:4}},
   React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}},
-    React.createElement("p",{style:{margin:0,fontSize:11,color:active?"rgba(255,255,255,0.75)":"#8E8E93"}},WC[key]+" words"+((!isPro&&key==="A1")?" free":"")),
-    React.createElement("p",{style:{margin:0,fontSize:10,color:active?"rgba(255,255,255,0.6)":key==="A1"&&totalSessions===0?"#19A85A":"#AEAEB2",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" learned":""))
+    React.createElement("p",{style:{margin:0,fontSize:11,color:"#8E8E93"}},WC[key]+" words"+((!isPro&&key==="A1")?" free":"")),
+    React.createElement("p",{style:{margin:0,fontSize:10,color:active?L2.dark:key==="A1"&&totalSessions===0?"#19A85A":"#AEAEB2",fontWeight:700}},(!isPro&&key!=="A1"?"🔒 ":"")+(WC[key]>0&&masteredByLevel[key]>=WC[key]?"✓ Complete":masteredByLevel[key]>0?masteredByLevel[key]+" learned":""))
   ),
-  React.createElement("div",{style:{height:3,backgroundColor:active?"rgba(255,255,255,0.25)":"#F0F0F0",borderRadius:2,overflow:"hidden"}},
-    React.createElement("div",{style:{height:"100%",borderRadius:2,backgroundColor:active?"rgba(255,255,255,0.7)":L2.color,width:(masteredByLevel[key+"_total"]>0?Math.round(masteredByLevel[key]/masteredByLevel[key+"_total"]*100):0)+"%" }})
+  React.createElement("div",{style:{height:3,backgroundColor:active?"#fff":"#F2F2F7",borderRadius:2,overflow:"hidden"}},
+    React.createElement("div",{style:{height:"100%",borderRadius:2,backgroundColor:L2.color,width:(masteredByLevel[key+"_total"]>0?Math.round(masteredByLevel[key]/masteredByLevel[key+"_total"]*100):0)+"%" }})
   )
 ),
-      active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"rgba(255,255,255,0.2)",border:"1px solid rgba(255,255,255,0.4)",borderRadius:12,padding:"2px 8px",fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
+      active?React.createElement("button",{onClick:function(e){e.stopPropagation();setModal(k);},style:{marginTop:4,background:"#fff",border:"1px solid "+L2.color,borderRadius:12,padding:"2px 8px",fontSize:10,fontWeight:700,color:L2.dark,cursor:"pointer",fontFamily:"inherit",alignSelf:"flex-start"}},"ⓘ Level info"):null
     );
   });
   var today4=localDay();
@@ -2184,7 +2184,7 @@ function HomeScreen(props){
            what stops it reading as a competing version of the same thing. ── */}
     <p style={{margin:"18px 16px 8px",fontSize:13,fontWeight:700,color:"#8E8E93"}}>Or practice words on their own.</p>
 
-    <div style={{backgroundColor:"#fff",boxShadow:"0 4px 24px rgba(0,0,0,0.1)"}}>
+    <div style={{backgroundColor:"#fff",margin:"0 14px",borderRadius:16,overflow:"hidden",boxShadow:"0 1px 3px rgba(0,0,0,0.07)"}}>
       {/* Level selector */}
       <div style={{display:"flex",borderBottom:"1px solid #F2F2F7"}}>
         {["A1","A2","B1","B2"].map(function(key){
@@ -2296,7 +2296,7 @@ function HomeScreen(props){
             {/* Three permanent buttons for a number people pick once. The
                 line already states the answer, so it carries the control. */}
             <button onClick={function(){setShowGoal(function(v){return !v;});}} style={{background:"none",border:"none",padding:0,margin:0,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:5}}>
-              <span style={{fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal</span>
+              <span style={{fontSize:9.5,color:"#AEAEB2",fontWeight:700}}>Daily goal</span>
               <span style={{fontSize:9.5,color:"#19A85A",fontWeight:800}}>{showGoal?"close":"change"}</span>
             </button>
             {showGoal&&(
@@ -2335,7 +2335,7 @@ function HomeScreen(props){
       {/* ── SRS / Word memory ── */}
       {srsCard}
       {srsLoaded&&(srsStats.mastered>0||srsStats.due>0||srsStats.learning>0)&&(
-        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"1px solid #E8E8E8",borderRadius:12,padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
+        <button onClick={onProgress} style={{width:"100%",marginTop:10,backgroundColor:"#fff",border:"none",borderRadius:16,boxShadow:"0 1px 3px rgba(0,0,0,0.07)",padding:"13px 16px",cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"space-between",boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>
           <span style={{display:"flex",alignItems:"center",gap:9}}>
             <span style={{fontSize:17}}>📊</span>
             <span style={{fontSize:14,fontWeight:800,color:"#1A1A1A"}}>View full progress</span>
@@ -2356,7 +2356,7 @@ function HomeScreen(props){
             {!trialAvailable&&<p style={{margin:"2px 0 0",fontSize:11,fontWeight:600,color:"#E0963C"}}>{proWords} words · {proLessons} lessons · {proStories} stories</p>}
           </button>
           {trialAvailable&&(
-            <p style={{margin:"5px 0 0",fontSize:10,color:"#A1A1AA",fontWeight:600,textAlign:"center"}}>No card needed. It ends on its own.</p>
+            <p style={{margin:"5px 0 0",fontSize:10,color:"#AEAEB2",fontWeight:600,textAlign:"center"}}>No card needed. It ends on its own.</p>
           )}
         </div>
       )}
