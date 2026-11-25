@@ -1330,6 +1330,29 @@ var _VOCAB=SEED_VOCAB;
 function getWC(){var o={};["A1","A2","B1","B2"].forEach(function(l){o[l]=_VOCAB.filter(function(w){return w.cefr===l;}).length;});return o;}
 var _WC=getWC();
 const ANT={gorria:"beltza",beltza:"gorria",handia:"txikia",txikia:"handia",zaharra:"berria",berria:"zaharra",ona:"txarra",txarra:"ona",argia:"iluna",iluna:"argia",beroa:"hotza",hotza:"beroa",garestia:"merkea",merkea:"garestia",erraza:"zaila",zaila:"erraza",ama:"aita",aita:"ama",amona:"aitona",aitona:"amona",semea:"alaba",alaba:"semea",anaia:"ahizpa",ahizpa:"anaia",senarra:"emaztea",emaztea:"senarra",mintzatu:"esan",esan:"mintzatu",belarria:"urtea",urtea:"belarria",ahoa:"hilabetea",hilabetea:"ahoa",ezkerra:"eskuina",eskuina:"ezkerra",irekia:"itxia",itxia:"irekia",burua:"eskua",eskua:"burua",iragana:"etorkizuna",etorkizuna:"iragana",ardoa:"esnea",esnea:"ardoa",kafea:"tea",tea:"kafea",gaua:"eguna",eguna:"gaua"};
+// The vocabulary to use: the list fetched over the air (or cached), merged
+// with the copy built into this app. Until 1.9 the fetched list replaced the
+// built-in one outright, so a build could not add words or free up a word
+// ahead of the live file: its new lessons lost their new cards, and a word
+// this build makes free came back locked. Now:
+//   - the fetched list's cards win, so fixes still arrive over the air;
+//   - a built-in card the fetched list lacks is kept;
+//   - a word's level is the lower of the two, so a word either side makes
+//     free stays free. Over the air a level can be lowered, never raised.
+function mergeVocab(live){
+  if(!live||!live.length)return SEED_VOCAB;
+  var seedById={};SEED_VOCAB.forEach(function(w){seedById[w.id]=w;});
+  var seen={},out=[];
+  live.forEach(function(w){
+    if(!w||!w.id||seen[w.id])return;seen[w.id]=true;
+    var sw=seedById[w.id];
+    if(sw&&CEFR_ORDER.indexOf(sw.cefr)!==-1&&CEFR_ORDER.indexOf(sw.cefr)<CEFR_ORDER.indexOf(w.cefr)){
+      var c={};for(var k in w)c[k]=w[k];c.cefr=sw.cefr;out.push(c);
+    }else out.push(w);
+  });
+  SEED_VOCAB.forEach(function(w){if(!seen[w.id]){seen[w.id]=true;out.push(w);}});
+  return out;
+}
 // A word by id: from the vocabulary in use, or failing that from the copy
 // bundled with the app. Lessons are compiled into the binary and name their
 // words by id, while the vocabulary in use may be one fetched or cached before
@@ -1729,10 +1752,10 @@ function App(){
         (async function(){
           try{
             var cached=await STORE.get("vocab_cache");
-            if(cached&&cached.value){try{var cv=JSON.parse(cached.value);if(cv&&cv.vocabulary){_VOCAB=cv.vocabulary;_WC=getWC();if(storiesOk(cv.stories))_STORIES=cv.stories;setVocabVersion(function(v){return v+1;});}}catch(e){}}
+            if(cached&&cached.value){try{var cv=JSON.parse(cached.value);if(cv&&cv.vocabulary){_VOCAB=mergeVocab(cv.vocabulary);_WC=getWC();if(storiesOk(cv.stories))_STORIES=cv.stories;setVocabVersion(function(v){return v+1;});}}catch(e){}}
             var res=await fetch(VOCAB_URL);
             var fresh=false;
-            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){fresh=true;var prevLen=_VOCAB.length;_VOCAB=vj.vocabulary;_WC=getWC();if(storiesOk(vj.stories))_STORIES=vj.stories;setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
+            if(res.ok){var vj=await res.json();if(vj&&vj.vocabulary&&vj.vocabulary.length>=750){fresh=true;var prevLen=_VOCAB.length;_VOCAB=mergeVocab(vj.vocabulary);_WC=getWC();if(storiesOk(vj.stories))_STORIES=vj.stories;setVocabVersion(function(v){return v+1;});if(vj.vocabulary.length!==prevLen){setToast("vocabulary_loaded");setTimeout(function(){setToast(null);},2500);}STORE.set("vocab_cache",JSON.stringify(vj)).catch(function(){});}}
             setVocabNet(fresh?"ok":"offline");
           }catch(e){setVocabNet("offline");setToast("offline");setTimeout(function(){setToast(null);},3000);}
         })();
