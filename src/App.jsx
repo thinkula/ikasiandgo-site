@@ -2077,7 +2077,7 @@ function HomeScreen(props){
     var pct=srsStats.total>0?Math.round(srsStats.learned/srsStats.total*100):0;
     var dueN=dueWords.length;var tiles=[{n:dueN,l:"Due",c:dueN>0?"#D97706":"#AEAEB2",bg:dueN>0?"#FFF8F0":"#F2F2F7"},{n:srsStats.mastered,l:"Mastered",c:"#19A85A",bg:"#EDFAF3"},{n:srsStats.learning,l:"Learning",c:"#8E8E93",bg:"#F2F2F7"},{n:srsStats.unseen,l:"New",c:"#AEAEB2",bg:"#F2F2F7"}];
     srsCard=React.createElement("div",{style:{backgroundColor:"#fff",borderRadius:16,padding:"14px 16px",border:"1px solid #E8E8E8",boxShadow:"0 2px 12px rgba(0,0,0,0.06)"}},
-      React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory"),React.createElement("p",{style:{margin:0,fontSize:11,color:"#8E8E93",fontWeight:600}},srsStats.learned+"/"+srsStats.total)),
+      React.createElement("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}},React.createElement("p",{style:{margin:0,fontSize:13,fontWeight:800,color:"#1A1A1A"}},"Word Memory")),
       React.createElement("div",{style:{height:8,backgroundColor:"#F0F0F0",borderRadius:4,overflow:"hidden",marginBottom:10}},React.createElement("div",{style:{height:"100%",backgroundColor:"#19A85A",borderRadius:3,width:pct+"%"}})),
       React.createElement("p",{style:{margin:"0 0 6px",fontSize:11,color:"#8E8E93",fontWeight:500}},srsStats.learned+" of "+(isPro?VOCABULARY.length:VOCABULARY.filter(isFreeWord).length)+" words learned"),
           React.createElement("div",{style:{display:"flex",gap:8}},tiles.map(function(s,i){return React.createElement("div",{key:i,style:{flex:1,backgroundColor:s.bg,borderRadius:12,padding:"8px 4px",textAlign:"center"}},React.createElement("p",{style:{margin:0,fontSize:16,fontWeight:900,color:s.c}},s.n),React.createElement("p",{style:{margin:0,fontSize:10,fontWeight:700,color:s.c,textTransform:"uppercase"}},s.l));})),
@@ -2227,7 +2227,7 @@ function HomeScreen(props){
         </button>
         {poolSize>0&&(
           <button onClick={function(){setShowOpts(function(v){return !v;});}} style={{display:"block",width:"100%",margin:"7px 0 0",background:"none",border:"none",padding:"2px 0",cursor:"pointer",fontFamily:"inherit",textAlign:"center"}}>
-            <span style={{fontSize:11,color:"#8E8E93",fontWeight:600}}>{effectiveCount} questions · {lvl} · {topicLabel}</span>
+            <span style={{fontSize:11,color:"#8E8E93",fontWeight:600}}>{lvl} · {topicLabel}</span>
             <span style={{fontSize:11,color:"#19A85A",fontWeight:800,marginLeft:6}}>{showOpts?"close":"change"}</span>
           </button>
         )}
@@ -2248,7 +2248,7 @@ function HomeScreen(props){
       </div>
     </div>
 
-    <div style={{padding:"10px 14px calc(72px + env(safe-area-inset-bottom, 0px))",display:"flex",flexDirection:"column",gap:10,flex:1}}>
+    <div style={{padding:"10px 14px calc(24px + env(safe-area-inset-bottom, 0px))",display:"flex",flexDirection:"column",gap:10,flex:1}}>
 
       {/* ── Expired trial ── */}
       {props.trialEnded&&!isPro&&!trialCardHidden&&(
@@ -2296,7 +2296,7 @@ function HomeScreen(props){
             {/* Three permanent buttons for a number people pick once. The
                 line already states the answer, so it carries the control. */}
             <button onClick={function(){setShowGoal(function(v){return !v;});}} style={{background:"none",border:"none",padding:0,margin:0,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:5}}>
-              <span style={{fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal · {dailyGoal}</span>
+              <span style={{fontSize:9.5,color:"#A1A1AA",fontWeight:700}}>Daily goal</span>
               <span style={{fontSize:9.5,color:"#19A85A",fontWeight:800}}>{showGoal?"close":"change"}</span>
             </button>
             {showGoal&&(
