@@ -2689,7 +2689,7 @@ function ResultsScreen(props){
   var tabs=[["summary","Summary"]];
   if(score.missedWords.length+score.closeWords.length>0)tabs.push(["missed","Missed"+(score.missedWords.length>0?" ("+score.missedWords.length+")":" ≈("+score.closeWords.length+")")]);
   tabs.push(["all","All ("+results.length+")"]);
-  return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
+  return(<div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F2F2F7",minHeight:"100vh",animation:"fadeIn 0.2s ease"}}>
     {acc===100&&!props.planned&&<Confetti/>}
     <div data-hdr="1" style={{background:heroGrad,paddingTop:64,paddingLeft:20,paddingRight:20,paddingBottom:28,display:"flex",flexDirection:"column",alignItems:"center",borderBottomLeftRadius:32,borderBottomRightRadius:32}}>
       {/* Finishing a lesson is the moment worth marking. A plain practice
@@ -2928,7 +2928,7 @@ function BrowseScreen(props){
   // Words the current user can actually quiz (gated words are view-only teasers).
   var quizzable=useMemo(function(){return filtered.filter(function(w){return isPro||isFreeWord(w);});},[filtered,isPro]);
   return(
-    <div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F6F6F6",animation:"fadeIn 0.2s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",display:"flex",flexDirection:"column",minHeight:"100vh",backgroundColor:"#F2F2F7",animation:"fadeIn 0.2s ease"}}>
       <div data-hdr="1" style={{background:"linear-gradient(155deg,#0E7A40 0%,#19A85A 100%)",paddingTop:"calc(20px + env(safe-area-inset-top,0px))",paddingLeft:16,paddingRight:16,paddingBottom:16,flexShrink:0}}>
         <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
           <button aria-label="Back" style={{background:"rgba(255,255,255,0.18)",border:"none",color:"#fff",width:34,height:34,borderRadius:"50%",cursor:"pointer",fontSize:15,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center"}} onClick={onBack}>←</button>
@@ -3060,7 +3060,7 @@ function PaywallScreen(props){
     {label:"All levels SRS tracking",sub:"Word memory across A2, B1 and B2 words too"},
   ];
   return(
-    <div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F8F7F5",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
+    <div style={{maxWidth:"var(--shell)",margin:"0 auto",backgroundColor:"#F2F2F7",minHeight:"100vh",display:"flex",flexDirection:"column",animation:"fadeIn 0.2s ease"}}>
       <div style={{background:"linear-gradient(160deg,#064E3B 0%,#065F46 30%,#19A85A 100%)",marginLeft:"calc(-1 * var(--bleed-ofs))",marginRight:"calc(-1 * var(--bleed-ofs))",paddingTop:36,paddingBottom:0,paddingLeft:"calc(var(--bleed-ofs) + 24px)",paddingRight:"calc(var(--bleed-ofs) + 24px)",textAlign:"center",flexShrink:0,position:"relative"}}>
         <button onClick={onContinueFree} aria-label="Close" style={{position:"absolute",top:"calc(env(safe-area-inset-top, 20px) + 8px)",right:16,zIndex:10,background:"rgba(255,255,255,0.25)",border:"none",color:"#fff",width:36,height:36,borderRadius:"50%",cursor:"pointer",fontSize:18,fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1}}>✕</button>
         <Logo size={44}/>
@@ -3088,7 +3088,7 @@ function PaywallScreen(props){
           <span style={{fontSize:20,flexShrink:0}}>⭐</span>
           <div>
             <p style={{margin:"0 0 2px",fontSize:13,fontWeight:800,color:"#92400E"}}>Pay once, use forever</p>
-            <p style={{margin:0,fontSize:11,color:"#B45309",fontWeight:500}}>All future vocabulary updates included. No subscription, no recurring charges.</p>
+            <p style={{margin:0,fontSize:11,color:"#B45309",fontWeight:500}}>All future vocabulary updates included.</p>
           </div>
         </div>
 
@@ -3121,7 +3121,7 @@ function PaywallScreen(props){
           Restore purchases
         </button>
         <p style={{textAlign:"center",fontSize:11,color:"#BBB",margin:"8px 0 0",lineHeight:1.5}}>
-          {freeCount+" A1 words always free. One purchase unlocks everything, forever."}
+          {freeCount+" A1 words always free. One purchase unlocks the rest, forever."}
         </p>
         <div style={{display:"flex",justifyContent:"center",gap:16,marginTop:16}}>
           <a href="https://ikasiandgo.com/privacy" target="_blank" style={{fontSize:11,color:"#CCC",textDecoration:"none",fontFamily:"inherit"}}>Privacy Policy</a>
