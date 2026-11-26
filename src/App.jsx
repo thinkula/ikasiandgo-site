@@ -7328,7 +7328,7 @@ var LESSONS=[
     blurb:"Travel, hotels, and finding your way.",
     intro:"The airport, the plane, a place to stay and a room, a taxi and the restrooms. Open and closed are here too, and hor, the there that is near you.",
     grammar:{title:"Asking, and reading the door",body:"Komunak, restrooms, is plural, so the question takes daude: komunak non daude is where are the restrooms. A door shows a state, with the same -ta as nekatuta: irekita dago is it is open, and itxita dago is it is closed. The x in taxia is a sh sound. Hor completes the set you began with hemen and han: hor dago is it is there, near you."},
-    wordIds:["aireportua","hegazkina","ostatua","gela","taxia","komunak","irekia","itxia","han","hor"],
+    wordIds:["aireportua","hegazkina","ostatua","gela","taxia","komunak","irekia","itxia","hor"],
     tip:[["say","Komunak non daude?","Where are the restrooms?","Komunak, restrooms, is plural, so the question takes daude."],["note","A door shows a state, with the same -ta as nekatuta."],["pair",["irekita dago","it is open"],["itxita dago","it is closed"]],["note","The x in taxia is a sh sound."],["say","Hor dago.","It is there, near you.","Hor completes the set you began with hemen and han."]],
   },
   {
