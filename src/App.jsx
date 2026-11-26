@@ -1845,7 +1845,10 @@ function App(){
     // minutes or days ago. It used to raise the score all the same, so
     // practicing one lesson four times in a row mastered every word in it and
     // put them sixty days out. Now it changes nothing. A miss still counts.
-    if(r2.correct&&nd[id2]&&nd[id2].nextReview&&new Date(nd[id2].nextReview)>new Date(now.getTime()+SRS_SOON))continue;var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;srsChanges.current++;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
+    // The time it was seen is still recorded, though. Lesson practice fills its
+    // review slots with the words seen longest ago, and without this a word
+    // answered here stayed the longest-ago and came back in every lesson.
+    if(r2.correct&&nd[id2]&&nd[id2].nextReview&&new Date(nd[id2].nextReview)>new Date(now.getTime()+SRS_SOON)){nd[id2]=Object.assign({},nd[id2],{lastSeen:now.toISOString()});continue;}var ns=r2.correct?Math.min(cur.score+1,4):r2.wasClose?cur.score:Math.max(cur.score-1,0);var reviewDays=r2.correct?SRS_I[ns]:1;srsChanges.current++;nd[id2]={score:ns,nextReview:new Date(now.getTime()+reviewDays*86400000).toISOString(),lastSeen:now.toISOString()};}
   // Mark every fresh result as applied so later checkpoints skip them.
   for(var fi=0;fi<fresh.length;fi++){fresh[fi]._srsApplied=true;}
   setSrsData(function(){return nd;});try{await STORE.set("srs_data",JSON.stringify(nd)).catch(function(){});}catch(e){}return nd;}
@@ -8463,9 +8466,12 @@ function StatusBarGuard(props){
 // lesson quizzed only its own words, so nothing came back unless the learner
 // went looking for the review quiz. These are words the learner has already
 // answered at least once (they have a review record), from lessons earlier
-// in the path, with the ones whose review date has come round first and the
-// soonest-due after them. Nothing the learner cannot open, nothing from the
-// lesson itself, and none at all for the first lesson.
+// in the path, with the ones whose review date has come round first. Any
+// slots left go to the words seen longest ago. They used to go to the
+// soonest-due, but a right answer on a word that is not due changes nothing,
+// so the same few early words (non, kaixo) came back in every lesson.
+// Nothing the learner cannot open, nothing from the lesson itself, and none
+// at all for the first lesson.
 var LESSON_REVIEW_MAX=4;
 function lessonReviewWords(lessonId,srs,isPro,now){
   srs=srs||{};now=now||new Date();
@@ -8479,15 +8485,17 @@ function lessonReviewWords(lessonId,srs,isPro,now){
       var w=wordById(id);if(!w)return;
       if(!isPro&&!isFreeWord(w))return;
       var t=new Date(srs[id].nextReview).getTime();if(isNaN(t))t=0;
-      cands.push({w:w,t:t,score:srs[id].score||0});
+      var seen2=new Date(srs[id].lastSeen).getTime();if(isNaN(seen2))seen2=0;
+      cands.push({w:w,t:t,seen:seen2,score:srs[id].score||0});
     });
   }
   var nowT=now.getTime();
   cands.sort(function(a,b){
     var ad=a.t<=nowT?0:1,bd=b.t<=nowT?0:1;
     if(ad!==bd)return ad-bd;
-    if(a.t!==b.t)return a.t-b.t;
-    return a.score-b.score;
+    if(ad===0){if(a.t!==b.t)return a.t-b.t;return a.score-b.score;}
+    if(a.seen!==b.seen)return a.seen-b.seen;
+    return a.t-b.t;
   });
   return cands.slice(0,LESSON_REVIEW_MAX).map(function(c){return c.w;});
 }
